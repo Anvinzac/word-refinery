@@ -1,0 +1,30 @@
+{
+  "name": "word-refinery",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Browser-based vocabulary deck generator and refiner for KineMedia. Runs on GitHub Pages: an LLM annotates an openly licensed CEFR corpus, results are reviewed inline, and the deck persists to a pluggable JSON store for later sync.",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "test": "node --experimental-strip-types --test test/*.test.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "zod": "^3.24.2"
+  },
+  "devDependencies": {
+    "@types/node": "^22.16.5",
+    "@types/react": "^19.2.0",
+    "@types/react-dom": "^19.2.0",
+    "@vitejs/plugin-react": "^5.0.0",
+    "typescript": "^5.8.3",
+    "vite": "^7.1.0"
+  }
+}
