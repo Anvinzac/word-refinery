@@ -1,18 +1,19 @@
 /**
  * Browser-side LLM client.
  *
- * Speaks the OpenAI chat/completions format for OpenRouter and Together, and
- * the Messages API for Anthropic, so one call site covers all three. Retries
+ * Speaks the OpenAI chat/completions format for OpenRouter, Together and
+ * Alibaba (Bailian compatible-mode), and the Messages API for Anthropic, so
+ * one call site covers all four. Retries
  * only on transient statuses (429/500/502/503/504/529) with exponential
  * backoff plus jitter, honouring `retry-after` when the provider sends it.
  *
  * The API key is read from localStorage at call time and is sent only to the
  * endpoint the user picked. Nothing is proxied: GitHub Pages has no server.
  *
- * Exports: LlmError, chat, annotateBatch, regenerateField, testConnection
+ * Exports: LlmError, ListedModel, chat, listModels, annotateBatch, regenerateField, testConnection
  * Depends on: ./settings.ts, ./prompt.ts, ./contract.ts, ./types.ts
  */
-import type { Settings } from "./settings.ts";
+import type { LlmProvider, Settings } from "./settings.ts";
 import { ANNOTATION_SYSTEM_PROMPT, buildBatchPrompt, buildRegeneratePrompt } from "./prompt.ts";
 import { extractJsonArray, parseAnnotationList, type CrawlerAnnotation } from "./contract.ts";
 import type { CorpusWord, DeckWord } from "./types.ts";
@@ -40,6 +41,8 @@ const ENDPOINTS = {
   openrouter: "https://openrouter.ai/api/v1/chat/completions",
   together: "https://api.together.xyz/v1/chat/completions",
   anthropic: "https://api.anthropic.com/v1/messages",
+  alibaba:
+    "https://ws-qc87cpgqq7pnch88.ap-southeast-1.maas.aliyuncs.com/compatible-mode/v1/chat/completions",
 } as const;
 
 /** Sleep helper kept injectable so callers could stub it in tests. */
@@ -128,8 +131,8 @@ async function sendOnce(
     });
   }
 
-  // OpenRouter and Together share the OpenAI chat/completions shape.
-  const endpoint = provider === "together" ? ENDPOINTS.together : ENDPOINTS.openrouter;
+  // OpenRouter, Together and Alibaba share the OpenAI chat/completions shape.
+  const endpoint = ENDPOINTS[provider];
   const headers: Record<string, string> = {
     "content-type": "application/json",
     authorization: `Bearer ${settings.apiKey}`,
@@ -187,6 +190,201 @@ async function finish(
     throw new LlmError(`${provider} returned a non-JSON body`, { provider, body: raw.slice(0, 600) });
   }
   return extract(json);
+}
+
+// ---------------------------------------------------------------------------
+// Model catalogue
+// ---------------------------------------------------------------------------
+
+/** Catalogue endpoint per provider. */
+const MODEL_ENDPOINTS = {
+  openrouter: "https://openrouter.ai/api/v1/models",
+  together: "https://api.together.xyz/v1/models",
+  anthropic: "https://api.anthropic.com/v1/models",
+  alibaba:
+    "https://ws-qc87cpgqq7pnch88.ap-southeast-1.maas.aliyuncs.com/compatible-mode/v1/models",
+} as const;
+
+/** One row from a provider's model catalogue. */
+export interface ListedModel {
+  /** The exact id to pass as `model` when chatting. */
+  id: string;
+  /** Display name when the provider sends one; falls back to the id. */
+  name: string;
+  /** Context window in tokens, when the provider reports one. */
+  contextLength: number | null;
+  /** Output modalities when the provider reports them (OpenRouter). */
+  outputModalities?: readonly string[];
+}
+
+/** De-duplicate by id and sort alphabetically so the picker order is stable. */
+function normalizeRows(rows: readonly ListedModel[]): ListedModel[] {
+  const byId = new Map<string, ListedModel>();
+  for (const row of rows) {
+    if (row.id.length > 0 && !byId.has(row.id)) byId.set(row.id, row);
+  }
+  return [...byId.values()].sort((a, b) => a.id.localeCompare(b.id));
+}
+
+/** Read an optional integer field without trusting the payload shape. */
+function readContextLength(value: unknown): number | null {
+  return typeof value === "number" && Number.isFinite(value) && value > 0
+    ? Math.floor(value)
+    : null;
+}
+
+/**
+ * Normalise one provider's catalogue payload into rows.
+ *
+ * Exported so the tests can cover every response shape without a network.
+ * Malformed entries are skipped rather than throwing: a half-broken catalogue
+ * still beats no picker at all.
+ */
+export function parseModelList(provider: LlmProvider, payload: unknown): ListedModel[] {
+  const rows: ListedModel[] = [];
+  const push = (entry: Record<string, unknown>) => {
+    const id = typeof entry.id === "string" ? entry.id : "";
+    if (id.length === 0) return;
+    const name =
+      typeof entry.name === "string" && entry.name.length > 0
+        ? entry.name
+        : typeof entry.display_name === "string" && entry.display_name.length > 0
+          ? entry.display_name
+          : id;
+    const architecture =
+      typeof entry.architecture === "object" && entry.architecture !== null
+        ? (entry.architecture as Record<string, unknown>)
+        : null;
+    const outputs = architecture?.output_modalities;
+    const row: ListedModel = {
+      id,
+      name,
+      contextLength: readContextLength(entry.context_length),
+    };
+    if (Array.isArray(outputs)) {
+      const modalities = outputs.filter((value): value is string => typeof value === "string");
+      if (modalities.length > 0) row.outputModalities = modalities;
+    }
+    rows.push(row);
+  };
+
+  if (provider === "together") {
+    // Together returns a bare array mixing chat, code, embedding, moderation
+    // and rerank models; only chat models answer the chat/completions call.
+    if (Array.isArray(payload)) {
+      for (const item of payload) {
+        if (typeof item !== "object" || item === null) continue;
+        const entry = item as Record<string, unknown>;
+        if (entry.type !== undefined && entry.type !== "chat") continue;
+        push(entry);
+      }
+    }
+    return rows;
+  }
+
+  // OpenRouter and Anthropic both wrap the list in { data: [...] }.
+  const data = (payload as { data?: unknown } | null)?.data;
+  if (Array.isArray(data)) {
+    for (const item of data) {
+      if (typeof item !== "object" || item === null) continue;
+      push(item as Record<string, unknown>);
+    }
+  }
+  return rows;
+}
+
+/** Auth headers for the catalogue call, mirroring the chat request. */
+function catalogueHeaders(provider: LlmProvider, apiKey: string): Record<string, string> {
+  if (provider === "anthropic") {
+    return {
+      "x-api-key": apiKey,
+      "anthropic-version": "2023-06-01",
+      // Required for a direct browser call; see the warning in Settings.
+      "anthropic-dangerous-direct-browser-access": "true",
+    };
+  }
+  const headers: Record<string, string> = { authorization: `Bearer ${apiKey}` };
+  if (provider === "openrouter") {
+    headers["HTTP-Referer"] = typeof window === "undefined" ? "https://localhost/" : window.location.origin;
+    headers["X-Title"] = "Word Refinery";
+  }
+  return headers;
+}
+
+/** GET a JSON document, surfacing HTTP and body problems as LlmError. */
+async function getJson(
+  url: string,
+  provider: LlmProvider,
+  headers: Record<string, string>,
+  signal?: AbortSignal,
+): Promise<unknown> {
+  const response = await fetch(url, { method: "GET", headers, signal });
+  const raw = await response.text();
+  if (!response.ok) {
+    throw new LlmError(
+      `${provider} responded ${response.status} ${response.statusText}`.trim(),
+      { status: response.status, provider, body: raw.slice(0, 600) },
+    );
+  }
+  try {
+    return JSON.parse(raw);
+  } catch {
+    throw new LlmError(`${provider} returned a non-JSON body`, { provider, body: raw.slice(0, 600) });
+  }
+}
+
+/**
+ * Fetch the provider's model catalogue so the Settings picker can offer exact
+ * ids instead of making the user memorise them.
+ *
+ * Anthropic paginates with `after_id`; the OpenAI-style endpoints return a
+ * single page. Auth failures throw LlmError with the HTTP status so the UI
+ * can tell a bad key from a network blip.
+ *
+ * @param settings - active LLM settings (provider, apiKey)
+ * @param signal - optional AbortSignal so the UI can cancel a stale fetch
+ */
+export async function listModels(
+  settings: Settings["llm"],
+  signal?: AbortSignal,
+): Promise<ListedModel[]> {
+  const provider = settings.provider;
+  const apiKey = settings.apiKey.trim();
+  if (apiKey.length === 0) {
+    throw new LlmError("No API key set. Open Settings and paste a key first.", { provider });
+  }
+  const headers = catalogueHeaders(provider, apiKey);
+
+  try {
+    if (provider === "anthropic") {
+      const rows: ListedModel[] = [];
+      let afterId: string | null = null;
+      // Hard cap so a malformed `has_more` can never loop forever.
+      for (let page = 0; page < 50; page += 1) {
+        const url = new URL(MODEL_ENDPOINTS.anthropic);
+        url.searchParams.set("limit", "100");
+        if (afterId !== null) url.searchParams.set("after_id", afterId);
+        const payload = (await getJson(url.toString(), provider, headers, signal)) as {
+          data?: unknown;
+          has_more?: unknown;
+          last_id?: unknown;
+        };
+        rows.push(...parseModelList(provider, payload));
+        const lastId = typeof payload.last_id === "string" ? payload.last_id : "";
+        if (payload.has_more !== true || lastId.length === 0) break;
+        afterId = lastId;
+      }
+      return normalizeRows(rows);
+    }
+
+    const payload = await getJson(MODEL_ENDPOINTS[provider], provider, headers, signal);
+    return normalizeRows(parseModelList(provider, payload));
+  } catch (error) {
+    if (error instanceof LlmError) throw error;
+    const message = error instanceof Error ? error.message : String(error);
+    // fetch() failures (DNS, CORS, offline) arrive as plain TypeErrors.
+    throw new LlmError(`Could not reach ${provider}: ${message}`, { provider });
+  }
 }
 
 /** Progress callback fired between batches. */

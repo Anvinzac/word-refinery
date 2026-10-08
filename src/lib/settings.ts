@@ -12,8 +12,8 @@
  * Depends on: none
  */
 
-/** The three LLM providers the refinery can call from the browser. */
-export type LlmProvider = "openrouter" | "together" | "anthropic";
+/** The LLM providers the refinery can call from the browser. */
+export type LlmProvider = "openrouter" | "together" | "anthropic" | "alibaba";
 
 /** The pluggable JSON backends the deck can be persisted to. */
 export type StoreKind = "none" | "jsonbin" | "gist";
@@ -58,6 +58,15 @@ export const PROVIDERS: readonly ProviderInfo[] = [
     browserWarning:
       "Needs the anthropic-dangerous-direct-browser-access header, which exposes your key to anyone using this page. Prefer OpenRouter or Together.",
     suggested: ["claude-haiku-4-5-20251001", "claude-sonnet-4-5-20250929"],
+  },
+  {
+    id: "alibaba",
+    label: "Alibaba (Bailian)",
+    // Workspace-scoped MaaS host: the ws-* subdomain is tied to one Bailian
+    // workspace, so this entry serves that workspace's deployed models.
+    endpoint:
+      "https://ws-qc87cpgqq7pnch88.ap-southeast-1.maas.aliyuncs.com/compatible-mode/v1/chat/completions",
+    suggested: ["qwen3-max", "qwen3-235b-a22b", "deepseek-v4-pro"],
   },
 ];
 
