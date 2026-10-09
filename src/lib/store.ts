@@ -288,13 +288,18 @@ export async function readJsonFile(file: File): Promise<RefineryDoc | null> {
   const text = await file.text();
   const parsed = parseDoc(text);
   if (parsed !== null) return parsed;
-  // Tolerate a bare deck export (meta + words) by wrapping it.
+  // Tolerate a bare deck export or WordCrawler batch (meta + words) by wrapping
+  // it. `meta` is optional: a batch may carry only a name, or none at all.
   try {
     const bare = JSON.parse(text) as { meta?: unknown; words?: unknown };
-    if (Array.isArray(bare.words) && typeof bare.meta === "object" && bare.meta !== null) {
+    if (Array.isArray(bare.words)) {
+      const meta =
+        typeof bare.meta === "object" && bare.meta !== null
+          ? (bare.meta as Record<string, unknown>)
+          : {};
       return {
         schemaVersion: 1,
-        deck: bare as RefineryDoc["deck"],
+        deck: { meta, words: bare.words } as RefineryDoc["deck"],
         review: [],
         savedAt: new Date().toISOString(),
       };

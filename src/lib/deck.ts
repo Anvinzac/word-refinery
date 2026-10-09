@@ -6,10 +6,11 @@
  * inside `defVi` / `leadVi` rather than a separate array. The level shown in
  * every deck word always comes from the corpus, never from the model.
  *
- * Exports: slugifyWord, buildDeckWord, buildDeck, validateDeck, deckToCatalog
+ * Exports: slugifyWord, buildDeckWord, buildDeck, coerceDeckWord, validateDeck, deckToCatalog
  * Depends on: ./types.ts, ./contract.ts, ./emphasis.ts
  */
 import type { CorpusWord, Deck, DeckMeta, DeckUsage, DeckWord, ReviewEntry } from "./types.ts";
+import { CEFR_LEVELS, type CefrLevel } from "./types.ts";
 import { containsTargetWord, type CrawlerAnnotation } from "./contract.ts";
 import { countSyllables, injectEmphasisMarkers, stripEmphasisMarkers, validateEmphasis } from "./emphasis.ts";
 
@@ -147,6 +148,81 @@ export function buildDeck(input: {
       "Corpus is a CC BY-SA 4.0 derivative; see NOTICE.md.",
   };
   return { meta, words: input.words };
+}
+
+/** Keep a level only when it is a real CEFR band; imported files can be sloppy. */
+function coerceLevel(value: unknown): CefrLevel {
+  return typeof value === "string" && (CEFR_LEVELS as readonly string[]).includes(value)
+    ? (value as CefrLevel)
+    : "B1";
+}
+
+/**
+ * Coerce a loosely-shaped imported word — a deck export or a WordCrawler batch
+ * entry — into a valid deck word so it can be previewed and refined here.
+ *
+ * Batch entries carry `topics` as an array and omit `chars` / `initial`, so
+ * those are normalised: the topic collapses to its first tag (or `general`),
+ * and the letter count / initial are recomputed. Anything already correct is
+ * passed through untouched; unknown or malformed values fall back to safe
+ * defaults rather than throwing.
+ *
+ * @param raw - one entry from the imported `words` array
+ * @param usedIds - ids already taken, mutated to reserve the returned id
+ * @returns the normalised deck word, or null when there is no usable headword
+ */
+export function coerceDeckWord(raw: unknown, usedIds: Set<string>): DeckWord | null {
+  if (typeof raw !== "object" || raw === null) return null;
+  const record = raw as Record<string, unknown>;
+  const text = (value: unknown): string => (typeof value === "string" ? value : "");
+
+  const word = text(record.word).trim();
+  if (word.length === 0) return null;
+
+  // topic wins; otherwise take the first of a `topics` array; otherwise general.
+  let topic = "general";
+  if (text(record.topic).length > 0) topic = record.topic as string;
+  else if (Array.isArray(record.topics) && typeof record.topics[0] === "string") {
+    topic = record.topics[0] as string;
+  }
+  topic = topic.toLowerCase();
+  if (!TOPIC_PATTERN.test(topic)) topic = "general";
+
+  let id = ID_PATTERN.test(text(record.id)) ? record.id as string : slugifyWord(word);
+  if (usedIds.has(id)) {
+    let suffix = 2;
+    while (usedIds.has(`${id}-${suffix}`)) suffix += 1;
+    id = `${id}-${suffix}`;
+  }
+  usedIds.add(id);
+
+  const usage: DeckUsage[] = Array.isArray(record.usage)
+    ? (record.usage as unknown[])
+        .map((item) => {
+          if (typeof item !== "object" || item === null) return null;
+          const pair = item as Record<string, unknown>;
+          const en = text(pair.en);
+          const vi = text(pair.vi);
+          return en.length > 0 || vi.length > 0 ? { en, vi } : null;
+        })
+        .filter((item): item is DeckUsage => item !== null)
+    : [];
+
+  const letters = word.match(/\p{L}/gu) ?? [];
+  return {
+    id,
+    word,
+    pos: text(record.pos),
+    ipa: text(record.ipa),
+    defVi: text(record.defVi),
+    leadVi: text(record.leadVi),
+    anticipateVi: text(record.anticipateVi),
+    topic,
+    level: coerceLevel(record.level),
+    chars: typeof record.chars === "number" ? record.chars : letters.length,
+    initial: text(record.initial) || word.charAt(0).toUpperCase(),
+    usage,
+  };
 }
 
 /** One validation problem found in a deck. */

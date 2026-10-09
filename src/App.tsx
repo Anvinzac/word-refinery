@@ -15,7 +15,7 @@ import { ReviewTable } from "./components/ReviewTable";
 import { SettingsPanel } from "./components/SettingsPanel";
 import { loadCorpus } from "./lib/corpus";
 import { approvedEntries } from "./lib/deck";
-import { buildDeck, validateDeck } from "./lib/deck";
+import { buildDeck, coerceDeckWord, validateDeck } from "./lib/deck";
 import {
   DOC_FILENAME,
   createStore,
@@ -177,22 +177,39 @@ export function App() {
     setNotice(null);
     const parsed = await readJsonFile(file);
     if (parsed === null) {
-      setNotice({ kind: "error", text: "That file is not a refinery document or a deck export." });
+      setNotice({
+        kind: "error",
+        text: "That file is not a refinery document, a deck export, or a WordCrawler batch.",
+      });
       return;
     }
-    // A bare deck export has no review rows; synthesise them as approved.
-    const review: ReviewEntry[] =
-      parsed.review.length > 0
-        ? parsed.review
-        : parsed.deck.words.map((deckWord) => ({
-            id: deckWord.id,
-            deckWord,
-            status: "approved" as const,
-            warnings: [],
-          }));
-    setDoc({ ...parsed, review });
+    let review: ReviewEntry[];
+    if (parsed.review.length > 0) {
+      // A working document already carries its own review state.
+      review = parsed.review;
+    } else {
+      // A bare deck or WordCrawler batch has no review rows. Normalise each word
+      // into deck shape (topics array, missing chars/initial, …) and queue it as
+      // pending so it lands in the Review table ready to be refined.
+      const usedIds = new Set<string>();
+      review = [];
+      for (const raw of parsed.deck.words) {
+        const deckWord = coerceDeckWord(raw, usedIds);
+        if (deckWord === null) continue;
+        review.push({ id: deckWord.id, deckWord, status: "pending", warnings: [] });
+      }
+    }
+    if (review.length === 0) {
+      setNotice({ kind: "error", text: `No usable words found in ${file.name}.` });
+      return;
+    }
+    setDoc(rebuild(review));
     setDirty(true);
-    setNotice({ kind: "ok", text: `Imported ${review.length} word(s) from ${file.name}.` });
+    setNotice({
+      kind: "ok",
+      text: `Imported ${review.length} word(s) from ${file.name} — queued for review.`,
+    });
+    setTab("review");
   };
 
   /** Export only the rows a reviewer signed off on, in importer shape. */
@@ -312,8 +329,10 @@ export function App() {
           <section className="panel">
             <h2>Local file</h2>
             <p className="hint">
-              Download the whole working document (deck plus review state), or upload one to
-              continue a session on another machine.
+              Download the whole working document (deck plus review state), or upload a refinery
+              document, a deck export, or a <strong>WordCrawler batch</strong> ({"{ meta, words }"})
+              to preview and refine it here. Imported words land in the Review tab as
+              <em> pending</em> rows.
             </p>
             <div className="row">
               <button
@@ -327,7 +346,7 @@ export function App() {
                 Download working document
               </button>
               <button type="button" className="btn" onClick={() => fileInput.current?.click()}>
-                Upload working document
+                Upload deck / batch JSON
               </button>
               <input
                 ref={fileInput}

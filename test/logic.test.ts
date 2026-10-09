@@ -18,7 +18,7 @@ import {
   stripEmphasisMarkers,
   validateEmphasis,
 } from "../src/lib/emphasis.ts";
-import { buildDeckWord, slugifyWord, validateDeck } from "../src/lib/deck.ts";
+import { buildDeckWord, coerceDeckWord, slugifyWord, validateDeck } from "../src/lib/deck.ts";
 import type { CrawlerAnnotation } from "../src/lib/contract.ts";
 import type { Deck, DeckWord } from "../src/lib/types.ts";
 
@@ -260,4 +260,52 @@ test("flags an example sentence missing its blank", () => {
     deckOf([{ ...word, usage: [{ en: "She is a colleague.", vi: "Cô ấy là đồng nghiệp." }] }]),
   );
   assert.ok(issues.some((issue) => /missing the _____ blank/.test(issue.message)));
+});
+
+// ---------------------------------------------------------------------------
+// WordCrawler batch import normalisation
+// ---------------------------------------------------------------------------
+
+test("coerces a batch entry: topics array, no chars / initial", () => {
+  const word = coerceDeckWord(
+    {
+      id: "jealous",
+      word: "jealous",
+      defVi: "Khó chịu, /ghen tị/ khi người khác có thứ mình muốn.",
+      leadVi: "Bạn thân khoe điện thoại mới, lòng bỗng thấy hơi chua.",
+      anticipateVi: "Có ai đang nóng mắt không?",
+      pos: "adj",
+      ipa: "/ˈdʒel.əs/",
+      topics: ["emotion"],
+      level: "B1",
+      usage: [{ en: "She felt _____ of her sister's success.", vi: "Cô ấy ghen tị với chị gái." }],
+    },
+    new Set(),
+  );
+  assert.ok(word !== null);
+  assert.equal(word.topic, "emotion");
+  assert.equal(word.level, "B1");
+  assert.equal(word.chars, "jealous".length);
+  assert.equal(word.initial, "J");
+  assert.equal(word.usage.length, 1);
+});
+
+test("coerce keeps a valid deck word untouched and dedupes ids", () => {
+  const used = new Set(["reliable"]);
+  const word = coerceDeckWord({ id: "reliable", word: "reliable", topic: "character", level: "A2" }, used);
+  assert.ok(word !== null);
+  assert.equal(word.id, "reliable-2");
+  assert.equal(word.topic, "character");
+  assert.equal(word.level, "A2");
+});
+
+test("coerce falls back on a sloppy level and a bad topic", () => {
+  const word = coerceDeckWord({ word: "habit", level: "weird", topics: ["Not A Slug"] }, new Set());
+  assert.ok(word !== null);
+  assert.equal(word.level, "B1");
+  assert.equal(word.topic, "general");
+});
+
+test("coerce returns null when there is no headword", () => {
+  assert.equal(coerceDeckWord({ defVi: "không có từ" }, new Set()), null);
 });
