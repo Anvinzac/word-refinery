@@ -11,14 +11,21 @@
  * available for comparison while the complaint is written. The brief gathers
  * three things and sends them as one instruction: complaint chips tapped for
  * that field, a free-text note, and whatever the validator already flagged
- * there. The exact prompt is inspectable before it is sent.
+ * there. The exact prompt is inspectable before it is sent. For fields that
+ * carry a `/…/` highlight, the brief also lists the syllables so the reviewer
+ * can toggle the highlight by hand and save it without calling the model.
  *
  * Exports: ReviewTable, MarkedText
  * Depends on: ../lib/deck.ts, ../lib/emphasis.ts, ../lib/llm.ts, ../lib/prompt.ts, ../lib/types.ts
  */
 import { Fragment, useEffect, useMemo, useState } from "react";
 import { validateDeck, type DeckIssue } from "../lib/deck";
-import { stripEmphasisMarkers } from "../lib/emphasis";
+import {
+  joinMarkedSyllables,
+  splitMarkedSyllables,
+  stripEmphasisMarkers,
+  type MarkedSyllable,
+} from "../lib/emphasis";
 import { regenerateField } from "../lib/llm";
 import { buildRegeneratePrompt, chipsForField, type RefineField, type RefineRequest } from "../lib/prompt";
 import type { Settings } from "../lib/settings";
@@ -54,6 +61,9 @@ const FIELD_LABELS: Record<RefineField, string> = {
   usageVi: "usage (vi)",
 };
 
+/** Fields whose `/…/` highlight is rendered, and therefore worth editing by hand. */
+const HIGHLIGHTABLE: ReadonlySet<RefineField> = new Set<RefineField>(["defVi", "leadVi"]);
+
 /**
  * Which validator findings belong to a field. The validator reports usage
  * problems positionally (`usage[0].vi`), so the usage column matches on a
@@ -88,6 +98,8 @@ export function ReviewTable({
   const [error, setError] = useState<string | null>(null);
   /** Set after a successful rewrite so the still-open brief confirms it landed. */
   const [rewrote, setRewrote] = useState<string | null>(null);
+  /** Unsaved highlight toggles; null means the field's stored markers are shown. */
+  const [draft, setDraft] = useState<MarkedSyllable[] | null>(null);
 
   /** Issues per word id, recomputed whenever the deck content changes. */
   const issuesById = useMemo(() => {
@@ -154,6 +166,7 @@ export function ReviewTable({
     setNote("");
     setRewrote(null);
     setError(null);
+    setDraft(null);
   };
 
   // Escape folds the brief away from anywhere inside it — the cell that opened it
@@ -182,6 +195,7 @@ export function ReviewTable({
     setNote("");
     setRewrote(null);
     setError(null);
+    setDraft(null);
   };
 
   const toggleChip = (id: string) => {
@@ -222,6 +236,7 @@ export function ReviewTable({
       // The brief stays open: a rewrite often needs a second pass, and the chips
       // that described the problem are still the right ones to send again.
       setRewrote(value);
+      setDraft(null);
     } catch (thrown) {
       setError(thrown instanceof Error ? thrown.message : String(thrown));
     } finally {
@@ -251,6 +266,25 @@ export function ReviewTable({
     const fieldIssues = issuesForField(issuesById.get(entry.id) ?? [], field);
     const offered = chipsForField(field);
     const preview = buildRegeneratePrompt(entry.deckWord, buildRequest(entry.id, field));
+    const highlightable = HIGHLIGHTABLE.has(field);
+    const stored = highlightable ? entry.deckWord[field as "defVi" | "leadVi"] : "";
+    const storedSyllables = splitMarkedSyllables(stored);
+    const syllables = draft ?? storedSyllables;
+    const dirty = draft !== null && joinMarkedSyllables(draft) !== joinMarkedSyllables(storedSyllables);
+
+    const toggleSyllable = (index: number) => {
+      setDraft(
+        syllables.map((syllable, at) =>
+          at === index ? { ...syllable, marked: !syllable.marked } : syllable,
+        ),
+      );
+    };
+
+    const saveHighlights = () => {
+      if (draft === null) return;
+      patchWord(entry.id, { [field]: joinMarkedSyllables(draft) } as Partial<DeckWord>);
+      closeBrief();
+    };
 
     return (
       <tr className="refine-row" data-status={entry.status}>
@@ -260,9 +294,6 @@ export function ReviewTable({
               <strong>
                 Rewrite <code>{FIELD_LABELS[field]}</code> for “{entry.deckWord.word}”
               </strong>
-              <button type="button" className="btn sm" onClick={closeBrief} disabled={busy}>
-                Close
-              </button>
             </div>
 
             {fieldIssues.length > 0 && (
@@ -280,6 +311,33 @@ export function ReviewTable({
 
             <div className="refine-section">
               <div className="refine-label">What's wrong?</div>
+              {highlightable && syllables.length > 0 && (
+                <div className="syllables" lang="vi" aria-label="Tap syllables to toggle the highlight">
+                  {syllables.map((syllable, index) =>
+                    syllable.core.length === 0 ? (
+                      <span key={index} className="syllable-punct">
+                        {syllable.lead}
+                        {syllable.trail}
+                      </span>
+                    ) : (
+                      <span key={index} className="syllable-wrap">
+                        {syllable.lead}
+                        <button
+                          type="button"
+                          className="syllable"
+                          data-active={syllable.marked}
+                          aria-pressed={syllable.marked}
+                          disabled={busy}
+                          onClick={() => toggleSyllable(index)}
+                        >
+                          {syllable.core}
+                        </button>
+                        {syllable.trail}
+                      </span>
+                    ),
+                  )}
+                </div>
+              )}
               <div className="chips">
                 {offered.map((chip) => (
                   <button
@@ -300,14 +358,36 @@ export function ReviewTable({
 
             <div className="refine-section">
               <div className="refine-label">Anything else to tell the model?</div>
-              <textarea
-                className="refine-note"
-                rows={2}
-                placeholder="e.g. compare it to something a child would recognise, keep the rhythm of the old line…"
-                value={note}
-                disabled={busy}
-                onChange={(event) => setNote(event.target.value)}
-              />
+              <div className="refine-note-box">
+                <textarea
+                  className="refine-note"
+                  rows={2}
+                  placeholder="e.g. compare it to something a child would recognise, keep the rhythm of the old line…"
+                  value={note}
+                  disabled={busy}
+                  onChange={(event) => setNote(event.target.value)}
+                />
+                {note.length > 0 && (
+                  <button
+                    type="button"
+                    className="refine-note-clear"
+                    aria-label="Clear note"
+                    title="Clear note"
+                    onClick={() => setNote("")}
+                    disabled={busy}
+                  >
+                    ×
+                  </button>
+                )}
+                <button
+                  type="button"
+                  className="btn sm primary refine-note-send"
+                  onClick={() => void regenerate(entry, field)}
+                  disabled={busy}
+                >
+                  {busy ? "Regenerating…" : rewrote !== null ? "Regenerate again" : "Regenerate"}
+                </button>
+              </div>
             </div>
 
             <details className="refine-preview">
@@ -333,13 +413,16 @@ export function ReviewTable({
             )}
 
             <div className="refine-foot">
+              <button type="button" className="btn" onClick={closeBrief} disabled={busy}>
+                Cancel
+              </button>
               <button
                 type="button"
                 className="btn primary"
-                onClick={() => void regenerate(entry, field)}
-                disabled={busy}
+                onClick={saveHighlights}
+                disabled={busy || !dirty}
               >
-                {busy ? "Regenerating…" : rewrote !== null ? "Regenerate again" : "Regenerate"}
+                Save
               </button>
             </div>
           </div>

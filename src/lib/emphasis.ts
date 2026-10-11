@@ -14,7 +14,8 @@
  *
  * Exports: VIETNAMESE_STOP_WORDS, emphasisTokenKey, isVietnameseStopWord,
  *          countSyllables, validateEmphasis, injectEmphasisMarkers,
- *          stripEmphasisMarkers
+ *          stripEmphasisMarkers, splitMarkedSyllables, joinMarkedSyllables,
+ *          MarkedSyllable
  * Depends on: none
  */
 
@@ -219,6 +220,75 @@ const MARKER = "/";
  */
 export function stripEmphasisMarkers(text: string): string {
   return text.replace(/\/([^/]+)\//g, "$1");
+}
+
+/**
+ * One whitespace-separated syllable of a marked field. Punctuation hugging the
+ * syllable sits in `lead`/`trail` so a marker never swallows it; `core` is
+ * empty for a pure-punctuation token such as a dash.
+ */
+export interface MarkedSyllable {
+  lead: string;
+  core: string;
+  trail: string;
+  marked: boolean;
+}
+
+/** Split a field into syllables, recording which ones sit inside `/…/`. */
+export function splitMarkedSyllables(text: string): MarkedSyllable[] {
+  const syllables: MarkedSyllable[] = [];
+  let inMarker = false;
+  let token = "";
+  let tokenMarked = false;
+
+  const flush = () => {
+    if (token.length === 0) return;
+    const lead = /^[^\p{L}\p{N}]*/u.exec(token)?.[0] ?? "";
+    const rest = token.slice(lead.length);
+    const trail = /[^\p{L}\p{N}]*$/u.exec(rest)?.[0] ?? "";
+    const core = rest.slice(0, rest.length - trail.length);
+    syllables.push({ lead, core, trail, marked: core.length > 0 && tokenMarked });
+    token = "";
+    tokenMarked = false;
+  };
+
+  for (const char of text.normalize("NFC")) {
+    if (char === MARKER) {
+      inMarker = !inMarker;
+    } else if (/\s/u.test(char)) {
+      flush();
+    } else {
+      token += char;
+      if (inMarker && /[\p{L}\p{N}]/u.test(char)) tokenMarked = true;
+    }
+  }
+  flush();
+  return syllables;
+}
+
+/**
+ * Rebuild a field from syllables, wrapping each run of marked syllables in one
+ * `/…/`. A run breaks at punctuation so a marker never spans a comma.
+ */
+export function joinMarkedSyllables(syllables: readonly MarkedSyllable[]): string {
+  const joins = (left: MarkedSyllable | undefined, right: MarkedSyllable | undefined) =>
+    left !== undefined &&
+    right !== undefined &&
+    left.marked &&
+    right.marked &&
+    left.trail.length === 0 &&
+    right.lead.length === 0;
+
+  return syllables
+    .map((syllable, index) => {
+      if (!syllable.marked || syllable.core.length === 0) {
+        return `${syllable.lead}${syllable.core}${syllable.trail}`;
+      }
+      const open = joins(syllables[index - 1], syllable) ? "" : MARKER;
+      const close = joins(syllable, syllables[index + 1]) ? "" : MARKER;
+      return `${syllable.lead}${open}${syllable.core}${close}${syllable.trail}`;
+    })
+    .join(" ");
 }
 
 /**

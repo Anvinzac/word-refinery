@@ -189,6 +189,71 @@ textarea {
   color: var(--muted);
 }
 
+.vault {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.vault:empty {
+  display: none;
+}
+
+.vault-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.vault-row label {
+  font-size: 12.5px;
+  color: var(--ink);
+}
+
+.vault-row input {
+  width: 140px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 8px 10px;
+  letter-spacing: 0.2em;
+}
+
+.vault-row input:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: -1px;
+}
+
+.vault-lock {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.vault-lock summary {
+  cursor: pointer;
+  font-size: 12.5px;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+
+.vault-lock summary:hover {
+  color: var(--ink);
+}
+
+.vault-lock .note {
+  display: block;
+  margin: 8px 0;
+  font-size: 11px;
+  color: var(--muted);
+}
+
+.vault .banner {
+  margin: 0;
+}
+
 .chips {
   display: flex;
   gap: 6px;
@@ -784,9 +849,50 @@ code.k {
   line-height: 1.5;
 }
 
+.syllables {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 2px;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--ink);
+}
+
+.syllable-wrap,
+.syllable-punct {
+  white-space: nowrap;
+}
+
+.syllable {
+  padding: 1px 5px;
+  border: 1px dashed transparent;
+  border-radius: 6px;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+
+.syllable:hover:not(:disabled) {
+  border-color: var(--border);
+}
+
+.syllable[data-active="true"] {
+  background: color-mix(in srgb, var(--accent) 18%, transparent);
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.refine-note-box {
+  position: relative;
+}
+
 .refine-note {
+  display: block;
   width: 100%;
-  padding: 8px 10px;
+  min-height: 84px;
+  padding: 8px 38px 40px 10px;
   border: 1px solid var(--border);
   border-radius: 8px;
   background: var(--bg);
@@ -799,6 +905,35 @@ code.k {
 .refine-note:focus {
   outline: 2px solid var(--accent);
   outline-offset: -1px;
+}
+
+.refine-note-send {
+  position: absolute;
+  right: 8px;
+  bottom: 8px;
+}
+
+.refine-note-clear {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 24px;
+  height: 24px;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.refine-note-clear:hover:not(:disabled) {
+  color: var(--ink);
+  border-color: var(--muted);
 }
 
 /* Folded away by default, because the point of the chips is not having to read

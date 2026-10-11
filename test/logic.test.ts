@@ -23,10 +23,13 @@ import {
   countSyllables,
   injectEmphasisMarkers,
   isVietnameseStopWord,
+  joinMarkedSyllables,
+  splitMarkedSyllables,
   stripEmphasisMarkers,
   validateEmphasis,
 } from "../src/lib/emphasis.ts";
 import { buildDeckWord, coerceDeckWord, slugifyWord, validateDeck } from "../src/lib/deck.ts";
+import { addLockedKey, openSecret, sealSecret } from "../src/lib/vault.ts";
 import type { CrawlerAnnotation } from "../src/lib/contract.ts";
 import type { Deck, DeckWord } from "../src/lib/types.ts";
 
@@ -125,6 +128,34 @@ test("places nothing and warns when no phrase occurs in either field", () => {
   assert.equal(result.defVi, "Không khớp gì cả.");
   assert.equal(result.leadVi, "Cũng vậy thôi.");
   assert.equal(result.warnings.length, 1);
+});
+
+test("syllable split reads markers and a re-join round-trips the field", () => {
+  const text = "Người /đáng tin/, luôn giữ lời hứa.";
+  const syllables = splitMarkedSyllables(text);
+  assert.deepEqual(
+    syllables.map((syllable) => [syllable.core, syllable.marked]),
+    [["Người", false], ["đáng", true], ["tin", true], ["luôn", false], ["giữ", false], ["lời", false], ["hứa", false]],
+  );
+  assert.equal(syllables[2].trail, ",");
+  assert.equal(joinMarkedSyllables(syllables), text);
+});
+
+test("toggling syllables wraps each run once and keeps punctuation outside", () => {
+  const syllables = splitMarkedSyllables("Người đáng tin, luôn giữ lời hứa.");
+  const toggled = syllables.map((syllable, index) => ({
+    ...syllable,
+    marked: index === 2 || index === 3 || index === 6,
+  }));
+  assert.equal(joinMarkedSyllables(toggled), "Người đáng /tin/, /luôn/ giữ lời /hứa/.");
+});
+
+test("un-toggling every syllable leaves the plain text", () => {
+  const syllables = splitMarkedSyllables("Một /xe đạp/ — cũ.").map((syllable) => ({
+    ...syllable,
+    marked: false,
+  }));
+  assert.equal(joinMarkedSyllables(syllables), "Một xe đạp — cũ.");
 });
 
 // ---------------------------------------------------------------------------
@@ -425,4 +456,29 @@ test("buildRegeneratePrompt keeps its section breaks and drops only absent lines
   });
   assert.ok(!noExample.includes("usageEn"));
   assert.ok(noExample.includes("\n\nWhat to fix, all of it in one rewrite:"));
+});
+
+// ---------------------------------------------------------------------------
+// PIN-locked keys
+// ---------------------------------------------------------------------------
+
+test("a sealed key opens with the right PIN and not with a wrong one", async () => {
+  const sealed = await sealSecret("sk-or-v1-secret", "4821", 1_000);
+  assert.ok(!JSON.stringify(sealed).includes("secret"));
+  assert.equal(await openSecret(sealed, "4821"), "sk-or-v1-secret");
+  assert.equal(await openSecret(sealed, "4822"), null);
+});
+
+test("sealing twice never repeats the ciphertext", async () => {
+  const first = await sealSecret("same key", "0000", 1_000);
+  const second = await sealSecret("same key", "0000", 1_000);
+  assert.notEqual(first.ciphertext, second.ciphertext);
+});
+
+test("adding a locked key replaces only that provider", async () => {
+  const one = await sealSecret("a", "1111", 1_000);
+  const two = await sealSecret("b", "2222", 1_000);
+  const file = addLockedKey(addLockedKey(null, "openrouter", one), "alibaba", two);
+  assert.deepEqual(Object.keys(file.keys).sort(), ["alibaba", "openrouter"]);
+  assert.equal(await openSecret(file.keys.alibaba!, "2222"), "b");
 });

@@ -5,12 +5,26 @@
  * next to each choice so the user can audit exactly where a key is sent.
  *
  * Exports: SettingsPanel
- * Depends on: ../lib/settings.ts, ../lib/llm.ts, ../lib/models.ts
+ * Depends on: ../lib/settings.ts, ../lib/llm.ts, ../lib/models.ts, ../lib/vault.ts
  */
 import { Fragment, useEffect, useMemo, useRef, useState } from "react";
 import { PROVIDERS, maskKey, type Settings, type StoreKind } from "../lib/settings";
 import { listModels, testConnection, type ListedModel } from "../lib/llm";
 import { estimateParamsB, formatParamsB, groupModels, type ModelFamily } from "../lib/models";
+import {
+  LOCKED_KEY_FILE,
+  addLockedKey,
+  loadLockedKeys,
+  openSecret,
+  sealSecret,
+  type LockedKeyFile,
+} from "../lib/vault";
+
+/** PIN-locked keys are built but not offered yet; flip to show Lock / Unlock. */
+const VAULT_ENABLED = false;
+
+/** Below this many characters a PIN is guessable offline in moments. */
+const STRONG_PIN_LENGTH = 12;
 
 export function SettingsPanel({
   settings,
@@ -30,6 +44,18 @@ export function SettingsPanel({
   const [models, setModels] = useState<ListedModel[]>([]);
   const [openFamily, setOpenFamily] = useState<string | null>(null);
   const listAbort = useRef<AbortController | null>(null);
+  const [lockedFile, setLockedFile] = useState<LockedKeyFile | null>(null);
+  const [unlockPin, setUnlockPin] = useState("");
+  const [lockPin, setLockPin] = useState("");
+  const [vaultState, setVaultState] = useState<{ kind: "idle" | "busy" | "ok" | "error"; text: string }>({
+    kind: "idle",
+    text: "",
+  });
+
+  useEffect(() => {
+    if (!VAULT_ENABLED) return;
+    void loadLockedKeys(import.meta.env.BASE_URL).then(setLockedFile);
+  }, []);
 
   const provider = PROVIDERS.find((entry) => entry.id === settings.llm.provider) ?? PROVIDERS[0];
   const { provider: providerId, apiKey } = settings.llm;
@@ -163,6 +189,40 @@ export function SettingsPanel({
     return slash === -1 ? model.id : model.id.slice(slash + 1);
   };
 
+  const lockedForProvider = lockedFile?.keys[providerId];
+
+  const unlock = async () => {
+    if (lockedForProvider === undefined) return;
+    setVaultState({ kind: "busy", text: "Unlocking…" });
+    const key = await openSecret(lockedForProvider, unlockPin);
+    if (key === null) {
+      setVaultState({ kind: "error", text: "Wrong PIN." });
+      return;
+    }
+    setUnlockPin("");
+    patchLlm({ apiKey: key });
+    setVaultState({ kind: "ok", text: `Unlocked — stored locally as ${maskKey(key)}.` });
+  };
+
+  const lock = async () => {
+    setVaultState({ kind: "busy", text: "Locking…" });
+    const sealed = await sealSecret(apiKey, lockPin);
+    const file = addLockedKey(lockedFile, providerId, sealed);
+    const url = URL.createObjectURL(
+      new Blob([`${JSON.stringify(file, null, 2)}\n`], { type: "application/json" }),
+    );
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = LOCKED_KEY_FILE;
+    link.click();
+    URL.revokeObjectURL(url);
+    setLockPin("");
+    setVaultState({
+      kind: "ok",
+      text: `Downloaded ${LOCKED_KEY_FILE}. Put it in the repo's public/ folder and push to publish it.`,
+    });
+  };
+
   const runTest = async () => {
     setTestState({ kind: "busy", text: "Contacting provider…" });
     try {
@@ -238,6 +298,91 @@ export function SettingsPanel({
             />
             <span className="note">Smaller batches are more reliable; larger ones are cheaper.</span>
           </div>
+        </div>
+
+        <div className="vault">
+          {VAULT_ENABLED && lockedForProvider !== undefined && (
+            <form
+              className="vault-row"
+              onSubmit={(event) => {
+                event.preventDefault();
+                void unlock();
+              }}
+            >
+              <label htmlFor="unlockpin">This site has a locked {provider.label} key</label>
+              <input
+                id="unlockpin"
+                type="password"
+                inputMode="numeric"
+                autoComplete="off"
+                placeholder="PIN"
+                value={unlockPin}
+                onChange={(event) => {
+                  setUnlockPin(event.target.value);
+                  setVaultState({ kind: "idle", text: "" });
+                }}
+              />
+              <button
+                type="submit"
+                className="btn primary"
+                disabled={unlockPin.length === 0 || vaultState.kind === "busy"}
+              >
+                Unlock
+              </button>
+            </form>
+          )}
+
+          {VAULT_ENABLED && apiKey.length > 0 && (
+            <details className="vault-lock">
+              <summary>Lock this key with a PIN to publish it with the site</summary>
+              <form
+                className="vault-row"
+                onSubmit={(event) => {
+                  event.preventDefault();
+                  void lock();
+                }}
+              >
+                <input
+                  type="password"
+                  inputMode="numeric"
+                  autoComplete="new-password"
+                  placeholder="choose a PIN"
+                  aria-label="PIN to lock the key with"
+                  value={lockPin}
+                  onChange={(event) => {
+                    setLockPin(event.target.value);
+                    setVaultState({ kind: "idle", text: "" });
+                  }}
+                />
+                <button
+                  type="submit"
+                  className="btn"
+                  disabled={lockPin.length < 4 || vaultState.kind === "busy"}
+                >
+                  Lock &amp; download
+                </button>
+              </form>
+              <span className="note">
+                The PIN is never saved — only the scrambled key is published, and it opens only with the
+                same PIN.
+              </span>
+              {lockPin.length > 0 && lockPin.length < STRONG_PIN_LENGTH && (
+                <div className="banner warn">
+                  The published file is public, and a {lockPin.length}-character PIN can be guessed
+                  offline in seconds to minutes. Set a spending limit on this key at the provider, or
+                  use {STRONG_PIN_LENGTH}+ characters.
+                </div>
+              )}
+            </details>
+          )}
+
+          {vaultState.text.length > 0 && (
+            <span
+              className={`banner ${vaultState.kind === "ok" ? "ok" : vaultState.kind === "error" ? "error" : ""}`}
+            >
+              {vaultState.text}
+            </span>
+          )}
         </div>
 
         <div className="field" style={{ marginTop: 14 }}>
