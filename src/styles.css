@@ -689,67 +689,86 @@ code.k {
   opacity: 0.8;
 }
 
-/* ── Popover for cell regeneration ─────────────────────────────────────── */
+/* ── Inline refine brief ───────────────────────────────────────────────────
+   The regeneration control is a row of the table rather than a modal: the
+   neighbouring words stay on screen, which is what makes it possible to judge
+   whether a rewrite is actually an improvement on its peers. */
 
-.popover-overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.5);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 100;
-  animation: fadeIn 0.15s ease;
+.review-table tr[data-refining] > td {
+  background: color-mix(in srgb, var(--accent) 7%, transparent);
 }
 
-@keyframes fadeIn {
+.review-table .vi-cell[data-refining] {
+  background: color-mix(in srgb, var(--accent) 16%, transparent);
+  box-shadow: inset 0 0 0 1px var(--accent);
+}
+
+.review-table .vi-cell.clickable:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: -2px;
+}
+
+.review-table .word-issues {
+  margin-top: 4px;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--warn);
+}
+
+.refine-row > td {
+  padding: 0 !important;
+  border-top: 0 !important;
+}
+
+.refine {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 14px 16px 16px;
+  border-left: 3px solid var(--accent);
+  background: var(--surface);
+  animation: refine-unfold 0.16s ease;
+}
+
+@keyframes refine-unfold {
   from {
     opacity: 0;
+    transform: translateY(-4px);
   }
   to {
     opacity: 1;
+    transform: translateY(0);
   }
 }
 
-.popover {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 16px;
-  max-width: 500px;
-  width: 90%;
-  max-height: 80vh;
-  overflow-y: auto;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
-}
-
-.popover-header {
+.refine-head {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  margin-bottom: 12px;
-  padding-bottom: 10px;
-  border-bottom: 1px solid var(--border);
+  justify-content: space-between;
+  gap: 12px;
 }
 
-.popover-header strong {
-  font-size: 14px;
+.refine-head strong {
+  font-size: 13px;
+  font-weight: 650;
   color: var(--ink);
 }
 
-.popover-body {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
+.refine-head code {
+  padding: 1px 5px;
+  border-radius: 5px;
+  background: var(--bg);
+  color: var(--accent);
+  font-size: 12px;
 }
 
-.popover-section {
+.refine-section {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 7px;
 }
 
-.popover-label {
+.refine-label {
   font-size: 11px;
   text-transform: uppercase;
   letter-spacing: 0.1em;
@@ -757,7 +776,7 @@ code.k {
   font-weight: 600;
 }
 
-.popover-issues {
+.refine-issues {
   margin: 0;
   padding-left: 18px;
   font-size: 12px;
@@ -765,29 +784,75 @@ code.k {
   line-height: 1.5;
 }
 
-.popover-issues li {
-  margin: 2px 0;
-}
-
-.popover-input {
-  background: var(--bg);
+.refine-note {
+  width: 100%;
+  padding: 8px 10px;
   border: 1px solid var(--border);
   border-radius: 8px;
-  padding: 8px 10px;
-  font-size: 13px;
+  background: var(--bg);
   color: var(--ink);
-  width: 100%;
+  font: inherit;
+  font-size: 13px;
+  resize: vertical;
 }
 
-.popover-input:focus {
+.refine-note:focus {
   outline: 2px solid var(--accent);
   outline-offset: -1px;
 }
 
-.popover-footer {
-  margin-top: 16px;
-  padding-top: 12px;
-  border-top: 1px solid var(--border);
+/* Folded away by default, because the point of the chips is not having to read
+   the prompt — but open to anyone who wants to check what the chips amounted to. */
+.refine-preview summary {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+.refine-preview summary:hover {
+  color: var(--ink);
+}
+
+.refine-tally {
+  text-transform: none;
+  letter-spacing: 0;
+  font-weight: 500;
+  color: var(--accent);
+}
+
+.refine-preview pre {
+  margin: 8px 0 0;
+  max-height: 220px;
+  overflow: auto;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--bg);
+  color: var(--muted);
+  font-size: 11.5px;
+  line-height: 1.55;
+  white-space: pre-wrap;
+}
+
+.refine-result {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 9px 11px;
+  border: 1px solid color-mix(in srgb, var(--ok) 45%, transparent);
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--ok) 10%, transparent);
+  font-size: 13px;
+  color: var(--ink);
+}
+
+.refine-foot {
   display: flex;
   justify-content: flex-end;
   gap: 8px;

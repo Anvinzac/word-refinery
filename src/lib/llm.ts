@@ -14,7 +14,12 @@
  * Depends on: ./settings.ts, ./prompt.ts, ./contract.ts, ./types.ts
  */
 import type { LlmProvider, Settings } from "./settings.ts";
-import { ANNOTATION_SYSTEM_PROMPT, buildBatchPrompt, buildRegeneratePrompt } from "./prompt.ts";
+import {
+  ANNOTATION_SYSTEM_PROMPT,
+  buildBatchPrompt,
+  buildRegeneratePrompt,
+  type RefineRequest,
+} from "./prompt.ts";
 import { extractJsonArray, parseAnnotationList, type CrawlerAnnotation } from "./contract.ts";
 import type { CorpusWord, DeckWord } from "./types.ts";
 
@@ -468,21 +473,22 @@ export async function annotateBatch(
 }
 
 /**
- * Ask the model to rewrite one Vietnamese field, used by the review UI's
- * "regenerate" action. Returns the replacement text or throws.
+ * Ask the model to rewrite one Vietnamese field, used by the Review table's
+ * inline refine control. The request carries the reviewer's chips, note and the
+ * validator's own findings together, so a single rewrite answers all of them.
+ * Returns the replacement text or throws.
  */
 export async function regenerateField(
   settings: Settings["llm"],
   word: DeckWord,
-  field: "defVi" | "leadVi" | "anticipateVi" | "usageVi",
-  complaint: string,
+  request: RefineRequest,
   signal?: AbortSignal,
 ): Promise<string> {
   const reply = await chat(
     settings,
     [
       { role: "system", content: ANNOTATION_SYSTEM_PROMPT },
-      { role: "user", content: buildRegeneratePrompt(word, field, complaint) },
+      { role: "user", content: buildRegeneratePrompt(word, request) },
     ],
     { attempts: 2, signal },
   );

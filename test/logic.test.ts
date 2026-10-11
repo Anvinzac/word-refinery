@@ -4,13 +4,21 @@
  * These cover the rules that decide whether a generated word is safe to ship:
  * diacritic-preserving phrase matching, the two-syllable emphasis cap, marker
  * injection that can never attach a highlight to text that lacks it, and the
- * whole-deck validator. Run with `npm test`.
+ * whole-deck validator. They also cover the refine brief: the complaint chips a
+ * reviewer taps, their free-text note and the validator's own findings must all
+ * reach the regeneration prompt as one instruction. Run with `npm test`.
  *
- * Depends on: node:test, ../src/lib/emphasis.ts, ../src/lib/deck.ts
+ * Depends on: node:test, ../src/lib/emphasis.ts, ../src/lib/deck.ts,
+ * ../src/lib/prompt.ts
  */
 import assert from "node:assert/strict";
 import test from "node:test";
 
+import {
+  COMPLAINT_CHIPS,
+  buildRegeneratePrompt,
+  chipsForField,
+} from "../src/lib/prompt.ts";
 import {
   countSyllables,
   injectEmphasisMarkers,
@@ -308,4 +316,113 @@ test("coerce falls back on a sloppy level and a bad topic", () => {
 
 test("coerce returns null when there is no headword", () => {
   assert.equal(coerceDeckWord({ defVi: "không có từ" }, new Set()), null);
+});
+
+// ── Refine brief: chips + note + validator findings reach one prompt ────────
+
+/** A deck word with enough fields for the regenerate prompt to render. */
+const refineWord = {
+  word: "harvest",
+  defVi: "Việc thu gom cây trái sau một mùa trồng trọt dài.",
+  leadVi: "Nông dân chờ cả năm mới tới lúc này.",
+  anticipateVi: "Mùa gì vui nhất nhỉ?",
+  usage: [{ en: "The _____ was poor this year.", vi: "Vụ mùa năm nay kém." }],
+};
+
+test("buildRegeneratePrompt expands chip ids into full instructions", () => {
+  const prompt = buildRegeneratePrompt(refineWord, {
+    field: "defVi",
+    chips: ["too-long", "leaks-answer"],
+    note: "",
+    issues: [],
+  });
+  const tooLong = COMPLAINT_CHIPS.find((chip) => chip.id === "too-long");
+  const leaks = COMPLAINT_CHIPS.find((chip) => chip.id === "leaks-answer");
+  assert.ok(tooLong !== undefined && leaks !== undefined);
+  assert.match(prompt, new RegExp(escapeRegExp(tooLong.instruction)));
+  assert.match(prompt, new RegExp(escapeRegExp(leaks.instruction)));
+  // The raw id is an internal key and must never be shipped to the model.
+  assert.ok(!prompt.includes("too-long"));
+});
+
+test("buildRegeneratePrompt combines chips, the note and validator findings", () => {
+  const prompt = buildRegeneratePrompt(refineWord, {
+    field: "leadVi",
+    chips: ["weak-hint"],
+    note: "compare it to something a child would recognise",
+    issues: ["leadVi 13 words; expected 8-11"],
+  });
+  assert.match(prompt, /Sharpen the hint/);
+  assert.match(prompt, /compare it to something a child would recognise/);
+  assert.match(prompt, /13 words; expected 8-11/);
+  // All three land under the single brief, not as competing instructions.
+  const brief = prompt.slice(prompt.indexOf("What to fix"));
+  assert.equal(brief.split("\n").filter((line) => line.startsWith("- ")).length, 3);
+});
+
+test("buildRegeneratePrompt names the field's own constraints and scope", () => {
+  const prompt = buildRegeneratePrompt(refineWord, {
+    field: "anticipateVi",
+    chips: [],
+    note: "",
+    issues: [],
+  });
+  assert.match(prompt, /Rewrite ONLY the "anticipateVi" field/);
+  assert.match(prompt, /3-8 words/);
+  assert.match(prompt, /Leave every other field alone/);
+  // An empty brief still has to ask for something.
+  assert.match(prompt, /fresher, more vivid alternative/);
+});
+
+test("buildRegeneratePrompt ignores unknown chip ids rather than leaking them", () => {
+  const prompt = buildRegeneratePrompt(refineWord, {
+    field: "defVi",
+    chips: ["not-a-real-chip"],
+    note: "",
+    issues: [],
+  });
+  assert.ok(!prompt.includes("not-a-real-chip"));
+  assert.match(prompt, /fresher, more vivid alternative/);
+});
+
+test("chipsForField offers shared chips everywhere and specific ones only in place", () => {
+  const lead = chipsForField("leadVi").map((chip) => chip.id);
+  const usage = chipsForField("usageVi").map((chip) => chip.id);
+  assert.ok(lead.includes("awkward") && usage.includes("awkward"));
+  assert.ok(lead.includes("weak-hint"));
+  assert.ok(!usage.includes("weak-hint"));
+  assert.ok(usage.includes("example-mismatch"));
+  assert.ok(!lead.includes("example-mismatch"));
+});
+
+test("every chip id is unique, so a tapped chip maps to one instruction", () => {
+  const ids = COMPLAINT_CHIPS.map((chip) => chip.id);
+  assert.equal(new Set(ids).size, ids.length);
+});
+
+/** Quote a literal for use inside a RegExp. */
+function escapeRegExp(value: string): string {
+  return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
+test("buildRegeneratePrompt keeps its section breaks and drops only absent lines", () => {
+  const withExample = buildRegeneratePrompt(refineWord, {
+    field: "defVi",
+    chips: [],
+    note: "",
+    issues: [],
+  });
+  // Blank lines separate the sections; only a missing example may vanish.
+  assert.ok(withExample.includes("\n\nThe word as it stands:"));
+  assert.ok(withExample.includes("\n\nWhat to fix, all of it in one rewrite:"));
+  assert.match(withExample, /- usageEn: /);
+
+  const noExample = buildRegeneratePrompt({ ...refineWord, usage: [] }, {
+    field: "defVi",
+    chips: [],
+    note: "",
+    issues: [],
+  });
+  assert.ok(!noExample.includes("usageEn"));
+  assert.ok(noExample.includes("\n\nWhat to fix, all of it in one rewrite:"));
 });
