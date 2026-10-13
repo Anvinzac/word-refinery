@@ -23,6 +23,7 @@ import {
   DOC_FILENAME,
   createStore,
   downloadJson,
+  parseJsonText,
   readJsonFile,
   StoreError,
 } from "./lib/store";
@@ -57,6 +58,30 @@ function emptyDoc(settings: Settings): RefineryDoc {
     review: [],
     savedAt: new Date().toISOString(),
   };
+}
+
+/** Bundled with the site; loaded when a browser has no words of its own yet. */
+const DEFAULT_DECK_URL = `${import.meta.env.BASE_URL}default-deck.json`;
+
+/** Review rows for a parsed file: its own rows, or every word queued as pending. */
+function reviewEntriesFrom(parsed: RefineryDoc): ReviewEntry[] {
+  // A working document already carries its own review state.
+  if (parsed.review.length > 0) return parsed.review;
+  // A bare deck or WordCrawler batch has no review rows. Normalise each word
+  // into deck shape (topics array, missing chars/initial, …) and queue it as
+  // pending so it lands in the Review table ready to be refined.
+  const usedIds = new Set<string>();
+  // One batch identity for the whole import, so these words stay findable
+  // together later — the same bookkeeping a generation run stamps on.
+  const addedAt = new Date().toISOString();
+  const batchId = `import-${addedAt.replace(/[-:]/g, "").replace(/\.\d+Z$/, "Z")}`;
+  const review: ReviewEntry[] = [];
+  for (const raw of parsed.deck.words) {
+    const deckWord = coerceDeckWord(raw, usedIds, { batchId, addedAt });
+    if (deckWord === null) continue;
+    review.push({ id: deckWord.id, deckWord, status: "pending", warnings: [] });
+  }
+  return review;
 }
 
 export function App() {
@@ -127,9 +152,24 @@ export function App() {
               `(mirrored ${new Date(mirror.mirroredAt).toLocaleString()}).` +
               (mirror.dirty ? " They were never pushed to the remote store." : ""),
           });
+          return;
         }
       } catch {
         // An unreadable mirror must not stop the app from opening.
+      }
+      try {
+        const response = await fetch(DEFAULT_DECK_URL, { cache: "no-store" });
+        const parsed = response.ok ? parseJsonText(await response.text()) : null;
+        const review = parsed === null ? [] : reviewEntriesFrom(parsed);
+        if (!cancelled && review.length > 0) {
+          setDoc(rebuild(review));
+          setNotice({
+            kind: "ok",
+            text: `Loaded the default dataset — ${review.length} word(s) ready to review.`,
+          });
+        }
+      } catch {
+        // No default dataset is fine; the app simply starts empty.
       } finally {
         if (!cancelled) setHydrated(true);
       }
@@ -280,26 +320,7 @@ export function App() {
       });
       return;
     }
-    let review: ReviewEntry[];
-    if (parsed.review.length > 0) {
-      // A working document already carries its own review state.
-      review = parsed.review;
-    } else {
-      // A bare deck or WordCrawler batch has no review rows. Normalise each word
-      // into deck shape (topics array, missing chars/initial, …) and queue it as
-      // pending so it lands in the Review table ready to be refined.
-      const usedIds = new Set<string>();
-      // One batch identity for the whole import, so these words stay findable
-      // together later — the same bookkeeping a generation run stamps on.
-      const addedAt = new Date().toISOString();
-      const batchId = `import-${addedAt.replace(/[-:]/g, "").replace(/\.\d+Z$/, "Z")}`;
-      review = [];
-      for (const raw of parsed.deck.words) {
-        const deckWord = coerceDeckWord(raw, usedIds, { batchId, addedAt });
-        if (deckWord === null) continue;
-        review.push({ id: deckWord.id, deckWord, status: "pending", warnings: [] });
-      }
-    }
+    const review = reviewEntriesFrom(parsed);
     if (review.length === 0) {
       setNotice({ kind: "error", text: `No usable words found in ${file.name}.` });
       return;

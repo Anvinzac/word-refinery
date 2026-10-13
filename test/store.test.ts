@@ -16,6 +16,7 @@ import test from "node:test";
 import {
   createStore,
   fromStoredDoc,
+  parseJsonText,
   toStoredDoc,
   StoreError,
   STORED_SCHEMA_VERSION,
@@ -72,6 +73,14 @@ test.afterEach(() => {
 });
 
 // ── stored form ────────────────────────────────────────────────────────────
+
+test("a bare array of words parses like a batch with no review rows", () => {
+  const doc = parseJsonText(JSON.stringify([{ word: "achieve" }, { word: "borrow" }]));
+  assert.ok(doc !== null);
+  assert.equal(doc.deck.words.length, 2);
+  assert.equal(doc.review.length, 0);
+  assert.equal(parseJsonText("[1, 2"), null);
+});
 
 test("toStoredDoc drops the deck words that review already carries", () => {
   const stored = toStoredDoc(doc(3));

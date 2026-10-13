@@ -356,6 +356,26 @@ test("coerce returns null when there is no headword", () => {
   assert.equal(coerceDeckWord({ defVi: "không có từ" }, new Set()), null);
 });
 
+test("coerce reads raw model output: flat usage fields and emphasisVi phrases", () => {
+  const word = coerceDeckWord(
+    {
+      word: "achieve",
+      defVi: "Đạt_được điều mong_muốn sau nhiều cố_gắng bền_bỉ.",
+      leadVi: "Leo tới đỉnh núi sau bao năm luyện_tập.",
+      usageEn: "She worked hard to _____ her dream.",
+      usageVi: "Cô ấy làm_việc chăm_chỉ để đạt_được ước_mơ.",
+      emphasisVi: ["Đạt được", "đỉnh núi"],
+    },
+    new Set(),
+  );
+  assert.ok(word !== null);
+  assert.deepEqual(word.usage, [
+    { en: "She worked hard to _____ her dream.", vi: "Cô ấy làm_việc chăm_chỉ để đạt_được ước_mơ." },
+  ]);
+  assert.equal(word.defVi, "/Đạt_được/ điều mong_muốn sau nhiều cố_gắng bền_bỉ.");
+  assert.equal(word.leadVi, "Leo tới /đỉnh núi/ sau bao năm luyện_tập.");
+});
+
 // ── Refine brief: chips + note + validator findings reach one prompt ────────
 
 /** A deck word with enough fields for the regenerate prompt to render. */

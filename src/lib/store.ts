@@ -22,7 +22,8 @@
  * overwrite a deck it failed to load.
  *
  * Exports: StoreError, DeckStore, SaveOptions, createStore, downloadJson,
- *          readJsonFile, toStoredDoc, fromStoredDoc, STORED_SCHEMA_VERSION
+ *          readJsonFile, parseJsonText, toStoredDoc, fromStoredDoc,
+ *          STORED_SCHEMA_VERSION
  * Depends on: ./types.ts, ./settings.ts
  */
 import type { RefineryDoc } from "./types.ts";
@@ -489,13 +490,21 @@ export function downloadJson(document: RefineryDoc, filename = DOC_FILENAME): vo
 
 /** Read a user-picked JSON file into a document, or null when it is not one. */
 export async function readJsonFile(file: File): Promise<RefineryDoc | null> {
-  const text = await file.text();
+  return parseJsonText(await file.text());
+}
+
+/**
+ * Parse JSON text into a document: a working document as-is, or a deck export,
+ * WordCrawler batch or bare array of words wrapped with no review rows yet.
+ */
+export function parseJsonText(text: string): RefineryDoc | null {
   const parsed = parseDoc(text);
   if (parsed !== null) return parsed;
   // Tolerate a bare deck export or WordCrawler batch (meta + words) by wrapping
   // it. `meta` is optional: a batch may carry only a name, or none at all.
   try {
-    const bare = JSON.parse(text) as { meta?: unknown; words?: unknown };
+    const json = JSON.parse(text) as unknown;
+    const bare = (Array.isArray(json) ? { words: json } : json) as { meta?: unknown; words?: unknown };
     if (Array.isArray(bare.words)) {
       const meta =
         typeof bare.meta === "object" && bare.meta !== null

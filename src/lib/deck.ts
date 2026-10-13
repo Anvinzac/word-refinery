@@ -237,6 +237,24 @@ export function coerceDeckWord(
         })
         .filter((item): item is DeckUsage => item !== null)
     : [];
+  // Raw model output carries the example as flat usageEn / usageVi fields.
+  if (usage.length === 0 && text(record.usageEn).trim().length > 0) {
+    usage.push({ en: text(record.usageEn), vi: text(record.usageVi) });
+  }
+
+  // Raw model output also names its highlights in emphasisVi instead of
+  // marking them; place them the way a generation run would.
+  let defVi = text(record.defVi);
+  let leadVi = text(record.leadVi);
+  if (Array.isArray(record.emphasisVi) && !defVi.includes("/") && !leadVi.includes("/")) {
+    const phrases = (record.emphasisVi as unknown[]).filter(
+      (item): item is string => typeof item === "string",
+    );
+    const emphasis = validateEmphasis({ defVi, leadVi, emphasisVi: phrases });
+    const marked = injectEmphasisMarkers(defVi, leadVi, emphasis.emphasis);
+    defVi = marked.defVi;
+    leadVi = marked.leadVi;
+  }
 
   const letters = word.match(/\p{L}/gu) ?? [];
   return {
@@ -244,8 +262,8 @@ export function coerceDeckWord(
     word,
     pos: text(record.pos),
     ipa: text(record.ipa),
-    defVi: text(record.defVi),
-    leadVi: text(record.leadVi),
+    defVi,
+    leadVi,
     anticipateVi: text(record.anticipateVi),
     topic: topics[0]!,
     topics,
