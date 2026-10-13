@@ -26,9 +26,10 @@ import {
   stripEmphasisMarkers,
   type MarkedSyllable,
 } from "../lib/emphasis";
-import { regenerateField } from "../lib/llm";
+import { regenerateField, verifyWord } from "../lib/llm";
 import { buildRegeneratePrompt, chipsForField, type RefineField, type RefineRequest } from "../lib/prompt";
 import type { Settings } from "../lib/settings";
+import type { VerifyReport } from "../lib/prompt";
 import type { DeckWord, ReviewEntry, ReviewStatus } from "../lib/types";
 
 /** Render a marked field, visually distinguishing the `/highlighted/` span. */
@@ -104,6 +105,9 @@ export function ReviewTable({
   const [rewrote, setRewrote] = useState<string | null>(null);
   /** Unsaved highlight toggles; null means the field's stored markers are shown. */
   const [draft, setDraft] = useState<MarkedSyllable[] | null>(null);
+  /** The second-pass review for one word, kept until the row is checked again. */
+  const [reports, setReports] = useState<Record<string, VerifyReport>>({});
+  const [verifying, setVerifying] = useState<string | null>(null);
 
   /** Issues per word id, recomputed whenever the deck content changes. */
   const issuesById = useMemo(() => {
@@ -139,6 +143,24 @@ export function ReviewTable({
           : entry,
       ),
     );
+  };
+
+  /** Ask the model to review one finished card. */
+  const verify = async (entry: ReviewEntry) => {
+    setError(null);
+    if (settings.llm.apiKey.length === 0) {
+      setError("Add an API key in Settings before checking a card.");
+      return;
+    }
+    setVerifying(entry.id);
+    try {
+      const report = await verifyWord(settings.llm, entry.deckWord);
+      setReports((previous) => ({ ...previous, [entry.id]: report }));
+    } catch (thrown) {
+      setError(thrown instanceof Error ? thrown.message : String(thrown));
+    } finally {
+      setVerifying(null);
+    }
   };
 
   const setStatus = (id: string, status: ReviewStatus) => {
@@ -389,6 +411,28 @@ export function ReviewTable({
               <pre>{preview}</pre>
             </details>
 
+            {(reports[entry.id]?.findings ?? []).filter(
+              (finding) => finding.field === field || finding.field.startsWith(field),
+            ).length > 0 && (
+              <div className="refine-section">
+                <div className="refine-label">The review pass flagged this field</div>
+                <ul className="refine-findings">
+                  {(reports[entry.id]?.findings ?? [])
+                    .filter((finding) => finding.field === field || finding.field.startsWith(field))
+                    .map((finding, index) => (
+                      <li key={index} data-severity={finding.severity}>
+                        <strong>{finding.severity}</strong> {finding.problem}
+                        {finding.suggestion.length > 0 && (
+                          <div className="refine-suggestion" lang="vi">
+                            Suggested: {finding.suggestion}
+                          </div>
+                        )}
+                      </li>
+                    ))}
+                </ul>
+              </div>
+            )}
+
             {error !== null && <div className="banner error">{error}</div>}
             {rewrote !== null && (
               <div className="refine-result">
@@ -532,7 +576,33 @@ export function ReviewTable({
                           >
                             {entry.status === "rejected" ? "↺" : "✗"}
                           </button>
+                          <button
+                            type="button"
+                            className="btn sm"
+                            title="Ask the model to review this card"
+                            disabled={verifying !== null}
+                            onClick={() => void verify(entry)}
+                          >
+                            {verifying === entry.id ? "…" : "⌕"}
+                          </button>
                         </div>
+                        {reports[entry.id] !== undefined && (
+                          <div
+                            className="verdict"
+                            data-verdict={reports[entry.id].verdict}
+                            title={
+                              reports[entry.id].findings.length === 0
+                                ? "No problems reported"
+                                : reports[entry.id].findings
+                                    .map((finding) => `${finding.field}: ${finding.problem}`)
+                                    .join("\n")
+                            }
+                          >
+                            {reports[entry.id].verdict === "pass"
+                              ? "reviewed ✓"
+                              : `${reports[entry.id].findings.length} to fix`}
+                          </div>
+                        )}
                       </td>
                     </tr>
                     {openHere && active !== null && renderBrief(entry, active.field)}

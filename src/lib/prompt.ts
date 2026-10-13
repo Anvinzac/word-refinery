@@ -8,7 +8,8 @@
  * injects the `/…/` markers, so the model never has to learn the delimiter.
  *
  * Exports: ANNOTATION_SYSTEM_PROMPT, buildBatchPrompt, buildRegeneratePrompt,
- * COMPLAINT_CHIPS, chipsForField, ComplaintChip, RefineField, RefineRequest
+ * COMPLAINT_CHIPS, chipsForField, ComplaintChip, RefineField, RefineRequest,
+ * VERIFY_SYSTEM_PROMPT, buildVerifyPrompt, VerifyFinding, VerifyReport
  * Depends on: ./types.ts, ./contract.ts
  */
 import type { CorpusWord } from "./types.ts";
@@ -43,12 +44,15 @@ Field rules:
 - "usageVi": the Vietnamese meaning of that example sentence.
 - "topics": one to three lowercase tags from this closed list, most relevant FIRST: ${TOPIC_LIST}. Never invent a tag outside it — an unknown tag is discarded.
 - "exams": the exams whose vocabulary lists this word genuinely belongs to, from: ${EXAM_LIST}. Use an empty array [] for ordinary everyday words — most words have none, and a wrong tag is worse than none.
-- "emphasisVi": 2 Vietnamese phrases that will glow on screen. Each phrase MUST:
-  * be copied EXACTLY, diacritics included, from the defVi or leadVi you just wrote,
-  * be exactly TWO syllables taken from one neighbouring pair of words (never one syllable, never three or more),
-  * be a meaningful unit - a noun phrase, verb phrase, or adjective + noun,
-  * never be a function word such as và, là, của, có, được, trong, cho, với, một, rất, cũng, đã, đang, sẽ, không, những, các, thì, mà,
-  * be at most 30 characters and unique inside the list,
+- "emphasisVi": 2 Vietnamese phrases that will glow on screen, one drawn from defVi and one from leadVi.
+  CHOOSE BY MEANING FIRST. Pick the phrase that carries the POINT of the sentence - the idea the learner should walk away with. The test: if the sentence were cut down to two syllables, which two would have to survive for it still to mean anything? Those are the ones. A phrase chosen because it happened to sit next to another word is a DEFECT even when it satisfies every mechanical rule below.
+  * Prefer, in this order: the compound that names the concept itself (sức_khỏe, quan_trọng, thư_viện), then a vivid verb or adjective phrase (chảy xiết, lấp_lánh), then a concrete noun phrase.
+  * NEVER pick filler: a classifier and its noun ("con mèo"), a number and its noun ("hai người"), a time phrase ("mỗi ngày", "hằng ngày"), a verb with a generic object ("làm việc" when the sentence is not about work), or any span that crosses a comma.
+  * It must be copied EXACTLY, diacritics included, from the defVi or leadVi you just wrote.
+  * Write it PLAIN, with a space where the text has a join: for "quan_trọng" in defVi, the entry is "quan trọng".
+  * exactly TWO syllables - never one, never three or more. A joined compound is the ideal case, because the join already says those two syllables are one word.
+  * never a function word such as và, là, của, có, được, trong, cho, với, một, rất, cũng, đã, đang, sẽ, không, những, các, thì, mà,
+  * at most 30 characters and unique inside the list,
   * appear MID-SENTENCE in lowercase where possible, so the highlight matcher finds it exactly.
 
 Word joining (applies to the Vietnamese fields: defVi, leadVi, anticipateVi, usageVi):
@@ -304,6 +308,85 @@ export function buildRegeneratePrompt(
     `Word joining: ${JOIN_RULE}`,
     "Leave every other field alone.",
     'Return ONLY a JSON object of the form {"value": "<the rewritten field>"} with no commentary.',
+  ];
+  return lines.filter((line): line is string => line !== null).join("\n");
+}
+
+// ── Verification ────────────────────────────────────────────────────────────
+
+/**
+ * System prompt for the second pass: a reviewer, not a writer.
+ *
+ * Separate from the annotation prompt on purpose. A model asked to check its
+ * own work in the same breath as producing it tends to ratify whatever it just
+ * said; given the card as someone else's output and a list of things to look
+ * for, it finds real faults. The deterministic validator already covers counts,
+ * markers and leaks — this pass is for what only a reader can judge: whether
+ * the Vietnamese is natural, whether the definition actually defines the word,
+ * and whether the highlighted phrase is the one that carries the meaning.
+ */
+export const VERIFY_SYSTEM_PROMPT = `You are a strict Vietnamese editor reviewing vocabulary cards written by someone else for a mobile app. The learner sees the Vietnamese first and only later the English word.
+
+Judge what a human reader judges. Do NOT re-count words or characters, and do NOT comment on formatting: an automatic checker already covers those. Look for:
+- MEANING: does defVi actually define the English word, without drifting to a near-synonym or a different sense?
+- LEAK: does any Vietnamese field give the English word away - a cognate, a transliteration, or a translation so direct that the guess becomes trivial?
+- NATURALNESS: would a Vietnamese speaker say it this way? Flag translationese, wrong collocations, missing or wrong diacritics.
+- TEASER: does leadVi hint at the meaning without naming it, and is anticipateVi a fresh invitation rather than a stock phrase?
+- EXAMPLE: does usageEn read naturally with the blank, and does usageVi translate it faithfully?
+- EMPHASIS: is the highlighted phrase the one carrying the point of the sentence? A highlight sitting on filler - a classifier and its noun, a time phrase, a number - is a defect worth reporting even though nothing is strictly wrong with it.
+
+Severity: "blocker" for anything that would mislead a learner or give the answer away; "warn" for something a careful editor would change; "note" for a preference. Say nothing about a field that is fine.
+
+Return ONLY a JSON object:
+{"verdict":"pass"|"revise","findings":[{"field":"defVi","severity":"blocker"|"warn"|"note","problem":"<what is wrong, in English, one sentence>","suggestion":"<the corrected Vietnamese, or \\"\\" when you cannot fix it>"}]}
+"verdict" is "pass" only when findings is empty or holds nothing above "note". No commentary outside the JSON.`;
+
+/** One problem the verification pass reported. */
+export interface VerifyFinding {
+  field: string;
+  severity: "blocker" | "warn" | "note";
+  problem: string;
+  suggestion: string;
+}
+
+/** The verification pass's answer for one word. */
+export interface VerifyReport {
+  verdict: "pass" | "revise";
+  findings: VerifyFinding[];
+}
+
+/**
+ * Render one finished card for review.
+ *
+ * The English headword is given last and labelled as the answer, so the model
+ * reads the Vietnamese the way a learner does before it knows what the card is
+ * hiding — which is the only way to judge whether the card gives it away.
+ *
+ * @param word - the deck word to check, markers and joins intact
+ */
+export function buildVerifyPrompt(word: {
+  word: string;
+  pos: string;
+  level: string;
+  defVi: string;
+  leadVi: string;
+  anticipateVi: string;
+  usage: Array<{ en: string; vi: string }>;
+}): string {
+  const example = word.usage[0];
+  const lines: Array<string | null> = [
+    "Review this card.",
+    "",
+    `- defVi: ${word.defVi}`,
+    `- leadVi: ${word.leadVi}`,
+    `- anticipateVi: ${word.anticipateVi}`,
+    example ? `- usageEn: ${example.en}` : null,
+    example ? `- usageVi: ${example.vi}` : null,
+    "",
+    `The word the learner must guess is "${word.word}" (${word.pos || "unknown part of speech"}, ${word.level}).`,
+    "A phrase between /slashes/ is the highlight; an underscore joins the syllables of one word and is not a typo.",
+    "",
+    "Return the JSON object described in the system prompt.",
   ];
   return lines.filter((line): line is string => line !== null).join("\n");
 }

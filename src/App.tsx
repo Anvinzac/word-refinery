@@ -33,12 +33,13 @@ import {
   saveLocalDoc,
 } from "./lib/local-doc";
 import { CorpusPanel } from "./components/CorpusPanel";
+import { PromptsPanel } from "./components/PromptsPanel";
 import { EMPTY_FILTER, type LibraryFilter } from "./lib/library";
 import { readSettings, writeSettings, type Settings } from "./lib/settings";
 import type { CefrLevel, Deck, RefineryDoc, ReviewEntry } from "./lib/types";
 
 /** Tabs in the workspace. */
-type Tab = "generate" | "review" | "coverage" | "sync" | "settings";
+type Tab = "generate" | "review" | "coverage" | "sync" | "prompts" | "settings";
 
 /** An empty working document, used before anything is generated or loaded. */
 function emptyDoc(settings: Settings): RefineryDoc {
@@ -341,6 +342,7 @@ export function App() {
     review: doc.review.length,
     coverage: null,
     sync: approved.length,
+    prompts: null,
     settings: null,
   };
 
@@ -363,6 +365,7 @@ export function App() {
             ["review", "Library"],
             ["coverage", "Coverage"],
             ["sync", "Sync & export"],
+            ["prompts", "Prompts"],
             ["settings", "Settings"],
           ] as Array<[Tab, string]>
         ).map(([id, label]) => (
@@ -549,6 +552,8 @@ export function App() {
           </section>
         </>
       )}
+
+      {tab === "prompts" && <PromptsPanel />}
 
       {tab === "settings" && <SettingsPanel settings={settings} onChange={setSettings} />}
 

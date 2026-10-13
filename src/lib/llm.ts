@@ -10,16 +10,20 @@
  * The API key is read from localStorage at call time and is sent only to the
  * endpoint the user picked. Nothing is proxied: GitHub Pages has no server.
  *
- * Exports: LlmError, ListedModel, chat, listModels, annotateBatch, regenerateField, testConnection
+ * Exports: LlmError, ListedModel, chat, listModels, annotateBatch, regenerateField,
+ *          verifyWord, testConnection
  * Depends on: ./settings.ts, ./prompt.ts, ./contract.ts, ./types.ts
  */
 import type { LlmProvider, Settings } from "./settings.ts";
 import {
-  ANNOTATION_SYSTEM_PROMPT,
   buildBatchPrompt,
   buildRegeneratePrompt,
+  buildVerifyPrompt,
   type RefineRequest,
+  type VerifyFinding,
+  type VerifyReport,
 } from "./prompt.ts";
+import { resolvePrompt } from "./prompt-store.ts";
 import { extractJsonArray, parseAnnotationList, type CrawlerAnnotation } from "./contract.ts";
 import type { CorpusWord, DeckWord } from "./types.ts";
 import type { AvoidList } from "./uniqueness.ts";
@@ -145,7 +149,9 @@ async function sendOnce(
   };
   if (provider === "openrouter") {
     // OpenRouter asks for these two so it can attribute traffic.
-    headers["HTTP-Referer"] = typeof window === "undefined" ? "https://localhost/" : window.location.origin;
+    // Optional chaining rather than a `typeof` guard: the non-browser callers
+    // this module already supports may have a window without a location.
+    headers["HTTP-Referer"] = globalThis.window?.location?.origin ?? "https://localhost/";
     headers["X-Title"] = "Word Refinery";
   }
 
@@ -451,7 +457,7 @@ export async function annotateBatch(
       const reply = await chat(
         settings,
         [
-          { role: "system", content: ANNOTATION_SYSTEM_PROMPT },
+          { role: "system", content: resolvePrompt("annotation") },
           { role: "user", content: buildBatchPrompt(batch, avoid?.section() ?? "") },
         ],
         { signal },
@@ -498,7 +504,7 @@ export async function regenerateField(
   const reply = await chat(
     settings,
     [
-      { role: "system", content: ANNOTATION_SYSTEM_PROMPT },
+      { role: "system", content: resolvePrompt("annotation") },
       { role: "user", content: buildRegeneratePrompt(word, request) },
     ],
     { attempts: 2, signal },
@@ -534,4 +540,80 @@ export async function testConnection(settings: Settings["llm"]): Promise<string>
     ],
     { attempts: 1 },
   );
+}
+
+/**
+ * Ask the model to review one finished card.
+ *
+ * A second pass with a reviewer's prompt rather than a writer's, for the things
+ * the deterministic validator cannot judge: whether the Vietnamese reads
+ * naturally, whether the definition defines the right sense, and whether the
+ * highlight landed on the phrase that carries the sentence.
+ *
+ * @param settings - active LLM settings
+ * @param word - the deck word to check
+ * @param signal - optional AbortSignal
+ * @returns the verdict and findings
+ * @throws LlmError when the reply cannot be read as a report
+ */
+export async function verifyWord(
+  settings: Settings["llm"],
+  word: DeckWord,
+  signal?: AbortSignal,
+): Promise<VerifyReport> {
+  const reply = await chat(
+    settings,
+    [
+      { role: "system", content: resolvePrompt("verify") },
+      { role: "user", content: buildVerifyPrompt(word) },
+    ],
+    { attempts: 2, signal },
+  );
+
+  const start = reply.indexOf("{");
+  const end = reply.lastIndexOf("}");
+  if (start === -1 || end <= start) {
+    throw new LlmError("The review reply contained no JSON object", {
+      provider: settings.provider,
+      body: reply.slice(0, 300),
+    });
+  }
+  let parsed: { verdict?: unknown; findings?: unknown };
+  try {
+    parsed = JSON.parse(reply.slice(start, end + 1)) as typeof parsed;
+  } catch {
+    throw new LlmError("The review reply was not valid JSON", {
+      provider: settings.provider,
+      body: reply.slice(0, 300),
+    });
+  }
+
+  const severities = new Set(["blocker", "warn", "note"]);
+  const findings: VerifyFinding[] = Array.isArray(parsed.findings)
+    ? parsed.findings
+        .map((item): VerifyFinding | null => {
+          if (typeof item !== "object" || item === null) return null;
+          const record = item as Record<string, unknown>;
+          const problem = typeof record.problem === "string" ? record.problem.trim() : "";
+          if (problem.length === 0) return null;
+          const severity =
+            typeof record.severity === "string" && severities.has(record.severity)
+              ? (record.severity as VerifyFinding["severity"])
+              : "note";
+          return {
+            field: typeof record.field === "string" ? record.field : "word",
+            severity,
+            problem,
+            suggestion: typeof record.suggestion === "string" ? record.suggestion.trim() : "",
+          };
+        })
+        .filter((finding): finding is VerifyFinding => finding !== null)
+    : [];
+
+  // The verdict is derived rather than trusted: a model that lists a blocker
+  // and still says "pass" has contradicted itself, and the findings are the
+  // part a reviewer acts on.
+  const worst = findings.some((finding) => finding.severity !== "note");
+  const claimed = parsed.verdict === "pass" || parsed.verdict === "revise" ? parsed.verdict : null;
+  return { verdict: worst ? "revise" : (claimed ?? "pass"), findings };
 }
