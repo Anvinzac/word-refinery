@@ -171,6 +171,18 @@ test("the system prompt states the joining rule and its traps", async () => {
   assert.match(prompt, /ba_lô/, "the worked example is shown");
   assert.match(prompt, /does NOT change a word count/, "joining must not look like shortening");
   assert.match(prompt, /when you are not sure.*do not join/i, "the safe default is stated");
+  // The three categories that must never be joined, each with an example.
+  for (const category of [/function words/, /classifier and its noun/, /free verb-object pair/]) {
+    assert.match(prompt, category, `the do-not-join list names ${category}`);
+  }
+  for (const example of ["của tôi", "con mèo", "ăn cơm"]) {
+    assert.ok(prompt.includes(example), `${example} is shown unjoined`);
+    assert.ok(
+      !prompt.includes(example.replace(" ", "_")),
+      `${example} must never appear joined in the prompt`,
+    );
+  }
+  assert.match(prompt, /ăn_mừng/, "a lexicalised verb-object pair shows the exception");
   assert.match(prompt, /NEVER put an underscore in "usageEn"/, "the blank's field is protected");
   assert.match(prompt, /emphasisVi" entries are written PLAIN/, "emphasis stays unjoined");
 });
@@ -183,6 +195,8 @@ test("a single-field rewrite is told the rule too", async () => {
   );
   assert.match(prompt, /Word joining:/);
   assert.match(prompt, /quan_trọng/);
+  assert.match(prompt, /Never join a function word/, "a rewrite gets the exclusions too");
+  assert.match(prompt, /free verb-object pair/);
 });
 
 test("the worked example in the prompt obeys its own word count", async () => {

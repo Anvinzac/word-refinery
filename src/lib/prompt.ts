@@ -57,7 +57,12 @@ Vietnamese is written one syllable at a time, so "ba lô" (a backpack) looks exa
   Điều /quan_trọng/ nhất là sức_khỏe.
 - A join is ONE underscore with a letter or digit directly on both sides: no space before it, no space after it.
 - JOIN compound words (học_sinh, điện_thoại, thư_viện, sức_khỏe) and reduplicated words (thình_thịch, lấp_lánh, nhẹ_nhàng).
-- DO NOT join anything else. Function words, classifiers and free combinations stay separate: "con mèo", "rất đẹp", "đã đi", "của tôi".
+- DO NOT join these three, ever:
+  * function words — "của tôi", "rất đẹp", "đã đi", "sẽ về", "không biết"
+  * a classifier and its noun — "con mèo", "cái bàn", "chiếc xe", "quyển sách"
+  * a free verb-object pair — "ăn cơm", "đọc sách", "uống nước", "rửa tay"
+  A verb-object pair is free when it still means the sum of its parts. Join it only when the pair has a meaning the parts do not give on their own, which makes it one lexical word: "ăn_mừng" (to celebrate), "ăn_năn" (to repent).
+- DO NOT join anything else either. Only compounds and reduplicated words take a join.
 - When you are not sure two syllables are one word, DO NOT join them. A missing join only allows a line break; a wrong join glues two words into a block that cannot wrap and shrinks the whole page.
 - A join does NOT change a word count. "quan_trọng" is TWO of the 8-11 words, not one. Count syllables exactly as if the underscores were spaces.
 - Never use an underscore for anything else: no snake_case, no emphasis, no decoration. Any single underscore between two letters will be read as a join. The five-underscore blank "_____" in usageEn is not a join and is unaffected.
@@ -220,7 +225,7 @@ const FIELD_RULES: Record<RefineField, string> = {
  * undo the joins the rest of the deck has.
  */
 const JOIN_RULE =
-  'Join the syllables of ONE Vietnamese word with a single underscore and leave ordinary spaces between words: "ba_lô", "quan_trọng", "sức_khỏe". Join only compounds and reduplicated words; when unsure, do not join. A join does NOT change the word count — "quan_trọng" counts as two words. Use the underscore for nothing else.';
+  'Join the syllables of ONE Vietnamese word with a single underscore and leave ordinary spaces between words: "ba_lô", "quan_trọng", "sức_khỏe". Join only compounds and reduplicated words. Never join a function word ("của tôi"), a classifier and its noun ("con mèo"), or a free verb-object pair ("ăn cơm"); when unsure, do not join. A join does NOT change the word count — "quan_trọng" counts as two words. Use the underscore for nothing else.';
 
 /**
  * Everything the reviewer said about one field, assembled by the Review table.
