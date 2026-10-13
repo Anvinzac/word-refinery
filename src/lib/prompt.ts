@@ -51,6 +51,20 @@ Field rules:
   * be at most 30 characters and unique inside the list,
   * appear MID-SENTENCE in lowercase where possible, so the highlight matcher finds it exactly.
 
+Word joining (applies to the Vietnamese fields: defVi, leadVi, anticipateVi, usageVi):
+Vietnamese is written one syllable at a time, so "ba lô" (a backpack) looks exactly like two unrelated words and a card may break the line between them. Join the syllables of ONE word with a single underscore, and leave an ordinary space between different words.
+  Sáng nào cũng đeo ba_lô ra cửa.
+  Điều /quan_trọng/ nhất là sức_khỏe.
+- A join is ONE underscore with a letter or digit directly on both sides: no space before it, no space after it.
+- JOIN compound words (học_sinh, điện_thoại, thư_viện, sức_khỏe) and reduplicated words (thình_thịch, lấp_lánh, nhẹ_nhàng).
+- DO NOT join anything else. Function words, classifiers and free combinations stay separate: "con mèo", "rất đẹp", "đã đi", "của tôi".
+- When you are not sure two syllables are one word, DO NOT join them. A missing join only allows a line break; a wrong join glues two words into a block that cannot wrap and shrinks the whole page.
+- A join does NOT change a word count. "quan_trọng" is TWO of the 8-11 words, not one. Count syllables exactly as if the underscores were spaces.
+- Never use an underscore for anything else: no snake_case, no emphasis, no decoration. Any single underscore between two letters will be read as a join. The five-underscore blank "_____" in usageEn is not a join and is unaffected.
+- "emphasisVi" entries are written PLAIN, with a space where the text has a join: for /quan_trọng/ in defVi, the emphasis entry is "quan trọng".
+- NEVER put an underscore in "usageEn". That field carries the five-underscore answer blank, and a join beside it would be read as part of the blank. English words wrap safely on their own.
+- The reader never sees the underscore; the app replaces it when the deck loads.
+
 Hard rules:
 - Write correct Vietnamese with full diacritics in every Vietnamese field.
 - Never include the English target word, or any English word, in defVi, leadVi or anticipateVi.
@@ -59,7 +73,8 @@ Hard rules:
 - Return ONLY a JSON array with one object per requested word, in the requested order. No markdown fences, no headings, no commentary.
 
 Minimal example of the expected format (one word, shortened):
-[{"word":"water","pos":"noun","ipa":"/ˈwɔː.tər/","defVi":"Chất lỏng trong suốt mà ta uống mỗi ngày.","leadVi":"Có thứ này thì cây mới sống được.","anticipateVi":"Thứ gì chảy được nhỉ?","usageEn":"Please bring me a glass of _____.","usageVi":"Làm ơn mang cho tôi một cốc nước.","topics":["nature","daily"],"exams":[],"emphasisVi":["Chất lỏng","uống mỗi"]}]`;
+[{"word":"water","pos":"noun","ipa":"/ˈwɔː.tər/","defVi":"Chất_lỏng trong suốt mà ta uống mỗi ngày.","leadVi":"Có thứ này thì cây_cối mới sống được.","anticipateVi":"Thứ gì chảy được nhỉ?","usageEn":"Please bring me a glass of _____.","usageVi":"Làm ơn mang cho tôi một cốc nước.","topics":["nature","daily"],"exams":[],"emphasisVi":["Chất lỏng","cây cối"]}]
+(Note the example: "Chất_lỏng" is one word written as two syllables, so defVi still counts 9 words; the emphasisVi entry for it is written plain as "Chất lỏng".)`;
 
 /**
  * Render one batch of corpus words as the user message.
@@ -198,6 +213,16 @@ const FIELD_RULES: Record<RefineField, string> = {
 };
 
 /**
+ * The joining convention, restated for a single-field rewrite.
+ *
+ * A rewrite is one field in isolation, so it cannot infer the convention from
+ * the surrounding text — and a field that comes back unjoined would quietly
+ * undo the joins the rest of the deck has.
+ */
+const JOIN_RULE =
+  'Join the syllables of ONE Vietnamese word with a single underscore and leave ordinary spaces between words: "ba_lô", "quan_trọng", "sức_khỏe". Join only compounds and reduplicated words; when unsure, do not join. A join does NOT change the word count — "quan_trọng" counts as two words. Use the underscore for nothing else.';
+
+/**
  * Everything the reviewer said about one field, assembled by the Review table.
  * The three sources stack rather than compete: tapped chips name the defect,
  * the note adds whatever no chip covers, and the validator's own findings ride
@@ -271,6 +296,7 @@ export function buildRegeneratePrompt(
     brief.join("\n"),
     "",
     `Constraints for "${field}": ${FIELD_RULES[field]}`,
+    `Word joining: ${JOIN_RULE}`,
     "Leave every other field alone.",
     'Return ONLY a JSON object of the form {"value": "<the rewritten field>"} with no commentary.',
   ];

@@ -22,6 +22,7 @@ import {
   type CrawlerAnnotation,
 } from "./contract.ts";
 import { countSyllables, injectEmphasisMarkers, stripEmphasisMarkers, validateEmphasis } from "./emphasis.ts";
+import { countUnits, findStrayJoins } from "./joiner.ts";
 
 /** Deck id pattern, identical to the app's importer rule. */
 const ID_PATTERN = /^[a-zA-Z0-9_-]+$/;
@@ -321,7 +322,9 @@ export function validateDeck(deck: Deck): DeckIssue[] {
     if (entry.defVi.trim().length < 2) at("defVi", "missing");
     else {
       const clean = stripEmphasisMarkers(entry.defVi);
-      const words = clean.trim().split(/\s+/).filter(Boolean).length;
+      // Counted with joins removed, exactly as the app counts them: joining two
+      // syllables must never make a field look shorter than it reads.
+      const words = countUnits(clean);
       if (words < 8 || words > 11) at("defVi", `${words} words; expected 8-11`);
       if (clean.length > 140) at("defVi", `${clean.length} characters; expected at most 140`);
       if (containsTargetWord(clean, entry.word)) at("defVi", "leaks the English answer");
@@ -329,7 +332,7 @@ export function validateDeck(deck: Deck): DeckIssue[] {
 
     if (entry.leadVi.trim().length > 0) {
       const clean = stripEmphasisMarkers(entry.leadVi);
-      const words = clean.trim().split(/\s+/).filter(Boolean).length;
+      const words = countUnits(clean);
       if (words < 8 || words > 11) at("leadVi", `${words} words; expected 8-11`);
       if (clean.length > 120) at("leadVi", `${clean.length} characters; expected at most 120`);
       if (containsTargetWord(clean, entry.word)) at("leadVi", "leaks the English answer");
@@ -337,7 +340,7 @@ export function validateDeck(deck: Deck): DeckIssue[] {
 
     if (entry.anticipateVi.trim().length > 0) {
       const clean = stripEmphasisMarkers(entry.anticipateVi);
-      const words = clean.trim().split(/\s+/).filter(Boolean).length;
+      const words = countUnits(clean);
       if (words < 3 || words > 8) at("anticipateVi", `${words} words; expected 3-8`);
       if (containsTargetWord(clean, entry.word)) at("anticipateVi", "leaks the English answer");
       const key = clean.toLowerCase();
@@ -383,6 +386,15 @@ export function validateDeck(deck: Deck): DeckIssue[] {
       if (!usage.en.includes("_____")) at(`usage[${index}].en`, "missing the _____ blank");
       if (containsTargetWord(usage.en, entry.word)) at(`usage[${index}].en`, "leaks the answer next to the blank");
       if (usage.vi.trim().length === 0) at(`usage[${index}].vi`, "missing Vietnamese gloss");
+    }
+
+    // Any single underscore between two letters is read downstream as a word
+    // join, so one that is not a join is a silent defect rather than a typo.
+    for (const field of ["defVi", "leadVi", "anticipateVi"] as const) {
+      for (const problem of findStrayJoins(entry[field])) at(field, problem);
+    }
+    for (const [index, usage] of entry.usage.entries()) {
+      for (const problem of findStrayJoins(usage.vi)) at(`usage[${index}].vi`, problem);
     }
 
     // Markers must be paired and must wrap a 2-syllable Vietnamese compound.

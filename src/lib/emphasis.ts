@@ -18,6 +18,7 @@
  *          MarkedSyllable
  * Depends on: none
  */
+import { stripWordJoins } from "./joiner.ts";
 
 /**
  * Vietnamese function words that can never be part of a highlight.
@@ -72,12 +73,20 @@ function escapeRegExp(value: string): string {
   return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 }
 
-/** Longest (and casing-correct) occurrence of a phrase inside the sources. */
+/**
+ * Longest (and casing-correct) occurrence of a phrase inside the sources.
+ *
+ * Emphasis phrases are written plain ("quan trọng") while the text that holds
+ * them may join those syllables ("quan_trọng"), so each space in the phrase
+ * matches either a space or a join. Without this a highlight would silently
+ * fail to attach to exactly the compounds most worth highlighting.
+ */
 function findOccurrence(
   haystacks: readonly string[],
   phrase: string,
 ): { text: string; start: number; end: number; haystack: string } | null {
-  const pattern = new RegExp(`(?<![\\p{L}\\p{N}])${escapeRegExp(phrase)}(?![\\p{L}\\p{N}])`, "iu");
+  const spaced = escapeRegExp(phrase).replace(/\\?\s+/gu, "[\\s_]+");
+  const pattern = new RegExp(`(?<![\\p{L}\\p{N}])${spaced}(?![\\p{L}\\p{N}])`, "iu");
   for (const haystack of haystacks) {
     const match = pattern.exec(haystack);
     if (match !== null && match.index !== undefined) {
@@ -110,9 +119,13 @@ function neighbourToken(
   return { token: found[2], junction: found[1] };
 }
 
-/** A neighbour can only form a compound when nothing but whitespace separates them. */
+/**
+ * A neighbour can only form a compound when nothing but whitespace — or a word
+ * join — separates them. A join is the strongest possible evidence of a
+ * compound: it says outright that the two syllables are one word.
+ */
 function isTightJunction(junction: string): boolean {
-  return /^\s*$/u.test(junction);
+  return /^[\s_]*$/u.test(junction);
 }
 
 /** Content syllable: at least two letters and not a function word. */
@@ -137,8 +150,12 @@ function validateCandidate(
     );
     return { phrase: null, warnings };
   }
-  if (occurrence.text !== phrase) {
-    warnings.push(`emphasisVi: "${phrase}" re-cased to "${occurrence.text}" from the source text`);
+  // The text may join the syllables this phrase spans; the phrase itself is
+  // stored plain, because that is the form the app matches token by token.
+  // Only a genuine difference in casing is worth reporting.
+  const found = stripWordJoins(occurrence.text);
+  if (found !== phrase) {
+    warnings.push(`emphasisVi: "${phrase}" re-cased to "${found}" from the source text`);
   }
 
   const syllables = countSyllables(phrase);
@@ -165,20 +182,20 @@ function validateCandidate(
       );
       return { phrase: null, warnings };
     }
-    warnings.push(`emphasisVi: kept single syllable "${occurrence.text}" — multi-syllable is safer`);
-    return { phrase: occurrence.text, warnings };
+    warnings.push(`emphasisVi: kept single syllable "${found}" — multi-syllable is safer`);
+    return { phrase: found, warnings };
   }
 
   // The feed caps Vietnamese emphasis at one word per page and the catalog
   // convention is 2-syllable compounds; a 3+ syllable span reads as a clause.
   if (syllables > 2) {
     warnings.push(
-      `emphasisVi: dropped "${occurrence.text}" — ${syllables} syllables; keep 2-syllable compounds`,
+      `emphasisVi: dropped "${found}" — ${syllables} syllables; keep 2-syllable compounds`,
     );
     return { phrase: null, warnings };
   }
 
-  return { phrase: occurrence.text, warnings };
+  return { phrase: found, warnings };
 }
 
 /**
@@ -315,7 +332,11 @@ export function injectEmphasisMarkers(
 
   const markOnce = (text: string, phrase: string): string | null => {
     if (text.includes(MARKER)) return null; // already marked
-    const pattern = new RegExp(`(?<![\\p{L}\\p{N}])${escapeRegExp(phrase)}(?![\\p{L}\\p{N}])`, "iu");
+    // The phrase is plain but the text may join the syllables it spans, so a
+    // space in the phrase matches a space OR a join. The marker then wraps the
+    // text's own form, joins intact — `/Chất_lỏng/`, never `/Chất lỏng/`.
+    const spaced = escapeRegExp(phrase).replace(/\\?\s+/gu, "[\\s_]+");
+    const pattern = new RegExp(`(?<![\\p{L}\\p{N}])${spaced}(?![\\p{L}\\p{N}])`, "iu");
     const match = pattern.exec(text);
     if (match === null) return null;
     const start = match.index;
