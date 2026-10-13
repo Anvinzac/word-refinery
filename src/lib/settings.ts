@@ -7,8 +7,12 @@
  * is a public static host, anyone who opens the deployed URL uses their own
  * keys on their own machine.
  *
- * Exports: LlmProvider, Settings, readSettings, writeSettings, patchSettings,
- *          SETTINGS_KEY, maskKey, PROVIDERS
+ * Each provider keeps its own key and model, so pasting one service's key
+ * never overwrites another's.
+ *
+ * Exports: LlmProvider, Settings, ProviderProfile, readSettings, writeSettings,
+ *          patchSettings, patchLlmSettings, switchProvider, SETTINGS_KEY,
+ *          maskKey, PROVIDERS
  * Depends on: none
  */
 
@@ -70,14 +74,24 @@ export const PROVIDERS: readonly ProviderInfo[] = [
   },
 ];
 
+/** What is remembered per provider, so switching services never loses a key. */
+export interface ProviderProfile {
+  apiKey: string;
+  model: string;
+}
+
 /** Persisted settings document. */
 export interface Settings {
   /** Schema marker so older localStorage payloads can be migrated. */
   version: 1;
   llm: {
     provider: LlmProvider;
+    /** The active provider's model; mirrored into `profiles[provider]`. */
     model: string;
+    /** The active provider's key; mirrored into `profiles[provider]`. */
     apiKey: string;
+    /** Every provider's key and model as last entered on this device. */
+    profiles: Partial<Record<LlmProvider, ProviderProfile>>;
     /** Words per LLM call. Smaller batches are more reliable, slower overall. */
     batchSize: number;
     maxTokens: number;
@@ -108,6 +122,7 @@ export function defaultSettings(): Settings {
       provider: "openrouter",
       model: "meta-llama/llama-3.3-70b-instruct",
       apiKey: "",
+      profiles: {},
       batchSize: 5,
       maxTokens: 4096,
     },
@@ -124,9 +139,18 @@ export function readSettings(): Settings {
     const stored = window.localStorage.getItem(SETTINGS_KEY);
     if (stored === null) return base;
     const parsed = JSON.parse(stored) as Partial<Settings>;
+    // Older payloads had one shared key and no profiles; adopting it as the
+    // active provider's profile is the migration.
+    const llm = { ...base.llm, ...(parsed.llm ?? {}) };
     return {
       version: 1,
-      llm: { ...base.llm, ...(parsed.llm ?? {}) },
+      llm: {
+        ...llm,
+        profiles: {
+          ...(llm.profiles ?? {}),
+          [llm.provider]: { apiKey: llm.apiKey, model: llm.model },
+        },
+      },
       store: { ...base.store, ...(parsed.store ?? {}) },
       generation: { ...base.generation, ...(parsed.generation ?? {}) },
     };
@@ -157,6 +181,36 @@ export function patchSettings<K extends keyof Settings>(
   } as Settings;
   writeSettings(next);
   return next;
+}
+
+/** Patch the active LLM settings, keeping the active provider's profile in step. */
+export function patchLlmSettings(
+  llm: Settings["llm"],
+  patch: Partial<Pick<Settings["llm"], "apiKey" | "model" | "batchSize" | "maxTokens">>,
+): Settings["llm"] {
+  const next = { ...llm, ...patch };
+  return {
+    ...next,
+    profiles: { ...next.profiles, [next.provider]: { apiKey: next.apiKey, model: next.model } },
+  };
+}
+
+/**
+ * Switch provider: the outgoing key and model are kept in its profile, and the
+ * incoming provider's own key and model come back. A provider never used here
+ * starts with no key and its first suggested model.
+ */
+export function switchProvider(llm: Settings["llm"], provider: LlmProvider): Settings["llm"] {
+  const profiles = { ...llm.profiles, [llm.provider]: { apiKey: llm.apiKey, model: llm.model } };
+  const saved = profiles[provider];
+  const fallbackModel = PROVIDERS.find((entry) => entry.id === provider)?.suggested[0] ?? "";
+  return {
+    ...llm,
+    provider,
+    apiKey: saved?.apiKey ?? "",
+    model: saved?.model || fallbackModel,
+    profiles,
+  };
 }
 
 /** Show only the tail of a key so the UI can confirm identity without leaking it. */

@@ -58,7 +58,14 @@ const CARD: DeckWord = {
   batchId: "run-1",
 };
 
-const LLM = { provider: "openrouter", model: "m", apiKey: "k", batchSize: 5, maxTokens: 1024 } as const;
+const LLM = {
+  provider: "openrouter",
+  model: "m",
+  apiKey: "k",
+  profiles: {},
+  batchSize: 5,
+  maxTokens: 1024,
+} as const;
 
 const realFetch = globalThis.fetch;
 function stubReply(content: string): void {

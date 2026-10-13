@@ -8,7 +8,14 @@
  * Depends on: ../lib/settings.ts, ../lib/llm.ts, ../lib/models.ts, ../lib/vault.ts
  */
 import { Fragment, useEffect, useMemo, useRef, useState } from "react";
-import { PROVIDERS, maskKey, type Settings, type StoreKind } from "../lib/settings";
+import {
+  PROVIDERS,
+  maskKey,
+  patchLlmSettings,
+  switchProvider,
+  type Settings,
+  type StoreKind,
+} from "../lib/settings";
 import { listModels, testConnection, type ListedModel } from "../lib/llm";
 import { estimateParamsB, formatParamsB, groupModels, type ModelFamily } from "../lib/models";
 import {
@@ -116,8 +123,8 @@ export function SettingsPanel({
   const mainFamilies = families.filter((family) => family.id !== "other");
   const otherFamily = families.find((family) => family.id === "other");
 
-  const patchLlm = (patch: Partial<Settings["llm"]>) =>
-    onChange({ ...settings, llm: { ...settings.llm, ...patch } });
+  const patchLlm = (patch: Parameters<typeof patchLlmSettings>[1]) =>
+    onChange({ ...settings, llm: patchLlmSettings(settings.llm, patch) });
   const patchStore = (patch: Partial<Settings["store"]>) =>
     onChange({ ...settings, store: { ...settings.store, ...patch } });
   const patchGeneration = (patch: Partial<Settings["generation"]>) =>
@@ -250,13 +257,12 @@ export function SettingsPanel({
               value={settings.llm.provider}
               onChange={(event) => {
                 const next = event.target.value as Settings["llm"]["provider"];
-                const info = PROVIDERS.find((entry) => entry.id === next);
                 // Drop the previous provider's catalogue right away: its ids
                 // are unusable here, and the fresh list arrives moments later.
                 listAbort.current?.abort();
                 setModels([]);
                 setListState({ kind: "idle", text: "" });
-                patchLlm({ provider: next, model: info?.suggested[0] ?? "" });
+                onChange({ ...settings, llm: switchProvider(settings.llm, next) });
               }}
             >
               {PROVIDERS.map((entry) => (
@@ -281,8 +287,8 @@ export function SettingsPanel({
             />
             <span className="note">
               {settings.llm.apiKey.length > 0
-                ? `stored locally as ${maskKey(settings.llm.apiKey)}`
-                : "not set — generation is disabled until you add one"}
+                ? `${provider.label} key saved on this device as ${maskKey(settings.llm.apiKey)}`
+                : `no ${provider.label} key on this device yet — each service keeps its own`}
             </span>
           </div>
 
