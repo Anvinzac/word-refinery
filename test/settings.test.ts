@@ -29,6 +29,19 @@ test("each provider keeps its own key and model across switches", () => {
   assert.equal(llm.apiKey, "openrouter-key");
 });
 
+test("all four providers, Alibaba included, hold separate keys at once", () => {
+  const providers = ["alibaba", "openrouter", "together", "anthropic"] as const;
+  let llm = defaultSettings().llm;
+  for (const provider of providers) {
+    llm = patchLlmSettings(switchProvider(llm, provider), { apiKey: `${provider}-key` });
+  }
+  for (const provider of ["together", "alibaba", "anthropic", "openrouter", "alibaba"] as const) {
+    llm = switchProvider(llm, provider);
+    assert.equal(llm.apiKey, `${provider}-key`);
+  }
+  assert.equal(llm.model, "qwen3-max");
+});
+
 test("a provider never used starts empty with its first suggested model", () => {
   const llm = switchProvider(patchLlmSettings(defaultSettings().llm, { apiKey: "or" }), "alibaba");
   assert.equal(llm.apiKey, "");
