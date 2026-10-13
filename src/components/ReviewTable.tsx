@@ -50,9 +50,6 @@ export function MarkedText({ value }: { value: string }) {
   );
 }
 
-/** Statuses a reviewer can move a row to. */
-const STATUSES: readonly ReviewStatus[] = ["pending", "approved", "edited", "rejected"];
-
 /** Column header per refinable field, reused by the inline brief's title. */
 const FIELD_LABELS: Record<RefineField, string> = {
   defVi: "defVi",
@@ -83,14 +80,21 @@ interface ActiveCell {
 
 export function ReviewTable({
   entries,
+  rows,
   settings,
+  selected,
+  onToggleSelect,
   onChange,
 }: {
+  /** Every row in the deck. Edits map over this, so ids outside `rows` survive. */
   entries: readonly ReviewEntry[];
+  /** The slice to render — already filtered and capped by the library. */
+  rows: readonly ReviewEntry[];
   settings: Settings;
+  selected: ReadonlySet<string>;
+  onToggleSelect: (id: string) => void;
   onChange: (next: ReviewEntry[]) => void;
 }) {
-  const [filter, setFilter] = useState<ReviewStatus | "all">("all");
   const [active, setActive] = useState<ActiveCell | null>(null);
   const [chips, setChips] = useState<string[]>([]);
   const [note, setNote] = useState("");
@@ -127,17 +131,6 @@ export function ReviewTable({
     return map;
   }, [entries]);
 
-  const counts = useMemo(() => {
-    const tally: Record<ReviewStatus, number> = { pending: 0, approved: 0, edited: 0, rejected: 0 };
-    for (const entry of entries) tally[entry.status] += 1;
-    return tally;
-  }, [entries]);
-
-  const visible = useMemo(
-    () => (filter === "all" ? entries : entries.filter((entry) => entry.status === filter)),
-    [entries, filter],
-  );
-
   const patchWord = (id: string, patch: Partial<DeckWord>) => {
     onChange(
       entries.map((entry) =>
@@ -150,14 +143,6 @@ export function ReviewTable({
 
   const setStatus = (id: string, status: ReviewStatus) => {
     onChange(entries.map((entry) => (entry.id === id ? { ...entry, status } : entry)));
-  };
-
-  const approveAll = () => {
-    onChange(
-      entries.map((entry) =>
-        entry.status === "pending" ? { ...entry, status: "approved" as const } : entry,
-      ),
-    );
   };
 
   const closeBrief = () => {
@@ -288,7 +273,7 @@ export function ReviewTable({
 
     return (
       <tr className="refine-row" data-status={entry.status}>
-        <td colSpan={6}>
+        <td colSpan={7}>
           <div className="refine">
             <div className="refine-head">
               <strong>
@@ -432,46 +417,19 @@ export function ReviewTable({
   };
 
   return (
-    <section className="panel">
-      <h2>Review</h2>
-      <p className="hint">
-        Each Vietnamese field sits in its own column. Tap a cell to refine it in place, approve what
-        reads well, reject what should never ship. Only approved and edited rows are included in the
-        exported deck.
-      </p>
-
-      <div className="review-toolbar">
-        <button type="button" className="chip" data-active={filter === "all"} onClick={() => setFilter("all")}>
-          All <span style={{ opacity: 0.7 }}>{entries.length}</span>
-        </button>
-        {STATUSES.map((status) => (
-          <button
-            key={status}
-            type="button"
-            className="chip"
-            data-active={filter === status}
-            onClick={() => setFilter(status)}
-          >
-            {status} <span style={{ opacity: 0.7 }}>{counts[status]}</span>
-          </button>
-        ))}
-        <div className="spacer" />
-        <button type="button" className="btn sm" onClick={approveAll} disabled={counts.pending === 0}>
-          Approve all pending
-        </button>
-      </div>
-
-      {visible.length === 0 ? (
+    <>
+      {rows.length === 0 ? (
         <div className="empty">
           {entries.length === 0
             ? "Nothing generated yet. Use the Generate tab to annotate your first batch."
-            : "No rows match this filter."}
+            : "No words match these filters."}
         </div>
       ) : (
         <div style={{ overflowX: "auto" }}>
           <table className="review-table">
             <thead>
               <tr>
+                <th className="pick-cell" aria-label="Select" />
                 <th>Word</th>
                 <th>defVi</th>
                 <th>leadVi</th>
@@ -481,17 +439,41 @@ export function ReviewTable({
               </tr>
             </thead>
             <tbody>
-              {visible.map((entry) => {
+              {rows.map((entry) => {
                 const usage = entry.deckWord.usage[0];
                 const openHere = active !== null && active.entryId === entry.id;
                 const issueCount = (issuesById.get(entry.id) ?? []).length;
                 return (
                   <Fragment key={entry.id}>
-                    <tr data-status={entry.status} data-refining={openHere || undefined}>
+                    <tr
+                      data-status={entry.status}
+                      data-refining={openHere || undefined}
+                      data-selected={selected.has(entry.id) || undefined}
+                    >
+                      <td className="pick-cell">
+                        <input
+                          type="checkbox"
+                          checked={selected.has(entry.id)}
+                          aria-label={`Select ${entry.deckWord.word}`}
+                          onChange={() => onToggleSelect(entry.id)}
+                        />
+                      </td>
                       <td className="word-cell">
                         <div>{entry.deckWord.word}</div>
                         <div className="meta-cell">
-                          {entry.deckWord.level} · {entry.deckWord.pos || "—"} · {entry.deckWord.topic}
+                          {entry.deckWord.level} · {entry.deckWord.pos || "—"}
+                        </div>
+                        <div className="word-tags">
+                          {entry.deckWord.topics.map((topic) => (
+                            <span key={topic} className="tag-pill" data-kind="topic">
+                              {topic}
+                            </span>
+                          ))}
+                          {entry.deckWord.exams.map((exam) => (
+                            <span key={exam} className="tag-pill" data-kind="exam">
+                              {exam}
+                            </span>
+                          ))}
                         </div>
                         {issueCount > 0 && (
                           <div className="word-issues" title={`${issueCount} validation issue(s)`}>
@@ -561,6 +543,6 @@ export function ReviewTable({
           </table>
         </div>
       )}
-    </section>
+    </>
   );
 }

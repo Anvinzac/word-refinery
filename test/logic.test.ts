@@ -171,7 +171,8 @@ const RELIABLE: CrawlerAnnotation = {
   anticipateVi: "Ai đáng để bạn giao việc?",
   usageEn: "She is a very _____ colleague.",
   usageVi: "Cô ấy là một đồng nghiệp rất đáng tin.",
-  topic: "character",
+  topics: ["character", "work"],
+  exams: [],
   emphasisVi: ["tin cậy", "dựa vào"],
 };
 
@@ -180,6 +181,8 @@ function buildReliable(): DeckWord {
     corpusWord: { word: "reliable", pos: "adj", level: "B1", band: 3, source: "ngsl" },
     annotation: RELIABLE,
     usedIds: new Set(),
+    batchId: "test-batch",
+    addedAt: "2026-01-01T00:00:00.000Z",
   });
   if (built.deckWord === null) {
     assert.fail(`build failed: ${built.errors.join("; ")}`);
@@ -218,6 +221,8 @@ test("a word that echoes a level back is still corpus-assigned", () => {
     corpusWord: { word: "reliable", pos: "adj", level: "B1", band: 3, source: "ngsl" },
     annotation: { ...RELIABLE, word: "reliable" },
     usedIds: new Set(),
+    batchId: "test-batch",
+    addedAt: "2026-01-01T00:00:00.000Z",
   });
   if (built.deckWord === null) assert.fail(built.errors.join("; "));
   assert.equal(built.deckWord.level, "B1");
@@ -231,6 +236,8 @@ test("slugify produces importer-safe ids and de-duplicates collisions", () => {
     corpusWord: { word: "reliable", pos: "adj", level: "B1", band: 3, source: "ngsl" },
     annotation: RELIABLE,
     usedIds: used,
+    batchId: "test-batch",
+    addedAt: "2026-01-01T00:00:00.000Z",
   });
   if (built.deckWord === null) assert.fail(built.errors.join("; "));
   assert.equal(built.deckWord.id, "reliable-2");

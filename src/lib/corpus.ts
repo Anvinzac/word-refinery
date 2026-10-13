@@ -2,26 +2,38 @@
  * Corpus loading and selection.
  *
  * The NGSL/NAWL starter subset is bundled into the app at build time, so the
- * word list works offline on GitHub Pages with no network dependency. Selection
- * is deterministic: words are frequency-ordered as shipped, then filtered by
- * CEFR level and by what the deck already contains.
+ * word list works offline on GitHub Pages with no network dependency. It is
+ * only 381 words, so an operator who needs more imports an official list (see
+ * ./corpus-import.ts); once installed, that corpus replaces the bundle
+ * everywhere. Selection is deterministic: words are frequency-ordered as
+ * shipped, then filtered by CEFR level and by what the deck already contains.
  *
- * Exports: loadCorpus, filterCorpus, chunk, countByLevel
+ * `loadCorpus` stays synchronous because the generator, the panel and the
+ * document rebuild all call it during render. The stored corpus is therefore
+ * installed once at startup through `setActiveCorpus`, not awaited per call.
+ *
+ * Exports: loadCorpus, loadBundledCorpus, setActiveCorpus, isBundledCorpus,
+ *          filterCorpus, chunk, countByLevel
  * Depends on: ../../data/ngsl-starter-subset.json, ./types.ts
  */
-import raw from "../../data/ngsl-starter-subset.json";
+// The import attribute is required by Node's ESM loader (the test runner) and
+// understood by the bundler, so one spelling serves both.
+import raw from "../../data/ngsl-starter-subset.json" with { type: "json" };
 import type { CefrLevel, Corpus, CorpusWord } from "./types.ts";
 import { CEFR_LEVELS } from "./types.ts";
 
-/** The bundled corpus, validated once at module load. */
-let cached: Corpus | null = null;
+/** The bundled corpus, parsed once on first use. */
+let bundled: Corpus | null = null;
+
+/** An imported corpus, when one has been installed for this browser. */
+let active: Corpus | null = null;
 
 /**
- * Read the bundled corpus.
+ * Read the corpus shipped inside the app.
  * @throws when the bundled file does not have the expected shape
  */
-export function loadCorpus(): Corpus {
-  if (cached !== null) return cached;
+export function loadBundledCorpus(): Corpus {
+  if (bundled !== null) return bundled;
   const document = raw as unknown as { meta?: Record<string, unknown>; words?: unknown };
   if (!Array.isArray(document.words)) {
     throw new Error("Bundled corpus has no words array");
@@ -30,16 +42,40 @@ export function loadCorpus(): Corpus {
     (entry) => typeof entry?.word === "string" && entry.word.length > 0,
   );
   if (words.length === 0) throw new Error("Bundled corpus is empty");
-  cached = {
-    meta: (document.meta ?? {}) as Corpus["meta"],
-    words,
-  };
-  return cached;
+  bundled = { meta: (document.meta ?? {}) as Corpus["meta"], words };
+  return bundled;
+}
+
+/**
+ * Install an imported corpus, or pass null to fall back to the bundle.
+ * Called once at startup from the stored copy, and again on each import.
+ *
+ * @param corpus - the corpus to make active, or null to revert
+ */
+export function setActiveCorpus(corpus: Corpus | null): void {
+  active = corpus !== null && corpus.words.length > 0 ? corpus : null;
+}
+
+/** Whether the app is currently running on the bundled subset. */
+export function isBundledCorpus(): boolean {
+  return active === null;
+}
+
+/**
+ * Read the corpus in force: the imported one when installed, else the bundle.
+ */
+export function loadCorpus(): Corpus {
+  return active ?? loadBundledCorpus();
 }
 
 /** How many corpus words sit in each CEFR band. */
 export function countByLevel(words: readonly CorpusWord[]): Record<CefrLevel, number> {
-  const counts = { A1: 0, A2: 0, B1: 0, B2: 0, C1: 0 } as Record<CefrLevel, number>;
+  // Built from CEFR_LEVELS rather than written out, so adding a band cannot
+  // leave a hole here that tallies into `undefined + 1`.
+  const counts = Object.fromEntries(CEFR_LEVELS.map((level) => [level, 0])) as Record<
+    CefrLevel,
+    number
+  >;
   for (const entry of words) {
     if (CEFR_LEVELS.includes(entry.level)) counts[entry.level] += 1;
   }

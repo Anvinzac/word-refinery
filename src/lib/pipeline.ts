@@ -11,6 +11,7 @@
  */
 import { filterCorpus } from "./corpus.ts";
 import { annotateBatch } from "./llm.ts";
+import { createAvoidList } from "./uniqueness.ts";
 import { buildDeck, buildDeckWord, type DeckIssue } from "./deck.ts";
 import { validateDeck } from "./deck.ts";
 import type { CefrLevel, CorpusWord, Deck, DeckWord, RefineryDoc, ReviewEntry } from "./types.ts";
@@ -21,6 +22,12 @@ export interface RunOptions {
   settings: Settings;
   /** Headwords already in the deck, lowercased, so a run never duplicates. */
   existingWords: ReadonlySet<string>;
+  /**
+   * Every `anticipateVi` already in the deck. The uniqueness rule is deck-wide
+   * but generation sees one batch, so the lines in use have to be handed over
+   * explicitly or each run writes blind to everything shipped before it.
+   */
+  existingAnticipate?: readonly string[];
   levels: readonly CefrLevel[];
   count: number;
   shuffle: boolean;
@@ -33,6 +40,8 @@ export interface RunOptions {
 export interface RunResult {
   /** Deck words built this run, in corpus order. */
   words: DeckWord[];
+  /** Identifier stamped on every word of this run, for later "what did week N add?". */
+  batchId: string;
   /** Corpus words that produced no usable annotation. */
   missed: CorpusWord[];
   /** Every warning and error, prefixed with the word it belongs to. */
@@ -51,22 +60,36 @@ export async function runGeneration(options: RunOptions): Promise<RunResult> {
     shuffle: options.shuffle,
   });
 
+  // One identity for the whole run, so every word it produces is traceable to
+  // it. Second-resolution is enough: two runs cannot start in the same second.
+  const addedAt = new Date().toISOString();
+  const batchId = `run-${addedAt.replace(/[-:]/g, "").replace(/\.\d+Z$/, "Z")}`;
+
   if (selected.length === 0) {
     return {
       words: [],
       missed: [],
+      batchId,
       issues: [
         "No corpus words left for this filter. Widen the CEFR levels, or the deck already covers the bundled corpus.",
       ],
     };
   }
 
+  // Seeded with every line the deck already uses, then fed each batch's own
+  // output, so the run avoids both the existing deck and itself.
+  const avoid = createAvoidList(options.existingAnticipate ?? []);
+
   const annotated = await annotateBatch(
     options.settings.llm,
     selected,
     options.settings.llm.batchSize,
-    (event) => options.onProgress?.({ done: event.done, total: event.total, batch: event.batch }),
-    options.signal,
+    {
+      onProgress: (event) =>
+        options.onProgress?.({ done: event.done, total: event.total, batch: event.batch }),
+      signal: options.signal,
+      avoid,
+    },
   );
 
   const usedIds = new Set<string>();
@@ -76,7 +99,7 @@ export async function runGeneration(options: RunOptions): Promise<RunResult> {
 
   for (const corpusWord of selected) {
     const annotation = annotated.annotations.get(corpusWord.word) ?? null;
-    const built = buildDeckWord({ corpusWord, annotation, usedIds });
+    const built = buildDeckWord({ corpusWord, annotation, usedIds, batchId, addedAt });
     issues.push(...built.warnings, ...built.errors);
     if (built.deckWord === null) {
       missed.push(corpusWord);
@@ -85,7 +108,7 @@ export async function runGeneration(options: RunOptions): Promise<RunResult> {
     words.push(built.deckWord);
   }
 
-  return { words, missed, issues };
+  return { words, missed, issues, batchId };
 }
 
 /**

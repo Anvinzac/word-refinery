@@ -9,7 +9,8 @@
  * the model — they come from the corpus.
  *
  * Exports: CRAWLER_ANNOTATION_FIELDS, CrawlerAnnotation, crawlerAnnotationSchema,
- *          containsTargetWord, blankOutTarget, parseAnnotation, parseAnnotationList
+ *          containsTargetWord, blankOutTarget, parseAnnotation, parseAnnotationList,
+ *          TOPICS, Topic, isTopic, MAX_TOPICS, EXAMS, Exam, isExam, MAX_EXAMS, keepCurated
  * Depends on: zod
  */
 import { z } from "zod";
@@ -24,7 +25,8 @@ export const CRAWLER_ANNOTATION_FIELDS = [
   "anticipateVi",
   "usageEn",
   "usageVi",
-  "topic",
+  "topics",
+  "exams",
   "emphasisVi",
 ] as const;
 
@@ -41,21 +43,88 @@ export interface CrawlerAnnotation {
   anticipateVi: string;
   usageEn: string;
   usageVi: string;
-  topic: string;
+  /** One to three usage domains, most relevant first. Never empty. */
+  topics: string[];
+  /** Exam targets, possibly empty. */
+  exams: string[];
   emphasisVi: string[];
 }
 
 /** Plain-English headword pattern shared with the downstream deck contract. */
 export const annotationWordPattern = /^[a-z]+(?:['’-][a-z]+)*$/;
 
-/** Topic tags the feed's category filter understands. */
+/**
+ * Usage domains the feed's category filter understands.
+ *
+ * Closed and shared with KineMedia's `taxonomy.ts`, in that file's order: a
+ * reviewer picks from this list, so a typo cannot quietly create a nineteenth
+ * topic that no filter will ever show again. Keep the two lists in step —
+ * a slug this list has and KineMedia's does not is dropped on import there.
+ */
 export const TOPICS = [
-  "work", "study", "daily", "communication", "emotion", "thinking",
-  "character", "attention", "time", "travel", "health", "money",
-  "nature", "society", "technology", "general",
+  "daily", "work", "study", "communication", "thinking", "emotion",
+  "character", "attention", "perception", "time", "money", "health",
+  "travel", "food", "nature", "technology", "society", "general",
 ] as const;
 
+/** One curated usage domain. */
+export type Topic = (typeof TOPICS)[number];
+
+/** Most topics a single word may carry, matching KineMedia's importer cap. */
+export const MAX_TOPICS = 6;
+
+/**
+ * Exam and competition targets a word can be prepared for — the axis the deck
+ * is organised by for a learner with a specific goal. Shared with KineMedia's
+ * `taxonomy.ts`; empty means general vocabulary, not "not yet decided".
+ */
+export const EXAMS = ["toeic", "ielts", "toefl", "vstep", "cambridge", "sat", "gre"] as const;
+
+/** One curated exam target. */
+export type Exam = (typeof EXAMS)[number];
+
+/** Most exam tags a single word may carry, matching KineMedia's importer cap. */
+export const MAX_EXAMS = 8;
+
+/** Whether a slug is a curated usage domain. */
+export function isTopic(value: string): value is Topic {
+  return (TOPICS as readonly string[]).includes(value);
+}
+
+/** Whether a slug is a curated exam target. */
+export function isExam(value: string): value is Exam {
+  return (EXAMS as readonly string[]).includes(value);
+}
+
+/**
+ * Keep only the curated slugs from a loose list, lowercased, de-duplicated and
+ * capped. Used wherever a list arrives from a model, a file or an older deck.
+ *
+ * @param values - candidate slugs, in preference order
+ * @param allowed - the curated vocabulary to keep to
+ * @param cap - most entries to keep
+ * @returns the surviving slugs, order preserved
+ */
+export function keepCurated(
+  values: readonly unknown[],
+  allowed: readonly string[],
+  cap: number,
+): string[] {
+  const kept: string[] = [];
+  for (const value of values) {
+    if (typeof value !== "string") continue;
+    const slug = value.trim().toLowerCase();
+    if (!allowed.includes(slug) || kept.includes(slug)) continue;
+    kept.push(slug);
+    if (kept.length === cap) break;
+  }
+  return kept;
+}
+
 const text = (max: number) => z.string().trim().max(max);
+
+/** A tag as it may arrive: trimmed, any case, length-capped. */
+const taxonomySlug = (max: number) => z.string().trim().max(max);
 
 /**
  * Zod schema for one annotation. Unknown keys are stripped rather than
@@ -71,7 +140,11 @@ export const crawlerAnnotationSchema = z.object({
   anticipateVi: text(180).optional().default(""),
   usageEn: z.string().trim().min(1).max(400),
   usageVi: text(400).optional().default(""),
-  topic: text(60).optional().default("general"),
+  topics: z.array(taxonomySlug(60)).max(MAX_TOPICS).optional().default([]),
+  exams: z.array(taxonomySlug(40)).max(MAX_EXAMS).optional().default([]),
+  // Accepted but not part of the contract: older batches and some models still
+  // send a single topic, which is folded into `topics` below.
+  topic: text(60).optional().default(""),
   emphasisVi: z.array(z.string().trim().min(2).max(60)).max(8).optional().default([]),
 });
 
@@ -124,7 +197,10 @@ export function parseAnnotation(
 
   const record = raw as Record<string, unknown>;
   const extraKeys = Object.keys(record).filter(
-    (key) => !CRAWLER_ANNOTATION_FIELDS.includes(key as CrawlerAnnotationField),
+    (key) =>
+      !CRAWLER_ANNOTATION_FIELDS.includes(key as CrawlerAnnotationField) &&
+      // Tolerated for compatibility: folded into `topics` rather than ignored.
+      key !== "topic",
   );
   if (extraKeys.length > 0) {
     issues.push(`ignored extra field(s): ${extraKeys.join(", ")} (level is always corpus-assigned)`);
@@ -179,6 +255,27 @@ export function parseAnnotation(
     issues.push("leadVi: contains the English target word — rewrite it");
   }
 
+  // Topics: the plural field wins, a lone legacy `topic` is folded in, and
+  // anything outside the curated list is dropped rather than inventing a tag.
+  const offeredTopics = data.topics.length > 0 ? data.topics : [data.topic];
+  const topics = keepCurated(offeredTopics, TOPICS, MAX_TOPICS);
+  const droppedTopics = offeredTopics.filter(
+    (value) => typeof value === "string" && value.trim().length > 0 && !isTopic(value.trim().toLowerCase()),
+  );
+  if (droppedTopics.length > 0) {
+    issues.push(`topics: dropped unknown tag(s) ${droppedTopics.join(", ")}`);
+  }
+  if (topics.length === 0) {
+    topics.push("general");
+    issues.push("topics: none usable; defaulted to general");
+  }
+  const droppedExams = data.exams.filter(
+    (value) => typeof value === "string" && value.trim().length > 0 && !isExam(value.trim().toLowerCase()),
+  );
+  if (droppedExams.length > 0) {
+    issues.push(`exams: dropped unknown tag(s) ${droppedExams.join(", ")}`);
+  }
+
   return {
     annotation: {
       word,
@@ -189,7 +286,8 @@ export function parseAnnotation(
       anticipateVi,
       usageEn,
       usageVi: data.usageVi,
-      topic: data.topic.toLowerCase(),
+      topics,
+      exams: keepCurated(data.exams, EXAMS, MAX_EXAMS),
       emphasisVi: data.emphasisVi,
     },
     issues,

@@ -12,13 +12,16 @@
  * Depends on: ./types.ts, ./contract.ts
  */
 import type { CorpusWord } from "./types.ts";
-import { CRAWLER_ANNOTATION_FIELDS, TOPICS } from "./contract.ts";
+import { CRAWLER_ANNOTATION_FIELDS, EXAMS, TOPICS } from "./contract.ts";
 
 /** Fields the model is allowed to return, rendered into the prompt. */
 const FIELD_LIST = CRAWLER_ANNOTATION_FIELDS.join(", ");
 
 /** Topic list rendered into the prompt so the model cannot invent tags. */
 const TOPIC_LIST = TOPICS.join(", ");
+
+/** Exam list, rendered the same way and for the same reason. */
+const EXAM_LIST = EXAMS.join(", ");
 
 /**
  * System prompt. One constant so the contract, the parser and the UI all point
@@ -35,10 +38,11 @@ Field rules:
 - "ipa": IPA in slashes, e.g. "/ˈwɔː.tər/".
 - "defVi": ONE Vietnamese sentence defining the word, exactly 8-11 words, at most 140 characters, no English words, full diacritics.
 - "leadVi": a Vietnamese teaser hinting at the meaning without naming it, exactly 8-11 words, at most 120 characters, no English words.
-- "anticipateVi": a short playful Vietnamese invitation to guess, 3-8 words, at most 60 characters. It must be DIFFERENT for every word - never reuse a placeholder like "Đoán xem nào…" twice.
+- "anticipateVi": a short playful Vietnamese invitation to guess, 3-8 words, at most 60 characters. It must be DIFFERENT for every word IN THE WHOLE DECK, not merely within this batch - the user message lists lines and openings already taken, and reusing one is a defect. Vary the opening as well as the wording; never fall back on a placeholder like "Đoán xem nào…".
 - "usageEn": ONE natural English example sentence of at most 20 words where the target word is replaced by exactly five underscores: _____
 - "usageVi": the Vietnamese meaning of that example sentence.
-- "topic": exactly one lowercase tag from: ${TOPIC_LIST}.
+- "topics": one to three lowercase tags from this closed list, most relevant FIRST: ${TOPIC_LIST}. Never invent a tag outside it — an unknown tag is discarded.
+- "exams": the exams whose vocabulary lists this word genuinely belongs to, from: ${EXAM_LIST}. Use an empty array [] for ordinary everyday words — most words have none, and a wrong tag is worse than none.
 - "emphasisVi": 2 Vietnamese phrases that will glow on screen. Each phrase MUST:
   * be copied EXACTLY, diacritics included, from the defVi or leadVi you just wrote,
   * be exactly TWO syllables taken from one neighbouring pair of words (never one syllable, never three or more),
@@ -55,25 +59,29 @@ Hard rules:
 - Return ONLY a JSON array with one object per requested word, in the requested order. No markdown fences, no headings, no commentary.
 
 Minimal example of the expected format (one word, shortened):
-[{"word":"water","pos":"noun","ipa":"/ˈwɔː.tər/","defVi":"Chất lỏng trong suốt mà ta uống mỗi ngày.","leadVi":"Có thứ này thì cây mới sống được.","anticipateVi":"Thứ gì chảy được nhỉ?","usageEn":"Please bring me a glass of _____.","usageVi":"Làm ơn mang cho tôi một cốc nước.","topic":"nature","emphasisVi":["Chất lỏng","uống mỗi"]}]`;
+[{"word":"water","pos":"noun","ipa":"/ˈwɔː.tər/","defVi":"Chất lỏng trong suốt mà ta uống mỗi ngày.","leadVi":"Có thứ này thì cây mới sống được.","anticipateVi":"Thứ gì chảy được nhỉ?","usageEn":"Please bring me a glass of _____.","usageVi":"Làm ơn mang cho tôi một cốc nước.","topics":["nature","daily"],"exams":[],"emphasisVi":["Chất lỏng","uống mỗi"]}]`;
 
 /**
  * Render one batch of corpus words as the user message.
  * @param words - corpus words for this batch (already frequency-sorted)
  */
-export function buildBatchPrompt(words: readonly CorpusWord[]): string {
+export function buildBatchPrompt(words: readonly CorpusWord[], avoid = ""): string {
   const lines = words.map((entry, index) => {
     const hint = entry.pos.length > 0 ? `, ${entry.pos}` : "";
     return `${index + 1}. ${entry.word} (${entry.level}${hint})`;
   });
-  return [
+  // The avoid list sits AFTER the words and before the final instruction: the
+  // constraint it expresses is about what to write, so it belongs next to the
+  // request rather than buried above the list it applies to.
+  const parts = [
     `Annotate these ${words.length} English words.`,
     "The CEFR level in brackets only tells you how simple the Vietnamese must be - do not echo it.",
     "",
     lines.join("\n"),
-    "",
-    `Return the JSON array with exactly ${words.length} objects, in this order.`,
-  ].join("\n");
+  ];
+  if (avoid.trim().length > 0) parts.push("", avoid);
+  parts.push("", `Return the JSON array with exactly ${words.length} objects, in this order.`);
+  return parts.join("\n");
 }
 
 /** Vietnamese fields a reviewer can hand back for a rewrite. */

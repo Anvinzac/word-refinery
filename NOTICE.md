@@ -3,9 +3,9 @@
 This package redistributes curated word-list data derived from openly licensed
 lists, and generates model-annotated deck files from it. The obligations below
 apply to every copy of the data — the bundled corpus
-(`data/ngsl-starter-subset.json`), any corpus produced with
-`npm run corpus:import`, and any deck JSON produced by `npm run crawl` that
-carries `meta.corpus`.
+(`data/ngsl-starter-subset.json`), any corpus imported through the app's
+**Corpus** panel, and any deck JSON exported from this app that carries
+`meta.corpus`.
 
 ## Bundled corpus attribution
 
@@ -39,6 +39,22 @@ built from them:
    selection (a subset), curation/ordering, coarse banding, and band-to-CEFR
    level assignment.
 
+## Importing a larger list
+
+The bundled subset is deliberately small. To go past it, download an official
+list yourself and load it in the app's **Corpus** panel (Generate tab); it is
+stored in your browser and never uploaded anywhere. The importer will not
+proceed without a license name and an attribution line, because redistributing
+these lists obliges you to carry both, and whatever you enter travels into the
+corpus `meta` and into every deck exported afterwards.
+
+CEFR levels assigned on import come from frequency rank via this project's
+documented heuristic (A1 ≤ 500, A2 ≤ 1000, B1 ≤ 2000, B2 ≤ 2800, C1 beyond),
+or from a single level you force for the whole list. **This is a product
+heuristic, not a claim by the list authors** — no official list tags individual
+words with CEFR levels. Coarse bands (1–3) are kept identical to word-crawler's
+so a corpus file means the same thing in both tools.
+
 ## What the bundled file is — and is not
 
 - It is a **starter subset of 381 words** (bands 1-4: A1/A2 core, B1, B2, C1
@@ -53,11 +69,12 @@ built from them:
 ## Never include Oxford data
 
 The Oxford 3000/5000 word lists are **not** present in this package and must
-never be added to it, imported through `corpus:import`, or mixed into any deck
+never be added to it, imported through the Corpus panel, or mixed into any deck
 produced here: their license does not permit redistribution. Any corpus whose
-`sources[]` contains an Oxford entry is out of policy; the importer already
-requires explicit `--license` and `--attribution` flags to force the operator to
-state the source license.
+`sources[]` contains an Oxford entry is out of policy. The importer enforces
+this directly — an import whose name, source, URL or attribution mentions Oxford
+is refused — and it requires a license and an attribution line so the operator
+always states what the source is.
 
 ## Vietnamese annotations
 

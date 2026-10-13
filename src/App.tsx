@@ -2,18 +2,21 @@
  * Word Refinery — application shell.
  *
  * Owns three pieces of state: settings (localStorage), the working document
- * (deck + per-word review rows), and the active tab. Persistence is explicit —
- * the reviewer decides when to Save, so a half-edited batch is never silently
- * pushed to the remote store.
+ * (deck + per-word review rows), and the active tab. Pushing to the REMOTE
+ * store stays explicit — the reviewer decides when to Save, so a half-edited
+ * batch is never silently published. Locally the document is mirrored to
+ * IndexedDB a moment after every change and restored on the next load, so a
+ * refresh or a crash no longer costs everything since the last push.
  *
  * Exports: App
  * Depends on: ./lib/*, ./components/*
  */
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { GeneratePanel } from "./components/GeneratePanel";
-import { ReviewTable } from "./components/ReviewTable";
+import { Library } from "./components/Library";
+import { CoveragePanel } from "./components/CoveragePanel";
 import { SettingsPanel } from "./components/SettingsPanel";
-import { loadCorpus } from "./lib/corpus";
+import { loadCorpus, setActiveCorpus } from "./lib/corpus";
 import { approvedEntries } from "./lib/deck";
 import { buildDeck, coerceDeckWord, validateDeck } from "./lib/deck";
 import {
@@ -23,11 +26,19 @@ import {
   readJsonFile,
   StoreError,
 } from "./lib/store";
+import {
+  loadLocalCorpus,
+  loadLocalDoc,
+  localMirrorAvailable,
+  saveLocalDoc,
+} from "./lib/local-doc";
+import { CorpusPanel } from "./components/CorpusPanel";
+import { EMPTY_FILTER, type LibraryFilter } from "./lib/library";
 import { readSettings, writeSettings, type Settings } from "./lib/settings";
 import type { CefrLevel, Deck, RefineryDoc, ReviewEntry } from "./lib/types";
 
 /** Tabs in the workspace. */
-type Tab = "generate" | "review" | "sync" | "settings";
+type Tab = "generate" | "review" | "coverage" | "sync" | "settings";
 
 /** An empty working document, used before anything is generated or loaded. */
 function emptyDoc(settings: Settings): RefineryDoc {
@@ -55,6 +66,18 @@ export function App() {
   const [notice, setNotice] = useState<{ kind: "ok" | "error" | "warn"; text: string } | null>(null);
   const [levels, setLevels] = useState<CefrLevel[]>([]);
   const [dirty, setDirty] = useState(false);
+  // Gates the local mirror: nothing is written until the restore has run, so an
+  // empty initial document cannot overwrite the mirror it is about to load.
+  const [hydrated, setHydrated] = useState(false);
+  // Set when a save was refused because the remote holds something unreadable.
+  // Clearing it is an explicit act, which is the whole point of the guard.
+  const [overwriteBlocked, setOverwriteBlocked] = useState(false);
+  // The active corpus lives in a module rather than in state, so swapping it has
+  // to be announced: this counter is what re-renders the panels that read it.
+  const [corpusEpoch, setCorpusEpoch] = useState(0);
+  // The library filter lives here so the coverage matrix can hand one over and
+  // switch tabs, which is what makes a thin cell actionable in one click.
+  const [filter, setFilter] = useState<LibraryFilter>(EMPTY_FILTER);
   const fileInput = useRef<HTMLInputElement>(null);
 
   const store = useMemo(() => createStore(settings.store), [settings.store]);
@@ -63,6 +86,68 @@ export function App() {
   useEffect(() => {
     writeSettings(settings);
   }, [settings]);
+
+  /** Install the imported corpus, if this browser holds one, before anything reads it. */
+  useEffect(() => {
+    let cancelled = false;
+    void (async () => {
+      try {
+        const stored = await loadLocalCorpus();
+        if (!cancelled && stored !== null) {
+          setActiveCorpus(stored.corpus);
+          setCorpusEpoch((epoch) => epoch + 1);
+        }
+      } catch {
+        // A browser without IndexedDB simply runs on the bundled subset.
+      }
+    })();
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
+  /**
+   * Restore the local mirror once, before the autosave below is allowed to run.
+   * A browser that refuses IndexedDB simply starts empty — the mirror is a
+   * safety net, never a prerequisite.
+   */
+  useEffect(() => {
+    let cancelled = false;
+    void (async () => {
+      try {
+        const mirror = await loadLocalDoc();
+        if (!cancelled && mirror !== null && mirror.doc.review.length > 0) {
+          setDoc(mirror.doc);
+          setDirty(mirror.dirty);
+          setNotice({
+            kind: "ok",
+            text:
+              `Restored ${mirror.doc.review.length} word(s) from this browser ` +
+              `(mirrored ${new Date(mirror.mirroredAt).toLocaleString()}).` +
+              (mirror.dirty ? " They were never pushed to the remote store." : ""),
+          });
+        }
+      } catch {
+        // An unreadable mirror must not stop the app from opening.
+      } finally {
+        if (!cancelled) setHydrated(true);
+      }
+    })();
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
+  /** Mirror the working document locally, shortly after it settles. */
+  useEffect(() => {
+    if (!hydrated) return;
+    const timer = window.setTimeout(() => {
+      void saveLocalDoc(doc, dirty).catch(() => {
+        // Best-effort: a full or blocked quota must not interrupt reviewing.
+      });
+    }, 600);
+    return () => window.clearTimeout(timer);
+  }, [doc, dirty, hydrated]);
 
   /** Warn before navigating away with unsaved work. */
   useEffect(() => {
@@ -77,6 +162,12 @@ export function App() {
 
   const existingWords = useMemo(
     () => new Set(doc.review.map((entry) => entry.deckWord.word.toLowerCase())),
+    [doc.review],
+  );
+
+  /** Teaser lines already in use, so a generation run cannot repeat one. */
+  const existingAnticipate = useMemo(
+    () => doc.review.map((entry) => entry.deckWord.anticipateVi).filter((line) => line.length > 0),
     [doc.review],
   );
 
@@ -126,11 +217,12 @@ export function App() {
 
   // ── Persistence ────────────────────────────────────────────────────────
 
-  const save = async () => {
+  const save = async (force = false) => {
     setNotice(null);
     try {
-      const { id } = await store.save(doc);
+      const { id } = await store.save(doc, { force });
       setDirty(false);
+      setOverwriteBlocked(false);
       setNotice({
         kind: "ok",
         text:
@@ -142,6 +234,9 @@ export function App() {
         setSettings((previous) => ({ ...previous, store: { ...previous.store, id } }));
       }
     } catch (error) {
+      // A refused overwrite is not a failure to report and forget: the remote
+      // may hold the only full copy, so the way past it stays visible.
+      setOverwriteBlocked(store.blocked !== null && !force);
       setNotice({
         kind: "error",
         text: error instanceof StoreError ? `${error.message}${error.body ? `\n${error.body}` : ""}` : String(error),
@@ -158,12 +253,13 @@ export function App() {
           kind: "warn",
           text: settings.store.id.length === 0
             ? `Nothing stored yet on ${store.label}. Save once to create it.`
-            : "That resource is empty or does not contain a refinery document.",
+            : "That resource is empty. Nothing was loaded, and your working document is untouched.",
         });
         return;
       }
       setDoc(remote);
       setDirty(false);
+      setOverwriteBlocked(false);
       setNotice({ kind: "ok", text: `Loaded ${remote.review.length} word(s) from ${store.label}.` });
     } catch (error) {
       setNotice({
@@ -192,9 +288,13 @@ export function App() {
       // into deck shape (topics array, missing chars/initial, …) and queue it as
       // pending so it lands in the Review table ready to be refined.
       const usedIds = new Set<string>();
+      // One batch identity for the whole import, so these words stay findable
+      // together later — the same bookkeeping a generation run stamps on.
+      const addedAt = new Date().toISOString();
+      const batchId = `import-${addedAt.replace(/[-:]/g, "").replace(/\.\d+Z$/, "Z")}`;
       review = [];
       for (const raw of parsed.deck.words) {
-        const deckWord = coerceDeckWord(raw, usedIds);
+        const deckWord = coerceDeckWord(raw, usedIds, { batchId, addedAt });
         if (deckWord === null) continue;
         review.push({ id: deckWord.id, deckWord, status: "pending", warnings: [] });
       }
@@ -239,6 +339,7 @@ export function App() {
   const tabCounts: Record<Tab, number | null> = {
     generate: null,
     review: doc.review.length,
+    coverage: null,
     sync: approved.length,
     settings: null,
   };
@@ -259,7 +360,8 @@ export function App() {
         {(
           [
             ["generate", "Generate"],
-            ["review", "Review"],
+            ["review", "Library"],
+            ["coverage", "Coverage"],
             ["sync", "Sync & export"],
             ["settings", "Settings"],
           ] as Array<[Tab, string]>
@@ -282,19 +384,43 @@ export function App() {
       {notice !== null && <div className={`banner ${notice.kind}`}>{notice.text}</div>}
 
       {tab === "generate" && (
-        <GeneratePanel
-          settings={settings}
-          existingWords={existingWords}
-          selectedLevels={levels}
-          onLevels={setLevels}
-          onGenerated={onGenerated}
-          busy={busy}
-          onBusy={setBusy}
-        />
+        <>
+          {/* Not keyed on the epoch: remounting it would throw away the import
+              report it had just produced. It reads the corpus during render, so
+              the parent's re-render is enough to keep it current. */}
+          <CorpusPanel onCorpusChange={() => setCorpusEpoch((epoch) => epoch + 1)} />
+          <GeneratePanel
+            key={`gen-${corpusEpoch}`}
+            settings={settings}
+            existingWords={existingWords}
+            existingAnticipate={existingAnticipate}
+            selectedLevels={levels}
+            onLevels={setLevels}
+            onGenerated={onGenerated}
+            busy={busy}
+            onBusy={setBusy}
+          />
+        </>
       )}
 
       {tab === "review" && (
-        <ReviewTable entries={doc.review} settings={settings} onChange={onReviewChange} />
+        <Library
+          entries={doc.review}
+          settings={settings}
+          filter={filter}
+          onFilter={setFilter}
+          onChange={onReviewChange}
+        />
+      )}
+
+      {tab === "coverage" && (
+        <CoveragePanel
+          entries={doc.review}
+          onDrillDown={(next) => {
+            setFilter(next);
+            setTab("review");
+          }}
+        />
       )}
 
       {tab === "sync" && (
@@ -318,12 +444,41 @@ export function App() {
                 </span>
               )}
             </div>
+            {overwriteBlocked && (
+              <div className="banner error" style={{ marginTop: 12 }}>
+                <p style={{ margin: "0 0 10px" }}>
+                  The last read of {store.label} failed, so this save was refused — what is stored
+                  there may be the only full copy of the deck. Download a backup first; overwrite
+                  only once you are sure the working document is the one to keep.
+                </p>
+                <div className="row">
+                  <button
+                    type="button"
+                    className="btn"
+                    onClick={() => {
+                      downloadJson(doc);
+                      setNotice({ kind: "ok", text: `Downloaded ${DOC_FILENAME} as a backup.` });
+                    }}
+                  >
+                    Download backup first
+                  </button>
+                  <button type="button" className="btn danger" onClick={() => void save(true)}>
+                    Overwrite {store.label} anyway
+                  </button>
+                </div>
+              </div>
+            )}
             {!store.ready && (
               <div className="banner warn" style={{ marginTop: 12 }}>
                 Pick a backend and add its credential in Settings, or use the local file buttons
-                below. Nothing is lost either way — the working document stays in memory.
+                below. Nothing is lost either way — the working document stays in this browser.
               </div>
             )}
+            <p className="hint" style={{ marginTop: 12, marginBottom: 0 }}>
+              {localMirrorAvailable()
+                ? "This browser also keeps its own copy of the working document, restored automatically when you come back. It is a crash guard, not a backup — only the remote store and downloaded files survive this machine."
+                : "This browser will not allow a local copy (private mode?), so unsaved work is lost on refresh. Save or download often."}
+            </p>
           </section>
 
           <section className="panel">

@@ -10,10 +10,13 @@
  */
 
 /** CEFR bands used by the corpus and understood by the feed's level filter. */
-export type CefrLevel = "A1" | "A2" | "B1" | "B2" | "C1";
+export type CefrLevel = "A1" | "A2" | "B1" | "B2" | "C1" | "C2";
 
-/** The five CEFR bands in ascending difficulty. */
-export const CEFR_LEVELS: readonly CefrLevel[] = ["A1", "A2", "B1", "B2", "C1"];
+/**
+ * The six CEFR bands in ascending difficulty. C2 is accepted so a hand-authored
+ * or third-party word can carry it; the bundled corpus itself stops at C1.
+ */
+export const CEFR_LEVELS: readonly CefrLevel[] = ["A1", "A2", "B1", "B2", "C1", "C2"];
 
 /** One entry of the bundled NGSL/NAWL starter corpus. */
 export interface CorpusWord {
@@ -65,11 +68,32 @@ export interface DeckWord {
   defVi: string;
   leadVi: string;
   anticipateVi: string;
+  /**
+   * Primary usage domain. Always equal to `topics[0]`, kept as its own field
+   * because the downstream importer still reads it.
+   */
   topic: string;
+  /**
+   * Every usage domain this word belongs to, most relevant first. A word can sit
+   * in both working life and academic writing, which one slug could never say.
+   */
+  topics: string[];
+  /**
+   * Exam targets the word is worth drilling for. Empty means general vocabulary
+   * rather than "unknown" — a word earns an exam tag, it does not default to one.
+   */
+  exams: string[];
   level: CefrLevel;
   chars: number;
   initial: string;
   usage: DeckUsage[];
+  /** When the word entered the deck, ISO 8601. */
+  addedAt: string;
+  /**
+   * The run that produced it — one generation pass or one import. This is what
+   * makes "what did last week add?" answerable once the deck is thousands long.
+   */
+  batchId: string;
 }
 
 /** Deck header. `revision` is what KineMedia's importer stamps into catalog.json. */

@@ -17,6 +17,7 @@ import { CEFR_LEVELS, type CefrLevel, type ReviewEntry } from "../lib/types";
 export function GeneratePanel({
   settings,
   existingWords,
+  existingAnticipate,
   selectedLevels,
   onLevels,
   onGenerated,
@@ -25,6 +26,8 @@ export function GeneratePanel({
 }: {
   settings: Settings;
   existingWords: ReadonlySet<string>;
+  /** Every `anticipateVi` in the deck, so a run can avoid repeating one. */
+  existingAnticipate: readonly string[];
   selectedLevels: readonly CefrLevel[];
   onLevels: (levels: CefrLevel[]) => void;
   onGenerated: (entries: ReviewEntry[], issues: string[]) => void;
@@ -73,11 +76,17 @@ export function GeneratePanel({
     append(
       `Requesting ${count} word(s) — provider ${settings.llm.provider}, model ${settings.llm.model}, ${settings.llm.batchSize} per call.`,
     );
+    if (existingAnticipate.length > 0) {
+      append(
+        `Avoiding ${existingAnticipate.length} teaser line(s) already in the deck, and each batch avoids the ones before it.`,
+      );
+    }
 
     try {
       const result = await runGeneration({
         settings,
         existingWords,
+        existingAnticipate,
         levels: selectedLevels,
         count,
         shuffle,
@@ -118,10 +127,10 @@ export function GeneratePanel({
   return (
     <>
       <section className="panel">
-        <h2>Corpus coverage</h2>
+        <h2>Left to annotate</h2>
         <p className="hint">
-          {corpus.meta.name} — {corpus.words.length} words, {corpus.meta.license}. Words already in
-          the deck are excluded automatically.
+          What the corpus above still has that the deck does not. Pick the bands this run should
+          draw from; words already in the deck are excluded automatically.
         </p>
         <div className="chips">
           {CEFR_LEVELS.map((level) => (

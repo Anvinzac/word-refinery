@@ -6,12 +6,21 @@
  * inside `defVi` / `leadVi` rather than a separate array. The level shown in
  * every deck word always comes from the corpus, never from the model.
  *
- * Exports: slugifyWord, buildDeckWord, buildDeck, coerceDeckWord, validateDeck, deckToCatalog
+ * Exports: slugifyWord, buildDeckWord, buildDeck, coerceDeckWord, validateDeck,
+ *          migrateDeckWord, approvedEntries
  * Depends on: ./types.ts, ./contract.ts, ./emphasis.ts
  */
 import type { CorpusWord, Deck, DeckMeta, DeckUsage, DeckWord, ReviewEntry } from "./types.ts";
 import { CEFR_LEVELS, type CefrLevel } from "./types.ts";
-import { containsTargetWord, type CrawlerAnnotation } from "./contract.ts";
+import {
+  EXAMS,
+  MAX_EXAMS,
+  MAX_TOPICS,
+  TOPICS,
+  containsTargetWord,
+  keepCurated,
+  type CrawlerAnnotation,
+} from "./contract.ts";
 import { countSyllables, injectEmphasisMarkers, stripEmphasisMarkers, validateEmphasis } from "./emphasis.ts";
 
 /** Deck id pattern, identical to the app's importer rule. */
@@ -48,6 +57,10 @@ export function buildDeckWord(input: {
   corpusWord: CorpusWord;
   annotation: CrawlerAnnotation | null;
   usedIds: Set<string>;
+  /** The run this word belongs to, so a weekly batch stays identifiable later. */
+  batchId: string;
+  /** When the run happened, ISO 8601. One stamp per run, not per word. */
+  addedAt: string;
 }): { deckWord: DeckWord | null; warnings: string[]; errors: string[] } {
   const warnings: string[] = [];
   const errors: string[] = [];
@@ -98,6 +111,11 @@ export function buildDeckWord(input: {
     warnings.push(`${word}: no usable example sentence; usage will be empty`);
   }
 
+  // The contract parser has already dropped uncurated tags and guaranteed at
+  // least one topic, so this is a straight copy with `topic` restated as the
+  // primary for the importer that still reads the singular field.
+  const topics = annotation.topics.length > 0 ? [...annotation.topics] : ["general"];
+
   const letters = word.match(/\p{L}/gu) ?? [];
   const deckWord: DeckWord = {
     id,
@@ -107,11 +125,15 @@ export function buildDeckWord(input: {
     defVi: marked.defVi,
     leadVi: marked.leadVi,
     anticipateVi,
-    topic: annotation.topic.length > 0 ? annotation.topic : "general",
+    topic: topics[0]!,
+    topics,
+    exams: [...annotation.exams],
     level: input.corpusWord.level,
     chars: letters.length,
     initial: word.charAt(0).toUpperCase(),
     usage,
+    addedAt: input.addedAt,
+    batchId: input.batchId,
   };
   return { deckWord, warnings, errors };
 }
@@ -169,9 +191,14 @@ function coerceLevel(value: unknown): CefrLevel {
  *
  * @param raw - one entry from the imported `words` array
  * @param usedIds - ids already taken, mutated to reserve the returned id
+ * @param defaults - batch bookkeeping for words that carry none of their own
  * @returns the normalised deck word, or null when there is no usable headword
  */
-export function coerceDeckWord(raw: unknown, usedIds: Set<string>): DeckWord | null {
+export function coerceDeckWord(
+  raw: unknown,
+  usedIds: Set<string>,
+  defaults: { batchId: string; addedAt: string } = { batchId: "imported", addedAt: "" },
+): DeckWord | null {
   if (typeof raw !== "object" || raw === null) return null;
   const record = raw as Record<string, unknown>;
   const text = (value: unknown): string => (typeof value === "string" ? value : "");
@@ -179,14 +206,16 @@ export function coerceDeckWord(raw: unknown, usedIds: Set<string>): DeckWord | n
   const word = text(record.word).trim();
   if (word.length === 0) return null;
 
-  // topic wins; otherwise take the first of a `topics` array; otherwise general.
-  let topic = "general";
-  if (text(record.topic).length > 0) topic = record.topic as string;
-  else if (Array.isArray(record.topics) && typeof record.topics[0] === "string") {
-    topic = record.topics[0] as string;
-  }
-  topic = topic.toLowerCase();
-  if (!TOPIC_PATTERN.test(topic)) topic = "general";
+  // `topics` wins; a word from before the axis existed carries only `topic`,
+  // which becomes a one-entry list. Uncurated tags are dropped, never invented.
+  const offeredTopics = Array.isArray(record.topics)
+    ? (record.topics as unknown[])
+    : [record.topic];
+  const topics = keepCurated(offeredTopics, TOPICS, MAX_TOPICS);
+  if (topics.length === 0) topics.push("general");
+  const exams = Array.isArray(record.exams)
+    ? keepCurated(record.exams as unknown[], EXAMS, MAX_EXAMS)
+    : [];
 
   let id = ID_PATTERN.test(text(record.id)) ? record.id as string : slugifyWord(word);
   if (usedIds.has(id)) {
@@ -217,11 +246,45 @@ export function coerceDeckWord(raw: unknown, usedIds: Set<string>): DeckWord | n
     defVi: text(record.defVi),
     leadVi: text(record.leadVi),
     anticipateVi: text(record.anticipateVi),
-    topic,
+    topic: topics[0]!,
+    topics,
+    exams,
     level: coerceLevel(record.level),
     chars: typeof record.chars === "number" ? record.chars : letters.length,
     initial: text(record.initial) || word.charAt(0).toUpperCase(),
     usage,
+    // A word that predates this bookkeeping gets the stamp of the import that
+    // carried it in, which is the truest thing still knowable about it.
+    addedAt: text(record.addedAt) || defaults.addedAt,
+    batchId: text(record.batchId) || defaults.batchId,
+  };
+}
+
+/**
+ * Bring a deck word read from storage up to the current shape.
+ *
+ * A document saved before the topics/exams axes existed has words with a lone
+ * `topic` and no bookkeeping. Reading one must not hand the app a word whose
+ * `topics` is undefined, so every read path routes through here.
+ *
+ * @param word - a deck word of any vintage
+ * @returns the word with every current field present
+ */
+export function migrateDeckWord(word: DeckWord): DeckWord {
+  const hasTopics = Array.isArray(word.topics) && word.topics.length > 0;
+  const hasExams = Array.isArray(word.exams);
+  if (hasTopics && hasExams && typeof word.addedAt === "string" && typeof word.batchId === "string") {
+    return word;
+  }
+  const topics = keepCurated(hasTopics ? word.topics : [word.topic], TOPICS, MAX_TOPICS);
+  if (topics.length === 0) topics.push("general");
+  return {
+    ...word,
+    topic: topics[0]!,
+    topics,
+    exams: hasExams ? keepCurated(word.exams, EXAMS, MAX_EXAMS) : [],
+    addedAt: typeof word.addedAt === "string" && word.addedAt.length > 0 ? word.addedAt : "",
+    batchId: typeof word.batchId === "string" && word.batchId.length > 0 ? word.batchId : "legacy",
   };
 }
 
@@ -284,6 +347,37 @@ export function validateDeck(deck: Deck): DeckIssue[] {
     }
 
     if (!TOPIC_PATTERN.test(entry.topic)) at("topic", `"${entry.topic}" is not lowercase-slug`);
+
+    // The two curated axes. Both are closed lists shared with KineMedia, so an
+    // uncurated slug here is a tag that silently disappears downstream.
+    if (!Array.isArray(entry.topics) || entry.topics.length === 0) {
+      at("topics", "no usage domain assigned");
+    } else {
+      if (entry.topics.length > MAX_TOPICS) {
+        at("topics", `${entry.topics.length} topics; at most ${MAX_TOPICS} are kept`);
+      }
+      if (new Set(entry.topics).size !== entry.topics.length) at("topics", "repeated topic");
+      for (const topic of entry.topics) {
+        if (!(TOPICS as readonly string[]).includes(topic)) {
+          at("topics", `"${topic}" is not one of the curated usage domains`);
+        }
+      }
+      if (entry.topic !== entry.topics[0]) {
+        at("topic", `"${entry.topic}" does not match topics[0] "${entry.topics[0]}"`);
+      }
+    }
+
+    if (Array.isArray(entry.exams)) {
+      if (entry.exams.length > MAX_EXAMS) {
+        at("exams", `${entry.exams.length} exams; at most ${MAX_EXAMS} are kept`);
+      }
+      if (new Set(entry.exams).size !== entry.exams.length) at("exams", "repeated exam target");
+      for (const exam of entry.exams) {
+        if (!(EXAMS as readonly string[]).includes(exam)) {
+          at("exams", `"${exam}" is not one of the curated exam targets`);
+        }
+      }
+    }
 
     for (const [index, usage] of entry.usage.entries()) {
       if (!usage.en.includes("_____")) at(`usage[${index}].en`, "missing the _____ blank");

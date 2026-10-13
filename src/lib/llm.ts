@@ -22,6 +22,7 @@ import {
 } from "./prompt.ts";
 import { extractJsonArray, parseAnnotationList, type CrawlerAnnotation } from "./contract.ts";
 import type { CorpusWord, DeckWord } from "./types.ts";
+import type { AvoidList } from "./uniqueness.ts";
 
 /** Error carrying enough context for the UI to explain what went wrong. */
 export class LlmError extends Error {
@@ -413,16 +414,23 @@ export interface AnnotateResult {
  * @param settings - active LLM settings
  * @param words - corpus words to annotate
  * @param batchSize - words per call
- * @param onProgress - optional per-batch callback for the progress bar
- * @param signal - optional AbortSignal
+ * @param options.onProgress - optional per-batch callback for the progress bar
+ * @param options.signal - optional AbortSignal
+ * @param options.avoid - running list of `anticipateVi` lines already taken; each
+ *   batch is told about it and feeds its own output back, so a multi-batch run
+ *   cannot collide with itself
  */
 export async function annotateBatch(
   settings: Settings["llm"],
   words: readonly CorpusWord[],
   batchSize: number,
-  onProgress?: AnnotateProgress,
-  signal?: AbortSignal,
+  options: {
+    onProgress?: AnnotateProgress;
+    signal?: AbortSignal;
+    avoid?: AvoidList;
+  } = {},
 ): Promise<AnnotateResult> {
+  const { onProgress, signal, avoid } = options;
   const annotations = new Map<string, CrawlerAnnotation>();
   const issues: string[] = [];
 
@@ -444,7 +452,7 @@ export async function annotateBatch(
         settings,
         [
           { role: "system", content: ANNOTATION_SYSTEM_PROMPT },
-          { role: "user", content: buildBatchPrompt(batch) },
+          { role: "user", content: buildBatchPrompt(batch, avoid?.section() ?? "") },
         ],
         { signal },
       );
@@ -454,6 +462,9 @@ export async function annotateBatch(
       } else {
         const parsed = parseAnnotationList(items, requested);
         for (const [word, annotation] of parsed.annotations) annotations.set(word, annotation);
+        // Fed back before the next batch is built, so later calls in this run
+        // see what the earlier ones just used.
+        avoid?.add([...parsed.annotations.values()].map((item) => item.anticipateVi));
         issues.push(...parsed.issues.map((issue) => `batch ${index + 1}: ${issue}`));
       }
     } catch (error) {
