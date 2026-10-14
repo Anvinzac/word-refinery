@@ -8,7 +8,7 @@
  * override them in their own browser, so a rule can be tried on tonight's batch
  * and kept or dropped on the evidence.
  *
- * Only the two SYSTEM prompts are overridable. They are static prose, so an
+ * Only the SYSTEM prompts are overridable. They are static prose, so an
  * edit cannot break them. The user messages are assembled per request from the
  * corpus words, the reviewer's chips and the avoid list; making those editable
  * would mean inventing a placeholder language and letting a typo drop the word
@@ -22,10 +22,10 @@
  *          resetPromptOverride, resolvePrompt, isPromptOverridden
  * Depends on: ./prompt.ts
  */
-import { ANNOTATION_SYSTEM_PROMPT, VERIFY_SYSTEM_PROMPT } from "./prompt.ts";
+import { ANNOTATION_SYSTEM_PROMPT, REWRITE_SYSTEM_PROMPT, VERIFY_SYSTEM_PROMPT } from "./prompt.ts";
 
 /** The prompts an operator may override. */
-export type PromptId = "annotation" | "verify";
+export type PromptId = "annotation" | "rewrite" | "verify";
 
 /** What the panel needs to show one prompt. */
 export interface PromptDefinition {
@@ -42,8 +42,15 @@ export const PROMPT_DEFINITIONS: readonly PromptDefinition[] = [
     id: "annotation",
     title: "Annotation (system)",
     purpose:
-      "Sent with every generation batch and every single-field rewrite. Holds the field rules, the word-joining convention and the emphasis-selection rules.",
+      "Sent with every generation batch. Holds the field rules, the word-joining convention and the emphasis-selection rules.",
     fallback: ANNOTATION_SYSTEM_PROMPT,
+  },
+  {
+    id: "rewrite",
+    title: "Single-field rewrite (system)",
+    purpose:
+      "Sent when you regenerate one cell. The base for every field: audience, word joining, language rules and reply shape. The field's own rule is quoted into the request from the shipped batch rules, so edits to the Annotation prompt above do not reach it.",
+    fallback: REWRITE_SYSTEM_PROMPT,
   },
   {
     id: "verify",

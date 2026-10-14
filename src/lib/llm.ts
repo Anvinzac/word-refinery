@@ -10,7 +10,7 @@
  * The API key is read from localStorage at call time and is sent only to the
  * endpoint the user picked. Nothing is proxied: GitHub Pages has no server.
  *
- * Exports: LlmError, ListedModel, chat, listModels, annotateBatch, regenerateField,
+ * Exports: LlmError, ListedModel, chat, readChatText, listModels, annotateBatch, regenerateField,
  *          verifyWord, testConnection
  * Depends on: ./settings.ts, ./prompt.ts, ./contract.ts, ./types.ts
  */
@@ -167,18 +167,78 @@ async function sendOnce(
     }),
   });
 
-  return finish(response, provider, (json) => {
-    const choice = (json as { choices?: Array<{ message?: { content?: unknown } }> }).choices?.[0];
-    const content = choice?.message?.content;
-    if (typeof content === "string" && content.length > 0) return content;
-    // Some OpenRouter models return an array of content parts.
-    if (Array.isArray(content)) {
-      const text = content
-        .map((part) => (typeof part === "object" && part !== null ? String((part as { text?: unknown }).text ?? "") : ""))
-        .join("");
-      if (text.length > 0) return text;
-    }
-    throw new LlmError(`${provider} returned no assistant text`, { provider });
+  return finish(response, provider, (json) => readChatText(provider, json, settings.maxTokens));
+}
+
+/** The parts of an OpenAI-shaped completion this client reads. */
+interface ChatCompletion {
+  error?: { message?: unknown; code?: unknown };
+  choices?: Array<{
+    finish_reason?: unknown;
+    error?: { message?: unknown; code?: unknown };
+    message?: { content?: unknown; reasoning?: unknown; reasoning_content?: unknown };
+  }>;
+}
+
+/**
+ * Pull the assistant text out of an OpenAI-shaped completion, or explain why
+ * there is none.
+ *
+ * OpenRouter answers 200 even when the upstream model failed, putting the
+ * failure in the body, and reasoning models can spend the whole token budget
+ * thinking and leave `content` empty. Both need a different fix from the user,
+ * so each gets its own message.
+ *
+ * @param provider - provider name for messages
+ * @param json - parsed response body
+ * @param maxTokens - the budget the request was sent with
+ * @returns the assistant text
+ */
+export function readChatText(provider: string, json: unknown, maxTokens: number): string {
+  const body = json as ChatCompletion;
+  const choice = body.choices?.[0];
+  const content = choice?.message?.content;
+  if (typeof content === "string" && content.trim().length > 0) return content;
+  // Some OpenRouter models return an array of content parts.
+  if (Array.isArray(content)) {
+    const text = content
+      .map((part) => (typeof part === "object" && part !== null ? String((part as { text?: unknown }).text ?? "") : ""))
+      .join("");
+    if (text.trim().length > 0) return text;
+  }
+
+  const snippet = JSON.stringify(json).slice(0, 600);
+  const upstream = body.error ?? choice?.error;
+  if (upstream !== undefined) {
+    const code = typeof upstream.code === "number" ? upstream.code : null;
+    const detail = typeof upstream.message === "string" ? upstream.message : "unknown error";
+    throw new LlmError(`${provider}: the model's provider failed — ${detail}`, {
+      provider,
+      status: code,
+      body: snippet,
+    });
+  }
+
+  const reasoning = choice?.message?.reasoning ?? choice?.message?.reasoning_content;
+  const thought = typeof reasoning === "string" && reasoning.length > 0;
+  const finish = typeof choice?.finish_reason === "string" ? choice.finish_reason : null;
+  if (finish === "length") {
+    throw new LlmError(
+      thought
+        ? `${provider}: the model spent all ${maxTokens} tokens reasoning and wrote no answer. Raise Max tokens in Settings or pick a non-reasoning model.`
+        : `${provider}: the reply hit the ${maxTokens}-token limit before any text. Raise Max tokens in Settings.`,
+      { provider, body: snippet },
+    );
+  }
+  if (finish === "content_filter") {
+    throw new LlmError(`${provider}: the reply was blocked by the model's content filter.`, {
+      provider,
+      body: snippet,
+    });
+  }
+  throw new LlmError(`${provider} returned no assistant text${finish ? ` (finish reason: ${finish})` : ""}`, {
+    provider,
+    body: snippet,
   });
 }
 
@@ -493,30 +553,38 @@ export async function annotateBatch(
  * Ask the model to rewrite one Vietnamese field, used by the Review table's
  * inline refine control. The request carries the reviewer's chips, note and the
  * validator's own findings together, so a single rewrite answers all of them.
- * Returns the replacement text or throws.
+ *
+ * @param avoid - the deck's taken teaser lines, rendered for the prompt
+ * @returns the replacement text, plus the phrase to highlight when the model
+ *   chose one (defVi and leadVi only)
+ * @throws LlmError when the reply is empty
  */
 export async function regenerateField(
   settings: Settings["llm"],
   word: DeckWord,
   request: RefineRequest,
-  signal?: AbortSignal,
-): Promise<string> {
+  options: { avoid?: string; signal?: AbortSignal } = {},
+): Promise<{ value: string; emphasis: string | null }> {
   const reply = await chat(
     settings,
     [
-      { role: "system", content: resolvePrompt("annotation") },
-      { role: "user", content: buildRegeneratePrompt(word, request) },
+      { role: "system", content: resolvePrompt("rewrite") },
+      { role: "user", content: buildRegeneratePrompt(word, request, options.avoid) },
     ],
-    { attempts: 2, signal },
+    { attempts: 2, signal: options.signal },
   );
 
   const start = reply.indexOf("{");
   const end = reply.lastIndexOf("}");
   if (start !== -1 && end > start) {
     try {
-      const parsed = JSON.parse(reply.slice(start, end + 1)) as { value?: unknown };
+      const parsed = JSON.parse(reply.slice(start, end + 1)) as { value?: unknown; emphasis?: unknown };
       if (typeof parsed.value === "string" && parsed.value.trim().length > 0) {
-        return parsed.value.trim();
+        const emphasis =
+          typeof parsed.emphasis === "string" && parsed.emphasis.trim().length > 0
+            ? parsed.emphasis.trim()
+            : null;
+        return { value: parsed.value.trim(), emphasis };
       }
     } catch {
       // fall through to the raw-text path
@@ -524,7 +592,7 @@ export async function regenerateField(
   }
   const trimmed = reply.trim();
   if (trimmed.length === 0) throw new LlmError("Model returned an empty rewrite", { provider: settings.provider });
-  return trimmed;
+  return { value: trimmed, emphasis: null };
 }
 
 /**

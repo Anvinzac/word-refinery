@@ -7,13 +7,14 @@
  * Emphasis is requested as a plain list; `lib/emphasis.ts` validates it and
  * injects the `/…/` markers, so the model never has to learn the delimiter.
  *
- * Exports: ANNOTATION_SYSTEM_PROMPT, buildBatchPrompt, buildRegeneratePrompt,
+ * Exports: ANNOTATION_SYSTEM_PROMPT, FIELD_RULES, buildBatchPrompt,
+ * REWRITE_SYSTEM_PROMPT, buildRegeneratePrompt,
  * COMPLAINT_CHIPS, chipsForField, ComplaintChip, RefineField, RefineRequest,
  * VERIFY_SYSTEM_PROMPT, buildVerifyPrompt, VerifyFinding, VerifyReport
  * Depends on: ./types.ts, ./contract.ts
  */
 import type { CorpusWord } from "./types.ts";
-import { CRAWLER_ANNOTATION_FIELDS, EXAMS, TOPICS } from "./contract.ts";
+import { CRAWLER_ANNOTATION_FIELDS, EXAMS, TOPICS, type CrawlerAnnotationField } from "./contract.ts";
 
 /** Fields the model is allowed to return, rendered into the prompt. */
 const FIELD_LIST = CRAWLER_ANNOTATION_FIELDS.join(", ");
@@ -24,28 +25,15 @@ const TOPIC_LIST = TOPICS.join(", ");
 /** Exam list, rendered the same way and for the same reason. */
 const EXAM_LIST = EXAMS.join(", ");
 
+/** Who the cards are for; opens both the batch and the rewrite prompt. */
+const AUDIENCE =
+  'The reader is a Vietnamese learner who sees Vietnamese first and only later the English word.';
+
 /**
- * System prompt. One constant so the contract, the parser and the UI all point
- * at the same source of truth.
+ * How to pick a highlighted phrase. Shared by the batch prompt, where it picks
+ * one phrase per field, and by a defVi/leadVi rewrite, which picks one anew.
  */
-export const ANNOTATION_SYSTEM_PROMPT = `You write Vietnamese vocabulary cards for a mobile "learn one English word at a time" app.
-The reader is a Vietnamese learner who sees Vietnamese first and only later the English word.
-
-For every requested word, return exactly one JSON object with these ${CRAWLER_ANNOTATION_FIELDS.length} fields and no others: ${FIELD_LIST}.
-
-Field rules:
-- "word": the English headword, copied exactly as given, lowercase.
-- "pos": one of noun, verb, adj, adv, prep, conj, phrase.
-- "ipa": IPA in slashes, e.g. "/ˈwɔː.tər/".
-- "defVi": ONE Vietnamese sentence defining the word, exactly 8-11 words, at most 140 characters, no English words, full diacritics.
-- "leadVi": a Vietnamese teaser hinting at the meaning without naming it, exactly 8-11 words, at most 120 characters, no English words.
-- "anticipateVi": a short playful Vietnamese invitation to guess, 3-8 words, at most 60 characters. It must be DIFFERENT for every word IN THE WHOLE DECK, not merely within this batch - the user message lists lines and openings already taken, and reusing one is a defect. Vary the opening as well as the wording; never fall back on a placeholder like "Đoán xem nào…".
-- "usageEn": ONE natural English example sentence of at most 20 words where the target word is replaced by exactly five underscores: _____
-- "usageVi": the Vietnamese meaning of that example sentence.
-- "topics": one to three lowercase tags from this closed list, most relevant FIRST: ${TOPIC_LIST}. Never invent a tag outside it — an unknown tag is discarded.
-- "exams": the exams whose vocabulary lists this word genuinely belongs to, from: ${EXAM_LIST}. Use an empty array [] for ordinary everyday words — most words have none, and a wrong tag is worse than none.
-- "emphasisVi": 2 Vietnamese phrases that will glow on screen, one drawn from defVi and one from leadVi.
-  CHOOSE BY MEANING FIRST. Pick the phrase that carries the POINT of the sentence - the idea the learner should walk away with. The test: if the sentence were cut down to two syllables, which two would have to survive for it still to mean anything? Those are the ones. A phrase chosen because it happened to sit next to another word is a DEFECT even when it satisfies every mechanical rule below.
+const EMPHASIS_CHOICE = `  CHOOSE BY MEANING FIRST. Pick the phrase that carries the POINT of the sentence - the idea the learner should walk away with. The test: if the sentence were cut down to two syllables, which two would have to survive for it still to mean anything? Those are the ones. A phrase chosen because it happened to sit next to another word is a DEFECT even when it satisfies every mechanical rule below.
   * Prefer, in this order: the compound that names the concept itself (sức_khỏe, quan_trọng, thư_viện), then a vivid verb or adjective phrase (chảy xiết, lấp_lánh), then a concrete noun phrase.
   * NEVER pick filler: a classifier and its noun ("con mèo"), a number and its noun ("hai người"), a time phrase ("mỗi ngày", "hằng ngày"), a verb with a generic object ("làm việc" when the sentence is not about work), or any span that crosses a comma.
   * It must be copied EXACTLY, diacritics included, from the defVi or leadVi you just wrote.
@@ -53,37 +41,85 @@ Field rules:
   * exactly TWO syllables - never one, never three or more. A joined compound is the ideal case, because the join already says those two syllables are one word.
   * never a function word such as và, là, của, có, được, trong, cho, với, một, rất, cũng, đã, đang, sẽ, không, những, các, thì, mà,
   * at most 30 characters and unique inside the list,
-  * appear MID-SENTENCE in lowercase where possible, so the highlight matcher finds it exactly.
+  * appear MID-SENTENCE in lowercase where possible, so the highlight matcher finds it exactly.`;
 
-Word joining (applies to the Vietnamese fields: defVi, leadVi, anticipateVi, usageVi):
-Vietnamese is written one syllable at a time, so "ba lô" (a backpack) looks exactly like two unrelated words and a card may break the line between them. Join the syllables of ONE word with a single underscore, and leave an ordinary space between different words.
+/**
+ * The rule for each card field, worded once. The batch prompt lists them all;
+ * a single-field rewrite quotes only the one it rewrites, so the two prompts
+ * can never disagree about what a field must be.
+ */
+export const FIELD_RULES: Record<CrawlerAnnotationField, string> = {
+  word: "the English headword, copied exactly as given, lowercase.",
+  pos: "one of noun, verb, adj, adv, prep, conj, phrase.",
+  ipa: 'IPA in slashes, e.g. "/ˈwɔː.tər/".',
+  defVi:
+    "ONE Vietnamese sentence defining the word, exactly 8-11 words, at most 140 characters, no English words, full diacritics.",
+  leadVi:
+    "a Vietnamese teaser hinting at the meaning without naming it, exactly 8-11 words, at most 120 characters, no English words.",
+  anticipateVi:
+    'a short playful Vietnamese invitation to guess, 3-8 words, at most 60 characters. It must be DIFFERENT for every word IN THE WHOLE DECK, not merely within this batch - the user message lists lines and openings already taken, and reusing one is a defect. Vary the opening as well as the wording; never fall back on a placeholder like "Đoán xem nào…".',
+  usageEn:
+    "ONE natural English example sentence of at most 20 words where the target word is replaced by exactly five underscores: _____",
+  usageVi: "the Vietnamese meaning of that example sentence.",
+  topics: `one to three lowercase tags from this closed list, most relevant FIRST: ${TOPIC_LIST}. Never invent a tag outside it — an unknown tag is discarded.`,
+  exams: `the exams whose vocabulary lists this word genuinely belongs to, from: ${EXAM_LIST}. Use an empty array [] for ordinary everyday words — most words have none, and a wrong tag is worse than none.`,
+  emphasisVi: `2 Vietnamese phrases that will glow on screen, one drawn from defVi and one from leadVi.\n${EMPHASIS_CHOICE}`,
+};
+
+/** The joining convention, for every prompt that writes Vietnamese. */
+const WORD_JOINING = `Breaking marks (applies to the Vietnamese fields: defVi, leadVi, anticipateVi, usageVi):
+Vietnamese is written one syllable at a time, so nothing in the text says where a word ends or where a phrase ends, and a card may break a line in the worst possible place. Three marks say it. None of them is seen by the reader, and none of them changes a word count.
+  _  ONE WORD. Join the syllables of a single word: ba_lô, học_sinh, quan_trọng.
+  =  LEANS ON ITS NEIGHBOUR. Two words that must stay on one line but are NOT one word: con=mèo, đã=đi, của=tôi.
+  |  PHRASE EDGE. Put it between phrases, with a space each side: "Việc thu_gom cây trái | sau một=mùa trồng_trọt dài."
   Sáng nào cũng đeo ba_lô ra cửa.
   Điều /quan_trọng/ nhất là sức_khỏe.
 - A join is ONE underscore with a letter or digit directly on both sides: no space before it, no space after it.
-- JOIN compound words (học_sinh, điện_thoại, thư_viện, sức_khỏe) and reduplicated words (thình_thịch, lấp_lánh, nhẹ_nhàng).
-- DO NOT join these three, ever:
-  * function words — "của tôi", "rất đẹp", "đã đi", "sẽ về", "không biết"
-  * a classifier and its noun — "con mèo", "cái bàn", "chiếc xe", "quyển sách"
-  * a free verb-object pair — "ăn cơm", "đọc sách", "uống nước", "rửa tay"
-  A verb-object pair is free when it still means the sum of its parts. Join it only when the pair has a meaning the parts do not give on their own, which makes it one lexical word: "ăn_mừng" (to celebrate), "ăn_năn" (to repent).
-- DO NOT join anything else either. Only compounds and reduplicated words take a join.
-- When you are not sure two syllables are one word, DO NOT join them. A missing join only allows a line break; a wrong join glues two words into a block that cannot wrap and shrinks the whole page.
+- "_" JOINS a single lexical word: compounds (học_sinh, điện_thoại, thư_viện, sức_khỏe), reduplicated words (thình_thịch, lấp_lánh, nhẹ_nhàng), loanwords spelled as syllables (cà_phê, ba_lô, ô_tô), multi-syllable function words (bởi_vì, tuy_nhiên, mặc_dù, cho_nên) and proper names (Việt_Nam, Hà_Nội).
+- QUICK TEST for "_": could another word sit between the two syllables without breaking the meaning? "ăn [nhiều] cơm" works, so that is two words and takes "=". Nothing fits inside "ba ... lô", so that is one word and takes "_".
+- A joined word is normally two syllables, occasionally three, NEVER more than four: a joined unit must fit on one line, and a long chain shrinks the whole page. Join the real words inside a phrase rather than the phrase itself: "công_nghệ thông_tin", never "công_nghệ_thông_tin".
+- NEVER join these three with "_". They take "=" instead, because they are two words that merely lean together:
+  * a function word and what it leans on — "của=tôi", "rất=đẹp", "đã=đi", "sẽ=về", "không=biết", "đang=ngủ" (note the difference from a multi-syllable function word like "tuy_nhiên", which IS one word)
+  * a classifier and its noun — "con=mèo", "cái=bàn", "chiếc=xe", "quyển=sách"
+  * a free verb-object pair — "ăn=cơm", "đọc=sách", "uống=nước", "rửa=tay"
+  A verb-object pair is free when it still means the sum of its parts. Give it "_" only when the pair means something the parts do not, which makes it one lexical word: "ăn_mừng" (to celebrate), "ăn_năn" (to repent).
+- "_" is for compounds and reduplicated words only. Everything that merely has to stay together takes "=".
+- The difference matters because a highlight may cover a "_" and may NEVER cover a "=": "con=mèo" is a classifier plus a noun, not a phrase worth glowing.
+- When you are not sure two syllables are one word, use "=" rather than "_", and when you are not sure they belong together at all, leave a plain space. A missing mark only allows a line break; a wrong one glues words into a block that cannot wrap and shrinks the whole page.
+- PHRASE EDGES: put "|" where the sentence would naturally pause - between a subject and its predicate, before a prepositional or time phrase, before a relative clause. Every phrase you create must be at least TWO syllables long: "|" exists so a break can land on a phrase edge instead of stranding a lone syllable, and a one-syllable phrase cannot do that. A sentence of 8-11 words usually wants one or two "|", never one after every word.
 - A join does NOT change a word count. "quan_trọng" is TWO of the 8-11 words, not one. Count syllables exactly as if the underscores were spaces.
 - Never use an underscore for anything else: no snake_case, no emphasis, no decoration. Any single underscore between two letters will be read as a join. The five-underscore blank "_____" in usageEn is not a join and is unaffected.
 - "emphasisVi" entries are written PLAIN, with a space where the text has a join: for /quan_trọng/ in defVi, the emphasis entry is "quan trọng".
 - NEVER put an underscore in "usageEn". That field carries the five-underscore answer blank, and a join beside it would be read as part of the blank. English words wrap safely on their own.
-- The reader never sees the underscore; the app replaces it when the deck loads.
+- The reader never sees the underscore; the app replaces it when the deck loads.`;
+
+/** Hard rules about the Vietnamese itself, binding on a rewrite as much as a batch. */
+const LANGUAGE_RULES = `- Write correct Vietnamese with full diacritics in every Vietnamese field.
+- Never include the English target word, or any English word, in defVi, leadVi or anticipateVi.
+- Never define a word with the word itself or an obvious cognate.`;
+
+/**
+ * System prompt. One constant so the contract, the parser and the UI all point
+ * at the same source of truth.
+ */
+export const ANNOTATION_SYSTEM_PROMPT = `You write Vietnamese vocabulary cards for a mobile "learn one English word at a time" app.
+${AUDIENCE}
+
+For every requested word, return exactly one JSON object with these ${CRAWLER_ANNOTATION_FIELDS.length} fields and no others: ${FIELD_LIST}.
+
+Field rules:
+${CRAWLER_ANNOTATION_FIELDS.map((field) => `- "${field}": ${FIELD_RULES[field]}`).join("\n")}
+
+${WORD_JOINING}
 
 Hard rules:
-- Write correct Vietnamese with full diacritics in every Vietnamese field.
-- Never include the English target word, or any English word, in defVi, leadVi or anticipateVi.
-- Never define a word with the word itself or an obvious cognate.
+${LANGUAGE_RULES}
 - Never add a "level" field or any field outside the ${CRAWLER_ANNOTATION_FIELDS.length} listed - difficulty is handled outside this request.
 - Return ONLY a JSON array with one object per requested word, in the requested order. No markdown fences, no headings, no commentary.
 
 Minimal example of the expected format (one word, shortened):
-[{"word":"water","pos":"noun","ipa":"/ˈwɔː.tər/","defVi":"Chất_lỏng trong suốt mà ta uống mỗi ngày.","leadVi":"Có thứ này thì cây_cối mới sống được.","anticipateVi":"Thứ gì chảy được nhỉ?","usageEn":"Please bring me a glass of _____.","usageVi":"Làm ơn mang cho tôi một cốc nước.","topics":["nature","daily"],"exams":[],"emphasisVi":["Chất lỏng","cây cối"]}]
-(Note the example: "Chất_lỏng" is one word written as two syllables, so defVi still counts 9 words; the emphasisVi entry for it is written plain as "Chất lỏng".)`;
+[{"word":"water","pos":"noun","ipa":"/ˈwɔː.tər/","defVi":"Chất_lỏng trong suốt | mà ta uống=mỗi ngày.","leadVi":"Có thứ này thì cây_cối mới sống được.","anticipateVi":"Thứ gì chảy được nhỉ?","usageEn":"Please bring me a glass of _____.","usageVi":"Làm ơn mang cho tôi một cốc nước.","topics":["nature","daily"],"exams":[],"emphasisVi":["Chất lỏng","cây cối"]}]
+(Note the example: "Chất_lỏng" is one word written as two syllables, so defVi still counts 9 words; the "|" marks the phrase edge and the "=" binds a function word to its neighbour; the emphasisVi entry is written plain as "Chất lỏng", and it may not span the "=" or the "|".)`;
 
 /**
  * Render one batch of corpus words as the user message.
@@ -209,27 +245,42 @@ export function chipsForField(field: RefineField): readonly ComplaintChip[] {
   return COMPLAINT_CHIPS.filter((chip) => chip.fields === undefined || chip.fields.includes(field));
 }
 
-/** Constraint reminder per field, so a one-field rewrite still knows its own limits. */
-const FIELD_RULES: Record<RefineField, string> = {
-  defVi:
-    "ONE Vietnamese sentence defining the word: exactly 8-11 words, at most 140 characters, no English, full diacritics, and it must never contain the headword or a cognate.",
-  leadVi:
-    "A Vietnamese teaser hinting at the meaning without naming it: exactly 8-11 words, at most 120 characters, no English, full diacritics.",
-  anticipateVi:
-    "A short playful Vietnamese invitation to guess: 3-8 words, at most 60 characters, and unlike any stock placeholder.",
-  usageVi:
-    "The Vietnamese meaning of the English example sentence: natural spoken register, full diacritics, faithful to the English.",
-};
+/** Fields whose rewrite also picks the phrase that glows on screen. */
+const HIGHLIGHTED_FIELDS: ReadonlySet<RefineField> = new Set(["defVi", "leadVi"]);
 
 /**
- * The joining convention, restated for a single-field rewrite.
+ * Base system prompt for every single-field rewrite.
  *
- * A rewrite is one field in isolation, so it cannot infer the convention from
- * the surrounding text — and a field that comes back unjoined would quietly
- * undo the joins the rest of the deck has.
+ * Holds what is true whatever the field: the audience, the joining convention,
+ * the language rules and the reply shape. The field's own rule travels in the
+ * user message, quoted from {@link FIELD_RULES}, so a rewrite is held to the
+ * same wording as the batch that first wrote the field — without the batch
+ * prompt's instruction to return eleven fields, which a rewrite must not do.
  */
-const JOIN_RULE =
-  'Join the syllables of ONE Vietnamese word with a single underscore and leave ordinary spaces between words: "ba_lô", "quan_trọng", "sức_khỏe". Join only compounds and reduplicated words. Never join a function word ("của tôi"), a classifier and its noun ("con mèo"), or a free verb-object pair ("ăn cơm"); when unsure, do not join. A join does NOT change the word count — "quan_trọng" counts as two words. Use the underscore for nothing else.';
+export const REWRITE_SYSTEM_PROMPT = `You rewrite ONE field of a Vietnamese vocabulary card for a mobile "learn one English word at a time" app.
+${AUDIENCE}
+
+The user message gives the English word, the ID of the field to rewrite, that field's requirements, the card as it stands, and what the reviewer wants fixed. Meet every requirement and fix everything listed in a single rewrite. Leave every other field alone.
+
+${WORD_JOINING}
+
+Hard rules:
+${LANGUAGE_RULES}
+- Return ONLY a JSON object, with no markdown fences and no commentary: {"value": "<the rewritten field>"}.
+- When the user message asks for a highlight, add it as a second key: {"value": "<the rewritten field>", "emphasis": "<the phrase>"}.`;
+
+/** The phrase a field currently highlights, written plain, or null. */
+function highlightOf(text: string): string | null {
+  const match = /\/([^/]+)\//.exec(text);
+  return match === null ? null : match[1].replace(/_/g, " ");
+}
+
+/** A card field shown to the model: marker-free, with its highlight named beside it. */
+function showField(text: string): string {
+  const plain = text.replace(/\/([^/]+)\//g, "$1");
+  const highlight = highlightOf(text);
+  return highlight === null ? plain : `${plain}   (highlighted: "${highlight}")`;
+}
 
 /**
  * Everything the reviewer said about one field, assembled by the Review table.
@@ -248,14 +299,18 @@ export interface RefineRequest {
 }
 
 /**
- * Prompt used when a reviewer sends one field back for a rewrite.
+ * User message sent with {@link REWRITE_SYSTEM_PROMPT} when a reviewer sends
+ * one field back.
  *
- * Keeps the whole word in view so the rewrite cannot drift from the other
- * fields, then states the complaint as an explicit, numbered brief built from
- * the chips, the note and the validator.
+ * Names the English word and the field ID, quotes that field's rule from the
+ * batch prompt, keeps the whole card in view so the rewrite cannot drift from
+ * the other fields, then states the complaint as one brief built from the
+ * chips, the note and the validator.
  *
  * @param word - the deck word being refined
  * @param request - the field plus the reviewer's combined feedback
+ * @param avoid - the deck's taken teaser lines, as rendered for a batch; only
+ *   an anticipateVi rewrite uses it
  */
 export function buildRegeneratePrompt(
   word: {
@@ -266,6 +321,7 @@ export function buildRegeneratePrompt(
     usage: Array<{ en: string; vi: string }>;
   },
   request: RefineRequest,
+  avoid = "",
 ): string {
   const { field, chips, note, issues } = request;
   const example = word.usage[0];
@@ -289,14 +345,35 @@ export function buildRegeneratePrompt(
     brief.push("- Nothing specific is wrong; produce a fresher, more vivid alternative.");
   }
 
-  // `null` is the only thing dropped here: a word without an example omits two
-  // lines, while the empty strings are deliberate blank lines between sections.
+  const highlighted = HIGHLIGHTED_FIELDS.has(field);
+  const otherField = field === "defVi" ? "leadVi" : "defVi";
+  const otherHighlight = highlighted ? highlightOf(word[otherField]) : null;
+
+  // `null` is the only thing dropped here: optional sections vanish whole,
+  // while the empty strings are deliberate blank lines between sections.
   const lines: Array<string | null> = [
     `Rewrite ONLY the "${field}" field for the English word "${word.word}".`,
     "",
-    "The word as it stands:",
-    `- defVi: ${word.defVi}`,
-    `- leadVi: ${word.leadVi}`,
+    `English word: ${word.word}`,
+    `Field ID: ${field}`,
+    "",
+    `Requirements for "${field}":`,
+    `- "${field}": ${FIELD_RULES[field]}`,
+    ...(highlighted
+      ? [
+          "",
+          `Highlight: also return "emphasis", the ONE phrase of your new ${field} that will glow on screen.`,
+          EMPHASIS_CHOICE.replace("from the defVi or leadVi you just wrote", `from the ${field} you just wrote`),
+          otherHighlight !== null
+            ? `  * different from "${otherHighlight}", which ${otherField} already highlights.`
+            : null,
+        ]
+      : []),
+    ...(field === "anticipateVi" && avoid.trim().length > 0 ? ["", avoid] : []),
+    "",
+    "The card as it stands:",
+    `- defVi: ${showField(word.defVi)}`,
+    `- leadVi: ${showField(word.leadVi)}`,
     `- anticipateVi: ${word.anticipateVi}`,
     example ? `- usageEn: ${example.en}` : null,
     example ? `- usageVi: ${example.vi}` : null,
@@ -304,10 +381,10 @@ export function buildRegeneratePrompt(
     "What to fix, all of it in one rewrite:",
     brief.join("\n"),
     "",
-    `Constraints for "${field}": ${FIELD_RULES[field]}`,
-    `Word joining: ${JOIN_RULE}`,
     "Leave every other field alone.",
-    'Return ONLY a JSON object of the form {"value": "<the rewritten field>"} with no commentary.',
+    highlighted
+      ? 'Return ONLY {"value": "<the rewritten field>", "emphasis": "<the phrase>"}.'
+      : 'Return ONLY {"value": "<the rewritten field>"}.',
   ];
   return lines.filter((line): line is string => line !== null).join("\n");
 }

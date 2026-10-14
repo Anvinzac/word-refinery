@@ -395,6 +395,21 @@ export function App() {
 
       {notice !== null && <div className={`banner ${notice.kind}`}>{notice.text}</div>}
 
+      <div className="statusbar">
+        <span>
+          <b>{doc.review.length}</b> words in progress
+        </span>
+        <span>
+          <b>{approved.length}</b> approved
+        </span>
+        <span>
+          <b>{issues.length}</b> issue(s)
+        </span>
+        <div className="spacer" />
+        <span>{dirty ? "unsaved changes" : "saved"}</span>
+        <span>{store.label}</span>
+      </div>
+
       <main className="workspace">
 
       {tab === "generate" && (
@@ -623,21 +638,6 @@ export function App() {
           </button>
         ))}
       </nav>
-
-      <footer className="statusbar">
-        <span>
-          <b>{doc.review.length}</b> words in progress
-        </span>
-        <span>
-          <b>{approved.length}</b> approved
-        </span>
-        <span>
-          <b>{issues.length}</b> issue(s)
-        </span>
-        <div className="spacer" />
-        <span>{dirty ? "unsaved changes" : "saved"}</span>
-        <span>{store.label}</span>
-      </footer>
       </div>
     </div>
   );

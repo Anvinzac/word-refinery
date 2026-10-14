@@ -22,7 +22,7 @@ import {
   type CrawlerAnnotation,
 } from "./contract.ts";
 import { countSyllables, injectEmphasisMarkers, stripEmphasisMarkers, validateEmphasis } from "./emphasis.ts";
-import { countUnits, findStrayJoins } from "./joiner.ts";
+import { countUnits, findStrayMarks } from "./joiner.ts";
 
 /** Deck id pattern, identical to the app's importer rule. */
 const ID_PATTERN = /^[a-zA-Z0-9_-]+$/;
@@ -406,13 +406,14 @@ export function validateDeck(deck: Deck): DeckIssue[] {
       if (usage.vi.trim().length === 0) at(`usage[${index}].vi`, "missing Vietnamese gloss");
     }
 
-    // Any single underscore between two letters is read downstream as a word
-    // join, so one that is not a join is a silent defect rather than a typo.
+    // A bond between two letters is read downstream as a word join or a clitic
+    // bind, so a mark that is not one is a silent defect rather than a typo —
+    // and a one-syllable phrase cannot honour the rule its mark expresses.
     for (const field of ["defVi", "leadVi", "anticipateVi"] as const) {
-      for (const problem of findStrayJoins(entry[field])) at(field, problem);
+      for (const problem of findStrayMarks(entry[field])) at(field, problem);
     }
     for (const [index, usage] of entry.usage.entries()) {
-      for (const problem of findStrayJoins(usage.vi)) at(`usage[${index}].vi`, problem);
+      for (const problem of findStrayMarks(usage.vi)) at(`usage[${index}].vi`, problem);
     }
 
     // Markers must be paired and must wrap a 2-syllable Vietnamese compound.

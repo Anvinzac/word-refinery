@@ -470,6 +470,7 @@ textarea {
   gap: 14px;
   align-items: center;
   flex-wrap: wrap;
+  margin-bottom: 14px;
   padding: 8px 14px;
   border-radius: 10px;
   background: var(--surface-2);

@@ -10,6 +10,7 @@
  */
 import { useMemo, useState } from "react";
 import { countByLevel, loadCorpus } from "../lib/corpus";
+import { LlmError } from "../lib/llm";
 import { buildReviewEntries, runGeneration } from "../lib/pipeline";
 import type { Settings } from "../lib/settings";
 import { CEFR_LEVELS, type CefrLevel, type ReviewEntry } from "../lib/types";
@@ -108,6 +109,7 @@ export function GeneratePanel({
       const message = thrown instanceof Error ? thrown.message : String(thrown);
       setError(message);
       append(`FAILED: ${message}`);
+      if (thrown instanceof LlmError && thrown.body.length > 0) append(`Response: ${thrown.body}`);
     } finally {
       setAborter(null);
       onBusy(false);

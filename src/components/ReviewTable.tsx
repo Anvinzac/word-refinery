@@ -21,13 +21,16 @@
 import { Fragment, useEffect, useMemo, useState } from "react";
 import { validateDeck, type DeckIssue } from "../lib/deck";
 import {
+  injectEmphasisMarkers,
   joinMarkedSyllables,
   splitMarkedSyllables,
   stripEmphasisMarkers,
+  validateEmphasis,
   type MarkedSyllable,
 } from "../lib/emphasis";
 import { regenerateField, verifyWord } from "../lib/llm";
 import { buildRegeneratePrompt, chipsForField, type RefineField, type RefineRequest } from "../lib/prompt";
+import { collectUniqueness, renderAvoidSection } from "../lib/uniqueness";
 import type { Settings } from "../lib/settings";
 import type { VerifyReport } from "../lib/prompt";
 import type { DeckWord, ReviewEntry, ReviewStatus } from "../lib/types";
@@ -71,6 +74,24 @@ function issuesForField(issues: readonly DeckIssue[], field: RefineField): strin
   const match = (issue: DeckIssue) =>
     field === "usageVi" ? /^usage\[\d+]\./.test(issue.field) : issue.field === field;
   return issues.filter(match).map((issue) => `${issue.field} ${issue.message}`);
+}
+
+/** The teaser lines taken elsewhere in the deck, rendered for an anticipateVi rewrite. */
+function avoidFor(entries: readonly ReviewEntry[], entryId: string, field: RefineField): string {
+  if (field !== "anticipateVi") return "";
+  const taken = entries.filter((entry) => entry.id !== entryId).map((entry) => entry.deckWord.anticipateVi);
+  return renderAvoidSection(collectUniqueness(taken));
+}
+
+/**
+ * A rewritten defVi/leadVi with the model's highlight placed, when that phrase
+ * passes the same checks a generated one does; otherwise the plain text.
+ */
+function withHighlight(value: string, emphasis: string | null): string {
+  const plain = stripEmphasisMarkers(value);
+  if (emphasis === null) return plain;
+  const { emphasis: kept } = validateEmphasis({ defVi: plain, emphasisVi: [emphasis] });
+  return kept.length > 0 ? injectEmphasisMarkers(plain, "", kept).defVi : plain;
 }
 
 /** The cell currently unfolded for refinement. */
@@ -227,22 +248,25 @@ export function ReviewTable({
 
     setBusy(true);
     try {
-      const value = await regenerateField(
+      const { value, emphasis } = await regenerateField(
         settings.llm,
         entry.deckWord,
         buildRequest(entry.id, field),
+        { avoid: avoidFor(entries, entry.id, field) },
       );
+      let written = value;
       if (field === "usageVi") {
         const usage = entry.deckWord.usage.map((item, index) =>
           index === 0 ? { ...item, vi: value } : item,
         );
         patchWord(entry.id, { usage });
       } else {
-        patchWord(entry.id, { [field]: stripEmphasisMarkers(value) } as Partial<DeckWord>);
+        written = HIGHLIGHTABLE.has(field) ? withHighlight(value, emphasis) : stripEmphasisMarkers(value);
+        patchWord(entry.id, { [field]: written } as Partial<DeckWord>);
       }
       // The brief stays open: a rewrite often needs a second pass, and the chips
       // that described the problem are still the right ones to send again.
-      setRewrote(value);
+      setRewrote(written);
       setDraft(null);
     } catch (thrown) {
       setError(thrown instanceof Error ? thrown.message : String(thrown));
@@ -272,7 +296,11 @@ export function ReviewTable({
   const renderBrief = (entry: ReviewEntry, field: RefineField) => {
     const fieldIssues = issuesForField(issuesById.get(entry.id) ?? [], field);
     const offered = chipsForField(field);
-    const preview = buildRegeneratePrompt(entry.deckWord, buildRequest(entry.id, field));
+    const preview = buildRegeneratePrompt(
+      entry.deckWord,
+      buildRequest(entry.id, field),
+      avoidFor(entries, entry.id, field),
+    );
     const highlightable = HIGHLIGHTABLE.has(field);
     const stored = highlightable ? entry.deckWord[field as "defVi" | "leadVi"] : "";
     const storedSyllables = splitMarkedSyllables(stored);

@@ -15,7 +15,10 @@ import assert from "node:assert/strict";
 import test from "node:test";
 
 import {
+  ANNOTATION_SYSTEM_PROMPT,
   COMPLAINT_CHIPS,
+  FIELD_RULES,
+  REWRITE_SYSTEM_PROMPT,
   buildRegeneratePrompt,
   chipsForField,
 } from "../src/lib/prompt.ts";
@@ -432,6 +435,45 @@ test("buildRegeneratePrompt names the field's own constraints and scope", () => 
   assert.match(prompt, /fresher, more vivid alternative/);
 });
 
+test("buildRegeneratePrompt names the word and field ID and quotes the batch rule verbatim", () => {
+  for (const field of ["defVi", "leadVi", "anticipateVi", "usageVi"] as const) {
+    const prompt = buildRegeneratePrompt(refineWord, { field, chips: [], note: "", issues: [] });
+    assert.match(prompt, /English word: harvest/);
+    assert.ok(prompt.includes(`Field ID: ${field}`));
+    assert.ok(prompt.includes(`- "${field}": ${FIELD_RULES[field]}`), `${field} rule is quoted`);
+    // The batch prompt carries the very same line, so the two cannot drift.
+    assert.ok(ANNOTATION_SYSTEM_PROMPT.includes(`- "${field}": ${FIELD_RULES[field]}`));
+  }
+});
+
+test("buildRegeneratePrompt asks for a highlight only where one is rendered", () => {
+  const marked = { ...refineWord, leadVi: "Nông_dân chờ cả năm mới tới /lúc này/." };
+  const def = buildRegeneratePrompt(marked, { field: "defVi", chips: [], note: "", issues: [] });
+  assert.match(def, /also return "emphasis"/);
+  assert.match(def, /CHOOSE BY MEANING FIRST/);
+  assert.match(def, /from the defVi you just wrote/);
+  assert.match(def, /different from "lúc này", which leadVi already highlights/);
+  // The card is shown without markers, so the model never copies a slash.
+  assert.ok(def.includes("- leadVi: Nông_dân chờ cả năm mới tới lúc này."));
+
+  const usage = buildRegeneratePrompt(refineWord, { field: "usageVi", chips: [], note: "", issues: [] });
+  assert.ok(!usage.includes("emphasis"));
+});
+
+test("buildRegeneratePrompt passes the deck's taken teasers only to an anticipateVi rewrite", () => {
+  const avoid = "Already used verbatim:\n- Mùa gì vui nhất nhỉ?";
+  const teaser = buildRegeneratePrompt(refineWord, { field: "anticipateVi", chips: [], note: "", issues: [] }, avoid);
+  assert.ok(teaser.includes(avoid));
+  const def = buildRegeneratePrompt(refineWord, { field: "defVi", chips: [], note: "", issues: [] }, avoid);
+  assert.ok(!def.includes("Already used verbatim"));
+});
+
+test("the rewrite system prompt never asks for the eleven-field batch array", () => {
+  assert.ok(!REWRITE_SYSTEM_PROMPT.includes("JSON array"));
+  assert.match(REWRITE_SYSTEM_PROMPT, /\{"value": /);
+  assert.match(REWRITE_SYSTEM_PROMPT, /Never define a word with the word itself/);
+});
+
 test("buildRegeneratePrompt ignores unknown chip ids rather than leaking them", () => {
   const prompt = buildRegeneratePrompt(refineWord, {
     field: "defVi",
@@ -471,7 +513,7 @@ test("buildRegeneratePrompt keeps its section breaks and drops only absent lines
     issues: [],
   });
   // Blank lines separate the sections; only a missing example may vanish.
-  assert.ok(withExample.includes("\n\nThe word as it stands:"));
+  assert.ok(withExample.includes("\n\nThe card as it stands:"));
   assert.ok(withExample.includes("\n\nWhat to fix, all of it in one rewrite:"));
   assert.match(withExample, /- usageEn: /);
 

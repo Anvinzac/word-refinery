@@ -18,7 +18,7 @@
  *          MarkedSyllable
  * Depends on: none
  */
-import { stripWordJoins } from "./joiner.ts";
+import { CLITIC_BIND, PHRASE_BREAK, stripMarks } from "./joiner.ts";
 
 /**
  * Vietnamese function words that can never be part of a highlight.
@@ -101,6 +101,25 @@ function findOccurrence(
   return null;
 }
 
+/**
+ * Why a phrase failed to match: the mark standing between its syllables, or
+ * null when the text simply does not contain it.
+ *
+ * Only used to word the warning. The phrase is dropped either way — a highlight
+ * may bridge a space or a word join and nothing else.
+ */
+function findBoundOccurrence(haystacks: readonly string[], phrase: string): string | null {
+  for (const mark of [CLITIC_BIND, PHRASE_BREAK]) {
+    const bridged = escapeRegExp(phrase).replace(/\\?\s+/gu, `[\\s_${mark === CLITIC_BIND ? "=" : "|"}]+`);
+    const pattern = new RegExp(`(?<![\\p{L}\\p{N}])${bridged}(?![\\p{L}\\p{N}])`, "iu");
+    for (const haystack of haystacks) {
+      const match = pattern.exec(haystack);
+      if (match !== null && match[0].includes(mark)) return mark;
+    }
+  }
+  return null;
+}
+
 /** Neighbouring token plus the characters joining it to the matched phrase. */
 function neighbourToken(
   haystack: string,
@@ -145,15 +164,23 @@ function validateCandidate(
 
   const occurrence = findOccurrence(haystacks, phrase);
   if (occurrence === null) {
+    // A phrase the text binds with "=" or splits with "|" cannot match, because
+    // the matcher only bridges a space or a word join. Say which it was: the
+    // difference is the whole point of having two bond marks.
+    const bound = findBoundOccurrence(haystacks, phrase);
     warnings.push(
-      `emphasisVi: dropped "${phrase}" — not present character-for-character in defVi or leadVi`,
+      bound === null
+        ? `emphasisVi: dropped "${phrase}" — not present character-for-character in defVi or leadVi`
+        : bound === CLITIC_BIND
+          ? `emphasisVi: dropped "${phrase}" — it spans a "${CLITIC_BIND}" bind, so those syllables are two words leaning together, not one to highlight`
+          : `emphasisVi: dropped "${phrase}" — it spans a "${PHRASE_BREAK}" phrase boundary; a highlight stays inside one phrase`,
     );
     return { phrase: null, warnings };
   }
   // The text may join the syllables this phrase spans; the phrase itself is
   // stored plain, because that is the form the app matches token by token.
   // Only a genuine difference in casing is worth reporting.
-  const found = stripWordJoins(occurrence.text);
+  const found = stripMarks(occurrence.text);
   if (found !== phrase) {
     warnings.push(`emphasisVi: "${phrase}" re-cased to "${found}" from the source text`);
   }

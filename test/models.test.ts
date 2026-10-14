@@ -9,7 +9,7 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 
-import { LlmError, listModels, parseModelList, type ListedModel } from "../src/lib/llm.ts";
+import { LlmError, listModels, parseModelList, readChatText, type ListedModel } from "../src/lib/llm.ts";
 import {
   estimateParamsB,
   formatParamsB,
@@ -387,4 +387,42 @@ test("groupModels sorts members alphabetically and stays stable for suggested ro
     families[0]?.models.map((model) => model.name),
     ["Claude Haiku 4.5", "Claude Sonnet 4.5"],
   );
+});
+
+/** Capture the LlmError readChatText throws for a body. */
+function chatFailure(json: unknown): LlmError {
+  try {
+    readChatText("openrouter", json, 4096);
+  } catch (error) {
+    assert.ok(error instanceof LlmError);
+    return error;
+  }
+  assert.fail("expected readChatText to throw");
+}
+
+test("readChatText returns string content and joins content parts", () => {
+  assert.equal(readChatText("openrouter", { choices: [{ message: { content: "[1]" } }] }, 10), "[1]");
+  assert.equal(
+    readChatText("openrouter", { choices: [{ message: { content: [{ text: "[" }, { text: "]" }] } }] }, 10),
+    "[]",
+  );
+});
+
+test("readChatText names a reasoning model that ran out of tokens", () => {
+  const error = chatFailure({
+    choices: [{ finish_reason: "length", message: { content: "", reasoning: "Let me think…" } }],
+  });
+  assert.match(error.message, /spent all 4096 tokens reasoning/);
+});
+
+test("readChatText surfaces an upstream error sent with a 200, keeping its code retryable", () => {
+  const error = chatFailure({ error: { message: "Provider returned error", code: 502 } });
+  assert.match(error.message, /Provider returned error/);
+  assert.equal(error.status, 502);
+});
+
+test("readChatText reports the finish reason when nothing else explains an empty reply", () => {
+  const error = chatFailure({ choices: [{ finish_reason: "stop", message: { content: "  " } }] });
+  assert.match(error.message, /no assistant text \(finish reason: stop\)/);
+  assert.ok(error.body.includes("finish_reason"));
 });
