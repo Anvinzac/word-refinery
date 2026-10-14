@@ -921,22 +921,57 @@ code.k {
   line-height: 1.5;
 }
 
-.syllables {
+.sentence-editor {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.sentence-tools {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.sentence-hint {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.sentence-edit-toggle[data-active="true"] {
+  background: color-mix(in srgb, var(--accent) 18%, transparent);
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.sentence-chips {
+  position: relative;
   display: flex;
   flex-wrap: wrap;
-  align-items: baseline;
-  gap: 4px 2px;
+  align-items: center;
+  gap: 6px 3px;
+  padding: 8px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--bg);
   font-size: 15px;
   line-height: 1.6;
   color: var(--ink);
+  touch-action: manipulation;
+  user-select: none;
+  -webkit-user-select: none;
 }
 
-.syllable-wrap,
-.syllable-punct {
+.sentence-chips[data-dragging] {
+  cursor: grabbing;
+}
+
+.sentence-word-wrap {
   white-space: nowrap;
 }
 
-.syllable {
+.sentence-word {
   padding: 1px 5px;
   border: 1px dashed transparent;
   border-radius: 6px;
@@ -944,16 +979,99 @@ code.k {
   color: inherit;
   font: inherit;
   cursor: pointer;
+  touch-action: manipulation;
 }
 
-.syllable:hover:not(:disabled) {
+.sentence-word:hover:not(:disabled) {
   border-color: var(--border);
 }
 
-.syllable[data-active="true"] {
+.sentence-word[data-active="true"] {
   background: color-mix(in srgb, var(--accent) 18%, transparent);
   color: var(--accent);
   font-weight: 600;
+}
+
+.sentence-bind {
+  color: var(--muted);
+  font-size: 12px;
+  margin: 0 1px;
+}
+
+.sentence-break {
+  padding: 1px 7px;
+  border: 1px solid var(--warn);
+  border-radius: 6px;
+  background: color-mix(in srgb, var(--warn) 14%, transparent);
+  color: var(--warn);
+  font: inherit;
+  font-weight: 700;
+  cursor: grab;
+  touch-action: none;
+}
+
+.sentence-break[data-lifted] {
+  opacity: 0.35;
+}
+
+.sentence-drop {
+  position: absolute;
+  width: 3px;
+  border-radius: 2px;
+  background: var(--warn);
+  pointer-events: none;
+}
+
+.sentence-gap {
+  display: inline-flex;
+  align-items: center;
+  align-self: stretch;
+  padding: 0 2px;
+  border-radius: 6px;
+}
+
+.sentence-gap[data-breakable] {
+  padding: 0 9px;
+  cursor: pointer;
+  background: repeating-linear-gradient(
+      to bottom,
+      color-mix(in srgb, var(--warn) 45%, transparent) 0 3px,
+      transparent 3px 6px
+    )
+    left 3px center / 1px 70% no-repeat;
+}
+
+.sentence-gap[data-breakable]:hover {
+  background-color: color-mix(in srgb, var(--warn) 14%, transparent);
+}
+
+.sentence-slot {
+  min-width: 20px;
+  padding: 0 4px;
+  border: 1px dashed var(--accent);
+  border-radius: 6px;
+  background: transparent;
+  color: var(--accent);
+  font: inherit;
+  font-size: 12px;
+  line-height: 1.5;
+  cursor: pointer;
+}
+
+.sentence-slot-input {
+  padding: 1px 6px;
+  border: 1px solid var(--accent);
+  border-radius: 6px;
+  background: var(--bg);
+  color: var(--ink);
+  font: inherit;
+}
+
+.sentence-problems {
+  margin: 0;
+  padding-left: 18px;
+  font-size: 12px;
+  color: var(--warn);
 }
 
 .refine-note-box {

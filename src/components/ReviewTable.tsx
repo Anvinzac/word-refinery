@@ -11,29 +11,24 @@
  * available for comparison while the complaint is written. The brief gathers
  * three things and sends them as one instruction: complaint chips tapped for
  * that field, a free-text note, and whatever the validator already flagged
- * there. The exact prompt is inspectable before it is sent. For fields that
- * carry a `/…/` highlight, the brief also lists the syllables so the reviewer
- * can toggle the highlight by hand and save it without calling the model.
+ * there. The exact prompt is inspectable before it is sent. The brief also lays
+ * the field out as chips so the reviewer can fix it by hand — move a phrase
+ * break, toggle the highlight, delete or insert a word — and save it without
+ * calling the model.
  *
  * Exports: ReviewTable, MarkedText
- * Depends on: ../lib/deck.ts, ../lib/emphasis.ts, ../lib/llm.ts, ../lib/prompt.ts, ../lib/types.ts
+ * Depends on: ./SentenceEditor.tsx, ../lib/deck.ts, ../lib/emphasis.ts, ../lib/llm.ts, ../lib/prompt.ts, ../lib/types.ts
  */
 import { Fragment, useEffect, useMemo, useState } from "react";
 import { validateDeck, type DeckIssue } from "../lib/deck";
-import {
-  injectEmphasisMarkers,
-  joinMarkedSyllables,
-  splitMarkedSyllables,
-  stripEmphasisMarkers,
-  validateEmphasis,
-  type MarkedSyllable,
-} from "../lib/emphasis";
+import { injectEmphasisMarkers, stripEmphasisMarkers, validateEmphasis } from "../lib/emphasis";
 import { regenerateField, verifyWord } from "../lib/llm";
 import { buildRegeneratePrompt, chipsForField, type RefineField, type RefineRequest } from "../lib/prompt";
 import { collectUniqueness, renderAvoidSection } from "../lib/uniqueness";
 import type { Settings } from "../lib/settings";
 import type { VerifyReport } from "../lib/prompt";
 import type { DeckWord, ReviewEntry, ReviewStatus } from "../lib/types";
+import { SentenceEditor } from "./SentenceEditor";
 
 /** Render a marked field, visually distinguishing the `/highlighted/` span. */
 export function MarkedText({ value }: { value: string }) {
@@ -94,6 +89,11 @@ function withHighlight(value: string, emphasis: string | null): string {
   return kept.length > 0 ? injectEmphasisMarkers(plain, "", kept).defVi : plain;
 }
 
+/** The text a field holds, as the hand editor reads and writes it. */
+function storedText(word: DeckWord, field: RefineField): string {
+  return field === "usageVi" ? (word.usage[0]?.vi ?? "") : word[field];
+}
+
 /** The cell currently unfolded for refinement. */
 interface ActiveCell {
   entryId: string;
@@ -124,8 +124,8 @@ export function ReviewTable({
   const [error, setError] = useState<string | null>(null);
   /** Set after a successful rewrite so the still-open brief confirms it landed. */
   const [rewrote, setRewrote] = useState<string | null>(null);
-  /** Unsaved highlight toggles; null means the field's stored markers are shown. */
-  const [draft, setDraft] = useState<MarkedSyllable[] | null>(null);
+  /** Unsaved hand edits to the open field; null means the stored text is shown. */
+  const [draft, setDraft] = useState<string | null>(null);
   /** The second-pass review for one word, kept until the row is checked again. */
   const [reports, setReports] = useState<Record<string, VerifyReport>>({});
   const [verifying, setVerifying] = useState<string | null>(null);
@@ -302,22 +302,17 @@ export function ReviewTable({
       avoidFor(entries, entry.id, field),
     );
     const highlightable = HIGHLIGHTABLE.has(field);
-    const stored = highlightable ? entry.deckWord[field as "defVi" | "leadVi"] : "";
-    const storedSyllables = splitMarkedSyllables(stored);
-    const syllables = draft ?? storedSyllables;
-    const dirty = draft !== null && joinMarkedSyllables(draft) !== joinMarkedSyllables(storedSyllables);
+    const stored = storedText(entry.deckWord, field);
+    const dirty = draft !== null && draft !== stored;
 
-    const toggleSyllable = (index: number) => {
-      setDraft(
-        syllables.map((syllable, at) =>
-          at === index ? { ...syllable, marked: !syllable.marked } : syllable,
-        ),
-      );
-    };
-
-    const saveHighlights = () => {
+    const saveDraft = () => {
       if (draft === null) return;
-      patchWord(entry.id, { [field]: joinMarkedSyllables(draft) } as Partial<DeckWord>);
+      if (field === "usageVi") {
+        const usage = entry.deckWord.usage.map((item, index) => (index === 0 ? { ...item, vi: draft } : item));
+        patchWord(entry.id, { usage });
+      } else {
+        patchWord(entry.id, { [field]: draft } as Partial<DeckWord>);
+      }
       closeBrief();
     };
 
@@ -344,35 +339,20 @@ export function ReviewTable({
               </div>
             )}
 
+            {stored.length > 0 && (
+              <div className="refine-section">
+                <div className="refine-label">Edit by hand</div>
+                <SentenceEditor
+                  value={draft ?? stored}
+                  highlightable={highlightable}
+                  disabled={busy}
+                  onChange={setDraft}
+                />
+              </div>
+            )}
+
             <div className="refine-section">
               <div className="refine-label">What's wrong?</div>
-              {highlightable && syllables.length > 0 && (
-                <div className="syllables" lang="vi" aria-label="Tap syllables to toggle the highlight">
-                  {syllables.map((syllable, index) =>
-                    syllable.core.length === 0 ? (
-                      <span key={index} className="syllable-punct">
-                        {syllable.lead}
-                        {syllable.trail}
-                      </span>
-                    ) : (
-                      <span key={index} className="syllable-wrap">
-                        {syllable.lead}
-                        <button
-                          type="button"
-                          className="syllable"
-                          data-active={syllable.marked}
-                          aria-pressed={syllable.marked}
-                          disabled={busy}
-                          onClick={() => toggleSyllable(index)}
-                        >
-                          {syllable.core}
-                        </button>
-                        {syllable.trail}
-                      </span>
-                    ),
-                  )}
-                </div>
-              )}
               <div className="chips">
                 {offered.map((chip) => (
                   <button
@@ -476,7 +456,7 @@ export function ReviewTable({
               <button
                 type="button"
                 className="btn primary"
-                onClick={saveHighlights}
+                onClick={saveDraft}
                 disabled={busy || !dirty}
               >
                 Save
