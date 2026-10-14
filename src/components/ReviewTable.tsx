@@ -465,7 +465,7 @@ export function ReviewTable({
       {rows.length === 0 ? (
         <div className="empty">
           {entries.length === 0
-            ? "Nothing generated yet. Use the Generate tab to annotate your first batch."
+            ? "Nothing here yet. Open Generate below to annotate your first batch."
             : "No words match these filters."}
         </div>
       ) : (

@@ -87,7 +87,9 @@ function reviewEntriesFrom(parsed: RefineryDoc): ReviewEntry[] {
 export function App() {
   const [settings, setSettings] = useState<Settings>(() => readSettings());
   const [doc, setDoc] = useState<RefineryDoc>(() => emptyDoc(readSettings()));
-  const [tab, setTab] = useState<Tab>("generate");
+  // The word table is home: a returning session lands on its last dataset,
+  // and every other tool lives behind the secondary bar at the bottom.
+  const [tab, setTab] = useState<Tab>("review");
   const [busy, setBusy] = useState(false);
   const [notice, setNotice] = useState<{ kind: "ok" | "error" | "warn"; text: string } | null>(null);
   const [levels, setLevels] = useState<CefrLevel[]>([]);
@@ -374,38 +376,12 @@ export function App() {
         <span className="tag">vocabulary deck studio</span>
       </header>
       <p className="shell-sub">
-        Generate Vietnamese vocabulary cards from an openly licensed CEFR corpus, refine them by
-        hand, and export a deck for KineMedia. Everything runs in this browser — keys stay in
-        localStorage, and the deck persists to whichever small JSON store you configure.
+        Your words first — everything else lives under More below.
       </p>
 
-      <nav className="tabs" aria-label="Workspace sections">
-        {(
-          [
-            ["generate", "Generate"],
-            ["review", "Library"],
-            ["coverage", "Coverage"],
-            ["sync", "Sync & export"],
-            ["prompts", "Prompts"],
-            ["settings", "Settings"],
-          ] as Array<[Tab, string]>
-        ).map(([id, label]) => (
-          <button
-            key={id}
-            type="button"
-            className="tab"
-            data-active={tab === id}
-            onClick={() => setTab(id)}
-          >
-            {label}
-            {tabCounts[id] !== null && tabCounts[id]! > 0 && (
-              <span className="count">{tabCounts[id]}</span>
-            )}
-          </button>
-        ))}
-      </nav>
-
       {notice !== null && <div className={`banner ${notice.kind}`}>{notice.text}</div>}
+
+      <main className="workspace">
 
       {tab === "generate" && (
         <>
@@ -510,7 +486,7 @@ export function App() {
             <p className="hint">
               Download the whole working document (deck plus review state), or upload a refinery
               document, a deck export, or a <strong>WordCrawler batch</strong> ({"{ meta, words }"})
-              to preview and refine it here. Imported words land in the Review tab as
+              to preview and refine it here. Imported words land in Words above as
               <em> pending</em> rows.
             </p>
             <div className="row">
@@ -556,7 +532,7 @@ export function App() {
               </button>
               <span className="note" style={{ color: "var(--muted)", fontSize: 12 }}>
                 {issues.length > 0
-                  ? `${issues.length} validation issue(s) remain across the whole deck — check the Review tab.`
+                  ? `${issues.length} validation issue(s) remain across the whole deck — check Words above.`
                   : "No validation issues."}
               </span>
             </div>
@@ -577,6 +553,38 @@ export function App() {
       {tab === "prompts" && <PromptsPanel />}
 
       {tab === "settings" && <SettingsPanel settings={settings} onChange={setSettings} />}
+      </main>
+
+      <nav className="tabs-bottom" aria-label="More tools">
+        <span className="tabs-bottom-label">More</span>
+        {(
+          [
+            ["review", "Words"],
+            ["generate", "Generate"],
+            ["coverage", "Coverage"],
+            ["sync", "Sync & export"],
+            ["prompts", "Prompts"],
+            ["settings", "Settings"],
+          ] as Array<[Tab, string]>
+        ).map(([id, label]) => (
+          <button
+            key={id}
+            type="button"
+            className="tab-bottom"
+            data-active={tab === id}
+            data-primary={id === "review" || undefined}
+            onClick={() => {
+              setTab(id);
+              window.scrollTo({ top: 0, behavior: "smooth" });
+            }}
+          >
+            {label}
+            {tabCounts[id] !== null && tabCounts[id]! > 0 && (
+              <span className="count">{tabCounts[id]}</span>
+            )}
+          </button>
+        ))}
+      </nav>
 
       <footer className="statusbar">
         <span>

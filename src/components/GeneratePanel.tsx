@@ -198,7 +198,7 @@ export function GeneratePanel({
 
         {!hasKey && (
           <div className="banner warn" style={{ marginTop: 12 }}>
-            No API key yet. Open the Settings tab and paste one — nothing is sent anywhere until you
+            No API key yet. Open Settings below and paste one — nothing is sent anywhere until you
             do.
           </div>
         )}
