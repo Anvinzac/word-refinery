@@ -19,7 +19,7 @@ import { CoveragePanel } from "./components/CoveragePanel";
 import { SettingsPanel } from "./components/SettingsPanel";
 import { loadCorpus, setActiveCorpus } from "./lib/corpus";
 import { approvedEntries } from "./lib/deck";
-import { buildDeck, coerceDeckWord, validateDeck } from "./lib/deck";
+import { buildDeck, coerceDeckWord, entriesForNewBatches, validateDeck } from "./lib/deck";
 import {
   DOC_FILENAME,
   createStore,
@@ -153,29 +153,40 @@ export function App() {
   useEffect(() => {
     let cancelled = false;
     void (async () => {
-      let restored = false;
+      let restored: RefineryDoc | null = null;
+      let restoredNote = "";
       try {
         const mirror = await loadLocalDoc();
         if (!cancelled && mirror !== null && mirror.doc.review.length > 0) {
-          restored = true;
+          restored = mirror.doc;
+          restoredNote =
+            `Restored ${mirror.doc.review.length} word(s) from this browser ` +
+            `(mirrored ${new Date(mirror.mirroredAt).toLocaleString()}).` +
+            (mirror.dirty ? " They were never pushed to the remote store." : "");
           setDoc(mirror.doc);
           setDirty(mirror.dirty);
-          setNotice({
-            kind: "ok",
-            text:
-              `Restored ${mirror.doc.review.length} word(s) from this browser ` +
-              `(mirrored ${new Date(mirror.mirroredAt).toLocaleString()}).` +
-              (mirror.dirty ? " They were never pushed to the remote store." : ""),
-          });
+          setNotice({ kind: "ok", text: restoredNote });
         }
       } catch {
         // An unreadable mirror must not stop the app from opening.
       }
       // Every path must end in setHydrated: the autosave stays off until it does.
       try {
-        if (restored || cancelled) return;
+        if (cancelled) return;
         const response = await fetch(DEFAULT_DECK_URL, { cache: "no-store" });
         const parsed = response.ok ? parseJsonText(await response.text()) : null;
+        if (restored !== null) {
+          const added = parsed === null ? [] : entriesForNewBatches(restored.review, parsed.deck.words);
+          if (!cancelled && added.length > 0) {
+            const batchCount = new Set(added.map((entry) => entry.deckWord.batchId)).size;
+            setDoc(rebuild([...restored.review, ...added]));
+            setNotice({
+              kind: "ok",
+              text: `${restoredNote} Added ${added.length} word(s) from ${batchCount} new bundled batch(es).`,
+            });
+          }
+          return;
+        }
         const review = parsed === null ? [] : reviewEntriesFrom(parsed);
         if (!cancelled && review.length > 0) {
           setDoc(rebuild(review));

@@ -7,7 +7,7 @@
  * every deck word always comes from the corpus, never from the model.
  *
  * Exports: slugifyWord, buildDeckWord, buildDeck, coerceDeckWord, validateDeck,
- *          migrateDeckWord, approvedEntries
+ *          migrateDeckWord, entriesForNewBatches, approvedEntries
  * Depends on: ./types.ts, ./contract.ts, ./emphasis.ts
  */
 import type { CorpusWord, Deck, DeckMeta, DeckUsage, DeckWord, ReviewEntry } from "./types.ts";
@@ -433,6 +433,34 @@ export function validateDeck(deck: Deck): DeckIssue[] {
   }
 
   return issues;
+}
+
+/**
+ * Pending review rows for the bundled words whose batch this workspace lacks.
+ *
+ * A browser that already holds a workspace never reloads the bundled dataset,
+ * so batches shipped after its first visit would never reach it. Matching by
+ * batch rather than by word keeps every batch already present untouched,
+ * reviewed or not, and adds a new one whole.
+ *
+ * @param existing - the workspace's current rows
+ * @param bundled - raw words from the bundled dataset, each carrying a batchId
+ * @returns rows to append; empty when every bundled batch is already present
+ */
+export function entriesForNewBatches(
+  existing: readonly ReviewEntry[],
+  bundled: readonly unknown[],
+): ReviewEntry[] {
+  const known = new Set(existing.map((entry) => entry.deckWord.batchId));
+  const usedIds = new Set(existing.map((entry) => entry.id));
+  const added: ReviewEntry[] = [];
+  for (const raw of bundled) {
+    const batchId = (raw as { batchId?: unknown } | null)?.batchId;
+    if (typeof batchId !== "string" || batchId.length === 0 || known.has(batchId)) continue;
+    const deckWord = coerceDeckWord(raw, usedIds, { batchId, addedAt: "" });
+    if (deckWord !== null) added.push({ id: deckWord.id, deckWord, status: "pending", warnings: [] });
+  }
+  return added;
 }
 
 /**

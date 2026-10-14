@@ -31,7 +31,13 @@ import {
   stripEmphasisMarkers,
   validateEmphasis,
 } from "../src/lib/emphasis.ts";
-import { buildDeckWord, coerceDeckWord, slugifyWord, validateDeck } from "../src/lib/deck.ts";
+import {
+  buildDeckWord,
+  coerceDeckWord,
+  entriesForNewBatches,
+  slugifyWord,
+  validateDeck,
+} from "../src/lib/deck.ts";
 import { addLockedKey, openSecret, sealSecret } from "../src/lib/vault.ts";
 import type { CrawlerAnnotation } from "../src/lib/contract.ts";
 import type { Deck, DeckWord } from "../src/lib/types.ts";
@@ -377,6 +383,27 @@ test("coerce reads raw model output: flat usage fields and emphasisVi phrases", 
   ]);
   assert.equal(word.defVi, "/Đạt_được/ điều mong_muốn sau nhiều cố_gắng bền_bỉ.");
   assert.equal(word.leadVi, "Leo tới /đỉnh núi/ sau bao năm luyện_tập.");
+});
+
+test("entriesForNewBatches adds only whole batches the workspace lacks, with fresh ids", () => {
+  const usedIds = new Set<string>();
+  const kept = coerceDeckWord({ word: "apple", batchId: "vocab_a1_100" }, usedIds, { batchId: "x", addedAt: "" });
+  assert.ok(kept !== null);
+  const existing = [{ id: kept.id, deckWord: kept, status: "approved" as const, warnings: [] }];
+
+  const added = entriesForNewBatches(existing, [
+    { word: "apple", batchId: "vocab_a1_100", level: "A1" },
+    { word: "apple", batchId: "deck-v3-A1", level: "A1" },
+    { word: "imagine", batchId: "deck-v3-A1", level: "A1" },
+    { word: "orphan" },
+  ]);
+  assert.deepEqual(added.map((entry) => entry.deckWord.word), ["apple", "imagine"]);
+  // The repeat of a word already present gets an id of its own, not a clash.
+  assert.equal(added[0]?.id, "apple-2");
+  assert.ok(added.every((entry) => entry.status === "pending" && entry.deckWord.batchId === "deck-v3-A1"));
+  assert.equal(added[1]?.deckWord.level, "A1");
+
+  assert.deepEqual(entriesForNewBatches([...existing, ...added], [{ word: "imagine", batchId: "deck-v3-A1" }]), []);
 });
 
 // ── Refine brief: chips + note + validator findings reach one prompt ────────
