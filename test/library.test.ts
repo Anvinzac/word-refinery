@@ -18,6 +18,7 @@ import {
   describeBatch,
   foldText,
   isFilterActive,
+  listBatches,
   matchesSearch,
 } from "../src/lib/library.ts";
 import type { CefrLevel, ReviewEntry, ReviewStatus } from "../src/lib/types.ts";
@@ -213,4 +214,24 @@ test("describeBatch turns a stamped id into a date a human reads", () => {
   assert.equal(describeBatch("run-20261013T120800Z"), "Generated 2026-10-13 12:08");
   assert.equal(describeBatch("import-20260202T090000Z"), "Imported 2026-02-02 09:00");
   assert.equal(describeBatch("legacy"), "legacy", "an unstamped id is shown as it is");
+});
+
+test("listBatches orders by stamp, not id, and tallies review progress", () => {
+  const stamped = (id: string, batchId: string, addedAt: string, status: ReviewStatus = "pending") => {
+    const row = entry(id, { batchId, status });
+    return { ...row, deckWord: { ...row.deckWord, addedAt } };
+  };
+  const batches = listBatches([
+    stamped("a", "run-20261012T0900Z", "2026-10-12T09:00:00.000Z", "approved"),
+    stamped("b", "run-20261012T0900Z", "2026-10-12T09:00:00.000Z", "rejected"),
+    stamped("c", "import-20261014T0700Z", "2026-10-14T07:00:00.000Z", "edited"),
+    stamped("d", "import-20261014T0700Z", "2026-10-14T07:00:00.000Z"),
+  ]);
+  assert.deepEqual(
+    batches.map((batch) => [batch.id, batch.count, batch.done, batch.rejected]),
+    [
+      ["import-20261014T0700Z", 2, 1, 0],
+      ["run-20261012T0900Z", 2, 1, 1],
+    ],
+  );
 });

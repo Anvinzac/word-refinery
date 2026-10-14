@@ -15,7 +15,8 @@
  *    Picking B1 and B2 widens, picking B1 and the topic `work` narrows.
  *
  * Exports: LibraryFilter, LibraryFacets, EMPTY_FILTER, foldText, matchesSearch,
- *          applyFilter, buildFacets, isFilterActive, describeBatch
+ *          applyFilter, buildFacets, isFilterActive, describeBatch,
+ *          BatchSummary, listBatches
  * Depends on: ./types.ts
  */
 import type { CefrLevel, ReviewEntry, ReviewStatus } from "./types.ts";
@@ -211,4 +212,37 @@ export function describeBatch(batchId: string): string {
   if (match === null) return batchId;
   const [, kind, year, month, day, hour, minute] = match;
   return `${kind === "run" ? "Generated" : "Imported"} ${year}-${month}-${day} ${hour}:${minute}`;
+}
+
+/** One batch as the batch menu lists it. */
+export interface BatchSummary {
+  id: string;
+  /** Latest stamp among its words; what "newest" is decided by. */
+  addedAt: string;
+  count: number;
+  /** Approved or edited — the words that will ship. */
+  done: number;
+  rejected: number;
+}
+
+/**
+ * Every batch in the deck, newest first.
+ *
+ * Ordered by the stamp the words carry rather than by id: `run-…` and
+ * `import-…` ids sort by prefix before date.
+ */
+export function listBatches(entries: readonly ReviewEntry[]): BatchSummary[] {
+  const byId = new Map<string, BatchSummary>();
+  for (const entry of entries) {
+    const { batchId, addedAt } = entry.deckWord;
+    const batch = byId.get(batchId) ?? { id: batchId, addedAt, count: 0, done: 0, rejected: 0 };
+    batch.count += 1;
+    if (entry.status === "approved" || entry.status === "edited") batch.done += 1;
+    if (entry.status === "rejected") batch.rejected += 1;
+    if (addedAt > batch.addedAt) batch.addedAt = addedAt;
+    byId.set(batchId, batch);
+  }
+  return [...byId.values()].sort(
+    (a, b) => b.addedAt.localeCompare(a.addedAt) || b.id.localeCompare(a.id),
+  );
 }

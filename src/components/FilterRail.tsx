@@ -7,9 +7,13 @@
  * hidden otherwise, which keeps the topic list from growing into eighteen rows
  * of zeroes.
  *
+ * The rail is a single bar above the table: search inline, every axis folded
+ * into a drop-down, so the word list keeps the full width.
+ *
  * Exports: FilterRail
  * Depends on: ../lib/library.ts, ../lib/contract.ts, ../lib/types.ts
  */
+import { useEffect, useRef } from "react";
 import { EXAMS, TOPICS } from "../lib/contract";
 import { describeBatch, isFilterActive, type LibraryFacets, type LibraryFilter } from "../lib/library";
 import { CEFR_LEVELS, type CefrLevel, type ReviewStatus } from "../lib/types";
@@ -43,19 +47,32 @@ function FacetValue({
   );
 }
 
-/** One titled group of values. */
+/**
+ * One titled group of values, folded into a drop-down so the bar stays one
+ * line. The summary names what is picked, so a closed group still says how
+ * the list is narrowed. Groups share a `name`, so opening one closes the rest.
+ */
 function FacetGroup({
   title,
+  picked,
   children,
 }: {
   title: string;
+  picked: readonly string[];
   children: React.ReactNode;
 }) {
   return (
-    <div className="facet-group">
-      <div className="facet-title">{title}</div>
+    <details className="facet-group" name="facet-group" data-active={picked.length > 0}>
+      <summary className="facet-title">
+        {title}
+        {picked.length > 0 && (
+          <span className="facet-picked">
+            {picked.length <= 2 ? picked.join(", ") : `${picked.length} picked`}
+          </span>
+        )}
+      </summary>
       <div className="facet-values">{children}</div>
-    </div>
+    </details>
   );
 }
 
@@ -86,8 +103,20 @@ export function FilterRail({
 
   const batchIds = [...facets.batches.keys()].sort().reverse();
 
+  // A drop-down left open would cover the table; any click outside folds it.
+  const railRef = useRef<HTMLElement>(null);
+  useEffect(() => {
+    const onPointer = (event: PointerEvent) => {
+      const rail = railRef.current;
+      if (rail === null || rail.contains(event.target as Node)) return;
+      for (const open of rail.querySelectorAll("details[open]")) open.removeAttribute("open");
+    };
+    document.addEventListener("pointerdown", onPointer);
+    return () => document.removeEventListener("pointerdown", onPointer);
+  }, []);
+
   return (
-    <aside className="rail" aria-label="Filters">
+    <aside className="rail" aria-label="Filters" ref={railRef}>
       <div className="rail-head">
         <strong>{facets.total}</strong> word{facets.total === 1 ? "" : "s"}
         {isFilterActive(filter) && (
@@ -114,23 +143,23 @@ export function FilterRail({
       <input
         type="search"
         className="rail-search"
-        placeholder="Search word or Vietnamese…"
+        placeholder="Search word or Vietnamese — accents optional"
         aria-label="Search the deck"
+        title="Accents optional — “tin cay” finds “tin cậy”."
         value={filter.search}
         onChange={(event) => onChange({ ...filter, search: event.target.value })}
       />
-      <p className="rail-note">Accents optional — “tin cay” finds “tin cậy”.</p>
 
-      <FacetGroup title="Needs attention">
+      {(facets.issues > 0 || filter.onlyIssues) && (
         <FacetValue
-          label="Has validation issues"
+          label="Has issues"
           count={facets.issues}
           active={filter.onlyIssues}
           onToggle={() => onChange({ ...filter, onlyIssues: !filter.onlyIssues })}
         />
-      </FacetGroup>
+      )}
 
-      <FacetGroup title="Status">
+      <FacetGroup title="Status" picked={filter.statuses}>
         {STATUSES.map((status) => (
           <FacetValue
             key={status}
@@ -142,7 +171,7 @@ export function FilterRail({
         ))}
       </FacetGroup>
 
-      <FacetGroup title="Level">
+      <FacetGroup title="Level" picked={filter.levels}>
         {CEFR_LEVELS.map((level) => (
           <FacetValue
             key={level}
@@ -154,7 +183,7 @@ export function FilterRail({
         ))}
       </FacetGroup>
 
-      <FacetGroup title="Topic">
+      <FacetGroup title="Topic" picked={filter.topics}>
         {offered(TOPICS, facets.topics, filter.topics).map((topic) => (
           <FacetValue
             key={topic}
@@ -166,7 +195,7 @@ export function FilterRail({
         ))}
       </FacetGroup>
 
-      <FacetGroup title="Exam">
+      <FacetGroup title="Exam" picked={filter.exams.map((exam) => exam.toUpperCase())}>
         {offered(EXAMS, facets.exams, filter.exams).length === 0 ? (
           <p className="rail-note">
             No word carries an exam tag yet. Select rows in the table to assign one.
@@ -185,7 +214,7 @@ export function FilterRail({
       </FacetGroup>
 
       {batchIds.length > 1 && (
-        <FacetGroup title="Added in">
+        <FacetGroup title="Added in" picked={filter.batches.map(describeBatch)}>
           {batchIds.slice(0, 12).map((batchId) => (
             <FacetValue
               key={batchId}

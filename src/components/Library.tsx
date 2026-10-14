@@ -7,43 +7,61 @@
  * So the table is now a slice of a filtered set, with the rail answering the
  * first question and the coverage matrix the second.
  *
- * Only a window of rows is rendered. Every row was previously in the DOM at
- * once — 16k nodes at a thousand words, with every click paying to re-render
- * all of them. A cap plus "show more" keeps that bounded without the fragility
- * of windowing variable-height rows, and filters mean a reviewer rarely wants
- * more than a screenful anyway.
+ * The library shows one batch at a time — a generation run or an import, picked
+ * from the batch menu in the bottom bar — never the whole deck. Within it, the filtered
+ * set is cut into pages of at most twenty words, laid side by side
+ * in a horizontal scroller that snaps page by page, so a swipe turns the page.
+ * Only the current page and its neighbours render their rows: every row in the
+ * DOM at once was 16k nodes at a thousand words, with every click paying to
+ * re-render all of them.
  *
  * Exports: Library
  * Depends on: ./FilterRail.tsx, ./BulkBar.tsx, ./ReviewTable.tsx, ../lib/library.ts
  */
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { BulkBar, type TagAction } from "./BulkBar";
 import { FilterRail } from "./FilterRail";
 import { ReviewTable } from "./ReviewTable";
 import { MAX_EXAMS, MAX_TOPICS } from "../lib/contract";
 import { validateDeck } from "../lib/deck";
-import { EMPTY_FILTER, applyFilter, buildFacets, type LibraryFilter } from "../lib/library";
+import {
+  EMPTY_FILTER,
+  applyFilter,
+  buildFacets,
+  describeBatch,
+  type LibraryFilter,
+} from "../lib/library";
 import type { Settings } from "../lib/settings";
 import type { DeckWord, ReviewEntry, ReviewStatus } from "../lib/types";
 
-/** Rows rendered before "show more" is needed. */
-const PAGE = 60;
+/** Most words one page holds. */
+const PAGE_SIZE = 20;
+
+/** Pages either side of the current one that keep their rows rendered. */
+const RENDER_RADIUS = 1;
+
+/** Past this many pages a row of dots stops being readable. */
+const MAX_DOTS = 15;
 
 export function Library({
   entries,
+  batch,
   settings,
   filter,
   onFilter,
   onChange,
 }: {
   entries: readonly ReviewEntry[];
+  /** The one batch on show, chosen from the batch menu in the bottom bar. */
+  batch: string | null;
   settings: Settings;
   filter: LibraryFilter;
   onFilter: (next: LibraryFilter) => void;
   onChange: (next: ReviewEntry[]) => void;
 }) {
   const [selected, setSelected] = useState<ReadonlySet<string>>(new Set());
-  const [shown, setShown] = useState(PAGE);
+  const [page, setPage] = useState(0);
+  const pager = useRef<HTMLDivElement>(null);
 
   /** Word ids the validator has something to say about. */
   const flagged = useMemo(() => {
@@ -56,20 +74,69 @@ export function Library({
 
   const hasIssue = useMemo(() => (id: string) => flagged.has(id), [flagged]);
 
-  const matching = useMemo(
-    () => applyFilter(entries, filter, hasIssue),
-    [entries, filter, hasIssue],
+  const batchEntries = useMemo(
+    () => entries.filter((entry) => entry.deckWord.batchId === batch),
+    [entries, batch],
   );
-  const facets = useMemo(() => buildFacets(entries, filter, hasIssue), [entries, filter, hasIssue]);
 
-  const rows = useMemo(() => matching.slice(0, shown), [matching, shown]);
+  const matching = useMemo(
+    () => applyFilter(batchEntries, filter, hasIssue),
+    [batchEntries, filter, hasIssue],
+  );
+  const facets = useMemo(
+    () => buildFacets(batchEntries, filter, hasIssue),
+    [batchEntries, filter, hasIssue],
+  );
+
+  const pages = useMemo(() => {
+    const chunks: ReviewEntry[][] = [];
+    for (let start = 0; start < matching.length; start += PAGE_SIZE) {
+      chunks.push(matching.slice(start, start + PAGE_SIZE));
+    }
+    return chunks;
+  }, [matching]);
+
+  const lastPage = Math.max(0, pages.length - 1);
+  const current = Math.min(page, lastPage);
+
+  /** Scroll the pager so `index` fills it; the scroll handler then records it. */
+  const goTo = (index: number) => {
+    const scroller = pager.current;
+    if (scroller === null) return;
+    const target = Math.max(0, Math.min(index, lastPage));
+    scroller.scrollTo({ left: target * scroller.clientWidth, behavior: "smooth" });
+    // A page turned from the bottom of a long page should start at its top.
+    const top = scroller.getBoundingClientRect().top;
+    if (top < 0) window.scrollBy({ top: top - 80, behavior: "smooth" });
+  };
+
+  const onPagerScroll = () => {
+    const scroller = pager.current;
+    if (scroller === null || scroller.clientWidth === 0) return;
+    setPage(Math.round(scroller.scrollLeft / scroller.clientWidth));
+  };
+
+  /** Back to the first page: a new set of rows makes the old page meaningless. */
+  const resetPage = () => {
+    setPage(0);
+    pager.current?.scrollTo({ left: 0 });
+  };
 
   const changeFilter = (next: LibraryFilter) => {
     onFilter(next);
-    // A new filter means a new set of rows; carrying the old page depth over
-    // would silently hide most of a narrower result.
-    setShown(PAGE);
+    resetPage();
   };
+
+  // Another batch is another set of rows: ticks and page depth do not carry over.
+  useEffect(() => {
+    setSelected(new Set());
+    resetPage();
+  }, [batch]);
+
+  // A narrower set can leave the scroller past its last page.
+  useEffect(() => {
+    if (page > lastPage) pager.current?.scrollTo({ left: lastPage * (pager.current?.clientWidth ?? 0) });
+  }, [page, lastPage]);
 
   const toggleSelect = (id: string) => {
     setSelected((previous) => {
@@ -115,7 +182,10 @@ export function Library({
       <div className="library-head">
         <h2>Library</h2>
         <p className="hint">
-          Narrow with the rail, then refine in place. Only approved and edited words are exported.
+          {batch !== null && <strong className="library-batch">{describeBatch(batch)}</strong>}
+          {batch !== null && " · "}
+          Switch batches from Words in the bar below. Swipe through pages of twenty and refine in
+          place; only approved and edited words are exported.
         </p>
       </div>
 
@@ -132,23 +202,83 @@ export function Library({
             onClear={() => setSelected(new Set())}
           />
 
-          <ReviewTable
-            entries={entries}
-            rows={rows}
-            settings={settings}
-            selected={selected}
-            onToggleSelect={toggleSelect}
-            onChange={onChange}
-          />
-
-          {matching.length > rows.length && (
-            <div className="library-more">
-              <button type="button" className="btn" onClick={() => setShown((n) => n + PAGE)}>
-                Show {Math.min(PAGE, matching.length - rows.length)} more
+          {pages.length > 1 && (
+            <div className="pager-bar">
+              <button
+                type="button"
+                className="btn sm"
+                aria-label="Previous page"
+                disabled={current === 0}
+                onClick={() => goTo(current - 1)}
+              >
+                ‹
               </button>
-              <span className="note">
-                {rows.length} of {matching.length} shown
+              <span className="pager-label">
+                Page <b>{current + 1}</b> of {pages.length}
+                <span className="note">
+                  {" "}
+                  · words {current * PAGE_SIZE + 1}–{current * PAGE_SIZE + pages[current]!.length} of{" "}
+                  {matching.length}
+                </span>
               </span>
+              <button
+                type="button"
+                className="btn sm"
+                aria-label="Next page"
+                disabled={current === lastPage}
+                onClick={() => goTo(current + 1)}
+              >
+                ›
+              </button>
+              {pages.length <= MAX_DOTS && (
+              <div className="pager-dots" role="tablist" aria-label="Pages">
+                {pages.map((_, index) => (
+                  <button
+                    key={index}
+                    type="button"
+                    role="tab"
+                    className="pager-dot"
+                    aria-label={`Page ${index + 1}`}
+                    aria-selected={index === current}
+                    data-active={index === current}
+                    onClick={() => goTo(index)}
+                  />
+                ))}
+              </div>
+              )}
+            </div>
+          )}
+
+          {pages.length === 0 ? (
+            <ReviewTable
+              entries={entries}
+              rows={[]}
+              settings={settings}
+              selected={selected}
+              onToggleSelect={toggleSelect}
+              onChange={onChange}
+            />
+          ) : (
+            <div className="pager" ref={pager} onScroll={onPagerScroll}>
+              {pages.map((rows, index) => (
+                <div
+                  key={index}
+                  className="pager-page"
+                  aria-label={`Page ${index + 1} of ${pages.length}`}
+                  aria-hidden={index !== current}
+                >
+                  {Math.abs(index - current) <= RENDER_RADIUS && (
+                    <ReviewTable
+                      entries={entries}
+                      rows={rows}
+                      settings={settings}
+                      selected={selected}
+                      onToggleSelect={toggleSelect}
+                      onChange={onChange}
+                    />
+                  )}
+                </div>
+              ))}
             </div>
           )}
         </div>

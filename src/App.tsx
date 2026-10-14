@@ -13,6 +13,7 @@
  */
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { GeneratePanel } from "./components/GeneratePanel";
+import { BatchMenu } from "./components/BatchMenu";
 import { Library } from "./components/Library";
 import { CoveragePanel } from "./components/CoveragePanel";
 import { SettingsPanel } from "./components/SettingsPanel";
@@ -35,7 +36,7 @@ import {
 } from "./lib/local-doc";
 import { CorpusPanel } from "./components/CorpusPanel";
 import { PromptsPanel } from "./components/PromptsPanel";
-import { EMPTY_FILTER, type LibraryFilter } from "./lib/library";
+import { EMPTY_FILTER, listBatches, type LibraryFilter } from "./lib/library";
 import { readSettings, writeSettings, type Settings } from "./lib/settings";
 import type { CefrLevel, Deck, RefineryDoc, ReviewEntry } from "./lib/types";
 
@@ -106,6 +107,16 @@ export function App() {
   // The library filter lives here so the coverage matrix can hand one over and
   // switch tabs, which is what makes a thin cell actionable in one click.
   const [filter, setFilter] = useState<LibraryFilter>(EMPTY_FILTER);
+
+  // The word list shows one batch; the menu on the Words tab switches it.
+  const batches = useMemo(() => listBatches(doc.review), [doc.review]);
+  const newestBatch = batches[0]?.id ?? null;
+  const [pickedBatch, setPickedBatch] = useState<string | null>(null);
+  // A fresh batch is what the reviewer came to look at, so it takes over.
+  useEffect(() => setPickedBatch(newestBatch), [newestBatch]);
+  const batch = batches.some((item) => item.id === pickedBatch) ? pickedBatch : newestBatch;
+  const [batchMenuOpen, setBatchMenuOpen] = useState(false);
+  const closeBatchMenu = useCallback(() => setBatchMenuOpen(false), []);
   const fileInput = useRef<HTMLInputElement>(null);
 
   const store = useMemo(() => createStore(settings.store), [settings.store]);
@@ -142,9 +153,11 @@ export function App() {
   useEffect(() => {
     let cancelled = false;
     void (async () => {
+      let restored = false;
       try {
         const mirror = await loadLocalDoc();
         if (!cancelled && mirror !== null && mirror.doc.review.length > 0) {
+          restored = true;
           setDoc(mirror.doc);
           setDirty(mirror.dirty);
           setNotice({
@@ -154,12 +167,13 @@ export function App() {
               `(mirrored ${new Date(mirror.mirroredAt).toLocaleString()}).` +
               (mirror.dirty ? " They were never pushed to the remote store." : ""),
           });
-          return;
         }
       } catch {
         // An unreadable mirror must not stop the app from opening.
       }
+      // Every path must end in setHydrated: the autosave stays off until it does.
       try {
+        if (restored || cancelled) return;
         const response = await fetch(DEFAULT_DECK_URL, { cache: "no-store" });
         const parsed = response.ok ? parseJsonText(await response.text()) : null;
         const review = parsed === null ? [] : reviewEntriesFrom(parsed);
@@ -406,6 +420,7 @@ export function App() {
       {tab === "review" && (
         <Library
           entries={doc.review}
+          batch={batch}
           settings={settings}
           filter={filter}
           onFilter={setFilter}
@@ -555,6 +570,19 @@ export function App() {
       {tab === "settings" && <SettingsPanel settings={settings} onChange={setSettings} />}
       </main>
 
+      <div className="dock">
+      {batchMenuOpen && (
+        <BatchMenu
+          batches={batches}
+          current={batch}
+          onPick={(id) => {
+            setPickedBatch(id);
+            setBatchMenuOpen(false);
+            setTab("review");
+          }}
+          onClose={closeBatchMenu}
+        />
+      )}
       <nav className="tabs-bottom" aria-label="More tools">
         <span className="tabs-bottom-label">More</span>
         {(
@@ -573,7 +601,16 @@ export function App() {
             className="tab-bottom"
             data-active={tab === id}
             data-primary={id === "review" || undefined}
+            data-batch-trigger={id === "review" || undefined}
+            aria-haspopup={id === "review" ? "dialog" : undefined}
+            aria-expanded={id === "review" ? batchMenuOpen : undefined}
             onClick={() => {
+              // Words is already home; tapping it again opens the batch menu.
+              if (id === "review" && tab === "review") {
+                setBatchMenuOpen((open) => !open);
+                return;
+              }
+              setBatchMenuOpen(false);
               setTab(id);
               window.scrollTo({ top: 0, behavior: "smooth" });
             }}
@@ -582,6 +619,7 @@ export function App() {
             {tabCounts[id] !== null && tabCounts[id]! > 0 && (
               <span className="count">{tabCounts[id]}</span>
             )}
+            {id === "review" && batches.length > 1 && <span className="tab-caret">▴</span>}
           </button>
         ))}
       </nav>
@@ -600,6 +638,7 @@ export function App() {
         <span>{dirty ? "unsaved changes" : "saved"}</span>
         <span>{store.label}</span>
       </footer>
+      </div>
     </div>
   );
 }
