@@ -22,10 +22,15 @@
  *          resetPromptOverride, resolvePrompt, isPromptOverridden
  * Depends on: ./prompt.ts
  */
-import { ANNOTATION_SYSTEM_PROMPT, REWRITE_SYSTEM_PROMPT, VERIFY_SYSTEM_PROMPT } from "./prompt.ts";
+import {
+  ANNOTATION_SYSTEM_PROMPT,
+  MARKUP_SYSTEM_PROMPT,
+  REWRITE_SYSTEM_PROMPT,
+  VERIFY_SYSTEM_PROMPT,
+} from "./prompt.ts";
 
 /** The prompts an operator may override. */
-export type PromptId = "annotation" | "rewrite" | "verify";
+export type PromptId = "annotation" | "rewrite" | "verify" | "markup";
 
 /** What the panel needs to show one prompt. */
 export interface PromptDefinition {
@@ -58,6 +63,13 @@ export const PROMPT_DEFINITIONS: readonly PromptDefinition[] = [
     purpose:
       "Sent when you check a finished card. Judges meaning, naturalness, leaks and whether the highlight sits on the phrase that carries the sentence.",
     fallback: VERIFY_SYSTEM_PROMPT,
+  },
+  {
+    id: "markup",
+    title: "Markup (system)",
+    purpose:
+      "Sent when you add breaking marks to cards written before the marks existed. A typesetting pass, not an edit: the words must come back identical, and a field that changed is discarded.",
+    fallback: MARKUP_SYSTEM_PROMPT,
   },
 ];
 

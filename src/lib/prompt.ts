@@ -10,7 +10,8 @@
  * Exports: ANNOTATION_SYSTEM_PROMPT, FIELD_RULES, buildBatchPrompt,
  * REWRITE_SYSTEM_PROMPT, buildRegeneratePrompt,
  * COMPLAINT_CHIPS, chipsForField, ComplaintChip, RefineField, RefineRequest,
- * VERIFY_SYSTEM_PROMPT, buildVerifyPrompt, VerifyFinding, VerifyReport
+ * VERIFY_SYSTEM_PROMPT, buildVerifyPrompt, VerifyFinding, VerifyReport,
+ * MARKUP_SYSTEM_PROMPT, buildMarkupPrompt, MARKUP_FIELDS, MarkupField
  * Depends on: ./types.ts, ./contract.ts
  */
 import type { CorpusWord } from "./types.ts";
@@ -466,4 +467,78 @@ export function buildVerifyPrompt(word: {
     "Return the JSON object described in the system prompt.",
   ];
   return lines.filter((line): line is string => line !== null).join("\n");
+}
+
+// ── Retrofitting marks onto text that predates them ─────────────────────────
+
+/**
+ * System prompt for the markup pass.
+ *
+ * Every deck written before the breaking marks existed is unmarked, and there
+ * is no point adding the marks to new cards while a thousand old ones go
+ * without. This pass retrofits them.
+ *
+ * It is deliberately NOT a rewrite. The one failure that matters here is a
+ * model deciding the Vietnamese could be better while it is in there: the words
+ * must come back identical, mark insertion and nothing else, so the result can
+ * be checked by stripping the marks and comparing. A pass that improves the
+ * prose cannot be verified and quietly rewrites a reviewed deck.
+ */
+export const MARKUP_SYSTEM_PROMPT = `You add breaking marks to Vietnamese vocabulary-card text that was written before the marks existed. You are a typesetter, not an editor.
+
+ABSOLUTE RULE: return the SAME WORDS in the SAME ORDER. Insert marks and change nothing else. Do not fix spelling, do not improve wording, do not add or remove a single syllable, do not touch punctuation, capitalisation or diacritics. If the text reads badly, leave it reading badly — someone else decides that. Your output with every mark stripped out must equal the input character for character.
+
+${WORD_JOINING}
+
+How to work through one field:
+1. Read it and find the lexical words. Join the syllables of each with "_".
+2. Find the clitics - a classifier and its noun, a function word and what it leans on, a free verb-object pair - and bind each with "=".
+3. Find where the sentence naturally pauses and put "|" there, with a space each side. Most card sentences want one "|", sometimes two, often none. Every phrase you create must be at least TWO syllables.
+4. Check: strip every mark you added. Is the result identical to what you were given? If not, you edited the text. Start again.
+
+Leave a field exactly as it is when it is empty, when it is already marked, or when you are unsure - an unmarked field is correct-but-plain, while a wrongly marked one is a defect.
+
+Return ONLY a JSON object with one key per field you were given, each holding the marked text:
+{"defVi":"...","leadVi":"...","anticipateVi":"...","usageVi":"..."}
+Include a key only for a field that was given to you. No commentary.`;
+
+/** The fields a markup pass may touch. usageEn is excluded: it holds the blank. */
+export const MARKUP_FIELDS = ["defVi", "leadVi", "anticipateVi", "usageVi"] as const;
+
+/** One field a markup pass may touch. */
+export type MarkupField = (typeof MARKUP_FIELDS)[number];
+
+/**
+ * Render one card's unmarked fields for marking up.
+ *
+ * Emphasis markers are left in place rather than stripped: `/…/` tells the
+ * model which phrase is highlighted, which is exactly the span it must not
+ * break with a `=` or a `|`.
+ *
+ * @param word - the card to mark up
+ * @returns the user message, or "" when every field is already marked or empty
+ */
+export function buildMarkupPrompt(word: {
+  word: string;
+  defVi: string;
+  leadVi: string;
+  anticipateVi: string;
+  usage: Array<{ en: string; vi: string }>;
+}): string {
+  const given: Array<[MarkupField, string]> = [
+    ["defVi", word.defVi],
+    ["leadVi", word.leadVi],
+    ["anticipateVi", word.anticipateVi],
+    ["usageVi", word.usage[0]?.vi ?? ""],
+  ];
+  const pending = given.filter(([, value]) => value.trim().length > 0);
+  if (pending.length === 0) return "";
+
+  return [
+    `Add breaking marks to these fields of the card for "${word.word}".`,
+    "",
+    ...pending.map(([field, value]) => `- ${field}: ${value}`),
+    "",
+    `Return the JSON object with exactly these key(s): ${pending.map(([field]) => field).join(", ")}.`,
+  ].join("\n");
 }

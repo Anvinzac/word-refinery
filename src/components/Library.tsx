@@ -23,6 +23,8 @@ import { BulkBar, type TagAction } from "./BulkBar";
 import { FilterRail } from "./FilterRail";
 import { ReviewTable } from "./ReviewTable";
 import { MAX_EXAMS, MAX_TOPICS } from "../lib/contract";
+import { markupWord } from "../lib/llm";
+import { hasAnyMark } from "../lib/joiner";
 import { validateDeck } from "../lib/deck";
 import {
   EMPTY_FILTER,
@@ -62,6 +64,10 @@ export function Library({
   const [selected, setSelected] = useState<ReadonlySet<string>>(new Set());
   const [page, setPage] = useState(0);
   const pager = useRef<HTMLDivElement>(null);
+  /** Progress of the markup backfill, or null when none is running. */
+  const [markup, setMarkup] = useState<{ done: number; total: number; issues: string[] } | null>(
+    null,
+  );
 
   /** Word ids the validator has something to say about. */
   const flagged = useMemo(() => {
@@ -177,6 +183,56 @@ export function Library({
     });
   };
 
+  /**
+   * Add breaking marks to the selected cards, one request each.
+   *
+   * Sequential on purpose: this rewrites reviewed text, so a failure part-way
+   * should leave a short, legible trail rather than a dozen half-applied cards.
+   */
+  const runMarkup = async () => {
+    const targets = entries.filter((entry) => selected.has(entry.id));
+    if (targets.length === 0) return;
+    setMarkup({ done: 0, total: targets.length, issues: [] });
+
+    const patches = new Map<string, Partial<Record<string, string>>>();
+    const issues: string[] = [];
+    for (const [index, entry] of targets.entries()) {
+      try {
+        const result = await markupWord(settings.llm, entry.deckWord);
+        if (Object.keys(result.patch).length > 0) patches.set(entry.id, result.patch);
+        issues.push(...result.issues);
+      } catch (thrown) {
+        issues.push(`${entry.deckWord.word}: ${thrown instanceof Error ? thrown.message : String(thrown)}`);
+      }
+      setMarkup({ done: index + 1, total: targets.length, issues: [...issues] });
+    }
+
+    if (patches.size > 0) {
+      onChange(
+        entries.map((entry) => {
+          const patch = patches.get(entry.id);
+          if (patch === undefined) return entry;
+          const deckWord = { ...entry.deckWord };
+          if (patch.defVi !== undefined) deckWord.defVi = patch.defVi;
+          if (patch.leadVi !== undefined) deckWord.leadVi = patch.leadVi;
+          if (patch.anticipateVi !== undefined) deckWord.anticipateVi = patch.anticipateVi;
+          if (patch.usageVi !== undefined && deckWord.usage[0] !== undefined) {
+            deckWord.usage = deckWord.usage.map((item, index) =>
+              index === 0 ? { ...item, vi: patch.usageVi! } : item,
+            );
+          }
+          return { ...entry, deckWord, status: "edited" as const };
+        }),
+      );
+    }
+  };
+
+  /** How much of the deck still predates the breaking marks. */
+  const unmarked = useMemo(
+    () => entries.filter((entry) => !hasAnyMark(entry.deckWord.defVi)).length,
+    [entries],
+  );
+
   return (
     <section className="panel library">
       <div className="library-head">
@@ -200,7 +256,37 @@ export function Library({
             onTag={bulkTag}
             onSelectAll={() => setSelected(new Set(matching.map((entry) => entry.id)))}
             onClear={() => setSelected(new Set())}
+            onMarkup={() => void runMarkup()}
+            markupBusy={markup !== null && markup.done < markup.total}
           />
+
+          {unmarked > 0 && markup === null && (
+            <div className="banner warn" style={{ marginBottom: 10 }}>
+              {unmarked} word(s) were written before the breaking marks existed. Select them and
+              choose “Add breaking marks” — the words are not rewritten, only marked, and any card
+              that comes back edited is discarded.
+            </div>
+          )}
+
+          {markup !== null && (
+            <div className="banner" style={{ marginBottom: 10 }}>
+              Marking up {markup.done} of {markup.total}…
+              {markup.issues.length > 0 && (
+                <ul className="refine-issues" style={{ marginTop: 8 }}>
+                  {markup.issues.slice(0, 8).map((issue, index) => (
+                    <li key={index}>{issue}</li>
+                  ))}
+                </ul>
+              )}
+              {markup.done === markup.total && (
+                <div style={{ marginTop: 8 }}>
+                  <button type="button" className="btn sm" onClick={() => setMarkup(null)}>
+                    Done
+                  </button>
+                </div>
+              )}
+            </div>
+          )}
 
           {pages.length > 1 && (
             <div className="pager-bar">

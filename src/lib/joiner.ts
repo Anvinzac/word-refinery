@@ -28,7 +28,7 @@
  *
  * Exports: WORD_JOIN, CLITIC_BIND, PHRASE_BREAK, MARKS, stripMarks,
  *          stripWordJoins, countUnits, findStrayMarks, splitPhrases,
- *          hasWordJoin, MIN_PHRASE_EDGE_UNITS
+ *          hasWordJoin, hasAnyMark, MIN_PHRASE_EDGE_UNITS
  * Depends on: none
  */
 
@@ -152,4 +152,16 @@ export function findStrayMarks(text: string): string[] {
   }
 
   return problems;
+}
+
+/**
+ * Whether a text carries any mark at all — used to find the part of a deck that
+ * predates them and still needs a markup pass.
+ *
+ * @param text - deck text
+ */
+export function hasAnyMark(text: string): boolean {
+  if (!/[_=|]/.test(text)) return false;
+  if (text.includes(PHRASE_BREAK)) return true;
+  return /([\p{L}\p{N}\p{M}])[_=](?=[\p{L}\p{N}])/u.test(text);
 }

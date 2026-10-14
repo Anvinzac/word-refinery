@@ -25,10 +25,15 @@ export function BulkBar({
   onTag,
   onSelectAll,
   onClear,
+  onMarkup,
+  markupBusy,
   visibleCount,
 }: {
   selectedCount: number;
   visibleCount: number;
+  /** Add breaking marks to the selection, without rewriting the words. */
+  onMarkup: () => void;
+  markupBusy: boolean;
   onStatus: (status: ReviewStatus) => void;
   onTag: (action: TagAction) => void;
   onSelectAll: () => void;
@@ -108,6 +113,12 @@ export function BulkBar({
         Remove
       </button>
       <span className="bulk-hint">max {cap}</span>
+
+      <div className="bulk-sep" aria-hidden="true" />
+
+      <button type="button" className="btn sm" disabled={markupBusy} onClick={onMarkup}>
+        {markupBusy ? "Marking up…" : "Add breaking marks"}
+      </button>
     </div>
   );
 }

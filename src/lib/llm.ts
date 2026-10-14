@@ -11,19 +11,23 @@
  * endpoint the user picked. Nothing is proxied: GitHub Pages has no server.
  *
  * Exports: LlmError, ListedModel, chat, readChatText, listModels, annotateBatch, regenerateField,
- *          verifyWord, testConnection
+ *          verifyWord, markupWord, testConnection
  * Depends on: ./settings.ts, ./prompt.ts, ./contract.ts, ./types.ts
  */
 import type { LlmProvider, Settings } from "./settings.ts";
 import {
   buildBatchPrompt,
   buildRegeneratePrompt,
+  buildMarkupPrompt,
   buildVerifyPrompt,
+  MARKUP_FIELDS,
+  type MarkupField,
   type RefineRequest,
   type VerifyFinding,
   type VerifyReport,
 } from "./prompt.ts";
 import { resolvePrompt } from "./prompt-store.ts";
+import { findStrayMarks, stripMarks } from "./joiner.ts";
 import { extractJsonArray, parseAnnotationList, type CrawlerAnnotation } from "./contract.ts";
 import type { CorpusWord, DeckWord } from "./types.ts";
 import type { AvoidList } from "./uniqueness.ts";
@@ -684,4 +688,85 @@ export async function verifyWord(
   const worst = findings.some((finding) => finding.severity !== "note");
   const claimed = parsed.verdict === "pass" || parsed.verdict === "revise" ? parsed.verdict : null;
   return { verdict: worst ? "revise" : (claimed ?? "pass"), findings };
+}
+
+/**
+ * Ask the model to add breaking marks to one card's existing text.
+ *
+ * The pass is only trustworthy because its output is checkable: strip the marks
+ * off what comes back and it must equal what went in. A model that rewrote a
+ * word, fixed a diacritic or dropped a comma fails that check, and the field is
+ * discarded rather than written over a reviewed deck. Marking up is cheap to
+ * redo; silently losing reviewed Vietnamese is not.
+ *
+ * @param settings - active LLM settings
+ * @param word - the card to mark up
+ * @param signal - optional AbortSignal
+ * @returns the fields that changed, plus a note for every field refused
+ */
+export async function markupWord(
+  settings: Settings["llm"],
+  word: DeckWord,
+  signal?: AbortSignal,
+): Promise<{ patch: Partial<Record<MarkupField, string>>; issues: string[] }> {
+  const request = buildMarkupPrompt(word);
+  if (request.length === 0) return { patch: {}, issues: [] };
+
+  const reply = await chat(
+    settings,
+    [
+      { role: "system", content: resolvePrompt("markup") },
+      { role: "user", content: request },
+    ],
+    { attempts: 2, signal },
+  );
+
+  const start = reply.indexOf("{");
+  const end = reply.lastIndexOf("}");
+  if (start === -1 || end <= start) {
+    throw new LlmError("The markup reply contained no JSON object", {
+      provider: settings.provider,
+      body: reply.slice(0, 300),
+    });
+  }
+  let parsed: Record<string, unknown>;
+  try {
+    parsed = JSON.parse(reply.slice(start, end + 1)) as Record<string, unknown>;
+  } catch {
+    throw new LlmError("The markup reply was not valid JSON", {
+      provider: settings.provider,
+      body: reply.slice(0, 300),
+    });
+  }
+
+  const current: Record<MarkupField, string> = {
+    defVi: word.defVi,
+    leadVi: word.leadVi,
+    anticipateVi: word.anticipateVi,
+    usageVi: word.usage[0]?.vi ?? "",
+  };
+
+  const patch: Partial<Record<MarkupField, string>> = {};
+  const issues: string[] = [];
+  for (const field of MARKUP_FIELDS) {
+    const value = parsed[field];
+    if (typeof value !== "string" || value.trim().length === 0) continue;
+    const before = current[field];
+    if (before.trim().length === 0) continue;
+    if (value === before) continue;
+    // The whole safety of this pass: marks may be added, nothing else may move.
+    if (stripMarks(value) !== stripMarks(before)) {
+      issues.push(
+        `${word.word}: ${field} was edited rather than marked up, so it was discarded — ` +
+          `expected "${stripMarks(before)}", got "${stripMarks(value)}"`,
+      );
+      continue;
+    }
+    for (const problem of findStrayMarks(value)) {
+      issues.push(`${word.word}: ${field} ${problem}`);
+    }
+    if (findStrayMarks(value).length === 0) patch[field] = value;
+  }
+
+  return { patch, issues };
 }

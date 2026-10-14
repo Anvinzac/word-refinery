@@ -16,6 +16,7 @@ import test from "node:test";
 import {
   countUnits,
   findStrayMarks,
+  hasAnyMark,
   hasWordJoin,
   splitPhrases,
   stripMarks,
@@ -328,4 +329,62 @@ test("the marker still wraps the text's own form when marks are present", () => 
   );
   assert.match(marked.defVi, /\/Chất_lỏng\//, marked.warnings.join("; "));
   assert.ok(marked.defVi.includes("|"), "the phrase break survives marking");
+});
+
+// ── the markup pass ────────────────────────────────────────────────────────
+
+test("the markup prompt forbids editing and says how it will be checked", async () => {
+  const { MARKUP_SYSTEM_PROMPT } = await import("../src/lib/prompt.ts");
+  assert.match(MARKUP_SYSTEM_PROMPT, /SAME WORDS in the SAME ORDER/);
+  assert.match(MARKUP_SYSTEM_PROMPT, /typesetter, not an editor/);
+  assert.match(MARKUP_SYSTEM_PROMPT, /every mark stripped out must equal the input/);
+  assert.match(MARKUP_SYSTEM_PROMPT, /Breaking marks/, "it carries the shared marks block");
+  assert.match(MARKUP_SYSTEM_PROMPT, /at least TWO syllables/);
+});
+
+test("the markup request lists only the fields that have text", async () => {
+  const { buildMarkupPrompt } = await import("../src/lib/prompt.ts");
+  const prompt = buildMarkupPrompt({
+    word: "harvest",
+    defVi: "Việc thu gom cây trái sau một mùa dài.",
+    leadVi: "",
+    anticipateVi: "Mùa gì vui nhất nhỉ?",
+    usage: [{ en: "The _____ was poor.", vi: "Vụ mùa kém." }],
+  });
+  assert.match(prompt, /- defVi:/);
+  assert.match(prompt, /- anticipateVi:/);
+  assert.match(prompt, /- usageVi:/);
+  assert.ok(!prompt.includes("- leadVi:"), "an empty field is not offered for marking");
+  assert.match(prompt, /exactly these key\(s\): defVi, anticipateVi, usageVi/);
+});
+
+test("a card with nothing to mark up produces no request at all", async () => {
+  const { buildMarkupPrompt } = await import("../src/lib/prompt.ts");
+  assert.equal(
+    buildMarkupPrompt({ word: "x", defVi: "", leadVi: "", anticipateVi: "", usage: [] }),
+    "",
+  );
+});
+
+test("hasAnyMark tells marked text from text that predates the marks", () => {
+  assert.equal(hasAnyMark("Việc thu gom cây trái sau một mùa dài."), false);
+  assert.ok(hasAnyMark("Việc thu_gom cây trái sau một mùa dài."));
+  assert.ok(hasAnyMark("Việc thu gom | cây trái sau một mùa dài."));
+  assert.ok(hasAnyMark("Con=mèo ngủ."));
+  // The answer blank is not a mark.
+  assert.equal(hasAnyMark("The _____ was poor this year."), false);
+});
+
+test("stripping the marks off a correctly marked field returns the original", () => {
+  // This is the check the markup pass is validated by, so it has to hold exactly.
+  const before = "Việc thu gom cây trái sau một mùa trồng trọt dài.";
+  const after = "Việc thu_gom cây trái | sau một=mùa trồng_trọt dài.";
+  assert.equal(stripMarks(after), before);
+});
+
+test("a markup reply that edited the text fails the identity check", () => {
+  const before = "Việc thu gom cây trái sau một mùa dài.";
+  // One word changed under cover of marking up — exactly what must be caught.
+  const edited = "Việc thu_gom hoa trái | sau một mùa dài.";
+  assert.notEqual(stripMarks(edited), before);
 });
