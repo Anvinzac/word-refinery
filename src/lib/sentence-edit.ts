@@ -214,3 +214,76 @@ export function insertAtGap(tokens: readonly SentenceToken[], gap: number, text:
   }
   return [...before, ...inserted, ...after];
 }
+
+/**
+ * Put a mark in at the caret, from the text editor's mark buttons.
+ *
+ * The marks are awkward to type — `|` needs a modifier on most layouts and is
+ * easy to confuse with the caret itself — so the editor offers buttons. What
+ * makes them useful rather than decorative is where the mark lands: a bond
+ * belongs *in place of* a space, so when the caret sits beside one the space is
+ * replaced rather than added to. Typing `_` by hand does the same thing only if
+ * you remember to delete the space first.
+ *
+ * @param text - the field as it stands
+ * @param start - caret start, as the textarea reports it
+ * @param end - caret end; a selection is collapsed to its start
+ * @param mark - the mark to apply
+ * @returns the new text and where the caret should sit afterwards
+ */
+export function applyMark(
+  text: string,
+  start: number,
+  end: number,
+  mark: "_" | "=" | "|",
+): { text: string; caret: number } {
+  const at = Math.min(start, end);
+
+  if (mark === PHRASE_BREAK) {
+    // A phrase break is a token of its own: take whatever spaces are already
+    // around the caret so the result is exactly one " | ", never " |  ".
+    let from = at;
+    let to = Math.max(start, end);
+    while (from > 0 && text[from - 1] === " ") from -= 1;
+    while (to < text.length && text[to] === " ") to += 1;
+    const before = text.slice(0, from);
+    const after = text.slice(to);
+    const lead = before.length > 0 ? `${before} ` : "";
+    const trail = after.length > 0 ? ` ${after}` : "";
+    return { text: `${lead}${PHRASE_BREAK}${trail}`, caret: lead.length + 1 };
+  }
+
+  // A bond replaces the space it stands in for — on either side of the caret,
+  // since a reader clicking between two syllables may land on either.
+  if (text[at] === " ") {
+    return { text: `${text.slice(0, at)}${mark}${text.slice(at + 1)}`, caret: at + 1 };
+  }
+  if (at > 0 && text[at - 1] === " ") {
+    return { text: `${text.slice(0, at - 1)}${mark}${text.slice(at)}`, caret: at };
+  }
+  return { text: `${text.slice(0, at)}${mark}${text.slice(at)}`, caret: at + 1 };
+}
+
+/**
+ * Wrap the selection in highlight markers, or remove the pair around it.
+ *
+ * @param text - the field as it stands
+ * @param start - selection start
+ * @param end - selection end
+ * @returns the new text and caret, unchanged when nothing is selected
+ */
+export function toggleMarkers(text: string, start: number, end: number): { text: string; caret: number } {
+  const from = Math.min(start, end);
+  const to = Math.max(start, end);
+  if (from === to) return { text, caret: to };
+
+  const selected = text.slice(from, to);
+  if (selected.startsWith("/") && selected.endsWith("/") && selected.length > 2) {
+    const inner = selected.slice(1, -1);
+    return { text: `${text.slice(0, from)}${inner}${text.slice(to)}`, caret: from + inner.length };
+  }
+  if (text[from - 1] === "/" && text[to] === "/") {
+    return { text: `${text.slice(0, from - 1)}${selected}${text.slice(to + 1)}`, caret: to - 1 };
+  }
+  return { text: `${text.slice(0, from)}/${selected}/${text.slice(to)}`, caret: to + 2 };
+}

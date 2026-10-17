@@ -1887,3 +1887,71 @@ code.k {
   background: color-mix(in srgb, var(--accent) 8%, transparent);
   font-size: 12.5px;
 }
+
+/* ── Raw-text mode in the sentence editor ────────────────────────────────
+   The marks are literal characters here, so the font has to make them legible:
+   an underscore under a diacritic and a pipe beside a caret are both easy to
+   miss in a proportional face. */
+
+.sentence-text {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.sentence-textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 14px;
+  /* Loose enough that an underscore does not collide with the line below. */
+  line-height: 1.9;
+  resize: vertical;
+}
+
+.sentence-textarea:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: -1px;
+}
+
+.sentence-mark-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.sentence-mark code {
+  display: inline-block;
+  min-width: 14px;
+  margin-right: 5px;
+  padding: 0 4px;
+  border-radius: 4px;
+  background: color-mix(in srgb, var(--accent) 18%, transparent);
+  color: var(--accent);
+  font-size: 12px;
+  text-align: center;
+}
+
+.sentence-readout {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 10px;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+/* What the reader will actually get, with every mark resolved away. */
+.sentence-reader {
+  flex: 1 1 240px;
+  min-width: 0;
+  padding: 4px 8px;
+  border-left: 2px solid var(--border);
+  color: var(--ink);
+  font-size: 13px;
+}

@@ -1,6 +1,11 @@
 /**
  * Hand editor for one Vietnamese field, shown inside the refine brief.
  *
+ * Two views over the same text. The chip view is for the common edits — tap a
+ * word, drag a break — and never shows a mark as a character. The text view is
+ * the escape hatch: the field exactly as it is stored, marks included, in a
+ * textarea you can type into. Anything the chips cannot express is done there.
+ *
  * The sentence is laid out as chips: tap a word to toggle its highlight,
  * double-tap it to delete it, drag a `|` chip to move the phrase break, and
  * turn on the ✎ button to make every gap between words live: tapping the space
@@ -14,14 +19,16 @@
  * Depends on: ../lib/sentence-edit.ts, ../lib/joiner.ts
  */
 import { Fragment, useRef, useState } from "react";
-import { findStrayMarks, PHRASE_BREAK } from "../lib/joiner";
+import { CLITIC_BIND, countUnits, findStrayMarks, PHRASE_BREAK, stripMarks, WORD_JOIN } from "../lib/joiner";
 import {
+  applyMark,
   insertAtGap,
   moveBreak,
   parseSentence,
   removeToken,
   serializeSentence,
   toggleHighlight,
+  toggleMarkers,
   type SentenceToken,
 } from "../lib/sentence-edit";
 
@@ -58,6 +65,9 @@ export function SentenceEditor({
   const [inserting, setInserting] = useState(false);
   const [slot, setSlot] = useState<number | null>(null);
   const [typed, setTyped] = useState("");
+  /** Raw-text mode: the sentence as deck text, marks and all, in a textarea. */
+  const [asText, setAsText] = useState(false);
+  const area = useRef<HTMLTextAreaElement>(null);
 
   const commit = (next: SentenceToken[]) => onChange(serializeSentence(next));
 
@@ -269,9 +279,113 @@ export function SentenceEditor({
         >
           ✎
         </button>
+        <button
+          type="button"
+          className="btn sm sentence-edit-toggle"
+          data-active={asText}
+          aria-pressed={asText}
+          title="Edit the raw text, marks and all"
+          disabled={disabled}
+          onClick={() => {
+            setAsText(!asText);
+            closeSlot();
+          }}
+        >
+          Text
+        </button>
       </div>
 
-      <div className="sentence-chips" lang="vi" ref={boxRef} data-dragging={drag?.moved || undefined}>
+      {asText && (
+        <div className="sentence-text">
+          {/* A plain textarea, deliberately: Vietnamese is typed through an IME,
+              and a contenteditable that re-renders on every keystroke fights
+              composition and throws the caret around. The marks are literal
+              characters here, so they can be typed and deleted like any other. */}
+          <textarea
+            ref={area}
+            className="sentence-textarea"
+            lang="vi"
+            spellCheck={false}
+            rows={3}
+            value={value}
+            disabled={disabled}
+            aria-label="Field text, including the breaking marks"
+            onChange={(event) => onChange(event.target.value)}
+          />
+
+          <div className="sentence-mark-row">
+            {(
+              [
+                [WORD_JOIN, "one word", "Join two syllables of one word"],
+                [CLITIC_BIND, "leans", "Bind a clitic to its neighbour"],
+                [PHRASE_BREAK, "phrase", "Mark a phrase edge"],
+              ] as const
+            ).map(([mark, label, title]) => (
+              <button
+                key={mark}
+                type="button"
+                className="btn sm sentence-mark"
+                title={title}
+                disabled={disabled}
+                onClick={() => {
+                  const element = area.current;
+                  if (element === null) return;
+                  const next = applyMark(
+                    value,
+                    element.selectionStart,
+                    element.selectionEnd,
+                    mark as "_" | "=" | "|",
+                  );
+                  onChange(next.text);
+                  // Restore the caret after React has written the new value,
+                  // or it jumps to the end and the next click lands elsewhere.
+                  requestAnimationFrame(() => {
+                    element.focus();
+                    element.setSelectionRange(next.caret, next.caret);
+                  });
+                }}
+              >
+                <code>{mark}</code> {label}
+              </button>
+            ))}
+            {highlightable && (
+              <button
+                type="button"
+                className="btn sm sentence-mark"
+                title="Wrap the selected words in highlight markers"
+                disabled={disabled}
+                onClick={() => {
+                  const element = area.current;
+                  if (element === null) return;
+                  const next = toggleMarkers(value, element.selectionStart, element.selectionEnd);
+                  onChange(next.text);
+                  requestAnimationFrame(() => {
+                    element.focus();
+                    element.setSelectionRange(next.caret, next.caret);
+                  });
+                }}
+              >
+                <code>/ /</code> highlight
+              </button>
+            )}
+          </div>
+
+          <div className="sentence-readout">
+            <span>{countUnits(value)} syllables</span>
+            <span className="sentence-reader" lang="vi" title="What the reader sees">
+              {stripMarks(value).replace(/\/([^/]+)\//g, "$1") || "—"}
+            </span>
+          </div>
+        </div>
+      )}
+
+      <div
+        className="sentence-chips"
+        lang="vi"
+        ref={boxRef}
+        data-dragging={drag?.moved || undefined}
+        hidden={asText}
+      >
         {tokens.map((token, index) => {
           if (token.kind === "break") {
             return (
