@@ -37,6 +37,7 @@ import {
 import { CorpusPanel } from "./components/CorpusPanel";
 import { PromptsPanel } from "./components/PromptsPanel";
 import { EMPTY_FILTER, listBatches, type LibraryFilter } from "./lib/library";
+import { renderExemplarCards, styleExemplarCards } from "./lib/style";
 import { readSettings, writeSettings, type Settings } from "./lib/settings";
 import type { CefrLevel, Deck, RefineryDoc, ReviewEntry } from "./lib/types";
 
@@ -241,6 +242,12 @@ export function App() {
     [doc.review],
   );
 
+  /** Whole marked cards, shown to a batch so it writes in the house voice. */
+  const exemplars = useMemo(
+    () => renderExemplarCards(styleExemplarCards(doc.review)),
+    [doc.review],
+  );
+
   /** Teaser lines already in use, so a generation run cannot repeat one. */
   const existingAnticipate = useMemo(
     () => doc.review.map((entry) => entry.deckWord.anticipateVi).filter((line) => line.length > 0),
@@ -442,6 +449,7 @@ export function App() {
             settings={settings}
             existingWords={existingWords}
             existingAnticipate={existingAnticipate}
+            exemplars={exemplars}
             selectedLevels={levels}
             onLevels={setLevels}
             onGenerated={onGenerated}
@@ -601,7 +609,7 @@ export function App() {
         </>
       )}
 
-      {tab === "prompts" && <PromptsPanel />}
+      {tab === "prompts" && <PromptsPanel entries={doc.review} settings={settings} />}
 
       {tab === "settings" && <SettingsPanel settings={settings} onChange={setSettings} />}
       </main>

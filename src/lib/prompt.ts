@@ -11,7 +11,9 @@
  * REWRITE_SYSTEM_PROMPT, buildRegeneratePrompt,
  * COMPLAINT_CHIPS, chipsForField, ComplaintChip, RefineField, RefineRequest,
  * VERIFY_SYSTEM_PROMPT, buildVerifyPrompt, VerifyFinding, VerifyReport,
- * MARKUP_SYSTEM_PROMPT, buildMarkupPrompt, MARKUP_FIELDS, MarkupField
+ * MARKUP_SYSTEM_PROMPT, buildMarkupPrompt, MARKUP_FIELDS, MarkupField,
+ * STYLE_SYSTEM_PROMPT, DISTIL_SYSTEM_PROMPT, buildDistilPrompt, buildHouseVoice,
+ * STYLE_AUDIT_SYSTEM_PROMPT, buildStyleAuditPrompt
  * Depends on: ./types.ts, ./contract.ts
  */
 import type { CorpusWord } from "./types.ts";
@@ -554,5 +556,154 @@ export function buildMarkupPrompt(word: {
     ...pending.map(([field, value]) => `- ${field}: ${value}`),
     "",
     `Return the JSON object with exactly these key(s): ${pending.map(([field]) => field).join(", ")}.`,
+  ].join("\n");
+}
+
+// ── The house voice ─────────────────────────────────────────────────────────
+
+/**
+ * Placeholder guide, shown on the Prompts tab until one is distilled.
+ *
+ * The style guide is the one prompt this app does not ship: it is written from
+ * the reviewer's own edits, so there is nothing sensible to default it to. The
+ * injection checks whether a real one has been saved and skips the block
+ * entirely when it has not, which is why this text never reaches a model.
+ */
+export const STYLE_SYSTEM_PROMPT = `No style guide yet.
+
+Mark a few cards you have edited as style samples (the ★ in the review table), then press "Rebuild from my samples". The distillation reads what you CHANGED — the model's version against yours — and writes the guide here, for you to correct.
+
+Until then, generation runs on the field rules alone and this text is never sent.`;
+
+/**
+ * Prompt that reverse-engineers the reviewer's voice from their edits.
+ *
+ * Works from pairs rather than finished sentences because the content is held
+ * constant across a pair: same word, same field, same length rules, so every
+ * difference is voice. A guide built from finals alone has to guess which
+ * properties of a good sentence were deliberate.
+ */
+export const DISTIL_SYSTEM_PROMPT = `You are a Vietnamese editor reverse-engineering one writer's voice.
+
+You will be given pairs from a vocabulary-card deck. In each pair, BEFORE is what a general-purpose model wrote and AFTER is what the human editor changed it to. The content requirement was identical in both: same English word, same field, same length rules. So every difference between them is a difference of VOICE, not of task.
+
+Your job is to write the style guide that would have produced the AFTERs.
+
+Work from the evidence, not from what good Vietnamese writing is generally supposed to look like. If the editor consistently does something a style manual would frown at, that is a rule, and you must write it down without softening it.
+
+Attend to, in roughly this order:
+1. WORD CHOICE. Which words does the editor reach for, and which do they systematically avoid or replace? Name actual words, in pairs: "prefers X over Y". A guide that says "uses natural vocabulary" is worthless.
+2. IMAGERY. Concrete or abstract? Sensory or functional? Does a definition tend to describe what a thing IS, what it DOES, or what it FEELS like?
+3. SENTENCE SHAPE. Where does the sentence put its weight - front, middle, end? Does the editor use a pause, and where? Short runs or one long breath?
+4. REGISTER AND ADDRESS. Formal or familiar? Is the reader addressed, implied, or absent? Any recurring pronoun or kinship term?
+5. WHAT THE EDITOR REMOVES. Often the clearest signal. Filler, hedges, nominalisations, stock openers - name the specific things that got deleted.
+6. WHAT THE EDITOR LEFT ALONE. If some BEFOREs came through nearly untouched, say what they already had right. This bounds the guide.
+
+Write the guide PER FIELD. defVi, leadVi and anticipateVi have different jobs and the voice differs across them; a rule that only holds for the teaser must say so.
+
+Rules for the guide itself:
+- Every rule must be checkable by looking at one sentence. "Warmer tone" is not checkable. "Addresses the reader as 'bạn' in the teaser, never in the definition" is.
+- Give each rule one BEFORE → AFTER pair from the evidence, quoted exactly.
+- Claim nothing you saw once. Mark a rule you saw two or three times as TENTATIVE and say so; a human will confirm or cut it.
+- Say what you could NOT determine. A short, honest guide beats a padded one, and the gaps tell the editor which samples to add next.
+- Do not restate the mechanical rules - word counts, the breaking marks _ = |, the /…/ highlights, the no-English rule. Those are enforced elsewhere and repeating them wastes the space your observations need.
+
+Return Markdown, no preamble, with exactly these headings:
+
+## Voice in one paragraph
+## defVi
+## leadVi
+## anticipateVi
+## Across all fields
+## Tentative — confirm or cut
+## Could not determine from these samples`;
+
+/** Render the reviewer's pairs as the distillation request. */
+export function buildDistilPrompt(pairs: string, cardCount: number): string {
+  return [
+    `Here are the edits from ${cardCount} card(s). Write the style guide.`,
+    "",
+    "THE PAIRS:",
+    pairs,
+  ].join("\n");
+}
+
+/**
+ * The block appended to a generation or rewrite request when a style guide
+ * exists.
+ *
+ * Deliberately short. The guide is the stable half and the exemplars are the
+ * fresh half, and the closing question is there because a model will satisfy
+ * every rule and still produce something anonymous — naming that failure is
+ * what catches it.
+ *
+ * @param guide - the reviewer's style guide
+ * @param exemplars - rendered examples, already selected
+ * @param whole - true when the exemplars are complete cards rather than one field
+ */
+export function buildHouseVoice(guide: string, exemplars: string, whole: boolean): string {
+  if (guide.trim().length === 0) return "";
+  const lines = [
+    "HOUSE VOICE",
+    "",
+    "The deck has one writer and you are standing in for them. The rules above say what a field must contain; this says how it should sound. Where the two seem to conflict, the rules above win - but they rarely conflict, and reaching for a blander phrasing to stay safe is itself a failure.",
+    "",
+    guide.trim(),
+  ];
+  if (exemplars.trim().length > 0) {
+    lines.push(
+      "",
+      whole
+        ? "Finished cards by the writer. Match how they sound, never their subject matter, and never reuse their phrasing."
+        : "Examples of the voice in the field you are writing now. These are finished work, not templates: match how they sound, never their subject matter, and never reuse their phrasing.",
+      "",
+      exemplars.trim(),
+    );
+  }
+  lines.push(
+    "",
+    "Before you return a field, read it back and ask: would the writer of those examples have written this? If it reads like competent generic Vietnamese, it is wrong even when every rule above is satisfied.",
+  );
+  return lines.join("\n");
+}
+
+/**
+ * Prompt that audits one generated sentence against the guide.
+ *
+ * The verdict is the point: output that is off-voice is either a guide that
+ * never stated the thing or a guide that stated it and was ignored. Those look
+ * identical in the output and have opposite fixes.
+ */
+export const STYLE_AUDIT_SYSTEM_PROMPT = `You are auditing whether a generated sentence matches a house style.
+
+Both versions you are shown satisfy the mechanical rules - word counts, marks, no English. Judge ONLY voice.
+
+For each difference that matters, give:
+- which guide rule it relates to, quoted, or NEW RULE if the difference reveals something the guide does not cover
+- what the writer did
+- what the generator did instead
+- whether this is the generator missing a rule it was given, or the GUIDE failing to state something the writer evidently does
+
+End with one line: GUIDE GAP or GENERATOR MISS, whichever dominates, because they need different fixes - the first means edit the guide, the second means the rule is there but is not being followed and should be made louder or moved earlier.
+
+No score. A number hides the thing worth reading.`;
+
+/** Render one audit request. */
+export function buildStyleAuditPrompt(input: {
+  guide: string;
+  field: string;
+  word: string;
+  human: string;
+  machine: string;
+}): string {
+  return [
+    "STYLE GUIDE:",
+    input.guide.trim(),
+    "",
+    `Field: ${input.field}, for the English word "${input.word}".`,
+    "",
+    `The writer's own version:\n${input.human}`,
+    "",
+    `The generated version:\n${input.machine}`,
   ].join("\n");
 }

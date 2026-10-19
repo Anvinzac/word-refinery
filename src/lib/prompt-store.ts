@@ -24,13 +24,15 @@
  */
 import {
   ANNOTATION_SYSTEM_PROMPT,
+  DISTIL_SYSTEM_PROMPT,
+  STYLE_SYSTEM_PROMPT,
   MARKUP_SYSTEM_PROMPT,
   REWRITE_SYSTEM_PROMPT,
   VERIFY_SYSTEM_PROMPT,
 } from "./prompt.ts";
 
 /** The prompts an operator may override. */
-export type PromptId = "annotation" | "rewrite" | "verify" | "markup";
+export type PromptId = "annotation" | "rewrite" | "verify" | "markup" | "style" | "distil";
 
 /** What the panel needs to show one prompt. */
 export interface PromptDefinition {
@@ -70,6 +72,20 @@ export const PROMPT_DEFINITIONS: readonly PromptDefinition[] = [
     purpose:
       "Sent when you add breaking marks to cards written before the marks existed. A typesetting pass, not an edit: the words must come back identical, and a field that changed is discarded.",
     fallback: MARKUP_SYSTEM_PROMPT,
+  },
+  {
+    id: "style",
+    title: "House voice (your style guide)",
+    purpose:
+      "Appended to generation and rewrite requests, with a few of your marked cards as examples. This is the one prompt the app does not ship: it is distilled from your own edits, and it is yours to correct. Nothing is sent while it is empty.",
+    fallback: STYLE_SYSTEM_PROMPT,
+  },
+  {
+    id: "distil",
+    title: "Distillation (system)",
+    purpose:
+      "Reads the before/after pairs from your style samples and writes the guide above. Change this if the guide it produces is the wrong shape — too mechanical, too vague, or missing something you care about.",
+    fallback: DISTIL_SYSTEM_PROMPT,
   },
 ];
 

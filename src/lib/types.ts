@@ -138,6 +138,20 @@ export interface ReviewEntry {
   status: ReviewStatus;
   /** Warnings raised while validating this word (emphasis drops, blanking, …). */
   warnings: string[];
+  /**
+   * The word as it stood before the reviewer first edited it.
+   *
+   * Captured once, on the first edit, and never overwritten. A finished
+   * sentence shows one way to write; the pair shows what the reviewer CHANGED,
+   * which is the only signal that separates their voice from the content. It is
+   * what the style guide is distilled from.
+   */
+  original?: DeckWord;
+  /**
+   * Marked by the reviewer as an example of how the deck should sound. These
+   * are what the style guide is built from and what the generator is shown.
+   */
+  styleSample?: boolean;
 }
 
 /** The document persisted to the remote store. */

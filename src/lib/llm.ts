@@ -11,13 +11,15 @@
  * endpoint the user picked. Nothing is proxied: GitHub Pages has no server.
  *
  * Exports: LlmError, ListedModel, chat, readChatText, listModels, annotateBatch, regenerateField,
- *          verifyWord, markupWord, testConnection
+ *          verifyWord, markupWord, distilStyle, testConnection
  * Depends on: ./settings.ts, ./prompt.ts, ./contract.ts, ./types.ts
  */
 import type { LlmProvider, Settings } from "./settings.ts";
 import {
   buildBatchPrompt,
   buildRegeneratePrompt,
+  buildDistilPrompt,
+  buildHouseVoice,
   buildMarkupPrompt,
   buildVerifyPrompt,
   MARKUP_FIELDS,
@@ -26,7 +28,7 @@ import {
   type VerifyFinding,
   type VerifyReport,
 } from "./prompt.ts";
-import { resolvePrompt } from "./prompt-store.ts";
+import { isPromptOverridden, resolvePrompt } from "./prompt-store.ts";
 import { findStrayMarks, stripMarks } from "./joiner.ts";
 import { extractJsonArray, parseAnnotationList, type CrawlerAnnotation } from "./contract.ts";
 import type { CorpusWord, DeckWord } from "./types.ts";
@@ -468,6 +470,27 @@ export interface AnnotateProgress {
   (event: { done: number; total: number; batch: number; words: readonly string[] }): void;
 }
 
+
+/**
+ * The house-voice block for one request, or "" when there is no guide yet.
+ *
+ * Keyed on whether the reviewer has actually SAVED a guide rather than on the
+ * text being non-empty: the shipped default is a placeholder explaining the
+ * feature, and sending that to a model would be worse than sending nothing.
+ *
+ * @param exemplars - rendered examples, already selected by the caller
+ * @param whole - true when the exemplars are complete cards
+ */
+function houseVoice(exemplars: string, whole: boolean): string {
+  if (!isPromptOverridden("style")) return "";
+  return buildHouseVoice(resolvePrompt("style"), exemplars, whole);
+}
+
+/** Append a block to a system prompt, with a blank line between. */
+function withBlock(systemPrompt: string, block: string): string {
+  return block.length > 0 ? `${systemPrompt}\n\n${block}` : systemPrompt;
+}
+
 /** Outcome of one annotation run. */
 export interface AnnotateResult {
   annotations: Map<string, CrawlerAnnotation>;
@@ -498,9 +521,12 @@ export async function annotateBatch(
     onProgress?: AnnotateProgress;
     signal?: AbortSignal;
     avoid?: AvoidList;
+    /** Rendered whole-card examples of the house voice, or "" for none. */
+    exemplars?: string;
   } = {},
 ): Promise<AnnotateResult> {
-  const { onProgress, signal, avoid } = options;
+  const { onProgress, signal, avoid, exemplars = "" } = options;
+  const system = withBlock(resolvePrompt("annotation"), houseVoice(exemplars, true));
   const annotations = new Map<string, CrawlerAnnotation>();
   const issues: string[] = [];
 
@@ -521,7 +547,7 @@ export async function annotateBatch(
       const reply = await chat(
         settings,
         [
-          { role: "system", content: resolvePrompt("annotation") },
+          { role: "system", content: system },
           { role: "user", content: buildBatchPrompt(batch, avoid?.section() ?? "") },
         ],
         { signal },
@@ -567,12 +593,17 @@ export async function regenerateField(
   settings: Settings["llm"],
   word: DeckWord,
   request: RefineRequest,
-  options: { avoid?: string; signal?: AbortSignal } = {},
+  options: {
+    avoid?: string;
+    signal?: AbortSignal;
+    /** Rendered examples of the house voice in this field, or "" for none. */
+    exemplars?: string;
+  } = {},
 ): Promise<{ value: string; emphasis: string | null }> {
   const reply = await chat(
     settings,
     [
-      { role: "system", content: resolvePrompt("rewrite") },
+      { role: "system", content: withBlock(resolvePrompt("rewrite"), houseVoice(options.exemplars ?? "", false)) },
       { role: "user", content: buildRegeneratePrompt(word, request, options.avoid) },
     ],
     { attempts: 2, signal: options.signal },
@@ -770,4 +801,34 @@ export async function markupWord(
   }
 
   return { patch, issues };
+}
+
+/**
+ * Distil the reviewer's edits into a style guide.
+ *
+ * @param settings - active LLM settings
+ * @param pairs - rendered before/after pairs
+ * @param cardCount - how many cards they came from, for the request
+ * @param signal - optional AbortSignal
+ * @returns the guide as Markdown
+ */
+export async function distilStyle(
+  settings: Settings["llm"],
+  pairs: string,
+  cardCount: number,
+  signal?: AbortSignal,
+): Promise<string> {
+  const reply = await chat(
+    settings,
+    [
+      { role: "system", content: resolvePrompt("distil") },
+      { role: "user", content: buildDistilPrompt(pairs, cardCount) },
+    ],
+    { attempts: 2, signal },
+  );
+  const guide = reply.replace(/^```(?:markdown)?\n?|```$/g, "").trim();
+  if (guide.length === 0) {
+    throw new LlmError("The distillation returned nothing", { provider: settings.provider });
+  }
+  return guide;
 }

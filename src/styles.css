@@ -1937,3 +1937,17 @@ code.k {
   color: var(--ink);
   font-size: 13px;
 }
+
+/* A marked style sample. The star is the only control in the row that says
+   something about the deck's voice rather than this card's fate. */
+.btn.sm.star {
+  min-width: 26px;
+  padding-inline: 6px;
+  color: var(--muted);
+}
+
+.btn.sm.star[data-active="true"] {
+  border-color: color-mix(in srgb, var(--warn) 55%, transparent);
+  background: color-mix(in srgb, var(--warn) 14%, transparent);
+  color: var(--warn);
+}

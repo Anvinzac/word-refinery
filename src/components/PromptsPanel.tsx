@@ -26,7 +26,10 @@ import {
 } from "../lib/prompt-store";
 import { buildBatchPrompt, buildRegeneratePrompt, buildVerifyPrompt } from "../lib/prompt";
 import { collectUniqueness, renderAvoidSection } from "../lib/uniqueness";
-import type { CorpusWord } from "../lib/types";
+import type { CorpusWord, ReviewEntry } from "../lib/types";
+import type { Settings } from "../lib/settings";
+import { distilStyle } from "../lib/llm";
+import { renderPairs, stylePairs } from "../lib/style";
 
 /** A representative request, so the live previews show real structure. */
 const SAMPLE_WORDS: CorpusWord[] = [
@@ -58,11 +61,51 @@ function Preview({ title, note, body }: { title: string; note: string; body: str
   );
 }
 
-export function PromptsPanel() {
+export function PromptsPanel({
+  entries,
+  settings,
+}: {
+  entries: readonly ReviewEntry[];
+  settings: Settings;
+}) {
   const [overrides, setOverrides] = useState(() => readPromptOverrides());
   // The textarea each prompt is being edited in, before Save.
   const [drafts, setDrafts] = useState<Partial<Record<PromptId, string>>>({});
   const [saved, setSaved] = useState<PromptId | null>(null);
+  const [building, setBuilding] = useState(false);
+  const [buildError, setBuildError] = useState<string | null>(null);
+
+  const pairs = useMemo(() => stylePairs(entries), [entries]);
+  const sampleCount = useMemo(
+    () => entries.filter((entry) => entry.styleSample === true).length,
+    [entries],
+  );
+
+  /** Read the reviewer's edits and write the guide from them. */
+  const rebuildStyle = async () => {
+    setBuildError(null);
+    if (settings.llm.apiKey.length === 0) {
+      setBuildError("Add an API key in Settings before distilling a style guide.");
+      return;
+    }
+    if (pairs.length === 0) {
+      setBuildError(
+        "No before/after pairs yet. Mark cards you have EDITED with the ★ in the review table — an untouched card teaches nothing about what you would change.",
+      );
+      return;
+    }
+    setBuilding(true);
+    try {
+      const guide = await distilStyle(settings.llm, renderPairs(pairs), sampleCount);
+      setOverrides(writePromptOverride("style", guide));
+      setDrafts((previous) => ({ ...previous, style: undefined }));
+      setSaved("style");
+    } catch (thrown) {
+      setBuildError(thrown instanceof Error ? thrown.message : String(thrown));
+    } finally {
+      setBuilding(false);
+    }
+  };
 
   const previews = useMemo(
     () => ({
@@ -120,6 +163,18 @@ export function PromptsPanel() {
                 {overridden && <span className="prompt-badge">edited</span>}
               </h2>
               <div className="row">
+                {definition.id === "style" && (
+                  <button
+                    type="button"
+                    className="btn sm"
+                    disabled={building}
+                    onClick={() => void rebuildStyle()}
+                  >
+                    {building
+                      ? "Reading your edits…"
+                      : `Rebuild from ${sampleCount} sample${sampleCount === 1 ? "" : "s"}`}
+                  </button>
+                )}
                 {dirty && (
                   <button type="button" className="btn primary sm" onClick={() => save(definition.id)}>
                     Save
@@ -144,6 +199,21 @@ export function PromptsPanel() {
               </div>
             </div>
             <p className="hint">{definition.purpose}</p>
+            {definition.id === "style" && (
+              <p className="hint">
+                {sampleCount === 0
+                  ? "No cards marked yet. Edit a card so it sounds the way you want, then press its ★ in the review table."
+                  : `${sampleCount} card(s) marked, yielding ${pairs.length} before/after pair(s). ` +
+                    (pairs.length === 0
+                      ? "None of them were edited, so there is nothing to learn from yet."
+                      : "The distillation reads what you changed, not just what you wrote.")}
+              </p>
+            )}
+            {definition.id === "style" && buildError !== null && (
+              <div className="banner error" style={{ marginBottom: 10 }}>
+                {buildError}
+              </div>
+            )}
 
             <textarea
               className="prompt-editor"

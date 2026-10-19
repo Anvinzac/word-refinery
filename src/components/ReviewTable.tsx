@@ -23,6 +23,7 @@ import { Fragment, useEffect, useMemo, useState } from "react";
 import { validateDeck, type DeckIssue } from "../lib/deck";
 import { injectEmphasisMarkers, stripEmphasisMarkers, validateEmphasis } from "../lib/emphasis";
 import { regenerateField, verifyWord } from "../lib/llm";
+import { renderExemplars, styleExemplars } from "../lib/style";
 import { buildRegeneratePrompt, chipsForField, type RefineField, type RefineRequest } from "../lib/prompt";
 import { collectUniqueness, renderAvoidSection } from "../lib/uniqueness";
 import type { Settings } from "../lib/settings";
@@ -161,8 +162,26 @@ export function ReviewTable({
     onChange(
       entries.map((entry) =>
         entry.id === id
-          ? { ...entry, deckWord: { ...entry.deckWord, ...patch }, status: "edited" as const }
+          ? {
+              ...entry,
+              // Snapshot the word as it stood BEFORE the first edit and never
+              // again. The pair — what the model wrote against what the
+              // reviewer changed it to — is what the style guide is distilled
+              // from, and it only exists if it is captured here.
+              original: entry.original ?? entry.deckWord,
+              deckWord: { ...entry.deckWord, ...patch },
+              status: "edited" as const,
+            }
           : entry,
+      ),
+    );
+  };
+
+  /** Mark or unmark a card as an example of how the deck should sound. */
+  const toggleStyleSample = (id: string) => {
+    onChange(
+      entries.map((entry) =>
+        entry.id === id ? { ...entry, styleSample: entry.styleSample !== true } : entry,
       ),
     );
   };
@@ -253,7 +272,16 @@ export function ReviewTable({
         settings.llm,
         entry.deckWord,
         buildRequest(entry.id, field),
-        { avoid: avoidFor(entries, entry.id, field) },
+        {
+          avoid: avoidFor(entries, entry.id, field),
+          // Examples from the same field, nearest this word's level and topics.
+          exemplars: renderExemplars(
+            styleExemplars(entries, field, {
+              level: entry.deckWord.level,
+              topics: entry.deckWord.topics,
+            }),
+          ),
+        },
       );
       let written = value;
       if (field === "usageVi") {
@@ -592,6 +620,22 @@ export function ReviewTable({
                             }
                           >
                             {entry.status === "rejected" ? "↺" : "✗"}
+                          </button>
+                          <button
+                            type="button"
+                            className="btn sm star"
+                            data-active={entry.styleSample === true}
+                            aria-pressed={entry.styleSample === true}
+                            title={
+                              entry.original === undefined
+                                ? "Edit this card first — a style sample teaches from what you changed"
+                                : entry.styleSample === true
+                                  ? "A style sample: the generator learns this card's voice"
+                                  : "Mark as a style sample"
+                            }
+                            onClick={() => toggleStyleSample(entry.id)}
+                          >
+                            {entry.styleSample === true ? "★" : "☆"}
                           </button>
                           <button
                             type="button"

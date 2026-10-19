@@ -19,6 +19,7 @@ export function GeneratePanel({
   settings,
   existingWords,
   existingAnticipate,
+  exemplars,
   selectedLevels,
   onLevels,
   onGenerated,
@@ -29,6 +30,8 @@ export function GeneratePanel({
   existingWords: ReadonlySet<string>;
   /** Every `anticipateVi` in the deck, so a run can avoid repeating one. */
   existingAnticipate: readonly string[];
+  /** Rendered whole-card examples of the house voice, or "" for none. */
+  exemplars: string;
   selectedLevels: readonly CefrLevel[];
   onLevels: (levels: CefrLevel[]) => void;
   onGenerated: (entries: ReviewEntry[], issues: string[]) => void;
@@ -77,6 +80,9 @@ export function GeneratePanel({
     append(
       `Requesting ${count} word(s) — provider ${settings.llm.provider}, model ${settings.llm.model}, ${settings.llm.batchSize} per call.`,
     );
+    if (exemplars.length > 0) {
+      append("Writing in your house voice — the style guide and your marked cards go with every batch.");
+    }
     if (existingAnticipate.length > 0) {
       append(
         `Avoiding ${existingAnticipate.length} teaser line(s) already in the deck, and each batch avoids the ones before it.`,
@@ -88,6 +94,7 @@ export function GeneratePanel({
         settings,
         existingWords,
         existingAnticipate,
+        exemplars,
         levels: selectedLevels,
         count,
         shuffle,

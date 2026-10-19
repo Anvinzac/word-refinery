@@ -28,6 +28,8 @@ export interface RunOptions {
    * explicitly or each run writes blind to everything shipped before it.
    */
   existingAnticipate?: readonly string[];
+  /** Rendered whole-card examples of the house voice, or "" for none. */
+  exemplars?: string;
   levels: readonly CefrLevel[];
   count: number;
   shuffle: boolean;
@@ -89,6 +91,7 @@ export async function runGeneration(options: RunOptions): Promise<RunResult> {
         options.onProgress?.({ done: event.done, total: event.total, batch: event.batch }),
       signal: options.signal,
       avoid,
+      exemplars: options.exemplars ?? "",
     },
   );
 
