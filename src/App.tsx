@@ -98,6 +98,10 @@ export function App() {
   // Gates the local mirror: nothing is written until the restore has run, so an
   // empty initial document cannot overwrite the mirror it is about to load.
   const [hydrated, setHydrated] = useState(false);
+  // Set when the mirror could not be read. The autosave stays off for the rest
+  // of the session: writing over a copy we failed to load is how a crash guard
+  // becomes the crash.
+  const [mirrorUnreadable, setMirrorUnreadable] = useState(false);
   // Set when a save was refused because the remote holds something unreadable.
   // Clearing it is an explicit act, which is the whole point of the guard.
   const [overwriteBlocked, setOverwriteBlocked] = useState(false);
@@ -168,7 +172,11 @@ export function App() {
           setNotice({ kind: "ok", text: restoredNote });
         }
       } catch {
-        // An unreadable mirror must not stop the app from opening.
+        // A mirror we could not read is NOT a mirror we may overwrite. Leaving
+        // the autosave off is what keeps a transient IndexedDB failure from
+        // turning into an empty document written over a full one.
+        if (!cancelled) setMirrorUnreadable(true);
+        return;
       }
       // Every path must end in setHydrated: the autosave stays off until it does.
       try {
@@ -208,14 +216,14 @@ export function App() {
 
   /** Mirror the working document locally, shortly after it settles. */
   useEffect(() => {
-    if (!hydrated) return;
+    if (!hydrated || mirrorUnreadable) return;
     const timer = window.setTimeout(() => {
       void saveLocalDoc(doc, dirty).catch(() => {
         // Best-effort: a full or blocked quota must not interrupt reviewing.
       });
     }, 600);
     return () => window.clearTimeout(timer);
-  }, [doc, dirty, hydrated]);
+  }, [doc, dirty, hydrated, mirrorUnreadable]);
 
   /** Warn before navigating away with unsaved work. */
   useEffect(() => {
@@ -516,7 +524,9 @@ export function App() {
               </div>
             )}
             <p className="hint" style={{ marginTop: 12, marginBottom: 0 }}>
-              {localMirrorAvailable()
+              {mirrorUnreadable
+                ? "This browser's local copy could not be read, so it is NOT being written to — a working copy you cannot load is not one to overwrite. Download the working document before you close the tab."
+                : localMirrorAvailable()
                 ? "This browser also keeps its own copy of the working document, restored automatically when you come back. It is a crash guard, not a backup — only the remote store and downloaded files survive this machine."
                 : "This browser will not allow a local copy (private mode?), so unsaved work is lost on refresh. Save or download often."}
             </p>

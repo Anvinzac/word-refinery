@@ -391,52 +391,6 @@ test("a markup reply that edited the text fails the identity check", () => {
 
 // ── typing marks by hand ───────────────────────────────────────────────────
 
-test("a bond replaces the space it stands in for, from either side", async () => {
-  const { applyMark } = await import("../src/lib/sentence-edit.ts");
-  const text = "thu gom";
-  // Caret on the space.
-  assert.deepEqual(applyMark(text, 3, 3, "_"), { text: "thu_gom", caret: 4 });
-  // Caret just after the space — the same gap, so the same result.
-  assert.deepEqual(applyMark(text, 4, 4, "_"), { text: "thu_gom", caret: 4 });
-  assert.deepEqual(applyMark(text, 3, 3, "="), { text: "thu=gom", caret: 4 });
-});
-
-test("a bond with no space beside it is simply inserted", async () => {
-  const { applyMark } = await import("../src/lib/sentence-edit.ts");
-  assert.deepEqual(applyMark("thugom", 3, 3, "_"), { text: "thu_gom", caret: 4 });
-});
-
-test("a phrase break lands as exactly one spaced token", async () => {
-  const { applyMark } = await import("../src/lib/sentence-edit.ts");
-  assert.deepEqual(applyMark("cây trái sau mùa", 8, 8, "|"), {
-    text: "cây trái | sau mùa",
-    caret: 10,
-  });
-  // Spaces already around the caret are absorbed, never doubled.
-  assert.equal(applyMark("cây trái  sau mùa", 9, 9, "|").text, "cây trái | sau mùa");
-});
-
-test("a phrase break at the very start or end does not leave a dangling space", async () => {
-  const { applyMark } = await import("../src/lib/sentence-edit.ts");
-  assert.equal(applyMark("cây trái", 0, 0, "|").text, "| cây trái");
-  assert.equal(applyMark("cây trái", 8, 8, "|").text, "cây trái |");
-});
-
-test("highlight markers wrap a selection and unwrap it again", async () => {
-  const { toggleMarkers } = await import("../src/lib/sentence-edit.ts");
-  const wrapped = toggleMarkers("Chất lỏng trong suốt", 0, 9);
-  assert.equal(wrapped.text, "/Chất lỏng/ trong suốt");
-  // Selecting the same words again, now inside the markers, removes them.
-  assert.equal(toggleMarkers(wrapped.text, 1, 10).text, "Chất lỏng trong suốt");
-  // Selecting the markers themselves also removes them.
-  assert.equal(toggleMarkers(wrapped.text, 0, 11).text, "Chất lỏng trong suốt");
-});
-
-test("toggling markers with nothing selected changes nothing", async () => {
-  const { toggleMarkers } = await import("../src/lib/sentence-edit.ts");
-  assert.deepEqual(toggleMarkers("Chất lỏng", 4, 4), { text: "Chất lỏng", caret: 4 });
-});
-
 test("marks typed by hand round-trip through the parser", async () => {
   const { parseSentence, serializeSentence } = await import("../src/lib/sentence-edit.ts");
   // Whatever someone types in the text view must survive a trip through the

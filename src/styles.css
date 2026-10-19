@@ -1919,24 +1919,6 @@ code.k {
   outline-offset: -1px;
 }
 
-.sentence-mark-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-}
-
-.sentence-mark code {
-  display: inline-block;
-  min-width: 14px;
-  margin-right: 5px;
-  padding: 0 4px;
-  border-radius: 4px;
-  background: color-mix(in srgb, var(--accent) 18%, transparent);
-  color: var(--accent);
-  font-size: 12px;
-  text-align: center;
-}
-
 .sentence-readout {
   display: flex;
   flex-wrap: wrap;

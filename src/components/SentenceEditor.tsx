@@ -1,10 +1,13 @@
 /**
  * Hand editor for one Vietnamese field, shown inside the refine brief.
  *
- * Two views over the same text. The chip view is for the common edits — tap a
- * word, drag a break — and never shows a mark as a character. The text view is
- * the escape hatch: the field exactly as it is stored, marks included, in a
- * textarea you can type into. Anything the chips cannot express is done there.
+ * Two views over the same text, one at a time. The chip view is for the common
+ * edits — tap a word, drag a break — and never shows a mark as a character.
+ * The text view is the escape hatch: the field exactly as it is stored, marks
+ * included, and nothing to do but type. It carries no controls of its own on
+ * purpose — a row of buttons over a textarea invites you to reach for them
+ * instead of typing, which is the opposite of what the view is for. Done
+ * returns to the chips.
  *
  * The sentence is laid out as chips: tap a word to toggle its highlight,
  * double-tap it to delete it, drag a `|` chip to move the phrase break, and
@@ -19,16 +22,14 @@
  * Depends on: ../lib/sentence-edit.ts, ../lib/joiner.ts
  */
 import { Fragment, useRef, useState } from "react";
-import { CLITIC_BIND, countUnits, findStrayMarks, PHRASE_BREAK, stripMarks, WORD_JOIN } from "../lib/joiner";
+import { countUnits, findStrayMarks, PHRASE_BREAK, stripMarks } from "../lib/joiner";
 import {
-  applyMark,
   insertAtGap,
   moveBreak,
   parseSentence,
   removeToken,
   serializeSentence,
   toggleHighlight,
-  toggleMarkers,
   type SentenceToken,
 } from "../lib/sentence-edit";
 
@@ -271,7 +272,7 @@ export function SentenceEditor({
           data-active={inserting}
           aria-pressed={inserting}
           title="Type a word in between"
-          disabled={disabled}
+          disabled={disabled || asText}
           onClick={() => {
             setInserting(!inserting);
             closeSlot();
@@ -284,14 +285,14 @@ export function SentenceEditor({
           className="btn sm sentence-edit-toggle"
           data-active={asText}
           aria-pressed={asText}
-          title="Edit the raw text, marks and all"
+          title={asText ? "Back to tapping words" : "Type the raw text, marks and all"}
           disabled={disabled}
           onClick={() => {
             setAsText(!asText);
             closeSlot();
           }}
         >
-          Text
+          {asText ? "Done" : "Text"}
         </button>
       </div>
 
@@ -313,63 +314,9 @@ export function SentenceEditor({
             onChange={(event) => onChange(event.target.value)}
           />
 
-          <div className="sentence-mark-row">
-            {(
-              [
-                [WORD_JOIN, "one word", "Join two syllables of one word"],
-                [CLITIC_BIND, "leans", "Bind a clitic to its neighbour"],
-                [PHRASE_BREAK, "phrase", "Mark a phrase edge"],
-              ] as const
-            ).map(([mark, label, title]) => (
-              <button
-                key={mark}
-                type="button"
-                className="btn sm sentence-mark"
-                title={title}
-                disabled={disabled}
-                onClick={() => {
-                  const element = area.current;
-                  if (element === null) return;
-                  const next = applyMark(
-                    value,
-                    element.selectionStart,
-                    element.selectionEnd,
-                    mark as "_" | "=" | "|",
-                  );
-                  onChange(next.text);
-                  // Restore the caret after React has written the new value,
-                  // or it jumps to the end and the next click lands elsewhere.
-                  requestAnimationFrame(() => {
-                    element.focus();
-                    element.setSelectionRange(next.caret, next.caret);
-                  });
-                }}
-              >
-                <code>{mark}</code> {label}
-              </button>
-            ))}
-            {highlightable && (
-              <button
-                type="button"
-                className="btn sm sentence-mark"
-                title="Wrap the selected words in highlight markers"
-                disabled={disabled}
-                onClick={() => {
-                  const element = area.current;
-                  if (element === null) return;
-                  const next = toggleMarkers(value, element.selectionStart, element.selectionEnd);
-                  onChange(next.text);
-                  requestAnimationFrame(() => {
-                    element.focus();
-                    element.setSelectionRange(next.caret, next.caret);
-                  });
-                }}
-              >
-                <code>/ /</code> highlight
-              </button>
-            )}
-          </div>
-
+          {/* Readout only — nothing here changes the text. The count matters
+              because a mark must never move it, and the second line is what the
+              reader actually gets once the marks are resolved away. */}
           <div className="sentence-readout">
             <span>{countUnits(value)} syllables</span>
             <span className="sentence-reader" lang="vi" title="What the reader sees">
