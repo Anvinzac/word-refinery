@@ -24,6 +24,12 @@ import {
 import { countSyllables, injectEmphasisMarkers, stripEmphasisMarkers, validateEmphasis } from "./emphasis.ts";
 import { countUnits, findStrayMarks } from "./joiner.ts";
 
+/**
+ * Longest a single gloss alternative may run. Two or three words is an
+ * equivalent; beyond five it has become a description, which is `defVi`'s job.
+ */
+const MAX_GLOSS_UNITS = 5;
+
 /** Deck id pattern, identical to the app's importer rule. */
 const ID_PATTERN = /^[a-zA-Z0-9_-]+$/;
 
@@ -126,6 +132,7 @@ export function buildDeckWord(input: {
     defVi: marked.defVi,
     leadVi: marked.leadVi,
     anticipateVi,
+    meaningVi: annotation.meaningVi,
     topic: topics[0]!,
     topics,
     exams: [...annotation.exams],
@@ -265,6 +272,7 @@ export function coerceDeckWord(
     defVi,
     leadVi,
     anticipateVi: text(record.anticipateVi),
+    meaningVi: text(record.meaningVi),
     topic: topics[0]!,
     topics,
     exams,
@@ -292,13 +300,20 @@ export function coerceDeckWord(
 export function migrateDeckWord(word: DeckWord): DeckWord {
   const hasTopics = Array.isArray(word.topics) && word.topics.length > 0;
   const hasExams = Array.isArray(word.exams);
-  if (hasTopics && hasExams && typeof word.addedAt === "string" && typeof word.batchId === "string") {
+  if (
+    hasTopics &&
+    hasExams &&
+    typeof word.meaningVi === "string" &&
+    typeof word.addedAt === "string" &&
+    typeof word.batchId === "string"
+  ) {
     return word;
   }
   const topics = keepCurated(hasTopics ? word.topics : [word.topic], TOPICS, MAX_TOPICS);
   if (topics.length === 0) topics.push("general");
   return {
     ...word,
+    meaningVi: typeof word.meaningVi === "string" ? word.meaningVi : "",
     topic: topics[0]!,
     topics,
     exams: hasExams ? keepCurated(word.exams, EXAMS, MAX_EXAMS) : [],
@@ -365,6 +380,28 @@ export function validateDeck(deck: Deck): DeckIssue[] {
       const previous = seenAnticipate.get(key);
       if (previous !== undefined) at("anticipateVi", `reused verbatim by "${previous}"`);
       else seenAnticipate.set(key, entry.word);
+    }
+
+    // The gloss is what the reveal panel shows. It is optional on older decks,
+    // but when present it must read as an equivalent rather than a definition:
+    // a sentence here is the wrong register, and the app caps it at 120.
+    // Read defensively: the field is optional downstream, and a validator that
+    // throws on a deck written before it existed is worse than one that skips.
+    if (typeof entry.meaningVi === "string" && entry.meaningVi.trim().length > 0) {
+      const clean = stripEmphasisMarkers(entry.meaningVi);
+      if (clean.length > 120) at("meaningVi", `${clean.length} characters; expected at most 120`);
+      // A gloss may offer two equivalents separated by a comma ("then_chốt,
+      // cực_kỳ quan_trọng"), so each alternative is measured on its own. The
+      // defect this catches is one long run of words, which is a definition.
+      const longest = clean
+        .split(/[,;]/)
+        .map((alternative) => countUnits(alternative))
+        .reduce((most, units) => Math.max(most, units), 0);
+      if (longest > MAX_GLOSS_UNITS) {
+        at("meaningVi", `${longest} words in one alternative; a gloss is an equivalent, not a definition`);
+      }
+      if (containsTargetWord(clean, entry.word)) at("meaningVi", "leaks the English answer");
+      for (const problem of findStrayMarks(entry.meaningVi)) at("meaningVi", problem);
     }
 
     if (!TOPIC_PATTERN.test(entry.topic)) at("topic", `"${entry.topic}" is not lowercase-slug`);

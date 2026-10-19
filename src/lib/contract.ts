@@ -20,6 +20,7 @@ export const CRAWLER_ANNOTATION_FIELDS = [
   "word",
   "pos",
   "ipa",
+  "meaningVi",
   "defVi",
   "leadVi",
   "anticipateVi",
@@ -38,6 +39,8 @@ export interface CrawlerAnnotation {
   word: string;
   pos: string;
   ipa: string;
+  /** The short Vietnamese equivalent of the headword, shown on the reveal. */
+  meaningVi: string;
   defVi: string;
   leadVi: string;
   anticipateVi: string;
@@ -135,6 +138,7 @@ export const crawlerAnnotationSchema = z.object({
   word: z.string().trim().min(2).max(64),
   pos: text(40).optional().default(""),
   ipa: text(120).optional().default(""),
+  meaningVi: text(120).optional().default(""),
   defVi: z.string().trim().min(2).max(400),
   leadVi: text(240).optional().default(""),
   anticipateVi: text(180).optional().default(""),
@@ -255,6 +259,15 @@ export function parseAnnotation(
     issues.push("leadVi: contains the English target word — rewrite it");
   }
 
+  // The gloss is the one Vietnamese field a reader sees WITH the answer, so a
+  // leak there is harmless to the puzzle — but an English word in it is still
+  // wrong, and the app caps the field at 120 characters.
+  let meaningVi = data.meaningVi;
+  if (meaningVi.length > 0 && containsTargetWord(meaningVi, word)) {
+    issues.push("meaningVi: contains the English target word — write the Vietnamese equivalent");
+    meaningVi = "";
+  }
+
   // Topics: the plural field wins, a lone legacy `topic` is folded in, and
   // anything outside the curated list is dropped rather than inventing a tag.
   const offeredTopics = data.topics.length > 0 ? data.topics : [data.topic];
@@ -281,6 +294,7 @@ export function parseAnnotation(
       word,
       pos: data.pos,
       ipa: data.ipa,
+      meaningVi,
       defVi: data.defVi,
       leadVi: data.leadVi,
       anticipateVi,

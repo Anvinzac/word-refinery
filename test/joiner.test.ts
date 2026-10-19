@@ -36,6 +36,7 @@ function word(extra: Partial<DeckWord> = {}): DeckWord {
     defVi: "Chất lỏng trong suốt mà ta uống mỗi ngày.",
     leadVi: "",
     anticipateVi: "",
+    meaningVi: "",
     topic: "nature",
     topics: ["nature"],
     exams: [],
@@ -362,6 +363,7 @@ test("the markup request lists only the fields that have text", async () => {
   const { buildMarkupPrompt } = await import("../src/lib/prompt.ts");
   const prompt = buildMarkupPrompt({
     word: "harvest",
+    meaningVi: "",
     defVi: "Việc thu gom cây trái sau một mùa dài.",
     leadVi: "",
     anticipateVi: "Mùa gì vui nhất nhỉ?",
@@ -377,7 +379,7 @@ test("the markup request lists only the fields that have text", async () => {
 test("a card with nothing to mark up produces no request at all", async () => {
   const { buildMarkupPrompt } = await import("../src/lib/prompt.ts");
   assert.equal(
-    buildMarkupPrompt({ word: "x", defVi: "", leadVi: "", anticipateVi: "", usage: [] }),
+    buildMarkupPrompt({ word: "x", meaningVi: "", defVi: "", leadVi: "", anticipateVi: "", usage: [] }),
     "",
   );
 });

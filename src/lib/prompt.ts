@@ -53,6 +53,8 @@ export const FIELD_RULES: Record<CrawlerAnnotationField, string> = {
   word: "the English headword, copied exactly as given, lowercase.",
   pos: "one of noun, verb, adj, adv, prep, conj, phrase.",
   ipa: 'IPA in slashes, e.g. "/ˈwɔː.tər/".',
+  meaningVi:
+    'the short Vietnamese EQUIVALENT of the word, one or two words ("quả_táo", "kiên_nhẫn", "tò_mò"), at most 120 characters. This is what the app shows once the answer is revealed, so write the translation a dictionary would give - NOT a sentence, and never a description. defVi is the sentence; this is the word.',
   defVi:
     "ONE Vietnamese sentence defining the word, exactly 8-11 words, at most 140 characters, no English words, full diacritics.",
   leadVi:
@@ -68,7 +70,7 @@ export const FIELD_RULES: Record<CrawlerAnnotationField, string> = {
 };
 
 /** The joining convention, for every prompt that writes Vietnamese. */
-const WORD_JOINING = `Breaking marks (applies to the Vietnamese fields: defVi, leadVi, anticipateVi, usageVi):
+const WORD_JOINING = `Breaking marks (applies to every Vietnamese field: meaningVi, defVi, leadVi, anticipateVi, usageVi):
 Vietnamese is written one syllable at a time, so nothing in the text says where a word ends or where a phrase ends, and a card may break a line in the worst possible place. Three marks say it. None of them is seen by the reader, and none of them changes a word count.
   _  ONE WORD. Join the syllables of a single word: ba_lô, học_sinh, quan_trọng.
   =  LEANS ON ITS NEIGHBOUR. Two words that must stay on one line but are NOT one word: con=mèo, đã=đi, của=tôi.
@@ -119,8 +121,8 @@ ${LANGUAGE_RULES}
 - Return ONLY a JSON array with one object per requested word, in the requested order. No markdown fences, no headings, no commentary.
 
 Minimal example of the expected format (one word, shortened):
-[{"word":"water","pos":"noun","ipa":"/ˈwɔː.tər/","defVi":"Chất_lỏng trong suốt | mà ta uống=mỗi ngày.","leadVi":"Có thứ này thì cây_cối mới sống được.","anticipateVi":"Thứ gì chảy được nhỉ?","usageEn":"Please bring me a glass of _____.","usageVi":"Làm ơn mang cho tôi một cốc nước.","topics":["nature","daily"],"exams":[],"emphasisVi":["Chất lỏng","cây cối"]}]
-(Note the example: "Chất_lỏng" is one word written as two syllables, so defVi still counts 9 words; the "|" marks the phrase edge and the "=" binds a function word to its neighbour; the emphasisVi entry is written plain as "Chất lỏng", and it may not span the "=" or the "|".)`;
+[{"word":"water","pos":"noun","ipa":"/ˈwɔː.tər/","meaningVi":"nước","defVi":"Chất_lỏng trong suốt | mà ta uống=mỗi ngày.","leadVi":"Có thứ này thì cây_cối mới sống được.","anticipateVi":"Thứ gì chảy được nhỉ?","usageEn":"Please bring me a glass of _____.","usageVi":"Làm ơn mang cho tôi một cốc nước.","topics":["nature","daily"],"exams":[],"emphasisVi":["Chất lỏng","cây cối"]}]
+(Note the example: "Chất_lỏng" is one word written as two syllables, so defVi still counts 9 words; the "|" marks the phrase edge and the "=" binds a function word to its neighbour; the emphasisVi entry is written plain as "Chất lỏng", and it may not span the "=" or the "|". "meaningVi" is the bare equivalent - "nước" - not a sentence.)`;
 
 /**
  * Render one batch of corpus words as the user message.
@@ -146,7 +148,7 @@ export function buildBatchPrompt(words: readonly CorpusWord[], avoid = ""): stri
 }
 
 /** Vietnamese fields a reviewer can hand back for a rewrite. */
-export type RefineField = "defVi" | "leadVi" | "anticipateVi" | "usageVi";
+export type RefineField = "meaningVi" | "defVi" | "leadVi" | "anticipateVi" | "usageVi";
 
 /**
  * One tappable complaint. The label is what the reviewer sees in the Review
@@ -231,6 +233,13 @@ export const COMPLAINT_CHIPS: readonly ComplaintChip[] = [
     label: "Not playful",
     instruction: "It reads flat. Make the invitation to guess livelier and more inviting.",
     fields: ["anticipateVi"],
+  },
+  {
+    id: "not-an-equivalent",
+    label: "Not an equivalent",
+    instruction:
+      "It describes the word instead of translating it. Give the bare Vietnamese equivalent a dictionary would give, one or two words.",
+    fields: ["meaningVi"],
   },
   {
     id: "example-mismatch",
@@ -407,6 +416,7 @@ export const VERIFY_SYSTEM_PROMPT = `You are a strict Vietnamese editor reviewin
 
 Judge what a human reader judges. Do NOT re-count words or characters, and do NOT comment on formatting: an automatic checker already covers those. Look for:
 - MEANING: does defVi actually define the English word, without drifting to a near-synonym or a different sense?
+- GLOSS: is meaningVi the Vietnamese EQUIVALENT of the word - what a dictionary would give - rather than a description or a sentence? It is shown once the answer is revealed, so a clue-shaped gloss is wrong there.
 - LEAK: does any Vietnamese field give the English word away - a cognate, a transliteration, or a translation so direct that the guess becomes trivial?
 - NATURALNESS: would a Vietnamese speaker say it this way? Flag translationese, wrong collocations, missing or wrong diacritics.
 - TEASER: does leadVi hint at the meaning without naming it, and is anticipateVi a fresh invitation rather than a stock phrase?
@@ -446,6 +456,7 @@ export function buildVerifyPrompt(word: {
   word: string;
   pos: string;
   level: string;
+  meaningVi: string;
   defVi: string;
   leadVi: string;
   anticipateVi: string;
@@ -455,6 +466,7 @@ export function buildVerifyPrompt(word: {
   const lines: Array<string | null> = [
     "Review this card.",
     "",
+    word.meaningVi.length > 0 ? `- meaningVi: ${word.meaningVi}` : null,
     `- defVi: ${word.defVi}`,
     `- leadVi: ${word.leadVi}`,
     `- anticipateVi: ${word.anticipateVi}`,
@@ -499,11 +511,11 @@ How to work through one field:
 Leave a field exactly as it is when it is empty, when it is already marked, or when you are unsure - an unmarked field is correct-but-plain, while a wrongly marked one is a defect.
 
 Return ONLY a JSON object with one key per field you were given, each holding the marked text:
-{"defVi":"...","leadVi":"...","anticipateVi":"...","usageVi":"..."}
+{"meaningVi":"...","defVi":"...","leadVi":"...","anticipateVi":"...","usageVi":"..."}
 Include a key only for a field that was given to you. No commentary.`;
 
 /** The fields a markup pass may touch. usageEn is excluded: it holds the blank. */
-export const MARKUP_FIELDS = ["defVi", "leadVi", "anticipateVi", "usageVi"] as const;
+export const MARKUP_FIELDS = ["meaningVi", "defVi", "leadVi", "anticipateVi", "usageVi"] as const;
 
 /** One field a markup pass may touch. */
 export type MarkupField = (typeof MARKUP_FIELDS)[number];
@@ -520,12 +532,14 @@ export type MarkupField = (typeof MARKUP_FIELDS)[number];
  */
 export function buildMarkupPrompt(word: {
   word: string;
+  meaningVi: string;
   defVi: string;
   leadVi: string;
   anticipateVi: string;
   usage: Array<{ en: string; vi: string }>;
 }): string {
   const given: Array<[MarkupField, string]> = [
+    ["meaningVi", word.meaningVi],
     ["defVi", word.defVi],
     ["leadVi", word.leadVi],
     ["anticipateVi", word.anticipateVi],

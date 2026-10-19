@@ -69,6 +69,16 @@ export interface DeckWord {
   leadVi: string;
   anticipateVi: string;
   /**
+   * The short gloss — what the word MEANS, in a word or two ("quả_táo",
+   * "kiên_nhẫn"). This is what the app's reveal panel shows.
+   *
+   * Distinct from `defVi`, which is a full sentence written to work as a CLUE
+   * before the answer is known. Once the reader has the word in front of them
+   * they want the equivalent, not a description of it. Empty on decks written
+   * before the field existed; the app falls back to `defVi` for those.
+   */
+  meaningVi: string;
+  /**
    * Primary usage domain. Always equal to `topics[0]`, kept as its own field
    * because the downstream importer still reads it.
    */

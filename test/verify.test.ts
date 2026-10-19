@@ -47,6 +47,7 @@ const CARD: DeckWord = {
   defVi: "Việc thu_gom cây trái sau một /mùa_màng/ dài.",
   leadVi: "Nông_dân chờ cả năm mới tới lúc này.",
   anticipateVi: "Mùa gì vui nhất nhỉ?",
+  meaningVi: "vụ_mùa",
   topic: "nature",
   topics: ["nature"],
   exams: [],

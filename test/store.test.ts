@@ -33,6 +33,7 @@ function word(id: string): DeckWord {
     defVi: "Một thứ quen thuộc mà người ta gặp mỗi ngày.",
     leadVi: "Thứ này ở quanh ta mà ít ai để ý tới.",
     anticipateVi: `Đoán xem ${id} là gì?`,
+    meaningVi: "",
     topic: "general",
     topics: ["general"],
     exams: [],

@@ -132,6 +132,7 @@ test("a word from before the axes existed is migrated, not rejected", () => {
     defVi: "Dễ tin cậy và luôn giữ đúng lời hứa của mình.",
     leadVi: "",
     anticipateVi: "",
+    meaningVi: "",
     topic: "character",
     level: "B1",
     chars: 8,
@@ -154,6 +155,7 @@ test("migrating a current word changes nothing", () => {
     defVi: "",
     leadVi: "",
     anticipateVi: "",
+    meaningVi: "",
     topic: "work",
     topics: ["work"],
     exams: ["toeic"],
@@ -209,6 +211,7 @@ function validWord(extra: Partial<DeckWord> = {}): DeckWord {
     defVi: "Dễ tin cậy và luôn giữ đúng lời hứa mình nói.",
     leadVi: "",
     anticipateVi: "",
+    meaningVi: "",
     topic: "character",
     topics: ["character"],
     exams: [],
@@ -268,4 +271,93 @@ test("the validator accepts a word carrying both axes fully populated", () => {
 test("the caps are the ones KineMedia's importer enforces", () => {
   assert.equal(MAX_TOPICS, 6);
   assert.equal(MAX_EXAMS, 8);
+});
+
+// ── the short gloss ────────────────────────────────────────────────────────
+
+test("an imported word keeps its gloss", () => {
+  const word = coerceDeckWord(
+    { word: "apple", meaningVi: "quả=táo", defVi: "Loại quả tròn vỏ đỏ hoặc xanh, ăn giòn." },
+    new Set(),
+  );
+  assert.equal(word?.meaningVi, "quả=táo");
+});
+
+test("a word from before the gloss existed gets an empty one, not undefined", () => {
+  // A full word of the old vintage: every field it ever had, and no meaningVi.
+  const { meaningVi, ...withoutGloss } = validWord();
+  void meaningVi;
+  const migrated = migrateDeckWord(withoutGloss as never);
+  assert.equal(migrated.meaningVi, "");
+  // And the validator must not throw on a deck that never carried the field.
+  assert.doesNotThrow(() => validateDeck(deckOf(withoutGloss as never)));
+  assert.deepEqual(
+    validateDeck(deckOf(migrated)).filter((issue) => issue.field === "meaningVi"),
+    [],
+  );
+});
+
+test("the validator rejects a gloss that is a description rather than an equivalent", () => {
+  const sentence = validateDeck(
+    deckOf(validWord({ meaningVi: "một loại quả tròn mà người ta hay ăn vào buổi sáng" })),
+  );
+  assert.ok(
+    sentence.some((issue) => issue.field === "meaningVi" && /equivalent, not a definition/.test(issue.message)),
+    JSON.stringify(sentence),
+  );
+  // A real gloss passes.
+  assert.deepEqual(
+    validateDeck(deckOf(validWord({ meaningVi: "quả_táo" }))).filter((i) => i.field === "meaningVi"),
+    [],
+  );
+});
+
+test("a gloss may offer two alternatives, measured one at a time", () => {
+  // "then_chốt, cực_kỳ quan_trọng" is two equivalents, not a six-word
+  // definition; measuring the whole string would reject a correct gloss.
+  assert.deepEqual(
+    validateDeck(deckOf(validWord({ meaningVi: "then_chốt, cực_kỳ quan_trọng" })))
+      .filter((issue) => issue.field === "meaningVi"),
+    [],
+  );
+  // One long run with no comma is still a definition.
+  assert.ok(
+    validateDeck(deckOf(validWord({ meaningVi: "một thứ rất quan trọng mà ai cũng cần" })))
+      .some((issue) => issue.field === "meaningVi" && /one alternative/.test(issue.message)),
+  );
+});
+
+test("the validator catches an English leak and a stray mark in the gloss", () => {
+  assert.ok(
+    validateDeck(deckOf(validWord({ word: "apple", meaningVi: "quả apple" })))
+      .some((issue) => issue.field === "meaningVi" && /leaks/.test(issue.message)),
+  );
+  assert.ok(
+    validateDeck(deckOf(validWord({ meaningVi: "quả_ táo" })))
+      .some((issue) => issue.field === "meaningVi" && /stray/.test(issue.message)),
+  );
+});
+
+test("the contract drops a gloss that contains the English word", async () => {
+  const { parseAnnotation } = await import("../src/lib/contract.ts");
+  const { annotation, issues } = parseAnnotation(
+    { ...reply(), word: "reliable", meaningVi: "reliable nghĩa là tin cậy" },
+    "reliable",
+  );
+  assert.equal(annotation?.meaningVi, "", "a leaking gloss is emptied rather than shipped");
+  assert.ok(issues.some((issue) => issue.includes("meaningVi")), issues.join("; "));
+});
+
+test("the gloss is offered to the markup pass, since it carries marks too", async () => {
+  const { MARKUP_FIELDS, buildMarkupPrompt } = await import("../src/lib/prompt.ts");
+  assert.ok((MARKUP_FIELDS as readonly string[]).includes("meaningVi"));
+  const prompt = buildMarkupPrompt({
+    word: "apple",
+    meaningVi: "quả táo",
+    defVi: "Loại quả tròn vỏ đỏ hoặc xanh, ăn giòn ngọt lắm.",
+    leadVi: "",
+    anticipateVi: "",
+    usage: [],
+  });
+  assert.match(prompt, /- meaningVi: quả táo/);
 });

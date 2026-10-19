@@ -38,6 +38,7 @@ const SAMPLE_CARD = {
   word: "harvest",
   pos: "noun",
   level: "B1",
+  meaningVi: "vụ_mùa",
   defVi: "Việc thu_gom cây trái sau một /mùa_màng/ dài.",
   leadVi: "Nông_dân chờ cả năm mới tới lúc này.",
   anticipateVi: "Mùa gì vui nhất nhỉ?",

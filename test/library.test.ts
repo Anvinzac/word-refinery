@@ -48,6 +48,7 @@ function entry(
       defVi: options.defVi ?? "Một thứ quen thuộc trong đời sống hằng ngày.",
       leadVi: "",
       anticipateVi: "",
+      meaningVi: "",
       topic: (options.topics ?? ["general"])[0]!,
       topics: options.topics ?? ["general"],
       exams: options.exams ?? [],

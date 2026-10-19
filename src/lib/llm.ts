@@ -740,6 +740,7 @@ export async function markupWord(
   }
 
   const current: Record<MarkupField, string> = {
+    meaningVi: word.meaningVi,
     defVi: word.defVi,
     leadVi: word.leadVi,
     anticipateVi: word.anticipateVi,

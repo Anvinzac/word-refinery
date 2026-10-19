@@ -51,6 +51,7 @@ export function MarkedText({ value }: { value: string }) {
 
 /** Column header per refinable field, reused by the inline brief's title. */
 const FIELD_LABELS: Record<RefineField, string> = {
+  meaningVi: "meaningVi",
   defVi: "defVi",
   leadVi: "leadVi",
   anticipateVi: "anticipateVi",
@@ -318,7 +319,7 @@ export function ReviewTable({
 
     return (
       <tr className="refine-row" data-status={entry.status}>
-        <td colSpan={7}>
+        <td colSpan={8}>
           <div className="refine">
             <div className="refine-head">
               <strong>
@@ -483,6 +484,7 @@ export function ReviewTable({
               <tr>
                 <th className="pick-cell" aria-label="Select" />
                 <th>Word</th>
+                <th>meaning</th>
                 <th>defVi</th>
                 <th>leadVi</th>
                 <th>anticipateVi</th>
@@ -531,6 +533,13 @@ export function ReviewTable({
                           <div className="word-issues" title={`${issueCount} validation issue(s)`}>
                             ⚠ {issueCount}
                           </div>
+                        )}
+                      </td>
+                      <td {...cellProps(entry.id, "meaningVi")} lang="vi">
+                        {entry.deckWord.meaningVi.length > 0 ? (
+                          <MarkedText value={entry.deckWord.meaningVi} />
+                        ) : (
+                          <span style={{ color: "var(--muted)" }}>—</span>
                         )}
                       </td>
                       <td {...cellProps(entry.id, "defVi")} lang="vi">

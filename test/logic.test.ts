@@ -175,6 +175,7 @@ const RELIABLE: CrawlerAnnotation = {
   word: "reliable",
   pos: "adj",
   ipa: "/rɪˈlaɪəbl/",
+  meaningVi: "đáng_tin",
   defVi: "Dễ tin cậy và luôn giữ lời hứa.",
   leadVi: "Người mà ai cũng có thể dựa vào…",
   anticipateVi: "Ai đáng để bạn giao việc?",
