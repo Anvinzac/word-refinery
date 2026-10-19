@@ -15,7 +15,8 @@
  * before-version is noise.
  *
  * Exports: StylePair, stylePairs, styleExemplars, styleExemplarCards,
- *          renderPairs, renderExemplars, renderExemplarCards, MAX_EXEMPLARS
+ *          renderPairs, renderExemplars, renderExemplarCards, MAX_EXEMPLARS,
+ *          pickStyleSet, styleSetProgress, STYLE_SET_SIZE
  * Depends on: ./prompt.ts, ./types.ts
  */
 import type { RefineField } from "./prompt.ts";
@@ -188,4 +189,88 @@ export function renderExemplarCards(cards: readonly DeckWord[]): string {
       ].join("\n"),
     )
     .join("\n\n");
+}
+
+/** How many cards a style set holds before it teaches more than it costs. */
+export const STYLE_SET_SIZE = 30;
+
+/**
+ * Choose a style set: a spread of cards for the reviewer to rewrite by hand.
+ *
+ * Stratified rather than uniformly random, which matters more than it sounds.
+ * The deck is not evenly distributed — there are twice as many A2 cards as C2 —
+ * so a uniform draw of thirty would hand back mostly beginner nouns, and a
+ * style guide distilled from those would confidently describe a voice that
+ * only exists in the easy half of the deck. An abstract C2 word is where a
+ * writer's voice shows most and where a guide built on apples helps least, so
+ * every level contributes before any level contributes twice.
+ *
+ * Cards already in the set are kept: the draw tops up rather than replaces, so
+ * work already done is never thrown away by pressing the button again.
+ *
+ * @param entries - the whole review set
+ * @param size - how many cards the set should end up holding
+ * @param random - injectable for tests; defaults to Math.random
+ * @returns ids to mark, excluding those already marked
+ */
+export function pickStyleSet(
+  entries: readonly ReviewEntry[],
+  size = STYLE_SET_SIZE,
+  random: () => number = Math.random,
+): string[] {
+  const alreadyMarked = entries.filter((entry) => entry.styleSample === true).length;
+  const wanted = size - alreadyMarked;
+  if (wanted <= 0) return [];
+
+  // Only cards with something to rewrite in every voice-bearing field: a card
+  // with an empty teaser teaches nothing about how the reviewer writes teasers.
+  const eligible = entries.filter(
+    (entry) =>
+      entry.styleSample !== true &&
+      VOICE_FIELDS.every((field) => textOf(entry.deckWord, field).trim().length > 0),
+  );
+
+  const byLevel = new Map<string, ReviewEntry[]>();
+  for (const entry of eligible) {
+    const list = byLevel.get(entry.deckWord.level) ?? [];
+    list.push(entry);
+    byLevel.set(entry.deckWord.level, list);
+  }
+  // Shuffle within each level, so the spread is across levels and the choice
+  // inside a level is free.
+  for (const list of byLevel.values()) {
+    for (let index = list.length - 1; index > 0; index -= 1) {
+      const swap = Math.floor(random() * (index + 1));
+      [list[index], list[swap]] = [list[swap]!, list[index]!];
+    }
+  }
+
+  const levels = [...byLevel.keys()].sort();
+  const picked: string[] = [];
+  for (let round = 0; picked.length < wanted; round += 1) {
+    let tookAny = false;
+    for (const level of levels) {
+      const list = byLevel.get(level)!;
+      if (round >= list.length) continue;
+      picked.push(list[round]!.id);
+      tookAny = true;
+      if (picked.length === wanted) break;
+    }
+    if (!tookAny) break;
+  }
+  return picked;
+}
+
+/** How far through the set the reviewer is: a card only teaches once edited. */
+export function styleSetProgress(entries: readonly ReviewEntry[]): {
+  marked: number;
+  edited: number;
+  pairs: number;
+} {
+  const samples = marked(entries);
+  return {
+    marked: samples.length,
+    edited: samples.filter((entry) => entry.original !== undefined).length,
+    pairs: stylePairs(entries).length,
+  };
 }

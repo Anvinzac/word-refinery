@@ -18,8 +18,10 @@ import {
   renderExemplars,
   renderPairs,
   styleExemplarCards,
+  pickStyleSet,
   styleExemplars,
   stylePairs,
+  styleSetProgress,
 } from "../src/lib/style.ts";
 import { buildHouseVoice } from "../src/lib/prompt.ts";
 import type { CefrLevel, DeckWord, ReviewEntry } from "../src/lib/types.ts";
@@ -192,4 +194,85 @@ test("card exemplars show the fields beside each other", () => {
   for (const field of ["meaningVi", "defVi", "leadVi", "anticipateVi"]) {
     assert.match(rendered, new RegExp(`${field}:`), `${field} is shown`);
   }
+});
+
+// ── choosing the set ───────────────────────────────────────────────────────
+
+/** A deck with a deliberately lopsided level distribution, like the real one. */
+function lopsidedDeck(): ReviewEntry[] {
+  const deck: ReviewEntry[] = [];
+  const spread: Array<[CefrLevel, number]> = [
+    ["A1", 40],
+    ["A2", 40],
+    ["B1", 10],
+    ["C2", 4],
+  ];
+  for (const [level, count] of spread) {
+    for (let index = 0; index < count; index += 1) {
+      deck.push(entry(`${level}-${index}`, { level, sample: false }));
+    }
+  }
+  return deck;
+}
+
+/** Deterministic stand-in for Math.random. */
+function sequence(): () => number {
+  let seed = 1;
+  return () => {
+    seed = (seed * 1103515245 + 12345) % 2147483648;
+    return seed / 2147483648;
+  };
+}
+
+test("the draw spreads across levels instead of following the deck's shape", () => {
+  const picked = new Set(pickStyleSet(lopsidedDeck(), 12, sequence()));
+  const deck = lopsidedDeck();
+  const levels = deck.filter((e) => picked.has(e.id)).map((e) => e.deckWord.level);
+  const counts = new Map<string, number>();
+  for (const level of levels) counts.set(level, (counts.get(level) ?? 0) + 1);
+  // Four levels, twelve cards: every level contributes before any contributes
+  // a fourth. A uniform draw would have given mostly A1/A2.
+  assert.equal(picked.size, 12);
+  assert.equal(counts.get("C2"), 3, "the rarest level is still represented");
+  assert.equal(counts.get("A1"), 3, "and the commonest does not dominate");
+});
+
+test("a level with too few cards does not stall the draw", () => {
+  // C2 runs out after 4; the rest must still fill to the requested size.
+  const picked = pickStyleSet(lopsidedDeck(), 20, sequence());
+  assert.equal(picked.length, 20);
+  assert.equal(new Set(picked).size, 20, "no card is drawn twice");
+});
+
+test("the draw tops up rather than replacing what is already marked", () => {
+  const deck = lopsidedDeck();
+  deck[0] = { ...deck[0]!, styleSample: true };
+  deck[1] = { ...deck[1]!, styleSample: true };
+  const picked = pickStyleSet(deck, 10, sequence());
+  assert.equal(picked.length, 8, "it asks for the shortfall only");
+  assert.ok(!picked.includes(deck[0]!.id), "an existing sample is never re-drawn");
+});
+
+test("a full set asks for nothing", () => {
+  const deck = lopsidedDeck().map((e) => ({ ...e, styleSample: true }));
+  assert.deepEqual(pickStyleSet(deck, 10, sequence()), []);
+});
+
+test("a card with an empty voice field is not offered", () => {
+  // Nothing to rewrite in the teaser means nothing to learn about teasers.
+  const deck = [entry("hollow", { sample: false, leadVi: "" })];
+  assert.deepEqual(pickStyleSet(deck, 5, sequence()), []);
+});
+
+test("progress counts rewritten cards, not marked ones", () => {
+  const deck = [
+    entry("touched", { defVi: "Mới.", before: { defVi: "Cũ." } }),
+    entry("untouched", { before: undefined }),
+  ];
+  assert.deepEqual(styleSetProgress(deck), { marked: 2, edited: 1, pairs: 1 });
+});
+
+test("an empty deck reports an empty set rather than throwing", () => {
+  assert.deepEqual(styleSetProgress([]), { marked: 0, edited: 0, pairs: 0 });
+  assert.deepEqual(pickStyleSet([], 30, sequence()), []);
 });
