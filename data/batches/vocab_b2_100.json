@@ -1,2112 +1,2212 @@
 [
- {
-  "word": "abandon",
-  "pos": "verb",
-  "ipa": "/əˈbæn.dən/",
-  "defVi": "Bỏ lại người hay vật | mà không quay lại chăm_lo.",
-  "leadVi": "Chiếc xe đạp cũ | nằm phơi mưa nắng ngoài bãi hoang.",
-  "anticipateVi": "Bỏ lại sau lưng sao?",
-  "usageEn": "They had to _____ the car in the snow.",
-  "usageVi": "Họ đành bỏ lại chiếc=xe | giữa trời tuyết.",
-  "topics": [
-   "general",
-   "society"
-  ],
-  "exams": [
-   "ielts"
-  ],
-  "emphasisVi": [
-   "Bỏ lại",
-   "bãi hoang"
-  ]
- },
- {
-  "word": "accurate",
-  "pos": "adj",
-  "ipa": "/ˈæk.jə.rət/",
-  "defVi": "Đúng hoàn_toàn, | không có sai_lệch dù rất nhỏ.",
-  "leadVi": "Mũi tên cắm trúng | ngay chính giữa hồng_tâm.",
-  "anticipateVi": "Trúng phóc chưa?",
-  "usageEn": "The weather forecast was _____.",
-  "usageVi": "Dự_báo thời_tiết | rất=chính_xác.",
-  "topics": [
-   "thinking",
-   "work"
-  ],
-  "exams": [
-   "ielts",
-   "toeic"
-  ],
-  "emphasisVi": [
-   "sai lệch",
-   "hồng tâm"
-  ]
- },
- {
-  "word": "acknowledge",
-  "pos": "verb",
-  "ipa": "/əkˈnɒl.ɪdʒ/",
-  "defVi": "Thừa_nhận | một điều là đúng hoặc có thật.",
-  "leadVi": "Sau hồi im_lặng, | anh ấy gật_đầu nhận phần sai.",
-  "anticipateVi": "Chịu nhận chưa?",
-  "usageEn": "He _____d that he had made a mistake.",
-  "usageVi": "Anh ấy thừa_nhận | mình đã=mắc lỗi.",
-  "topics": [
-   "communication"
-  ],
-  "exams": [
-   "ielts"
-  ],
-  "emphasisVi": [
-   "Thừa nhận",
-   "nhận phần"
-  ]
- },
- {
-  "word": "adapt",
-  "pos": "verb",
-  "ipa": "/əˈdæpt/",
-  "defVi": "Thay_đổi bản_thân | cho hợp với hoàn_cảnh mới.",
-  "leadVi": "Mới sang xứ lạnh, | dần quen bánh_mì, áo dày.",
-  "anticipateVi": "Nhập gia tùy tục chứ?",
-  "usageEn": "It took me months to _____ to the new job.",
-  "usageVi": "Tôi mất mấy tháng | để thích_nghi với công_việc mới.",
-  "topics": [
-   "work",
-   "character"
-  ],
-  "exams": [
-   "ielts",
-   "toefl"
-  ],
-  "emphasisVi": [
-   "hoàn cảnh",
-   "xứ lạnh"
-  ]
- },
- {
-  "word": "adequate",
-  "pos": "adj",
-  "ipa": "/ˈæd.ɪ.kwət/",
-  "defVi": "Vừa đủ | về số_lượng hay chất_lượng cho nhu_cầu.",
-  "leadVi": "Không dư dả, | nhưng cũng chẳng thiếu thứ gì.",
-  "anticipateVi": "Vừa đủ xài không?",
-  "usageEn": "The food was _____ for ten people.",
-  "usageVi": "Thức_ăn | đủ cho mười người.",
-  "topics": [
-   "general"
-  ],
-  "exams": [
-   "ielts",
-   "toefl"
-  ],
-  "emphasisVi": [
-   "Vừa đủ",
-   "dư dả"
-  ]
- },
- {
-  "word": "aggressive",
-  "pos": "adj",
-  "ipa": "/əˈɡres.ɪv/",
-  "defVi": "Hay gây_gổ, | sẵn_sàng tấn_công người khác.",
-  "leadVi": "Chó dữ nhe nanh, | gầm gừ với mọi người qua cổng.",
-  "anticipateVi": "Nhe nanh với ai đó?",
-  "usageEn": "The dog became _____ when strangers came near.",
-  "usageVi": "Con=chó trở_nên hung_hăng | khi người lạ đến gần.",
-  "topics": [
-   "character",
-   "emotion"
-  ],
-  "exams": [],
-  "emphasisVi": [
-   "gây gổ",
-   "nhe nanh"
-  ]
- },
- {
-  "word": "ambition",
-  "pos": "noun",
-  "ipa": "/æmˈbɪʃ.ən/",
-  "defVi": "Khát_vọng mạnh_mẽ | muốn đạt thành_công hay địa_vị.",
-  "leadVi": "Cậu bé làng nghèo | ấp_ủ mơ dựng công_ty riêng.",
-  "anticipateVi": "Ước mơ lớn cỡ nào?",
-  "usageEn": "Her _____ is to become a judge.",
-  "usageVi": "Hoài_bão của=cô ấy | là trở_thành thẩm_phán.",
-  "topics": [
-   "work",
-   "character"
-  ],
-  "exams": [
-   "ielts"
-  ],
-  "emphasisVi": [
-   "Khát vọng",
-   "ấp ủ"
-  ]
- },
- {
-  "word": "anxiety",
-  "pos": "noun",
-  "ipa": "/æŋˈzaɪ.ə.ti/",
-  "defVi": "Cảm_giác lo_âu, | bồn_chồn về điều sắp tới.",
-  "leadVi": "Đêm trước kỳ thi, | trằn_trọc mãi không chợp mắt.",
-  "anticipateVi": "Trằn trọc vì đâu?",
-  "usageEn": "Exams cause a lot of _____ for students.",
-  "usageVi": "Kỳ thi | gây nhiều lo_âu cho học_sinh.",
-  "topics": [
-   "emotion",
-   "health"
-  ],
-  "exams": [],
-  "emphasisVi": [
-   "lo âu",
-   "trằn trọc"
-  ]
- },
- {
-  "word": "appeal",
-  "pos": "verb",
-  "ipa": "/əˈpiːl/",
-  "defVi": "Hấp_dẫn | hoặc khiến ai đó thấy thích thú.",
-  "leadVi": "Món ăn đường phố | khiến khách tây mê tít.",
-  "anticipateVi": "Mê tít vì đâu?",
-  "usageEn": "The idea of living abroad doesn't _____ to me.",
-  "usageVi": "Ý_tưởng sống ở nước_ngoài | không hấp_dẫn tôi.",
-  "topics": [
-   "emotion",
-   "society"
-  ],
-  "exams": [
-   "ielts",
-   "toeic"
-  ],
-  "emphasisVi": [
-   "Hấp dẫn",
-   "mê tít"
-  ]
- },
- {
-  "word": "approach",
-  "pos": "noun",
-  "ipa": "/əˈprəʊtʃ/",
-  "defVi": "Cách tiếp_cận | hoặc phương_pháp giải_quyết một vấn_đề.",
-  "leadVi": "Thay vì la_mắng, | cô giáo chọn lắng_nghe học_trò.",
-  "anticipateVi": "Đổi cách làm thử?",
-  "usageEn": "We need a new _____ to this problem.",
-  "usageVi": "Chúng_ta cần | cách tiếp_cận mới cho vấn_đề này.",
-  "topics": [
-   "thinking",
-   "work"
-  ],
-  "exams": [
-   "ielts",
-   "toeic"
-  ],
-  "emphasisVi": [
-   "tiếp cận",
-   "lắng nghe"
-  ]
- },
- {
-  "word": "assess",
-  "pos": "verb",
-  "ipa": "/əˈses/",
-  "defVi": "Xem_xét kỹ | để đưa ra nhận_định về giá_trị.",
-  "leadVi": "Chuyên_gia đi quanh căn nhà, | ghi_chép từng vết nứt.",
-  "anticipateVi": "Chấm điểm thế nào?",
-  "usageEn": "Teachers _____ students' progress every term.",
-  "usageVi": "Giáo_viên đánh_giá | tiến_bộ của=học_sinh mỗi kỳ.",
-  "topics": [
-   "study",
-   "work"
-  ],
-  "exams": [
-   "ielts",
-   "toeic"
-  ],
-  "emphasisVi": [
-   "nhận định",
-   "vết nứt"
-  ]
- },
- {
-  "word": "assume",
-  "pos": "verb",
-  "ipa": "/əˈsjuːm/",
-  "defVi": "Cho là đúng | mà chưa có bằng_chứng chắc_chắn.",
-  "leadVi": "Thấy đèn tắt, | tưởng ngay cả nhà đã ngủ.",
-  "anticipateVi": "Tưởng vậy mà sai?",
-  "usageEn": "I _____d you already knew.",
-  "usageVi": "Tôi cứ tưởng | bạn biết rồi.",
-  "topics": [
-   "thinking"
-  ],
-  "exams": [
-   "ielts"
-  ],
-  "emphasisVi": [
-   "bằng chứng",
-   "tưởng ngay"
-  ]
- },
- {
-  "word": "attitude",
-  "pos": "noun",
-  "ipa": "/ˈæt.ɪ.tʃuːd/",
-  "defVi": "Cách nghĩ và cảm_nhận | thể_hiện qua hành_vi.",
-  "leadVi": "Thua trận vẫn mỉm cười, | hẹn ngày phục_thù.",
-  "anticipateVi": "Nhìn đời ra sao?",
-  "usageEn": "She has a positive _____ to life.",
-  "usageVi": "Cô ấy có thái_độ | tích_cực với cuộc_sống.",
-  "topics": [
-   "character",
-   "thinking"
-  ],
-  "exams": [
-   "ielts"
-  ],
-  "emphasisVi": [
-   "cảm nhận",
-   "phục thù"
-  ]
- },
- {
-  "word": "authority",
-  "pos": "noun",
-  "ipa": "/ɔːˈθɒr.ə.ti/",
-  "defVi": "Quyền ra lệnh | và đưa ra quyết_định với người khác.",
-  "leadVi": "Một chữ_ký của=ông | là cả phòng phải làm theo.",
-  "anticipateVi": "Ai nắm quyền ở đây?",
-  "usageEn": "Only the manager has the _____ to sign this.",
-  "usageVi": "Chỉ quản_lý | mới có thẩm_quyền ký văn_bản này.",
-  "topics": [
-   "work",
-   "society"
-  ],
-  "exams": [
-   "ielts",
-   "toeic"
-  ],
-  "emphasisVi": [
-   "ra lệnh",
-   "làm theo"
-  ]
- },
- {
-  "word": "aware",
-  "pos": "adj",
-  "ipa": "/əˈweər/",
-  "defVi": "Biết rõ | hoặc nhận ra điều gì đang=diễn_ra.",
-  "leadVi": "Mải nói_chuyện, | cô vẫn để_ý tiếng chân sau lưng.",
-  "anticipateVi": "Bạn có để ý không?",
-  "usageEn": "Are you _____ of the risks?",
-  "usageVi": "Bạn có nhận_thức được | những rủi_ro không?",
-  "topics": [
-   "attention",
-   "thinking"
-  ],
-  "exams": [
-   "ielts"
-  ],
-  "emphasisVi": [
-   "nhận ra",
-   "để ý"
-  ]
- },
- {
-  "word": "benefit",
-  "pos": "noun",
-  "ipa": "/ˈben.ɪ.fɪt/",
-  "defVi": "Điều tốt đẹp | mà ai đó nhận được từ việc gì.",
-  "leadVi": "Đi bộ mỗi sáng, | ngủ ngon hơn, đầu_óc minh_mẫn.",
-  "anticipateVi": "Được gì từ chuyện này?",
-  "usageEn": "Exercise has many health _____s.",
-  "usageVi": "Tập_luyện | mang lại nhiều lợi_ích cho sức_khỏe.",
-  "topics": [
-   "health",
-   "money"
-  ],
-  "exams": [
-   "ielts",
-   "toeic"
-  ],
-  "emphasisVi": [
-   "tốt đẹp",
-   "minh mẫn"
-  ]
- },
- {
-  "word": "brief",
-  "pos": "adj",
-  "ipa": "/briːf/",
-  "defVi": "Ngắn_gọn, | chỉ kéo_dài trong thời_gian ngắn.",
-  "leadVi": "Ghé qua chào một câu | rồi vội_vã đi ngay.",
-  "anticipateVi": "Chỉ một chốc thôi?",
-  "usageEn": "She gave a _____ speech.",
-  "usageVi": "Cô ấy có | một=bài phát_biểu ngắn.",
-  "topics": [
-   "time",
-   "communication"
-  ],
-  "exams": [
-   "ielts",
-   "toeic"
-  ],
-  "emphasisVi": [
-   "Ngắn gọn",
-   "vội vã"
-  ]
- },
- {
-  "word": "capable",
-  "pos": "adj",
-  "ipa": "/ˈkeɪ.pə.bəl/",
-  "defVi": "Có đủ năng_lực | để làm tốt một việc.",
-  "leadVi": "Giao việc khó nào | cô ấy cũng xử_lý gọn_gàng.",
-  "anticipateVi": "Giao được việc chứ?",
-  "usageEn": "He is _____ of running the team.",
-  "usageVi": "Anh ấy đủ khả_năng | điều_hành cả nhóm.",
-  "topics": [
-   "work",
-   "character"
-  ],
-  "exams": [
-   "ielts",
-   "toeic"
-  ],
-  "emphasisVi": [
-   "năng lực",
-   "xử lý"
-  ]
- },
- {
-  "word": "cautious",
-  "pos": "adj",
-  "ipa": "/ˈkɔː.ʃəs/",
-  "defVi": "Thận_trọng, | tránh rủi_ro và cân_nhắc trước khi làm.",
-  "leadVi": "Dò từng bước trên băng mỏng, | chẳng dám vội.",
-  "anticipateVi": "Dò đá qua sông à?",
-  "usageEn": "Be _____ when investing your money.",
-  "usageVi": "Hãy thận_trọng | khi đầu_tư tiền của=bạn.",
-  "topics": [
-   "character"
-  ],
-  "exams": [
-   "ielts"
-  ],
-  "emphasisVi": [
-   "rủi ro",
-   "băng mỏng"
-  ]
- },
- {
-  "word": "circumstance",
-  "pos": "noun",
-  "ipa": "/ˈsɜː.kəm.stæns/",
-  "defVi": "Hoàn_cảnh | hoặc điều_kiện xung_quanh một sự_việc.",
-  "leadVi": "Nhà nghèo, đường xa, | cậu vẫn đến lớp đều_đặn.",
-  "anticipateVi": "Gặp cảnh nào rồi?",
-  "usageEn": "Under no _____s should you open this door.",
-  "usageVi": "Trong bất_cứ hoàn_cảnh nào | bạn cũng không được mở cửa này.",
-  "topics": [
-   "society",
-   "general"
-  ],
-  "exams": [
-   "ielts"
-  ],
-  "emphasisVi": [
-   "điều kiện",
-   "đều đặn"
-  ]
- },
- {
-  "word": "colleague",
-  "pos": "noun",
-  "ipa": "/ˈkɒl.iːɡ/",
-  "defVi": "Người làm_việc | cùng cơ_quan hoặc cùng nghề với mình.",
-  "leadVi": "Bàn kế bên, | ngày ngày chia nhau cốc cà_phê sáng.",
-  "anticipateVi": "Bàn kế bên là ai?",
-  "usageEn": "My _____s are very friendly.",
-  "usageVi": "Đồng_nghiệp của=tôi | rất=thân_thiện.",
-  "topics": [
-   "work"
-  ],
-  "exams": [
-   "toeic"
-  ],
-  "emphasisVi": [
-   "cơ quan",
-   "Bàn kế"
-  ]
- },
- {
-  "word": "commitment",
-  "pos": "noun",
-  "ipa": "/kəˈmɪt.mənt/",
-  "defVi": "Sự cam_kết | dồn tâm_sức theo_đuổi điều đã hứa.",
-  "leadVi": "Mười năm chưa nghỉ buổi nào, | đều_đặn tới lớp.",
-  "anticipateVi": "Hứa là làm chứ?",
-  "usageEn": "Marriage is a big _____.",
-  "usageVi": "Hôn_nhân | là một=cam_kết lớn.",
-  "topics": [
-   "character",
-   "work"
-  ],
-  "exams": [
-   "ielts",
-   "toeic"
-  ],
-  "emphasisVi": [
-   "cam kết",
-   "đều đặn"
-  ]
- },
- {
-  "word": "compromise",
-  "pos": "noun",
-  "ipa": "/ˈkɒm.prə.maɪz/",
-  "defVi": "Thỏa_thuận | mà mỗi bên nhường nhau một chút.",
-  "leadVi": "Anh muốn biển, em muốn núi, | đành chọn hồ ở giữa.",
-  "anticipateVi": "Mỗi bên lùi một bước?",
-  "usageEn": "After long talks, they reached a _____.",
-  "usageVi": "Sau nhiều cuộc bàn_bạc, | họ đã=đạt được thỏa_hiệp.",
-  "topics": [
-   "communication",
-   "work"
-  ],
-  "exams": [
-   "ielts",
-   "toeic"
-  ],
-  "emphasisVi": [
-   "Thỏa thuận",
-   "ở giữa"
-  ]
- },
- {
-  "word": "conclude",
-  "pos": "verb",
-  "ipa": "/kənˈkluːd/",
-  "defVi": "Rút ra nhận_định | sau khi xem_xét mọi thông_tin.",
-  "leadVi": "Dấu chân bùn, cửa mở, | thám_tử chỉ ra thủ_phạm.",
-  "anticipateVi": "Rốt cuộc là sao?",
-  "usageEn": "The report _____s that prices will rise.",
-  "usageVi": "Bản báo_cáo kết_luận | rằng giá sẽ tăng.",
-  "topics": [
-   "thinking",
-   "study"
-  ],
-  "exams": [
-   "ielts",
-   "toefl"
-  ],
-  "emphasisVi": [
-   "Rút ra",
-   "thám tử"
-  ]
- },
- {
-  "word": "consequence",
-  "pos": "noun",
-  "ipa": "/ˈkɒn.sɪ.kwəns/",
-  "defVi": "Kết_quả, | thường không hay, do một hành_động gây ra.",
-  "leadVi": "Thức trắng mấy đêm, | sáng ra mắt thâm_quầng, choáng_váng.",
-  "anticipateVi": "Gieo gió thì gặt gì?",
-  "usageEn": "You must accept the _____s of your actions.",
-  "usageVi": "Bạn phải chấp_nhận | hậu_quả từ hành_động của=mình.",
-  "topics": [
-   "thinking",
-   "society"
-  ],
-  "exams": [
-   "ielts",
-   "toefl"
-  ],
-  "emphasisVi": [
-   "hành động",
-   "thâm quầng"
-  ]
- },
- {
-  "word": "consistent",
-  "pos": "adj",
-  "ipa": "/kənˈsɪs.tənt/",
-  "defVi": "Luôn giữ | một cách làm hay chất_lượng theo thời_gian.",
-  "leadVi": "Mưa hay nắng, | sáu giờ anh vẫn có_mặt ở sân.",
-  "anticipateVi": "Trước sau như một?",
-  "usageEn": "Her work has been _____ all year.",
-  "usageVi": "Cả năm nay | công_việc của=cô ấy rất=ổn_định.",
-  "topics": [
-   "character",
-   "work"
-  ],
-  "exams": [
-   "ielts"
-  ],
-  "emphasisVi": [
-   "chất lượng",
-   "có mặt"
-  ]
- },
- {
-  "word": "contribute",
-  "pos": "verb",
-  "ipa": "/kənˈtrɪb.juːt/",
-  "defVi": "Góp sức, góp tiền | hoặc ý_tưởng vào việc chung.",
-  "leadVi": "Mỗi nhà một ít, | cả xóm dựng được nhà văn_hóa.",
-  "anticipateVi": "Mỗi người góp gì?",
-  "usageEn": "Everyone _____d to the project.",
-  "usageVi": "Mọi người | đều đóng_góp vào dự_án.",
-  "topics": [
-   "society",
-   "work"
-  ],
-  "exams": [
-   "ielts",
-   "toeic"
-  ],
-  "emphasisVi": [
-   "việc chung",
-   "cả xóm"
-  ]
- },
- {
-  "word": "controversial",
-  "pos": "adj",
-  "ipa": "/ˌkɒn.trəˈvɜː.ʃəl/",
-  "defVi": "Gây ra | nhiều ý_kiến trái_ngược và tranh_cãi.",
-  "leadVi": "Bài vừa đăng, | bình_luận chia hai phe cãi nảy lửa.",
-  "anticipateVi": "Phe nào đúng đây?",
-  "usageEn": "The new law is very _____.",
-  "usageVi": "Luật mới | đang gây nhiều tranh_cãi.",
-  "topics": [
-   "society",
-   "communication"
-  ],
-  "exams": [
-   "ielts",
-   "toefl"
-  ],
-  "emphasisVi": [
-   "tranh cãi",
-   "nảy lửa"
-  ]
- },
- {
-  "word": "cope",
-  "pos": "verb",
-  "ipa": "/kəʊp/",
-  "defVi": "Xoay_xở | để vượt qua tình_huống khó_khăn.",
-  "leadVi": "Một mình nuôi ba con, | chị vẫn lo đủ cơm áo.",
-  "anticipateVi": "Xoay xở nổi không?",
-  "usageEn": "She _____d well with the pressure.",
-  "usageVi": "Cô ấy đã=đối_phó tốt | với áp_lực.",
-  "topics": [
-   "emotion",
-   "character"
-  ],
-  "exams": [
-   "ielts"
-  ],
-  "emphasisVi": [
-   "Xoay xở",
-   "cơm áo"
-  ]
- },
- {
-  "word": "crucial",
-  "pos": "adj",
-  "ipa": "/ˈkruː.ʃəl/",
-  "defVi": "Cực_kỳ quan_trọng, | ảnh_hưởng quyết_định đến kết_quả.",
-  "leadVi": "Phút cuối trận, | cú sút này định_đoạt tất_cả.",
-  "anticipateVi": "Then chốt ở đâu?",
-  "usageEn": "This decision is _____ for our future.",
-  "usageVi": "Quyết_định này | then_chốt cho tương_lai chúng_ta.",
-  "topics": [
-   "thinking",
-   "work"
-  ],
-  "exams": [
-   "ielts",
-   "toefl"
-  ],
-  "emphasisVi": [
-   "quyết định",
-   "định đoạt"
-  ]
- },
- {
-  "word": "decline",
-  "pos": "verb",
-  "ipa": "/dɪˈklaɪn/",
-  "defVi": "Giảm dần | về số_lượng, chất_lượng hay sức_mạnh.",
-  "leadVi": "Biểu_đồ doanh_số | cứ đi xuống từng tháng.",
-  "anticipateVi": "Đi xuống dốc rồi?",
-  "usageEn": "Sales have _____d this year.",
-  "usageVi": "Năm nay | doanh_số đã=sụt_giảm.",
-  "topics": [
-   "money",
-   "work"
-  ],
-  "exams": [
-   "ielts",
-   "toeic"
-  ],
-  "emphasisVi": [
-   "Giảm dần",
-   "đi xuống"
-  ]
- },
- {
-  "word": "demand",
-  "pos": "noun",
-  "ipa": "/dɪˈmɑːnd/",
-  "defVi": "Mức người mua | muốn có một loại hàng nào đó.",
-  "leadVi": "Hè nóng đỉnh_điểm, | quạt máy cháy hàng khắp chợ.",
-  "anticipateVi": "Cháy hàng vì đâu?",
-  "usageEn": "There is a high _____ for electric cars.",
-  "usageVi": "Nhu_cầu | về xe điện đang rất=cao.",
-  "topics": [
-   "money",
-   "work"
-  ],
-  "exams": [
-   "ielts",
-   "toeic"
-  ],
-  "emphasisVi": [
-   "người mua",
-   "cháy hàng"
-  ]
- },
- {
-  "word": "deny",
-  "pos": "verb",
-  "ipa": "/dɪˈnaɪ/",
-  "defVi": "Nói rằng | điều người khác cáo_buộc là không đúng.",
-  "leadVi": "Bị bắt quả tang, | cậu ta vẫn lắc đầu chối phăng.",
-  "anticipateVi": "Chối được không?",
-  "usageEn": "He _____d breaking the window.",
-  "usageVi": "Anh ta phủ_nhận | việc làm vỡ cửa kính.",
-  "topics": [
-   "communication"
-  ],
-  "exams": [],
-  "emphasisVi": [
-   "cáo buộc",
-   "chối phăng"
-  ]
- },
- {
-  "word": "determine",
-  "pos": "verb",
-  "ipa": "/dɪˈtɜː.mɪn/",
-  "defVi": "Tìm ra | hoặc quyết_định chính_xác một điều gì.",
-  "leadVi": "Nhìn vân tay, | cảnh_sát đã biết ai từng vào phòng.",
-  "anticipateVi": "Ai chốt hạ đây?",
-  "usageEn": "Tests will _____ the cause of the illness.",
-  "usageVi": "Các=xét_nghiệm | sẽ xác_định nguyên_nhân gây bệnh.",
-  "topics": [
-   "thinking",
-   "study"
-  ],
-  "exams": [
-   "ielts",
-   "toefl"
-  ],
-  "emphasisVi": [
-   "chính xác",
-   "vân tay"
-  ]
- },
- {
-  "word": "distract",
-  "pos": "verb",
-  "ipa": "/dɪˈstrækt/",
-  "defVi": "Làm ai đó | mất tập_trung vào việc đang=làm.",
-  "leadVi": "Đang học bài, | điện_thoại rung là mắt liếc ngay.",
-  "anticipateVi": "Liếc sang đâu thế?",
-  "usageEn": "Don't _____ me while I'm driving.",
-  "usageVi": "Đừng làm tôi | xao_nhãng khi lái xe.",
-  "topics": [
-   "attention"
-  ],
-  "exams": [
-   "ielts"
-  ],
-  "emphasisVi": [
-   "tập trung",
-   "mắt liếc"
-  ]
- },
- {
-  "word": "diverse",
-  "pos": "adj",
-  "ipa": "/daɪˈvɜːs/",
-  "defVi": "Gồm nhiều loại | khác nhau, phong_phú về mọi mặt.",
-  "leadVi": "Lớp học có bạn | từ năm châu, nói đủ thứ tiếng.",
-  "anticipateVi": "Muôn màu muôn vẻ?",
-  "usageEn": "London is a very _____ city.",
-  "usageVi": "Luân_Đôn | là thành_phố rất=đa_dạng.",
-  "topics": [
-   "society",
-   "nature"
-  ],
-  "exams": [
-   "ielts",
-   "toefl"
-  ],
-  "emphasisVi": [
-   "phong phú",
-   "năm châu"
-  ]
- },
- {
-  "word": "eager",
-  "pos": "adj",
-  "ipa": "/ˈiː.ɡər/",
-  "defVi": "Háo_hức, | rất muốn làm hoặc có điều gì đó.",
-  "leadVi": "Ngày ngày đếm lịch | chờ chuyến đi nước_ngoài đầu_tiên.",
-  "anticipateVi": "Nóng lòng chờ chưa?",
-  "usageEn": "The children are _____ to start school.",
-  "usageVi": "Bọn trẻ | háo_hức được đi học.",
-  "topics": [
-   "emotion"
-  ],
-  "exams": [],
-  "emphasisVi": [
-   "Háo hức",
-   "đếm lịch"
-  ]
- },
- {
-  "word": "emerge",
-  "pos": "verb",
-  "ipa": "/ɪˈmɜːdʒ/",
-  "defVi": "Xuất_hiện | hoặc lộ ra sau khi bị che_khuất.",
-  "leadVi": "Sương tan dần, | ngọn núi hiện ra sừng_sững.",
-  "anticipateVi": "Ló dạng rồi kìa?",
-  "usageEn": "The sun _____d from behind the clouds.",
-  "usageVi": "Mặt_trời | ló ra sau đám mây.",
-  "topics": [
-   "nature",
-   "perception"
-  ],
-  "exams": [
-   "ielts",
-   "toefl"
-  ],
-  "emphasisVi": [
-   "Xuất hiện",
-   "sừng sững"
-  ]
- },
- {
-  "word": "emphasize",
-  "pos": "verb",
-  "ipa": "/ˈem.fə.saɪz/",
-  "defVi": "Nhấn_mạnh | để người khác chú_ý đến điều quan_trọng.",
-  "leadVi": "Cô giáo gạch chân hai lần | rồi gõ thước lên bảng.",
-  "anticipateVi": "Gạch chân mấy lần?",
-  "usageEn": "He _____d the need for safety.",
-  "usageVi": "Ông ấy nhấn_mạnh | sự cần_thiết của=an_toàn.",
-  "topics": [
-   "communication"
-  ],
-  "exams": [
-   "ielts",
-   "toefl"
-  ],
-  "emphasisVi": [
-   "quan trọng",
-   "gạch chân"
-  ]
- },
- {
-  "word": "encounter",
-  "pos": "verb",
-  "ipa": "/ɪnˈkaʊn.tər/",
-  "defVi": "Bất_ngờ gặp phải | người, sự_việc hay khó_khăn.",
-  "leadVi": "Đi rừng một mình, | chạm mặt ngay con rắn lớn.",
-  "anticipateVi": "Chạm mặt ai thế?",
-  "usageEn": "We _____ed many problems on the trip.",
-  "usageVi": "Chúng_tôi gặp phải | nhiều trục_trặc trong chuyến đi.",
-  "topics": [
-   "travel",
-   "general"
-  ],
-  "exams": [
-   "ielts",
-   "toefl"
-  ],
-  "emphasisVi": [
-   "gặp phải",
-   "chạm mặt"
-  ]
- },
- {
-  "word": "enhance",
-  "pos": "verb",
-  "ipa": "/ɪnˈhɑːns/",
-  "defVi": "Làm tăng thêm | giá_trị, chất_lượng hay vẻ đẹp.",
-  "leadVi": "Thêm chút đèn vàng, | căn phòng bỗng ấm_cúng hẳn.",
-  "anticipateVi": "Đẹp thêm nữa sao?",
-  "usageEn": "Good lighting can _____ a photo.",
-  "usageVi": "Ánh_sáng tốt | có_thể làm bức ảnh đẹp hơn.",
-  "topics": [
-   "general"
-  ],
-  "exams": [
-   "ielts",
-   "toefl"
-  ],
-  "emphasisVi": [
-   "giá trị",
-   "ấm cúng"
-  ]
- },
- {
-  "word": "estimate",
-  "pos": "verb",
-  "ipa": "/ˈes.tɪ.meɪt/",
-  "defVi": "Đoán gần đúng | số_lượng hay giá_trị từ thông_tin.",
-  "leadVi": "Nhìn đám_đông, | anh nhẩm chắc tầm ngàn người.",
-  "anticipateVi": "Tầm bao nhiêu nhỉ?",
-  "usageEn": "They _____ the cost at two million.",
-  "usageVi": "Họ ước_tính | chi_phí khoảng hai triệu.",
-  "topics": [
-   "thinking",
-   "money"
-  ],
-  "exams": [
-   "ielts",
-   "toeic"
-  ],
-  "emphasisVi": [
-   "gần đúng",
-   "nhẩm chắc"
-  ]
- },
- {
-  "word": "evidence",
-  "pos": "noun",
-  "ipa": "/ˈev.ɪ.dəns/",
-  "defVi": "Thứ chứng_minh | một điều là thật hoặc đúng.",
-  "leadVi": "Dấu vân tay trên ly | khiến nghi_phạm hết đường chối.",
-  "anticipateVi": "Lấy gì làm chứng?",
-  "usageEn": "There is no _____ that he was there.",
-  "usageVi": "Không có bằng_chứng | nào cho thấy anh ta ở đó.",
-  "topics": [
-   "thinking",
-   "society"
-  ],
-  "exams": [
-   "ielts",
-   "toefl"
-  ],
-  "emphasisVi": [
-   "chứng minh",
-   "hết đường"
-  ]
- },
- {
-  "word": "evaluate",
-  "pos": "verb",
-  "ipa": "/ɪˈvæl.ju.eɪt/",
-  "defVi": "Cân_nhắc kỹ | để đánh_giá tốt xấu hay giá_trị.",
-  "leadVi": "Đọc xong hồ_sơ, | hội_đồng chấm điểm từng ứng_viên.",
-  "anticipateVi": "Chấm thang mấy điểm?",
-  "usageEn": "We must _____ the results carefully.",
-  "usageVi": "Chúng_ta phải đánh_giá | kết_quả thật cẩn_thận.",
-  "topics": [
-   "thinking",
-   "work"
-  ],
-  "exams": [
-   "ielts",
-   "toefl"
-  ],
-  "emphasisVi": [
-   "Cân nhắc",
-   "chấm điểm"
-  ]
- },
- {
-  "word": "exaggerate",
-  "pos": "verb",
-  "ipa": "/ɪɡˈzædʒ.ə.reɪt/",
-  "defVi": "Nói quá lên, | làm sự_việc to hơn sự_thật.",
-  "leadVi": "Câu được cá bằng bàn tay, | kể thành bằng cái thuyền.",
-  "anticipateVi": "Thêm mắm thêm muối à?",
-  "usageEn": "Don't _____, it wasn't that bad.",
-  "usageVi": "Đừng phóng_đại, | nó không tệ đến thế.",
-  "topics": [
-   "communication"
-  ],
-  "exams": [],
-  "emphasisVi": [
-   "Nói quá",
-   "cái thuyền"
-  ]
- },
- {
-  "word": "expand",
-  "pos": "verb",
-  "ipa": "/ɪkˈspænd/",
-  "defVi": "Mở_rộng | về kích_thước, phạm_vi hay số_lượng.",
-  "leadVi": "Từ một quán nhỏ, | giờ đã có mười chi_nhánh.",
-  "anticipateVi": "Lớn mạnh tới đâu?",
-  "usageEn": "The company plans to _____ into Asia.",
-  "usageVi": "Công_ty dự_định | mở_rộng sang châu Á.",
-  "topics": [
-   "work",
-   "money"
-  ],
-  "exams": [
-   "ielts",
-   "toeic"
-  ],
-  "emphasisVi": [
-   "Mở rộng",
-   "chi nhánh"
-  ]
- },
- {
-  "word": "expose",
-  "pos": "verb",
-  "ipa": "/ɪkˈspəʊz/",
-  "defVi": "Để lộ ra | hoặc đặt vào chỗ không được che_chắn.",
-  "leadVi": "Phơi da trưa hè | không bôi kem, tối về rát bỏng.",
-  "anticipateVi": "Phơi ra nắng à?",
-  "usageEn": "Don't _____ your skin to the sun too long.",
-  "usageVi": "Đừng để da | tiếp_xúc ánh nắng quá lâu.",
-  "topics": [
-   "health"
-  ],
-  "exams": [
-   "ielts",
-   "toefl"
-  ],
-  "emphasisVi": [
-   "che chắn",
-   "rát bỏng"
-  ]
- },
- {
-  "word": "flexible",
-  "pos": "adj",
-  "ipa": "/ˈflek.sə.bəl/",
-  "defVi": "Dễ thay_đổi, | thích_ứng được với nhiều tình_huống.",
-  "leadVi": "Sáng ở nhà, | chiều lên văn_phòng, giờ_giấc tùy ý.",
-  "anticipateVi": "Co giãn được chứ?",
-  "usageEn": "I have a _____ work schedule.",
-  "usageVi": "Tôi có | lịch làm_việc linh_hoạt.",
-  "topics": [
-   "work"
-  ],
-  "exams": [
-   "ielts",
-   "toeic"
-  ],
-  "emphasisVi": [
-   "thích ứng",
-   "giờ giấc"
-  ]
- },
- {
-  "word": "frustrated",
-  "pos": "adj",
-  "ipa": "/frʌsˈtreɪ.tɪd/",
-  "defVi": "Bực_bội, chán_nản | vì không làm được điều mong_muốn.",
-  "leadVi": "Sửa mãi vẫn hỏng, | anh đập tay xuống bàn thở dài.",
-  "anticipateVi": "Bực mình lắm hả?",
-  "usageEn": "I feel _____ when my computer is slow.",
-  "usageVi": "Tôi thấy bực_bội | khi máy_tính chạy chậm.",
-  "topics": [
-   "emotion"
-  ],
-  "exams": [],
-  "emphasisVi": [
-   "chán nản",
-   "thở dài"
-  ]
- },
- {
-  "word": "fundamental",
-  "pos": "adj",
-  "ipa": "/ˌfʌn.dəˈmen.təl/",
-  "defVi": "Thuộc về | nền_tảng, cốt_lõi nhất của=một vấn_đề.",
-  "leadVi": "Muốn xây nhà cao, | phải đổ móng vững trước tiên.",
-  "anticipateVi": "Gốc rễ ở đâu?",
-  "usageEn": "Education is a _____ right.",
-  "usageVi": "Giáo_dục | là quyền cơ_bản.",
-  "topics": [
-   "thinking",
-   "study"
-  ],
-  "exams": [
-   "ielts",
-   "toefl"
-  ],
-  "emphasisVi": [
-   "nền tảng",
-   "đổ móng"
-  ]
- },
- {
-  "word": "genuine",
-  "pos": "adj",
-  "ipa": "/ˈdʒen.ju.ɪn/",
-  "defVi": "Thật sự, | không giả_tạo hay pha_trộn.",
-  "leadVi": "Ánh mắt rưng_rưng ấy | chẳng phải diễn chút nào.",
-  "anticipateVi": "Hàng thật hay giả?",
-  "usageEn": "This is a _____ leather bag.",
-  "usageVi": "Đây là | túi da thật.",
-  "topics": [
-   "character",
-   "general"
-  ],
-  "exams": [],
-  "emphasisVi": [
-   "giả tạo",
-   "rưng rưng"
-  ]
- },
- {
-  "word": "grateful",
-  "pos": "adj",
-  "ipa": "/ˈɡreɪt.fəl/",
-  "defVi": "Biết_ơn | vì được người khác giúp_đỡ.",
-  "leadVi": "Ngày ra trường, | cậu cúi đầu ôm thầy thật lâu.",
-  "anticipateVi": "Nhớ ơn ai đây?",
-  "usageEn": "I'm _____ for your help.",
-  "usageVi": "Tôi rất=biết_ơn | sự giúp_đỡ của=bạn.",
-  "topics": [
-   "emotion",
-   "character"
-  ],
-  "exams": [],
-  "emphasisVi": [
-   "Biết ơn",
-   "ôm thầy"
-  ]
- },
- {
-  "word": "guarantee",
-  "pos": "verb",
-  "ipa": "/ˌɡær.ənˈtiː/",
-  "defVi": "Cam_đoan chắc_chắn | điều gì sẽ xảy ra hoặc đúng.",
-  "leadVi": "Hỏng trong một năm, | cửa_hàng đổi mới không tính tiền.",
-  "anticipateVi": "Chắc_chắn trăm phần?",
-  "usageEn": "We _____ delivery within 24 hours.",
-  "usageVi": "Chúng_tôi bảo_đảm | giao hàng trong hai mươi bốn giờ.",
-  "topics": [
-   "work",
-   "money"
-  ],
-  "exams": [
-   "toeic",
-   "ielts"
-  ],
-  "emphasisVi": [
-   "Cam đoan",
-   "đổi mới"
-  ]
- },
- {
-  "word": "hesitate",
-  "pos": "verb",
-  "ipa": "/ˈhez.ɪ.teɪt/",
-  "defVi": "Ngập_ngừng, | chưa dám quyết vì còn phân_vân.",
-  "leadVi": "Tay chạm nút gửi, | rồi lại rụt về mấy lần.",
-  "anticipateVi": "Còn chần_chừ gì?",
-  "usageEn": "Don't _____ to ask questions.",
-  "usageVi": "Đừng ngần_ngại | đặt câu hỏi.",
-  "topics": [
-   "emotion",
-   "thinking"
-  ],
-  "exams": [],
-  "emphasisVi": [
-   "phân vân",
-   "rụt về"
-  ]
- },
- {
-  "word": "identify",
-  "pos": "verb",
-  "ipa": "/aɪˈden.tɪ.faɪ/",
-  "defVi": "Nhận ra | và xác_định chính_xác ai hoặc cái gì.",
-  "leadVi": "Nhìn ảnh, | bà cụ chỉ ngay kẻ lấy túi.",
-  "anticipateVi": "Nhận mặt được không?",
-  "usageEn": "Can you _____ the man in the photo?",
-  "usageVi": "Bạn nhận_diện được | người đàn_ông trong ảnh không?",
-  "topics": [
-   "thinking",
-   "perception"
-  ],
-  "exams": [
-   "ielts",
-   "toefl"
-  ],
-  "emphasisVi": [
-   "xác định",
-   "chỉ ngay"
-  ]
- },
- {
-  "word": "ignore",
-  "pos": "verb",
-  "ipa": "/ɪɡˈnɔːr/",
-  "defVi": "Cố_tình | không để_ý hoặc làm như không biết.",
-  "leadVi": "Bạn gọi mấy lần, | cậu vẫn đeo tai_nghe quay đi.",
-  "anticipateVi": "Lờ đi luôn à?",
-  "usageEn": "She _____d my message.",
-  "usageVi": "Cô ấy | phớt_lờ tin nhắn của=tôi.",
-  "topics": [
-   "attention",
-   "communication"
-  ],
-  "exams": [
-   "ielts"
-  ],
-  "emphasisVi": [
-   "Cố tình",
-   "quay đi"
-  ]
- },
- {
-  "word": "impact",
-  "pos": "noun",
-  "ipa": "/ˈɪm.pækt/",
-  "defVi": "Tác_động mạnh | của=một sự_việc lên người hay vật.",
-  "leadVi": "Một nhà_máy mới mở, | cả thị_trấn đổi_thay.",
-  "anticipateVi": "Thay đổi lớn cỡ nào?",
-  "usageEn": "Technology has a big _____ on our lives.",
-  "usageVi": "Công_nghệ | có ảnh_hưởng lớn đến cuộc_sống.",
-  "topics": [
-   "society",
-   "technology"
-  ],
-  "exams": [
-   "ielts",
-   "toefl"
-  ],
-  "emphasisVi": [
-   "Tác động",
-   "đổi thay"
-  ]
- },
- {
-  "word": "inevitable",
-  "pos": "adj",
-  "ipa": "/ɪˈnev.ɪ.tə.bəl/",
-  "defVi": "Chắc_chắn xảy ra, | không_thể tránh hay ngăn được.",
-  "leadVi": "Lá vàng rồi cũng rụng, | ai rồi cũng già đi.",
-  "anticipateVi": "Tránh nổi không?",
-  "usageEn": "Change is _____.",
-  "usageVi": "Thay_đổi | là điều không_thể tránh khỏi.",
-  "topics": [
-   "thinking",
-   "time"
-  ],
-  "exams": [
-   "ielts",
-   "toefl"
-  ],
-  "emphasisVi": [
-   "Chắc chắn",
-   "già đi"
-  ]
- },
- {
-  "word": "influence",
-  "pos": "noun",
-  "ipa": "/ˈɪn.flu.əns/",
-  "defVi": "Sức tác_động | làm thay_đổi suy_nghĩ hay hành_vi.",
-  "leadVi": "Một câu nói của=thầy | theo cậu suốt cả đời.",
-  "anticipateVi": "Ai định_hướng bạn?",
-  "usageEn": "My mother had a great _____ on me.",
-  "usageVi": "Mẹ có ảnh_hưởng | rất=lớn đến tôi.",
-  "topics": [
-   "society",
-   "thinking"
-  ],
-  "exams": [
-   "ielts",
-   "toefl"
-  ],
-  "emphasisVi": [
-   "hành vi",
-   "cả đời"
-  ]
- },
- {
-  "word": "insist",
-  "pos": "verb",
-  "ipa": "/ɪnˈsɪst/",
-  "defVi": "Một_mực đòi | hay khẳng_định, không chịu nhượng_bộ.",
-  "leadVi": "Khách từ_chối mãi, | bà vẫn dúi hộp bánh.",
-  "anticipateVi": "Nhất_quyết thế à?",
-  "usageEn": "She _____ed on paying for dinner.",
-  "usageVi": "Cô ấy nhất_quyết | trả tiền bữa tối.",
-  "topics": [
-   "communication",
-   "character"
-  ],
-  "exams": [],
-  "emphasisVi": [
-   "nhượng bộ",
-   "dúi hộp"
-  ]
- },
- {
-  "word": "intend",
-  "pos": "verb",
-  "ipa": "/ɪnˈtend/",
-  "defVi": "Có ý_định | làm điều gì trong tương_lai.",
-  "leadVi": "Đã ghi sẵn trong sổ: | sang năm học thêm ngoại_ngữ.",
-  "anticipateVi": "Tính làm gì tới?",
-  "usageEn": "I _____ to visit my grandparents next week.",
-  "usageVi": "Tôi định | tuần sau thăm ông bà.",
-  "topics": [
-   "thinking"
-  ],
-  "exams": [
-   "ielts"
-  ],
-  "emphasisVi": [
-   "ý định",
-   "ghi sẵn"
-  ]
- },
- {
-  "word": "interpret",
-  "pos": "verb",
-  "ipa": "/ɪnˈtɜː.prɪt/",
-  "defVi": "Giải_thích | hoặc hiểu ý_nghĩa theo một cách nhất_định.",
-  "leadVi": "Cùng nụ cười, | người hiểu đồng_ý, kẻ nghĩ là chê.",
-  "anticipateVi": "Hiểu theo nghĩa nào?",
-  "usageEn": "How do you _____ this poem?",
-  "usageVi": "Bạn hiểu | bài thơ này thế_nào?",
-  "topics": [
-   "thinking",
-   "communication"
-  ],
-  "exams": [
-   "ielts",
-   "toefl"
-  ],
-  "emphasisVi": [
-   "ý nghĩa",
-   "nụ cười"
-  ]
- },
- {
-  "word": "investigate",
-  "pos": "verb",
-  "ipa": "/ɪnˈves.tɪ.ɡeɪt/",
-  "defVi": "Tìm_hiểu kỹ | để phát_hiện sự_thật một vụ_việc.",
-  "leadVi": "Phóng_viên lặn_lội | lần ra đường dây buôn_lậu.",
-  "anticipateVi": "Lần ra manh_mối chưa?",
-  "usageEn": "Police are _____ing the accident.",
-  "usageVi": "Cảnh_sát | đang điều_tra vụ tai_nạn.",
-  "topics": [
-   "society"
-  ],
-  "exams": [
-   "ielts",
-   "toefl"
-  ],
-  "emphasisVi": [
-   "sự thật",
-   "lặn lội"
-  ]
- },
- {
-  "word": "justify",
-  "pos": "verb",
-  "ipa": "/ˈdʒʌs.tɪ.faɪ/",
-  "defVi": "Đưa ra lý_do | để chứng_tỏ việc làm là đúng.",
-  "leadVi": "Bị hỏi vì sao đến muộn, | cậu kể một tràng dài.",
-  "anticipateVi": "Lý_lẽ đâu nào?",
-  "usageEn": "How can you _____ such high prices?",
-  "usageVi": "Bạn biện_minh thế_nào | cho mức giá cao như vậy?",
-  "topics": [
-   "thinking",
-   "communication"
-  ],
-  "exams": [
-   "ielts"
-  ],
-  "emphasisVi": [
-   "lý do",
-   "tràng dài"
-  ]
- },
- {
-  "word": "launch",
-  "pos": "verb",
-  "ipa": "/lɔːntʃ/",
-  "defVi": "Chính_thức bắt_đầu | hoặc tung ra sản_phẩm mới.",
-  "leadVi": "Đèn sân_khấu bừng sáng, | mẫu điện_thoại mới lộ_diện.",
-  "anticipateVi": "Ra_mắt khi nào?",
-  "usageEn": "The company will _____ a new phone next month.",
-  "usageVi": "Tháng sau | công_ty sẽ ra_mắt điện_thoại mới.",
-  "topics": [
-   "work",
-   "technology"
-  ],
-  "exams": [
-   "toeic",
-   "ielts"
-  ],
-  "emphasisVi": [
-   "Chính thức",
-   "lộ diện"
-  ]
- },
- {
-  "word": "maintain",
-  "pos": "verb",
-  "ipa": "/meɪnˈteɪn/",
-  "defVi": "Giữ cho | luôn ở trạng_thái tốt, không suy_giảm.",
-  "leadVi": "Năm nào cũng sơn lại, | căn nhà cũ vẫn như mới.",
-  "anticipateVi": "Giữ được bao lâu?",
-  "usageEn": "It's hard to _____ a healthy weight.",
-  "usageVi": "Thật khó | để duy_trì cân nặng hợp_lý.",
-  "topics": [
-   "work",
-   "health"
-  ],
-  "exams": [
-   "ielts",
-   "toeic"
-  ],
-  "emphasisVi": [
-   "trạng thái",
-   "sơn lại"
-  ]
- },
- {
-  "word": "minor",
-  "pos": "adj",
-  "ipa": "/ˈmaɪ.nər/",
-  "defVi": "Nhỏ bé | và không quan_trọng lắm, dễ bỏ qua.",
-  "leadVi": "Chỉ xước nhẹ ngón tay, | dán băng là xong.",
-  "anticipateVi": "Chuyện vặt thôi mà?",
-  "usageEn": "There are a few _____ errors in the report.",
-  "usageVi": "Bản báo_cáo | có vài lỗi nhỏ.",
-  "topics": [
-   "general"
-  ],
-  "exams": [
-   "ielts",
-   "toeic"
-  ],
-  "emphasisVi": [
-   "quan trọng",
-   "xước nhẹ"
-  ]
- },
- {
-  "word": "negotiate",
-  "pos": "verb",
-  "ipa": "/nəˈɡəʊ.ʃi.eɪt/",
-  "defVi": "Thương_lượng | để hai bên đi đến thỏa_thuận.",
-  "leadVi": "Người bán, người mua | qua lại mấy lượt rồi bắt tay.",
-  "anticipateVi": "Trả giá đến đâu?",
-  "usageEn": "We _____d a better price.",
-  "usageVi": "Chúng_tôi đã=thương_lượng | được giá tốt hơn.",
-  "topics": [
-   "work",
-   "money"
-  ],
-  "exams": [
-   "toeic",
-   "ielts"
-  ],
-  "emphasisVi": [
-   "thỏa thuận",
-   "bắt tay"
-  ]
- },
- {
-  "word": "obvious",
-  "pos": "adj",
-  "ipa": "/ˈɒb.vi.əs/",
-  "defVi": "Rõ_ràng, | ai nhìn cũng thấy hay hiểu ngay.",
-  "leadVi": "Mặt đỏ, nói lắp, | ai cũng biết cậu đang=nói_dối.",
-  "anticipateVi": "Lộ_liễu quá chưa?",
-  "usageEn": "It's _____ that she is tired.",
-  "usageVi": "Rõ_ràng là | cô ấy đang=mệt.",
-  "topics": [
-   "perception",
-   "thinking"
-  ],
-  "exams": [
-   "ielts"
-  ],
-  "emphasisVi": [
-   "Rõ ràng",
-   "nói lắp"
-  ]
- },
- {
-  "word": "obstacle",
-  "pos": "noun",
-  "ipa": "/ˈɒb.stə.kəl/",
-  "defVi": "Thứ cản_trở | khiến việc gì khó tiến lên.",
-  "leadVi": "Cây đổ chắn ngang đường, | đoàn xe phải dừng lại.",
-  "anticipateVi": "Gì chắn đường thế?",
-  "usageEn": "Lack of money is the main _____.",
-  "usageVi": "Thiếu tiền | là trở_ngại chính.",
-  "topics": [
-   "general",
-   "work"
-  ],
-  "exams": [
-   "ielts",
-   "toefl"
-  ],
-  "emphasisVi": [
-   "cản trở",
-   "chắn ngang"
-  ]
- },
- {
-  "word": "occur",
-  "pos": "verb",
-  "ipa": "/əˈkɜːr/",
-  "defVi": "Xảy ra | hoặc diễn_ra vào một thời_điểm nào đó.",
-  "leadVi": "Đang yên_ổn, | bỗng một tiếng nổ lớn vang lên.",
-  "anticipateVi": "Chuyện gì vừa xảy ra?",
-  "usageEn": "The accident _____red at night.",
-  "usageVi": "Vụ tai_nạn | xảy ra vào ban_đêm.",
-  "topics": [
-   "general",
-   "time"
-  ],
-  "exams": [
-   "ielts",
-   "toefl"
-  ],
-  "emphasisVi": [
-   "diễn ra",
-   "tiếng nổ"
-  ]
- },
- {
-  "word": "overcome",
-  "pos": "verb",
-  "ipa": "/ˌəʊ.vəˈkʌm/",
-  "defVi": "Vượt qua | khó_khăn hoặc nỗi sợ để tiến lên.",
-  "leadVi": "Từng sợ nước, | nay cô đã bơi qua cả con sông.",
-  "anticipateVi": "Vượt qua nổi chứ?",
-  "usageEn": "She _____ her fear of flying.",
-  "usageVi": "Cô ấy đã=vượt qua | nỗi sợ đi máy_bay.",
-  "topics": [
-   "emotion",
-   "character"
-  ],
-  "exams": [
-   "ielts"
-  ],
-  "emphasisVi": [
-   "nỗi sợ",
-   "bơi qua"
-  ]
- },
- {
-  "word": "perspective",
-  "pos": "noun",
-  "ipa": "/pəˈspek.tɪv/",
-  "defVi": "Góc nhìn | hay cách suy_nghĩ riêng về một vấn_đề.",
-  "leadVi": "Đứng trên tầng ba mươi, | dòng xe hóa bé tí.",
-  "anticipateVi": "Nhìn từ phía nào?",
-  "usageEn": "Travel gives you a new _____ on life.",
-  "usageVi": "Du_lịch cho bạn | góc nhìn mới về cuộc_sống.",
-  "topics": [
-   "thinking"
-  ],
-  "exams": [
-   "ielts",
-   "toefl"
-  ],
-  "emphasisVi": [
-   "Góc nhìn",
-   "bé tí"
-  ]
- },
- {
-  "word": "potential",
-  "pos": "noun",
-  "ipa": "/pəˈten.ʃəl/",
-  "defVi": "Khả_năng tiềm_ẩn | có_thể phát_triển thành điều lớn.",
-  "leadVi": "Cậu bé mười tuổi | đã đá bóng như cầu_thủ chuyên.",
-  "anticipateVi": "Hạt giống tài_năng?",
-  "usageEn": "This student has great _____.",
-  "usageVi": "Cậu học_sinh này | có tiềm_năng lớn.",
-  "topics": [
-   "work",
-   "character"
-  ],
-  "exams": [
-   "ielts",
-   "toeic"
-  ],
-  "emphasisVi": [
-   "tiềm ẩn",
-   "cầu thủ"
-  ]
- },
- {
-  "word": "precise",
-  "pos": "adj",
-  "ipa": "/prɪˈsaɪs/",
-  "defVi": "Chính_xác đến từng chi_tiết | nhỏ nhất.",
-  "leadVi": "Đồng_hồ Thụy_Sĩ | chạy chuẩn từng giây suốt chục năm.",
-  "anticipateVi": "Từng li từng tí?",
-  "usageEn": "Please give me the _____ time.",
-  "usageVi": "Hãy cho tôi | thời_gian chính_xác.",
-  "topics": [
-   "thinking"
-  ],
-  "exams": [
-   "ielts",
-   "toefl"
-  ],
-  "emphasisVi": [
-   "chi tiết",
-   "chạy chuẩn"
-  ]
- },
- {
-  "word": "priority",
-  "pos": "noun",
-  "ipa": "/praɪˈɒr.ə.ti/",
-  "defVi": "Điều quan_trọng nhất | cần được làm trước.",
-  "leadVi": "Danh_sách dài, | nhưng dòng đầu luôn là con_cái.",
-  "anticipateVi": "Làm gì trước tiên?",
-  "usageEn": "Safety is our top _____.",
-  "usageVi": "An_toàn | là ưu_tiên hàng_đầu của=chúng_tôi.",
-  "topics": [
-   "work",
-   "thinking"
-  ],
-  "exams": [
-   "toeic",
-   "ielts"
-  ],
-  "emphasisVi": [
-   "quan trọng",
-   "dòng đầu"
-  ]
- },
- {
-  "word": "profit",
-  "pos": "noun",
-  "ipa": "/ˈprɒf.ɪt/",
-  "defVi": "Tiền lời | sau khi trừ hết các=chi_phí.",
-  "leadVi": "Bán hết lô hàng, | đếm tiền thấy dư ra kha_khá.",
-  "anticipateVi": "Lãi bao nhiêu nào?",
-  "usageEn": "The shop made a large _____ this year.",
-  "usageVi": "Năm nay | cửa_hàng thu lợi_nhuận lớn.",
-  "topics": [
-   "money",
-   "work"
-  ],
-  "exams": [
-   "toeic",
-   "ielts"
-  ],
-  "emphasisVi": [
-   "Tiền lời",
-   "dư ra"
-  ]
- },
- {
-  "word": "pursue",
-  "pos": "verb",
-  "ipa": "/pəˈsjuː/",
-  "defVi": "Kiên_trì theo_đuổi | một mục_tiêu trong thời_gian dài.",
-  "leadVi": "Mười năm ôm đàn, | vẫn mơ đứng trên sân_khấu lớn.",
-  "anticipateVi": "Đuổi theo giấc mơ?",
-  "usageEn": "She wants to _____ a career in law.",
-  "usageVi": "Cô ấy muốn | theo_đuổi nghề luật.",
-  "topics": [
-   "work",
-   "character"
-  ],
-  "exams": [
-   "ielts"
-  ],
-  "emphasisVi": [
-   "mục tiêu",
-   "sân khấu"
-  ]
- },
- {
-  "word": "rapid",
-  "pos": "adj",
-  "ipa": "/ˈræp.ɪd/",
-  "defVi": "Diễn ra chóng_vánh | trong thời_gian ngắn.",
-  "leadVi": "Năm ngoái còn đồng lúa, | nay nhà cao mọc san_sát.",
-  "anticipateVi": "Nhanh như chớp à?",
-  "usageEn": "The city has seen _____ growth.",
-  "usageVi": "Thành_phố | phát_triển nhanh_chóng.",
-  "topics": [
-   "time",
-   "general"
-  ],
-  "exams": [
-   "ielts",
-   "toefl"
-  ],
-  "emphasisVi": [
-   "chóng vánh",
-   "san sát"
-  ]
- },
- {
-  "word": "reluctant",
-  "pos": "adj",
-  "ipa": "/rɪˈlʌk.tənt/",
-  "defVi": "Miễn_cưỡng, | không muốn làm nhưng vẫn phải làm.",
-  "leadVi": "Bị mẹ sai đi đổ rác, | cậu lê từng bước chậm.",
-  "anticipateVi": "Làm mà chẳng muốn?",
-  "usageEn": "He was _____ to help.",
-  "usageVi": "Anh ấy | miễn_cưỡng giúp_đỡ.",
-  "topics": [
-   "emotion"
-  ],
-  "exams": [],
-  "emphasisVi": [
-   "Miễn cưỡng",
-   "đổ rác"
-  ]
- },
- {
-  "word": "rely",
-  "pos": "verb",
-  "ipa": "/rɪˈlaɪ/",
-  "defVi": "Dựa vào | và tin rằng ai đó sẽ giúp mình.",
-  "leadVi": "Hễ gặp khó, | cậu lại gọi ngay cho anh trai.",
-  "anticipateVi": "Tựa vào ai đây?",
-  "usageEn": "You can _____ on me.",
-  "usageVi": "Bạn có_thể | trông_cậy vào tôi.",
-  "topics": [
-   "society",
-   "character"
-  ],
-  "exams": [
-   "ielts",
-   "toeic"
-  ],
-  "emphasisVi": [
-   "Dựa vào",
-   "gọi ngay"
-  ]
- },
- {
-  "word": "resolve",
-  "pos": "verb",
-  "ipa": "/rɪˈzɒlv/",
-  "defVi": "Tìm cách | giải_quyết dứt_điểm vấn_đề hay mâu_thuẫn.",
-  "leadVi": "Ngồi lại uống trà, | hai nhà làm hòa sau mười năm.",
-  "anticipateVi": "Gỡ rối được chưa?",
-  "usageEn": "We need to _____ this conflict quickly.",
-  "usageVi": "Chúng_ta cần nhanh_chóng | giải_quyết mâu_thuẫn này.",
-  "topics": [
-   "thinking",
-   "communication"
-  ],
-  "exams": [
-   "ielts",
-   "toeic"
-  ],
-  "emphasisVi": [
-   "dứt điểm",
-   "làm hòa"
-  ]
- },
- {
-  "word": "resource",
-  "pos": "noun",
-  "ipa": "/rɪˈzɔːs/",
-  "defVi": "Nguồn của_cải, | vật_liệu hay sức người có_thể dùng.",
-  "leadVi": "Than, dầu, rừng, nước | đều là kho báu dưới chân.",
-  "anticipateVi": "Kho báu nằm đâu?",
-  "usageEn": "Water is a precious natural _____.",
-  "usageVi": "Nước là tài_nguyên | thiên_nhiên quý_giá.",
-  "topics": [
-   "nature",
-   "money"
-  ],
-  "exams": [
-   "ielts",
-   "toefl"
-  ],
-  "emphasisVi": [
-   "của cải",
-   "kho báu"
-  ]
- },
- {
-  "word": "restrict",
-  "pos": "verb",
-  "ipa": "/rɪˈstrɪkt/",
-  "defVi": "Giới_hạn | số_lượng, phạm_vi hay quyền làm điều gì.",
-  "leadVi": "Biển ghi rõ: | xe tải không được vào giờ cao_điểm.",
-  "anticipateVi": "Cấm tới đâu?",
-  "usageEn": "The law _____s smoking in public places.",
-  "usageVi": "Luật hạn_chế | hút thuốc ở nơi công_cộng.",
-  "topics": [
-   "society"
-  ],
-  "exams": [
-   "ielts",
-   "toefl"
-  ],
-  "emphasisVi": [
-   "Giới hạn",
-   "cao điểm"
-  ]
- },
- {
-  "word": "reveal",
-  "pos": "verb",
-  "ipa": "/rɪˈviːl/",
-  "defVi": "Tiết_lộ | hoặc để lộ điều trước đó còn giấu kín.",
-  "leadVi": "Tấm màn kéo lên, | bức tượng hiện ra trước đám_đông.",
-  "anticipateVi": "Màn kéo lên chưa?",
-  "usageEn": "She _____ed her secret to me.",
-  "usageVi": "Cô ấy tiết_lộ | bí_mật cho tôi.",
-  "topics": [
-   "communication"
-  ],
-  "exams": [
-   "ielts",
-   "toefl"
-  ],
-  "emphasisVi": [
-   "giấu kín",
-   "màn kéo"
-  ]
- },
- {
-  "word": "rural",
-  "pos": "adj",
-  "ipa": "/ˈrʊə.rəl/",
-  "defVi": "Thuộc về | vùng nông_thôn, xa thành_phố.",
-  "leadVi": "Ruộng lúa bát_ngát, | khói bếp chiều lơ_lửng mái tranh.",
-  "anticipateVi": "Đồng quê yên_ả?",
-  "usageEn": "Many young people leave _____ areas.",
-  "usageVi": "Nhiều người trẻ | rời bỏ vùng nông_thôn.",
-  "topics": [
-   "society",
-   "nature"
-  ],
-  "exams": [
-   "ielts",
-   "toefl"
-  ],
-  "emphasisVi": [
-   "nông thôn",
-   "bát ngát"
-  ]
- },
- {
-  "word": "significant",
-  "pos": "adj",
-  "ipa": "/sɪɡˈnɪf.ɪ.kənt/",
-  "defVi": "Đủ lớn | hoặc quan_trọng để gây chú_ý.",
-  "leadVi": "Điểm số tăng vọt | từ năm lên chín sau một kỳ.",
-  "anticipateVi": "Tăng vọt đáng_kể?",
-  "usageEn": "There has been a _____ increase in prices.",
-  "usageVi": "Giá_cả | đã tăng đáng_kể.",
-  "topics": [
-   "general",
-   "thinking"
-  ],
-  "exams": [
-   "ielts",
-   "toefl"
-  ],
-  "emphasisVi": [
-   "chú ý",
-   "tăng vọt"
-  ]
- },
- {
-  "word": "strategy",
-  "pos": "noun",
-  "ipa": "/ˈstræt.ə.dʒi/",
-  "defVi": "Kế_hoạch tổng_thể | để đạt mục_tiêu lâu dài.",
-  "leadVi": "Huấn_luyện_viên vẽ sơ_đồ, | sắp vị_trí cầu_thủ.",
-  "anticipateVi": "Đường đi nước bước?",
-  "usageEn": "We need a new marketing _____.",
-  "usageVi": "Chúng_ta cần | chiến_lược tiếp_thị mới.",
-  "topics": [
-   "work",
-   "thinking"
-  ],
-  "exams": [
-   "toeic",
-   "ielts"
-  ],
-  "emphasisVi": [
-   "tổng thể",
-   "sơ đồ"
-  ]
- },
- {
-  "word": "sufficient",
-  "pos": "adj",
-  "ipa": "/səˈfɪʃ.ənt/",
-  "defVi": "Đủ về số_lượng | để đáp_ứng điều cần thiết.",
-  "leadVi": "Gạo trong kho | đủ cho cả làng qua mùa đông.",
-  "anticipateVi": "Đủ dùng không đó?",
-  "usageEn": "We don't have _____ time.",
-  "usageVi": "Chúng_tôi | không=có đủ thời_gian.",
-  "topics": [
-   "general"
-  ],
-  "exams": [
-   "ielts",
-   "toefl"
-  ],
-  "emphasisVi": [
-   "số lượng",
-   "cả làng"
-  ]
- },
- {
-  "word": "sustainable",
-  "pos": "adj",
-  "ipa": "/səˈsteɪ.nə.bəl/",
-  "defVi": "Duy_trì được lâu dài | mà không hủy_hoại môi_trường.",
-  "leadVi": "Chặt một cây, | trồng lại ba cây, rừng vẫn còn mãi.",
-  "anticipateVi": "Dùng mãi không cạn?",
-  "usageEn": "We need _____ energy sources.",
-  "usageVi": "Chúng_ta cần | nguồn năng_lượng bền_vững.",
-  "topics": [
-   "nature",
-   "society"
-  ],
-  "exams": [
-   "ielts",
-   "toefl"
-  ],
-  "emphasisVi": [
-   "hủy hoại",
-   "trồng lại"
-  ]
- },
- {
-  "word": "tendency",
-  "pos": "noun",
-  "ipa": "/ˈten.dən.si/",
-  "defVi": "Khuynh_hướng | thường hành_động theo một kiểu nào đó.",
-  "leadVi": "Cứ căng_thẳng là | cô lại cắn móng tay.",
-  "anticipateVi": "Lại thế nữa rồi?",
-  "usageEn": "He has a _____ to talk too much.",
-  "usageVi": "Anh ấy | có xu_hướng nói quá nhiều.",
-  "topics": [
-   "character",
-   "thinking"
-  ],
-  "exams": [
-   "ielts"
-  ],
-  "emphasisVi": [
-   "Khuynh hướng",
-   "cắn móng"
-  ]
- },
- {
-  "word": "threat",
-  "pos": "noun",
-  "ipa": "/θret/",
-  "defVi": "Mối nguy | có_thể gây hại cho người hay vật.",
-  "leadVi": "Mây đen kéo đến, | lũ có_thể tràn về bất_chợt.",
-  "anticipateVi": "Nguy_cơ rình_rập?",
-  "usageEn": "Pollution is a serious _____ to wildlife.",
-  "usageVi": "Ô_nhiễm | là mối đe_dọa lớn với động_vật hoang_dã.",
-  "topics": [
-   "society",
-   "nature"
-  ],
-  "exams": [
-   "ielts",
-   "toefl"
-  ],
-  "emphasisVi": [
-   "Mối nguy",
-   "tràn về"
-  ]
- },
- {
-  "word": "tolerate",
-  "pos": "verb",
-  "ipa": "/ˈtɒl.ə.reɪt/",
-  "defVi": "Chịu đựng | điều mình không thích mà không phản_đối.",
-  "leadVi": "Hàng_xóm hát đêm, | cả xóm nhắm mắt cho qua.",
-  "anticipateVi": "Nhịn được bao lâu?",
-  "usageEn": "I can't _____ rude behaviour.",
-  "usageVi": "Tôi không_thể chịu_đựng | thái_độ thô_lỗ.",
-  "topics": [
-   "emotion",
-   "character"
-  ],
-  "exams": [],
-  "emphasisVi": [
-   "Chịu đựng",
-   "nhắm mắt"
-  ]
- },
- {
-  "word": "transform",
-  "pos": "verb",
-  "ipa": "/trænsˈfɔːm/",
-  "defVi": "Thay_đổi hoàn_toàn | hình_dạng, bản_chất hay diện_mạo.",
-  "leadVi": "Con sâu xấu_xí | hóa bướm rực_rỡ sau vài tuần.",
-  "anticipateVi": "Lột xác ngoạn_mục?",
-  "usageEn": "The internet has _____ed the way we work.",
-  "usageVi": "Mạng toàn_cầu | đã thay_đổi cách chúng_ta làm_việc.",
-  "topics": [
-   "general",
-   "technology"
-  ],
-  "exams": [
-   "ielts",
-   "toefl"
-  ],
-  "emphasisVi": [
-   "hoàn toàn",
-   "hóa bướm"
-  ]
- },
- {
-  "word": "unique",
-  "pos": "adj",
-  "ipa": "/juːˈniːk/",
-  "defVi": "Độc_nhất, | không giống bất_kỳ thứ nào khác.",
-  "leadVi": "Vân tay mỗi người | chẳng ai trùng với ai.",
-  "anticipateVi": "Có một không hai?",
-  "usageEn": "Each snowflake is _____.",
-  "usageVi": "Mỗi bông tuyết | đều độc_nhất vô_nhị.",
-  "topics": [
-   "general"
-  ],
-  "exams": [
-   "ielts",
-   "toefl"
-  ],
-  "emphasisVi": [
-   "Độc nhất",
-   "Vân tay"
-  ]
- },
- {
-  "word": "vague",
-  "pos": "adj",
-  "ipa": "/veɪɡ/",
-  "defVi": "Mơ_hồ, | không rõ_ràng hay cụ_thể.",
-  "leadVi": "Hỏi đường, | ông chỉ tay đại: cứ đi thẳng là tới.",
-  "anticipateVi": "Lờ_mờ quá nhỉ?",
-  "usageEn": "He gave a _____ answer.",
-  "usageVi": "Anh ấy | trả_lời rất=mơ_hồ.",
-  "topics": [
-   "communication",
-   "thinking"
-  ],
-  "exams": [],
-  "emphasisVi": [
-   "Mơ hồ",
-   "chỉ tay"
-  ]
- },
- {
-  "word": "volunteer",
-  "pos": "noun",
-  "ipa": "/ˌvɒl.ənˈtɪər/",
-  "defVi": "Người tự_nguyện | giúp người khác mà không lấy tiền.",
-  "leadVi": "Áo xanh khắp phố, | phát cơm cho người vô_gia_cư.",
-  "anticipateVi": "Áo xanh khắp phố ư?",
-  "usageEn": "She works as a _____ at the hospital.",
-  "usageVi": "Cô ấy làm tình_nguyện_viên | ở bệnh_viện.",
-  "topics": [
-   "society"
-  ],
-  "exams": [],
-  "emphasisVi": [
-   "tự nguyện",
-   "phát cơm"
-  ]
- },
- {
-  "word": "witness",
-  "pos": "noun",
-  "ipa": "/ˈwɪt.nəs/",
-  "defVi": "Người tận_mắt | chứng_kiến một sự_việc xảy ra.",
-  "leadVi": "Đứng ở góc phố, | ông kể lại từng chi_tiết.",
-  "anticipateVi": "Ai đã tận mắt thấy?",
-  "usageEn": "The police are looking for a _____.",
-  "usageVi": "Cảnh_sát | đang tìm nhân_chứng.",
-  "topics": [
-   "society"
-  ],
-  "exams": [],
-  "emphasisVi": [
-   "tận mắt",
-   "góc phố"
-  ]
- },
- {
-  "word": "relevant",
-  "pos": "adj",
-  "ipa": "/ˈrel.ə.vənt/",
-  "defVi": "Có liên_quan trực_tiếp | đến vấn_đề đang bàn.",
-  "leadVi": "Đang bàn chuyện học_phí, | ai lại kể chuyện đi câu?",
-  "anticipateVi": "Dính_dáng gì không?",
-  "usageEn": "Please include only _____ information.",
-  "usageVi": "Vui_lòng chỉ đưa | thông_tin có liên_quan.",
-  "topics": [
-   "thinking",
-   "work"
-  ],
-  "exams": [
-   "ielts",
-   "toeic"
-  ],
-  "emphasisVi": [
-   "liên quan",
-   "đi câu"
-  ]
- },
- {
-  "word": "reputation",
-  "pos": "noun",
-  "ipa": "/ˌrep.jəˈteɪ.ʃən/",
-  "defVi": "Cách mọi người | đánh_giá và nhìn_nhận về ai đó.",
-  "leadVi": "Quán phở ba đời, | tiếng lành đồn khắp phố.",
-  "anticipateVi": "Tiếng lành đồn xa?",
-  "usageEn": "The restaurant has a good _____.",
-  "usageVi": "Nhà_hàng này | có tiếng_tăm tốt.",
-  "topics": [
-   "society",
-   "work"
-  ],
-  "exams": [
-   "ielts",
-   "toeic"
-  ],
-  "emphasisVi": [
-   "nhìn nhận",
-   "tiếng lành"
-  ]
- }
+  {
+    "word": "abandon",
+    "pos": "verb",
+    "ipa": "/əˈbæn.dən/",
+    "meaningVi": "bỏ lại, bỏ_rơi",
+    "defVi": "Bỏ lại | người hay vật | mà không quay lại chăm_lo.",
+    "leadVi": "Chiếc xe đạp cũ | nằm phơi mưa nắng | ngoài bãi hoang.",
+    "anticipateVi": "Bỏ lại | sau lưng sao?",
+    "usageEn": "They had to _____ the car in the snow.",
+    "usageVi": "Họ đành bỏ lại | chiếc_xe giữa trời tuyết.",
+    "topics": [
+      "general",
+      "society"
+    ],
+    "exams": [
+      "ielts"
+    ],
+    "emphasisVi": [
+      "Bỏ lại",
+      "bãi hoang"
+    ]
+  },
+  {
+    "word": "accurate",
+    "pos": "adj",
+    "ipa": "/ˈæk.jə.rət/",
+    "meaningVi": "chính_xác",
+    "defVi": "Đúng hoàn_toàn, | không có sai_lệch | dù rất nhỏ.",
+    "leadVi": "Mũi tên cắm trúng | ngay chính giữa | hồng_tâm.",
+    "anticipateVi": "Trúng phóc chưa?",
+    "usageEn": "The weather forecast was _____.",
+    "usageVi": "Dự_báo thời_tiết | rất=chính_xác.",
+    "topics": [
+      "thinking",
+      "work"
+    ],
+    "exams": [
+      "ielts",
+      "toeic"
+    ],
+    "emphasisVi": [
+      "sai lệch",
+      "hồng tâm"
+    ]
+  },
+  {
+    "word": "acknowledge",
+    "pos": "verb",
+    "ipa": "/əkˈnɒl.ɪdʒ/",
+    "meaningVi": "thừa_nhận",
+    "defVi": "Thừa_nhận | một điều là đúng hoặc có thật.",
+    "leadVi": "Sau hồi im_lặng, | anh=ấy gật_đầu | nhận phần sai.",
+    "anticipateVi": "Chịu nhận chưa?",
+    "usageEn": "He _____d that he had made a mistake.",
+    "usageVi": "Anh=ấy | thừa_nhận | mình đã=mắc lỗi.",
+    "topics": [
+      "communication"
+    ],
+    "exams": [
+      "ielts"
+    ],
+    "emphasisVi": [
+      "Thừa nhận",
+      "nhận phần"
+    ]
+  },
+  {
+    "word": "adapt",
+    "pos": "verb",
+    "ipa": "/əˈdæpt/",
+    "meaningVi": "thích_nghi",
+    "defVi": "Thay_đổi bản_thân | cho hợp | với hoàn_cảnh mới.",
+    "leadVi": "Mới sang xứ lạnh, | dần quen bánh_mì, | áo dày.",
+    "anticipateVi": "Nhập gia | tùy tục chứ?",
+    "usageEn": "It took me months to _____ to the new job.",
+    "usageVi": "Tôi mất mấy tháng | để thích_nghi | với công_việc mới.",
+    "topics": [
+      "work",
+      "character"
+    ],
+    "exams": [
+      "ielts",
+      "toefl"
+    ],
+    "emphasisVi": [
+      "hoàn cảnh",
+      "xứ lạnh"
+    ]
+  },
+  {
+    "word": "adequate",
+    "pos": "adj",
+    "ipa": "/ˈæd.ɪ.kwət/",
+    "meaningVi": "đủ, thỏa_đáng",
+    "defVi": "Vừa đủ | về số_lượng hay chất_lượng | cho nhu_cầu.",
+    "leadVi": "Không dư dả, | nhưng cũng chẳng thiếu thứ gì.",
+    "anticipateVi": "Vừa đủ xài không?",
+    "usageEn": "The food was _____ for ten people.",
+    "usageVi": "Thức_ăn | đủ cho mười người.",
+    "topics": [
+      "general"
+    ],
+    "exams": [
+      "ielts",
+      "toefl"
+    ],
+    "emphasisVi": [
+      "Vừa đủ",
+      "dư dả"
+    ]
+  },
+  {
+    "word": "aggressive",
+    "pos": "adj",
+    "ipa": "/əˈɡres.ɪv/",
+    "meaningVi": "hung_hăng",
+    "defVi": "Hay gây_gổ, | sẵn_sàng | tấn_công người khác.",
+    "leadVi": "Chó dữ nhe nanh, | gầm gừ với mọi người | qua cổng.",
+    "anticipateVi": "Nhe nanh | với ai đó?",
+    "usageEn": "The dog became _____ when strangers came near.",
+    "usageVi": "Con_chó | trở_nên hung_hăng | khi người lạ đến gần.",
+    "topics": [
+      "character",
+      "emotion"
+    ],
+    "exams": [],
+    "emphasisVi": [
+      "gây gổ",
+      "nhe nanh"
+    ]
+  },
+  {
+    "word": "ambition",
+    "pos": "noun",
+    "ipa": "/æmˈbɪʃ.ən/",
+    "meaningVi": "hoài_bão, tham_vọng",
+    "defVi": "Khát_vọng mạnh_mẽ | muốn đạt thành_công | hay địa_vị.",
+    "leadVi": "Cậu bé làng nghèo | ấp_ủ mơ | dựng công_ty riêng.",
+    "anticipateVi": "Ước mơ | lớn cỡ nào?",
+    "usageEn": "Her _____ is to become a judge.",
+    "usageVi": "Hoài_bão của=cô ấy | là trở_thành thẩm_phán.",
+    "topics": [
+      "work",
+      "character"
+    ],
+    "exams": [
+      "ielts"
+    ],
+    "emphasisVi": [
+      "Khát vọng",
+      "ấp ủ"
+    ]
+  },
+  {
+    "word": "anxiety",
+    "pos": "noun",
+    "ipa": "/æŋˈzaɪ.ə.ti/",
+    "meaningVi": "sự=lo_âu",
+    "defVi": "Cảm_giác lo_âu, | bồn_chồn | về điều sắp tới.",
+    "leadVi": "Đêm trước kỳ thi, | trằn_trọc mãi | không chợp mắt.",
+    "anticipateVi": "Trằn trọc | vì đâu?",
+    "usageEn": "Exams cause a lot of _____ for students.",
+    "usageVi": "Kỳ thi | gây nhiều lo_âu | cho học_sinh.",
+    "topics": [
+      "emotion",
+      "health"
+    ],
+    "exams": [],
+    "emphasisVi": [
+      "lo âu",
+      "trằn trọc"
+    ]
+  },
+  {
+    "word": "appeal",
+    "pos": "verb",
+    "ipa": "/əˈpiːl/",
+    "meaningVi": "thu_hút, hấp_dẫn",
+    "defVi": "Hấp_dẫn | hoặc khiến ai đó | thấy thích thú.",
+    "leadVi": "Món_ăn đường phố | khiến khách tây | mê tít.",
+    "anticipateVi": "Mê tít vì đâu?",
+    "usageEn": "The idea of living abroad doesn't _____ to me.",
+    "usageVi": "Ý_tưởng | sống ở nước_ngoài | không hấp_dẫn tôi.",
+    "topics": [
+      "emotion",
+      "society"
+    ],
+    "exams": [
+      "ielts",
+      "toeic"
+    ],
+    "emphasisVi": [
+      "Hấp dẫn",
+      "mê tít"
+    ]
+  },
+  {
+    "word": "approach",
+    "pos": "noun",
+    "ipa": "/əˈprəʊtʃ/",
+    "meaningVi": "cách tiếp_cận",
+    "defVi": "Cách tiếp_cận | hoặc phương_pháp | giải_quyết một vấn_đề.",
+    "leadVi": "Thay vì la_mắng, | cô giáo chọn | lắng_nghe học_trò.",
+    "anticipateVi": "Đổi cách làm thử?",
+    "usageEn": "We need a new _____ to this problem.",
+    "usageVi": "Chúng_ta cần | cách tiếp_cận mới | cho vấn_đề này.",
+    "topics": [
+      "thinking",
+      "work"
+    ],
+    "exams": [
+      "ielts",
+      "toeic"
+    ],
+    "emphasisVi": [
+      "tiếp cận",
+      "lắng nghe"
+    ]
+  },
+  {
+    "word": "assess",
+    "pos": "verb",
+    "ipa": "/əˈses/",
+    "meaningVi": "đánh_giá",
+    "defVi": "Xem_xét kỹ | để đưa ra nhận_định | về giá_trị.",
+    "leadVi": "Chuyên_gia | đi quanh căn_nhà, | ghi_chép từng vết nứt.",
+    "anticipateVi": "Chấm điểm thế nào?",
+    "usageEn": "Teachers _____ students' progress every term.",
+    "usageVi": "Giáo_viên | đánh_giá tiến_bộ của=học_sinh | mỗi kỳ.",
+    "topics": [
+      "study",
+      "work"
+    ],
+    "exams": [
+      "ielts",
+      "toeic"
+    ],
+    "emphasisVi": [
+      "nhận định",
+      "vết nứt"
+    ]
+  },
+  {
+    "word": "assume",
+    "pos": "verb",
+    "ipa": "/əˈsjuːm/",
+    "meaningVi": "cho rằng",
+    "defVi": "Cho là đúng | mà chưa có | bằng_chứng chắc_chắn.",
+    "leadVi": "Thấy đèn tắt, | tưởng ngay cả nhà đã ngủ.",
+    "anticipateVi": "Tưởng vậy | mà sai?",
+    "usageEn": "I _____d you already knew.",
+    "usageVi": "Tôi cứ tưởng | bạn biết rồi.",
+    "topics": [
+      "thinking"
+    ],
+    "exams": [
+      "ielts"
+    ],
+    "emphasisVi": [
+      "bằng chứng",
+      "tưởng ngay"
+    ]
+  },
+  {
+    "word": "attitude",
+    "pos": "noun",
+    "ipa": "/ˈæt.ɪ.tʃuːd/",
+    "meaningVi": "thái_độ",
+    "defVi": "Cách nghĩ và cảm_nhận | thể_hiện | qua hành_vi.",
+    "leadVi": "Thua trận vẫn mỉm cười, | hẹn ngày phục_thù.",
+    "anticipateVi": "Nhìn đời ra sao?",
+    "usageEn": "She has a positive _____ to life.",
+    "usageVi": "Cô=ấy có thái_độ | tích_cực | với cuộc_sống.",
+    "topics": [
+      "character",
+      "thinking"
+    ],
+    "exams": [
+      "ielts"
+    ],
+    "emphasisVi": [
+      "cảm nhận",
+      "phục thù"
+    ]
+  },
+  {
+    "word": "authority",
+    "pos": "noun",
+    "ipa": "/ɔːˈθɒr.ə.ti/",
+    "meaningVi": "quyền_hạn",
+    "defVi": "Quyền ra lệnh | và đưa ra quyết_định | với người khác.",
+    "leadVi": "Một chữ_ký của=ông | là cả phòng | phải làm theo.",
+    "anticipateVi": "Ai nắm quyền | ở đây?",
+    "usageEn": "Only the manager has the _____ to sign this.",
+    "usageVi": "Chỉ quản_lý | mới có thẩm_quyền | ký văn_bản này.",
+    "topics": [
+      "work",
+      "society"
+    ],
+    "exams": [
+      "ielts",
+      "toeic"
+    ],
+    "emphasisVi": [
+      "ra lệnh",
+      "làm theo"
+    ]
+  },
+  {
+    "word": "aware",
+    "pos": "adj",
+    "ipa": "/əˈweər/",
+    "meaningVi": "nhận_thức được, biết",
+    "defVi": "Biết rõ | hoặc nhận ra | điều gì đang=diễn_ra.",
+    "leadVi": "Mải nói_chuyện, | cô vẫn để_ý | tiếng chân | sau lưng.",
+    "anticipateVi": "Bạn có để ý không?",
+    "usageEn": "Are you _____ of the risks?",
+    "usageVi": "Bạn có nhận_thức được | những rủi_ro không?",
+    "topics": [
+      "attention",
+      "thinking"
+    ],
+    "exams": [
+      "ielts"
+    ],
+    "emphasisVi": [
+      "nhận ra",
+      "để ý"
+    ]
+  },
+  {
+    "word": "benefit",
+    "pos": "noun",
+    "ipa": "/ˈben.ɪ.fɪt/",
+    "meaningVi": "lợi_ích",
+    "defVi": "Điều tốt đẹp | mà ai đó nhận được | từ việc gì.",
+    "leadVi": "Đi bộ mỗi sáng, | ngủ ngon hơn, | đầu_óc minh_mẫn.",
+    "anticipateVi": "Được gì | từ chuyện này?",
+    "usageEn": "Exercise has many health _____s.",
+    "usageVi": "Tập_luyện | mang lại nhiều lợi_ích | cho sức_khỏe.",
+    "topics": [
+      "health",
+      "money"
+    ],
+    "exams": [
+      "ielts",
+      "toeic"
+    ],
+    "emphasisVi": [
+      "tốt đẹp",
+      "minh mẫn"
+    ]
+  },
+  {
+    "word": "brief",
+    "pos": "adj",
+    "ipa": "/briːf/",
+    "meaningVi": "ngắn_gọn",
+    "defVi": "Ngắn_gọn, | chỉ kéo_dài | trong thời_gian ngắn.",
+    "leadVi": "Ghé qua | chào một câu | rồi vội_vã đi ngay.",
+    "anticipateVi": "Chỉ một chốc thôi?",
+    "usageEn": "She gave a _____ speech.",
+    "usageVi": "Cô=ấy có | một bài phát_biểu ngắn.",
+    "topics": [
+      "time",
+      "communication"
+    ],
+    "exams": [
+      "ielts",
+      "toeic"
+    ],
+    "emphasisVi": [
+      "Ngắn gọn",
+      "vội vã"
+    ]
+  },
+  {
+    "word": "capable",
+    "pos": "adj",
+    "ipa": "/ˈkeɪ.pə.bəl/",
+    "meaningVi": "có khả_năng",
+    "defVi": "Có đủ năng_lực | để làm tốt một việc.",
+    "leadVi": "Giao việc khó nào | cô=ấy cũng xử_lý | gọn_gàng.",
+    "anticipateVi": "Giao được việc chứ?",
+    "usageEn": "He is _____ of running the team.",
+    "usageVi": "Anh=ấy | đủ khả_năng | điều_hành cả nhóm.",
+    "topics": [
+      "work",
+      "character"
+    ],
+    "exams": [
+      "ielts",
+      "toeic"
+    ],
+    "emphasisVi": [
+      "năng lực",
+      "xử lý"
+    ]
+  },
+  {
+    "word": "cautious",
+    "pos": "adj",
+    "ipa": "/ˈkɔː.ʃəs/",
+    "meaningVi": "thận_trọng",
+    "defVi": "Thận_trọng, | tránh rủi_ro | và cân_nhắc trước khi làm.",
+    "leadVi": "Dò từng bước | trên băng mỏng, | chẳng dám vội.",
+    "anticipateVi": "Dò đá qua sông à?",
+    "usageEn": "Be _____ when investing your money.",
+    "usageVi": "Hãy thận_trọng | khi đầu_tư | tiền của=bạn.",
+    "topics": [
+      "character"
+    ],
+    "exams": [
+      "ielts"
+    ],
+    "emphasisVi": [
+      "rủi ro",
+      "băng mỏng"
+    ]
+  },
+  {
+    "word": "circumstance",
+    "pos": "noun",
+    "ipa": "/ˈsɜː.kəm.stæns/",
+    "meaningVi": "hoàn_cảnh",
+    "defVi": "Hoàn_cảnh | hoặc điều_kiện | xung_quanh một sự_việc.",
+    "leadVi": "Nhà nghèo, | đường xa, | cậu vẫn đến lớp | đều_đặn.",
+    "anticipateVi": "Gặp cảnh nào rồi?",
+    "usageEn": "Under no _____s should you open this door.",
+    "usageVi": "Trong bất_cứ hoàn_cảnh nào | bạn cũng không được | mở cửa này.",
+    "topics": [
+      "society",
+      "general"
+    ],
+    "exams": [
+      "ielts"
+    ],
+    "emphasisVi": [
+      "điều kiện",
+      "đều đặn"
+    ]
+  },
+  {
+    "word": "colleague",
+    "pos": "noun",
+    "ipa": "/ˈkɒl.iːɡ/",
+    "meaningVi": "đồng_nghiệp",
+    "defVi": "Người làm_việc | cùng cơ_quan | hoặc cùng nghề | với mình.",
+    "leadVi": "Bàn kế bên, | ngày ngày | chia nhau | cốc cà_phê sáng.",
+    "anticipateVi": "Bàn kế bên là ai?",
+    "usageEn": "My _____s are very friendly.",
+    "usageVi": "Đồng_nghiệp của=tôi | rất=thân_thiện.",
+    "topics": [
+      "work"
+    ],
+    "exams": [
+      "toeic"
+    ],
+    "emphasisVi": [
+      "cơ quan",
+      "Bàn kế"
+    ]
+  },
+  {
+    "word": "commitment",
+    "pos": "noun",
+    "ipa": "/kəˈmɪt.mənt/",
+    "meaningVi": "sự=cam_kết",
+    "defVi": "Sự cam_kết | dồn tâm_sức | theo_đuổi điều đã hứa.",
+    "leadVi": "Mười năm | chưa nghỉ buổi nào, | đều_đặn tới lớp.",
+    "anticipateVi": "Hứa là làm chứ?",
+    "usageEn": "Marriage is a big _____.",
+    "usageVi": "Hôn_nhân | là một cam_kết lớn.",
+    "topics": [
+      "character",
+      "work"
+    ],
+    "exams": [
+      "ielts",
+      "toeic"
+    ],
+    "emphasisVi": [
+      "cam kết",
+      "đều đặn"
+    ]
+  },
+  {
+    "word": "compromise",
+    "pos": "noun",
+    "ipa": "/ˈkɒm.prə.maɪz/",
+    "meaningVi": "sự=thỏa_hiệp",
+    "defVi": "Thỏa_thuận | mà mỗi bên nhường nhau một chút.",
+    "leadVi": "Anh muốn biển, | em muốn núi, | đành chọn hồ | ở giữa.",
+    "anticipateVi": "Mỗi bên | lùi một bước?",
+    "usageEn": "After long talks, they reached a _____.",
+    "usageVi": "Sau nhiều cuộc bàn_bạc, | họ đã=đạt được | thỏa_hiệp.",
+    "topics": [
+      "communication",
+      "work"
+    ],
+    "exams": [
+      "ielts",
+      "toeic"
+    ],
+    "emphasisVi": [
+      "Thỏa thuận",
+      "ở giữa"
+    ]
+  },
+  {
+    "word": "conclude",
+    "pos": "verb",
+    "ipa": "/kənˈkluːd/",
+    "meaningVi": "kết_luận",
+    "defVi": "Rút ra nhận_định | sau khi xem_xét | mọi thông_tin.",
+    "leadVi": "Dấu chân bùn, | cửa mở, | thám_tử chỉ ra thủ_phạm.",
+    "anticipateVi": "Rốt cuộc là sao?",
+    "usageEn": "The report _____s that prices will rise.",
+    "usageVi": "Bản báo_cáo kết_luận | rằng giá sẽ tăng.",
+    "topics": [
+      "thinking",
+      "study"
+    ],
+    "exams": [
+      "ielts",
+      "toefl"
+    ],
+    "emphasisVi": [
+      "Rút ra",
+      "thám tử"
+    ]
+  },
+  {
+    "word": "consequence",
+    "pos": "noun",
+    "ipa": "/ˈkɒn.sɪ.kwəns/",
+    "meaningVi": "hậu_quả",
+    "defVi": "Kết_quả, | thường không hay, | do một hành_động gây ra.",
+    "leadVi": "Thức trắng mấy đêm, | sáng ra mắt thâm_quầng, | choáng_váng.",
+    "anticipateVi": "Gieo gió | thì gặt gì?",
+    "usageEn": "You must accept the _____s of your actions.",
+    "usageVi": "Bạn phải chấp_nhận | hậu_quả | từ hành_động của=mình.",
+    "topics": [
+      "thinking",
+      "society"
+    ],
+    "exams": [
+      "ielts",
+      "toefl"
+    ],
+    "emphasisVi": [
+      "hành động",
+      "thâm quầng"
+    ]
+  },
+  {
+    "word": "consistent",
+    "pos": "adj",
+    "ipa": "/kənˈsɪs.tənt/",
+    "meaningVi": "ổn_định, nhất_quán",
+    "defVi": "Luôn giữ một cách làm | hay chất_lượng | theo thời_gian.",
+    "leadVi": "Mưa hay nắng, | sáu giờ | anh vẫn có_mặt | ở sân.",
+    "anticipateVi": "Trước sau | như một?",
+    "usageEn": "Her work has been _____ all year.",
+    "usageVi": "Cả năm nay | công_việc của=cô ấy | rất=ổn_định.",
+    "topics": [
+      "character",
+      "work"
+    ],
+    "exams": [
+      "ielts"
+    ],
+    "emphasisVi": [
+      "chất lượng",
+      "có mặt"
+    ]
+  },
+  {
+    "word": "contribute",
+    "pos": "verb",
+    "ipa": "/kənˈtrɪb.juːt/",
+    "meaningVi": "đóng_góp",
+    "defVi": "Góp sức, góp tiền | hoặc ý_tưởng | vào việc chung.",
+    "leadVi": "Mỗi nhà một ít, | cả xóm dựng được | nhà văn_hóa.",
+    "anticipateVi": "Mỗi người góp gì?",
+    "usageEn": "Everyone _____d to the project.",
+    "usageVi": "Mọi người | đều đóng_góp | vào dự_án.",
+    "topics": [
+      "society",
+      "work"
+    ],
+    "exams": [
+      "ielts",
+      "toeic"
+    ],
+    "emphasisVi": [
+      "việc chung",
+      "cả xóm"
+    ]
+  },
+  {
+    "word": "controversial",
+    "pos": "adj",
+    "ipa": "/ˌkɒn.trəˈvɜː.ʃəl/",
+    "meaningVi": "gây tranh_cãi",
+    "defVi": "Gây ra | nhiều ý_kiến trái_ngược | và tranh_cãi.",
+    "leadVi": "Bài vừa đăng, | bình_luận | chia hai phe | cãi nảy lửa.",
+    "anticipateVi": "Phe nào đúng đây?",
+    "usageEn": "The new law is very _____.",
+    "usageVi": "Luật mới | đang gây nhiều tranh_cãi.",
+    "topics": [
+      "society",
+      "communication"
+    ],
+    "exams": [
+      "ielts",
+      "toefl"
+    ],
+    "emphasisVi": [
+      "tranh cãi",
+      "nảy lửa"
+    ]
+  },
+  {
+    "word": "cope",
+    "pos": "verb",
+    "ipa": "/kəʊp/",
+    "meaningVi": "xoay_xở, đương_đầu",
+    "defVi": "Xoay_xở | để vượt qua | tình_huống khó_khăn.",
+    "leadVi": "Một mình | nuôi ba con, | chị vẫn lo đủ | cơm áo.",
+    "anticipateVi": "Xoay xở nổi không?",
+    "usageEn": "She _____d well with the pressure.",
+    "usageVi": "Cô=ấy đã=đối_phó tốt | với áp_lực.",
+    "topics": [
+      "emotion",
+      "character"
+    ],
+    "exams": [
+      "ielts"
+    ],
+    "emphasisVi": [
+      "Xoay xở",
+      "cơm áo"
+    ]
+  },
+  {
+    "word": "crucial",
+    "pos": "adj",
+    "ipa": "/ˈkruː.ʃəl/",
+    "meaningVi": "then_chốt, cực_kỳ quan_trọng",
+    "defVi": "Cực_kỳ quan_trọng, | ảnh_hưởng quyết_định | đến kết_quả.",
+    "leadVi": "Phút cuối trận, | cú sút này | định_đoạt tất_cả.",
+    "anticipateVi": "Then chốt ở đâu?",
+    "usageEn": "This decision is _____ for our future.",
+    "usageVi": "Quyết_định này | then_chốt | cho tương_lai chúng_ta.",
+    "topics": [
+      "thinking",
+      "work"
+    ],
+    "exams": [
+      "ielts",
+      "toefl"
+    ],
+    "emphasisVi": [
+      "quyết định",
+      "định đoạt"
+    ]
+  },
+  {
+    "word": "decline",
+    "pos": "verb",
+    "ipa": "/dɪˈklaɪn/",
+    "meaningVi": "suy_giảm",
+    "defVi": "Giảm dần | về số_lượng, | chất_lượng | hay sức_mạnh.",
+    "leadVi": "Biểu_đồ doanh_số | cứ đi xuống | từng tháng.",
+    "anticipateVi": "Đi xuống dốc rồi?",
+    "usageEn": "Sales have _____d this year.",
+    "usageVi": "Năm nay | doanh_số | đã=sụt_giảm.",
+    "topics": [
+      "money",
+      "work"
+    ],
+    "exams": [
+      "ielts",
+      "toeic"
+    ],
+    "emphasisVi": [
+      "Giảm dần",
+      "đi xuống"
+    ]
+  },
+  {
+    "word": "demand",
+    "pos": "noun",
+    "ipa": "/dɪˈmɑːnd/",
+    "meaningVi": "nhu_cầu",
+    "defVi": "Mức người mua | muốn có | một loại hàng nào đó.",
+    "leadVi": "Hè nóng đỉnh_điểm, | quạt máy | cháy hàng khắp chợ.",
+    "anticipateVi": "Cháy hàng vì đâu?",
+    "usageEn": "There is a high _____ for electric cars.",
+    "usageVi": "Nhu_cầu | về xe điện | đang rất=cao.",
+    "topics": [
+      "money",
+      "work"
+    ],
+    "exams": [
+      "ielts",
+      "toeic"
+    ],
+    "emphasisVi": [
+      "người mua",
+      "cháy hàng"
+    ]
+  },
+  {
+    "word": "deny",
+    "pos": "verb",
+    "ipa": "/dɪˈnaɪ/",
+    "meaningVi": "phủ_nhận",
+    "defVi": "Nói rằng | điều người khác cáo_buộc | là không đúng.",
+    "leadVi": "Bị bắt quả tang, | cậu=ta | vẫn lắc đầu chối phăng.",
+    "anticipateVi": "Chối được không?",
+    "usageEn": "He _____d breaking the window.",
+    "usageVi": "Anh=ta | phủ_nhận | việc làm vỡ cửa kính.",
+    "topics": [
+      "communication"
+    ],
+    "exams": [],
+    "emphasisVi": [
+      "cáo buộc",
+      "chối phăng"
+    ]
+  },
+  {
+    "word": "determine",
+    "pos": "verb",
+    "ipa": "/dɪˈtɜː.mɪn/",
+    "meaningVi": "xác_định",
+    "defVi": "Tìm ra | hoặc quyết_định | chính_xác | một điều gì.",
+    "leadVi": "Nhìn vân tay, | cảnh_sát đã biết | ai từng vào phòng.",
+    "anticipateVi": "Ai chốt hạ đây?",
+    "usageEn": "Tests will _____ the cause of the illness.",
+    "usageVi": "Các xét_nghiệm | sẽ xác_định | nguyên_nhân gây bệnh.",
+    "topics": [
+      "thinking",
+      "study"
+    ],
+    "exams": [
+      "ielts",
+      "toefl"
+    ],
+    "emphasisVi": [
+      "chính xác",
+      "vân tay"
+    ]
+  },
+  {
+    "word": "distract",
+    "pos": "verb",
+    "ipa": "/dɪˈstrækt/",
+    "meaningVi": "làm phân_tâm",
+    "defVi": "Làm ai đó mất tập_trung | vào việc đang=làm.",
+    "leadVi": "Đang học bài, | điện_thoại rung | là mắt liếc ngay.",
+    "anticipateVi": "Liếc sang đâu thế?",
+    "usageEn": "Don't _____ me while I'm driving.",
+    "usageVi": "Đừng làm tôi | xao_nhãng | khi lái xe.",
+    "topics": [
+      "attention"
+    ],
+    "exams": [
+      "ielts"
+    ],
+    "emphasisVi": [
+      "tập trung",
+      "mắt liếc"
+    ]
+  },
+  {
+    "word": "diverse",
+    "pos": "adj",
+    "ipa": "/daɪˈvɜːs/",
+    "meaningVi": "đa_dạng",
+    "defVi": "Gồm nhiều loại khác nhau, | phong_phú | về mọi mặt.",
+    "leadVi": "Lớp học | có bạn từ năm châu, | nói đủ thứ tiếng.",
+    "anticipateVi": "Muôn màu muôn vẻ?",
+    "usageEn": "London is a very _____ city.",
+    "usageVi": "Luân_Đôn | là thành_phố rất=đa_dạng.",
+    "topics": [
+      "society",
+      "nature"
+    ],
+    "exams": [
+      "ielts",
+      "toefl"
+    ],
+    "emphasisVi": [
+      "phong phú",
+      "năm châu"
+    ]
+  },
+  {
+    "word": "eager",
+    "pos": "adj",
+    "ipa": "/ˈiː.ɡər/",
+    "meaningVi": "háo_hức",
+    "defVi": "Háo_hức, | rất muốn làm | hoặc có điều gì đó.",
+    "leadVi": "Ngày ngày đếm lịch | chờ chuyến_đi | nước_ngoài đầu_tiên.",
+    "anticipateVi": "Nóng lòng chờ chưa?",
+    "usageEn": "The children are _____ to start school.",
+    "usageVi": "Bọn trẻ | háo_hức được đi học.",
+    "topics": [
+      "emotion"
+    ],
+    "exams": [],
+    "emphasisVi": [
+      "Háo hức",
+      "đếm lịch"
+    ]
+  },
+  {
+    "word": "emerge",
+    "pos": "verb",
+    "ipa": "/ɪˈmɜːdʒ/",
+    "meaningVi": "hiện ra, xuất_hiện",
+    "defVi": "Xuất_hiện | hoặc lộ ra | sau khi bị che_khuất.",
+    "leadVi": "Sương tan dần, | ngọn_núi hiện ra sừng_sững.",
+    "anticipateVi": "Ló dạng rồi kìa?",
+    "usageEn": "The sun _____d from behind the clouds.",
+    "usageVi": "Mặt_trời | ló ra | sau đám mây.",
+    "topics": [
+      "nature",
+      "perception"
+    ],
+    "exams": [
+      "ielts",
+      "toefl"
+    ],
+    "emphasisVi": [
+      "Xuất hiện",
+      "sừng sững"
+    ]
+  },
+  {
+    "word": "emphasize",
+    "pos": "verb",
+    "ipa": "/ˈem.fə.saɪz/",
+    "meaningVi": "nhấn_mạnh",
+    "defVi": "Nhấn_mạnh | để người khác chú_ý | đến điều quan_trọng.",
+    "leadVi": "Cô giáo gạch chân hai lần | rồi gõ thước | lên bảng.",
+    "anticipateVi": "Gạch chân mấy lần?",
+    "usageEn": "He _____d the need for safety.",
+    "usageVi": "Ông=ấy nhấn_mạnh | sự cần_thiết | của=an_toàn.",
+    "topics": [
+      "communication"
+    ],
+    "exams": [
+      "ielts",
+      "toefl"
+    ],
+    "emphasisVi": [
+      "quan trọng",
+      "gạch chân"
+    ]
+  },
+  {
+    "word": "encounter",
+    "pos": "verb",
+    "ipa": "/ɪnˈkaʊn.tər/",
+    "meaningVi": "gặp phải",
+    "defVi": "Bất_ngờ gặp phải | người, sự_việc hay khó_khăn.",
+    "leadVi": "Đi rừng một_mình, | chạm mặt ngay | con_rắn lớn.",
+    "anticipateVi": "Chạm mặt ai thế?",
+    "usageEn": "We _____ed many problems on the trip.",
+    "usageVi": "Chúng_tôi gặp phải | nhiều trục_trặc | trong chuyến_đi.",
+    "topics": [
+      "travel",
+      "general"
+    ],
+    "exams": [
+      "ielts",
+      "toefl"
+    ],
+    "emphasisVi": [
+      "gặp phải",
+      "chạm mặt"
+    ]
+  },
+  {
+    "word": "enhance",
+    "pos": "verb",
+    "ipa": "/ɪnˈhɑːns/",
+    "meaningVi": "nâng_cao, tôn lên",
+    "defVi": "Làm tăng thêm | giá_trị, chất_lượng | hay vẻ đẹp.",
+    "leadVi": "Thêm chút đèn vàng, | căn_phòng bỗng ấm_cúng hẳn.",
+    "anticipateVi": "Đẹp thêm nữa sao?",
+    "usageEn": "Good lighting can _____ a photo.",
+    "usageVi": "Ánh_sáng tốt | có_thể làm bức_ảnh | đẹp hơn.",
+    "topics": [
+      "general"
+    ],
+    "exams": [
+      "ielts",
+      "toefl"
+    ],
+    "emphasisVi": [
+      "giá trị",
+      "ấm cúng"
+    ]
+  },
+  {
+    "word": "estimate",
+    "pos": "verb",
+    "ipa": "/ˈes.tɪ.meɪt/",
+    "meaningVi": "ước_tính",
+    "defVi": "Đoán gần đúng | số_lượng hay giá_trị | từ thông_tin.",
+    "leadVi": "Nhìn đám_đông, | anh nhẩm chắc | tầm ngàn người.",
+    "anticipateVi": "Tầm bao nhiêu nhỉ?",
+    "usageEn": "They _____ the cost at two million.",
+    "usageVi": "Họ ước_tính chi_phí | khoảng hai triệu.",
+    "topics": [
+      "thinking",
+      "money"
+    ],
+    "exams": [
+      "ielts",
+      "toeic"
+    ],
+    "emphasisVi": [
+      "gần đúng",
+      "nhẩm chắc"
+    ]
+  },
+  {
+    "word": "evidence",
+    "pos": "noun",
+    "ipa": "/ˈev.ɪ.dəns/",
+    "meaningVi": "bằng_chứng",
+    "defVi": "Thứ chứng_minh | một điều là thật hoặc đúng.",
+    "leadVi": "Dấu vân tay trên ly | khiến nghi_phạm | hết đường chối.",
+    "anticipateVi": "Lấy gì làm chứng?",
+    "usageEn": "There is no _____ that he was there.",
+    "usageVi": "Không có bằng_chứng nào | cho thấy | anh=ta ở đó.",
+    "topics": [
+      "thinking",
+      "society"
+    ],
+    "exams": [
+      "ielts",
+      "toefl"
+    ],
+    "emphasisVi": [
+      "chứng minh",
+      "hết đường"
+    ]
+  },
+  {
+    "word": "evaluate",
+    "pos": "verb",
+    "ipa": "/ɪˈvæl.ju.eɪt/",
+    "meaningVi": "đánh_giá",
+    "defVi": "Cân_nhắc kỹ | để đánh_giá | tốt xấu hay giá_trị.",
+    "leadVi": "Đọc xong hồ_sơ, | hội_đồng chấm điểm | từng ứng_viên.",
+    "anticipateVi": "Chấm thang mấy điểm?",
+    "usageEn": "We must _____ the results carefully.",
+    "usageVi": "Chúng_ta phải đánh_giá | kết_quả | thật cẩn_thận.",
+    "topics": [
+      "thinking",
+      "work"
+    ],
+    "exams": [
+      "ielts",
+      "toefl"
+    ],
+    "emphasisVi": [
+      "Cân nhắc",
+      "chấm điểm"
+    ]
+  },
+  {
+    "word": "exaggerate",
+    "pos": "verb",
+    "ipa": "/ɪɡˈzædʒ.ə.reɪt/",
+    "meaningVi": "phóng_đại",
+    "defVi": "Nói quá lên, | làm sự_việc to hơn | sự_thật.",
+    "leadVi": "Câu được cá | bằng bàn_tay, | kể thành | bằng cái_thuyền.",
+    "anticipateVi": "Thêm mắm thêm muối à?",
+    "usageEn": "Don't _____, it wasn't that bad.",
+    "usageVi": "Đừng phóng_đại, | nó không tệ đến thế.",
+    "topics": [
+      "communication"
+    ],
+    "exams": [],
+    "emphasisVi": [
+      "Nói quá",
+      "cái thuyền"
+    ]
+  },
+  {
+    "word": "expand",
+    "pos": "verb",
+    "ipa": "/ɪkˈspænd/",
+    "meaningVi": "mở_rộng",
+    "defVi": "Mở_rộng | về kích_thước, | phạm_vi | hay số_lượng.",
+    "leadVi": "Từ một quán nhỏ, | giờ đã có | mười chi_nhánh.",
+    "anticipateVi": "Lớn mạnh tới đâu?",
+    "usageEn": "The company plans to _____ into Asia.",
+    "usageVi": "Công_ty dự_định | mở_rộng | sang châu Á.",
+    "topics": [
+      "work",
+      "money"
+    ],
+    "exams": [
+      "ielts",
+      "toeic"
+    ],
+    "emphasisVi": [
+      "Mở rộng",
+      "chi nhánh"
+    ]
+  },
+  {
+    "word": "expose",
+    "pos": "verb",
+    "ipa": "/ɪkˈspəʊz/",
+    "meaningVi": "phơi ra, để lộ",
+    "defVi": "Để lộ ra | hoặc đặt vào chỗ | không được che_chắn.",
+    "leadVi": "Phơi da trưa hè | không bôi kem, | tối về rát bỏng.",
+    "anticipateVi": "Phơi ra nắng à?",
+    "usageEn": "Don't _____ your skin to the sun too long.",
+    "usageVi": "Đừng để da | tiếp_xúc ánh nắng | quá lâu.",
+    "topics": [
+      "health"
+    ],
+    "exams": [
+      "ielts",
+      "toefl"
+    ],
+    "emphasisVi": [
+      "che chắn",
+      "rát bỏng"
+    ]
+  },
+  {
+    "word": "flexible",
+    "pos": "adj",
+    "ipa": "/ˈflek.sə.bəl/",
+    "meaningVi": "linh_hoạt",
+    "defVi": "Dễ thay_đổi, | thích_ứng được | với nhiều tình_huống.",
+    "leadVi": "Sáng ở nhà, | chiều lên văn_phòng, | giờ_giấc tùy ý.",
+    "anticipateVi": "Co giãn được chứ?",
+    "usageEn": "I have a _____ work schedule.",
+    "usageVi": "Tôi có lịch làm_việc | linh_hoạt.",
+    "topics": [
+      "work"
+    ],
+    "exams": [
+      "ielts",
+      "toeic"
+    ],
+    "emphasisVi": [
+      "thích ứng",
+      "giờ giấc"
+    ]
+  },
+  {
+    "word": "frustrated",
+    "pos": "adj",
+    "ipa": "/frʌsˈtreɪ.tɪd/",
+    "meaningVi": "bực_bội",
+    "defVi": "Bực_bội, chán_nản | vì không làm được | điều mong_muốn.",
+    "leadVi": "Sửa mãi vẫn hỏng, | anh đập tay xuống bàn | thở dài.",
+    "anticipateVi": "Bực mình lắm hả?",
+    "usageEn": "I feel _____ when my computer is slow.",
+    "usageVi": "Tôi thấy bực_bội | khi máy_tính | chạy chậm.",
+    "topics": [
+      "emotion"
+    ],
+    "exams": [],
+    "emphasisVi": [
+      "chán nản",
+      "thở dài"
+    ]
+  },
+  {
+    "word": "fundamental",
+    "pos": "adj",
+    "ipa": "/ˌfʌn.dəˈmen.təl/",
+    "meaningVi": "cơ_bản",
+    "defVi": "Thuộc về | nền_tảng, cốt_lõi nhất | của=một vấn_đề.",
+    "leadVi": "Muốn xây nhà cao, | phải đổ móng vững | trước tiên.",
+    "anticipateVi": "Gốc rễ ở đâu?",
+    "usageEn": "Education is a _____ right.",
+    "usageVi": "Giáo_dục | là quyền cơ_bản.",
+    "topics": [
+      "thinking",
+      "study"
+    ],
+    "exams": [
+      "ielts",
+      "toefl"
+    ],
+    "emphasisVi": [
+      "nền tảng",
+      "đổ móng"
+    ]
+  },
+  {
+    "word": "genuine",
+    "pos": "adj",
+    "ipa": "/ˈdʒen.ju.ɪn/",
+    "meaningVi": "thật, chính_hiệu",
+    "defVi": "Thật sự, | không giả_tạo hay pha_trộn.",
+    "leadVi": "Ánh mắt rưng_rưng ấy | chẳng phải diễn | chút nào.",
+    "anticipateVi": "Hàng thật hay giả?",
+    "usageEn": "This is a _____ leather bag.",
+    "usageVi": "Đây là | túi da thật.",
+    "topics": [
+      "character",
+      "general"
+    ],
+    "exams": [],
+    "emphasisVi": [
+      "giả tạo",
+      "rưng rưng"
+    ]
+  },
+  {
+    "word": "grateful",
+    "pos": "adj",
+    "ipa": "/ˈɡreɪt.fəl/",
+    "meaningVi": "biết_ơn",
+    "defVi": "Biết_ơn | vì được người khác giúp_đỡ.",
+    "leadVi": "Ngày ra trường, | cậu cúi đầu | ôm thầy thật lâu.",
+    "anticipateVi": "Nhớ ơn ai đây?",
+    "usageEn": "I'm _____ for your help.",
+    "usageVi": "Tôi rất=biết_ơn | sự giúp_đỡ | của=bạn.",
+    "topics": [
+      "emotion",
+      "character"
+    ],
+    "exams": [],
+    "emphasisVi": [
+      "Biết ơn",
+      "ôm thầy"
+    ]
+  },
+  {
+    "word": "guarantee",
+    "pos": "verb",
+    "ipa": "/ˌɡær.ənˈtiː/",
+    "meaningVi": "bảo_đảm",
+    "defVi": "Cam_đoan chắc_chắn | điều gì sẽ xảy ra | hoặc đúng.",
+    "leadVi": "Hỏng trong một năm, | cửa_hàng đổi mới | không tính tiền.",
+    "anticipateVi": "Chắc_chắn trăm phần?",
+    "usageEn": "We _____ delivery within 24 hours.",
+    "usageVi": "Chúng_tôi bảo_đảm | giao hàng | trong hai mươi bốn giờ.",
+    "topics": [
+      "work",
+      "money"
+    ],
+    "exams": [
+      "toeic",
+      "ielts"
+    ],
+    "emphasisVi": [
+      "Cam đoan",
+      "đổi mới"
+    ]
+  },
+  {
+    "word": "hesitate",
+    "pos": "verb",
+    "ipa": "/ˈhez.ɪ.teɪt/",
+    "meaningVi": "do_dự, ngần_ngại",
+    "defVi": "Ngập_ngừng, | chưa dám quyết | vì còn phân_vân.",
+    "leadVi": "Tay chạm nút gửi, | rồi lại rụt về mấy lần.",
+    "anticipateVi": "Còn chần_chừ gì?",
+    "usageEn": "Don't _____ to ask questions.",
+    "usageVi": "Đừng ngần_ngại | đặt câu hỏi.",
+    "topics": [
+      "emotion",
+      "thinking"
+    ],
+    "exams": [],
+    "emphasisVi": [
+      "phân vân",
+      "rụt về"
+    ]
+  },
+  {
+    "word": "identify",
+    "pos": "verb",
+    "ipa": "/aɪˈden.tɪ.faɪ/",
+    "meaningVi": "nhận_diện, nhận_ra",
+    "defVi": "Nhận ra | và xác_định chính_xác | ai hoặc cái gì.",
+    "leadVi": "Nhìn ảnh, | bà cụ chỉ ngay | kẻ lấy túi.",
+    "anticipateVi": "Nhận mặt được không?",
+    "usageEn": "Can you _____ the man in the photo?",
+    "usageVi": "Bạn nhận_diện được | người đàn_ông | trong ảnh không?",
+    "topics": [
+      "thinking",
+      "perception"
+    ],
+    "exams": [
+      "ielts",
+      "toefl"
+    ],
+    "emphasisVi": [
+      "xác định",
+      "chỉ ngay"
+    ]
+  },
+  {
+    "word": "ignore",
+    "pos": "verb",
+    "ipa": "/ɪɡˈnɔːr/",
+    "meaningVi": "phớt_lờ",
+    "defVi": "Cố_tình | không để_ý | hoặc làm như không biết.",
+    "leadVi": "Bạn gọi mấy lần, | cậu vẫn đeo tai_nghe | quay đi.",
+    "anticipateVi": "Lờ đi luôn à?",
+    "usageEn": "She _____d my message.",
+    "usageVi": "Cô=ấy | phớt_lờ tin nhắn của=tôi.",
+    "topics": [
+      "attention",
+      "communication"
+    ],
+    "exams": [
+      "ielts"
+    ],
+    "emphasisVi": [
+      "Cố tình",
+      "quay đi"
+    ]
+  },
+  {
+    "word": "impact",
+    "pos": "noun",
+    "ipa": "/ˈɪm.pækt/",
+    "meaningVi": "tác_động",
+    "defVi": "Tác_động mạnh | của=một sự_việc | lên người hay vật.",
+    "leadVi": "Một nhà_máy mới mở, | cả thị_trấn | đổi_thay.",
+    "anticipateVi": "Thay đổi lớn cỡ nào?",
+    "usageEn": "Technology has a big _____ on our lives.",
+    "usageVi": "Công_nghệ | có ảnh_hưởng lớn | đến cuộc_sống.",
+    "topics": [
+      "society",
+      "technology"
+    ],
+    "exams": [
+      "ielts",
+      "toefl"
+    ],
+    "emphasisVi": [
+      "Tác động",
+      "đổi thay"
+    ]
+  },
+  {
+    "word": "inevitable",
+    "pos": "adj",
+    "ipa": "/ɪˈnev.ɪ.tə.bəl/",
+    "meaningVi": "không_thể tránh khỏi",
+    "defVi": "Chắc_chắn xảy ra, | không_thể tránh | hay ngăn được.",
+    "leadVi": "Lá vàng rồi cũng rụng, | ai rồi cũng già đi.",
+    "anticipateVi": "Tránh nổi không?",
+    "usageEn": "Change is _____.",
+    "usageVi": "Thay_đổi | là điều không_thể tránh khỏi.",
+    "topics": [
+      "thinking",
+      "time"
+    ],
+    "exams": [
+      "ielts",
+      "toefl"
+    ],
+    "emphasisVi": [
+      "Chắc chắn",
+      "già đi"
+    ]
+  },
+  {
+    "word": "influence",
+    "pos": "noun",
+    "ipa": "/ˈɪn.flu.əns/",
+    "meaningVi": "ảnh_hưởng",
+    "defVi": "Sức tác_động | làm thay_đổi | suy_nghĩ hay hành_vi.",
+    "leadVi": "Một câu nói của=thầy | theo cậu | suốt cả đời.",
+    "anticipateVi": "Ai định_hướng bạn?",
+    "usageEn": "My mother had a great _____ on me.",
+    "usageVi": "Mẹ có ảnh_hưởng | rất=lớn | đến tôi.",
+    "topics": [
+      "society",
+      "thinking"
+    ],
+    "exams": [
+      "ielts",
+      "toefl"
+    ],
+    "emphasisVi": [
+      "hành vi",
+      "cả đời"
+    ]
+  },
+  {
+    "word": "insist",
+    "pos": "verb",
+    "ipa": "/ɪnˈsɪst/",
+    "meaningVi": "nhất_quyết, khăng_khăng",
+    "defVi": "Một_mực đòi | hay khẳng_định, | không chịu nhượng_bộ.",
+    "leadVi": "Khách từ_chối mãi, | bà vẫn dúi hộp_bánh.",
+    "anticipateVi": "Nhất_quyết thế à?",
+    "usageEn": "She _____ed on paying for dinner.",
+    "usageVi": "Cô=ấy nhất_quyết | trả tiền bữa tối.",
+    "topics": [
+      "communication",
+      "character"
+    ],
+    "exams": [],
+    "emphasisVi": [
+      "nhượng bộ",
+      "dúi hộp"
+    ]
+  },
+  {
+    "word": "intend",
+    "pos": "verb",
+    "ipa": "/ɪnˈtend/",
+    "meaningVi": "định, có ý_định",
+    "defVi": "Có ý_định | làm điều gì | trong tương_lai.",
+    "leadVi": "Đã ghi sẵn trong sổ: | sang năm | học thêm ngoại_ngữ.",
+    "anticipateVi": "Tính làm gì tới?",
+    "usageEn": "I _____ to visit my grandparents next week.",
+    "usageVi": "Tôi định tuần sau | thăm ông bà.",
+    "topics": [
+      "thinking"
+    ],
+    "exams": [
+      "ielts"
+    ],
+    "emphasisVi": [
+      "ý định",
+      "ghi sẵn"
+    ]
+  },
+  {
+    "word": "interpret",
+    "pos": "verb",
+    "ipa": "/ɪnˈtɜː.prɪt/",
+    "meaningVi": "diễn_giải, hiểu",
+    "defVi": "Giải_thích | hoặc hiểu ý_nghĩa | theo một cách nhất_định.",
+    "leadVi": "Cùng nụ cười, | người hiểu đồng_ý, | kẻ nghĩ là chê.",
+    "anticipateVi": "Hiểu theo nghĩa nào?",
+    "usageEn": "How do you _____ this poem?",
+    "usageVi": "Bạn hiểu | bài_thơ này thế_nào?",
+    "topics": [
+      "thinking",
+      "communication"
+    ],
+    "exams": [
+      "ielts",
+      "toefl"
+    ],
+    "emphasisVi": [
+      "ý nghĩa",
+      "nụ cười"
+    ]
+  },
+  {
+    "word": "investigate",
+    "pos": "verb",
+    "ipa": "/ɪnˈves.tɪ.ɡeɪt/",
+    "meaningVi": "điều_tra",
+    "defVi": "Tìm_hiểu kỹ | để phát_hiện | sự_thật một vụ_việc.",
+    "leadVi": "Phóng_viên | lặn_lội | lần ra đường dây buôn_lậu.",
+    "anticipateVi": "Lần ra manh_mối chưa?",
+    "usageEn": "Police are _____ing the accident.",
+    "usageVi": "Cảnh_sát | đang điều_tra | vụ tai_nạn.",
+    "topics": [
+      "society"
+    ],
+    "exams": [
+      "ielts",
+      "toefl"
+    ],
+    "emphasisVi": [
+      "sự thật",
+      "lặn lội"
+    ]
+  },
+  {
+    "word": "justify",
+    "pos": "verb",
+    "ipa": "/ˈdʒʌs.tɪ.faɪ/",
+    "meaningVi": "biện_minh",
+    "defVi": "Đưa ra lý_do | để chứng_tỏ | việc làm là đúng.",
+    "leadVi": "Bị hỏi | vì sao đến muộn, | cậu kể một tràng dài.",
+    "anticipateVi": "Lý_lẽ đâu nào?",
+    "usageEn": "How can you _____ such high prices?",
+    "usageVi": "Bạn biện_minh thế_nào | cho mức giá | cao như vậy?",
+    "topics": [
+      "thinking",
+      "communication"
+    ],
+    "exams": [
+      "ielts"
+    ],
+    "emphasisVi": [
+      "lý do",
+      "tràng dài"
+    ]
+  },
+  {
+    "word": "launch",
+    "pos": "verb",
+    "ipa": "/lɔːntʃ/",
+    "meaningVi": "ra_mắt, tung ra",
+    "defVi": "Chính_thức bắt_đầu | hoặc tung ra | sản_phẩm mới.",
+    "leadVi": "Đèn sân_khấu bừng sáng, | mẫu điện_thoại mới | lộ_diện.",
+    "anticipateVi": "Ra_mắt khi nào?",
+    "usageEn": "The company will _____ a new phone next month.",
+    "usageVi": "Tháng sau | công_ty sẽ ra_mắt | điện_thoại mới.",
+    "topics": [
+      "work",
+      "technology"
+    ],
+    "exams": [
+      "toeic",
+      "ielts"
+    ],
+    "emphasisVi": [
+      "Chính thức",
+      "lộ diện"
+    ]
+  },
+  {
+    "word": "maintain",
+    "pos": "verb",
+    "ipa": "/meɪnˈteɪn/",
+    "meaningVi": "duy_trì, giữ",
+    "defVi": "Giữ cho | luôn ở trạng_thái tốt, | không suy_giảm.",
+    "leadVi": "Năm nào cũng sơn lại, | căn_nhà cũ | vẫn như mới.",
+    "anticipateVi": "Giữ được bao lâu?",
+    "usageEn": "It's hard to _____ a healthy weight.",
+    "usageVi": "Thật khó | để duy_trì cân nặng hợp_lý.",
+    "topics": [
+      "work",
+      "health"
+    ],
+    "exams": [
+      "ielts",
+      "toeic"
+    ],
+    "emphasisVi": [
+      "trạng thái",
+      "sơn lại"
+    ]
+  },
+  {
+    "word": "minor",
+    "pos": "adj",
+    "ipa": "/ˈmaɪ.nər/",
+    "meaningVi": "nhỏ, không đáng_kể",
+    "defVi": "Nhỏ bé | và không quan_trọng lắm, | dễ bỏ qua.",
+    "leadVi": "Chỉ xước nhẹ ngón tay, | dán băng là xong.",
+    "anticipateVi": "Chuyện vặt thôi mà?",
+    "usageEn": "There are a few _____ errors in the report.",
+    "usageVi": "Bản báo_cáo | có vài lỗi nhỏ.",
+    "topics": [
+      "general"
+    ],
+    "exams": [
+      "ielts",
+      "toeic"
+    ],
+    "emphasisVi": [
+      "quan trọng",
+      "xước nhẹ"
+    ]
+  },
+  {
+    "word": "negotiate",
+    "pos": "verb",
+    "ipa": "/nəˈɡəʊ.ʃi.eɪt/",
+    "meaningVi": "thương_lượng",
+    "defVi": "Thương_lượng | để hai bên đi đến thỏa_thuận.",
+    "leadVi": "Người bán, | người mua | qua lại mấy lượt | rồi bắt tay.",
+    "anticipateVi": "Trả giá | đến đâu?",
+    "usageEn": "We _____d a better price.",
+    "usageVi": "Chúng_tôi | đã=thương_lượng | được giá tốt hơn.",
+    "topics": [
+      "work",
+      "money"
+    ],
+    "exams": [
+      "toeic",
+      "ielts"
+    ],
+    "emphasisVi": [
+      "thỏa thuận",
+      "bắt tay"
+    ]
+  },
+  {
+    "word": "obvious",
+    "pos": "adj",
+    "ipa": "/ˈɒb.vi.əs/",
+    "meaningVi": "rõ_ràng, hiển_nhiên",
+    "defVi": "Rõ_ràng, | ai nhìn cũng thấy | hay hiểu ngay.",
+    "leadVi": "Mặt đỏ, | nói lắp, | ai cũng biết | cậu đang=nói_dối.",
+    "anticipateVi": "Lộ_liễu quá chưa?",
+    "usageEn": "It's _____ that she is tired.",
+    "usageVi": "Rõ_ràng là | cô=ấy đang=mệt.",
+    "topics": [
+      "perception",
+      "thinking"
+    ],
+    "exams": [
+      "ielts"
+    ],
+    "emphasisVi": [
+      "Rõ ràng",
+      "nói lắp"
+    ]
+  },
+  {
+    "word": "obstacle",
+    "pos": "noun",
+    "ipa": "/ˈɒb.stə.kəl/",
+    "meaningVi": "trở_ngại",
+    "defVi": "Thứ cản_trở | khiến việc gì khó tiến lên.",
+    "leadVi": "Cây đổ chắn ngang đường, | đoàn xe | phải dừng lại.",
+    "anticipateVi": "Gì chắn đường thế?",
+    "usageEn": "Lack of money is the main _____.",
+    "usageVi": "Thiếu tiền | là trở_ngại chính.",
+    "topics": [
+      "general",
+      "work"
+    ],
+    "exams": [
+      "ielts",
+      "toefl"
+    ],
+    "emphasisVi": [
+      "cản trở",
+      "chắn ngang"
+    ]
+  },
+  {
+    "word": "occur",
+    "pos": "verb",
+    "ipa": "/əˈkɜːr/",
+    "meaningVi": "xảy ra",
+    "defVi": "Xảy ra | hoặc diễn_ra | vào một thời_điểm nào đó.",
+    "leadVi": "Đang yên_ổn, | bỗng một tiếng nổ lớn | vang lên.",
+    "anticipateVi": "Chuyện gì vừa xảy ra?",
+    "usageEn": "The accident _____red at night.",
+    "usageVi": "Vụ tai_nạn | xảy ra | vào ban_đêm.",
+    "topics": [
+      "general",
+      "time"
+    ],
+    "exams": [
+      "ielts",
+      "toefl"
+    ],
+    "emphasisVi": [
+      "diễn ra",
+      "tiếng nổ"
+    ]
+  },
+  {
+    "word": "overcome",
+    "pos": "verb",
+    "ipa": "/ˌəʊ.vəˈkʌm/",
+    "meaningVi": "vượt qua",
+    "defVi": "Vượt qua | khó_khăn hoặc nỗi sợ | để tiến lên.",
+    "leadVi": "Từng sợ nước, | nay cô | đã bơi qua | cả con_sông.",
+    "anticipateVi": "Vượt qua nổi chứ?",
+    "usageEn": "She _____ her fear of flying.",
+    "usageVi": "Cô=ấy | đã=vượt qua | nỗi sợ đi máy_bay.",
+    "topics": [
+      "emotion",
+      "character"
+    ],
+    "exams": [
+      "ielts"
+    ],
+    "emphasisVi": [
+      "nỗi sợ",
+      "bơi qua"
+    ]
+  },
+  {
+    "word": "perspective",
+    "pos": "noun",
+    "ipa": "/pəˈspek.tɪv/",
+    "meaningVi": "góc nhìn",
+    "defVi": "Góc nhìn | hay cách suy_nghĩ riêng | về một vấn_đề.",
+    "leadVi": "Đứng trên tầng ba mươi, | dòng xe | hóa bé tí.",
+    "anticipateVi": "Nhìn từ phía nào?",
+    "usageEn": "Travel gives you a new _____ on life.",
+    "usageVi": "Du_lịch cho bạn | góc nhìn mới | về cuộc_sống.",
+    "topics": [
+      "thinking"
+    ],
+    "exams": [
+      "ielts",
+      "toefl"
+    ],
+    "emphasisVi": [
+      "Góc nhìn",
+      "bé tí"
+    ]
+  },
+  {
+    "word": "potential",
+    "pos": "noun",
+    "ipa": "/pəˈten.ʃəl/",
+    "meaningVi": "tiềm_năng",
+    "defVi": "Khả_năng tiềm_ẩn | có_thể phát_triển | thành điều lớn.",
+    "leadVi": "Cậu bé mười tuổi | đã đá bóng | như cầu_thủ chuyên.",
+    "anticipateVi": "Hạt_giống tài_năng?",
+    "usageEn": "This student has great _____.",
+    "usageVi": "Cậu học_sinh này | có tiềm_năng lớn.",
+    "topics": [
+      "work",
+      "character"
+    ],
+    "exams": [
+      "ielts",
+      "toeic"
+    ],
+    "emphasisVi": [
+      "tiềm ẩn",
+      "cầu thủ"
+    ]
+  },
+  {
+    "word": "precise",
+    "pos": "adj",
+    "ipa": "/prɪˈsaɪs/",
+    "meaningVi": "chính_xác",
+    "defVi": "Chính_xác | đến từng chi_tiết | nhỏ nhất.",
+    "leadVi": "Đồng_hồ Thụy_Sĩ | chạy chuẩn từng giây | suốt chục năm.",
+    "anticipateVi": "Từng li | từng tí?",
+    "usageEn": "Please give me the _____ time.",
+    "usageVi": "Hãy cho tôi | thời_gian chính_xác.",
+    "topics": [
+      "thinking"
+    ],
+    "exams": [
+      "ielts",
+      "toefl"
+    ],
+    "emphasisVi": [
+      "chi tiết",
+      "chạy chuẩn"
+    ]
+  },
+  {
+    "word": "priority",
+    "pos": "noun",
+    "ipa": "/praɪˈɒr.ə.ti/",
+    "meaningVi": "ưu_tiên",
+    "defVi": "Điều quan_trọng nhất | cần được làm trước.",
+    "leadVi": "Danh_sách dài, | nhưng dòng đầu | luôn là con_cái.",
+    "anticipateVi": "Làm gì trước tiên?",
+    "usageEn": "Safety is our top _____.",
+    "usageVi": "An_toàn | là ưu_tiên hàng_đầu | của=chúng_tôi.",
+    "topics": [
+      "work",
+      "thinking"
+    ],
+    "exams": [
+      "toeic",
+      "ielts"
+    ],
+    "emphasisVi": [
+      "quan trọng",
+      "dòng đầu"
+    ]
+  },
+  {
+    "word": "profit",
+    "pos": "noun",
+    "ipa": "/ˈprɒf.ɪt/",
+    "meaningVi": "lợi_nhuận, tiền lời",
+    "defVi": "Tiền lời | sau khi trừ hết | các chi_phí.",
+    "leadVi": "Bán hết lô hàng, | đếm tiền | thấy dư ra kha_khá.",
+    "anticipateVi": "Lãi bao nhiêu nào?",
+    "usageEn": "The shop made a large _____ this year.",
+    "usageVi": "Năm nay | cửa_hàng thu | lợi_nhuận lớn.",
+    "topics": [
+      "money",
+      "work"
+    ],
+    "exams": [
+      "toeic",
+      "ielts"
+    ],
+    "emphasisVi": [
+      "Tiền lời",
+      "dư ra"
+    ]
+  },
+  {
+    "word": "pursue",
+    "pos": "verb",
+    "ipa": "/pəˈsjuː/",
+    "meaningVi": "theo_đuổi",
+    "defVi": "Kiên_trì theo_đuổi | một mục_tiêu | trong thời_gian dài.",
+    "leadVi": "Mười năm ôm đàn, | vẫn mơ đứng | trên sân_khấu lớn.",
+    "anticipateVi": "Đuổi theo | giấc_mơ?",
+    "usageEn": "She wants to _____ a career in law.",
+    "usageVi": "Cô=ấy muốn | theo_đuổi nghề luật.",
+    "topics": [
+      "work",
+      "character"
+    ],
+    "exams": [
+      "ielts"
+    ],
+    "emphasisVi": [
+      "mục tiêu",
+      "sân khấu"
+    ]
+  },
+  {
+    "word": "rapid",
+    "pos": "adj",
+    "ipa": "/ˈræp.ɪd/",
+    "meaningVi": "nhanh",
+    "defVi": "Diễn ra chóng_vánh | trong thời_gian ngắn.",
+    "leadVi": "Năm ngoái | còn đồng lúa, | nay nhà cao | mọc san_sát.",
+    "anticipateVi": "Nhanh như chớp à?",
+    "usageEn": "The city has seen _____ growth.",
+    "usageVi": "Thành_phố | phát_triển nhanh_chóng.",
+    "topics": [
+      "time",
+      "general"
+    ],
+    "exams": [
+      "ielts",
+      "toefl"
+    ],
+    "emphasisVi": [
+      "chóng vánh",
+      "san sát"
+    ]
+  },
+  {
+    "word": "reluctant",
+    "pos": "adj",
+    "ipa": "/rɪˈlʌk.tənt/",
+    "meaningVi": "miễn_cưỡng",
+    "defVi": "Miễn_cưỡng, | không muốn làm | nhưng vẫn phải làm.",
+    "leadVi": "Bị mẹ sai | đi đổ rác, | cậu lê từng bước chậm.",
+    "anticipateVi": "Làm mà chẳng muốn?",
+    "usageEn": "He was _____ to help.",
+    "usageVi": "Anh=ấy | miễn_cưỡng giúp_đỡ.",
+    "topics": [
+      "emotion"
+    ],
+    "exams": [],
+    "emphasisVi": [
+      "Miễn cưỡng",
+      "đổ rác"
+    ]
+  },
+  {
+    "word": "rely",
+    "pos": "verb",
+    "ipa": "/rɪˈlaɪ/",
+    "meaningVi": "trông_cậy, dựa vào",
+    "defVi": "Dựa vào | và tin rằng | ai đó sẽ giúp mình.",
+    "leadVi": "Hễ gặp khó, | cậu lại gọi ngay | cho anh trai.",
+    "anticipateVi": "Tựa vào | ai đây?",
+    "usageEn": "You can _____ on me.",
+    "usageVi": "Bạn có_thể | trông_cậy vào tôi.",
+    "topics": [
+      "society",
+      "character"
+    ],
+    "exams": [
+      "ielts",
+      "toeic"
+    ],
+    "emphasisVi": [
+      "Dựa vào",
+      "gọi ngay"
+    ]
+  },
+  {
+    "word": "resolve",
+    "pos": "verb",
+    "ipa": "/rɪˈzɒlv/",
+    "meaningVi": "giải_quyết",
+    "defVi": "Tìm cách giải_quyết | dứt_điểm | vấn_đề hay mâu_thuẫn.",
+    "leadVi": "Ngồi lại uống trà, | hai nhà làm hòa | sau mười năm.",
+    "anticipateVi": "Gỡ rối được chưa?",
+    "usageEn": "We need to _____ this conflict quickly.",
+    "usageVi": "Chúng_ta | cần nhanh_chóng | giải_quyết mâu_thuẫn này.",
+    "topics": [
+      "thinking",
+      "communication"
+    ],
+    "exams": [
+      "ielts",
+      "toeic"
+    ],
+    "emphasisVi": [
+      "dứt điểm",
+      "làm hòa"
+    ]
+  },
+  {
+    "word": "resource",
+    "pos": "noun",
+    "ipa": "/rɪˈzɔːs/",
+    "meaningVi": "tài_nguyên, nguồn_lực",
+    "defVi": "Nguồn của_cải, | vật_liệu | hay sức người | có_thể dùng.",
+    "leadVi": "Than, dầu, rừng, nước | đều là kho báu | dưới chân.",
+    "anticipateVi": "Kho báu nằm đâu?",
+    "usageEn": "Water is a precious natural _____.",
+    "usageVi": "Nước là tài_nguyên | thiên_nhiên quý_giá.",
+    "topics": [
+      "nature",
+      "money"
+    ],
+    "exams": [
+      "ielts",
+      "toefl"
+    ],
+    "emphasisVi": [
+      "của cải",
+      "kho báu"
+    ]
+  },
+  {
+    "word": "restrict",
+    "pos": "verb",
+    "ipa": "/rɪˈstrɪkt/",
+    "meaningVi": "hạn_chế",
+    "defVi": "Giới_hạn | số_lượng, phạm_vi | hay quyền làm điều gì.",
+    "leadVi": "Biển ghi rõ: | xe tải | không được vào | giờ cao_điểm.",
+    "anticipateVi": "Cấm tới đâu?",
+    "usageEn": "The law _____s smoking in public places.",
+    "usageVi": "Luật hạn_chế hút thuốc | ở nơi công_cộng.",
+    "topics": [
+      "society"
+    ],
+    "exams": [
+      "ielts",
+      "toefl"
+    ],
+    "emphasisVi": [
+      "Giới hạn",
+      "cao điểm"
+    ]
+  },
+  {
+    "word": "reveal",
+    "pos": "verb",
+    "ipa": "/rɪˈviːl/",
+    "meaningVi": "tiết_lộ, để lộ",
+    "defVi": "Tiết_lộ | hoặc để lộ | điều trước đó | còn giấu kín.",
+    "leadVi": "Tấm_màn kéo lên, | bức_tượng hiện ra | trước đám_đông.",
+    "anticipateVi": "Màn kéo lên chưa?",
+    "usageEn": "She _____ed her secret to me.",
+    "usageVi": "Cô=ấy tiết_lộ | bí_mật cho tôi.",
+    "topics": [
+      "communication"
+    ],
+    "exams": [
+      "ielts",
+      "toefl"
+    ],
+    "emphasisVi": [
+      "giấu kín",
+      "màn kéo"
+    ]
+  },
+  {
+    "word": "rural",
+    "pos": "adj",
+    "ipa": "/ˈrʊə.rəl/",
+    "meaningVi": "nông_thôn, thôn_quê",
+    "defVi": "Thuộc về | vùng nông_thôn, | xa thành_phố.",
+    "leadVi": "Ruộng lúa bát_ngát, | khói bếp chiều | lơ_lửng mái tranh.",
+    "anticipateVi": "Đồng quê | yên_ả?",
+    "usageEn": "Many young people leave _____ areas.",
+    "usageVi": "Nhiều người trẻ | rời bỏ | vùng nông_thôn.",
+    "topics": [
+      "society",
+      "nature"
+    ],
+    "exams": [
+      "ielts",
+      "toefl"
+    ],
+    "emphasisVi": [
+      "nông thôn",
+      "bát ngát"
+    ]
+  },
+  {
+    "word": "significant",
+    "pos": "adj",
+    "ipa": "/sɪɡˈnɪf.ɪ.kənt/",
+    "meaningVi": "đáng_kể",
+    "defVi": "Đủ lớn | hoặc quan_trọng | để gây chú_ý.",
+    "leadVi": "Điểm số tăng vọt | từ năm lên chín | sau một kỳ.",
+    "anticipateVi": "Tăng vọt | đáng_kể?",
+    "usageEn": "There has been a _____ increase in prices.",
+    "usageVi": "Giá_cả | đã tăng đáng_kể.",
+    "topics": [
+      "general",
+      "thinking"
+    ],
+    "exams": [
+      "ielts",
+      "toefl"
+    ],
+    "emphasisVi": [
+      "chú ý",
+      "tăng vọt"
+    ]
+  },
+  {
+    "word": "strategy",
+    "pos": "noun",
+    "ipa": "/ˈstræt.ə.dʒi/",
+    "meaningVi": "chiến_lược",
+    "defVi": "Kế_hoạch tổng_thể | để đạt mục_tiêu | lâu dài.",
+    "leadVi": "Huấn_luyện_viên | vẽ sơ_đồ, | sắp vị_trí cầu_thủ.",
+    "anticipateVi": "Đường đi nước bước?",
+    "usageEn": "We need a new marketing _____.",
+    "usageVi": "Chúng_ta cần | chiến_lược tiếp_thị mới.",
+    "topics": [
+      "work",
+      "thinking"
+    ],
+    "exams": [
+      "toeic",
+      "ielts"
+    ],
+    "emphasisVi": [
+      "tổng thể",
+      "sơ đồ"
+    ]
+  },
+  {
+    "word": "sufficient",
+    "pos": "adj",
+    "ipa": "/səˈfɪʃ.ənt/",
+    "meaningVi": "đủ",
+    "defVi": "Đủ về số_lượng | để đáp_ứng | điều cần thiết.",
+    "leadVi": "Gạo trong kho | đủ cho cả làng | qua mùa đông.",
+    "anticipateVi": "Đủ dùng | không đó?",
+    "usageEn": "We don't have _____ time.",
+    "usageVi": "Chúng_tôi | không=có đủ thời_gian.",
+    "topics": [
+      "general"
+    ],
+    "exams": [
+      "ielts",
+      "toefl"
+    ],
+    "emphasisVi": [
+      "số lượng",
+      "cả làng"
+    ]
+  },
+  {
+    "word": "sustainable",
+    "pos": "adj",
+    "ipa": "/səˈsteɪ.nə.bəl/",
+    "meaningVi": "bền_vững",
+    "defVi": "Duy_trì được lâu dài | mà không hủy_hoại | môi_trường.",
+    "leadVi": "Chặt một cây, | trồng lại ba cây, | rừng vẫn còn mãi.",
+    "anticipateVi": "Dùng mãi không cạn?",
+    "usageEn": "We need _____ energy sources.",
+    "usageVi": "Chúng_ta cần | nguồn năng_lượng bền_vững.",
+    "topics": [
+      "nature",
+      "society"
+    ],
+    "exams": [
+      "ielts",
+      "toefl"
+    ],
+    "emphasisVi": [
+      "hủy hoại",
+      "trồng lại"
+    ]
+  },
+  {
+    "word": "tendency",
+    "pos": "noun",
+    "ipa": "/ˈten.dən.si/",
+    "meaningVi": "xu_hướng, khuynh_hướng",
+    "defVi": "Khuynh_hướng | thường hành_động | theo một kiểu nào đó.",
+    "leadVi": "Cứ căng_thẳng là | cô lại cắn móng tay.",
+    "anticipateVi": "Lại thế nữa rồi?",
+    "usageEn": "He has a _____ to talk too much.",
+    "usageVi": "Anh=ấy | có xu_hướng | nói quá nhiều.",
+    "topics": [
+      "character",
+      "thinking"
+    ],
+    "exams": [
+      "ielts"
+    ],
+    "emphasisVi": [
+      "Khuynh hướng",
+      "cắn móng"
+    ]
+  },
+  {
+    "word": "threat",
+    "pos": "noun",
+    "ipa": "/θret/",
+    "meaningVi": "mối đe_dọa",
+    "defVi": "Mối nguy | có_thể gây hại | cho người hay vật.",
+    "leadVi": "Mây đen kéo đến, | lũ có_thể tràn về | bất_chợt.",
+    "anticipateVi": "Nguy_cơ rình_rập?",
+    "usageEn": "Pollution is a serious _____ to wildlife.",
+    "usageVi": "Ô_nhiễm | là mối đe_dọa lớn | với động_vật hoang_dã.",
+    "topics": [
+      "society",
+      "nature"
+    ],
+    "exams": [
+      "ielts",
+      "toefl"
+    ],
+    "emphasisVi": [
+      "Mối nguy",
+      "tràn về"
+    ]
+  },
+  {
+    "word": "tolerate",
+    "pos": "verb",
+    "ipa": "/ˈtɒl.ə.reɪt/",
+    "meaningVi": "chịu_đựng, dung_thứ",
+    "defVi": "Chịu đựng | điều mình không thích | mà không phản_đối.",
+    "leadVi": "Hàng_xóm hát đêm, | cả xóm | nhắm mắt cho qua.",
+    "anticipateVi": "Nhịn được bao lâu?",
+    "usageEn": "I can't _____ rude behaviour.",
+    "usageVi": "Tôi không_thể chịu_đựng | thái_độ thô_lỗ.",
+    "topics": [
+      "emotion",
+      "character"
+    ],
+    "exams": [],
+    "emphasisVi": [
+      "Chịu đựng",
+      "nhắm mắt"
+    ]
+  },
+  {
+    "word": "transform",
+    "pos": "verb",
+    "ipa": "/trænsˈfɔːm/",
+    "meaningVi": "biến_đổi, thay_đổi hoàn_toàn",
+    "defVi": "Thay_đổi hoàn_toàn | hình_dạng, bản_chất hay diện_mạo.",
+    "leadVi": "Con_sâu xấu_xí | hóa bướm rực_rỡ | sau vài tuần.",
+    "anticipateVi": "Lột xác ngoạn_mục?",
+    "usageEn": "The internet has _____ed the way we work.",
+    "usageVi": "Mạng toàn_cầu | đã thay_đổi | cách chúng_ta làm_việc.",
+    "topics": [
+      "general",
+      "technology"
+    ],
+    "exams": [
+      "ielts",
+      "toefl"
+    ],
+    "emphasisVi": [
+      "hoàn toàn",
+      "hóa bướm"
+    ]
+  },
+  {
+    "word": "unique",
+    "pos": "adj",
+    "ipa": "/juːˈniːk/",
+    "meaningVi": "độc_nhất",
+    "defVi": "Độc_nhất, | không giống | bất_kỳ thứ nào khác.",
+    "leadVi": "Vân tay mỗi người | chẳng ai | trùng với ai.",
+    "anticipateVi": "Có một không hai?",
+    "usageEn": "Each snowflake is _____.",
+    "usageVi": "Mỗi bông_tuyết | đều độc_nhất vô_nhị.",
+    "topics": [
+      "general"
+    ],
+    "exams": [
+      "ielts",
+      "toefl"
+    ],
+    "emphasisVi": [
+      "Độc nhất",
+      "Vân tay"
+    ]
+  },
+  {
+    "word": "vague",
+    "pos": "adj",
+    "ipa": "/veɪɡ/",
+    "meaningVi": "mơ_hồ",
+    "defVi": "Mơ_hồ, | không rõ_ràng | hay cụ_thể.",
+    "leadVi": "Hỏi đường, | ông chỉ tay đại: | cứ đi thẳng | là tới.",
+    "anticipateVi": "Lờ_mờ quá nhỉ?",
+    "usageEn": "He gave a _____ answer.",
+    "usageVi": "Anh=ấy | trả_lời rất=mơ_hồ.",
+    "topics": [
+      "communication",
+      "thinking"
+    ],
+    "exams": [],
+    "emphasisVi": [
+      "Mơ hồ",
+      "chỉ tay"
+    ]
+  },
+  {
+    "word": "volunteer",
+    "pos": "noun",
+    "ipa": "/ˌvɒl.ənˈtɪər/",
+    "meaningVi": "tình_nguyện_viên",
+    "defVi": "Người tự_nguyện | giúp người khác | mà không lấy tiền.",
+    "leadVi": "Áo xanh khắp phố, | phát cơm | cho người vô_gia_cư.",
+    "anticipateVi": "Áo xanh | khắp phố ư?",
+    "usageEn": "She works as a _____ at the hospital.",
+    "usageVi": "Cô=ấy làm tình_nguyện_viên | ở bệnh_viện.",
+    "topics": [
+      "society"
+    ],
+    "exams": [],
+    "emphasisVi": [
+      "tự nguyện",
+      "phát cơm"
+    ]
+  },
+  {
+    "word": "witness",
+    "pos": "noun",
+    "ipa": "/ˈwɪt.nəs/",
+    "meaningVi": "nhân_chứng",
+    "defVi": "Người tận_mắt | chứng_kiến | một sự_việc xảy ra.",
+    "leadVi": "Đứng ở góc phố, | ông kể lại | từng chi_tiết.",
+    "anticipateVi": "Ai đã tận mắt thấy?",
+    "usageEn": "The police are looking for a _____.",
+    "usageVi": "Cảnh_sát | đang tìm nhân_chứng.",
+    "topics": [
+      "society"
+    ],
+    "exams": [],
+    "emphasisVi": [
+      "tận mắt",
+      "góc phố"
+    ]
+  },
+  {
+    "word": "relevant",
+    "pos": "adj",
+    "ipa": "/ˈrel.ə.vənt/",
+    "meaningVi": "có liên_quan",
+    "defVi": "Có liên_quan trực_tiếp | đến vấn_đề | đang bàn.",
+    "leadVi": "Đang bàn chuyện học_phí, | ai lại kể | chuyện đi câu?",
+    "anticipateVi": "Dính_dáng gì không?",
+    "usageEn": "Please include only _____ information.",
+    "usageVi": "Vui_lòng | chỉ đưa thông_tin | có liên_quan.",
+    "topics": [
+      "thinking",
+      "work"
+    ],
+    "exams": [
+      "ielts",
+      "toeic"
+    ],
+    "emphasisVi": [
+      "liên quan",
+      "đi câu"
+    ]
+  },
+  {
+    "word": "reputation",
+    "pos": "noun",
+    "ipa": "/ˌrep.jəˈteɪ.ʃən/",
+    "meaningVi": "danh_tiếng, tiếng_tăm",
+    "defVi": "Cách mọi người | đánh_giá và nhìn_nhận | về ai đó.",
+    "leadVi": "Quán phở ba đời, | tiếng lành đồn khắp phố.",
+    "anticipateVi": "Tiếng lành | đồn xa?",
+    "usageEn": "The restaurant has a good _____.",
+    "usageVi": "Nhà_hàng này | có tiếng_tăm tốt.",
+    "topics": [
+      "society",
+      "work"
+    ],
+    "exams": [
+      "ielts",
+      "toeic"
+    ],
+    "emphasisVi": [
+      "nhìn nhận",
+      "tiếng lành"
+    ]
+  }
 ]

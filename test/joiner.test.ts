@@ -248,6 +248,22 @@ test("splitPhrases returns each phrase as plain syllables", () => {
   assert.deepEqual(splitPhrases("không có dấu nào"), ["không có dấu nào"]);
 });
 
+test("a chain of one-letter syllables is a valid join, not a stray mark", () => {
+  // "ò_ó_o" is a rooster crow written as three one-letter syllables. A checker
+  // that consumes the character on each side of a bond cannot see the next
+  // bond's left neighbour and reports the second join as stray.
+  assert.deepEqual(findStrayMarks("Gà gáy ò_ó_o, sương đêm còn đọng."), []);
+  assert.deepEqual(findStrayMarks("a_b_c_d"), []);
+  assert.deepEqual(findStrayMarks("công_nghệ_thông_tin"), []);
+});
+
+test("a join across a highlight marker is valid, in the order the app resolves them", () => {
+  // The app strips /…/ first and reads the joins after, so "Cái_/túi xách/"
+  // resolves to the join "Cái_túi". A checker reading the raw string sees "_/".
+  assert.deepEqual(findStrayMarks("Cái_/túi xách/ nhỏ gọn."), []);
+  assert.deepEqual(findStrayMarks("Một quả_/ớt/ rất cay."), []);
+});
+
 test("a stray clitic bind is reported like a stray word join", () => {
   assert.equal(findStrayMarks("con=mèo ngủ").length, 0);
   assert.equal(findStrayMarks("trailing= space").length, 1);

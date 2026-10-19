@@ -121,19 +121,30 @@ export function splitPhrases(text: string): string[] {
  * @param text - deck text to inspect
  * @returns one message per problem, empty when the text is clean
  */
-export function findStrayMarks(text: string): string[] {
+export function findStrayMarks(raw: string): string[] {
   const problems: string[] = [];
-  if (!/[_=|]/.test(text)) return problems;
+  if (!/[_=|]/.test(raw)) return problems;
+  // Highlight markers come off first, because that is the order the app
+  // resolves them in: `parseEmphasisMarkers` strips `/…/` and only then reads
+  // the joins. So `Cái_/túi xách/` is a perfectly good join across a marker
+  // boundary, and a checker that scans the raw string calls it stray.
+  const text = raw.replace(/\/([^/]+)\//g, "$1");
 
+  // Scanned by index rather than matched with a consuming pattern: a regex that
+  // eats the character on each side of a bond cannot see the next bond's left
+  // neighbour, so a legitimate three-syllable chain of ONE-letter syllables
+  // ("ò_ó_o") reported its second join as stray.
   const letter = /[\p{L}\p{N}\p{M}]/u;
-  for (const match of text.matchAll(/(.?)([_=]+)(.?)/gsu)) {
-    const [, before, run, after] = match;
+  for (let index = 0; index < text.length; index += 1) {
+    const mark = text[index]!;
+    if (mark !== WORD_JOIN && mark !== CLITIC_BIND) continue;
     // A run of underscores is the answer blank, never a bond.
-    if (run.length > 1 && run[0] === WORD_JOIN) continue;
-    if (run.length === 1 && letter.test(before) && letter.test(after)) continue;
-    problems.push(
-      `stray "${run}" in "${`${before}${run}${after}`.trim()}" — a bond needs a letter on both sides`,
-    );
+    if (mark === WORD_JOIN && (text[index - 1] === WORD_JOIN || text[index + 1] === WORD_JOIN)) {
+      continue;
+    }
+    if (letter.test(text[index - 1] ?? "") && letter.test(text[index + 1] ?? "")) continue;
+    const context = text.slice(Math.max(0, index - 4), index + 5).trim();
+    problems.push(`stray "${mark}" in "${context}" — a bond needs a letter on both sides`);
   }
 
   if (text.includes(PHRASE_BREAK)) {
