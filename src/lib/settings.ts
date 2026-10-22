@@ -120,11 +120,14 @@ export function defaultSettings(): Settings {
     version: 1,
     llm: {
       provider: "openrouter",
-      model: "meta-llama/llama-3.3-70b-instruct",
+      model: "openai/gpt-oss-120b",
       apiKey: "",
       profiles: {},
       batchSize: 5,
-      maxTokens: 4096,
+      // Raised for a reasoning default: gpt-oss thinks before it answers, and
+      // those tokens come out of the same budget. At 4096 a five-word batch can
+      // spend the lot reasoning and return no text at all.
+      maxTokens: 8192,
     },
     store: { kind: "none", id: "", token: "" },
     generation: { levels: [], deckName: "WordCrawler deck", deckVersion: "0.1.0" },
