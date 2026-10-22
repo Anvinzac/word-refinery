@@ -158,17 +158,24 @@ export function ReviewTable({
     return map;
   }, [entries]);
 
-  const patchWord = (id: string, patch: Partial<DeckWord>) => {
+  /**
+   * Write a change onto one word.
+   *
+   * `by` decides whether a style pair is captured. A pair only teaches when it
+   * runs model-wrote → human-changed, so only a hand edit snapshots the word as
+   * it stood. A regeneration records that the model wrote last, which keeps the
+   * card out of the distillation until a human rewrites it.
+   */
+  const patchWord = (id: string, patch: Partial<DeckWord>, by: "hand" | "model") => {
     onChange(
       entries.map((entry) =>
         entry.id === id
           ? {
               ...entry,
-              // Snapshot the word as it stood BEFORE the first edit and never
-              // again. The pair — what the model wrote against what the
-              // reviewer changed it to — is what the style guide is distilled
-              // from, and it only exists if it is captured here.
-              original: entry.original ?? entry.deckWord,
+              // Snapshot the word as it stood BEFORE the first hand edit and
+              // never again — that before is half of the pair.
+              original: by === "hand" ? (entry.original ?? entry.deckWord) : entry.original,
+              machineEdited: by === "model",
               deckWord: { ...entry.deckWord, ...patch },
               status: "edited" as const,
             }
@@ -288,10 +295,10 @@ export function ReviewTable({
         const usage = entry.deckWord.usage.map((item, index) =>
           index === 0 ? { ...item, vi: value } : item,
         );
-        patchWord(entry.id, { usage });
+        patchWord(entry.id, { usage }, "model");
       } else {
         written = HIGHLIGHTABLE.has(field) ? withHighlight(value, emphasis) : stripEmphasisMarkers(value);
-        patchWord(entry.id, { [field]: written } as Partial<DeckWord>);
+        patchWord(entry.id, { [field]: written } as Partial<DeckWord>, "model");
       }
       // The brief stays open: a rewrite often needs a second pass, and the chips
       // that described the problem are still the right ones to send again.
@@ -338,9 +345,9 @@ export function ReviewTable({
       if (draft === null) return;
       if (field === "usageVi") {
         const usage = entry.deckWord.usage.map((item, index) => (index === 0 ? { ...item, vi: draft } : item));
-        patchWord(entry.id, { usage });
+        patchWord(entry.id, { usage }, "hand");
       } else {
-        patchWord(entry.id, { [field]: draft } as Partial<DeckWord>);
+        patchWord(entry.id, { [field]: draft } as Partial<DeckWord>, "hand");
       }
       closeBrief();
     };

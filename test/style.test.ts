@@ -276,3 +276,31 @@ test("an empty deck reports an empty set rather than throwing", () => {
   assert.deepEqual(styleSetProgress([]), { marked: 0, edited: 0, pairs: 0 });
   assert.deepEqual(pickStyleSet([], 30, sequence()), []);
 });
+
+// ── a pair must run model-wrote → human-changed ────────────────────────────
+
+test("a card the model wrote last yields no pair", () => {
+  // Regenerating reverses the direction: the snapshot holds the human text and
+  // the current word holds generated text, which would teach the generator's
+  // voice back to itself.
+  const poisoned: ReviewEntry = {
+    ...entry("climb", { defVi: "Máy viết lại.", before: { defVi: "Người viết." } }),
+    machineEdited: true,
+  };
+  assert.deepEqual(stylePairs([poisoned]), []);
+});
+
+test("the same card teaches again once a human rewrites it", () => {
+  const rewritten: ReviewEntry = {
+    ...entry("climb", { defVi: "Người viết lại.", before: { defVi: "Máy viết." } }),
+    machineEdited: false,
+  };
+  assert.equal(stylePairs([rewritten]).length, 1);
+});
+
+test("a card with no machine flag at all still teaches", () => {
+  // Decks written before the flag existed must not go silent.
+  const legacy = entry("climb", { defVi: "Người viết.", before: { defVi: "Máy viết." } });
+  assert.equal(legacy.machineEdited, undefined);
+  assert.equal(stylePairs([legacy]).length, 1);
+});

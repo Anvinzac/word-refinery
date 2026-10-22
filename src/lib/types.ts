@@ -152,6 +152,16 @@ export interface ReviewEntry {
    * are what the style guide is built from and what the generator is shown.
    */
   styleSample?: boolean;
+  /**
+   * True when the last change to this word came from the model rather than the
+   * reviewer's hand.
+   *
+   * A pair only teaches when it runs model-wrote → human-changed. Regenerating
+   * a card reverses it: the snapshot holds the human text and the current word
+   * holds machine output, which would teach the guide that the generator's
+   * voice is the reviewer's. Such a card is skipped until it is rewritten.
+   */
+  machineEdited?: boolean;
 }
 
 /** The document persisted to the remote store. */

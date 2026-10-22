@@ -60,6 +60,10 @@ export function stylePairs(entries: readonly ReviewEntry[]): StylePair[] {
   const pairs: StylePair[] = [];
   for (const entry of marked(entries)) {
     if (entry.original === undefined) continue;
+    // The model wrote this card last, so its "after" is generated text. Such a
+    // pair runs backwards and would teach the generator's voice as the
+    // reviewer's; it comes back as soon as a human rewrites the card.
+    if (entry.machineEdited === true) continue;
     for (const field of VOICE_FIELDS) {
       const before = textOf(entry.original, field).trim();
       const after = textOf(entry.deckWord, field).trim();
