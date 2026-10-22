@@ -60,7 +60,6 @@ export function SettingsPanel({
   });
 
   useEffect(() => {
-    if (!VAULT_ENABLED) return;
     void loadLockedKeys(import.meta.env.BASE_URL).then(setLockedFile);
   }, []);
 
@@ -211,6 +210,20 @@ export function SettingsPanel({
     setVaultState({ kind: "ok", text: `Unlocked — stored locally as ${maskKey(key)}.` });
   };
 
+  /**
+   * A PIN typed straight into the key field opens the published key for this
+   * provider, so another device needs nothing but the PIN. Only all-digit input
+   * is tried: no provider key looks like that, so a real key is never mistaken
+   * for one.
+   */
+  const unlockFromKeyField = async (typed: string) => {
+    if (lockedForProvider === undefined || !/^\d{4,12}$/.test(typed)) return;
+    const key = await openSecret(lockedForProvider, typed);
+    if (key === null) return;
+    onChange({ ...settings, llm: patchLlmSettings(settings.llm, { apiKey: key }) });
+    setVaultState({ kind: "ok", text: `Unlocked — stored locally as ${maskKey(key)}.` });
+  };
+
   const lock = async () => {
     setVaultState({ kind: "busy", text: "Locking…" });
     const sealed = await sealSecret(apiKey, lockPin);
@@ -283,7 +296,10 @@ export function SettingsPanel({
               spellCheck={false}
               placeholder="paste your key"
               value={settings.llm.apiKey}
-              onChange={(event) => patchLlm({ apiKey: event.target.value })}
+              onChange={(event) => {
+                patchLlm({ apiKey: event.target.value });
+                void unlockFromKeyField(event.target.value);
+              }}
             />
             <span className="note">
               {settings.llm.apiKey.length > 0

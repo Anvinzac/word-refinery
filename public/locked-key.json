@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "keys": {
+    "openrouter": {
+      "kdf": "PBKDF2-SHA256",
+      "iterations": 600000,
+      "salt": "W/fP5nrzByOLHMmpkmBUeA==",
+      "iv": "/Jdl7mV26T/es+/f",
+      "ciphertext": "sH9eJGmZdU/jORAWkvDP+YGMdnv8EPW0kEicV7qBX4WH382JqHdBT91RU/34MXa+4Pc6nEmuFwCKpvZkrerj14WRxKfZLkTM07mojGBHUQbg7M19wF1Y/6o="
+    }
+  }
+}
