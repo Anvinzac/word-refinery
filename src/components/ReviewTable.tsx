@@ -22,8 +22,9 @@
 import { Fragment, useEffect, useMemo, useState } from "react";
 import { validateDeck, type DeckIssue } from "../lib/deck";
 import { injectEmphasisMarkers, stripEmphasisMarkers, validateEmphasis } from "../lib/emphasis";
-import { regenerateField, verifyWord, describeLlmError } from "../lib/llm";
+import { markupField, regenerateField, verifyWord, describeLlmError } from "../lib/llm";
 import { renderExemplars, styleExemplars } from "../lib/style";
+import { countUnits, hasAnyMark } from "../lib/joiner";
 import { buildRegeneratePrompt, chipsForField, type RefineField, type RefineRequest } from "../lib/prompt";
 import { collectUniqueness, renderAvoidSection } from "../lib/uniqueness";
 import type { Settings } from "../lib/settings";
@@ -123,6 +124,8 @@ export function ReviewTable({
   const [chips, setChips] = useState<string[]>([]);
   const [note, setNote] = useState("");
   const [busy, setBusy] = useState(false);
+  /** True while the second pass is putting the breaking marks back. */
+  const [marking, setMarking] = useState(false);
   const [error, setError] = useState<string | null>(null);
   /** Set after a successful rewrite so the still-open brief confirms it landed. */
   const [rewrote, setRewrote] = useState<string | null>(null);
@@ -290,14 +293,27 @@ export function ReviewTable({
           ),
         },
       );
-      let written = value;
+      // A rewrite request carries the field rules, the complaints, the house
+      // voice and the marks convention at once, and the marks are what gets
+      // dropped under that load. When they come back absent from a field that
+      // should carry them, a second pass puts them on — one job, checkable.
+      let marked = value;
+      if (!hasAnyMark(value) && countUnits(value) > 2) {
+        setMarking(true);
+        const result = await markupField(settings.llm, entry.deckWord, field, value);
+        marked = result.text;
+        if (result.issue !== null) setError(`Rewritten, but ${result.issue}`);
+        setMarking(false);
+      }
+
+      let written = marked;
       if (field === "usageVi") {
         const usage = entry.deckWord.usage.map((item, index) =>
-          index === 0 ? { ...item, vi: value } : item,
+          index === 0 ? { ...item, vi: marked } : item,
         );
         patchWord(entry.id, { usage }, "model");
       } else {
-        written = HIGHLIGHTABLE.has(field) ? withHighlight(value, emphasis) : stripEmphasisMarkers(value);
+        written = HIGHLIGHTABLE.has(field) ? withHighlight(marked, emphasis) : stripEmphasisMarkers(marked);
         patchWord(entry.id, { [field]: written } as Partial<DeckWord>, "model");
       }
       // The brief stays open: a rewrite often needs a second pass, and the chips
@@ -307,6 +323,7 @@ export function ReviewTable({
     } catch (thrown) {
       setError(describeLlmError(thrown));
     } finally {
+      setMarking(false);
       setBusy(false);
     }
   };
@@ -436,7 +453,13 @@ export function ReviewTable({
                   onClick={() => void regenerate(entry, field)}
                   disabled={busy}
                 >
-                  {busy ? "Regenerating…" : rewrote !== null ? "Regenerate again" : "Regenerate"}
+                  {marking
+                    ? "Putting the marks back…"
+                    : busy
+                      ? "Regenerating…"
+                      : rewrote !== null
+                        ? "Regenerate again"
+                        : "Regenerate"}
                 </button>
               </div>
             </div>

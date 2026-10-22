@@ -13,7 +13,7 @@
  * VERIFY_SYSTEM_PROMPT, buildVerifyPrompt, VerifyFinding, VerifyReport,
  * MARKUP_SYSTEM_PROMPT, buildMarkupPrompt, MARKUP_FIELDS, MarkupField,
  * STYLE_SYSTEM_PROMPT, DISTIL_SYSTEM_PROMPT, buildDistilPrompt, buildHouseVoice,
- * STYLE_AUDIT_SYSTEM_PROMPT, buildStyleAuditPrompt
+ * STYLE_AUDIT_SYSTEM_PROMPT, buildStyleAuditPrompt, buildMarkupFieldPrompt
  * Depends on: ./types.ts, ./contract.ts
  */
 import type { CorpusWord } from "./types.ts";
@@ -705,5 +705,32 @@ export function buildStyleAuditPrompt(input: {
     `The writer's own version:\n${input.human}`,
     "",
     `The generated version:\n${input.machine}`,
+  ].join("\n");
+}
+
+/**
+ * Render one field for marking up, in isolation.
+ *
+ * Used after a rewrite. A model asked to rewrite a field and honour the
+ * breaking marks in the same breath tends to drop the marks — there is a lot
+ * else in that request — so the marks are put back by a second pass whose only
+ * job is marks. The card is shown for context, because a phrase edge depends on
+ * how the sentence reads, but only the one field is asked for.
+ *
+ * @param word - the card the field belongs to
+ * @param field - which field to mark
+ * @param text - the text to mark, as the rewrite returned it
+ */
+export function buildMarkupFieldPrompt(
+  word: { word: string },
+  field: MarkupField,
+  text: string,
+): string {
+  return [
+    `Add breaking marks to this one field of the card for "${word.word}".`,
+    "",
+    `- ${field}: ${text}`,
+    "",
+    `Return the JSON object with exactly one key: ${field}.`,
   ].join("\n");
 }

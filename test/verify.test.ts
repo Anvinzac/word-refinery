@@ -231,3 +231,61 @@ test("an ordinary error passes through unchanged", async () => {
   assert.equal(describeLlmError(new Error("network down")), "network down");
   assert.equal(describeLlmError("a string"), "a string");
 });
+
+// ── putting the marks back after a rewrite ─────────────────────────────────
+
+test("a marking pass that only adds marks is accepted", async () => {
+  const { markupField } = await import("../src/lib/llm.ts");
+  stubReply(JSON.stringify({ defVi: "Di_chuyển lên trên | bề_mặt dốc bằng tay." }));
+  const result = await markupField(LLM, CARD, "defVi", "Di chuyển lên trên bề mặt dốc bằng tay.");
+  assert.equal(result.issue, null);
+  assert.equal(result.text, "Di_chuyển lên trên | bề_mặt dốc bằng tay.");
+});
+
+test("a marking pass that edited the words is discarded, keeping the rewrite", async () => {
+  const { markupField } = await import("../src/lib/llm.ts");
+  // One word changed under cover of marking up.
+  stubReply(JSON.stringify({ defVi: "Di_chuyển lên trên | bề_mặt núi bằng tay." }));
+  const original = "Di chuyển lên trên bề mặt dốc bằng tay.";
+  const result = await markupField(LLM, CARD, "defVi", original);
+  assert.equal(result.text, original, "the reviewer keeps their rewrite");
+  assert.match(result.issue ?? "", /edited the words/);
+});
+
+test("a marking pass that produced a stray mark is discarded", async () => {
+  const { markupField } = await import("../src/lib/llm.ts");
+  stubReply(JSON.stringify({ defVi: "Di chuyển lên trên bề_ mặt dốc bằng tay." }));
+  const original = "Di chuyển lên trên bề mặt dốc bằng tay.";
+  const result = await markupField(LLM, CARD, "defVi", original);
+  assert.equal(result.text, original);
+  assert.match(result.issue ?? "", /stray/);
+});
+
+test("a failed marking pass never costs the reviewer their rewrite", async () => {
+  const { markupField } = await import("../src/lib/llm.ts");
+  const original = "Di chuyển lên trên bề mặt dốc bằng tay.";
+  for (const reply of ["not json at all", JSON.stringify({ defVi: "" }), JSON.stringify({})]) {
+    stubReply(reply);
+    const result = await markupField(LLM, CARD, "defVi", original);
+    assert.equal(result.text, original, `kept the rewrite for: ${reply}`);
+    assert.ok(result.issue !== null, "and says why");
+  }
+});
+
+test("an HTTP failure in the marking pass is reported, not thrown", async () => {
+  const { markupField } = await import("../src/lib/llm.ts");
+  globalThis.fetch = (async () => new Response("nope", { status: 500 })) as typeof fetch;
+  const original = "Di chuyển lên trên bề mặt dốc bằng tay.";
+  const result = await markupField(LLM, CARD, "defVi", original);
+  assert.equal(result.text, original);
+  assert.ok(result.issue !== null);
+});
+
+test("empty text is returned untouched without a request", async () => {
+  const { markupField } = await import("../src/lib/llm.ts");
+  let called = false;
+  globalThis.fetch = (async () => { called = true; return new Response("{}", { status: 200 }); }) as typeof fetch;
+  const result = await markupField(LLM, CARD, "leadVi", "   ");
+  assert.equal(called, false, "no call is made for an empty field");
+  assert.equal(result.issue, null);
+});

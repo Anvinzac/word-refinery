@@ -11,7 +11,8 @@
  * endpoint the user picked. Nothing is proxied: GitHub Pages has no server.
  *
  * Exports: LlmError, ListedModel, chat, readChatText, listModels, annotateBatch, regenerateField,
- *          verifyWord, markupWord, distilStyle, testConnection, describeLlmError
+ *          verifyWord, markupWord, markupField, distilStyle, testConnection,
+ *          describeLlmError
  * Depends on: ./settings.ts, ./prompt.ts, ./contract.ts, ./types.ts
  */
 import type { LlmProvider, Settings } from "./settings.ts";
@@ -20,6 +21,7 @@ import {
   buildRegeneratePrompt,
   buildDistilPrompt,
   buildHouseVoice,
+  buildMarkupFieldPrompt,
   buildMarkupPrompt,
   buildVerifyPrompt,
   MARKUP_FIELDS,
@@ -870,4 +872,65 @@ export async function distilStyle(
     throw new LlmError("The distillation returned nothing", { provider: settings.provider });
   }
   return guide;
+}
+
+/**
+ * Put the breaking marks back on one field after a rewrite.
+ *
+ * A rewrite request already carries the field rules, the reviewer's complaints,
+ * the house voice and the marks convention; models drop the marks under that
+ * load, which leaves a card that had phrase edges with none. Re-marking as a
+ * separate pass makes it structural rather than hopeful — the second request
+ * has one job.
+ *
+ * Never throws and never worsens the text. The marked version is used only if
+ * it survives the same identity check the bulk markup uses: strip the marks and
+ * it must equal what went in. Anything else, and the caller keeps the rewrite
+ * exactly as the model returned it.
+ *
+ * @param settings - active LLM settings
+ * @param word - the card the field belongs to, for context
+ * @param field - which field is being marked
+ * @param text - the rewritten text
+ * @param signal - optional AbortSignal
+ * @returns the marked text, or the original with the reason it was refused
+ */
+export async function markupField(
+  settings: Settings["llm"],
+  word: DeckWord,
+  field: MarkupField,
+  text: string,
+  signal?: AbortSignal,
+): Promise<{ text: string; issue: string | null }> {
+  if (text.trim().length === 0) return { text, issue: null };
+  try {
+    const reply = await chat(
+      settings,
+      [
+        { role: "system", content: resolvePrompt("markup") },
+        { role: "user", content: buildMarkupFieldPrompt(word, field, text) },
+      ],
+      { attempts: 2, signal },
+    );
+    const start = reply.indexOf("{");
+    const end = reply.lastIndexOf("}");
+    if (start === -1 || end <= start) return { text, issue: "the marking pass returned no JSON" };
+    const parsed = JSON.parse(reply.slice(start, end + 1)) as Record<string, unknown>;
+    const marked = parsed[field];
+    if (typeof marked !== "string" || marked.trim().length === 0) {
+      return { text, issue: "the marking pass returned no text" };
+    }
+    // Stray marks first: a malformed bond is not stripped, so it also fails the
+    // identity check below, and "edited the words" would be the wrong diagnosis
+    // for what is really a misplaced underscore.
+    const problems = findStrayMarks(marked);
+    if (problems.length > 0) return { text, issue: `the marking pass left a ${problems[0]}` };
+    if (stripMarks(marked) !== stripMarks(text)) {
+      return { text, issue: "the marking pass edited the words, so its answer was discarded" };
+    }
+    return { text: marked, issue: null };
+  } catch (error) {
+    // A failed second pass must never cost the reviewer their rewrite.
+    return { text, issue: describeLlmError(error).split("\n")[0] ?? "the marking pass failed" };
+  }
 }
