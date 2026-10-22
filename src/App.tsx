@@ -37,6 +37,7 @@ import {
 import { CorpusPanel } from "./components/CorpusPanel";
 import { PromptsPanel } from "./components/PromptsPanel";
 import { StylePanel } from "./components/StylePanel";
+import { VariationsPanel } from "./components/VariationsPanel";
 import { EMPTY_FILTER, listBatches, type LibraryFilter } from "./lib/library";
 import { renderExemplarCards, styleExemplarCards } from "./lib/style";
 import { STYLE_FILE_NAME, applyStyleFile, parseStyleFile } from "./lib/style-file";
@@ -45,7 +46,15 @@ import { readSettings, writeSettings, type Settings } from "./lib/settings";
 import type { CefrLevel, Deck, RefineryDoc, ReviewEntry } from "./lib/types";
 
 /** Tabs in the workspace. */
-type Tab = "generate" | "review" | "coverage" | "style" | "sync" | "prompts" | "settings";
+type Tab =
+  | "generate"
+  | "review"
+  | "coverage"
+  | "variations"
+  | "style"
+  | "sync"
+  | "prompts"
+  | "settings";
 
 /** An empty working document, used before anything is generated or loaded. */
 function emptyDoc(settings: Settings): RefineryDoc {
@@ -428,6 +437,7 @@ export function App() {
     generate: null,
     review: doc.review.length,
     coverage: null,
+    variations: null,
     style: doc.review.filter((entry) => entry.styleSample === true).length,
     sync: approved.length,
     prompts: null,
@@ -634,6 +644,10 @@ export function App() {
         </>
       )}
 
+      {tab === "variations" && (
+        <VariationsPanel entries={doc.review} settings={settings} onChange={onReviewChange} />
+      )}
+
       {tab === "style" && (
         <StylePanel entries={doc.review} settings={settings} onChange={onReviewChange} />
       )}
@@ -663,6 +677,7 @@ export function App() {
             ["review", "Words"],
             ["generate", "Generate"],
             ["coverage", "Coverage"],
+            ["variations", "Variations"],
             ["style", "Style set"],
             ["sync", "Sync & export"],
             ["prompts", "Prompts"],

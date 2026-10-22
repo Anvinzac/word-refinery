@@ -1951,3 +1951,52 @@ code.k {
   background: color-mix(in srgb, var(--warn) 14%, transparent);
   color: var(--warn);
 }
+
+/* ── Variations grid ──────────────────────────────────────────────────────
+   The current card sits at the top as the thing being compared against, and
+   reads as a reference rather than a choice: no hover, no pointer. */
+
+.variations tbody tr[data-current="true"] > td,
+.variations tbody tr[data-current="true"] > th {
+  background: color-mix(in srgb, var(--accent) 7%, transparent);
+}
+
+.variations .variation-label {
+  width: 118px;
+  text-align: left;
+  vertical-align: top;
+  font-weight: 650;
+  font-size: 13px;
+  color: var(--ink);
+  white-space: nowrap;
+}
+
+.variation-note {
+  display: block;
+  margin-top: 2px;
+  font-size: 10.5px;
+  font-weight: 500;
+  color: var(--muted);
+  white-space: normal;
+}
+
+/* A take identical to the current text is not a choice; say so quietly rather
+   than hiding it, since its sameness is itself information about the word. */
+.variations .vi-cell[data-same] {
+  opacity: 0.55;
+}
+
+.variations .vi-cell[data-same]::after {
+  content: "same as current";
+  display: block;
+  margin-top: 3px;
+  font-size: 10px;
+  color: var(--muted);
+}
+
+.variation-error {
+  padding: 10px 12px;
+  color: var(--error);
+  font-size: 12.5px;
+  white-space: pre-wrap;
+}

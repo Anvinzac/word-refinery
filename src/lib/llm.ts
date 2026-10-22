@@ -11,7 +11,8 @@
  * endpoint the user picked. Nothing is proxied: GitHub Pages has no server.
  *
  * Exports: LlmError, ListedModel, chat, readChatText, listModels, annotateBatch, regenerateField,
- *          verifyWord, markupWord, markupField, distilStyle, testConnection,
+ *          verifyWord, markupWord, markupField, generateVariation, distilStyle,
+ *          testConnection,
  *          describeLlmError
  * Depends on: ./settings.ts, ./prompt.ts, ./contract.ts, ./types.ts
  */
@@ -23,6 +24,7 @@ import {
   buildHouseVoice,
   buildMarkupFieldPrompt,
   buildMarkupPrompt,
+  buildVariationPrompt,
   buildVerifyPrompt,
   MARKUP_FIELDS,
   type MarkupField,
@@ -933,4 +935,71 @@ export async function markupField(
     // A failed second pass must never cost the reviewer their rewrite.
     return { text, issue: describeLlmError(error).split("\n")[0] ?? "the marking pass failed" };
   }
+}
+
+/**
+ * Write one alternative take on a card, along one axis.
+ *
+ * Returns only the fields that came back usable, so a reply that mangled one
+ * key still gives the reviewer the other four to choose from — a variation is
+ * a suggestion, and a partly-usable suggestion beats an error.
+ *
+ * @param settings - active LLM settings
+ * @param word - the card as it stands
+ * @param slant - the axis instruction
+ * @param slantLabel - the axis name
+ * @param signal - optional AbortSignal
+ * @returns the fields this take produced
+ */
+export async function generateVariation(
+  settings: Settings["llm"],
+  word: DeckWord,
+  slant: string,
+  slantLabel: string,
+  signal?: AbortSignal,
+): Promise<Partial<Record<MarkupField, string>>> {
+  const reply = await chat(
+    settings,
+    [
+      { role: "system", content: resolvePrompt("variation") },
+      { role: "user", content: buildVariationPrompt(word, slant, slantLabel) },
+    ],
+    { attempts: 2, signal },
+  );
+
+  const start = reply.indexOf("{");
+  const end = reply.lastIndexOf("}");
+  if (start === -1 || end <= start) {
+    throw new LlmError("The variation reply contained no JSON object", {
+      provider: settings.provider,
+      body: reply.slice(0, 300),
+    });
+  }
+  let parsed: Record<string, unknown>;
+  try {
+    parsed = JSON.parse(reply.slice(start, end + 1)) as Record<string, unknown>;
+  } catch {
+    throw new LlmError("The variation reply was not valid JSON", {
+      provider: settings.provider,
+      body: reply.slice(0, 300),
+    });
+  }
+
+  const fields: Partial<Record<MarkupField, string>> = {};
+  for (const field of MARKUP_FIELDS) {
+    const value = parsed[field];
+    if (typeof value !== "string") continue;
+    const text = value.trim();
+    // A take identical to the card teaches the reviewer nothing, so it is
+    // dropped rather than shown as a choice that is not one.
+    if (text.length === 0) continue;
+    fields[field] = text;
+  }
+  if (Object.keys(fields).length === 0) {
+    throw new LlmError("The variation reply had none of the five fields", {
+      provider: settings.provider,
+      body: reply.slice(0, 300),
+    });
+  }
+  return fields;
 }

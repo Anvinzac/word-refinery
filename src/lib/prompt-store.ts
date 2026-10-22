@@ -27,13 +27,21 @@ import {
   ANNOTATION_SYSTEM_PROMPT,
   DISTIL_SYSTEM_PROMPT,
   STYLE_SYSTEM_PROMPT,
+  VARIATION_SYSTEM_PROMPT,
   MARKUP_SYSTEM_PROMPT,
   REWRITE_SYSTEM_PROMPT,
   VERIFY_SYSTEM_PROMPT,
 } from "./prompt.ts";
 
 /** The prompts an operator may override. */
-export type PromptId = "annotation" | "rewrite" | "verify" | "markup" | "style" | "distil";
+export type PromptId =
+  | "annotation"
+  | "rewrite"
+  | "verify"
+  | "markup"
+  | "style"
+  | "distil"
+  | "variation";
 
 /** What the panel needs to show one prompt. */
 export interface PromptDefinition {
@@ -73,6 +81,13 @@ export const PROMPT_DEFINITIONS: readonly PromptDefinition[] = [
     purpose:
       "Sent when you add breaking marks to cards written before the marks existed. A typesetting pass, not an edit: the words must come back identical, and a field that changed is discarded.",
     fallback: MARKUP_SYSTEM_PROMPT,
+  },
+  {
+    id: "variation",
+    title: "Variations (system)",
+    purpose:
+      "Sent once per row on the Variations page. Asks for a different take on a finished card along one named axis, rather than a fix for something wrong with it.",
+    fallback: VARIATION_SYSTEM_PROMPT,
   },
   {
     id: "style",

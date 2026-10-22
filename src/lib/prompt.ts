@@ -13,7 +13,8 @@
  * VERIFY_SYSTEM_PROMPT, buildVerifyPrompt, VerifyFinding, VerifyReport,
  * MARKUP_SYSTEM_PROMPT, buildMarkupPrompt, MARKUP_FIELDS, MarkupField,
  * STYLE_SYSTEM_PROMPT, DISTIL_SYSTEM_PROMPT, buildDistilPrompt, buildHouseVoice,
- * STYLE_AUDIT_SYSTEM_PROMPT, buildStyleAuditPrompt, buildMarkupFieldPrompt
+ * STYLE_AUDIT_SYSTEM_PROMPT, buildStyleAuditPrompt, buildMarkupFieldPrompt,
+ * VARIATION_SYSTEM_PROMPT, buildVariationPrompt
  * Depends on: ./types.ts, ./contract.ts
  */
 import type { CorpusWord } from "./types.ts";
@@ -733,4 +734,92 @@ export function buildMarkupFieldPrompt(
     "",
     `Return the JSON object with exactly one key: ${field}.`,
   ].join("\n");
+}
+
+// ── Variations ──────────────────────────────────────────────────────────────
+
+/**
+ * The fields a variation writes, and therefore the only rules worth stating.
+ * `usageEn` is deliberately absent: the English example is held fixed so the
+ * two versions stay comparable, and listing its rule would invite a rewrite.
+ */
+const VARIATION_RULE_FIELDS = new Set(["meaningVi", "defVi", "leadVi", "anticipateVi", "usageVi"]);
+
+/**
+ * System prompt for one alternative take on a whole card.
+ *
+ * Separate from the rewrite prompt because the job is different: a rewrite
+ * fixes a named complaint, while this one is asked for a DIFFERENT reading of
+ * the same word, with nothing wrong with the version it replaces. Telling a
+ * model to "do it again differently" without saying along which axis produces
+ * four near-identical cards, so the axis is given and the rest of the quality
+ * bar is held constant.
+ */
+export const VARIATION_SYSTEM_PROMPT = `You write Vietnamese vocabulary cards for a mobile "learn one English word at a time" app.
+${AUDIENCE}
+
+You are given a card that is already finished and acceptable. Your job is NOT to fix it. Write a DIFFERENT take on the same English word, along the one axis the user message names, so a reviewer can put the two side by side and choose.
+
+What this means in practice:
+- Change the writing, not the word's meaning. The learner must end up understanding the same sense of the same English word.
+- Do not copy the existing card's phrasing. If your version would share a whole phrase with it, find another way to say that part.
+- The axis is the ONLY thing you are free about. Every field rule below still binds: the word counts, the no-English rule, the diacritics, the marks.
+- Write every field, even the ones you would barely change. A reviewer picks per field, so a field you skip is a column they cannot choose in.
+
+Field rules:
+${CRAWLER_ANNOTATION_FIELDS.filter((field) => VARIATION_RULE_FIELDS.has(field))
+  .map((field) => `- "${field}": ${FIELD_RULES[field]}`)
+  .join("\n")}
+
+${WORD_JOINING}
+
+Hard rules:
+${LANGUAGE_RULES}
+- Return ONLY a JSON object with these five keys and no others: meaningVi, defVi, leadVi, anticipateVi, usageVi. No markdown fences, no commentary.`;
+
+/**
+ * Render one variation request.
+ *
+ * The existing card is shown so the model can avoid repeating it, and labelled
+ * as acceptable so it is not read as a thing to correct.
+ *
+ * @param word - the card as it stands
+ * @param slant - what to change, in one instruction
+ * @param slantLabel - the slant's name, for the model's own orientation
+ */
+export function buildVariationPrompt(
+  word: {
+    word: string;
+    pos: string;
+    level: string;
+    meaningVi: string;
+    defVi: string;
+    leadVi: string;
+    anticipateVi: string;
+    usage: Array<{ en: string; vi: string }>;
+  },
+  slant: string,
+  slantLabel: string,
+): string {
+  const example = word.usage[0];
+  const lines: Array<string | null> = [
+    `Write a "${slantLabel}" take on the card for "${word.word}" (${word.pos || "unknown part of speech"}, ${word.level}).`,
+    "",
+    `THE AXIS: ${slant}`,
+    "",
+    "The existing card, which is acceptable as it stands — do not repeat its phrasing:",
+    `- meaningVi: ${word.meaningVi}`,
+    `- defVi: ${word.defVi}`,
+    `- leadVi: ${word.leadVi}`,
+    `- anticipateVi: ${word.anticipateVi}`,
+    example ? `- usageEn: ${example.en}` : null,
+    example ? `- usageVi: ${example.vi}` : null,
+    "",
+    example
+      ? `Keep usageEn exactly as it is — only usageVi is yours to rewrite, and it must still translate that English sentence.`
+      : null,
+    "",
+    "Return the JSON object with all five keys.",
+  ];
+  return lines.filter((line): line is string => line !== null).join("\n");
 }
