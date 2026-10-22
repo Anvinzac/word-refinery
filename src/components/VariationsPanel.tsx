@@ -1,15 +1,15 @@
 /**
- * Variations — one word, four takes, choose per field.
+ * Variations — one word, eight takes, choose per field.
  *
  * Regenerating a field hands back another sentence and leaves you comparing it
  * against one you can no longer see. This shows the alternatives side by side,
  * so choosing is a comparison rather than a memory test, and so a field you are
  * happy with can stay while the one beside it changes.
  *
- * The four rows differ along named axes rather than by resampling, because
- * four rolls of the same prompt cluster together and the differences between
- * them are noise. Each row is one request, so re-rolling a row costs one call
- * and leaves the others alone.
+ * The rows differ along named axes rather than by resampling, because several
+ * rolls of the same prompt cluster together and the differences between them
+ * are noise. Each row is one request, so re-rolling a row costs one call and
+ * leaves the others alone, and generating them all sends every row at once.
  *
  * Adopting a cell writes that field onto the word as a MODEL edit, which keeps
  * it out of the style-pair distillation: a chosen variation is still generated
@@ -31,6 +31,7 @@ import {
   emptyRow,
   modelLabel,
   readSlantModels,
+  searchVariationWords,
   writeSlantModels,
   type SlantModels,
   type VariationRow,
@@ -94,13 +95,7 @@ export function VariationsPanel({
   const modelFor = (slantId: string) =>
     (canPickModel ? slantModels[slantId] : undefined) ?? settings.llm.model;
 
-  const matches = useMemo(() => {
-    const needle = query.trim().toLowerCase();
-    if (needle.length === 0) return [];
-    return entries
-      .filter((entry) => entry.deckWord.word.toLowerCase().includes(needle))
-      .slice(0, 8);
-  }, [entries, query]);
+  const matches = useMemo(() => searchVariationWords(entries, query), [entries, query]);
 
   const entry = useMemo(
     () => entries.find((row) => row.id === chosenId) ?? null,
@@ -187,9 +182,9 @@ export function VariationsPanel({
     }
   };
 
-  /** Write every row, one after another so a failure is legible. */
+  /** Write every row at once; each row reports its own failure in place. */
   const runAll = async () => {
-    for (const slant of VARIATION_SLANTS) await runRow(slant.id);
+    await Promise.all(VARIATION_SLANTS.map((slant) => runRow(slant.id)));
   };
 
   /**
@@ -230,9 +225,9 @@ export function VariationsPanel({
     <section className="panel">
       <h2>Variations</h2>
       <p className="hint">
-        One word, four takes on it, side by side. Tap any cell to make it the card's text; use a
-        row's Generate to roll that row again. The four differ along fixed axes rather than by
-        chance, so a row that never suits you is telling you something.
+        One word, {VARIATION_SLANTS.length} takes on it, side by side. Tap any cell to make it the
+        card's text; use a row's Generate to roll that row again. The takes differ along fixed axes
+        rather than by chance, so a row that never suits you is telling you something.
       </p>
 
       <div className="field" style={{ marginTop: 12, maxWidth: 420 }}>
@@ -244,6 +239,9 @@ export function VariationsPanel({
           value={query}
           onChange={(event) => setQuery(event.target.value)}
         />
+        {matches.length === 0 && query.trim().length > 0 && (
+          <span className="note">No B1–C2 word matches — A1 and A2 words are left out here.</span>
+        )}
         {matches.length > 0 && (
           <div className="chips" style={{ marginTop: 8 }}>
             {matches.map((row) => (
@@ -263,7 +261,7 @@ export function VariationsPanel({
 
       {entry === null ? (
         <div className="empty" style={{ marginTop: 16 }}>
-          Search for a word to see four takes on it.
+          Search for a word to see {VARIATION_SLANTS.length} takes on it.
         </div>
       ) : (
         <>
@@ -280,7 +278,7 @@ export function VariationsPanel({
               disabled={rows.some((row) => row.busy)}
               onClick={() => void runAll()}
             >
-              {rows.some((row) => row.busy) ? "Writing…" : "Generate all four"}
+              {rows.some((row) => row.busy) ? "Writing…" : `Generate all ${VARIATION_SLANTS.length}`}
             </button>
           </div>
 

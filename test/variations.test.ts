@@ -1,7 +1,7 @@
 /**
  * Tests for the variations grid.
  *
- * The point of the feature is that four takes differ along fixed axes rather
+ * The point of the feature is that the takes differ along fixed axes rather
  * than by resampling, so what matters is that the axes are distinct and the
  * prompt holds everything except the axis constant — and that a reply which
  * mangles one field still yields the other four, since a partly-usable
@@ -14,8 +14,10 @@ import test from "node:test";
 
 import {
   VARIATION_FIELDS,
+  VARIATION_MODELS,
   VARIATION_SLANTS,
   emptyRow,
+  searchVariationWords,
   slantById,
 } from "../src/lib/variations.ts";
 import { VARIATION_SYSTEM_PROMPT, buildVariationPrompt } from "../src/lib/prompt.ts";
@@ -61,14 +63,21 @@ test.afterEach(() => {
 
 // ── the axes ───────────────────────────────────────────────────────────────
 
-test("there are four axes and they are genuinely different instructions", () => {
-  assert.equal(VARIATION_SLANTS.length, 4);
+test("there are eight axes and they are genuinely different instructions", () => {
+  assert.equal(VARIATION_SLANTS.length, 8);
   const ids = VARIATION_SLANTS.map((slant) => slant.id);
-  assert.deepEqual(ids, ["plain", "warm", "vivid", "playful"]);
-  assert.equal(new Set(VARIATION_SLANTS.map((s) => s.instruction)).size, 4);
+  assert.deepEqual(ids, ["plain", "formal", "warm", "scene", "contrast", "vivid", "rhythmic", "playful"]);
+  assert.equal(new Set(VARIATION_SLANTS.map((s) => s.instruction)).size, 8);
+  assert.equal(new Set(VARIATION_SLANTS.map((s) => s.label)).size, 8);
   // Ordered least to most liberty, so the safe option is met first.
   assert.match(VARIATION_SLANTS[0].instruction, /Strip it to the bone/);
-  assert.match(VARIATION_SLANTS[3].instruction, /wit/);
+  assert.match(VARIATION_SLANTS[VARIATION_SLANTS.length - 1].instruction, /wit/);
+});
+
+test("the model picker offers ten distinct OpenRouter models", () => {
+  assert.equal(VARIATION_MODELS.length, 10);
+  assert.equal(new Set(VARIATION_MODELS.map((model) => model.id)).size, 10);
+  for (const model of VARIATION_MODELS) assert.match(model.id, /^[a-z0-9-]+\/[a-z0-9.-]+$/);
 });
 
 test("the playful axis forbids the joke the word cannot carry", () => {
@@ -153,4 +162,39 @@ test("a reply with nothing usable is an error, not an empty row", async () => {
 test("prose around the JSON is tolerated", async () => {
   stubReply('Here you go: {"defVi":"a"} hope that helps');
   assert.deepEqual(await generateVariation(LLM, CARD, "x", "Plain"), { defVi: "a" });
+});
+
+test("the word search leaves out A1 and A2, and lists B1 first up to C2", () => {
+  const entry = (word: string, level: DeckWord["level"]) => ({
+    id: word,
+    deckWord: { ...CARD, id: word, word, level },
+    status: "pending" as const,
+    warnings: [],
+  });
+  const entries = [
+    entry("account", "C1"),
+    entry("act", "A1"),
+    entry("accurate", "B2"),
+    entry("exact", "B1"),
+    entry("actual", "A2"),
+    entry("acquire", "C2"),
+    entry("accept", "B1"),
+  ];
+  assert.deepEqual(
+    searchVariationWords(entries, "ac").map((row) => row.deckWord.word),
+    ["accept", "exact", "accurate", "account", "acquire"],
+  );
+  assert.deepEqual(searchVariationWords(entries, "  "), []);
+});
+
+test("a variation asks for low reasoning effort and a budget of at least 8192 tokens", async () => {
+  let sent: { max_tokens?: number; reasoning?: { effort?: string } } = {};
+  globalThis.fetch = (async (_url: unknown, init?: { body?: string }) => {
+    sent = JSON.parse(init?.body ?? "{}");
+    const content = JSON.stringify({ defVi: "Leo lên | chỗ cao bằng tay chân." });
+    return new Response(JSON.stringify({ choices: [{ message: { content } }] }), { status: 200 });
+  }) as typeof fetch;
+  await generateVariation({ ...LLM, maxTokens: 4096 }, CARD, "Plain.", "Plain");
+  assert.equal(sent.max_tokens, 8192);
+  assert.deepEqual(sent.reasoning, { effort: "low" });
 });

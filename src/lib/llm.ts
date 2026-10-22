@@ -85,7 +85,7 @@ interface ChatMessage {
 export async function chat(
   settings: Settings["llm"],
   messages: readonly ChatMessage[],
-  options: { attempts?: number; signal?: AbortSignal } = {},
+  options: { attempts?: number; signal?: AbortSignal; reasoning?: ReasoningEffort } = {},
 ): Promise<string> {
   if (settings.apiKey.trim().length === 0) {
     throw new LlmError("No API key set. Open Settings and paste a key first.", {
@@ -98,7 +98,7 @@ export async function chat(
   for (let attempt = 0; attempt < maxAttempts; attempt += 1) {
     if (options.signal?.aborted) throw new LlmError("Cancelled", { provider: settings.provider });
     try {
-      return await sendOnce(settings, messages, options.signal);
+      return await sendOnce(settings, messages, options.signal, options.reasoning);
     } catch (error) {
       if (!(error instanceof LlmError)) throw error;
       lastError = error;
@@ -113,11 +113,18 @@ export async function chat(
   throw lastError ?? new LlmError("Request failed", { provider: settings.provider });
 }
 
+/**
+ * How hard a reasoning model may think before it answers. Sent to OpenRouter
+ * only, which passes it to models that reason and ignores it for the rest.
+ */
+type ReasoningEffort = "low" | "medium" | "high";
+
 /** One network round-trip, provider-specific request and response shaping. */
 async function sendOnce(
   settings: Settings["llm"],
   messages: readonly ChatMessage[],
   signal?: AbortSignal,
+  reasoning?: ReasoningEffort,
 ): Promise<string> {
   const provider = settings.provider;
 
@@ -174,6 +181,7 @@ async function sendOnce(
       max_tokens: settings.maxTokens,
       temperature: 0.7,
       messages: messages.map((message) => ({ role: message.role, content: message.content })),
+      ...(provider === "openrouter" && reasoning !== undefined ? { reasoning: { effort: reasoning } } : {}),
     }),
   });
 
@@ -937,6 +945,9 @@ export async function markupField(
   }
 }
 
+/** Smallest token budget a variation is sent with, whatever Settings says. */
+const VARIATION_MIN_TOKENS = 8192;
+
 /**
  * Write one alternative take on a card, along one axis.
  *
@@ -958,13 +969,16 @@ export async function generateVariation(
   slantLabel: string,
   signal?: AbortSignal,
 ): Promise<Partial<Record<MarkupField, string>>> {
+  // A take is a few short lines, so long deliberation buys little; capping the
+  // effort and keeping a floor under the budget stops a reasoning model from
+  // thinking through the whole allowance and answering nothing.
   const reply = await chat(
-    settings,
+    { ...settings, maxTokens: Math.max(settings.maxTokens, VARIATION_MIN_TOKENS) },
     [
       { role: "system", content: resolvePrompt("variation") },
       { role: "user", content: buildVariationPrompt(word, slant, slantLabel) },
     ],
-    { attempts: 2, signal },
+    { attempts: 2, signal, reasoning: "low" },
   );
 
   const start = reply.indexOf("{");
