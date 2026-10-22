@@ -13,19 +13,26 @@
  *
  * Adopting a cell writes that field onto the word as a MODEL edit, which keeps
  * it out of the style-pair distillation: a chosen variation is still generated
- * text, however good.
+ * text, however good. The Current row keeps showing the word as it was when it
+ * was chosen, so every take is judged against the original rather than against
+ * the take just adopted; tapping a chosen cell again puts the original back.
  *
  * Exports: VariationsPanel
  * Depends on: ../lib/variations.ts, ../lib/llm.ts
  */
-import { useMemo, useState } from "react";
+import { useMemo, useRef, useState } from "react";
 import { MarkedText } from "./ReviewTable";
 import { describeLlmError, generateVariation, markupField } from "../lib/llm";
 import { hasAnyMark, countUnits } from "../lib/joiner";
 import {
   VARIATION_FIELDS,
+  VARIATION_MODELS,
   VARIATION_SLANTS,
   emptyRow,
+  modelLabel,
+  readSlantModels,
+  writeSlantModels,
+  type SlantModels,
   type VariationRow,
 } from "../lib/variations";
 import type { MarkupField } from "../lib/prompt";
@@ -41,8 +48,9 @@ const LABELS: Record<MarkupField, string> = {
   usageVi: "usage (vi)",
 };
 
-/** The text a field holds on a word. */
-function textOf(word: DeckWord, field: MarkupField): string {
+/** The text a field holds on a word; empty while no word is chosen. */
+function textOf(word: DeckWord | undefined, field: MarkupField): string {
+  if (word === undefined) return "";
   return field === "usageVi" ? (word.usage[0]?.vi ?? "") : (word[field] ?? "");
 }
 
@@ -62,6 +70,29 @@ export function VariationsPanel({
   );
   const [adopting, setAdopting] = useState<string | null>(null);
   const [notice, setNotice] = useState<string | null>(null);
+  /** The word as it stood when it was chosen, kept on screen to compare against. */
+  const [original, setOriginal] = useState<ReviewEntry | null>(null);
+  /** The take chosen for each field, by row and by text so a re-rolled row loses its mark. */
+  const [picked, setPicked] = useState<Partial<Record<MarkupField, { slant: string; text: string }>>>({});
+  // A take may wait on a markup call; writing through the entries it started
+  // with would undo any field taken in the meantime.
+  const latestEntries = useRef(entries);
+  latestEntries.current = entries;
+  const [slantModels, setSlantModels] = useState<SlantModels>(() => readSlantModels());
+  // The curated ids are OpenRouter's; any other provider writes with its own model.
+  const canPickModel = settings.llm.provider === "openrouter";
+
+  const pickModel = (slantId: string, model: string) => {
+    const next = { ...slantModels };
+    if (model.length === 0) delete next[slantId];
+    else next[slantId] = model;
+    setSlantModels(next);
+    writeSlantModels(next);
+  };
+
+  /** The model a row is written by: its own pick, or the one from Settings. */
+  const modelFor = (slantId: string) =>
+    (canPickModel ? slantModels[slantId] : undefined) ?? settings.llm.model;
 
   const matches = useMemo(() => {
     const needle = query.trim().toLowerCase();
@@ -75,6 +106,7 @@ export function VariationsPanel({
     () => entries.find((row) => row.id === chosenId) ?? null,
     [entries, chosenId],
   );
+  const reference = original !== null && original.id === entry?.id ? original.deckWord : entry?.deckWord;
 
   /** Start again on a different word: the old takes do not belong to it. */
   const choose = (id: string) => {
@@ -82,6 +114,41 @@ export function VariationsPanel({
     setQuery("");
     setNotice(null);
     setRows(VARIATION_SLANTS.map((slant) => emptyRow(slant.id)));
+    setOriginal(entries.find((row) => row.id === id) ?? null);
+    setPicked({});
+  };
+
+  /** Replace one field on the chosen word, and nothing else. */
+  const writeField = (field: MarkupField, text: string, rest: Partial<ReviewEntry>) => {
+    if (entry === null) return;
+    onChange(
+      latestEntries.current.map((row) => {
+        if (row.id !== entry.id) return row;
+        const deckWord =
+          field === "usageVi"
+            ? {
+                ...row.deckWord,
+                usage: row.deckWord.usage.map((item, index) => (index === 0 ? { ...item, vi: text } : item)),
+              }
+            : ({ ...row.deckWord, [field]: text } as DeckWord);
+        return { ...row, ...rest, deckWord };
+      }),
+    );
+  };
+
+  /** Untake a cell: the field goes back to what it said when the word was chosen. */
+  const restore = (field: MarkupField) => {
+    if (original === null) return;
+    const remaining = { ...picked };
+    delete remaining[field];
+    setPicked(remaining);
+    // With nothing taken any more, the card is exactly as it was, review state included.
+    const rest =
+      Object.keys(remaining).length === 0
+        ? { status: original.status, machineEdited: original.machineEdited }
+        : {};
+    writeField(field, textOf(original.deckWord, field), rest);
+    setNotice(`Put the original ${LABELS[field]} back.`);
   };
 
   /** Write one row, replacing whatever it held. */
@@ -97,16 +164,17 @@ export function VariationsPanel({
         row.slant === slantId ? { ...row, busy: true, error: null } : row,
       ),
     );
+    const model = modelFor(slantId);
     try {
       const fields = await generateVariation(
-        settings.llm,
+        { ...settings.llm, model },
         entry.deckWord,
         slant.instruction,
         slant.label,
       );
       setRows((previous) =>
         previous.map((row) =>
-          row.slant === slantId ? { slant: slantId, fields, error: null, busy: false } : row,
+          row.slant === slantId ? { slant: slantId, fields, model, error: null, busy: false } : row,
         ),
       );
     } catch (thrown) {
@@ -131,8 +199,14 @@ export function VariationsPanel({
    * rewrite is: a variation request carries the whole quality bar at once and
    * the marks are what slips.
    */
-  const adopt = async (field: MarkupField, text: string) => {
+  const adopt = async (field: MarkupField, text: string, slant: string) => {
     if (entry === null) return;
+    const current = picked[field];
+    if (current !== undefined && current.slant === slant && current.text === text) {
+      restore(field);
+      return;
+    }
+    setPicked((previous) => ({ ...previous, [field]: { slant, text } }));
     const key = `${field}:${text}`;
     setAdopting(key);
     setNotice(null);
@@ -145,23 +219,9 @@ export function VariationsPanel({
     } catch {
       // Marking is a courtesy; the reviewer's choice stands either way.
     }
-    onChange(
-      entries.map((row) => {
-        if (row.id !== entry.id) return row;
-        const deckWord =
-          field === "usageVi"
-            ? {
-                ...row.deckWord,
-                usage: row.deckWord.usage.map((item, index) =>
-                  index === 0 ? { ...item, vi: written } : item,
-                ),
-              }
-            : ({ ...row.deckWord, [field]: written } as DeckWord);
-        // A chosen variation is still generated text, so it must not become
-        // half of a style pair.
-        return { ...row, deckWord, machineEdited: true, status: "edited" as const };
-      }),
-    );
+    // A chosen variation is still generated text, so it must not become
+    // half of a style pair.
+    writeField(field, written, { machineEdited: true, status: "edited" });
     setAdopting(null);
     setNotice(`Took the ${LABELS[field]} from this row.`);
   };
@@ -245,12 +305,12 @@ export function VariationsPanel({
                 <tr data-current="true">
                   <th scope="row" className="variation-label">
                     Current
-                    <span className="variation-note">what the card says now</span>
+                    <span className="variation-note">as it was when you picked it</span>
                   </th>
                   {VARIATION_FIELDS.map((field) => (
                     <td key={field} className="vi-cell" lang="vi">
-                      {textOf(entry.deckWord, field).length > 0 ? (
-                        <MarkedText value={textOf(entry.deckWord, field)} />
+                      {textOf(reference, field).length > 0 ? (
+                        <MarkedText value={textOf(reference, field)} />
                       ) : (
                         <span style={{ color: "var(--muted)" }}>—</span>
                       )}
@@ -266,6 +326,25 @@ export function VariationsPanel({
                       <th scope="row" className="variation-label">
                         {slant.label}
                         <span className="variation-note">{slant.note}</span>
+                        {canPickModel && (
+                          <select
+                            className="variation-model"
+                            aria-label={`Model for ${slant.label}`}
+                            value={slantModels[slant.id] ?? ""}
+                            disabled={row.busy}
+                            onChange={(event) => pickModel(slant.id, event.target.value)}
+                          >
+                            <option value="">Settings: {modelLabel(settings.llm.model)}</option>
+                            {VARIATION_MODELS.map((model) => (
+                              <option key={model.id} value={model.id}>
+                                {model.label} · {model.price}
+                              </option>
+                            ))}
+                          </select>
+                        )}
+                        {row.model !== undefined && row.model !== modelFor(slant.id) && (
+                          <span className="variation-note">written by {modelLabel(row.model)}</span>
+                        )}
                       </th>
                       {row.error !== null ? (
                         <td colSpan={VARIATION_FIELDS.length} className="variation-error">
@@ -274,7 +353,10 @@ export function VariationsPanel({
                       ) : (
                         VARIATION_FIELDS.map((field) => {
                           const text = row.fields[field];
-                          const same = text !== undefined && text === textOf(entry.deckWord, field);
+                          const same = text !== undefined && text === textOf(reference, field);
+                          const choice = picked[field];
+                          const isPicked =
+                            text !== undefined && choice?.slant === slant.id && choice.text === text;
                           return (
                             <td
                               key={field}
@@ -282,18 +364,31 @@ export function VariationsPanel({
                               lang="vi"
                               role={text === undefined ? undefined : "button"}
                               tabIndex={text === undefined ? undefined : 0}
+                              aria-pressed={text === undefined ? undefined : isPicked}
                               data-same={same || undefined}
-                              title={text === undefined ? undefined : "Use this one"}
+                              data-picked={isPicked || undefined}
+                              title={
+                                text === undefined
+                                  ? undefined
+                                  : isPicked
+                                    ? "Chosen — tap again to put the original back"
+                                    : "Use this one"
+                              }
                               onClick={() => {
-                                if (text !== undefined) void adopt(field, text);
+                                if (text !== undefined) void adopt(field, text, slant.id);
                               }}
                               onKeyDown={(event) => {
                                 if (text === undefined) return;
                                 if (event.key !== "Enter" && event.key !== " ") return;
                                 event.preventDefault();
-                                void adopt(field, text);
+                                void adopt(field, text, slant.id);
                               }}
                             >
+                              {isPicked && (
+                                <span className="variation-check" aria-hidden="true">
+                                  ✓
+                                </span>
+                              )}
                               {row.busy ? (
                                 <span style={{ color: "var(--muted)" }}>…</span>
                               ) : text === undefined ? (

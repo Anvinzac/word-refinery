@@ -1994,6 +1994,47 @@ code.k {
   color: var(--muted);
 }
 
+.variation-model {
+  display: block;
+  width: 100%;
+  max-width: 150px;
+  margin-top: 6px;
+  padding: 3px 4px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--bg);
+  color: var(--ink);
+  font: inherit;
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.variations .vi-cell[data-picked] {
+  position: relative;
+  outline: 2px solid var(--accent);
+  outline-offset: -3px;
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--accent) 8%, transparent);
+}
+
+.variation-check {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  display: grid;
+  place-items: center;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: var(--bg);
+  font-size: 11px;
+  font-weight: 800;
+  line-height: 1;
+  box-shadow: 0 1px 4px rgb(0 0 0 / 0.35);
+  pointer-events: none;
+}
+
 .variation-error {
   padding: 10px 12px;
   color: var(--error);
