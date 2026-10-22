@@ -108,6 +108,7 @@ test("a committed PAIR applies even when the reviewer has their own set", () => 
 
 test("a row carries both sides, and the identity to find its card again", () => {
   const sample = buildStyleFile([EDITED], "").samples[0];
+  assert.ok(sample.before !== undefined && sample.after !== undefined, "a rewritten card has both sides");
   assert.equal(sample.before.defVi, "Máy móc viết.");
   assert.equal(sample.after.defVi, "Mọi thứ xếp đúng chỗ.");
   assert.equal(sample.batchId, "deck-v3-A1");
@@ -125,6 +126,7 @@ test("the guide travels with the pairs", () => {
 
 test("an empty field is left out rather than written as a blank", () => {
   const sample = buildStyleFile([entry("x", { before: {}, after: { leadVi: "" } })], "").samples[0];
+  assert.ok(sample.after !== undefined);
   assert.equal(sample.after.leadVi, undefined);
   assert.ok(sample.after.defVi !== undefined);
 });
