@@ -11,7 +11,7 @@
  * endpoint the user picked. Nothing is proxied: GitHub Pages has no server.
  *
  * Exports: LlmError, ListedModel, chat, readChatText, listModels, annotateBatch, regenerateField,
- *          verifyWord, markupWord, distilStyle, testConnection
+ *          verifyWord, markupWord, distilStyle, testConnection, describeLlmError
  * Depends on: ./settings.ts, ./prompt.ts, ./contract.ts, ./types.ts
  */
 import type { LlmProvider, Settings } from "./settings.ts";
@@ -491,6 +491,44 @@ function houseVoice(exemplars: string, whole: boolean): string {
 function withBlock(systemPrompt: string, block: string): string {
   return block.length > 0 ? `${systemPrompt}\n\n${block}` : systemPrompt;
 }
+
+
+/**
+ * Turn any thrown value into something a reviewer can act on.
+ *
+ * `LlmError` carries the provider's own response body, which is where the
+ * useful part of a failure lives — a bare "responded 404" tells you nothing,
+ * while the body names the model it could not find. Every surface showed only
+ * the message, so the explanation was captured and then dropped.
+ *
+ * The hint is added for the statuses whose fix is specific and non-obvious.
+ *
+ * @param thrown - whatever a call rejected with
+ * @returns one or more lines, ready to display
+ */
+export function describeLlmError(thrown: unknown): string {
+  if (!(thrown instanceof LlmError)) {
+    return thrown instanceof Error ? thrown.message : String(thrown);
+  }
+  // `HINTS` has no entry for most statuses, so the lookup is undefined far more
+  // often than not — a filter that only excluded null threw on every 500.
+  const hint = HINTS[thrown.status ?? 0];
+  return [thrown.message, hint, thrown.body?.trim()]
+    .filter((line): line is string => typeof line === "string" && line.length > 0)
+    .join("\n");
+}
+
+/** What to do about the statuses where the status alone does not say. */
+const HINTS: Record<number, string> = {
+  401: "The provider rejected the key. Check it in Settings, and that it belongs to this provider.",
+  402: "The account is out of credit.",
+  403: "The key is not allowed to use this model.",
+  404:
+    "A 404 from a chat endpoint is almost always the MODEL, not the URL: the id in Settings " +
+    "is unknown to the provider, has been withdrawn, or has no endpoint your account can reach. " +
+    "Open Settings and pick it again from the catalogue.",
+  429: "Rate limited. Lower the batch size in Settings, or wait and retry.",
+};
 
 /** Outcome of one annotation run. */
 export interface AnnotateResult {

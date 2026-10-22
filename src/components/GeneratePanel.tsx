@@ -10,7 +10,7 @@
  */
 import { useMemo, useState } from "react";
 import { countByLevel, loadCorpus } from "../lib/corpus";
-import { LlmError } from "../lib/llm";
+import { LlmError, describeLlmError } from "../lib/llm";
 import { buildReviewEntries, runGeneration } from "../lib/pipeline";
 import type { Settings } from "../lib/settings";
 import { CEFR_LEVELS, type CefrLevel, type ReviewEntry } from "../lib/types";
@@ -113,7 +113,7 @@ export function GeneratePanel({
       append(`Run finished: ${entries.length} new word(s), ${result.issues.length} note(s).`);
       onGenerated(entries, result.issues);
     } catch (thrown) {
-      const message = thrown instanceof Error ? thrown.message : String(thrown);
+      const message = describeLlmError(thrown);
       setError(message);
       append(`FAILED: ${message}`);
       if (thrown instanceof LlmError && thrown.body.length > 0) append(`Response: ${thrown.body}`);

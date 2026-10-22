@@ -22,7 +22,7 @@
 import { Fragment, useEffect, useMemo, useState } from "react";
 import { validateDeck, type DeckIssue } from "../lib/deck";
 import { injectEmphasisMarkers, stripEmphasisMarkers, validateEmphasis } from "../lib/emphasis";
-import { regenerateField, verifyWord } from "../lib/llm";
+import { regenerateField, verifyWord, describeLlmError } from "../lib/llm";
 import { renderExemplars, styleExemplars } from "../lib/style";
 import { buildRegeneratePrompt, chipsForField, type RefineField, type RefineRequest } from "../lib/prompt";
 import { collectUniqueness, renderAvoidSection } from "../lib/uniqueness";
@@ -198,7 +198,7 @@ export function ReviewTable({
       const report = await verifyWord(settings.llm, entry.deckWord);
       setReports((previous) => ({ ...previous, [entry.id]: report }));
     } catch (thrown) {
-      setError(thrown instanceof Error ? thrown.message : String(thrown));
+      setError(describeLlmError(thrown));
     } finally {
       setVerifying(null);
     }
@@ -298,7 +298,7 @@ export function ReviewTable({
       setRewrote(written);
       setDraft(null);
     } catch (thrown) {
-      setError(thrown instanceof Error ? thrown.message : String(thrown));
+      setError(describeLlmError(thrown));
     } finally {
       setBusy(false);
     }

@@ -15,6 +15,7 @@ import { useMemo, useRef, useState } from "react";
 import { countByLevel, isBundledCorpus, loadCorpus, setActiveCorpus } from "../lib/corpus";
 import { buildCorpus, type ImportSummary } from "../lib/corpus-import";
 import { clearLocalCorpus, saveLocalCorpus } from "../lib/local-doc";
+import { describeLlmError } from "../lib/llm";
 import { CEFR_LEVELS, type CefrLevel } from "../lib/types";
 
 /** The provenance a reviewer can see and edit before importing. */
@@ -110,7 +111,7 @@ export function CorpusPanel({ onCorpusChange }: { onCorpusChange: () => void }) 
       setSummary(built.summary);
       onCorpusChange();
     } catch (thrown) {
-      setError(thrown instanceof Error ? thrown.message : String(thrown));
+      setError(describeLlmError(thrown));
     } finally {
       setBusy(false);
     }

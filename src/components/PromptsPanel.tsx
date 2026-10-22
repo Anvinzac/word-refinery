@@ -28,7 +28,7 @@ import { buildBatchPrompt, buildRegeneratePrompt, buildVerifyPrompt } from "../l
 import { collectUniqueness, renderAvoidSection } from "../lib/uniqueness";
 import type { CorpusWord, ReviewEntry } from "../lib/types";
 import type { Settings } from "../lib/settings";
-import { distilStyle } from "../lib/llm";
+import { distilStyle, describeLlmError } from "../lib/llm";
 import { renderPairs, stylePairs } from "../lib/style";
 
 /** A representative request, so the live previews show real structure. */
@@ -101,7 +101,7 @@ export function PromptsPanel({
       setDrafts((previous) => ({ ...previous, style: undefined }));
       setSaved("style");
     } catch (thrown) {
-      setBuildError(thrown instanceof Error ? thrown.message : String(thrown));
+      setBuildError(describeLlmError(thrown));
     } finally {
       setBuilding(false);
     }

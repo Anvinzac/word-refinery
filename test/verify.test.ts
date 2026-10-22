@@ -190,3 +190,44 @@ test("every definition carries a non-empty shipped text", () => {
     assert.ok(definition.purpose.length > 0);
   }
 });
+
+// ── what a failure tells the reviewer ──────────────────────────────────────
+
+test("an LLM error carries the provider's own explanation, not just the status", async () => {
+  const { describeLlmError, LlmError } = await import("../src/lib/llm.ts");
+  const described = describeLlmError(
+    new LlmError("openrouter responded 404 Not Found", {
+      status: 404,
+      provider: "openrouter",
+      body: '{"error":{"message":"No endpoints found for some/retired-model"}}',
+    }),
+  );
+  assert.match(described, /responded 404/);
+  assert.match(described, /No endpoints found for some\/retired-model/, "the body is shown");
+  assert.match(described, /almost always the MODEL/, "and what to do about it");
+});
+
+test("each status that has a specific fix says what it is", async () => {
+  const { describeLlmError, LlmError } = await import("../src/lib/llm.ts");
+  const cases: Array<[number, RegExp]> = [
+    [401, /rejected the key/],
+    [402, /out of credit/],
+    [403, /not allowed to use this model/],
+    [429, /Rate limited/],
+  ];
+  for (const [status, expected] of cases) {
+    assert.match(describeLlmError(new LlmError("x", { status })), expected, `status ${status}`);
+  }
+});
+
+test("a status with no specific fix is reported without inventing one", async () => {
+  const { describeLlmError, LlmError } = await import("../src/lib/llm.ts");
+  const described = describeLlmError(new LlmError("provider responded 500", { status: 500 }));
+  assert.equal(described, "provider responded 500");
+});
+
+test("an ordinary error passes through unchanged", async () => {
+  const { describeLlmError } = await import("../src/lib/llm.ts");
+  assert.equal(describeLlmError(new Error("network down")), "network down");
+  assert.equal(describeLlmError("a string"), "a string");
+});

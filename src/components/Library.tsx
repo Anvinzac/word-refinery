@@ -23,7 +23,7 @@ import { BulkBar, type TagAction } from "./BulkBar";
 import { FilterRail } from "./FilterRail";
 import { ReviewTable } from "./ReviewTable";
 import { MAX_EXAMS, MAX_TOPICS } from "../lib/contract";
-import { markupWord } from "../lib/llm";
+import { markupWord, describeLlmError } from "../lib/llm";
 import { hasAnyMark } from "../lib/joiner";
 import { validateDeck } from "../lib/deck";
 import {
@@ -202,7 +202,7 @@ export function Library({
         if (Object.keys(result.patch).length > 0) patches.set(entry.id, result.patch);
         issues.push(...result.issues);
       } catch (thrown) {
-        issues.push(`${entry.deckWord.word}: ${thrown instanceof Error ? thrown.message : String(thrown)}`);
+        issues.push(`${entry.deckWord.word}: ${describeLlmError(thrown)}`);
       }
       setMarkup({ done: index + 1, total: targets.length, issues: [...issues] });
     }
