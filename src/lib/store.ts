@@ -475,7 +475,7 @@ class LocalOnlyStore implements DeckStore {
 // ---------------------------------------------------------------------------
 
 /** Trigger a browser download of the document as pretty-printed JSON. */
-export function downloadJson(document: RefineryDoc, filename = DOC_FILENAME): void {
+export function downloadJson(document: unknown, filename = DOC_FILENAME): void {
   const blob = new Blob([JSON.stringify(document, null, 2)], { type: "application/json" });
   const url = URL.createObjectURL(blob);
   const anchor = globalThis.document.createElement("a");

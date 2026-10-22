@@ -39,6 +39,8 @@ import { PromptsPanel } from "./components/PromptsPanel";
 import { StylePanel } from "./components/StylePanel";
 import { EMPTY_FILTER, listBatches, type LibraryFilter } from "./lib/library";
 import { renderExemplarCards, styleExemplarCards } from "./lib/style";
+import { STYLE_FILE_NAME, applyStyleFile, parseStyleFile } from "./lib/style-file";
+import { setCommittedStyleGuide } from "./lib/prompt-store";
 import { readSettings, writeSettings, type Settings } from "./lib/settings";
 import type { CefrLevel, Deck, RefineryDoc, ReviewEntry } from "./lib/types";
 
@@ -65,6 +67,8 @@ function emptyDoc(settings: Settings): RefineryDoc {
 
 /** Bundled with the site; loaded when a browser has no words of its own yet. */
 const DEFAULT_DECK_URL = `${import.meta.env.BASE_URL}default-deck.json`;
+/** The style set the repository ships, when one has been committed. */
+const STYLE_FILE_URL = `${import.meta.env.BASE_URL}${STYLE_FILE_NAME}`;
 
 /** Review rows for a parsed file: its own rows, or every word queued as pending. */
 function reviewEntriesFrom(parsed: RefineryDoc): ReviewEntry[] {
@@ -209,6 +213,25 @@ export function App() {
         // No default dataset is fine; the app simply starts empty.
       } finally {
         if (!cancelled) setHydrated(true);
+      }
+
+      // The committed style set, applied last: it names cards by id or word,
+      // so the deck has to be in place before it can find anything.
+      try {
+        if (cancelled) return;
+        const response = await fetch(STYLE_FILE_URL, { cache: "no-store" });
+        if (!response.ok) return;
+        const file = parseStyleFile(await response.text());
+        if (file === null || cancelled) return;
+        setCommittedStyleGuide(file.guide);
+        if (file.samples.length > 0) {
+          setDoc((previous) => {
+            const applied = applyStyleFile(previous.review, file);
+            return applied.entries === previous.review ? previous : rebuild(applied.entries);
+          });
+        }
+      } catch {
+        // No committed style set is the normal case.
       }
     })();
     return () => {

@@ -28,7 +28,7 @@ import {
   type VerifyFinding,
   type VerifyReport,
 } from "./prompt.ts";
-import { isPromptOverridden, resolvePrompt } from "./prompt-store.ts";
+import { hasStyleGuide, resolvePrompt } from "./prompt-store.ts";
 import { findStrayMarks, stripMarks } from "./joiner.ts";
 import { extractJsonArray, parseAnnotationList, type CrawlerAnnotation } from "./contract.ts";
 import type { CorpusWord, DeckWord } from "./types.ts";
@@ -474,15 +474,16 @@ export interface AnnotateProgress {
 /**
  * The house-voice block for one request, or "" when there is no guide yet.
  *
- * Keyed on whether the reviewer has actually SAVED a guide rather than on the
- * text being non-empty: the shipped default is a placeholder explaining the
- * feature, and sending that to a model would be worse than sending nothing.
+ * Keyed on whether a real guide exists — this browser's edit or one committed
+ * to the repository — rather than on the text being non-empty: the shipped
+ * default is a placeholder explaining the feature, and sending that to a model
+ * would be worse than sending nothing.
  *
  * @param exemplars - rendered examples, already selected by the caller
  * @param whole - true when the exemplars are complete cards
  */
 function houseVoice(exemplars: string, whole: boolean): string {
-  if (!isPromptOverridden("style")) return "";
+  if (!hasStyleGuide()) return "";
   return buildHouseVoice(resolvePrompt("style"), exemplars, whole);
 }
 

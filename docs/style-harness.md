@@ -286,3 +286,51 @@ Since you asked what to look at critically — the parts I am least confident in
    guide gets wrong will be scored as the generator's fault forever. Your own
    eye stays the final check; the audit narrows where to look, it does not
    replace looking.
+
+---
+
+## 11. Getting the set into the repository
+
+Everything the app holds lives in one browser's IndexedDB. The deck survives
+that, because it is regenerated from `data/batches/` anyway — the style set does
+not. Thirty rewrites is hours of judgement, and the pairs are the only record of
+why the text reads the way it does.
+
+**Style set → Download for the repo** writes `style-samples.json`:
+
+```json
+{
+  "version": 1,
+  "exportedAt": "…",
+  "guide": "## Voice in one paragraph\n…",
+  "samples": [
+    {
+      "id": "imagine", "word": "imagine", "batchId": "deck-v3-A1", "level": "A1",
+      "before": { "defVi": "…what the model wrote…" },
+      "after":  { "defVi": "…what you changed it to…" }
+    }
+  ]
+}
+```
+
+Put it in `public/` and commit it. From then on every browser that loads the
+site starts with the voice already in place: the rewrites become the deck's
+text, the pairs come back so the guide can be re-distilled, and the guide itself
+is active without anyone pressing anything.
+
+**Why a file of its own, not the deck bundle.** `bundle-batches` writes words,
+and a pair is not a property of a word — it is editorial provenance. Keeping it
+separate also makes it diffable: a pull request shows exactly which sentences
+the voice changed and how, which is the review you actually want.
+
+**Three layers of guide, narrowest wins.** This browser's edit on the Prompts
+tab, then the guide in the committed file, then the shipped placeholder. A team
+can share a voice while any one reviewer tries a change without committing it.
+
+**Matching is by id, then by headword.** Deck ids shift when batches are
+re-bundled, so a sample that cannot find its card by id tries the word. One that
+finds neither is reported by name rather than dropped — the import tells you
+which, instead of quietly restoring 28 of 30.
+
+**Restore from file** reads the same format back, for moving between machines or
+recovering a browser you cleared.

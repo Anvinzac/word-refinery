@@ -19,7 +19,8 @@
  * half-applied prompt would be harder to reason about than a wrong one.
  *
  * Exports: PromptId, PROMPT_DEFINITIONS, readPromptOverrides, writePromptOverride,
- *          resetPromptOverride, resolvePrompt, isPromptOverridden
+ *          resetPromptOverride, resolvePrompt, isPromptOverridden,
+ *          setCommittedStyleGuide, hasStyleGuide
  * Depends on: ./prompt.ts
  */
 import {
@@ -89,6 +90,32 @@ export const PROMPT_DEFINITIONS: readonly PromptDefinition[] = [
   },
 ];
 
+/**
+ * The style guide committed to the repository, when one has been loaded.
+ *
+ * Three layers, narrowest wins: this browser's edit, then the guide the repo
+ * ships in `style-samples.json`, then the placeholder. That ordering is what
+ * lets a team share a voice while leaving any one reviewer free to try a
+ * change without committing it.
+ */
+let committedGuide = "";
+
+/** Install the guide carried by a style file, or "" to forget it. */
+export function setCommittedStyleGuide(guide: string): void {
+  committedGuide = guide.trim();
+}
+
+/**
+ * Whether a REAL style guide exists — an edit or a committed one.
+ *
+ * The shipped default is a placeholder explaining the feature, so "is there
+ * text" is the wrong question; sending that placeholder to a model would be
+ * worse than sending nothing.
+ */
+export function hasStyleGuide(): boolean {
+  return readPromptOverrides().style !== undefined || committedGuide.length > 0;
+}
+
 /** localStorage key. Separate from settings so a prompt edit cannot corrupt a key. */
 const STORAGE_KEY = "word-refinery.prompts";
 
@@ -149,7 +176,9 @@ export function promptFallback(id: PromptId): string {
  */
 export function resolvePrompt(id: PromptId): string {
   const override = readPromptOverrides()[id];
-  return override !== undefined && override.trim().length > 0 ? override : promptFallback(id);
+  if (override !== undefined && override.trim().length > 0) return override;
+  if (id === "style" && committedGuide.length > 0) return committedGuide;
+  return promptFallback(id);
 }
 
 /** Whether this browser is running on an edited version of one prompt. */

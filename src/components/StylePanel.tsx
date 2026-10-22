@@ -14,11 +14,14 @@
  * Exports: StylePanel
  * Depends on: ./ReviewTable.tsx, ../lib/style.ts
  */
-import { useMemo } from "react";
+import { useMemo, useRef, useState } from "react";
 import { ReviewTable } from "./ReviewTable";
 import { STYLE_SET_SIZE, pickStyleSet, styleSetProgress } from "../lib/style";
 import type { Settings } from "../lib/settings";
 import type { ReviewEntry } from "../lib/types";
+import { STYLE_FILE_NAME, applyStyleFile, buildStyleFile, parseStyleFile } from "../lib/style-file";
+import { downloadJson } from "../lib/store";
+import { resolvePrompt } from "../lib/prompt-store";
 
 export function StylePanel({
   entries,
@@ -34,6 +37,36 @@ export function StylePanel({
     [entries],
   );
   const progress = useMemo(() => styleSetProgress(entries), [entries]);
+  const [notice, setNotice] = useState<string | null>(null);
+  const fileInput = useRef<HTMLInputElement>(null);
+
+  /** Write the pairs and the guide out, for committing to the repository. */
+  const exportFile = () => {
+    const file = buildStyleFile(entries, resolvePrompt("style"));
+    downloadJson(file, STYLE_FILE_NAME);
+    setNotice(
+      `Downloaded ${STYLE_FILE_NAME} with ${file.samples.length} pair(s). Put it in public/ and commit it — ` +
+        "then every browser that loads the site starts with this voice.",
+    );
+  };
+
+  /** Read a style set back in, from a file or from another machine. */
+  const importFile = async (picked: File) => {
+    setNotice(null);
+    const file = parseStyleFile(await picked.text());
+    if (file === null) {
+      setNotice(`${picked.name} is not a style-samples file.`);
+      return;
+    }
+    const applied = applyStyleFile(entries, file);
+    onChange(applied.entries);
+    setNotice(
+      `Restored ${file.samples.length - applied.unmatched.length} pair(s)` +
+        (applied.unmatched.length > 0
+          ? `; ${applied.unmatched.length} found no card here (${applied.unmatched.slice(0, 5).join(", ")})`
+          : "."),
+    );
+  };
 
   /** Mark a fresh spread of cards, keeping whatever is already in the set. */
   const pick = () => {
@@ -92,7 +125,33 @@ export function StylePanel({
             Clear the set
           </button>
         )}
+        <div className="spacer" />
+        {progress.edited > 0 && (
+          <button type="button" className="btn" onClick={exportFile}>
+            Download for the repo
+          </button>
+        )}
+        <button type="button" className="btn sm" onClick={() => fileInput.current?.click()}>
+          Restore from file
+        </button>
+        <input
+          ref={fileInput}
+          type="file"
+          accept="application/json,.json"
+          style={{ display: "none" }}
+          onChange={(event) => {
+            const picked = event.target.files?.[0];
+            if (picked !== undefined) void importFile(picked);
+            event.target.value = "";
+          }}
+        />
       </div>
+
+      {notice !== null && (
+        <div className="banner" style={{ marginTop: 12 }}>
+          {notice}
+        </div>
+      )}
 
       {progress.marked > 0 && (
         <>
