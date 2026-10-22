@@ -38,8 +38,13 @@ export interface StyleSample {
   word: string;
   batchId: string;
   level: string;
-  before: StyleText;
-  after: StyleText;
+  /**
+   * The text before and after the rewrite. Both absent on a row that only
+   * CHOOSES a card: a committed set names its thirty before anyone has touched
+   * them, and inventing an empty "before" would fake a pair that never existed.
+   */
+  before?: StyleText;
+  after?: StyleText;
 }
 
 /** The file itself. */
@@ -82,15 +87,27 @@ function textsOf(word: DeckWord): StyleText {
 export function buildStyleFile(entries: readonly ReviewEntry[], guide: string): StyleFile {
   const samples: StyleSample[] = [];
   for (const entry of entries) {
-    if (entry.styleSample !== true || entry.original === undefined) continue;
-    samples.push({
-      id: entry.id,
-      word: entry.deckWord.word,
-      batchId: entry.deckWord.batchId,
-      level: entry.deckWord.level,
-      before: textsOf(entry.original),
-      after: textsOf(entry.deckWord),
-    });
+    if (entry.styleSample !== true) continue;
+    // A card chosen but not yet rewritten is still worth writing down — it is
+    // the set, and the next person to open the deck should get the same thirty.
+    // It carries no pair, and says so by having neither side.
+    samples.push(
+      entry.original === undefined
+        ? {
+            id: entry.id,
+            word: entry.deckWord.word,
+            batchId: entry.deckWord.batchId,
+            level: entry.deckWord.level,
+          }
+        : {
+            id: entry.id,
+            word: entry.deckWord.word,
+            batchId: entry.deckWord.batchId,
+            level: entry.deckWord.level,
+            before: textsOf(entry.original),
+            after: textsOf(entry.deckWord),
+          },
+    );
   }
   return {
     version: 1,
@@ -121,14 +138,14 @@ export function parseStyleFile(text: string): StyleFile | null {
     if (typeof raw !== "object" || raw === null) continue;
     const row = raw as Partial<StyleSample>;
     if (typeof row.word !== "string" || row.word.length === 0) continue;
-    if (typeof row.before !== "object" || typeof row.after !== "object") continue;
+    const paired = typeof row.before === "object" && row.before !== null &&
+      typeof row.after === "object" && row.after !== null;
     samples.push({
       id: typeof row.id === "string" ? row.id : row.word,
       word: row.word,
       batchId: typeof row.batchId === "string" ? row.batchId : "",
       level: typeof row.level === "string" ? row.level : "",
-      before: (row.before ?? {}) as StyleText,
-      after: (row.after ?? {}) as StyleText,
+      ...(paired ? { before: row.before as StyleText, after: row.after as StyleText } : {}),
     });
   }
   return {
@@ -189,10 +206,20 @@ export function applyStyleFile(
     patches.set(target, sample);
   }
 
+  // A row that only chooses a card seeds an EMPTY workspace and never fights a
+  // reviewer who has their own set: the committed thirty are a starting point,
+  // not an instruction. Rows carrying a pair are real editorial work and always
+  // apply.
+  const alreadyChosen = entries.some((entry) => entry.styleSample === true);
+
   return {
     entries: entries.map((entry) => {
       const sample = patches.get(entry.id);
       if (sample === undefined) return entry;
+      if (sample.before === undefined || sample.after === undefined) {
+        if (alreadyChosen) return entry;
+        return { ...entry, styleSample: true };
+      }
       return {
         ...entry,
         deckWord: withText(entry.deckWord, sample.after),

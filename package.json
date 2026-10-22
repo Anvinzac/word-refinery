@@ -13,7 +13,8 @@
     "preview": "vite preview",
     "test": "node --experimental-strip-types --test test/*.test.ts",
     "typecheck": "tsc --noEmit",
-    "bundle-batches": "node scripts/bundle-batches.mjs"
+    "bundle-batches": "node scripts/bundle-batches.mjs",
+    "pick-style-set": "node scripts/pick-style-set.mjs"
   },
   "dependencies": {
     "react": "^19.2.0",

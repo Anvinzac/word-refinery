@@ -49,7 +49,8 @@ function entry(
   return {
     id: word,
     deckWord,
-    status: "edited",
+    // A card with no pre-edit snapshot has not been rewritten, so it is pending.
+    status: options.before === undefined ? "pending" : "edited",
     warnings: [],
     styleSample: options.sample ?? true,
     original: options.before === undefined ? undefined : { ...base, ...options.before },
@@ -63,13 +64,46 @@ const EDITED = entry("tidy", {
 
 // ── what gets written ──────────────────────────────────────────────────────
 
-test("only rewritten cards become rows", () => {
+test("every marked card becomes a row; only rewritten ones carry a pair", () => {
   const file = buildStyleFile(
     [EDITED, entry("untouched", { before: undefined }), entry("unmarked", { sample: false })],
     "",
   );
-  assert.equal(file.samples.length, 1);
-  assert.equal(file.samples[0].word, "tidy");
+  assert.deepEqual(file.samples.map((row) => row.word).sort(), ["tidy", "untouched"]);
+  const chosen = file.samples.find((row) => row.word === "untouched")!;
+  // Neither side, rather than two empty ones: there is no pair to fake.
+  assert.equal(chosen.before, undefined);
+  assert.equal(chosen.after, undefined);
+  assert.ok(file.samples.find((row) => row.word === "tidy")!.before !== undefined);
+});
+
+test("a selection-only row seeds an empty workspace and nothing else", () => {
+  const file = buildStyleFile([entry("chosen", { before: undefined })], "");
+  const fresh = [entry("chosen", { before: undefined, sample: false })];
+  const seeded = applyStyleFile(fresh, file).entries[0];
+  assert.equal(seeded.styleSample, true, "the card is chosen");
+  assert.equal(seeded.original, undefined, "but no pair is invented");
+  assert.equal(seeded.status, "pending", "and it is not pretended to be edited");
+});
+
+test("a selection-only row never overrides a reviewer's own set", () => {
+  // The committed thirty are a starting point, not an instruction.
+  const file = buildStyleFile([entry("theirs", { before: undefined })], "");
+  const mine = [
+    entry("mine", { before: undefined }),
+    entry("theirs", { before: undefined, sample: false }),
+  ];
+  const applied = applyStyleFile(mine, file).entries;
+  assert.equal(applied.find((e) => e.id === "theirs")?.styleSample, false);
+  assert.equal(applied.find((e) => e.id === "mine")?.styleSample, true);
+});
+
+test("a committed PAIR applies even when the reviewer has their own set", () => {
+  // Real editorial work is not a suggestion.
+  const file = buildStyleFile([EDITED], "");
+  const mine = [entry("mine", { before: undefined }), entry("tidy", { before: undefined, sample: false })];
+  const applied = applyStyleFile(mine, file).entries;
+  assert.equal(applied.find((e) => e.id === "tidy")?.deckWord.defVi, "Mọi thứ xếp đúng chỗ.");
 });
 
 test("a row carries both sides, and the identity to find its card again", () => {
