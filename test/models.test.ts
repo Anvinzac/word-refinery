@@ -426,3 +426,27 @@ test("readChatText reports the finish reason when nothing else explains an empty
   assert.match(error.message, /no assistant text \(finish reason: stop\)/);
   assert.ok(error.body.includes("finish_reason"));
 });
+
+// ── the batch-variant trap ─────────────────────────────────────────────────
+
+test("a :batch variant is never offered by the picker", () => {
+  // OpenRouter lists these beside their ordinary counterparts, but the chat
+  // endpoint this client posts to does not serve them: picking one 404s every
+  // request with nothing in the UI to suggest why.
+  assert.equal(isPresentableModel(row("openai/gpt-oss-120b:batch")), false);
+  assert.equal(isPresentableModel(row("anthropic/claude-sonnet-4.5:batch")), false);
+  // The real model of the same name is unaffected.
+  assert.equal(isPresentableModel(row("openai/gpt-oss-120b")), true);
+});
+
+test("a :free variant is still offered — it is a real endpoint", () => {
+  assert.equal(isPresentableModel(row("meta-llama/llama-3.3-70b-instruct:free")), true);
+});
+
+test("a stored :batch model is repaired on read", async () => {
+  const { stripBatchVariant } = await import("../src/lib/settings.ts");
+  assert.equal(stripBatchVariant("openai/gpt-oss-120b:batch"), "openai/gpt-oss-120b");
+  assert.equal(stripBatchVariant("openai/gpt-oss-120b"), "openai/gpt-oss-120b");
+  // Only the suffix goes; a colon elsewhere in an id is left alone.
+  assert.equal(stripBatchVariant("meta-llama/llama:free"), "meta-llama/llama:free");
+});

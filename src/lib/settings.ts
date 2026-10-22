@@ -134,6 +134,20 @@ export function defaultSettings(): Settings {
   };
 }
 
+/**
+ * Drop OpenRouter's `:batch` suffix from a model id.
+ *
+ * `openai/gpt-oss-120b:batch` and `openai/gpt-oss-120b` are the same model
+ * behind two endpoints, and only the second answers a chat request, so the
+ * suffix is always a mistake rather than a preference.
+ *
+ * @param model - a stored model id
+ * @returns the id without the suffix
+ */
+export function stripBatchVariant(model: string): string {
+  return typeof model === "string" ? model.replace(/:batch$/i, "") : model;
+}
+
 /** Read settings, filling any missing branch with defaults. */
 export function readSettings(): Settings {
   const base = defaultSettings();
@@ -145,13 +159,25 @@ export function readSettings(): Settings {
     // Older payloads had one shared key and no profiles; adopting it as the
     // active provider's profile is the migration.
     const llm = { ...base.llm, ...(parsed.llm ?? {}) };
+    // A ":batch" model is OpenRouter's asynchronous Batch API, which the chat
+    // endpoint refuses with a 404 on every request. The picker used to offer
+    // them, so an install can be holding one; dropping the suffix lands on the
+    // ordinary model of the same name, which is what was meant.
+    const model = stripBatchVariant(llm.model);
+    const profiles = Object.fromEntries(
+      Object.entries(llm.profiles ?? {}).map(([provider, profile]) => [
+        provider,
+        profile === undefined ? profile : { ...profile, model: stripBatchVariant(profile.model) },
+      ]),
+    ) as Settings["llm"]["profiles"];
     return {
       version: 1,
       llm: {
         ...llm,
+        model,
         profiles: {
-          ...(llm.profiles ?? {}),
-          [llm.provider]: { apiKey: llm.apiKey, model: llm.model },
+          ...profiles,
+          [llm.provider]: { apiKey: llm.apiKey, model },
         },
       },
       store: { ...base.store, ...(parsed.store ?? {}) },

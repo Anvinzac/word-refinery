@@ -304,6 +304,25 @@ export function SettingsPanel({
             />
             <span className="note">Smaller batches are more reliable; larger ones are cheaper.</span>
           </div>
+
+          <div className="field">
+            <label htmlFor="maxtokens">Max tokens</label>
+            <input
+              id="maxtokens"
+              type="number"
+              min={256}
+              max={65536}
+              step={1024}
+              value={settings.llm.maxTokens}
+              onChange={(event) =>
+                patchLlm({ maxTokens: Math.max(256, Number(event.target.value) || 256) })
+              }
+            />
+            <span className="note">
+              The ceiling on one reply. A reasoning model thinks inside this budget, so too low
+              and it can spend the lot and return nothing — raise it if you see that.
+            </span>
+          </div>
         </div>
 
         <div className="vault">

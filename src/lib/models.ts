@@ -161,6 +161,13 @@ export function formatParamsB(billions: number): string {
  *   extra, ignored modality on the input side.
  */
 export function isPresentableModel(row: ListedModel): boolean {
+  // A ":batch" id is OpenRouter's asynchronous Batch API, which the chat
+  // endpoint this client posts to does not serve: selecting one produces a 404
+  // on every request, with nothing in the picker to suggest why. There are 75
+  // of them sitting beside their ordinary counterparts, so offering them is a
+  // trap rather than a choice.
+  if (BATCH_VARIANT.test(row.id)) return false;
+
   const haystack = `${row.id} ${row.name}`.toLowerCase();
   if (MEDIA_ID_WORDS.test(haystack)) return false;
   if (NON_CHAT_ID_WORDS.test(haystack)) return false;
@@ -170,6 +177,9 @@ export function isPresentableModel(row: ListedModel): boolean {
   if (params !== null) return params > MIN_PARAMS_B;
   return !TINY_ID_WORDS.test(haystack);
 }
+
+/** OpenRouter's asynchronous Batch API variant, which `/chat/completions` refuses. */
+const BATCH_VARIANT = /:batch$/i;
 
 /**
  * Filter the catalogue down to presentable models and group them into the
