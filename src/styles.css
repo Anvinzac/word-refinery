@@ -2009,29 +2009,38 @@ code.k {
   font-weight: 500;
 }
 
-.variations .vi-cell[data-picked] {
+/* Room for the corner tab on every choosable cell, so choosing one never reflows the row. */
+.variations .vi-cell.clickable {
   position: relative;
-  outline: 2px solid var(--accent);
-  outline-offset: -3px;
-  border-radius: 8px;
+  padding-right: 28px;
+}
+
+/* The frame and the tab share an inset and a corner radius, so they read as one shape. */
+.variations .vi-cell[data-picked]::before {
+  content: "";
+  position: absolute;
+  inset: 3px;
+  border: 2px solid var(--accent);
+  border-radius: 10px;
   background: color-mix(in srgb, var(--accent) 8%, transparent);
+  pointer-events: none;
 }
 
 .variation-check {
   position: absolute;
-  top: 4px;
-  right: 4px;
+  top: 3px;
+  right: 3px;
   display: grid;
   place-items: center;
-  width: 18px;
-  height: 18px;
-  border-radius: 50%;
+  width: 22px;
+  height: 20px;
+  padding: 0 0 1px 1px;
+  border-radius: 0 10px 0 10px;
   background: var(--accent);
   color: var(--bg);
   font-size: 11px;
   font-weight: 800;
   line-height: 1;
-  box-shadow: 0 1px 4px rgb(0 0 0 / 0.35);
   pointer-events: none;
 }
 
