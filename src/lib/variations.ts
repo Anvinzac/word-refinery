@@ -124,9 +124,9 @@ export interface VariationModel {
 }
 
 /**
- * Inexpensive current models from the frontier labs, as OpenRouter ids: the
- * cheapest from each lab first, then a stronger Google option and the labs
- * that came next.
+ * Inexpensive current models from the frontier labs, as OpenRouter ids, one
+ * per lab. No "contributor" listing: those train on the prompts, and an
+ * OpenRouter account that forbids paid training gets a 404 for them.
  *
  * Different labs write Vietnamese with different habits, so the same slant
  * from two of them differs more than two rolls from one. Prices are a guide
@@ -138,7 +138,7 @@ export const VARIATION_MODELS: readonly VariationModel[] = [
   { id: "google/gemini-3.5-flash-lite", label: "Gemini 3.5 Flash Lite", price: "$0.30 / $2.50" },
   { id: "deepseek/deepseek-v4.1-flash-1017", label: "DeepSeek V4.1 Flash", price: "$0.15 / $0.60" },
   { id: "qwen/qwen3.8-flash", label: "Qwen3.8 Flash", price: "$0.15 / $0.47" },
-  { id: "google/gemini-3.8-flash", label: "Gemini 3.8 Flash", price: "$0.83 / $4.13" },
+  { id: "meta/muse-glimmer-30b", label: "Muse Glimmer 30B", price: "$0.30 / $1.20" },
   { id: "x-ai/grok-4.3", label: "Grok 4.3", price: "$1.25 / $2.50" },
   { id: "mistralai/mistral-small-2603", label: "Mistral Small 4", price: "$0.15 / $0.60" },
   { id: "moonshotai/kimi-k2.5", label: "Kimi K2.5", price: "$0.50 / $2.50" },
@@ -150,12 +150,20 @@ export type SlantModels = Partial<Record<string, string>>;
 
 const SLANT_MODELS_KEY = "word-refinery.variation-models";
 
-/** The picks last made on this device. */
+/**
+ * The picks last made on this device. A pick of a model no longer offered is
+ * dropped, so the row falls back to Settings instead of calling a model its
+ * picker cannot show.
+ */
 export function readSlantModels(): SlantModels {
   if (typeof window === "undefined") return {};
   try {
     const parsed = JSON.parse(window.localStorage.getItem(SLANT_MODELS_KEY) ?? "{}") as unknown;
-    return typeof parsed === "object" && parsed !== null ? (parsed as SlantModels) : {};
+    if (typeof parsed !== "object" || parsed === null) return {};
+    const offered = new Set(VARIATION_MODELS.map((model) => model.id));
+    return Object.fromEntries(
+      Object.entries(parsed).filter(([, id]) => typeof id === "string" && offered.has(id)),
+    ) as SlantModels;
   } catch {
     return {};
   }
