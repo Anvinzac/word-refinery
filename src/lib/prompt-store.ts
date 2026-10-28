@@ -27,6 +27,8 @@ import {
   ANNOTATION_SYSTEM_PROMPT,
   DISTIL_SYSTEM_PROMPT,
   STYLE_SYSTEM_PROMPT,
+  REPAIR_SYSTEM_PROMPT,
+  SAFETY_SYSTEM_PROMPT,
   VARIATION_SYSTEM_PROMPT,
   MARKUP_SYSTEM_PROMPT,
   REWRITE_SYSTEM_PROMPT,
@@ -41,7 +43,9 @@ export type PromptId =
   | "markup"
   | "style"
   | "distil"
-  | "variation";
+  | "variation"
+  | "safety"
+  | "repair";
 
 /** What the panel needs to show one prompt. */
 export interface PromptDefinition {
@@ -88,6 +92,20 @@ export const PROMPT_DEFINITIONS: readonly PromptDefinition[] = [
     purpose:
       "Sent once per row on the Variations page. Asks for a different take on a finished card along one named axis, rather than a fix for something wrong with it.",
     fallback: VARIATION_SYSTEM_PROMPT,
+  },
+  {
+    id: "safety",
+    title: "Safety gate (system)",
+    purpose:
+      "Sent once per card on the Intake page. Asks whether a card is fit to publish at all — implication, framing, sense, audience — rather than whether it teaches well.",
+    fallback: SAFETY_SYSTEM_PROMPT,
+  },
+  {
+    id: "repair",
+    title: "Repair (system)",
+    purpose:
+      "Sent for a card that failed intake, with the full list of what is wrong. Returns the whole card fixed, because the fields constrain each other.",
+    fallback: REPAIR_SYSTEM_PROMPT,
   },
   {
     id: "style",

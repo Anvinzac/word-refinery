@@ -38,6 +38,7 @@ import { CorpusPanel } from "./components/CorpusPanel";
 import { PromptsPanel } from "./components/PromptsPanel";
 import { StylePanel } from "./components/StylePanel";
 import { VariationsPanel } from "./components/VariationsPanel";
+import { IntakePanel } from "./components/IntakePanel";
 import { EMPTY_FILTER, listBatches, type LibraryFilter } from "./lib/library";
 import { renderExemplarCards, styleExemplarCards } from "./lib/style";
 import { STYLE_FILE_NAME, applyStyleFile, parseStyleFile } from "./lib/style-file";
@@ -51,6 +52,7 @@ type Tab =
   | "review"
   | "coverage"
   | "variations"
+  | "intake"
   | "style"
   | "sync"
   | "prompts"
@@ -438,6 +440,7 @@ export function App() {
     review: doc.review.length,
     coverage: null,
     variations: null,
+    intake: null,
     style: doc.review.filter((entry) => entry.styleSample === true).length,
     sync: approved.length,
     prompts: null,
@@ -648,6 +651,8 @@ export function App() {
         <VariationsPanel entries={doc.review} settings={settings} onChange={onReviewChange} />
       )}
 
+      {tab === "intake" && <IntakePanel settings={settings} />}
+
       {tab === "style" && (
         <StylePanel entries={doc.review} settings={settings} onChange={onReviewChange} />
       )}
@@ -678,6 +683,7 @@ export function App() {
             ["generate", "Generate"],
             ["coverage", "Coverage"],
             ["variations", "Variations"],
+            ["intake", "Intake"],
             ["style", "Style set"],
             ["sync", "Sync & export"],
             ["prompts", "Prompts"],

@@ -11,7 +11,8 @@
  * endpoint the user picked. Nothing is proxied: GitHub Pages has no server.
  *
  * Exports: LlmError, ListedModel, chat, readChatText, listModels, annotateBatch, regenerateField,
- *          verifyWord, markupWord, markupField, generateVariation, distilStyle,
+ *          verifyWord, markupWord, markupField, generateVariation, reviewSafety,
+ *          repairCard, distilStyle,
  *          testConnection,
  *          describeLlmError
  * Depends on: ./settings.ts, ./prompt.ts, ./contract.ts, ./types.ts
@@ -24,6 +25,8 @@ import {
   buildHouseVoice,
   buildMarkupFieldPrompt,
   buildMarkupPrompt,
+  buildRepairPrompt,
+  buildSafetyPrompt,
   buildVariationPrompt,
   buildVerifyPrompt,
   MARKUP_FIELDS,
@@ -1016,4 +1019,108 @@ export async function generateVariation(
     });
   }
   return fields;
+}
+
+/**
+ * The safety gate for one card.
+ *
+ * Findings only — the caller decides what a blocker means. Returns an empty
+ * list for a card that is fit to publish, and throws only when the reply cannot
+ * be read at all, because "the reviewer could not be reached" and "the reviewer
+ * found nothing" must never look the same.
+ *
+ * @param settings - active LLM settings
+ * @param card - the candidate to review
+ * @param signal - optional AbortSignal
+ */
+export async function reviewSafety(
+  settings: Settings["llm"],
+  card: DeckWord,
+  signal?: AbortSignal,
+): Promise<Array<{ field: string; severity: "blocker" | "warn"; problem: string }>> {
+  const reply = await chat(
+    settings,
+    [
+      { role: "system", content: resolvePrompt("safety") },
+      { role: "user", content: buildSafetyPrompt(card) },
+    ],
+    { attempts: 2, signal },
+  );
+  const start = reply.indexOf("{");
+  const end = reply.lastIndexOf("}");
+  if (start === -1 || end <= start) {
+    throw new LlmError("The safety reply contained no JSON object", {
+      provider: settings.provider,
+      body: reply.slice(0, 300),
+    });
+  }
+  let parsed: { findings?: unknown };
+  try {
+    parsed = JSON.parse(reply.slice(start, end + 1)) as { findings?: unknown };
+  } catch {
+    throw new LlmError("The safety reply was not valid JSON", {
+      provider: settings.provider,
+      body: reply.slice(0, 300),
+    });
+  }
+  if (!Array.isArray(parsed.findings)) return [];
+  const out: Array<{ field: string; severity: "blocker" | "warn"; problem: string }> = [];
+  for (const item of parsed.findings) {
+    if (typeof item !== "object" || item === null) continue;
+    const row = item as Record<string, unknown>;
+    const problem = typeof row.problem === "string" ? row.problem.trim() : "";
+    if (problem.length === 0) continue;
+    out.push({
+      field: typeof row.field === "string" ? row.field : "card",
+      // An unknown severity is treated as the milder one: a safety gate that
+      // invents blockers from malformed replies stops being usable.
+      severity: row.severity === "blocker" ? "blocker" : "warn",
+      problem,
+    });
+  }
+  return out;
+}
+
+/**
+ * Repair one failed card, given everything wrong with it.
+ *
+ * Returns the raw object the model produced rather than a coerced card: intake
+ * revalidates a repair from the top, including the schema stage, so coercing it
+ * here would hide exactly the faults that stage exists to catch.
+ *
+ * @param settings - active LLM settings
+ * @param card - the candidate that failed
+ * @param problems - every finding, as text
+ * @param signal - optional AbortSignal
+ */
+export async function repairCard(
+  settings: Settings["llm"],
+  card: DeckWord,
+  problems: readonly string[],
+  signal?: AbortSignal,
+): Promise<unknown> {
+  const reply = await chat(
+    settings,
+    [
+      { role: "system", content: resolvePrompt("repair") },
+      { role: "user", content: buildRepairPrompt(card, problems) },
+    ],
+    { attempts: 2, signal },
+  );
+  const start = reply.indexOf("{");
+  const end = reply.lastIndexOf("}");
+  if (start === -1 || end <= start) {
+    throw new LlmError("The repair reply contained no JSON object", {
+      provider: settings.provider,
+      body: reply.slice(0, 300),
+    });
+  }
+  try {
+    return JSON.parse(reply.slice(start, end + 1));
+  } catch {
+    throw new LlmError("The repair reply was not valid JSON", {
+      provider: settings.provider,
+      body: reply.slice(0, 300),
+    });
+  }
 }

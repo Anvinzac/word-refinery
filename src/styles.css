@@ -2026,22 +2026,29 @@ code.k {
   pointer-events: none;
 }
 
-.variation-check {
+/* Scoped to outrank `.review-table .vi-cell span`, which would force it inline. */
+.variations .vi-cell .variation-check {
   position: absolute;
   top: 3px;
   right: 3px;
-  display: grid;
-  place-items: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 22px;
   height: 20px;
-  padding: 0 0 1px 1px;
   border-radius: 0 10px 0 10px;
   background: var(--accent);
   color: var(--bg);
-  font-size: 11px;
-  font-weight: 800;
-  line-height: 1;
   pointer-events: none;
+}
+
+.variation-check svg {
+  display: block;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
 .variation-error {
@@ -2049,4 +2056,59 @@ code.k {
   color: var(--error);
   font-size: 12.5px;
   white-space: pre-wrap;
+}
+
+/* ── Intake ───────────────────────────────────────────────────────────────
+   The counts are the page's argument: candidates and cards are different
+   populations, and the colouring keeps them from blurring into one number. */
+
+.intake-counts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.intake-count {
+  flex: 1 1 140px;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.intake-count strong {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.1;
+}
+
+.intake-count[data-kind="accepted"] {
+  border-color: color-mix(in srgb, var(--ok) 45%, transparent);
+}
+
+.intake-count[data-kind="accepted"] strong {
+  color: var(--ok);
+}
+
+.intake-count[data-kind="rejected"] {
+  border-color: color-mix(in srgb, var(--warn) 45%, transparent);
+}
+
+.intake-count[data-kind="rejected"] strong {
+  color: var(--warn);
+}
+
+.intake-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12.5px;
+  color: var(--muted);
+  cursor: pointer;
 }

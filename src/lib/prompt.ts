@@ -14,7 +14,8 @@
  * MARKUP_SYSTEM_PROMPT, buildMarkupPrompt, MARKUP_FIELDS, MarkupField,
  * STYLE_SYSTEM_PROMPT, DISTIL_SYSTEM_PROMPT, buildDistilPrompt, buildHouseVoice,
  * STYLE_AUDIT_SYSTEM_PROMPT, buildStyleAuditPrompt, buildMarkupFieldPrompt,
- * VARIATION_SYSTEM_PROMPT, buildVariationPrompt
+ * VARIATION_SYSTEM_PROMPT, buildVariationPrompt,
+ * SAFETY_SYSTEM_PROMPT, buildSafetyPrompt, REPAIR_SYSTEM_PROMPT, buildRepairPrompt
  * Depends on: ./types.ts, ./contract.ts
  */
 import type { CorpusWord } from "./types.ts";
@@ -822,4 +823,132 @@ export function buildVariationPrompt(
     "Return the JSON object with all five keys.",
   ];
   return lines.filter((line): line is string => line !== null).join("\n");
+}
+
+// ── Intake: safety review and repair ────────────────────────────────────────
+
+/**
+ * System prompt for the safety gate.
+ *
+ * Distinct from the verification pass, which asks whether a card is GOOD. This
+ * asks whether it is publishable at all, and the difference matters because the
+ * two have different costs when wrong: a dull card wastes a reader's minute, a
+ * card that insults them loses the reader.
+ *
+ * It reads every field. A deck's unsafe material rarely sits in the definition
+ * — it arrives in the example sentence, where the model needed a situation and
+ * reached for one, or in the teaser, where it needed a stereotype to make the
+ * hint land.
+ */
+export const SAFETY_SYSTEM_PROMPT = `You are reviewing Vietnamese vocabulary cards before publication, for a mobile app used by learners of all ages in Vietnam.
+
+You are NOT judging whether the card teaches well. Another pass does that. You are deciding whether it is fit to publish at all.
+
+Read every field, not just the definition. Unsafe material in a vocabulary deck rarely sits in the definition: it arrives in the example sentence, where a situation was needed, or in the teaser, where a stereotype made the hint land.
+
+Flag:
+- IMPLICATION: does the card imply something harmful even though no single word is wrong? An example sentence that models self-harm, violence, substance use or crime as ordinary; a definition that assumes the reader is in an unsafe situation.
+- FRAMING: does any field insult or demean? Stereotypes of a nationality, region, gender, age, disability, religion, caste, occupation or body. Vietnamese regional stereotypes count. So does contempt dressed as humour.
+- SENSE: does the card teach a sense of the English word that is wrong, obsolete, or so rare the learner will misuse it? Does any field contradict another about what the word means?
+- AUDIENCE: is the content unsuitable for a classroom — sexual material, graphic detail, political or religious advocacy, or an adult situation a younger learner would meet unprepared?
+
+Do not flag: ordinary negative emotion, illness, death, poverty, conflict or difficulty treated factually. A vocabulary deck must be able to teach "grief", "war" and "poor". Flag the TREATMENT, never the topic.
+
+Severity: "blocker" for anything that should not ship; "warn" for something a careful editor would change but that is not unsafe.
+
+Return ONLY a JSON object:
+{"findings":[{"field":"usageEn","severity":"blocker"|"warn","problem":"<one sentence, in English>"}]}
+An empty findings array means the card is fit to publish. No commentary outside the JSON.`;
+
+/** Render one card for the safety gate. */
+export function buildSafetyPrompt(card: {
+  word: string;
+  pos: string;
+  level: string;
+  meaningVi: string;
+  defVi: string;
+  leadVi: string;
+  anticipateVi: string;
+  usage: Array<{ en: string; vi: string }>;
+}): string {
+  const example = card.usage[0];
+  const lines: Array<string | null> = [
+    `Review the card for "${card.word}" (${card.pos || "unknown part of speech"}, ${card.level}).`,
+    "",
+    `- meaningVi: ${card.meaningVi}`,
+    `- defVi: ${card.defVi}`,
+    `- leadVi: ${card.leadVi}`,
+    `- anticipateVi: ${card.anticipateVi}`,
+    example ? `- usageEn: ${example.en}` : null,
+    example ? `- usageVi: ${example.vi}` : null,
+    "",
+    "An underscore joins the syllables of one word and a /slashed/ phrase is a highlight; neither is a defect.",
+    "",
+    "Return the JSON object described in the system prompt.",
+  ];
+  return lines.filter((line): line is string => line !== null).join("\n");
+}
+
+/**
+ * System prompt for the repair pass.
+ *
+ * Given a card and everything wrong with it, return the whole card fixed. Whole
+ * rather than per-field because the fields constrain each other: shortening a
+ * definition can orphan its emphasis phrase, and changing a sense can leave the
+ * teaser pointing at the old one.
+ */
+export const REPAIR_SYSTEM_PROMPT = `You repair Vietnamese vocabulary cards that failed validation.
+
+You are given one card and the complete list of what is wrong with it. Return the WHOLE card, fixed.
+
+Whole, not just the fields named: the fields constrain each other. Shortening a definition can orphan the emphasis phrase that quoted it; correcting a sense can leave the teaser pointing at the old one. Every field you return will be revalidated from scratch.
+
+- Fix every listed problem. A repair that resolves three of four failures is a failure.
+- Change nothing else. If a field has no problem listed and no problem caused by your other fixes, return it exactly as given.
+- Keep the same English headword and the same sense of it.
+
+${WORD_JOINING}
+
+Hard rules:
+${LANGUAGE_RULES}
+- Return ONLY a JSON object with these keys and no others: ${CRAWLER_ANNOTATION_FIELDS.join(", ")}. No markdown fences, no commentary.`;
+
+/** Render one failed card with its findings, for repair. */
+export function buildRepairPrompt(
+  card: {
+    word: string;
+    pos: string;
+    ipa: string;
+    meaningVi: string;
+    defVi: string;
+    leadVi: string;
+    anticipateVi: string;
+    topics: string[];
+    exams: string[];
+    usage: Array<{ en: string; vi: string }>;
+  },
+  problems: readonly string[],
+): string {
+  const example = card.usage[0];
+  return [
+    `Repair the card for "${card.word}".`,
+    "",
+    "The card as it stands:",
+    `- word: ${card.word}`,
+    `- pos: ${card.pos}`,
+    `- ipa: ${card.ipa}`,
+    `- meaningVi: ${card.meaningVi}`,
+    `- defVi: ${card.defVi}`,
+    `- leadVi: ${card.leadVi}`,
+    `- anticipateVi: ${card.anticipateVi}`,
+    `- usageEn: ${example?.en ?? ""}`,
+    `- usageVi: ${example?.vi ?? ""}`,
+    `- topics: ${JSON.stringify(card.topics)}`,
+    `- exams: ${JSON.stringify(card.exams)}`,
+    "",
+    `What is wrong with it (${problems.length}):`,
+    problems.map((problem) => `- ${problem}`).join("\n"),
+    "",
+    "Return the whole card as JSON.",
+  ].join("\n");
 }
