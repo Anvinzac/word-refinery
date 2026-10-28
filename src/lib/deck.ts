@@ -460,8 +460,14 @@ export function validateDeck(deck: Deck): DeckIssue[] {
       if (slashes % 2 !== 0) at(field, `unpaired "/" marker (${slashes} slashes)`);
       for (const match of value.matchAll(/\/([^/]+)\//g)) {
         const phrase = match[1];
+        // Card-prompt v3.7: "either one syllable or one joined word of up to 4
+        // syllables". The old rule demanded exactly two and rejected four
+        // otherwise-sound cards in the v4 starter pack for highlighting a
+        // one-syllable meaning word, which that prompt explicitly allows.
         const syllables = countSyllables(phrase);
-        if (syllables !== 2) at(field, `marker "/${phrase}/" is ${syllables} syllables; expected 2`);
+        if (syllables < 1 || syllables > 4) {
+          at(field, `marker "/${phrase}/" is ${syllables} syllables; expected 1-4`);
+        }
         if (!value.includes(phrase)) at(field, `marker content "${phrase}" not found unmarked`);
       }
       const markers = [...value.matchAll(/\/([^/]+)\//g)].length;

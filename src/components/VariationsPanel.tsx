@@ -384,7 +384,9 @@ export function VariationsPanel({
                             >
                               {isPicked && (
                                 <span className="variation-check" aria-hidden="true">
-                                  ✓
+                                  <svg viewBox="0 0 12 12" width="11" height="11">
+                                    <path d="M2.5 6.3 4.9 8.6 9.5 3.6" />
+                                  </svg>
                                 </span>
                               )}
                               {row.busy ? (

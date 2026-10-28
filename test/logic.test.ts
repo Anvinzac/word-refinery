@@ -283,11 +283,18 @@ test("flags an unpaired marker", () => {
   assert.ok(issues.some((issue) => /unpaired/.test(issue.message)));
 });
 
-test("flags a marker wrapping the wrong syllable count", () => {
-  const issues = validateDeck(
-    deckOf([{ ...buildReliable(), defVi: "Có /bật dậy nhanh/ ở trong câu này rồi." }]),
+test("a marker may be one to four syllables, and no more", () => {
+  // Card-prompt v3.7: "either one syllable or one joined word of up to 4".
+  const tooLong = validateDeck(
+    deckOf([{ ...buildReliable(), defVi: "Có /bật dậy nhanh hơn thế/ trong câu này." }]),
   );
-  assert.ok(issues.some((issue) => /syllables; expected 2/.test(issue.message)));
+  assert.ok(tooLong.some((issue) => /syllables; expected 1-4/.test(issue.message)));
+
+  // One syllable is explicitly allowed, and used by the v4 starter pack.
+  const single = validateDeck(
+    deckOf([{ ...buildReliable(), defVi: "Có /đế/ ở trong câu này rồi đấy nhé." }]),
+  );
+  assert.deepEqual(single.filter((issue) => /syllables/.test(issue.message)), []);
 });
 
 test("flags more than one marker in a field", () => {

@@ -16,7 +16,9 @@
 import { useMemo, useRef, useState } from "react";
 import {
   candidateId,
+  checkBatchRules,
   checkContent,
+  checkPromptRules,
   checkSchema,
   partitionRecords,
   summarize,
@@ -70,7 +72,7 @@ export function IntakePanel({ settings }: { settings: Settings }) {
   const runLocal = (candidates: Array<{ id: string; raw: unknown }>): IntakeRecord[] => {
     const used = new Set<string>();
     return candidates.map(({ id, raw }) => {
-      const findings: IntakeFinding[] = checkSchema(raw);
+      const findings: IntakeFinding[] = [...checkSchema(raw), ...checkPromptRules(raw)];
       const word = String((raw as { word?: unknown })?.word ?? "");
       // Coerce only when the shape is sound; a broken candidate must not be
       // smoothed into a plausible card by the importer.
@@ -102,7 +104,18 @@ export function IntakePanel({ settings }: { settings: Settings }) {
         return;
       }
       setProgress({ stage: "content", done: candidates.length, total: candidates.length });
-      setRecords(runLocal(candidates));
+      // The batch-shaped rules need every record, so they run last and fold
+      // their findings back in before a verdict is settled.
+      const local = runLocal(candidates);
+      const batchFindings = checkBatchRules(local);
+      setRecords(
+        local.map((record) => {
+          const extra = batchFindings.get(record.id);
+          if (extra === undefined) return record;
+          const findings = [...record.findings, ...extra];
+          return { ...record, findings, verdict: verdictOf(findings, ["schema", "content"]) };
+        }),
+      );
       setProgress({ stage: "done", done: candidates.length, total: candidates.length });
     } catch (thrown) {
       setError(thrown instanceof Error ? thrown.message : String(thrown));
@@ -171,7 +184,7 @@ export function IntakePanel({ settings }: { settings: Settings }) {
           // Revalidated from the top: a fix to one field can break another, and
           // rechecking only the trigger would ship exactly that.
           const used = new Set<string>();
-          const fresh: IntakeFinding[] = checkSchema(raw, record.word);
+          const fresh: IntakeFinding[] = [...checkSchema(raw, record.word), ...checkPromptRules(raw)];
           const blocked = fresh.some((finding) => finding.severity === "blocker");
           const card = blocked ? null : coerceDeckWord(raw, used, { batchId, addedAt: "" });
           if (card !== null) fresh.push(...checkContent(card));

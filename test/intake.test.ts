@@ -15,7 +15,9 @@ import test from "node:test";
 import {
   CANONICAL_FIELD_ORDER,
   candidateId,
+  checkBatchRules,
   checkContent,
+  checkPromptRules,
   checkSchema,
   partitionRecords,
   summarize,
@@ -39,7 +41,8 @@ function candidate(extra: Record<string, unknown> = {}): Record<string, unknown>
     usageVi: "Vụ mùa năm nay kém.",
     topics: ["nature"],
     exams: [],
-    emphasisVi: ["thu gom"],
+    // v3.7: one entry per animated sentence, in order.
+    emphasisVi: ["thu gom", "chờ", "nhất"],
   };
   return { ...base, ...extra };
 }
@@ -84,13 +87,56 @@ test("a tag outside the closed lists blocks, because it vanishes downstream", ()
   assert.ok(blockers(checkSchema(candidate({ exams: ["hsk"] }))).some((f) => f.field === "exams"));
 });
 
-test("an emphasis phrase that is not in the text blocks", () => {
-  const found = blockers(checkSchema(candidate({ emphasisVi: ["không có"] })));
-  assert.ok(found.some((f) => f.field === "emphasisVi"));
-  // No emphasis at all is only a warning: the deck can fall back to heuristics.
-  const none = checkSchema(candidate({ emphasisVi: [] }));
-  assert.deepEqual(blockers(none), []);
-  assert.ok(none.some((f) => f.field === "emphasisVi" && f.severity === "warn"));
+test("each emphasis entry must occur in ITS OWN sentence", () => {
+  // v3.7 made the triple positional. An entry that matches the wrong sentence
+  // used to pass and now cannot: the app animates each sentence with its own
+  // word, so a mismatch glows nothing.
+  const swapped = candidate({ emphasisVi: ["chờ", "thu gom", "nhất"] });
+  const found = blockers(checkSchema(swapped));
+  assert.ok(found.some((f) => f.field === "emphasisVi[0]" && /does not occur in defVi/.test(f.message)));
+  assert.ok(found.some((f) => f.field === "emphasisVi[1]" && /does not occur in leadVi/.test(f.message)));
+});
+
+test("the triple must have exactly three entries", () => {
+  for (const emphasisVi of [["thu gom"], ["thu gom", "chờ"], ["thu gom", "chờ", "nhất", "mùa"]]) {
+    const found = blockers(checkSchema(candidate({ emphasisVi })));
+    assert.ok(found.some((f) => /exactly 3 entries/.test(f.message)), JSON.stringify(emphasisVi));
+  }
+});
+
+test("the three entries must differ from one another", () => {
+  const found = blockers(checkSchema(candidate({ emphasisVi: ["chờ", "chờ", "nhất"] })));
+  assert.ok(found.some((f) => /all be different/.test(f.message)));
+});
+
+test("a highlight may cover a join but never a bind or a phrase edge", () => {
+  // "thu_gom" is one word; "con=mèo" is a classifier plus a noun.
+  assert.deepEqual(
+    blockers(checkSchema(candidate({ emphasisVi: ["thu_gom", "chờ", "nhất"] })))
+      .filter((f) => f.field.startsWith("emphasisVi")),
+    [],
+  );
+  const bound = blockers(checkSchema(candidate({ emphasisVi: ["thu=gom", "chờ", "nhất"] })));
+  assert.ok(bound.some((f) => /spans a "=" or "\|"/.test(f.message)));
+});
+
+test("a generic intensifier is never the highlight, wherever it sits", () => {
+  const found = blockers(
+    checkSchema(candidate({ defVi: "Việc rất tốt | cho một mùa trồng_trọt dài hơi.", emphasisVi: ["rất", "chờ", "nhất"] })),
+  );
+  assert.ok(found.some((f) => /generic intensifier/.test(f.message)));
+});
+
+test("a soft filler may be the tone pivot but never the meaning word", () => {
+  // Allowed in anticipateVi, which is where tone lives.
+  const tone = candidate({ anticipateVi: "Mùa gì vui nhỉ?", emphasisVi: ["thu gom", "chờ", "nhỉ"] });
+  assert.deepEqual(
+    blockers(checkSchema(tone)).filter((f) => f.field === "emphasisVi[2]"),
+    [],
+  );
+  // Forbidden in leadVi, where the meaning word has to carry it.
+  const meaning = candidate({ leadVi: "Nông_dân chờ cả năm | mới tới lúc này nhỉ.", emphasisVi: ["thu gom", "nhỉ", "nhất"] });
+  assert.ok(blockers(checkSchema(meaning)).some((f) => /soft filler/.test(f.message)));
 });
 
 test("the blank and the answer beside it are both checked", () => {
@@ -182,4 +228,104 @@ test("the summary counts candidates and cards separately, and says where failure
 test("a candidate id is stable and distinguishes repeats of one word", () => {
   assert.equal(candidateId("batch", "harvest", 3), "batch:3:harvest");
   assert.notEqual(candidateId("b", "x", 0), candidateId("b", "x", 1));
+});
+
+// ── card-prompt v3.7 ───────────────────────────────────────────────────────
+
+test("null is a permitted value, listed for review rather than type-errored", () => {
+  // The prompt tells the writer to use null rather than drop a key, on the
+  // promise that the validator lists every one. Treating it as a type error
+  // would make the instruction a trap.
+  const findings = checkSchema(candidate({ ipa: null }));
+  assert.deepEqual(blockers(findings), []);
+  assert.ok(findings.some((f) => f.field === "ipa" && f.severity === "warn" && /review/.test(f.message)));
+});
+
+test("a dropped key still fails, which is the point of allowing null", () => {
+  const missing = candidate();
+  delete missing.ipa;
+  assert.ok(blockers(checkSchema(missing)).some((f) => f.field === "ipa"));
+});
+
+test("meaningVi is a gloss, not a sentence", () => {
+  const long = checkPromptRules(candidate({ meaningVi: "việc thu gom cây trái sau mùa" }));
+  assert.ok(long.some((f) => /1-4/.test(f.message)), "more than four words");
+  const stopped = checkPromptRules(candidate({ meaningVi: "vụ_mùa." }));
+  assert.ok(stopped.some((f) => /full stop/.test(f.message)));
+  // Two genuine senses after ", " are allowed.
+  assert.deepEqual(checkPromptRules(candidate({ meaningVi: "hệ_quả, hàm_ý" })), []);
+});
+
+test("usageEn is held to the word list and to British spelling", () => {
+  const unlisted = checkPromptRules(candidate({ usageEn: "I bought a _____ and a snack." }));
+  assert.ok(unlisted.some((f) => /"snack" is not in the Oxford list/.test(f.message)));
+  const american = checkPromptRules(candidate({ usageEn: "The _____ is my favorite colour." }));
+  assert.ok(american.some((f) => /write "favourite"/.test(f.message)));
+});
+
+test("the answer must not appear in any field read before guessing", () => {
+  for (const field of ["meaningVi", "defVi", "leadVi", "anticipateVi"]) {
+    const leaked = checkPromptRules(candidate({ [field]: "Đây là harvest nhé." }));
+    assert.ok(
+      leaked.some((f) => f.field === field && /contains the English answer/.test(f.message)),
+      `${field} leak not caught`,
+    );
+  }
+});
+
+test("a join in usageEn is refused, because the blank lives there", () => {
+  const found = checkPromptRules(candidate({ usageEn: "The _____ was a thu_gom day." }));
+  assert.ok(found.some((f) => /no underscore but the blank/.test(f.message)));
+});
+
+// ── rules only a batch can break ───────────────────────────────────────────
+
+/** Wrap raw candidates as records, as the panel does. */
+function asRecords(raws: Array<Record<string, unknown>>): IntakeRecord[] {
+  return raws.map((raw, index) => ({
+    id: `b:${index}:${String(raw.word)}`,
+    word: String(raw.word),
+    batchId: "b",
+    raw,
+    card: null,
+    findings: [],
+    verdict: "pending" as const,
+  }));
+}
+
+test("a duplicated headword means a requested target lost its slot", () => {
+  // Tone words varied, so only the duplicate fires and the count is unambiguous.
+  const extra = checkBatchRules(
+    asRecords([
+      candidate({ emphasisVi: ["thu gom", "chờ", "t1"] }),
+      candidate({ emphasisVi: ["thu gom", "chờ", "t2"] }),
+      candidate({ word: "whisper", emphasisVi: ["thu gom", "chờ", "t3"] }),
+    ]),
+  );
+  const flagged = [...extra.values()].flat();
+  assert.equal(flagged.length, 1, "the second occurrence is flagged, not the first");
+  assert.equal(flagged[0].severity, "blocker");
+  assert.ok(/may not be duplicated/.test(flagged[0].message));
+});
+
+test("a tone word repeated across the batch is a warning, not a rejection", () => {
+  // Sixteen cards, cap is two, and "mà" is on four of them.
+  const raws = Array.from({ length: 16 }, (_, index) =>
+    candidate({
+      word: `w${index}`,
+      emphasisVi: ["thu gom", "chờ", index < 4 ? "mà" : `t${index}`],
+    }),
+  );
+  const extra = checkBatchRules(asRecords(raws));
+  const flagged = [...extra.values()].flat();
+  assert.equal(flagged.length, 4, "every card carrying the overused word is told");
+  assert.ok(flagged.every((f) => f.severity === "warn"), "a tic is not a defect");
+  assert.ok(/is used on 4 of 16/.test(flagged[0].message));
+});
+
+test("a varied batch raises nothing", () => {
+  const raws = Array.from({ length: 16 }, (_, index) =>
+    candidate({ word: `w${index}`, emphasisVi: ["thu gom", "chờ", `t${index}`] }),
+  );
+  assert.equal(checkBatchRules(asRecords(raws)).size, 0);
 });

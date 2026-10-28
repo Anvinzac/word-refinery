@@ -122,15 +122,26 @@ export function checkSchema(raw: unknown, expectedWord?: string): IntakeFinding[
     }
   }
 
-  // Types, for the fields that are present.
+  // Types, for the fields that are present. `null` is a permitted value — the
+  // prompt tells the writer to use it rather than drop a key, on the promise
+  // that the validator lists every one for review. So it is reported, loudly,
+  // but as something to look at rather than a type error.
+  for (const field of CRAWLER_ANNOTATION_FIELDS) {
+    if (!(field in record)) continue;
+    if (record[field] === null) {
+      at(findings, "schema", field, "warn", "null — the writer could not produce a value; review it");
+    }
+  }
   for (const field of ["word", "pos", "ipa", "meaningVi", "defVi", "leadVi", "anticipateVi", "usageEn", "usageVi"]) {
-    if (field in record && typeof record[field] !== "string") {
-      at(findings, "schema", field, "blocker", `expected a string, got ${typeof record[field]}`);
+    const value = record[field];
+    if (field in record && value !== null && typeof value !== "string") {
+      at(findings, "schema", field, "blocker", `expected a string, got ${typeof value}`);
     }
   }
   for (const field of ["topics", "exams", "emphasisVi"]) {
-    if (field in record && !Array.isArray(record[field])) {
-      at(findings, "schema", field, "blocker", `expected an array, got ${typeof record[field]}`);
+    const value = record[field];
+    if (field in record && value !== null && !Array.isArray(value)) {
+      at(findings, "schema", field, "blocker", `expected an array, got ${typeof value}`);
     }
   }
 
@@ -162,26 +173,7 @@ export function checkSchema(raw: unknown, expectedWord?: string): IntakeFinding[
     }
   }
 
-  // Emphasis must be present and must actually occur in the text it marks.
-  const emphasis = record.emphasisVi;
-  if (Array.isArray(emphasis)) {
-    if (emphasis.length === 0) {
-      at(findings, "schema", "emphasisVi", "warn", "no emphasis phrase offered");
-    }
-    // Compared with the marks removed from both sides: an emphasis phrase is
-    // stored PLAIN while the text it quotes carries joins, so "thu gom" against
-    // "thu_gom" is a match and a raw comparison would reject every correctly
-    // marked card.
-    const sources = stripMarks(
-      `${stripEmphasisMarkers(String(record.defVi ?? ""))} ${stripEmphasisMarkers(String(record.leadVi ?? ""))}`,
-    );
-    for (const phrase of emphasis) {
-      if (typeof phrase !== "string") continue;
-      if (!sources.includes(stripMarks(phrase.trim()))) {
-        at(findings, "schema", "emphasisVi", "blocker", `"${phrase}" does not occur in defVi or leadVi`);
-      }
-    }
-  }
+  findings.push(...checkEmphasisTriple(record));
 
   // The blank, and the answer beside it.
   const usageEn = typeof record.usageEn === "string" ? record.usageEn : "";
@@ -272,4 +264,217 @@ export function summarize(records: readonly IntakeRecord[]): {
     repaired: records.filter((record) => record.repaired === true).length,
     byStage,
   };
+}
+
+// ── Card-prompt v3.7 ────────────────────────────────────────────────────────
+
+/**
+ * Soft fillers the prompt allows in a sentence but forbids as the glow.
+ * They warm the tone; the meaning word still has to carry the highlight.
+ */
+const SOFT_FILLERS = new Set(["nhỉ", "nha", "này", "luôn", "hết cỡ", "ui", "ơi", "nè", "nhé", "thôi"]);
+
+/** Intensifiers the prompt names as padding, never a highlight. */
+const GENERIC_INTENSIFIERS = new Set(["rất", "quá", "thật", "lắm"]);
+
+/**
+ * Words the prompt lists as absent from the Oxford 3000/5000, and therefore
+ * banned in usageEn at every level however ordinary they feel.
+ *
+ * Only this list is checked, not the level ceiling itself: the ceiling needs
+ * the card's CEFR level, which v3.7 passes as INPUT and forbids in the output,
+ * so a card alone cannot be judged against it. A batch that carries its
+ * manifest could be, and that is the obvious extension.
+ */
+const UNLISTED_IN_OXFORD = new Set([
+  "charger", "snack", "swimsuit", "tasty", "motorbike", "heater", "hike", "lantern", "breathless",
+]);
+
+/** American spellings the prompt asks to be written the British way. */
+const US_SPELLINGS: Record<string, string> = {
+  color: "colour", center: "centre", favorite: "favourite", neighbor: "neighbour",
+  theater: "theatre", traveling: "travelling", organize: "organise", realize: "realise",
+  meter: "metre", liter: "litre", gray: "grey", defense: "defence",
+};
+
+/** The three animated sentences, in the order emphasisVi must match. */
+const EMPHASIS_SOURCES = ["defVi", "leadVi", "anticipateVi"] as const;
+
+/** Compare a highlight against its sentence the way the app will: marks removed. */
+function plain(text: string): string {
+  return stripMarks(stripEmphasisMarkers(text)).toLowerCase();
+}
+
+/**
+ * EMPHASIS VALIDATION (E6): three entries, each belonging to its own sentence.
+ *
+ * v3.7 made emphasisVi positional — [defVi, leadVi, anticipateVi] — which is a
+ * stronger claim than the old "occurs somewhere in the clues". An entry that
+ * matches the wrong sentence used to pass and now cannot, because the app
+ * animates each sentence with its own word and a mismatch glows nothing.
+ */
+function checkEmphasisTriple(record: Record<string, unknown>): IntakeFinding[] {
+  const findings: IntakeFinding[] = [];
+  const emphasis = record.emphasisVi;
+  if (!Array.isArray(emphasis)) return findings;
+
+  if (emphasis.length !== 3) {
+    at(findings, "schema", "emphasisVi", "blocker",
+      `expected exactly 3 entries, one per animated sentence, got ${emphasis.length}`);
+  }
+
+  EMPHASIS_SOURCES.forEach((source, index) => {
+    const entry = emphasis[index];
+    if (typeof entry !== "string" || entry.trim().length === 0) {
+      if (index < emphasis.length) {
+        at(findings, "schema", `emphasisVi[${index}]`, "blocker", `missing the ${source} highlight`);
+      }
+      return;
+    }
+    const needle = plain(entry);
+    const haystack = plain(String(record[source] ?? ""));
+    if (!haystack.includes(needle)) {
+      at(findings, "schema", `emphasisVi[${index}]`, "blocker",
+        `"${entry}" does not occur in ${source}`);
+    }
+    // A highlight may cover a join but never a bind or a phrase edge: those
+    // mark two words leaning together, not one unit worth glowing.
+    if (/[=|]/.test(entry)) {
+      at(findings, "schema", `emphasisVi[${index}]`, "blocker",
+        `"${entry}" spans a "=" or "|", which is never one lexical unit`);
+    }
+    if (GENERIC_INTENSIFIERS.has(needle)) {
+      at(findings, "schema", `emphasisVi[${index}]`, "blocker",
+        `"${entry}" is a generic intensifier, which the prompt forbids as a highlight`);
+    }
+    // Fillers are forbidden as the glow in the two meaning sentences, but may
+    // legitimately BE the tone pivot in anticipateVi.
+    if (source !== "anticipateVi" && SOFT_FILLERS.has(needle)) {
+      at(findings, "schema", `emphasisVi[${index}]`, "blocker",
+        `"${entry}" is a soft filler; the ${source} highlight must be the meaning word`);
+    }
+  });
+
+  const written = emphasis.filter((entry): entry is string => typeof entry === "string");
+  if (new Set(written.map(plain)).size !== written.length) {
+    at(findings, "schema", "emphasisVi", "blocker", "the three entries must all be different words");
+  }
+  return findings;
+}
+
+/**
+ * The rules v3.7 states that are checkable without reading Vietnamese.
+ *
+ * Deliberately excludes the tone rule (T1) and the compactness rule, which are
+ * judgements about register rather than facts about text — a regex that tried
+ * to score "would a second-year student feel spoken to as an equal" would fire
+ * on good cards and miss bad ones. Those belong to the safety and verification
+ * passes.
+ *
+ * @param raw - one candidate
+ */
+export function checkPromptRules(raw: unknown): IntakeFinding[] {
+  const findings: IntakeFinding[] = [];
+  if (typeof raw !== "object" || raw === null) return findings;
+  const record = raw as Record<string, unknown>;
+
+  // meaningVi is a dictionary gloss, not a sentence: 1-4 words, 40 characters,
+  // no full stop. A second gloss is allowed only after ", ".
+  const meaning = typeof record.meaningVi === "string" ? record.meaningVi.trim() : "";
+  if (meaning.length > 0) {
+    const clean = stripMarks(meaning);
+    if (clean.endsWith(".")) {
+      at(findings, "content", "meaningVi", "blocker", "ends with a full stop; a gloss is not a sentence");
+    }
+    if (clean.length > 40) {
+      at(findings, "content", "meaningVi", "blocker", `${clean.length} characters; at most 40`);
+    }
+    const words = clean.replace(/,/g, " ").split(/\s+/).filter(Boolean).length;
+    if (words > 4) {
+      at(findings, "content", "meaningVi", "blocker", `${words} words; a gloss is 1-4`);
+    }
+  }
+
+  const usageEn = typeof record.usageEn === "string" ? record.usageEn : "";
+  if (usageEn.length > 0) {
+    for (const token of usageEn.toLowerCase().match(/[a-z']+/g) ?? []) {
+      if (UNLISTED_IN_OXFORD.has(token)) {
+        at(findings, "content", "usageEn", "blocker",
+          `"${token}" is not in the Oxford list, so it is banned at every level`);
+      }
+      const british = US_SPELLINGS[token];
+      if (british !== undefined) {
+        at(findings, "content", "usageEn", "blocker", `"${token}" is US spelling; write "${british}"`);
+      }
+    }
+    // A join beside the answer blank would be read as part of it.
+    if (/[A-Za-z]_[A-Za-z]/.test(usageEn)) {
+      at(findings, "content", "usageEn", "blocker", "contains a join; usageEn must carry no underscore but the blank");
+    }
+  }
+
+  // The answer must not appear in any field the learner reads before guessing.
+  const word = typeof record.word === "string" ? record.word.trim() : "";
+  if (word.length > 0) {
+    for (const field of ["meaningVi", "defVi", "leadVi", "anticipateVi"] as const) {
+      const value = record[field];
+      if (typeof value !== "string") continue;
+      if (containsTargetWord(stripMarks(stripEmphasisMarkers(value)), word)) {
+        at(findings, "content", field, "blocker", "contains the English answer");
+      }
+    }
+  }
+
+  return findings;
+}
+
+/**
+ * The rules that only a whole batch can break.
+ *
+ * A card is judged alone everywhere else, but v3.7 has two rules about the
+ * SHAPE of a batch — one target per headword, and tone words that do not
+ * repeat — and neither is visible from inside a single card.
+ *
+ * @param records - every candidate in the run
+ * @returns findings keyed by candidate id
+ */
+export function checkBatchRules(records: readonly IntakeRecord[]): Map<string, IntakeFinding[]> {
+  const extra = new Map<string, IntakeFinding[]>();
+  const add = (id: string, finding: IntakeFinding): void => {
+    extra.set(id, [...(extra.get(id) ?? []), finding]);
+  };
+
+  // B1: never duplicate, omit or reorder a target. A repeated headword means
+  // one of the requested words lost its slot.
+  const seen = new Map<string, string>();
+  for (const record of records) {
+    const key = record.word.trim().toLowerCase();
+    if (key.length === 0) continue;
+    const first = seen.get(key);
+    if (first === undefined) seen.set(key, record.id);
+    else add(record.id, { stage: "schema", field: "word", severity: "blocker",
+      message: `"${record.word}" already appears in this batch; a target may not be duplicated` });
+  }
+
+  // E5/F: vary the anticipateVi tone word — none on more than about one card
+  // in eight, or the deck develops a tic the reader starts to hear.
+  const cap = Math.max(1, Math.round(records.length / 8));
+  const tally = new Map<string, string[]>();
+  for (const record of records) {
+    const raw = record.raw as Record<string, unknown> | null;
+    const emphasis = raw?.emphasisVi;
+    if (!Array.isArray(emphasis) || typeof emphasis[2] !== "string") continue;
+    const tone = plain(emphasis[2]);
+    if (tone.length === 0) continue;
+    tally.set(tone, [...(tally.get(tone) ?? []), record.id]);
+  }
+  for (const [tone, ids] of tally) {
+    if (ids.length <= cap) continue;
+    for (const id of ids) {
+      add(id, { stage: "content", field: "emphasisVi[2]", severity: "warn",
+        message: `tone word "${tone}" is used on ${ids.length} of ${records.length} cards; about ${cap} is the cap` });
+    }
+  }
+
+  return extra;
 }
