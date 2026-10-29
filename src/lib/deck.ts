@@ -23,7 +23,13 @@ import {
 } from "./contract.ts";
 import { injectEmphasisMarkers, stripEmphasisMarkers, validateEmphasis } from "./emphasis.ts";
 import { findStrayMarks } from "./joiner.ts";
-import { activeGlossProfile, describeLength, markRules, measureLength } from "./lang.ts";
+import {
+  activeGlossProfile,
+  describeLength,
+  displayText,
+  markRules,
+  measureLength,
+} from "./lang.ts";
 
 /**
  * The language this workspace's cards are written in, and with it every length
@@ -424,10 +430,16 @@ export function validateDeck(deck: Deck): DeckIssue[] {
     // Read defensively: the field is optional downstream, and a validator that
     // throws on a deck written before it existed is worse than one that skips.
     if (typeof entry.meaningVi === "string" && entry.meaningVi.trim().length > 0) {
-      const clean = stripEmphasisMarkers(entry.meaningVi);
+      // Measured AS DISPLAYED, which is the only form a character ceiling can
+      // honestly be about: the reveal panel shows "quả táo" and 「あえてする」,
+      // not "quả_táo" and 「あえて する」. Counting the raw string made every
+      // Japanese gloss read longer than it is — the 文節 spaces and the marks
+      // are markup, and three cards of one B2 pack were rejected for carrying
+      // them.
+      const clean = displayText(stripEmphasisMarkers(entry.meaningVi), L);
       const ceiling = L.limits.meaning.maxChars;
-      if (ceiling !== undefined && clean.length > ceiling) {
-        at("meaningVi", `${clean.length} characters; expected at most ${ceiling}`);
+      if (ceiling !== undefined && [...clean].length > ceiling) {
+        at("meaningVi", `${[...clean].length} characters; expected at most ${ceiling}`);
       }
       // A gloss may offer two equivalents separated by a comma ("then_chốt,
       // cực_kỳ quan_trọng"), so each alternative is measured on its own. The

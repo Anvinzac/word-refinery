@@ -254,3 +254,16 @@ test("a length range a language calls an aim is reported as advice, not a defect
   assert.equal(ja.emphasis.max, 8);
   assert.equal(ja.marks.maxPhrase, 14);
 });
+
+test("a character ceiling counts what the reader sees, not the markup", () => {
+  // The gloss ceiling once counted the raw string. For Vietnamese that is
+  // nearly right; for Japanese the 文節 spaces and the bonds are markup, and
+  // counting them rejected three correct glosses of one B2 pack for being
+  // 15, 16 and 17 characters when they are 13, 14 and 14.
+  const gloss = "あえて する、思い切って する";
+  assert.equal([...gloss].length, 15, "the raw string, markup and all");
+  assert.equal(measureLength(gloss, ja), 13, "what the reveal panel shows");
+  assert.ok(measureLength(gloss, ja) <= (ja.limits.meaning.maxChars ?? ja.limits.meaning.max));
+  // The same holds for a Vietnamese join: the panel shows "quả táo".
+  assert.equal(displayText("quả_táo", vi), "quả táo");
+});

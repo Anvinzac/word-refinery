@@ -1,0 +1,602 @@
+[
+ {
+  "id": "B106-001",
+  "word": "examine",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B106-002",
+  "word": "qualify",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B106-003",
+  "word": "revise",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B106-004",
+  "word": "technical",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B106-005",
+  "word": "ai",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B106-006",
+  "word": "battery",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B106-007",
+  "word": "content",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B106-008",
+  "word": "engineering",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B106-009",
+  "word": "file",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B106-010",
+  "word": "it",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B106-011",
+  "word": "keyboard",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B106-012",
+  "word": "podcast",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B106-013",
+  "word": "printing",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B106-014",
+  "word": "robot",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B106-015",
+  "word": "software",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B106-016",
+  "word": "tape",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B106-017",
+  "word": "access",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B106-018",
+  "word": "click",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B106-019",
+  "word": "update",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B106-020",
+  "word": "scan",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B106-021",
+  "word": "switch",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B106-022",
+  "word": "complex",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B106-023",
+  "word": "imaginary",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B106-024",
+  "word": "obvious",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B106-025",
+  "word": "analysis",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B106-026",
+  "word": "belief",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B106-027",
+  "word": "clue",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B106-028",
+  "word": "comparison",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B106-029",
+  "word": "conclusion",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B106-030",
+  "word": "consequence",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B106-031",
+  "word": "impression",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B106-032",
+  "word": "intelligence",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B106-033",
+  "word": "intention",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B106-034",
+  "word": "mystery",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B106-035",
+  "word": "prediction",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B106-036",
+  "word": "reality",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B106-037",
+  "word": "truth",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B106-038",
+  "word": "aim",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B106-039",
+  "word": "contrast",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B106-040",
+  "word": "wonder",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B106-041",
+  "word": "analyse",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B106-042",
+  "word": "conclude",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B106-043",
+  "word": "confuse",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B106-044",
+  "word": "define",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B106-045",
+  "word": "determine",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B106-046",
+  "word": "doubt",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B106-047",
+  "word": "intend",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B106-048",
+  "word": "prove",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B106-049",
+  "word": "reflect",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B106-050",
+  "word": "relate",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B106-051",
+  "word": "remind",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B106-052",
+  "word": "aged",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B106-053",
+  "word": "continuous",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B106-054",
+  "word": "current",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B106-055",
+  "word": "due",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B106-056",
+  "word": "historic",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B106-057",
+  "word": "historical",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B106-058",
+  "word": "immediate",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B106-059",
+  "word": "latest",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B106-060",
+  "word": "old-fashioned",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B106-061",
+  "word": "previous",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B106-062",
+  "word": "repeated",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B106-063",
+  "word": "sudden",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B106-064",
+  "word": "currently",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B106-065",
+  "word": "eventually",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B106-066",
+  "word": "forever",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B106-067",
+  "word": "frequently",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B106-068",
+  "word": "meanwhile",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B106-069",
+  "word": "originally",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B106-070",
+  "word": "previously",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B106-071",
+  "word": "rarely",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B106-072",
+  "word": "regularly",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B106-073",
+  "word": "since",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B106-074",
+  "word": "decade",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B106-075",
+  "word": "occasion",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B106-076",
+  "word": "while",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B106-077",
+  "word": "hurry",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B106-078",
+  "word": "eastern",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B106-079",
+  "word": "northern",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B106-080",
+  "word": "remote",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B106-081",
+  "word": "southern",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B106-082",
+  "word": "accommodation",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B106-083",
+  "word": "arrival",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B106-084",
+  "word": "attraction",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B106-085",
+  "word": "captain",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B106-086",
+  "word": "departure",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B106-087",
+  "word": "destination",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B106-088",
+  "word": "expedition",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B106-089",
+  "word": "fuel",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B106-090",
+  "word": "helicopter",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B106-091",
+  "word": "location",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B106-092",
+  "word": "path",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B106-093",
+  "word": "port",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B106-094",
+  "word": "reservation",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B106-095",
+  "word": "sailor",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B106-096",
+  "word": "tent",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B106-097",
+  "word": "tyre",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B106-098",
+  "word": "explore",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B106-099",
+  "word": "fasten",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B106-100",
+  "word": "locate",
+  "level": "B1",
+  "status": "accepted"
+ }
+]

@@ -3,7 +3,8 @@
 Written to `JA_GENERATION_RULES` **v3.9**, which is the Japanese counterpart of
 `card-prompt-v3.7` on the Vietnamese side. Source packs:
 `engvocab_JA_A101-A105_v3.9_flat`, `engvocab_JA_A106-A108_A201-A202_v3.9_flat`,
-`engvocab_JA_A203-A207_v3.9_flat` and `engvocab_JA_A208_B101-B104_v3.9_flat`.
+`engvocab_JA_A203-A207_v3.9_flat`, `engvocab_JA_A208_B101-B104_v3.9_flat` and
+`engvocab_JA_B105-B107_B201-B202_v3.9_flat`.
 
 Each `<batch>.json` is the pack AS DELIVERED: one object per English word,
 carrying one telling of the scene per reader register under `levels` -
@@ -15,8 +16,9 @@ carrying one telling of the scene per reader register under `levels` -
 | JHIGH | 高校生 | 2 (the DEFAULT) |
 | JCOLL | 大学生 | 3 (all 常用漢字) |
 
-Not every batch carries all four. The A-level batches do; **B101-B104 have no
-JPRIM**, because no 小学生 is the audience for B1 vocabulary. A card is read
+Not every batch carries all four. The A-level batches do; **no B batch has a
+JPRIM** — B101-B107 and B201-B202 ship JSEC/JHIGH/JCOLL only, because no
+小学生 is the audience for B1 or B2 vocabulary. A card is read
 through its `defaultLevel`, so a register a batch omits costs nothing here - but
 anything that walks `levels` has to tolerate a missing JPRIM.
 
@@ -27,7 +29,7 @@ the bundler flattens into the deck. The others are kept here rather than in the
 bundled deck because the app normalises a deck word down to the fields it knows,
 so carrying them through `public/` would be weight that never arrives. They are
 in git so a register picker can be built later without re-importing anything -
-and such a picker cannot offer JPRIM for B101-B104, which never had one.
+and such a picker cannot offer JPRIM for a B batch, which never had one.
 
 Each card also carries `defVi` / `leadVi` / `anticipateVi`: plain-prose
 Vietnamese translations of the Japanese, there so a Vietnamese reviewer can
@@ -61,6 +63,11 @@ manifest: it holds batch statistics, and is what the table below is read from.
 | B102 | 100 | 100 | 0 | 0 | v3.9 |
 | B103 | 100 | 100 | 0 | 0 | v3.9 |
 | B104 | 100 | 100 | 0 | 0 | v3.9 |
+| B105 | 100 | 100 | 0 | 0 | v3.9 |
+| B106 | 100 | 100 | 0 | 0 | v3.9 |
+| B107 | 31 | 31 | 0 | 0 | v3.9 |
+| B201 | 100 | 100 | 0 | 0 | v3.9 |
+| B202 | 100 | 100 | 0 | 0 | v3.9 |
 
 Check a pack before bundling it with `npm run verify -- <pack dir> --gloss ja`.
 The `--gloss ja` matters: without it the Vietnamese profile is used and every
