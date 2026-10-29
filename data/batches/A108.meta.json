@@ -1,0 +1,645 @@
+[
+ {
+  "id": "A108-001",
+  "word": "time",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A108-002",
+  "word": "tuesday",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A108-003",
+  "word": "wednesday",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A108-004",
+  "word": "week",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A108-005",
+  "word": "weekend",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A108-006",
+  "word": "winter",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A108-007",
+  "word": "year",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A108-008",
+  "word": "end",
+  "level": "A1",
+  "input_pos": "noun/verb",
+  "card_pos": "noun",
+  "status": "accepted",
+  "note": "dual POS noun/verb -> noun"
+ },
+ {
+  "id": "A108-009",
+  "word": "begin",
+  "level": "A1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "A108-010",
+  "word": "born",
+  "level": "A1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "A108-011",
+  "word": "finish",
+  "level": "A1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "A108-012",
+  "word": "wait",
+  "level": "A1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "A108-013",
+  "word": "near",
+  "level": "A1",
+  "input_pos": "adjective/adverb",
+  "card_pos": "adj",
+  "status": "accepted",
+  "note": "dual POS adjective/adverb -> adj"
+ },
+ {
+  "id": "A108-014",
+  "word": "east",
+  "level": "A1",
+  "input_pos": "adjective/adverb/noun",
+  "card_pos": "noun",
+  "status": "accepted",
+  "note": "dual POS adjective/adverb/noun -> noun"
+ },
+ {
+  "id": "A108-015",
+  "word": "north",
+  "level": "A1",
+  "input_pos": "adjective/adverb/noun",
+  "card_pos": "noun",
+  "status": "accepted",
+  "note": "dual POS adjective/adverb/noun -> noun"
+ },
+ {
+  "id": "A108-016",
+  "word": "south",
+  "level": "A1",
+  "input_pos": "adjective/adverb/noun",
+  "card_pos": "noun",
+  "status": "accepted",
+  "note": "dual POS adjective/adverb/noun -> noun"
+ },
+ {
+  "id": "A108-017",
+  "word": "west",
+  "level": "A1",
+  "input_pos": "adjective/adverb/noun",
+  "card_pos": "noun",
+  "status": "accepted",
+  "note": "dual POS adjective/adverb/noun -> noun"
+ },
+ {
+  "id": "A108-018",
+  "word": "far",
+  "level": "A1",
+  "input_pos": "adverb",
+  "card_pos": "adv",
+  "status": "accepted"
+ },
+ {
+  "id": "A108-019",
+  "word": "airport",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A108-020",
+  "word": "beach",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A108-021",
+  "word": "bicycle",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A108-022",
+  "word": "bike",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A108-023",
+  "word": "boat",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A108-024",
+  "word": "bus",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A108-025",
+  "word": "car",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A108-026",
+  "word": "city",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A108-027",
+  "word": "driver",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A108-028",
+  "word": "flight",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A108-029",
+  "word": "holiday",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A108-030",
+  "word": "hotel",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A108-031",
+  "word": "island",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A108-032",
+  "word": "journey",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A108-033",
+  "word": "kilometre",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A108-034",
+  "word": "map",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A108-035",
+  "word": "mile",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A108-036",
+  "word": "museum",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A108-037",
+  "word": "passport",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A108-038",
+  "word": "plane",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A108-039",
+  "word": "road",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A108-040",
+  "word": "station",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A108-041",
+  "word": "street",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A108-042",
+  "word": "taxi",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A108-043",
+  "word": "ticket",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A108-044",
+  "word": "tourist",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A108-045",
+  "word": "train",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A108-046",
+  "word": "trip",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A108-047",
+  "word": "vacation",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A108-048",
+  "word": "visitor",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A108-049",
+  "word": "return",
+  "level": "A1",
+  "input_pos": "noun/verb",
+  "card_pos": "verb",
+  "status": "accepted",
+  "note": "dual POS noun/verb -> verb"
+ },
+ {
+  "id": "A108-050",
+  "word": "visit",
+  "level": "A1",
+  "input_pos": "noun/verb",
+  "card_pos": "verb",
+  "status": "accepted",
+  "note": "dual POS noun/verb -> verb"
+ },
+ {
+  "id": "A108-051",
+  "word": "arrive",
+  "level": "A1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "A108-052",
+  "word": "climb",
+  "level": "A1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "A108-053",
+  "word": "drive",
+  "level": "A1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "A108-054",
+  "word": "fly",
+  "level": "A1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "A108-055",
+  "word": "ride",
+  "level": "A1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "A108-056",
+  "word": "stay",
+  "level": "A1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "A108-057",
+  "word": "travel",
+  "level": "A1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "A108-058",
+  "word": "busy",
+  "level": "A1",
+  "input_pos": "adj",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "A108-059",
+  "word": "actress",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A108-060",
+  "word": "artist",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A108-061",
+  "word": "business",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A108-062",
+  "word": "career",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A108-063",
+  "word": "company",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A108-064",
+  "word": "desk",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A108-065",
+  "word": "farmer",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A108-066",
+  "word": "job",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A108-067",
+  "word": "meeting",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A108-068",
+  "word": "office",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A108-069",
+  "word": "project",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A108-070",
+  "word": "report",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A108-071",
+  "word": "scientist",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A108-072",
+  "word": "skill",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A108-073",
+  "word": "success",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A108-074",
+  "word": "team",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A108-075",
+  "word": "worker",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A108-076",
+  "word": "writer",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A108-077",
+  "word": "design",
+  "level": "A1",
+  "input_pos": "noun/verb",
+  "card_pos": "noun",
+  "status": "accepted",
+  "note": "dual POS noun/verb -> noun"
+ },
+ {
+  "id": "A108-078",
+  "word": "interview",
+  "level": "A1",
+  "input_pos": "noun/verb",
+  "card_pos": "noun",
+  "status": "accepted",
+  "note": "dual POS noun/verb -> noun"
+ },
+ {
+  "id": "A108-079",
+  "word": "work",
+  "level": "A1",
+  "input_pos": "noun/verb",
+  "card_pos": "verb",
+  "status": "accepted",
+  "note": "dual POS noun/verb -> verb"
+ }
+]

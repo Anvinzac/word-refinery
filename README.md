@@ -161,7 +161,7 @@ live in `src/lib/lang.ts`, one profile per language.
 data/ngsl-starter-subset.json   bundled corpus (381 words, CC BY-SA 4.0)
 data/batches/A101.json          one batch of cards; `npm run bundle-batches` bundles them
 data/batches/A101.meta.json     its manifest: id, headword and level, one row per card
-public/default-deck.json        the bundled dataset the site ships with (500 words, A101-A105)
+public/default-deck.json        the bundled dataset the site ships with (979 words, A101-A108 + A201-A202)
 src/lib/
   types.ts       deck, corpus and review document shapes
   corpus.ts      load the bundled corpus, filter by band, batch it

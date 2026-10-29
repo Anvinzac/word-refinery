@@ -22,9 +22,15 @@
  *   2. Failing that, the CEFR level in the file name ("deck-v3-A1",
  *      "vocab_b2_100"), which is how the files that predate manifests work.
  *
- * `addedAt` only orders the picker: files are stamped a minute apart in name
- * order, the first file newest, so the menu reads in the same order as the
- * folder and opens on the first file.
+ * `addedAt` only orders the picker, and it runs FORWARD through the folder:
+ * files are stamped a minute apart in name order, the LAST one newest. The
+ * batch names carry their own order (A101, A102, ... A108, A201), so the last
+ * name is the batch that arrived last, and the picker opens on it.
+ *
+ * It used to run the other way, which was fine when every batch landed at once
+ * and wrong as soon as they arrive weekly: adding next week's batch put it at
+ * the bottom of the menu and left the picker opening on a batch from months
+ * ago.
  *
  * Run with `npm run bundle-batches` after adding or replacing a file.
  */
@@ -79,7 +85,7 @@ files.forEach((file, index) => {
     throw new Error(`${file}: no manifest beside it and no CEFR level (A1-C2) in the file name`);
   }
 
-  const addedAt = new Date(ORIGIN - index * 60_000).toISOString();
+  const addedAt = new Date(ORIGIN + index * 60_000).toISOString();
   list.forEach((word, position) => {
     const row = manifest?.[position];
     const level = row?.level ?? named;
