@@ -53,8 +53,28 @@ export interface CrawlerAnnotation {
   emphasisVi: string[];
 }
 
-/** Plain-English headword pattern shared with the downstream deck contract. */
-export const annotationWordPattern = /^[a-z]+(?:['’-][a-z]+)*$/;
+/**
+ * Plain-English headword pattern — the English-only reading of KineMedia's
+ * `wordSchema.word` (`src/features/vocabulary/lib/schema.ts`), which is
+ * `/^(?:(?=.{2})\p{L}+(?:['’ -]\p{L}+)*|\p{Script=Han}+)$/u`.
+ *
+ * Narrower on purpose: this deck's headwords are English by contract (its
+ * locale is `en_<gloss>` — English headwords, glossed in that language), so the
+ * Unicode-letter and Han alternatives would never be exercised here.
+ *
+ * The space is NOT optional, though the downstream rule spells it out for
+ * multi-word entries ("sich vorstellen") and four are already in the shipped
+ * deck: "ice cream", "all right", "per cent", "any more". A pattern without the
+ * space calls every one of them not a word — it rejected `per cent` and
+ * `any more` out of the Japanese A206/A207 batches while the bundler, which
+ * runs no gates, shipped them anyway.
+ *
+ * Still narrower than the downstream rule in one respect: that rule's `(?=.{2})`
+ * refuses a single-letter headword, and this one does not. Nothing in either
+ * deck is shorter than two characters, so the divergence is untested ground
+ * rather than a live disagreement.
+ */
+export const annotationWordPattern = /^[a-z]+(?:['’-][a-z]+)*(?: [a-z]+(?:['’-][a-z]+)*)*$/;
 
 /**
  * Usage domains the feed's category filter understands.

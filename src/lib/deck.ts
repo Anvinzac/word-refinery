@@ -37,8 +37,15 @@ const MARKS = markRules(L);
 /** Deck id pattern, identical to the app's importer rule. */
 const ID_PATTERN = /^[a-zA-Z0-9_-]+$/;
 
-/** Headword pattern, identical to the app's importer rule. */
-const WORD_PATTERN = /^[a-zA-Z]+(?:['’-][a-zA-Z]+)*$/;
+/**
+ * Headword pattern, identical to the app's importer rule for an English
+ * headword — and to `annotationWordPattern` in contract.ts, which is the same
+ * rule applied to a candidate before it becomes a deck word. The space is part
+ * of it: KineMedia's `wordSchema.word` takes multi-word entries, and "ice
+ * cream", "all right", "per cent" and "any more" are all in the shipped deck.
+ * See contract.ts for why this stays narrower than the downstream original.
+ */
+const WORD_PATTERN = /^[a-zA-Z]+(?:['’-][a-zA-Z]+)*(?: [a-zA-Z]+(?:['’-][a-zA-Z]+)*)*$/;
 
 /** Topic pattern, identical to the app's importer rule. */
 const TOPIC_PATTERN = /^[a-z0-9-]*$/;

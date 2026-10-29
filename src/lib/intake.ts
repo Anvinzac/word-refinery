@@ -33,8 +33,7 @@ import {
 } from "./contract.ts";
 import { validateDeck } from "./deck.ts";
 import { stripEmphasisMarkers } from "./emphasis.ts";
-import { stripMarks } from "./joiner.ts";
-import { activeGlossProfile, describeLength, measureLength } from "./lang.ts";
+import { activeGlossProfile, describeLength, displayText, measureLength } from "./lang.ts";
 import { CEFR_LEVELS, type CefrLevel, type Deck, type DeckWord } from "./types.ts";
 
 /** Which gate produced a finding. */
@@ -371,12 +370,45 @@ function hasWord(text: string, word: string): boolean {
   return new RegExp(`(^|[^\\p{L}])${escaped}([^\\p{L}]|$)`, "u").test(text);
 }
 
-/** The three animated sentences, in the order emphasisVi must match. */
-const EMPHASIS_SOURCES = ["defVi", "leadVi", "anticipateVi"] as const;
+/** The card field each emphasis slot glows in. */
+const SLOT_FIELDS = {
+  def: "defVi",
+  lead: "leadVi",
+  anticipate: "anticipateVi",
+  usageGloss: "usageVi",
+} as const;
 
-/** Compare a highlight against its sentence the way the app will: marks removed. */
+/**
+ * The three animated sentences, in the order emphasisVi must match them.
+ *
+ * Read from the profile rather than written out, because the two gloss
+ * languages disagree about the third and lang.ts says so at `emphasisSlots`:
+ * card-prompt v3.7 puts it in anticipateVi, the Japanese rules put it in the
+ * usage sentence and give the teaser no glow at all. Hardcoding either one
+ * reports every card of the OTHER language as glowing a word its own sentence
+ * does not contain — and for Japanese that is every card, since the third
+ * highlight is the answer reveal and lives in usageJa.
+ *
+ * The slot travels with the field name because one rule below is about the
+ * SLOT (a filler may legitimately be the tone pivot of a teaser) while the
+ * rest are about the field the reviewer has to open.
+ */
+const EMPHASIS_SOURCES = L.emphasisSlots.map((slot) => ({ slot, field: SLOT_FIELDS[slot] }));
+
+/**
+ * Compare a highlight against its sentence the way the app will: as displayed.
+ *
+ * `displayText` rather than a bare `stripMarks`, because the two languages
+ * disagree about what a bond leaves behind and the profile is what knows.
+ * Vietnamese writes every syllable a space apart, so a bond becomes a space and
+ * `thu_gom` reads as `thu gom`. Japanese writes the pieces a bond joins FLUSH,
+ * so a bond becomes nothing and `頭を_抱える` reads as `頭を抱える` — strip the
+ * marks the Vietnamese way and every Japanese highlight that spans a bond
+ * looks absent from its own sentence. For Vietnamese the two are the same
+ * function, so this changes nothing there.
+ */
 function plain(text: string): string {
-  return stripMarks(stripEmphasisMarkers(text)).toLowerCase();
+  return displayText(stripEmphasisMarkers(text), L).toLowerCase();
 }
 
 /**
@@ -397,7 +429,7 @@ function checkEmphasisTriple(record: Record<string, unknown>): IntakeFinding[] {
       `expected exactly 3 entries, one per animated sentence, got ${emphasis.length}`);
   }
 
-  EMPHASIS_SOURCES.forEach((source, index) => {
+  EMPHASIS_SOURCES.forEach(({ slot, field: source }, index) => {
     const entry = emphasis[index];
     if (typeof entry !== "string" || entry.trim().length === 0) {
       if (index < emphasis.length) {
@@ -427,7 +459,7 @@ function checkEmphasisTriple(record: Record<string, unknown>): IntakeFinding[] {
     // "Thôi không=làm tiếp" opens with the verb meaning to cease, which is
     // exactly the meaning word a card for "stop" should glow. Flagging by the
     // word alone rejected that card.
-    if (source !== "anticipateVi" && SOFT_FILLERS.has(needle) && endsEveryClause(haystack, needle)) {
+    if (slot !== "anticipate" && SOFT_FILLERS.has(needle) && endsEveryClause(haystack, needle)) {
       at(findings, "schema", `emphasisVi[${index}]`, "blocker",
         `"${entry}" is a soft filler here; the ${source} highlight must be the meaning word`);
     }
@@ -464,7 +496,7 @@ export function checkPromptRules(raw: unknown, level?: CefrLevel): IntakeFinding
   // no full stop. A second gloss is allowed only after ", ".
   const meaning = typeof record.meaningVi === "string" ? record.meaningVi.trim() : "";
   if (meaning.length > 0) {
-    const clean = stripMarks(meaning);
+    const clean = displayText(meaning, L);
     const ending = L.sentenceEnd.find((mark) => clean.endsWith(mark));
     if (ending !== undefined) {
       at(findings, "content", "meaningVi", "blocker", `ends with "${ending}"; a gloss is not a sentence`);
@@ -535,7 +567,7 @@ export function checkPromptRules(raw: unknown, level?: CefrLevel): IntakeFinding
   // can judge - "giờ nhất_định" is the padding the rule names and also the only
   // way to say "a fixed time".
   for (const field of ["meaningVi", "defVi", "leadVi", "anticipateVi", "usageVi"] as const) {
-    const value = typeof record[field] === "string" ? stripMarks(record[field] as string) : "";
+    const value = typeof record[field] === "string" ? displayText(record[field] as string, L) : "";
     if (value.length === 0) continue;
     const lower = value.toLowerCase();
     for (const phrase of NAMED_PADDING) {
@@ -572,7 +604,7 @@ export function checkPromptRules(raw: unknown, level?: CefrLevel): IntakeFinding
     for (const field of ["meaningVi", "defVi", "leadVi", "anticipateVi"] as const) {
       const value = record[field];
       if (typeof value !== "string") continue;
-      if (containsTargetWord(stripMarks(stripEmphasisMarkers(value)), word)) {
+      if (containsTargetWord(displayText(stripEmphasisMarkers(value), L), word)) {
         at(findings, "content", field, "blocker", "contains the English answer");
       }
     }

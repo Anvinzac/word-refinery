@@ -361,3 +361,81 @@ test("the gloss is offered to the markup pass, since it carries marks too", asyn
   });
   assert.match(prompt, /- meaningVi: quả táo/);
 });
+
+// ── the headword rule, in both places it is written ────────────────────────
+
+/**
+ * The multi-word headwords the shipped decks actually carry: `ice cream` and
+ * `all right` since A102/A201, `per cent` and `any more` since A206/A207.
+ *
+ * These are the regression. Both patterns here claim to copy KineMedia's
+ * `wordSchema.word`, and that rule takes spaces "for multi-word entries" — but
+ * neither local copy had one, so the intake gate rejected `per cent` and
+ * `any more` out of the Japanese A206/A207 batches while `bundle-batches.mjs`,
+ * which runs no gates, shipped them into the deck anyway. A gate and a bundler
+ * that disagree about the same four words is the bug; this is the pin.
+ */
+const MULTIWORD = ["ice cream", "all right", "per cent", "any more"];
+
+test("a multi-word headword is a word, in both copies of the rule", async () => {
+  const { annotationWordPattern } = await import("../src/lib/contract.ts");
+
+  for (const word of MULTIWORD) {
+    // contract.ts, which gates a candidate.
+    assert.ok(annotationWordPattern.test(word), `annotationWordPattern refuses "${word}"`);
+    // deck.ts, which gates a deck word. Reached through the validator, since
+    // WORD_PATTERN is not exported: no `word` issue means the pattern passed.
+    const issues = validateDeck(deckOf(validWord({ word, id: word.replace(/ /g, "-") })));
+    assert.deepEqual(
+      issues.filter((issue) => issue.field === "word").map((issue) => issue.message),
+      [],
+      `validateDeck refuses "${word}"`,
+    );
+  }
+});
+
+test("a multi-word headword survives the model-reply contract whole", () => {
+  // parseAnnotation lowercases and normalises before testing the pattern, so
+  // this is the path a generated or repaired card takes.
+  const { annotation, issues } = parseAnnotation(reply({ word: "per cent" }), "per cent");
+  assert.ok(annotation !== null, issues.join("; "));
+  assert.equal(annotation.word, "per cent", "the space is kept, not squeezed out");
+  assert.deepEqual(issues.filter((i) => i.startsWith("word:")), []);
+});
+
+test("the two copies of the headword rule do not disagree", async () => {
+  // One rule, written twice — once for a candidate, once for a deck word. If
+  // they ever drift, a card passes intake and is then refused by the deck it
+  // lands in, or the reverse. Neither is visible from either file alone.
+  const { annotationWordPattern } = await import("../src/lib/contract.ts");
+  const cases = [
+    ...MULTIWORD,
+    "reliable", "self-esteem", "don't", "mother-in-law", "well-off",
+    // and the things neither may let through
+    "", " ", "per  cent", " per cent", "per cent ", "-per", "per-",
+    "ice cream!", "42", "per7cent", "PER CENT", "ice  cream",
+  ];
+  for (const word of cases) {
+    const viaContract = annotationWordPattern.test(word.toLowerCase());
+    const viaDeck = validateDeck(deckOf(validWord({ word, id: "x" }))).some(
+      (issue) => issue.field === "word" && /plain English/.test(issue.message),
+    ) === false;
+    assert.equal(
+      viaContract,
+      viaDeck,
+      `"${word}": contract says ${viaContract}, deck says ${viaDeck}`,
+    );
+  }
+});
+
+test("a headword that is not plain English is still refused", () => {
+  // Widening for the space must not widen for anything else: punctuation,
+  // digits, padding and a doubled space all stay out.
+  for (const word of ["per  cent", "ice cream!", "42", " per cent", "per cent "]) {
+    const issues = validateDeck(deckOf(validWord({ word, id: "x" })));
+    assert.ok(
+      issues.some((issue) => issue.field === "word"),
+      `expected "${word}" to be refused`,
+    );
+  }
+});
