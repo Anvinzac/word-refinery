@@ -1,0 +1,814 @@
+[
+ {
+  "id": "B201-001",
+  "word": "conscious",
+  "level": "B2",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "B201-002",
+  "word": "awareness",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B201-003",
+  "word": "concentration",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B201-004",
+  "word": "observer",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B201-005",
+  "word": "disturb",
+  "level": "B2",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "B201-006",
+  "word": "curious",
+  "level": "B2",
+  "input_pos": "adj",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "B201-007",
+  "word": "patient",
+  "level": "B2",
+  "input_pos": "adj",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "B201-008",
+  "word": "stubborn",
+  "level": "B2",
+  "input_pos": "adj",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "B201-009",
+  "word": "bold",
+  "level": "B2",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "B201-010",
+  "word": "capable",
+  "level": "B2",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "B201-011",
+  "word": "charming",
+  "level": "B2",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "B201-012",
+  "word": "consistent",
+  "level": "B2",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "B201-013",
+  "word": "decent",
+  "level": "B2",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "B201-014",
+  "word": "dependent",
+  "level": "B2",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "B201-015",
+  "word": "dishonest",
+  "level": "B2",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "B201-016",
+  "word": "dominant",
+  "level": "B2",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "B201-017",
+  "word": "dull",
+  "level": "B2",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "B201-018",
+  "word": "dynamic",
+  "level": "B2",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "B201-019",
+  "word": "flexible",
+  "level": "B2",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "B201-020",
+  "word": "humorous",
+  "level": "B2",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "B201-021",
+  "word": "impatient",
+  "level": "B2",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "B201-022",
+  "word": "lively",
+  "level": "B2",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "B201-023",
+  "word": "loyal",
+  "level": "B2",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "B201-024",
+  "word": "modest",
+  "level": "B2",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "B201-025",
+  "word": "optimistic",
+  "level": "B2",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "B201-026",
+  "word": "sensitive",
+  "level": "B2",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "B201-027",
+  "word": "sincere",
+  "level": "B2",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "B201-028",
+  "word": "strict",
+  "level": "B2",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "B201-029",
+  "word": "thorough",
+  "level": "B2",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "B201-030",
+  "word": "tough",
+  "level": "B2",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "B201-031",
+  "word": "willing",
+  "level": "B2",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "B201-032",
+  "word": "wise",
+  "level": "B2",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "B201-033",
+  "word": "characteristic",
+  "level": "B2",
+  "input_pos": "adjective/noun",
+  "card_pos": "noun",
+  "status": "accepted",
+  "note": "dual POS adjective/noun -> noun"
+ },
+ {
+  "id": "B201-034",
+  "word": "moral",
+  "level": "B2",
+  "input_pos": "adjective/noun",
+  "card_pos": "adj",
+  "status": "accepted",
+  "note": "dual POS adjective/noun -> adj"
+ },
+ {
+  "id": "B201-035",
+  "word": "commitment",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B201-036",
+  "word": "confidence",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B201-037",
+  "word": "courage",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B201-038",
+  "word": "creativity",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B201-039",
+  "word": "determination",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B201-040",
+  "word": "discipline",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B201-041",
+  "word": "genius",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B201-042",
+  "word": "goodness",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B201-043",
+  "word": "honesty",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B201-044",
+  "word": "humour",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B201-045",
+  "word": "patience",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B201-046",
+  "word": "trait",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B201-047",
+  "word": "weakness",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B201-048",
+  "word": "dare",
+  "level": "B2",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "B201-049",
+  "word": "convincing",
+  "level": "B2",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "B201-050",
+  "word": "offensive",
+  "level": "B2",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "B201-051",
+  "word": "so-called",
+  "level": "B2",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "B201-052",
+  "word": "furthermore",
+  "level": "B2",
+  "input_pos": "adverb",
+  "card_pos": "adv",
+  "status": "accepted"
+ },
+ {
+  "id": "B201-053",
+  "word": "openly",
+  "level": "B2",
+  "input_pos": "adverb",
+  "card_pos": "adv",
+  "status": "accepted"
+ },
+ {
+  "id": "B201-054",
+  "word": "accent",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B201-055",
+  "word": "apology",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B201-056",
+  "word": "approval",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B201-057",
+  "word": "criticism",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B201-058",
+  "word": "cue",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B201-059",
+  "word": "disagreement",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B201-060",
+  "word": "emphasis",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B201-061",
+  "word": "enquiry",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B201-062",
+  "word": "envelope",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B201-063",
+  "word": "forum",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B201-064",
+  "word": "gesture",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B201-065",
+  "word": "info",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B201-066",
+  "word": "inquiry",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B201-067",
+  "word": "interaction",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B201-068",
+  "word": "leaflet",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B201-069",
+  "word": "receiver",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B201-070",
+  "word": "signature",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B201-071",
+  "word": "slogan",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B201-072",
+  "word": "spokesman",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B201-073",
+  "word": "spokesperson",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B201-074",
+  "word": "spokeswoman",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B201-075",
+  "word": "tone",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B201-076",
+  "word": "appeal",
+  "level": "B2",
+  "input_pos": "noun/verb",
+  "card_pos": "noun",
+  "status": "accepted",
+  "note": "dual POS noun/verb -> noun"
+ },
+ {
+  "id": "B201-077",
+  "word": "blame",
+  "level": "B2",
+  "input_pos": "noun/verb",
+  "card_pos": "verb",
+  "status": "accepted",
+  "note": "dual POS noun/verb -> verb"
+ },
+ {
+  "id": "B201-078",
+  "word": "command",
+  "level": "B2",
+  "input_pos": "noun/verb",
+  "card_pos": "noun",
+  "status": "accepted",
+  "note": "dual POS noun/verb -> noun"
+ },
+ {
+  "id": "B201-079",
+  "word": "debate",
+  "level": "B2",
+  "input_pos": "noun/verb",
+  "card_pos": "noun",
+  "status": "accepted",
+  "note": "dual POS noun/verb -> noun"
+ },
+ {
+  "id": "B201-080",
+  "word": "demand",
+  "level": "B2",
+  "input_pos": "noun/verb",
+  "card_pos": "noun",
+  "status": "accepted",
+  "note": "dual POS noun/verb -> noun"
+ },
+ {
+  "id": "B201-081",
+  "word": "excuse",
+  "level": "B2",
+  "input_pos": "noun/verb",
+  "card_pos": "noun",
+  "status": "accepted",
+  "note": "dual POS noun/verb -> noun"
+ },
+ {
+  "id": "B201-082",
+  "word": "praise",
+  "level": "B2",
+  "input_pos": "noun/verb",
+  "card_pos": "verb",
+  "status": "accepted",
+  "note": "dual POS noun/verb -> verb"
+ },
+ {
+  "id": "B201-083",
+  "word": "remark",
+  "level": "B2",
+  "input_pos": "noun/verb",
+  "card_pos": "noun",
+  "status": "accepted",
+  "note": "dual POS noun/verb -> noun"
+ },
+ {
+  "id": "B201-084",
+  "word": "scream",
+  "level": "B2",
+  "input_pos": "noun/verb",
+  "card_pos": "verb",
+  "status": "accepted",
+  "note": "dual POS noun/verb -> verb"
+ },
+ {
+  "id": "B201-085",
+  "word": "whisper",
+  "level": "B2",
+  "input_pos": "noun/verb",
+  "card_pos": "verb",
+  "status": "accepted",
+  "note": "dual POS noun/verb -> verb"
+ },
+ {
+  "id": "B201-086",
+  "word": "acknowledge",
+  "level": "B2",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "B201-087",
+  "word": "assure",
+  "level": "B2",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "B201-088",
+  "word": "beg",
+  "level": "B2",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "B201-089",
+  "word": "consult",
+  "level": "B2",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "B201-090",
+  "word": "convey",
+  "level": "B2",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "B201-091",
+  "word": "criticize",
+  "level": "B2",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "B201-092",
+  "word": "declare",
+  "level": "B2",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "B201-093",
+  "word": "demonstrate",
+  "level": "B2",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "B201-094",
+  "word": "deny",
+  "level": "B2",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "B201-095",
+  "word": "discourage",
+  "level": "B2",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "B201-096",
+  "word": "emphasize",
+  "level": "B2",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "B201-097",
+  "word": "illustrate",
+  "level": "B2",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "B201-098",
+  "word": "imply",
+  "level": "B2",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "B201-099",
+  "word": "inform",
+  "level": "B2",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "B201-100",
+  "word": "insist",
+  "level": "B2",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ }
+]

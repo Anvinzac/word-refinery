@@ -1,0 +1,623 @@
+[
+ {
+  "word": "experienced",
+  "pos": "adj",
+  "ipa": "/ɪkˈspɪə.ri.ənst/",
+  "meaningVi": "có kinh nghiệm",
+  "defVi": "Đã=làm | nhiều năm, | rất=thành_thạo công việc.",
+  "leadVi": "Lần đầu nấu Tết, | Mai hỏi | bà từng bước gói_bánh.",
+  "anticipateVi": "Bánh chưng vuông_vức?",
+  "usageEn": "We need an _____ driver.",
+  "usageVi": "Tụi mình cần một tài xế có kinh nghiệm.",
+  "topics": [
+   "work"
+  ],
+  "exams": [],
+  "emphasisVi": [
+   "thành thạo",
+   "gói bánh",
+   "vuông vức"
+  ]
+ },
+ {
+  "word": "qualified",
+  "pos": "adj",
+  "ipa": "/ˈkwɒl.ɪ.faɪd/",
+  "meaningVi": "đủ trình độ",
+  "defVi": "Có bằng cấp, | kỹ_năng cần cho công việc.",
+  "leadVi": "Tìm gia_sư, | mẹ Tú | chọn chị sinh viên sư phạm.",
+  "anticipateVi": "Dạy dễ_hiểu chứ?",
+  "usageEn": "She is a _____ nurse.",
+  "usageVi": "Cô ấy là y tá có chuyên môn.",
+  "topics": [
+   "work"
+  ],
+  "exams": [],
+  "emphasisVi": [
+   "kỹ năng",
+   "gia sư",
+   "dễ hiểu"
+  ]
+ },
+ {
+  "word": "retired",
+  "pos": "adj",
+  "ipa": "/rɪˈtaɪəd/",
+  "meaningVi": "đã=nghỉ hưu",
+  "defVi": "Đã=thôi | đi=làm | vì tới tuổi_già.",
+  "leadVi": "Rảnh rỗi, | ông Long | trồng_lan ngoài ban công.",
+  "anticipateVi": "Chậu nào nở trước?",
+  "usageEn": "My grandfather is a _____ teacher.",
+  "usageVi": "Ông mình là giáo viên đã=nghỉ hưu.",
+  "topics": [
+   "work"
+  ],
+  "exams": [],
+  "emphasisVi": [
+   "tuổi già",
+   "trồng lan",
+   "nở"
+  ]
+ },
+ {
+  "word": "unemployed",
+  "pos": "adj",
+  "ipa": "/ˌʌn.ɪmˈplɔɪd/",
+  "meaningVi": "thất nghiệp",
+  "defVi": "Không có | việc_làm | dù muốn đi=làm.",
+  "leadVi": "Công ty đóng=cửa, | anh Phúc | gửi hồ_sơ khắp nơi.",
+  "anticipateVi": "Chờ điện phỏng_vấn?",
+  "usageEn": "He has been _____ for six months.",
+  "usageVi": "Anh ấy thất nghiệp sáu tháng rồi.",
+  "topics": [
+   "work"
+  ],
+  "exams": [],
+  "emphasisVi": [
+   "việc làm",
+   "hồ sơ",
+   "phỏng vấn"
+  ]
+ },
+ {
+  "word": "achievement",
+  "pos": "noun",
+  "ipa": "/əˈtʃiːv.mənt/",
+  "meaningVi": "thành tích",
+  "defVi": "Kết quả | tốt đẹp | đạt được nhờ nỗ_lực lớn.",
+  "leadVi": "Tổng kết năm, | Ngân nhận | giấy_khen học sinh giỏi.",
+  "anticipateVi": "Treo ngay phòng khách?",
+  "usageEn": "Winning the prize was a great _____.",
+  "usageVi": "Giành giải là một thành tích lớn.",
+  "topics": [
+   "work"
+  ],
+  "exams": [],
+  "emphasisVi": [
+   "nỗ lực",
+   "giấy khen",
+   "treo"
+  ]
+ },
+ {
+  "word": "agent",
+  "pos": "noun",
+  "ipa": "/ˈeɪ.dʒənt/",
+  "meaningVi": "người đại diện",
+  "defVi": "Người làm_thay | và lo việc cho người khác.",
+  "leadVi": "Đi du học, | Vy nhờ | trung tâm lo hồ_sơ visa.",
+  "anticipateVi": "Phí dịch vụ bao nhiêu?",
+  "usageEn": "I booked the trip through a travel _____.",
+  "usageVi": "Mình đặt chuyến đi qua đại lý du lịch.",
+  "topics": [
+   "work"
+  ],
+  "exams": [],
+  "emphasisVi": [
+   "làm thay",
+   "hồ sơ",
+   "phí"
+  ]
+ },
+ {
+  "word": "application",
+  "pos": "noun",
+  "ipa": "/ˌæp.lɪˈkeɪ.ʃən/",
+  "meaningVi": "đơn xin",
+  "defVi": "Giấy tờ | gửi đi | để xin_việc hay học.",
+  "leadVi": "Hạn cuối tối nay, | Long rà | lại thư_giới_thiệu.",
+  "anticipateVi": "Run run bấm_gửi?",
+  "usageEn": "I sent my _____ for the job yesterday.",
+  "usageVi": "Hôm qua mình đã=gửi đơn xin việc.",
+  "topics": [
+   "work"
+  ],
+  "exams": [],
+  "emphasisVi": [
+   "xin việc",
+   "thư giới thiệu",
+   "bấm gửi"
+  ]
+ },
+ {
+  "word": "client",
+  "pos": "noun",
+  "ipa": "/ˈklaɪ.ənt/",
+  "meaningVi": "khách hàng",
+  "defVi": "Người trả tiền | để dùng dịch_vụ của=mình.",
+  "leadVi": "Nhận thiết kế logo, | Hà sửa | lần thứ năm.",
+  "anticipateVi": "Lại đổi_màu nữa?",
+  "usageEn": "The lawyer met her _____ in the morning.",
+  "usageVi": "Luật sư gặp khách hàng vào buổi sáng.",
+  "topics": [
+   "work"
+  ],
+  "exams": [],
+  "emphasisVi": [
+   "dịch vụ",
+   "logo",
+   "đổi màu"
+  ]
+ },
+ {
+  "word": "competitor",
+  "pos": "noun",
+  "ipa": "/kəmˈpet.ɪ.tər/",
+  "meaningVi": "đối thủ",
+  "defVi": "Người cùng tranh | một giải hay vị trí.",
+  "leadVi": "Vòng chung kết, | Phúc bắt_tay | bạn từ trường khác.",
+  "anticipateVi": "Ganh đua sòng_phẳng?",
+  "usageEn": "There are ten _____ in the race.",
+  "usageVi": "Có mười đối thủ trong cuộc đua.",
+  "topics": [
+   "work"
+  ],
+  "exams": [],
+  "emphasisVi": [
+   "tranh",
+   "bắt tay",
+   "sòng phẳng"
+  ]
+ },
+ {
+  "word": "duty",
+  "pos": "noun",
+  "ipa": "/ˈdjuː.ti/",
+  "meaningVi": "nhiệm vụ",
+  "defVi": "Việc mình | buộc phải làm | theo vai_trò được giao.",
+  "leadVi": "Trực nhật hôm nay, | Tú lau | bảng, kê bàn.",
+  "anticipateVi": "Về_muộn mười phút?",
+  "usageEn": "It is my _____ to help the new students.",
+  "usageVi": "Giúp học sinh mới là nhiệm vụ của=mình.",
+  "topics": [
+   "work"
+  ],
+  "exams": [],
+  "emphasisVi": [
+   "vai trò",
+   "lau",
+   "về muộn"
+  ]
+ },
+ {
+  "word": "effort",
+  "pos": "noun",
+  "ipa": "/ˈef.ət/",
+  "meaningVi": "nỗ lực",
+  "defVi": "Sức lực và | thời gian bỏ_ra để làm.",
+  "leadVi": "Tập đàn ba tháng, | Vy đánh | trọn bài đầu tiên.",
+  "anticipateVi": "Đầu ngón_tay chai?",
+  "usageEn": "She put a lot of _____ into the project.",
+  "usageVi": "Cô ấy dồn nhiều công sức vào dự án.",
+  "topics": [
+   "work"
+  ],
+  "exams": [],
+  "emphasisVi": [
+   "bỏ ra",
+   "đánh",
+   "ngón tay"
+  ]
+ },
+ {
+  "word": "employment",
+  "pos": "noun",
+  "ipa": "/ɪmˈplɔɪ.mənt/",
+  "meaningVi": "sự tuyển dụng",
+  "defVi": "Tình trạng | có công việc | và nhận_lương.",
+  "leadVi": "Ra trường hai tháng, | Ngân ký | hợp_đồng đầu tiên.",
+  "anticipateVi": "Lương tháng đầu tiêu gì?",
+  "usageEn": "He found _____ in a hotel.",
+  "usageVi": "Anh ấy tìm được việc ở một khách sạn.",
+  "topics": [
+   "work"
+  ],
+  "exams": [],
+  "emphasisVi": [
+   "nhận lương",
+   "hợp đồng",
+   "tiêu"
+  ]
+ },
+ {
+  "word": "management",
+  "pos": "noun",
+  "ipa": "/ˈmæn.ɪdʒ.mənt/",
+  "meaningVi": "sự quản lý",
+  "defVi": "Việc điều_hành, | tổ chức người và công việc.",
+  "leadVi": "Làm lớp trưởng, | Long chia | việc cho từng_tổ.",
+  "anticipateVi": "Tổ nào cũng xong?",
+  "usageEn": "The hotel is under new _____.",
+  "usageVi": "Khách sạn có ban quản lý mới.",
+  "topics": [
+   "work"
+  ],
+  "exams": [],
+  "emphasisVi": [
+   "điều hành",
+   "từng tổ",
+   "xong"
+  ]
+ },
+ {
+  "word": "organizer",
+  "pos": "noun",
+  "ipa": "/ˈɔː.ɡən.aɪ.zər/",
+  "meaningVi": "người tổ chức",
+  "defVi": "Người lên kế_hoạch | và lo cho sự kiện.",
+  "leadVi": "Trước đêm nhạc, | Hà chạy | khắp nơi kiểm tra loa.",
+  "anticipateVi": "Tối về ngủ_ngay?",
+  "usageEn": "The _____ thanked everyone for coming.",
+  "usageVi": "Người tổ chức cảm ơn mọi người đã=đến.",
+  "topics": [
+   "work"
+  ],
+  "exams": [],
+  "emphasisVi": [
+   "kế hoạch",
+   "loa",
+   "ngủ ngay"
+  ]
+ },
+ {
+  "word": "planning",
+  "pos": "noun",
+  "ipa": "/ˈplæn.ɪŋ/",
+  "meaningVi": "việc lên kế hoạch",
+  "defVi": "Việc tính toán trước | từng_bước cần làm sau đó.",
+  "leadVi": "Đi Đà Nẵng, | Vy lập | bảng chi_tiêu từng ngày.",
+  "anticipateVi": "Dư được bao nhiêu?",
+  "usageEn": "Good _____ makes a trip easier.",
+  "usageVi": "Lên kế hoạch tốt giúp chuyến đi dễ hơn.",
+  "topics": [
+   "work"
+  ],
+  "exams": [],
+  "emphasisVi": [
+   "từng bước",
+   "chi tiêu",
+   "dư"
+  ]
+ },
+ {
+  "word": "production",
+  "pos": "noun",
+  "ipa": "/prəˈdʌk.ʃən/",
+  "meaningVi": "sản xuất",
+  "defVi": "Việc làm ra | hàng_hóa với số lượng lớn.",
+  "leadVi": "Tham quan nhà máy, | Tú xem | dây_chuyền đóng chai.",
+  "anticipateVi": "Mỗi=phút mấy_chai?",
+  "usageEn": "The factory wants to increase _____ this year.",
+  "usageVi": "Sản lượng nhà máy tăng mười phần trăm.",
+  "topics": [
+   "work"
+  ],
+  "exams": [],
+  "emphasisVi": [
+   "hàng hóa",
+   "dây chuyền",
+   "mấy chai"
+  ]
+ },
+ {
+  "word": "profession",
+  "pos": "noun",
+  "ipa": "/prəˈfeʃ.ən/",
+  "meaningVi": "nghề nghiệp",
+  "defVi": "Công việc cần | học lâu và có chuyên_môn.",
+  "leadVi": "Hướng nghiệp lớp mười hai, | Ngân chọn | ngành dược.",
+  "anticipateVi": "Học sáu_năm à?",
+  "usageEn": "Teaching is a hard _____.",
+  "usageVi": "Dạy học là một nghề vất vả.",
+  "topics": [
+   "work"
+  ],
+  "exams": [],
+  "emphasisVi": [
+   "chuyên môn",
+   "dược",
+   "sáu năm"
+  ]
+ },
+ {
+  "word": "responsibility",
+  "pos": "noun",
+  "ipa": "/rɪˌspɒn.səˈbɪl.ə.ti/",
+  "meaningVi": "trách nhiệm",
+  "defVi": "Việc mình | phải lo, | phải chịu kết quả.",
+  "leadVi": "Nuôi chó mới, | Long dắt | đi dạo mỗi=chiều.",
+  "anticipateVi": "Trời mưa vẫn dắt?",
+  "usageEn": "It is your _____ to feed the dog.",
+  "usageVi": "Cho chó ăn là trách nhiệm của=bạn.",
+  "topics": [
+   "work"
+  ],
+  "exams": [],
+  "emphasisVi": [
+   "chịu",
+   "dắt",
+   "mưa"
+  ]
+ },
+ {
+  "word": "servant",
+  "pos": "noun",
+  "ipa": "/ˈsɜː.vənt/",
+  "meaningVi": "người hầu",
+  "defVi": "Người làm việc_nhà | cho gia đình giàu xưa.",
+  "leadVi": "Xem=phim cổ_trang, | Hà để ý | vai cô hầu gái.",
+  "anticipateVi": "Thoại được câu nào?",
+  "usageEn": "The rich family had three _____.",
+  "usageVi": "Gia đình giàu có ba người hầu.",
+  "topics": [
+   "work"
+  ],
+  "exams": [],
+  "emphasisVi": [
+   "việc nhà",
+   "cổ trang",
+   "thoại"
+  ]
+ },
+ {
+  "word": "shift",
+  "pos": "noun",
+  "ipa": "/ʃɪft/",
+  "meaningVi": "ca làm",
+  "defVi": "Khoảng thời gian | làm=việc | cố_định trong ngày.",
+  "leadVi": "Làm thêm quán trà, | Phúc nhận | khung_tối thứ Bảy.",
+  "anticipateVi": "Khuya mười_một giờ?",
+  "usageEn": "She works the night _____ at the hospital.",
+  "usageVi": "Cô ấy làm ca đêm ở bệnh viện.",
+  "topics": [
+   "work"
+  ],
+  "exams": [],
+  "emphasisVi": [
+   "cố định",
+   "khung tối",
+   "mười một"
+  ]
+ },
+ {
+  "word": "staff",
+  "pos": "noun",
+  "ipa": "/stɑːf/",
+  "meaningVi": "nhân viên",
+  "defVi": "Tất cả những=người | làm=việc | cho một công_ty.",
+  "leadVi": "Tiệc cuối năm, | quán Ngân | tặng_quà cả đội.",
+  "anticipateVi": "Bốc_thăm trúng gì?",
+  "usageEn": "All the _____ wear green shirts.",
+  "usageVi": "Tất cả nhân viên mặc=áo xanh lá.",
+  "topics": [
+   "work"
+  ],
+  "exams": [],
+  "emphasisVi": [
+   "công ty",
+   "tặng quà",
+   "bốc thăm"
+  ]
+ },
+ {
+  "word": "technique",
+  "pos": "noun",
+  "ipa": "/tekˈniːk/",
+  "meaningVi": "kỹ thuật",
+  "defVi": "Cách làm riêng | cần luyện_tập mới giỏi.",
+  "leadVi": "Học bơi ếch, | Vy tập | đạp_chân theo nhịp.",
+  "anticipateVi": "Nuốt nước mấy ngụm?",
+  "usageEn": "He has a good _____ for kicking the ball.",
+  "usageVi": "Cậu ấy có kỹ thuật sút bóng tốt.",
+  "topics": [
+   "work"
+  ],
+  "exams": [],
+  "emphasisVi": [
+   "luyện tập",
+   "đạp chân",
+   "ngụm"
+  ]
+ },
+ {
+  "word": "unemployment",
+  "pos": "noun",
+  "ipa": "/ˌʌn.ɪmˈplɔɪ.mənt/",
+  "meaningVi": "nạn thất nghiệp",
+  "defVi": "Tình_trạng | nhiều người | muốn làm mà không có việc.",
+  "leadVi": "Đọc=báo kinh tế, | Tú thấy | số người mất_việc tăng.",
+  "anticipateVi": "Học_nghề cho chắc?",
+  "usageEn": "_____ is high in this town.",
+  "usageVi": "Thị trấn này thất nghiệp cao.",
+  "topics": [
+   "work",
+   "society"
+  ],
+  "exams": [],
+  "emphasisVi": [
+   "tình trạng",
+   "mất việc",
+   "học nghề"
+  ]
+ },
+ {
+  "word": "union",
+  "pos": "noun",
+  "ipa": "/ˈjuː.njən/",
+  "meaningVi": "công đoàn",
+  "defVi": "Tổ chức | bảo vệ | quyền_lợi người lao động.",
+  "leadVi": "Tết đến, | cô Ngân | nhận phần_quà từ tổ chức.",
+  "anticipateVi": "Hộp bánh to_đùng?",
+  "usageEn": "He joined the workers' _____.",
+  "usageVi": "Anh ấy gia nhập công đoàn công nhân.",
+  "topics": [
+   "work"
+  ],
+  "exams": [],
+  "emphasisVi": [
+   "quyền lợi",
+   "phần quà",
+   "to đùng"
+  ]
+ },
+ {
+  "word": "guard",
+  "pos": "noun",
+  "ipa": "/ɡɑːd/",
+  "meaningVi": "người bảo vệ",
+  "defVi": "Người canh_gác, | giữ an toàn cho một nơi.",
+  "leadVi": "Về ký túc xá muộn, | Long năn_nỉ | chú ở cổng.",
+  "anticipateVi": "Chú mở_cửa chứ?",
+  "usageEn": "The _____ stood at the gate all night.",
+  "usageVi": "Người bảo vệ đứng ở cổng cả đêm.",
+  "topics": [
+   "work"
+  ],
+  "exams": [],
+  "emphasisVi": [
+   "canh gác",
+   "năn nỉ",
+   "mở cửa"
+  ]
+ },
+ {
+  "word": "assist",
+  "pos": "verb",
+  "ipa": "/əˈsɪst/",
+  "meaningVi": "hỗ trợ",
+  "defVi": "Giúp một_tay | để việc chạy trơn tru.",
+  "leadVi": "Giờ thí nghiệm, | Hà đưa | dụng_cụ cho thầy.",
+  "anticipateVi": "Thầy khen khéo_tay?",
+  "usageEn": "Nurses _____ the doctors in the hospital.",
+  "usageVi": "Y tá hỗ trợ bác sĩ trong bệnh viện.",
+  "topics": [
+   "work"
+  ],
+  "exams": [],
+  "emphasisVi": [
+   "một tay",
+   "dụng cụ",
+   "khéo tay"
+  ]
+ },
+ {
+  "word": "deliver",
+  "pos": "verb",
+  "ipa": "/dɪˈlɪv.ər/",
+  "meaningVi": "giao hàng",
+  "defVi": "Mang hàng, thư | tới tận tay người_nhận.",
+  "leadVi": "Mùa mưa, | anh shipper | phóng xe tới cửa nhà Vy.",
+  "anticipateVi": "Hàng còn khô_ráo?",
+  "usageEn": "They will _____ the new bed on Monday.",
+  "usageVi": "Họ sẽ=giao ghế sofa vào thứ Hai.",
+  "topics": [
+   "work"
+  ],
+  "exams": [],
+  "emphasisVi": [
+   "người nhận",
+   "shipper",
+   "khô ráo"
+  ]
+ },
+ {
+  "word": "hire",
+  "pos": "verb",
+  "ipa": "/haɪər/",
+  "meaningVi": "thuê người",
+  "defVi": "Trả_tiền | để ai đó | làm=việc cho mình.",
+  "leadVi": "Mở quán nhỏ, | chị Ngân | tuyển thêm hai bạn phục_vụ.",
+  "anticipateVi": "Ca_sáng ai nhận?",
+  "usageEn": "The shop wants to _____ two more people.",
+  "usageVi": "Cửa hàng muốn tuyển thêm hai người.",
+  "topics": [
+   "work"
+  ],
+  "exams": [],
+  "emphasisVi": [
+   "trả tiền",
+   "phục vụ",
+   "ca sáng"
+  ]
+ },
+ {
+  "word": "promote",
+  "pos": "verb",
+  "ipa": "/prəˈməʊt/",
+  "meaningVi": "thăng chức",
+  "defVi": "Đưa lên vị_trí | cao hơn trong công việc.",
+  "leadVi": "Làm chăm hai năm, | anh Tú | lên làm trưởng_nhóm.",
+  "anticipateVi": "Khao cả phòng chứ?",
+  "usageEn": "The boss will _____ her next month.",
+  "usageVi": "Tháng sau sếp sẽ=thăng chức cho cô ấy.",
+  "topics": [
+   "work"
+  ],
+  "exams": [],
+  "emphasisVi": [
+   "vị trí",
+   "trưởng nhóm",
+   "khao"
+  ]
+ },
+ {
+  "word": "quit",
+  "pos": "verb",
+  "ipa": "/kwɪt/",
+  "meaningVi": "nghỉ việc",
+  "defVi": "Thôi không làm | công_việc đang có nữa.",
+  "leadVi": "Làm thêm quá sức, | Phúc xin | thôi để ôn_thi.",
+  "anticipateVi": "Quản lý giữ_lại?",
+  "usageEn": "He _____ his job last week.",
+  "usageVi": "Tuần trước anh ấy nghỉ việc.",
+  "topics": [
+   "work"
+  ],
+  "exams": [],
+  "emphasisVi": [
+   "công việc",
+   "ôn thi",
+   "giữ lại"
+  ]
+ },
+ {
+  "word": "retire",
+  "pos": "verb",
+  "ipa": "/rɪˈtaɪər/",
+  "meaningVi": "nghỉ hưu",
+  "defVi": "Dừng_hẳn | công việc | khi đến tuổi già.",
+  "leadVi": "Sang năm, | bà Hà | rời bục_giảng sau ba mươi năm.",
+  "anticipateVi": "Trò_cũ về thăm?",
+  "usageEn": "My dad wants to _____ at sixty.",
+  "usageVi": "Bố mình muốn nghỉ hưu năm sáu mươi tuổi.",
+  "topics": [
+   "work"
+  ],
+  "exams": [],
+  "emphasisVi": [
+   "dừng hẳn",
+   "bục giảng",
+   "trò cũ"
+  ]
+ }
+]

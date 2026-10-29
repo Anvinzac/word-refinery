@@ -1,0 +1,816 @@
+[
+ {
+  "id": "B105-001",
+  "word": "giant",
+  "level": "B1",
+  "input_pos": "adjective/noun",
+  "card_pos": "adj",
+  "status": "accepted",
+  "note": "dual POS adjective/noun -> adj"
+ },
+ {
+  "id": "B105-002",
+  "word": "solid",
+  "level": "B1",
+  "input_pos": "adjective/noun",
+  "card_pos": "adj",
+  "status": "accepted",
+  "note": "dual POS adjective/noun -> adj"
+ },
+ {
+  "id": "B105-003",
+  "word": "beauty",
+  "level": "B1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B105-004",
+  "word": "edge",
+  "level": "B1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B105-005",
+  "word": "length",
+  "level": "B1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B105-006",
+  "word": "sight",
+  "level": "B1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B105-007",
+  "word": "bend",
+  "level": "B1",
+  "input_pos": "noun/verb",
+  "card_pos": "verb",
+  "status": "accepted",
+  "note": "dual POS noun/verb -> verb"
+ },
+ {
+  "id": "B105-008",
+  "word": "shine",
+  "level": "B1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "B105-009",
+  "word": "weigh",
+  "level": "B1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "B105-010",
+  "word": "cultural",
+  "level": "B1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "B105-011",
+  "word": "engaged",
+  "level": "B1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "B105-012",
+  "word": "global",
+  "level": "B1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "B105-013",
+  "word": "official",
+  "level": "B1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "B105-014",
+  "word": "romantic",
+  "level": "B1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "B105-015",
+  "word": "royal",
+  "level": "B1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "B105-016",
+  "word": "unfair",
+  "level": "B1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "B105-017",
+  "word": "western",
+  "level": "B1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "B105-018",
+  "word": "folk",
+  "level": "B1",
+  "input_pos": "adjective/noun",
+  "card_pos": "adj",
+  "status": "accepted",
+  "note": "dual POS adjective/noun -> adj"
+ },
+ {
+  "id": "B105-019",
+  "word": "narrative",
+  "level": "B1",
+  "input_pos": "adjective/noun",
+  "card_pos": "noun",
+  "status": "accepted",
+  "note": "dual POS adjective/noun -> noun"
+ },
+ {
+  "id": "B105-020",
+  "word": "native",
+  "level": "B1",
+  "input_pos": "adjective/noun",
+  "card_pos": "adj",
+  "status": "accepted",
+  "note": "dual POS adjective/noun -> adj"
+ },
+ {
+  "id": "B105-021",
+  "word": "relative",
+  "level": "B1",
+  "input_pos": "adjective/noun",
+  "card_pos": "noun",
+  "status": "accepted",
+  "note": "dual POS adjective/noun -> noun"
+ },
+ {
+  "id": "B105-022",
+  "word": "ad",
+  "level": "B1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B105-023",
+  "word": "album",
+  "level": "B1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B105-024",
+  "word": "bride",
+  "level": "B1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B105-025",
+  "word": "celebration",
+  "level": "B1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B105-026",
+  "word": "ceremony",
+  "level": "B1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B105-027",
+  "word": "channel",
+  "level": "B1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B105-028",
+  "word": "childhood",
+  "level": "B1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B105-029",
+  "word": "custom",
+  "level": "B1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B105-030",
+  "word": "documentary",
+  "level": "B1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B105-031",
+  "word": "drum",
+  "level": "B1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B105-032",
+  "word": "editor",
+  "level": "B1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B105-033",
+  "word": "entertainment",
+  "level": "B1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B105-034",
+  "word": "episode",
+  "level": "B1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B105-035",
+  "word": "exhibition",
+  "level": "B1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B105-036",
+  "word": "flag",
+  "level": "B1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B105-037",
+  "word": "friendship",
+  "level": "B1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B105-038",
+  "word": "generation",
+  "level": "B1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B105-039",
+  "word": "gentleman",
+  "level": "B1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B105-040",
+  "word": "headline",
+  "level": "B1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B105-041",
+  "word": "host",
+  "level": "B1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B105-042",
+  "word": "identity",
+  "level": "B1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B105-043",
+  "word": "journal",
+  "level": "B1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B105-044",
+  "word": "literature",
+  "level": "B1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B105-045",
+  "word": "marriage",
+  "level": "B1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B105-046",
+  "word": "nation",
+  "level": "B1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B105-047",
+  "word": "performance",
+  "level": "B1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B105-048",
+  "word": "photographer",
+  "level": "B1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B105-049",
+  "word": "photography",
+  "level": "B1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B105-050",
+  "word": "plot",
+  "level": "B1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B105-051",
+  "word": "poem",
+  "level": "B1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B105-052",
+  "word": "poet",
+  "level": "B1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B105-053",
+  "word": "poetry",
+  "level": "B1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B105-054",
+  "word": "portrait",
+  "level": "B1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B105-055",
+  "word": "prince",
+  "level": "B1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B105-056",
+  "word": "princess",
+  "level": "B1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B105-057",
+  "word": "producer",
+  "level": "B1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B105-058",
+  "word": "relation",
+  "level": "B1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B105-059",
+  "word": "script",
+  "level": "B1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B105-060",
+  "word": "sculpture",
+  "level": "B1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B105-061",
+  "word": "security",
+  "level": "B1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B105-062",
+  "word": "statue",
+  "level": "B1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B105-063",
+  "word": "stranger",
+  "level": "B1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B105-064",
+  "word": "studio",
+  "level": "B1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B105-065",
+  "word": "trend",
+  "level": "B1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B105-066",
+  "word": "viewer",
+  "level": "B1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B105-067",
+  "word": "will",
+  "level": "B1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B105-068",
+  "word": "youth",
+  "level": "B1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B105-069",
+  "word": "ban",
+  "level": "B1",
+  "input_pos": "noun/verb",
+  "card_pos": "verb",
+  "status": "accepted",
+  "note": "dual POS noun/verb -> verb"
+ },
+ {
+  "id": "B105-070",
+  "word": "influence",
+  "level": "B1",
+  "input_pos": "noun/verb",
+  "card_pos": "noun",
+  "status": "accepted",
+  "note": "dual POS noun/verb -> noun"
+ },
+ {
+  "id": "B105-071",
+  "word": "press",
+  "level": "B1",
+  "input_pos": "noun/verb",
+  "card_pos": "noun",
+  "status": "accepted",
+  "note": "dual POS noun/verb -> noun"
+ },
+ {
+  "id": "B105-072",
+  "word": "respect",
+  "level": "B1",
+  "input_pos": "noun/verb",
+  "card_pos": "noun",
+  "status": "accepted",
+  "note": "dual POS noun/verb -> noun"
+ },
+ {
+  "id": "B105-073",
+  "word": "volunteer",
+  "level": "B1",
+  "input_pos": "noun/verb",
+  "card_pos": "noun",
+  "status": "accepted",
+  "note": "dual POS noun/verb -> noun"
+ },
+ {
+  "id": "B105-074",
+  "word": "entertain",
+  "level": "B1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "B105-075",
+  "word": "gather",
+  "level": "B1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "B105-076",
+  "word": "investigate",
+  "level": "B1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "B105-077",
+  "word": "academic",
+  "level": "B1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "B105-078",
+  "word": "advanced",
+  "level": "B1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "B105-079",
+  "word": "educated",
+  "level": "B1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "B105-080",
+  "word": "educational",
+  "level": "B1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "B105-081",
+  "word": "primary",
+  "level": "B1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "B105-082",
+  "word": "scientific",
+  "level": "B1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "B105-083",
+  "word": "secondary",
+  "level": "B1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "B105-084",
+  "word": "assignment",
+  "level": "B1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B105-085",
+  "word": "campus",
+  "level": "B1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B105-086",
+  "word": "chapter",
+  "level": "B1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B105-087",
+  "word": "clause",
+  "level": "B1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B105-088",
+  "word": "definition",
+  "level": "B1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B105-089",
+  "word": "diagram",
+  "level": "B1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B105-090",
+  "word": "grade",
+  "level": "B1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B105-091",
+  "word": "laboratory",
+  "level": "B1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B105-092",
+  "word": "percentage",
+  "level": "B1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B105-093",
+  "word": "qualification",
+  "level": "B1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B105-094",
+  "word": "reference",
+  "level": "B1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B105-095",
+  "word": "statistic",
+  "level": "B1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B105-096",
+  "word": "summary",
+  "level": "B1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B105-097",
+  "word": "theory",
+  "level": "B1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B105-098",
+  "word": "graduate",
+  "level": "B1",
+  "input_pos": "noun/verb",
+  "card_pos": "verb",
+  "status": "accepted",
+  "note": "dual POS noun/verb -> verb"
+ },
+ {
+  "id": "B105-099",
+  "word": "highlight",
+  "level": "B1",
+  "input_pos": "noun/verb",
+  "card_pos": "verb",
+  "status": "accepted",
+  "note": "dual POS noun/verb -> verb"
+ },
+ {
+  "id": "B105-100",
+  "word": "educate",
+  "level": "B1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ }
+]

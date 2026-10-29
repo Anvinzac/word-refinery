@@ -93,13 +93,51 @@ panel prints that endpoint next to the picker so you can audit it.
    backend. *Export approved deck* downloads only the approved and edited rows as the deck file
    KineMedia imports.
 
-### Getting the deck into KineMedia
+### Verifying a pack from a terminal
+
+When a batch arrives as files rather than through the browser, the Intake tab's gates run headless:
 
 ```bash
-cd /path/to/KineMedia
-npm run vocab:import -- /path/to/word-refinery-deck.json
-npm run dev   # restart: catalog.json is imported statically and cached in memory
+npm run verify -- ~/packs/engvocab_v3.8                 # every *_cards.json in the directory
+npm run verify -- ~/packs/engvocab_v3.8 A2_A208 B1_B101 # just those two
+npm run verify -- ~/packs/engvocab_v3.8 --json report.json --release catalog.sqlite
 ```
+
+Each `<name>_cards.json` is read with the `<name>_meta.json` beside it; the manifest is what supplies
+the CEFR level a card is held to, so without one the level ceiling and batch integrity are skipped
+and the report says so. The five local stages — schema, prompt rules, content, batch rules, manifest
+— are free and always run. Safety and repair cost model calls, so they are opt-in and take their key
+from the environment, never from a flag or a file:
+
+```bash
+export WORD_REFINERY_API_KEY='sk-...'
+npm run verify -- ~/packs/engvocab_v3.8 --check-connection   # spends nothing
+npm run verify -- ~/packs/engvocab_v3.8 --safety --repair --limit 5   # trial five calls
+```
+
+Exits 1 when any card was rejected, 2 on a usage error, so a CI step fails on a pack that would not
+import. Warnings are advisory and never change a verdict.
+
+Note that a **Coding Plan / Token Plan** key (`sk-sp-…`) will not work here. Those are bound to
+`coding-intl.dashscope.aliyuncs.com` and are licensed for interactive use in a coding tool only —
+bulk verification from a script is outside that licence. Use a general Model Studio key (`sk-…`)
+against the workspace endpoint Settings already ships.
+
+### Getting the deck into KineMedia
+
+Verified words — the catalogue's `cards` — go over through one agreed file
+([`docs/kinemedia-export.md`](./docs/kinemedia-export.md)). Export it from the Intake tab
+(**Export for KineMedia**), or from a downloaded catalogue:
+
+```bash
+npm run export:kinemedia -- word-catalog.sqlite --out word-refinery-kinemedia.json
+cd /path/to/KineMedia
+npm run vocab:import-refinery -- /path/to/word-refinery-kinemedia.json --dry   # see the plan
+npm run vocab:import-refinery -- /path/to/word-refinery-kinemedia.json
+```
+
+Only Vietnamese-glossed (`en_vi`) workspaces have a home there; KineMedia refuses a
+Japanese-glossed export.
 
 ## Workspaces
 
@@ -162,8 +200,8 @@ data/ngsl-starter-subset.json   bundled corpus (381 words, CC BY-SA 4.0)
 data/batches/A101.json          one batch of Vietnamese cards; `npm run bundle-batches` bundles them
 data/batches/A101.meta.json     its manifest: id, headword and level, one row per card
 data/batches-ja/A101.json       one batch of Japanese cards, four reader registers per word (see its README)
-public/default-deck.json        the dataset a Vietnamese workspace ships with (1479 words, A101-A108 + A201-A207)
-public/default-deck-ja.json     the dataset a Japanese workspace ships with (979 words, A101-A108 + A201-A202)
+public/default-deck.json        the dataset a Vietnamese workspace ships with (1910 words, A101-A108 + A201-A207 + B105-B107 + B201-B202)
+public/default-deck-ja.json     the dataset a Japanese workspace ships with (1479 words, A101-A108 + A201-A207)
 src/lib/
   types.ts       deck, corpus and review document shapes
   corpus.ts      load the bundled corpus, filter by band, batch it
@@ -171,23 +209,34 @@ src/lib/
   prompt.ts      system prompt, batch prompt, single-field rewrite prompt
   emphasis.ts    emphasis validation + inline marker injection
   lang.ts        one profile per gloss language: lengths, marks, prompt prose
+  registers.ts   the four Japanese reader registers, and which one a card ships
   workspace.ts   workspaces: what is scoped per deck and what is shared
   joiner.ts      the three breaking marks, and what counts as a stray one
   intake.ts      the four gates a batch passes before it is vocabulary
   intake-db.ts   the accepted catalogue, as a SQLite file
   deck.ts        build deck words, build the document, validate a whole deck
   pipeline.ts    one generation run: select -> annotate -> build -> review rows
-  llm.ts         browser client for OpenRouter / Together / Anthropic
+  llm.ts         browser client for OpenRouter / Together / Anthropic / Alibaba
   store.ts       pluggable persistence: jsonbin, Gist, or local file
   settings.ts    localStorage settings, provider catalogue, key masking
 src/components/  SettingsPanel, GeneratePanel, ReviewTable
 src/App.tsx      shell: tabs, working document, save/load/export
 ```
 
+The two series are sourced independently, so they cover different ground: the Japanese batches stop
+at A207, while the Vietnamese ones continue into B1 and B2. A word count that differs between them
+is expected, not a bundling failure.
+
 `src/lib/contract.ts`, `src/lib/emphasis.ts`, `src/lib/prompt.ts` and `src/lib/deck.ts` are ports of
 the Node-based `word-crawler` package in the KineMedia monorepo, with the filesystem parts removed
 and the emphasis output changed to the inline-marker format. Keep the two in step if you tighten a
 rule in one.
+
+One rule has deliberately diverged: `annotationWordPattern` here accepts a space, so a multi-word
+headword ("per cent", "ice cream") is a word, matching KineMedia's `wordSchema.word`. The copy in
+`word-crawler/src/annotate/contract.ts` still does not. That is safe in this direction — the
+narrower rule only ever refuses words the importer would have taken — but a corpus carrying
+multi-word entries would need the same widening there before it could be annotated.
 
 ## Licensing
 
