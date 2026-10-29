@@ -1,8 +1,9 @@
 /**
- * The four reader registers a Japanese pack is written in.
+ * The reader registers a Japanese pack is written in.
  *
  * `JA_GENERATION_RULES` v3.9 does not emit one card per word. It emits one
- * entry holding four versions of the SAME scene — one per reader group — that
+ * entry holding a version of the SAME scene per reader group — all four for an
+ * A-level batch, three for a B1 one, which has no 小学生 to write for — that
  * differ only in script and difficulty. The app has one card per word, so
  * something has to choose, and it chooses the register the pack itself declares
  * in `defaultLevel`.
@@ -26,6 +27,9 @@
 
 /**
  * The reader groups, in ascending difficulty.
+ *
+ * The four a pack MAY hold, not the four every card does: `levels` is partial,
+ * and the B1 batches omit JPRIM.
  *
  * | code  | reader   | kanjiTier |
  * | ----- | -------- | --------- |

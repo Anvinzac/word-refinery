@@ -195,6 +195,27 @@ test("a defaultLevel naming a register the card lacks is refused, naming the wor
   assert.throws(() => flattenRegisters(partial), /following.*JCOLL/s);
 });
 
+test("a batch that omits a register still flattens, which B1 needs", () => {
+  // B101-B104 carry no JPRIM: no 小学生 is the audience for B1 vocabulary. Only
+  // `defaultLevel` is read, so a register a batch never wrote is not a missing
+  // card - but a flattener reaching for a fixed list of four would break on all
+  // 400 of them.
+  const { JSEC, JHIGH, JCOLL } = FOLLOWING.levels;
+  const withoutPrimary = flattenRegisters({
+    ...FOLLOWING,
+    levels: { JSEC, JHIGH, JCOLL },
+  }) as Record<string, unknown>;
+  assert.equal(withoutPrimary.defVi, FOLLOWING.levels.JHIGH.defJa);
+  assert.equal(withoutPrimary.meaningVi, FOLLOWING.levels.JHIGH.meaningJP);
+  assert.deepEqual(withoutPrimary.emphasisVi, FOLLOWING.levels.JHIGH.emphasisJa);
+  // The refusal names the registers that ARE there, so a pack that dropped the
+  // one that ships says which three it offered rather than reporting none.
+  assert.throws(
+    () => flattenRegisters({ ...FOLLOWING, defaultLevel: "JPRIM", levels: { JSEC, JHIGH, JCOLL } }),
+    /following: defaultLevel is "JPRIM", which is not one of its levels \(JSEC, JHIGH, JCOLL\)/,
+  );
+});
+
 test("isRegisterCard is not fooled by null, an array, or a card without levels", () => {
   assert.equal(isRegisterCard(FOLLOWING), true);
   assert.equal(isRegisterCard(flat), false);

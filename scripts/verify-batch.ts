@@ -20,11 +20,13 @@
  * are opt-in and need a key.
  *
  * TWO PACK SHAPES. A Vietnamese pack delivers one flat card per word. A
- * Japanese pack (JA_GENERATION_RULES v3.9) delivers one entry per word holding
- * four reader registers under `levels` - JPRIM/JSEC/JHIGH/JCOLL - and the gates
- * read a flat card, so each entry is flattened to its `defaultLevel` by the
- * same function the bundler uses. That means the register that SHIPS is the
- * one checked; the other three are in the pack and are not verified here.
+ * Japanese pack (JA_GENERATION_RULES v3.9) delivers one entry per word holding a
+ * telling of the scene per reader register under `levels` - all four of
+ * JPRIM/JSEC/JHIGH/JCOLL for an A-level batch, and no JPRIM for a B1 one, since
+ * no 小学生 is the audience for B1 vocabulary. The gates read a flat card, so
+ * each entry is flattened to its `defaultLevel` by the same function the bundler
+ * uses. That means the register that SHIPS is the one checked; the rest stay in
+ * the pack unverified, and the report names them rather than counting them.
  *
  * The manifest is read from `<name>_meta.json` when that file holds rows, and
  * from `<name>_source.json` when it does not: a Japanese pack spends the
@@ -68,7 +70,7 @@ import { basename, join, resolve } from "node:path";
 
 // No gloss profile is read at module scope here, so this one is safe to import
 // statically - unlike the libraries below.
-import { flattenRegisters, isRegisterCard } from "../src/lib/registers.ts";
+import { flattenRegisters, isRegisterCard, REGISTER_CODES } from "../src/lib/registers.ts";
 
 import type {
   IntakeFinding,
@@ -311,6 +313,16 @@ interface Run {
   manifestFindings: IntakeFinding[];
   /** How many cards carried reader registers, and so were flattened. */
   registerCards: number;
+  /**
+   * Which register shipped, and which the pack holds besides it.
+   *
+   * Named rather than counted, because the count is not constant across a
+   * series: the A-level batches carry all four reader registers, while B1 drops
+   * JPRIM, no 小学生 being the audience for B1 vocabulary. A report saying "the
+   * other three registers" would be wrong for every B1 batch it ran on.
+   */
+  registersShipped: string[];
+  registersHeld: string[];
   records: IntakeRecord[];
 }
 
@@ -378,14 +390,31 @@ function verifyOffline(files: BatchFiles): Run {
     : typeof parsed === "object" && parsed !== null && Array.isArray((parsed as { words?: unknown }).words)
       ? (parsed as { words: unknown[] }).words
       : [];
-  const registerCards = list.filter(isRegisterCard).length;
+  const nested = list.filter(isRegisterCard);
+  const registerCards = nested.length;
+  // Which registers a pack holds is read off the cards rather than assumed, for
+  // the reason given on Run: the A-level and B1 batches of one series differ.
+  const shippedCodes = new Set<string>();
+  const heldCodes = new Set<string>();
+  for (const card of nested) {
+    shippedCodes.add(card.defaultLevel);
+    for (const code of Object.keys(card.levels)) if (code !== card.defaultLevel) heldCodes.add(code);
+  }
+  // Ascending difficulty, so the report reads the way the register table does.
+  const rank = (code: string): number => {
+    const at = (REGISTER_CODES as readonly string[]).indexOf(code);
+    return at === -1 ? REGISTER_CODES.length : at;
+  };
+  const byDifficulty = (codes: Set<string>): string[] => [...codes].sort((a, b) => rank(a) - rank(b));
+  const registersShipped = byDifficulty(shippedCodes);
+  const registersHeld = byDifficulty(heldCodes);
 
-  // A Japanese pack delivers four reader registers per word and the gates read
-  // one flat card, so each entry is flattened to its `defaultLevel` by the same
-  // function the bundler flattens with on the way into a deck. Importing that
-  // rather than restating it is the whole point: twelve hand-matched renames
-  // kept in two places would drift, and a drift reports a pack as broken rather
-  // than shipping it wrong.
+  // A Japanese pack delivers one telling of the scene per reader register and
+  // the gates read a single flat card, so each entry is flattened to its
+  // `defaultLevel` by the same function the bundler flattens with on the way
+  // into a deck. Importing that rather than restating it is the whole point:
+  // twelve hand-matched renames kept in two places would drift, and a drift
+  // reports a pack as broken rather than shipping it wrong.
   const candidates = list.map((delivered, index) => {
     let raw = delivered;
     let failed: string | null = null;
@@ -447,6 +476,8 @@ function verifyOffline(files: BatchFiles): Run {
     manifestOrigin: found?.origin ?? "",
     manifestFindings: integrity?.batch ?? [],
     registerCards,
+    registersShipped,
+    registersHeld,
     records,
   };
 }
@@ -621,8 +652,9 @@ for (const run of runs) {
   if (run.registerCards > 0) {
     console.log(
       `  registers: ${run.registerCards} card(s) carried reader registers and were flattened to` +
-        "\n             their defaultLevel, which is the register that ships. The other three" +
-        "\n             registers are in the pack and were NOT checked.",
+        `\n             their defaultLevel — ${run.registersShipped.join(", ")} — which is the register` +
+        `\n             that ships. The pack also holds ${run.registersHeld.join(", ") || "no others"},` +
+        "\n             none of which was checked.",
     );
   }
 
@@ -683,6 +715,8 @@ if (jsonTo !== undefined) {
       manifestRows: run.manifest?.length ?? null,
       manifestOrigin: run.manifestOrigin || null,
       registerCards: run.registerCards,
+      registersShipped: run.registersShipped,
+      registersHeld: run.registersHeld,
       manifestFindings: run.manifestFindings,
       ...summarize(run.records),
       records: run.records.map((record) => ({
