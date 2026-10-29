@@ -19,7 +19,7 @@
  * failed: fixing a definition can break its emphasis phrase, and a pipeline
  * that only re-reads the trigger field ships that.
  *
- * Exports: IntakeStage, Severity, IntakeFinding, IntakeRecord, IntakeVerdict,
+ * Exports: IntakeStage, Severity, IntakeFinding, ManifestRow, asManifest, checkManifest, IntakeRecord, IntakeVerdict,
  *          CANONICAL_FIELD_ORDER, checkSchema, checkContent, verdictOf,
  *          partitionRecords, summarize, candidateId
  * Depends on: ./contract.ts, ./deck.ts, ./lang.ts, ./types.ts
@@ -35,7 +35,7 @@ import { validateDeck } from "./deck.ts";
 import { stripEmphasisMarkers } from "./emphasis.ts";
 import { stripMarks } from "./joiner.ts";
 import { activeGlossProfile, describeLength, measureLength } from "./lang.ts";
-import type { Deck, DeckWord } from "./types.ts";
+import { CEFR_LEVELS, type CefrLevel, type Deck, type DeckWord } from "./types.ts";
 
 /** Which gate produced a finding. */
 export type IntakeStage = "schema" | "content" | "safety" | "repair";
@@ -294,12 +294,80 @@ const UNLISTED_IN_OXFORD = new Set([
   "charger", "snack", "swimsuit", "tasty", "motorbike", "heater", "hike", "lantern", "breathless",
 ]);
 
+/**
+ * Words v3.7 names as sitting ABOVE a level, with the level they sit at.
+ *
+ * The Oxford 3000/5000 list itself is not here and must never be: its licence
+ * does not permit redistribution, which is why the level ceiling could not be
+ * enforced at all. What CAN be enforced is the handful of words the prompt
+ * spells out by name, as its own worked examples of words that feel easier than
+ * they are listed. Everything else still needs a reader with the list.
+ */
+const ABOVE_LEVEL: Readonly<Record<string, CefrLevel>> = {
+  kid: "A2", yet: "A2", already: "A2", abroad: "A2", top: "A2", hill: "A2",
+  bit: "A2", borrow: "A2", joke: "A2",
+  staff: "B1", rent: "B1", nail: "B1", roll: "B1", bite: "B1", childhood: "B1",
+  nearby: "B2", contest: "B2",
+};
+
+/**
+ * Padding the prompt names verbatim and asks to be cut.
+ *
+ * Only the phrases it actually lists. The wider compactness rule - "never stack
+ * two near-synonyms joined by hay, hoặc, và" - is NOT here: tried over this
+ * pack it fired on 235 of 500 cards, almost all of them real disjunctions the
+ * rule explicitly permits ("hai hay nhiều", "tin và nhạc"). Telling a near
+ * synonym from a genuine choice is the judgement the rule is asking for, and a
+ * regex that cannot make it is worse than no check.
+ */
+const NAMED_PADDING = [
+  "một cách", "nhất định", "mang tính", "gì đó", "nào đó",
+  "thực hiện việc", "tiến hành", "đưa ra quyết định", "có sự thay đổi", "làm việc gì",
+];
+
+/** Voice markers T1 rules out, limited to the ones that cannot mean anything else. */
+const NURSERY_MARKERS = ["em bé", "cô giáo mầm non", "mầm non", "mẫu giáo", "ru ngủ"];
+
+/** Fillers T1 names as dropping the age of a line. */
+const BABY_FILLERS = ["ui", "ơi", "nè", "dễ thương ghê"];
+
+/** Slang T1 forbids outright. */
+const HARSH_SLANG = ["xỉu", "đúng bài", "flex", "spoil"];
+
 /** American spellings the prompt asks to be written the British way. */
 const US_SPELLINGS: Record<string, string> = {
   color: "colour", center: "centre", favorite: "favourite", neighbor: "neighbour",
   theater: "theatre", traveling: "travelling", organize: "organise", realize: "realise",
   meter: "metre", liter: "litre", gray: "grey", defense: "defence",
 };
+
+/**
+ * Whether a word only ever appears where a softener appears.
+ *
+ * Vietnamese sentence-final particles are fillers in that position and content
+ * words elsewhere: "đi thôi" is a nudge, "thôi học" is to quit. The test is
+ * therefore positional, not lexical - the word is treated as a filler only when
+ * EVERY occurrence of it closes a clause, which is where a softener can sit.
+ *
+ * @param sentence - the field, marks already stripped
+ * @param word - the candidate, lowercased and plain
+ */
+function endsEveryClause(sentence: string, word: string): boolean {
+  const escaped = word.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  const occurrences = [...sentence.matchAll(new RegExp(escaped, "gu"))];
+  if (occurrences.length === 0) return false;
+  return occurrences.every((match) => {
+    const after = sentence.slice(match.index + word.length);
+    // Nothing but a clause boundary may follow: end of field, or punctuation.
+    return /^\s*([,;.!?…]|$)/u.test(after);
+  });
+}
+
+/** Whether a word occurs as a whole word, not inside a longer one. */
+function hasWord(text: string, word: string): boolean {
+  const escaped = word.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  return new RegExp(`(^|[^\\p{L}])${escaped}([^\\p{L}]|$)`, "u").test(text);
+}
 
 /** The three animated sentences, in the order emphasisVi must match. */
 const EMPHASIS_SOURCES = ["defVi", "leadVi", "anticipateVi"] as const;
@@ -352,10 +420,14 @@ function checkEmphasisTriple(record: Record<string, unknown>): IntakeFinding[] {
         `"${entry}" is a generic intensifier, which the prompt forbids as a highlight`);
     }
     // Fillers are forbidden as the glow in the two meaning sentences, but may
-    // legitimately BE the tone pivot in anticipateVi.
-    if (source !== "anticipateVi" && SOFT_FILLERS.has(needle)) {
+    // legitimately BE the tone pivot in anticipateVi - and several of them are
+    // only fillers in one POSITION. "thôi" at the end of a line is a softener;
+    // "Thôi không=làm tiếp" opens with the verb meaning to cease, which is
+    // exactly the meaning word a card for "stop" should glow. Flagging by the
+    // word alone rejected that card.
+    if (source !== "anticipateVi" && SOFT_FILLERS.has(needle) && endsEveryClause(haystack, needle)) {
       at(findings, "schema", `emphasisVi[${index}]`, "blocker",
-        `"${entry}" is a soft filler; the ${source} highlight must be the meaning word`);
+        `"${entry}" is a soft filler here; the ${source} highlight must be the meaning word`);
     }
   });
 
@@ -376,8 +448,12 @@ function checkEmphasisTriple(record: Record<string, unknown>): IntakeFinding[] {
  * passes.
  *
  * @param raw - one candidate
+ * @param level - the level the card was ASKED for, from the batch manifest.
+ *   v3.7 passes it in and forbids it in the output, so a card alone cannot be
+ *   held to its own ceiling; without it the level-scoped rules are skipped
+ *   rather than guessed.
  */
-export function checkPromptRules(raw: unknown): IntakeFinding[] {
+export function checkPromptRules(raw: unknown, level?: CefrLevel): IntakeFinding[] {
   const findings: IntakeFinding[] = [];
   if (typeof raw !== "object" || raw === null) return findings;
   const record = raw as Record<string, unknown>;
@@ -409,21 +485,82 @@ export function checkPromptRules(raw: unknown): IntakeFinding[] {
     }
   }
 
+  // "IPA in slashes" - cheap to state, and a card without them renders the
+  // pronunciation line as bare text.
+  const ipa = typeof record.ipa === "string" ? record.ipa.trim() : "";
+  if (ipa.length > 0 && !/^\/.+\/$/u.test(ipa)) {
+    at(findings, "content", "ipa", "blocker", `"${ipa}" is not IPA in slashes`);
+  }
+
   const usageEn = typeof record.usageEn === "string" ? record.usageEn : "";
   if (usageEn.length > 0) {
-    for (const token of usageEn.toLowerCase().match(/[a-z']+/g) ?? []) {
+    const tokens = usageEn.toLowerCase().match(/[a-z']+/g) ?? [];
+    for (const token of tokens) {
       if (UNLISTED_IN_OXFORD.has(token)) {
         at(findings, "content", "usageEn", "blocker",
           `"${token}" is not in the Oxford list, so it is banned at every level`);
+      }
+      // The ceiling, for the words v3.7 names. Only checkable with a level.
+      const sits = level === undefined ? undefined : ABOVE_LEVEL[token];
+      if (sits !== undefined && CEFR_LEVELS.indexOf(sits) > CEFR_LEVELS.indexOf(level!)) {
+        at(findings, "content", "usageEn", "blocker",
+          `"${token}" is a ${sits} word, above this card's ${level} ceiling`);
       }
       const british = US_SPELLINGS[token];
       if (british !== undefined) {
         at(findings, "content", "usageEn", "blocker", `"${token}" is US spelling; write "${british}"`);
       }
     }
+    if (tokens.length > 20) {
+      at(findings, "content", "usageEn", "blocker", `${tokens.length} words; at most 20`);
+    }
+    // Exactly one blank, exactly five underscores: the app splits on it.
+    const blanks = usageEn.match(/_{2,}/g) ?? [];
+    if (blanks.length !== 1 || blanks[0] !== "_____") {
+      at(findings, "content", "usageEn", "blocker",
+        blanks.length === 0
+          ? 'no answer blank; the target word is replaced by exactly five underscores'
+          : `the blank is ${blanks.map((b) => `"${b}"`).join(", ")}; expected exactly one "_____"`);
+    }
     // A join beside the answer blank would be read as part of it.
     if (/[A-Za-z]_[A-Za-z]/.test(usageEn)) {
       at(findings, "content", "usageEn", "blocker", "contains a join; usageEn must carry no underscore but the blank");
+    }
+  }
+
+  // Wording the prompt names outright. Warnings, not defects: each one is a
+  // phrase v3.7 asks to be cut, but cutting it is a rewrite that only a reader
+  // can judge - "giờ nhất_định" is the padding the rule names and also the only
+  // way to say "a fixed time".
+  for (const field of ["meaningVi", "defVi", "leadVi", "anticipateVi", "usageVi"] as const) {
+    const value = typeof record[field] === "string" ? stripMarks(record[field] as string) : "";
+    if (value.length === 0) continue;
+    const lower = value.toLowerCase();
+    for (const phrase of NAMED_PADDING) {
+      if (lower.includes(phrase)) {
+        at(findings, "content", field, "warn", `"${phrase}" is padding v3.7 names; spend the slot on a concrete detail`);
+      }
+    }
+    if (field === "meaningVi" || field === "usageVi") continue;
+    for (const marker of NURSERY_MARKERS) {
+      if (lower.includes(marker)) {
+        at(findings, "content", field, "warn", `"${marker}" is a nursery scene; T1 writes to 15-22 year olds`);
+      }
+    }
+    for (const filler of BABY_FILLERS) {
+      if (hasWord(lower, filler)) {
+        at(findings, "content", field, "warn", `"${filler}" is a baby-cute filler; T1 rules it out`);
+      }
+    }
+    for (const slang of HARSH_SLANG) {
+      if (hasWord(lower, slang)) {
+        at(findings, "content", field, "warn", `"${slang}" is slang T1 forbids`);
+      }
+    }
+    const stacked = [...SOFT_FILLERS].filter((filler) => hasWord(lower, filler));
+    if (stacked.length > 1) {
+      at(findings, "content", field, "warn",
+        `stacks soft fillers (${stacked.join(", ")}); T1 allows at most one per sentence`);
     }
   }
 
@@ -440,6 +577,134 @@ export function checkPromptRules(raw: unknown): IntakeFinding[] {
   }
 
   return findings;
+}
+
+/** One row of a batch manifest: what was ASKED for, before any card existed. */
+export interface ManifestRow {
+  id: string;
+  word: string;
+  level?: CefrLevel;
+  /** The part of speech requested, as the input list wrote it. */
+  input_pos?: string;
+  /** The part of speech the card was written for, where they differ. */
+  card_pos?: string;
+  /** "accepted", or an exclusion. */
+  status?: string;
+  note?: string;
+}
+
+/** Read a parsed file as a manifest, or null when it is not one. */
+export function asManifest(parsed: unknown): ManifestRow[] | null {
+  if (!Array.isArray(parsed) || parsed.length === 0) return null;
+  const rows = parsed as Array<Record<string, unknown>>;
+  // A manifest row names a target; a card describes one. The discriminator is
+  // the Vietnamese: a row has none.
+  const looksLikeManifest = rows.every(
+    (row) =>
+      typeof row === "object" &&
+      row !== null &&
+      typeof row.id === "string" &&
+      typeof row.word === "string" &&
+      row.defVi === undefined,
+  );
+  return looksLikeManifest ? (rows as unknown as ManifestRow[]) : null;
+}
+
+/**
+ * BATCH INTEGRITY (B1): the output against the manifest it was asked for.
+ *
+ * This is the rule no card can be checked against on its own, and until the
+ * manifest travelled with the batch it could not be checked at all. What it
+ * catches is the failure a reviewer reading cards one at a time never sees: a
+ * target silently dropped, a headword swapped for a synonym, a card written
+ * for a different part of speech, or an exclusion disguised as a card.
+ *
+ * Position is the mapping. v3.7 asks for one card per target IN ORDER, so a
+ * manifest that no longer lines up is itself the finding — reordering it to
+ * make the words match would hide exactly what B1 exists to surface.
+ *
+ * @param records - every candidate in the run, in file order
+ * @param manifest - the batch's manifest, in its own order
+ * @returns findings keyed by candidate id, plus any that belong to no card
+ */
+export function checkManifest(
+  records: readonly IntakeRecord[],
+  manifest: readonly ManifestRow[],
+): { byRecord: Map<string, IntakeFinding[]>; batch: IntakeFinding[] } {
+  const byRecord = new Map<string, IntakeFinding[]>();
+  const batch: IntakeFinding[] = [];
+  const add = (id: string, finding: IntakeFinding) => {
+    const held = byRecord.get(id) ?? [];
+    held.push(finding);
+    byRecord.set(id, held);
+  };
+
+  const expected = manifest.filter((row) => (row.status ?? "accepted") === "accepted");
+  if (records.length !== expected.length) {
+    batch.push({
+      stage: "schema",
+      field: "batch",
+      severity: "blocker",
+      message:
+        `${records.length} card(s) for ${expected.length} eligible target(s) — ` +
+        "B1 asks for exactly one each, with exclusions kept in their own record",
+    });
+  }
+
+  const seen = new Set<string>();
+  for (const row of manifest) {
+    if (seen.has(row.id)) {
+      batch.push({
+        stage: "schema",
+        field: "batch",
+        severity: "blocker",
+        message: `the manifest uses id "${row.id}" twice`,
+      });
+    }
+    seen.add(row.id);
+  }
+
+  records.forEach((record, index) => {
+    const row = manifest[index];
+    if (row === undefined) {
+      add(record.id, {
+        stage: "schema",
+        field: "word",
+        severity: "blocker",
+        message: "no manifest row at this position; the batch is longer than what was asked for",
+      });
+      return;
+    }
+    if (row.word.toLowerCase() !== record.word.toLowerCase()) {
+      add(record.id, {
+        stage: "schema",
+        field: "word",
+        severity: "blocker",
+        message: `position ${index + 1} was asked for "${row.word}" but carries "${record.word}" — B1 forbids substituting a target`,
+      });
+    }
+    if ((row.status ?? "accepted") !== "accepted") {
+      add(record.id, {
+        stage: "schema",
+        field: "word",
+        severity: "blocker",
+        message: `the manifest excludes "${row.word}" (${row.status}), so this card disguises an exclusion`,
+      });
+    }
+    const pos = typeof record.raw === "object" && record.raw !== null
+      ? (record.raw as { pos?: unknown }).pos
+      : undefined;
+    if (row.card_pos !== undefined && typeof pos === "string" && pos !== row.card_pos) {
+      add(record.id, {
+        stage: "schema",
+        field: "pos",
+        severity: "blocker",
+        message: `written as "${pos}" but asked for as "${row.card_pos}" — B1 forbids changing the part of speech`,
+      });
+    }
+  });
+
+  return { byRecord, batch };
 }
 
 /**

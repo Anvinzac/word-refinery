@@ -358,3 +358,93 @@ test("a catalogue written before the stamp existed is version 1, not unreadable"
   // refusing it would strand every catalogue released before this change.
   assert.equal(catalogVersionRefusal(null), null);
 });
+
+/**
+ * A Vietnamese sentence-final particle is a softener in that position and a
+ * content word everywhere else. Judging by the word alone rejected a correct
+ * card for "stop", whose defVi opens with the verb meaning to cease.
+ */
+test("a soft filler is judged by where it sits, not by which word it is", () => {
+  const cease = checkSchema(
+    candidate({
+      word: "stop",
+      defVi: "Thôi không=làm tiếp | hay không=đi tiếp nữa.",
+      emphasisVi: ["thôi", "chờ", "nhất"],
+    }),
+  );
+  assert.deepEqual(
+    blockers(cease).filter((f) => /soft filler/.test(f.message)),
+    [],
+    "\"Thôi không làm tiếp\" opens with the meaning word",
+  );
+
+  const softener = checkSchema(
+    candidate({ defVi: "Việc thu_gom cây trái sau mùa thôi.", emphasisVi: ["thôi", "chờ", "nhất"] }),
+  );
+  assert.ok(
+    blockers(softener).some((f) => /soft filler/.test(f.message)),
+    "at the end of the line it is still a softener",
+  );
+});
+
+test("usageEn carries exactly one five-underscore blank", () => {
+  const none = checkPromptRules(candidate({ usageEn: "The harvest was poor this year." }));
+  assert.ok(blockers(none).some((f) => /no answer blank/.test(f.message)));
+  const twice = checkPromptRules(candidate({ usageEn: "The _____ and the _____ were poor." }));
+  assert.ok(blockers(twice).some((f) => /expected exactly one/.test(f.message)));
+  const short = checkPromptRules(candidate({ usageEn: "The ___ was poor this year." }));
+  assert.ok(blockers(short).some((f) => /expected exactly one/.test(f.message)));
+  assert.deepEqual(
+    blockers(checkPromptRules(candidate())).filter((f) => /blank/.test(f.message)),
+    [],
+  );
+});
+
+test("usageEn is held to twenty words and to IPA in slashes", () => {
+  const long = checkPromptRules(
+    candidate({
+      usageEn:
+        "The _____ of this year was very good and the weather was kind and the long days were warm and dry too.",
+    }),
+  );
+  assert.ok(long.some((f) => /at most 20/.test(f.message)));
+  assert.ok(checkPromptRules(candidate({ ipa: "ˈhɑː.vɪst" })).some((f) => /not IPA in slashes/.test(f.message)));
+});
+
+/**
+ * The Oxford list is not in this package and never will be, so the ceiling can
+ * only be enforced for the words v3.7 spells out itself — and only when a
+ * manifest says what the card's level was meant to be.
+ */
+test("the example-level ceiling applies only when the level is known", () => {
+  const card = candidate({ usageEn: "Can I borrow the _____ today?" });
+  assert.deepEqual(
+    blockers(checkPromptRules(card)).filter((f) => /ceiling/.test(f.message)),
+    [],
+    "without a level, the rule is skipped rather than guessed",
+  );
+  assert.ok(
+    blockers(checkPromptRules(card, "A1")).some((f) =>
+      /"borrow" is a A2 word, above this card's A1 ceiling/.test(f.message),
+    ),
+  );
+  assert.deepEqual(
+    blockers(checkPromptRules(card, "B1")).filter((f) => /ceiling/.test(f.message)),
+    [],
+    "the same word is fine once the ceiling is high enough",
+  );
+});
+
+test("padding the prompt names by name is a warning, never a rejection", () => {
+  const padded = checkPromptRules(candidate({ defVi: "Giúp_ích được | khi cần làm việc gì." }));
+  const named = padded.filter((f) => /padding v3.7 names/.test(f.message));
+  assert.equal(named.length, 1);
+  assert.equal(named[0]!.severity, "warn", "cutting it is a rewrite only a reader can judge");
+  // The wider "never stack two near-synonyms" rule is deliberately absent: over
+  // the A101-A105 pack it fired on 235 of 500 cards, nearly all of them the
+  // genuine choices the rule permits.
+  assert.deepEqual(
+    checkPromptRules(candidate({ defVi: "Nơi bán báo | và tạp_chí cho khách." })),
+    [],
+  );
+});

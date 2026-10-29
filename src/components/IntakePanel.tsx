@@ -15,8 +15,10 @@
  */
 import { useEffect, useMemo, useRef, useState } from "react";
 import {
+  asManifest,
   candidateId,
   checkBatchRules,
+  checkManifest,
   checkContent,
   checkPromptRules,
   checkSchema,
@@ -24,6 +26,7 @@ import {
   summarize,
   verdictOf,
   type IntakeFinding,
+  type ManifestRow,
   type IntakeRecord,
   type IntakeStage,
 } from "../lib/intake";
@@ -56,6 +59,14 @@ function candidatesFrom(parsed: unknown, batchId: string): Array<{ id: string; r
 export function IntakePanel({ settings }: { settings: Settings }) {
   const [records, setRecords] = useState<IntakeRecord[]>([]);
   const [batchId, setBatchId] = useState("");
+  /**
+   * The batch's manifest, when one was loaded with it.
+   *
+   * It is what the batch was ASKED for, which the cards themselves cannot say:
+   * v3.7 passes the level in and forbids it in the output, so without this the
+   * level ceiling and the whole of B1 are unenforceable.
+   */
+  const [manifest, setManifest] = useState<ManifestRow[] | null>(null);
   const [progress, setProgress] = useState<Progress | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [notice, setNotice] = useState<string | null>(null);
@@ -105,10 +116,16 @@ export function IntakePanel({ settings }: { settings: Settings }) {
   const split = useMemo(() => partitionRecords(records), [records]);
 
   /** Stages one and two, which cost nothing and so always run. */
-  const runLocal = (candidates: Array<{ id: string; raw: unknown }>): IntakeRecord[] => {
+  const runLocal = (
+    candidates: Array<{ id: string; raw: unknown }>,
+    rows: ManifestRow[] | null,
+  ): IntakeRecord[] => {
     const used = new Set<string>();
-    return candidates.map(({ id, raw }) => {
-      const findings: IntakeFinding[] = [...checkSchema(raw), ...checkPromptRules(raw)];
+    return candidates.map(({ id, raw }, index) => {
+      const findings: IntakeFinding[] = [
+        ...checkSchema(raw),
+        ...checkPromptRules(raw, rows?.[index]?.level),
+      ];
       const word = String((raw as { word?: unknown })?.word ?? "");
       // Coerce only when the shape is sound; a broken candidate must not be
       // smoothed into a plausible card by the importer.
@@ -127,32 +144,72 @@ export function IntakePanel({ settings }: { settings: Settings }) {
     });
   };
 
-  const loadBatch = async (file: File) => {
+  /**
+   * Load a batch, and its manifest when one comes with it.
+   *
+   * Both arrive through one control because they are one thing: a batch and
+   * the list of targets it answers. Which file is which is read from its
+   * SHAPE rather than its name, so a manifest saved under any name still
+   * works and a card file can never be mistaken for one.
+   */
+  const loadBatch = async (chosen: readonly File[]) => {
     setError(null);
     setNotice(null);
-    const id = file.name.replace(/\.json$/i, "");
-    setBatchId(id);
     try {
-      const parsed = JSON.parse(await file.text()) as unknown;
-      const candidates = candidatesFrom(parsed, id);
+      const parsed = await Promise.all(
+        chosen.map(async (file) => ({ file, json: JSON.parse(await file.text()) as unknown })),
+      );
+      const manifests = parsed.filter((entry) => asManifest(entry.json) !== null);
+      const batches = parsed.filter((entry) => asManifest(entry.json) === null);
+      if (batches.length === 0) {
+        setError(
+          manifests.length > 0
+            ? "That is a manifest with no batch beside it. Choose the cards file too."
+            : "No cards found in what you chose.",
+        );
+        return;
+      }
+      if (batches.length > 1) {
+        setError("Choose one batch at a time, with its manifest if it has one.");
+        return;
+      }
+      const source = batches[0]!;
+      const rows = manifests.length > 0 ? asManifest(manifests[0]!.json) : null;
+      const id = source.file.name.replace(/\.json$/i, "");
+      setBatchId(id);
+      setManifest(rows);
+
+      const candidates = candidatesFrom(source.json, id);
       if (candidates.length === 0) {
-        setError(`${file.name} holds no candidates.`);
+        setError(`${source.file.name} holds no candidates.`);
         return;
       }
       setProgress({ stage: "content", done: candidates.length, total: candidates.length });
       // The batch-shaped rules need every record, so they run last and fold
       // their findings back in before a verdict is settled.
-      const local = runLocal(candidates);
+      const local = runLocal(candidates, rows);
       const batchFindings = checkBatchRules(local);
+      const integrity = rows === null ? null : checkManifest(local, rows);
       setRecords(
         local.map((record) => {
-          const extra = batchFindings.get(record.id);
-          if (extra === undefined) return record;
+          const extra = [
+            ...(batchFindings.get(record.id) ?? []),
+            ...(integrity?.byRecord.get(record.id) ?? []),
+          ];
+          if (extra.length === 0) return record;
           const findings = [...record.findings, ...extra];
           return { ...record, findings, verdict: verdictOf(findings, ["schema", "content"]) };
         }),
       );
       setProgress({ stage: "done", done: candidates.length, total: candidates.length });
+      const whole = integrity?.batch ?? [];
+      setNotice(
+        rows === null
+          ? "No manifest came with this batch, so the level ceiling and the batch-integrity rule (B1) were skipped — a card cannot say what level it was asked for."
+          : whole.length > 0
+            ? `Checked against ${rows.length} manifest row(s). ${whole.map((finding) => finding.message).join(" ")}`
+            : `Checked against ${rows.length} manifest row(s): every target has exactly one card, in order.`,
+      );
     } catch (thrown) {
       setError(thrown instanceof Error ? thrown.message : String(thrown));
     }
@@ -220,7 +277,14 @@ export function IntakePanel({ settings }: { settings: Settings }) {
           // Revalidated from the top: a fix to one field can break another, and
           // rechecking only the trigger would ship exactly that.
           const used = new Set<string>();
-          const fresh: IntakeFinding[] = [...checkSchema(raw, record.word), ...checkPromptRules(raw)];
+          // Revalidated against the level it was ASKED for, not a fresh guess:
+          // a repair that quietly raised the example's vocabulary would pass a
+          // recheck that had forgotten the ceiling.
+          const level = manifest?.[working.findIndex((row) => row.id === record.id)]?.level;
+          const fresh: IntakeFinding[] = [
+            ...checkSchema(raw, record.word),
+            ...checkPromptRules(raw, level),
+          ];
           const blocked = fresh.some((finding) => finding.severity === "blocker");
           const card = blocked ? null : coerceDeckWord(raw, used, { batchId, addedAt: "" });
           if (card !== null) fresh.push(...checkContent(card));
@@ -389,6 +453,11 @@ export function IntakePanel({ settings }: { settings: Settings }) {
           Everything that arrives stays visible with the reason it was judged — a candidate only
           becomes a card by passing, never by not having been checked.
         </p>
+        <p className="hint" style={{ marginTop: 8 }}>
+          Choose the cards file and its <code className="k">.meta.json</code> manifest together. The
+          manifest is what the batch was asked for, and the cards cannot say it: without one, the
+          example-level ceiling and the batch-integrity rule are skipped rather than guessed.
+        </p>
 
         <div className="row" style={{ marginTop: 12 }}>
           <button type="button" className="btn primary" onClick={() => fileInput.current?.click()}>
@@ -397,11 +466,12 @@ export function IntakePanel({ settings }: { settings: Settings }) {
           <input
             ref={fileInput}
             type="file"
+            multiple
             accept="application/json,.json"
             style={{ display: "none" }}
             onChange={(event) => {
-              const file = event.target.files?.[0];
-              if (file !== undefined) void loadBatch(file);
+              const chosen = [...(event.target.files ?? [])];
+              if (chosen.length > 0) void loadBatch(chosen);
               event.target.value = "";
             }}
           />
