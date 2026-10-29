@@ -417,6 +417,26 @@ function plain(text: string): string {
 }
 
 /**
+ * Whether a slot holds a MEANING WORD, rather than a reveal or a tone pivot.
+ *
+ * The first two entries are the same thing in both languages: the content word
+ * nearest in meaning to the target, glowing in the definition and again in the
+ * scene. The THIRD is not that in either language — v3.7 puts it in the teaser,
+ * where a tone word is the whole point, and v3.9 puts it in the usage sentence,
+ * where it IS the answer being revealed.
+ *
+ * So the two bans that exist to keep the glow on something meaningful apply to
+ * the first two slots and never the third. `considerably` reveals 「かなり」,
+ * and かなり is a banned degree adverb — as a MEANING word. As the answer it is
+ * simply the answer, and rejecting it asks the card to reveal something other
+ * than the word it teaches. v3.9's own validator draws the line in the same
+ * place, applying those bans to [0] and [1] only.
+ */
+function isMeaningSlot(slot: (typeof EMPHASIS_SOURCES)[number]["slot"]): boolean {
+  return slot === "def" || slot === "lead";
+}
+
+/**
  * EMPHASIS VALIDATION (E6): three entries, each belonging to its own sentence.
  *
  * v3.7 made emphasisVi positional — [defVi, leadVi, anticipateVi] — which is a
@@ -454,9 +474,9 @@ function checkEmphasisTriple(record: Record<string, unknown>): IntakeFinding[] {
       at(findings, "schema", `emphasisVi[${index}]`, "blocker",
         `"${entry}" spans a "=" or "|", which is never one lexical unit`);
     }
-    if (GENERIC_INTENSIFIERS.has(needle)) {
+    if (isMeaningSlot(slot) && GENERIC_INTENSIFIERS.has(needle)) {
       at(findings, "schema", `emphasisVi[${index}]`, "blocker",
-        `"${entry}" is a generic intensifier, which the prompt forbids as a highlight`);
+        `"${entry}" is a generic intensifier; the ${source} highlight must be the meaning word`);
     }
     // Fillers are forbidden as the glow in the two meaning sentences, but may
     // legitimately BE the tone pivot in anticipateVi - and several of them are
@@ -464,7 +484,11 @@ function checkEmphasisTriple(record: Record<string, unknown>): IntakeFinding[] {
     // "Thôi không=làm tiếp" opens with the verb meaning to cease, which is
     // exactly the meaning word a card for "stop" should glow. Flagging by the
     // word alone rejected that card.
-    if (slot !== "anticipate" && SOFT_FILLERS.has(needle) && endsEveryClause(haystack, needle)) {
+    //
+    // Guarded by the SLOT rather than by the name "anticipate": Japanese has no
+    // anticipate slot - its third is the usage sentence - so naming that one
+    // language's third slot let this ban through onto the other's answer reveal.
+    if (isMeaningSlot(slot) && SOFT_FILLERS.has(needle) && endsEveryClause(haystack, needle)) {
       at(findings, "schema", `emphasisVi[${index}]`, "blocker",
         `"${entry}" is a soft filler here; the ${source} highlight must be the meaning word`);
     }

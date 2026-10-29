@@ -1,0 +1,602 @@
+[
+ {
+  "id": "B204-001",
+  "word": "plus",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B204-002",
+  "word": "potential",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B204-003",
+  "word": "advance",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B204-004",
+  "word": "secure",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B204-005",
+  "word": "accidentally",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B204-006",
+  "word": "accurately",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B204-007",
+  "word": "additionally",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B204-008",
+  "word": "adequately",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B204-009",
+  "word": "altogether",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B204-010",
+  "word": "apparently",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B204-011",
+  "word": "appropriately",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B204-012",
+  "word": "aside",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B204-013",
+  "word": "barely",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B204-014",
+  "word": "basically",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B204-015",
+  "word": "besides",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B204-016",
+  "word": "beyond",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B204-017",
+  "word": "broadly",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B204-018",
+  "word": "closely",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B204-019",
+  "word": "commonly",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B204-020",
+  "word": "consequently",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B204-021",
+  "word": "considerably",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B204-022",
+  "word": "consistently",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B204-023",
+  "word": "critically",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B204-024",
+  "word": "deeply",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B204-025",
+  "word": "dramatically",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B204-026",
+  "word": "elsewhere",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B204-027",
+  "word": "entirely",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B204-028",
+  "word": "essentially",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B204-029",
+  "word": "extensively",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B204-030",
+  "word": "firmly",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B204-031",
+  "word": "freely",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B204-032",
+  "word": "fully",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B204-033",
+  "word": "fundamentally",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B204-034",
+  "word": "genuinely",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B204-035",
+  "word": "greatly",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B204-036",
+  "word": "hence",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B204-037",
+  "word": "hopefully",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B204-038",
+  "word": "increasingly",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B204-039",
+  "word": "inevitably",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B204-040",
+  "word": "largely",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B204-041",
+  "word": "likewise",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B204-042",
+  "word": "literally",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B204-043",
+  "word": "moreover",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B204-044",
+  "word": "nevertheless",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B204-045",
+  "word": "otherwise",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B204-046",
+  "word": "partly",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B204-047",
+  "word": "potentially",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B204-048",
+  "word": "precisely",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B204-049",
+  "word": "primarily",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B204-050",
+  "word": "purely",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B204-051",
+  "word": "reasonably",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B204-052",
+  "word": "relatively",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B204-053",
+  "word": "remarkably",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B204-054",
+  "word": "roughly",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B204-055",
+  "word": "severely",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B204-056",
+  "word": "significantly",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B204-057",
+  "word": "somehow",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B204-058",
+  "word": "somewhat",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B204-059",
+  "word": "strictly",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B204-060",
+  "word": "sufficiently",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B204-061",
+  "word": "terribly",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B204-062",
+  "word": "thoroughly",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B204-063",
+  "word": "thus",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B204-064",
+  "word": "truly",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B204-065",
+  "word": "ultimately",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B204-066",
+  "word": "upwards",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B204-067",
+  "word": "widely",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B204-068",
+  "word": "alien",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B204-069",
+  "word": "aspect",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B204-070",
+  "word": "assistance",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B204-071",
+  "word": "barrier",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B204-072",
+  "word": "being",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B204-073",
+  "word": "bunch",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B204-074",
+  "word": "capacity",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B204-075",
+  "word": "circumstance",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B204-076",
+  "word": "coincidence",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B204-077",
+  "word": "collector",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B204-078",
+  "word": "combination",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B204-079",
+  "word": "creation",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B204-080",
+  "word": "division",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B204-081",
+  "word": "dozen",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B204-082",
+  "word": "exception",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B204-083",
+  "word": "existence",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B204-084",
+  "word": "exposure",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B204-085",
+  "word": "extension",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B204-086",
+  "word": "extent",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B204-087",
+  "word": "facility",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B204-088",
+  "word": "fault",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B204-089",
+  "word": "format",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B204-090",
+  "word": "formation",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B204-091",
+  "word": "foundation",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B204-092",
+  "word": "fragment",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B204-093",
+  "word": "incident",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B204-094",
+  "word": "indication",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B204-095",
+  "word": "instance",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B204-096",
+  "word": "limitation",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B204-097",
+  "word": "making",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B204-098",
+  "word": "margin",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B204-099",
+  "word": "means",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B204-100",
+  "word": "mode",
+  "level": "B2",
+  "status": "accepted"
+ }
+]

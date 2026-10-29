@@ -122,11 +122,26 @@ test("a highlight may cover a join but never a bind or a phrase edge", () => {
   assert.ok(bound.some((f) => /spans a "=" or "\|"/.test(f.message)));
 });
 
-test("a generic intensifier is never the highlight, wherever it sits", () => {
+test("a generic intensifier is never the meaning word", () => {
   const found = blockers(
     checkSchema(candidate({ defVi: "Việc rất tốt | cho một mùa trồng_trọt dài hơi.", emphasisVi: ["rất", "chờ", "nhất"] })),
   );
   assert.ok(found.some((f) => /generic intensifier/.test(f.message)));
+});
+
+test("but it may be the third slot, which reveals rather than explains", () => {
+  // The third entry is not a meaning word in either language: v3.7 glows it in
+  // the teaser, where tone is the point, and v3.9 glows it in the usage
+  // sentence, where it IS the answer. A card for "considerably" reveals
+  // 「かなり」, and refusing that asks it to reveal something other than the
+  // word it teaches.
+  const found = blockers(
+    checkSchema(candidate({ anticipateVi: "Chờ mùa, rất lâu?", emphasisVi: ["thu gom", "chờ", "rất"] })),
+  );
+  assert.deepEqual(
+    found.filter((f) => /generic intensifier/.test(f.message)),
+    [],
+  );
 });
 
 test("a soft filler may be the tone pivot but never the meaning word", () => {
