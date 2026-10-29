@@ -332,6 +332,15 @@ export interface DeckIssue {
   wordId: string;
   field: string;
   message: string;
+  /**
+   * "error" for a rule the card breaks, "warning" for an aim it misses.
+   *
+   * Almost everything here is an error, because almost every rule is a limit.
+   * The exception is a length range a language states as advice (see
+   * `LengthRule.aim`): reporting those as errors would bury the real defects
+   * under a list of definitions whose only fault is being tight.
+   */
+  severity: "error" | "warning";
 }
 
 /**
@@ -346,12 +355,19 @@ export function validateDeck(deck: Deck): DeckIssue[] {
   const seenAnticipate = new Map<string, string>();
 
   for (const entry of deck.words) {
-    const at = (field: string, message: string) => issues.push({ wordId: entry.id, field, message });
+    const at = (field: string, message: string, severity: DeckIssue["severity"] = "error") =>
+      issues.push({ wordId: entry.id, field, message, severity });
     /** One field against one length rule, reported in the language's own unit. */
     const checkLength = (field: string, clean: string, rule: (typeof L)["limits"]["def"]) => {
       const size = measureLength(clean, L);
       if (size < rule.min || size > rule.max) {
-        at(field, `${describeLength(size, L)}; expected ${rule.min}-${rule.max}`);
+        at(
+          field,
+          rule.aim === true
+            ? `${describeLength(size, L)}; the aim is ${rule.min}-${rule.max}`
+            : `${describeLength(size, L)}; expected ${rule.min}-${rule.max}`,
+          rule.aim === true ? "warning" : "error",
+        );
       }
       // A character ceiling is only a separate rule where the unit is not
       // characters; where it is, `max` has already said it.

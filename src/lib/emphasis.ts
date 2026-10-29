@@ -1,5 +1,20 @@
 /**
- * Vietnamese emphasis validation and inline-marker injection.
+ * Emphasis validation and inline-marker injection.
+ *
+ * WHAT A WORD BOUNDARY IS turns out to be the whole difficulty here. The rules
+ * below were written for Vietnamese, where every syllable is a space apart, so
+ * a highlight has visible edges and a phrase that reads as half a compound can
+ * be spotted by looking at its neighbour. Japanese has no such edges: a
+ * particle attaches directly to the word it marks, so 「知りたい」 inside
+ * 「知りたいと」 has a letter on its right and a Vietnamese matcher refuses it.
+ * Run against a Japanese deck, that one assumption dropped 876 highlights in
+ * 1000 - so the language is now passed in rather than assumed.
+ *
+ * In a language with no spaces, the author carries the burden the boundary used
+ * to: the rules require a highlight to occur exactly once in its own field and
+ * never to cross a space, a "=" or a "|". The matcher takes them at their word
+ * and simply locates it, allowing only a "_" to be crossed, because an idiom is
+ * given whole.
  *
  * Two responsibilities:
  *   1. `validateEmphasis` — ported from the word-crawler package. Keeps only
@@ -16,9 +31,10 @@
  *          countSyllables, validateEmphasis, injectEmphasisMarkers,
  *          stripEmphasisMarkers, splitMarkedSyllables, joinMarkedSyllables,
  *          MarkedSyllable
- * Depends on: none
+ * Depends on: ./joiner.ts, ./lang.ts
  */
 import { CLITIC_BIND, PHRASE_BREAK, stripMarks } from "./joiner.ts";
+import { activeGlossProfile, displayText, measureLength, type GlossProfile } from "./lang.ts";
 
 /**
  * Vietnamese function words that can never be part of a highlight.
@@ -39,6 +55,8 @@ export interface EmphasisInput {
   defVi: string;
   leadVi?: string;
   emphasisVi: readonly string[];
+  /** The language the fields are written in. Defaults to the open workspace's. */
+  profile?: GlossProfile;
 }
 
 /** Validation outcome: phrases to keep plus human-readable warnings. */
@@ -74,19 +92,39 @@ function escapeRegExp(value: string): string {
 }
 
 /**
- * Longest (and casing-correct) occurrence of a phrase inside the sources.
+ * The pattern that finds a phrase inside the text that holds it.
  *
- * Emphasis phrases are written plain ("quan trọng") while the text that holds
- * them may join those syllables ("quan_trọng"), so each space in the phrase
- * matches either a space or a join. Without this a highlight would silently
- * fail to attach to exactly the compounds most worth highlighting.
+ * Both languages store the phrase as the reader sees it and keep the marks in
+ * the text, so the pattern has to be permissive about exactly the marks the
+ * language uses - and strict about its edges, where it has any.
+ *
+ * Space-separated: a space in the phrase matches a space OR a join, so a
+ * highlight attaches to "quan_trọng", and letters either side are refused, so
+ * it cannot match the middle of a longer word.
+ *
+ * Not space-separated: no edge test exists to apply - a particle is a letter
+ * sitting flush against the word it marks - so the phrase is located as a
+ * substring, with a "_" allowed between any two characters so a whole "_"
+ * idiom still matches. A space, a "=" or a "|" cannot be crossed, because
+ * none of their characters is in the phrase.
+ */
+function emphasisPattern(phrase: string, profile: GlossProfile): RegExp {
+  if (profile.measure === "words") {
+    const spaced = escapeRegExp(phrase).replace(/\\?\s+/gu, "[\\s_]+");
+    return new RegExp(`(?<![\\p{L}\\p{N}])${spaced}(?![\\p{L}\\p{N}])`, "iu");
+  }
+  return new RegExp([...phrase].map((char) => escapeRegExp(char)).join("_?"), "u");
+}
+
+/**
+ * Longest (and casing-correct) occurrence of a phrase inside the sources.
  */
 function findOccurrence(
   haystacks: readonly string[],
   phrase: string,
+  profile: GlossProfile,
 ): { text: string; start: number; end: number; haystack: string } | null {
-  const spaced = escapeRegExp(phrase).replace(/\\?\s+/gu, "[\\s_]+");
-  const pattern = new RegExp(`(?<![\\p{L}\\p{N}])${spaced}(?![\\p{L}\\p{N}])`, "iu");
+  const pattern = emphasisPattern(phrase, profile);
   for (const haystack of haystacks) {
     const match = pattern.exec(haystack);
     if (match !== null && match.index !== undefined) {
@@ -153,16 +191,62 @@ function isContentSyllable(token: string): boolean {
   return key.length >= 2 && !VIETNAMESE_STOP_WORDS.has(key);
 }
 
+/**
+ * Validate one candidate in a language with no spaces between words.
+ *
+ * Everything the space-separated path does by inspecting neighbours is a
+ * question the author has already answered: the rules require one content word
+ * with no particles, occurring exactly once in its own field, never across a
+ * space, a "=" or a "|". So what is left to check is that it is THERE, that it
+ * fits the length the profile allows, and that it is not pure padding.
+ */
+function validateUnspaced(
+  candidate: string,
+  haystacks: readonly string[],
+  profile: GlossProfile,
+): { phrase: string | null; warnings: string[] } {
+  const warnings: string[] = [];
+  // Stored as displayed: a phrase that arrived with a mark or a 文節 space in
+  // it is reduced to what the reader sees, which is the form the text holds.
+  const phrase = displayText(candidate.normalize("NFC").trim(), profile);
+  if (phrase.length === 0) return { phrase: null, warnings };
+
+  if (findOccurrence(haystacks, phrase, profile) === null) {
+    warnings.push(
+      `emphasisVi: dropped "${phrase}" — not present in defVi or leadVi, or it crosses a space, a "${CLITIC_BIND}" or a "${PHRASE_BREAK}"`,
+    );
+    return { phrase: null, warnings };
+  }
+
+  const size = measureLength(phrase, profile);
+  if (size > profile.emphasis.max) {
+    warnings.push(
+      `emphasisVi: dropped "${phrase}" — ${size} ${profile.emphasis.unitWord}; a highlight is one word, at most ${profile.emphasis.max}`,
+    );
+    return { phrase: null, warnings };
+  }
+
+  if (profile.fillers.includes(phrase) || profile.intensifiers.includes(phrase)) {
+    warnings.push(`emphasisVi: dropped "${phrase}" — padding, not a word that means something`);
+    return { phrase: null, warnings };
+  }
+
+  return { phrase, warnings };
+}
+
 /** Validate one candidate phrase; `phrase: null` means drop it. */
 function validateCandidate(
   candidate: string,
   haystacks: readonly string[],
+  profile: GlossProfile,
 ): { phrase: string | null; warnings: string[] } {
+  if (profile.measure !== "words") return validateUnspaced(candidate, haystacks, profile);
+
   const warnings: string[] = [];
   const phrase = candidate.normalize("NFC").trim().replace(/\s+/gu, " ");
   if (phrase.length === 0) return { phrase: null, warnings };
 
-  const occurrence = findOccurrence(haystacks, phrase);
+  const occurrence = findOccurrence(haystacks, phrase, profile);
   if (occurrence === null) {
     // A phrase the text binds with "=" or splits with "|" cannot match, because
     // the matcher only bridges a space or a word join. Say which it was: the
@@ -230,6 +314,7 @@ function validateCandidate(
  * @returns deduplicated phrases in source casing plus warnings for every change
  */
 export function validateEmphasis(input: EmphasisInput): EmphasisResult {
+  const profile = input.profile ?? activeGlossProfile();
   const haystacks = [input.defVi, input.leadVi ?? ""]
     .map((value) => value.normalize("NFC"))
     .filter((value) => value.trim().length > 0);
@@ -239,7 +324,7 @@ export function validateEmphasis(input: EmphasisInput): EmphasisResult {
   const seen = new Set<string>();
 
   for (const candidate of input.emphasisVi) {
-    const result = validateCandidate(candidate, haystacks);
+    const result = validateCandidate(candidate, haystacks, profile);
     warnings.push(...result.warnings);
     if (result.phrase === null) continue;
 
@@ -352,6 +437,7 @@ export function injectEmphasisMarkers(
   defVi: string,
   leadVi: string,
   phrases: readonly string[],
+  profile: GlossProfile = activeGlossProfile(),
 ): { defVi: string; leadVi: string; warnings: string[] } {
   const warnings: string[] = [];
   let outDef = defVi;
@@ -359,12 +445,10 @@ export function injectEmphasisMarkers(
 
   const markOnce = (text: string, phrase: string): string | null => {
     if (text.includes(MARKER)) return null; // already marked
-    // The phrase is plain but the text may join the syllables it spans, so a
-    // space in the phrase matches a space OR a join. The marker then wraps the
-    // text's own form, joins intact — `/Chất_lỏng/`, never `/Chất lỏng/`.
-    const spaced = escapeRegExp(phrase).replace(/\\?\s+/gu, "[\\s_]+");
-    const pattern = new RegExp(`(?<![\\p{L}\\p{N}])${spaced}(?![\\p{L}\\p{N}])`, "iu");
-    const match = pattern.exec(text);
+    // The marker wraps the TEXT's own form rather than the phrase, marks
+    // intact — `/Chất_lỏng/`, never `/Chất lỏng/`; `/気前が_いい/`, never
+    // `/気前がいい/` — so stripping the marker gives the field back unchanged.
+    const match = emphasisPattern(phrase, profile).exec(text);
     if (match === null) return null;
     const start = match.index;
     const end = start + match[0].length;

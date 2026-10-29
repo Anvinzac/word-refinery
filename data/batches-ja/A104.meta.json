@@ -1,0 +1,602 @@
+[
+ {
+  "id": "A104-001",
+  "word": "thing",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A104-002",
+  "word": "type",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A104-003",
+  "word": "way",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A104-004",
+  "word": "change",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A104-005",
+  "word": "list",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A104-006",
+  "word": "order",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A104-007",
+  "word": "show",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A104-008",
+  "word": "stop",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A104-009",
+  "word": "turn",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A104-010",
+  "word": "add",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A104-011",
+  "word": "be",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A104-012",
+  "word": "become",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A104-013",
+  "word": "bring",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A104-014",
+  "word": "build",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A104-015",
+  "word": "come",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A104-016",
+  "word": "create",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A104-017",
+  "word": "do",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A104-018",
+  "word": "fall",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A104-019",
+  "word": "fill",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A104-020",
+  "word": "find",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A104-021",
+  "word": "follow",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A104-022",
+  "word": "get",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A104-023",
+  "word": "give",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A104-024",
+  "word": "go",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A104-025",
+  "word": "happen",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A104-026",
+  "word": "have",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A104-027",
+  "word": "include",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A104-028",
+  "word": "keep",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A104-029",
+  "word": "leave",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A104-030",
+  "word": "let",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A104-031",
+  "word": "lose",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A104-032",
+  "word": "make",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A104-033",
+  "word": "move",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A104-034",
+  "word": "need",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A104-035",
+  "word": "put",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A104-036",
+  "word": "stand",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A104-037",
+  "word": "start",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A104-038",
+  "word": "take",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A104-039",
+  "word": "try",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A104-040",
+  "word": "use",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A104-041",
+  "word": "win",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A104-042",
+  "word": "healthy",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A104-043",
+  "word": "tired",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A104-044",
+  "word": "fat",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A104-045",
+  "word": "fine",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A104-046",
+  "word": "sick",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A104-047",
+  "word": "strong",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A104-048",
+  "word": "arm",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A104-049",
+  "word": "ball",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A104-050",
+  "word": "body",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A104-051",
+  "word": "diet",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A104-052",
+  "word": "doctor",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A104-053",
+  "word": "ear",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A104-054",
+  "word": "eye",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A104-055",
+  "word": "face",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A104-056",
+  "word": "foot",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A104-057",
+  "word": "football",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A104-058",
+  "word": "gym",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A104-059",
+  "word": "hair",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A104-060",
+  "word": "hand",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A104-061",
+  "word": "head",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A104-062",
+  "word": "health",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A104-063",
+  "word": "hospital",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A104-064",
+  "word": "leg",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A104-065",
+  "word": "mouth",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A104-066",
+  "word": "nose",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A104-067",
+  "word": "nurse",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A104-068",
+  "word": "player",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A104-069",
+  "word": "sport",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A104-070",
+  "word": "swimming",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A104-071",
+  "word": "tennis",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A104-072",
+  "word": "tooth",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A104-073",
+  "word": "exercise",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A104-074",
+  "word": "match",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A104-075",
+  "word": "relax",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A104-076",
+  "word": "run",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A104-077",
+  "word": "swim",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A104-078",
+  "word": "cheap",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A104-079",
+  "word": "expensive",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A104-080",
+  "word": "free",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A104-081",
+  "word": "poor",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A104-082",
+  "word": "rich",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A104-083",
+  "word": "bank",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A104-084",
+  "word": "bill",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A104-085",
+  "word": "cent",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A104-086",
+  "word": "customer",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A104-087",
+  "word": "dollar",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A104-088",
+  "word": "euro",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A104-089",
+  "word": "money",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A104-090",
+  "word": "pound",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A104-091",
+  "word": "price",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A104-092",
+  "word": "product",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A104-093",
+  "word": "shopping",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A104-094",
+  "word": "cost",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A104-095",
+  "word": "shop",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A104-096",
+  "word": "buy",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A104-097",
+  "word": "pay",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A104-098",
+  "word": "sell",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A104-099",
+  "word": "spend",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A104-100",
+  "word": "natural",
+  "level": "A1",
+  "status": "accepted"
+ }
+]

@@ -203,9 +203,11 @@ export function checkContent(card: DeckWord): IntakeFinding[] {
   return validateDeck(deck).map((issue) => ({
     stage: "content" as const,
     field: issue.field,
-    // Everything the deck validator reports would also be reported after
-    // import, so none of it is cosmetic.
-    severity: "blocker" as const,
+    // Anything the deck validator calls an error would be reported again after
+    // import, so it blocks. What it calls a warning is an aim the language
+    // states as advice, and blocking a batch over advice would be refusing
+    // cards the rules themselves pass.
+    severity: issue.severity === "warning" ? ("warn" as const) : ("blocker" as const),
     message: issue.message,
   }));
 }

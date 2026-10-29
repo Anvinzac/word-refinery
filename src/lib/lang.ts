@@ -17,15 +17,18 @@
  *   sentence is measured in words. Japanese is written without spaces, so word
  *   counting is a parsing problem and the honest measure is characters.
  *
- *   BREAKING. Vietnamese puts a space between every syllable, so a line may
- *   break anywhere a word does not want it to, and the marks exist to say "not
- *   here". Japanese has no spaces, so a renderer may break between ANY two
- *   characters, and the useful mark is the one that says "here is fine". The
- *   same three marks carry the same three meanings in both; which of them does
- *   the work is what differs.
+ *   BREAKING. Both languages use all three marks, and both use them to carve a
+ *   sentence into the units a phone screen may break between - but they start
+ *   from opposite defaults. Vietnamese puts a space between every syllable, so
+ *   a line may break anywhere, and "_" and "=" exist to say "not here".
+ *   Japanese writes nothing between words, so the marks are laid over 文節 -
+ *   the units Japanese school grammar teaches - and the SPACE is markup too.
+ *   Which means a bond unstrips differently: "_" in Vietnamese stands where a
+ *   space would be, "_" in Japanese stands where nothing would be, and getting
+ *   that backwards puts gaps into every quoted Japanese phrase.
  *
  * Exports: GlossProfile, GLOSS_LANGS, glossProfile, activeGlossProfile,
- *          measureLength, describeLength, markRules
+ *          displayText, measureLength, describeLength, markRules
  * Depends on: ./joiner.ts, ./workspace.ts
  */
 import { countUnits, stripMarks, type MarkRules } from "./joiner.ts";
@@ -37,6 +40,17 @@ export interface LengthRule {
   max: number;
   /** A hard ceiling in characters, where it differs from `max`. */
   maxChars?: number;
+  /**
+   * True when the range is ADVICE rather than a limit.
+   *
+   * The two prompts differ here, and the difference is not cosmetic. v3.7 gives
+   * Vietnamese a hard 8-11 words. The Japanese rules say "about 12 to 36
+   * characters" and their own validator warns rather than errors - what is hard
+   * there is the chunk ceiling, the gloss and the highlight. Encoding an aim as
+   * a limit would report a tight, correct definition as a defect, and 31 of the
+   * 500 Japanese cards write one.
+   */
+  aim?: boolean;
 }
 
 /** Everything that differs between one gloss language and the next. */
@@ -88,6 +102,19 @@ export interface GlossProfile {
    */
   emphasis: { min: number; max: number; maxChars: number; unitWord: string };
 
+  /**
+   * Which field each positional emphasis entry glows in, in order.
+   *
+   * Both prompts map highlights BY POSITION rather than by searching every
+   * field, which is what keeps one sentence from ever showing two glows. But
+   * they disagree about the third: card-prompt v3.7 puts it in anticipateVi,
+   * the teaser, while the Japanese rules put it in the usage sentence, where it
+   * is the answer reveal, and give the teaser no glow at all. A checker that
+   * assumed either one would report every card of the other language as having
+   * a highlight that does not occur in the sentence it belongs to.
+   */
+  emphasisSlots: readonly ("def" | "lead" | "anticipate" | "usageGloss")[];
+
   /** Which breaking marks this language actually uses. */
   marks: {
     /** "_" joins the pieces of one word. */
@@ -98,7 +125,30 @@ export interface GlossProfile {
     phrase: "required" | "optional";
     /** The smallest phrase a "|" may create, in the profile's own unit. */
     minPhrase: number;
+    /**
+     * The largest, where the language states one. A chunk that fills the screen
+     * on its own has not given the line anywhere to break either.
+     */
+    maxPhrase?: number;
   };
+
+  /**
+   * What a bond ("_" or "=") stands in for once it is taken out.
+   *
+   * "space" where the language writes a space between the pieces a bond joins,
+   * so removing the bond has to leave one behind: Vietnamese "ba_lô" is read
+   * "ba lô". "none" where it writes them flush: Japanese "見て=いる" is read
+   * "見ている", and leaving a space would put a gap into every phrase this app
+   * quotes back at a reviewer, and into every emphasis match.
+   */
+  bondSpacing: "space" | "none";
+  /**
+   * Whether a reading may ride along as 漢字《かんじ》.
+   *
+   * It is an aid to the reader rather than part of the sentence, so no length
+   * rule counts it and no highlight may contain it.
+   */
+  ruby: boolean;
 
   /** One line naming the reader. Opens every prompt. */
   audience: string;
@@ -200,7 +250,11 @@ const VIETNAMESE: GlossProfile = {
   },
   glossUnits: 4,
   emphasis: { min: 1, max: 4, maxChars: 30, unitWord: "syllables" },
+  emphasisSlots: ["def", "lead", "anticipate"],
   marks: { join: true, clitic: true, phrase: "optional", minPhrase: 2 },
+  // Every syllable is already a space apart, so a bond replaces a space.
+  bondSpacing: "space",
+  ruby: false,
   audience:
     "The reader is a Vietnamese learner who sees Vietnamese first and only later the English word.",
   joining: VI_JOINING,
@@ -227,26 +281,26 @@ const VIETNAMESE: GlossProfile = {
 
 /* -------------------------------------------------------------------- Japanese */
 
-const JA_EMPHASIS_CHOICE = `  CHOOSE BY MEANING FIRST. Pick the word that carries the POINT of the sentence - the idea the learner should walk away with. The test: if the sentence were cut to one word, which word would have to survive for it still to mean anything? That is the one. A word chosen because it happened to sit next to another is a DEFECT even when it satisfies every mechanical rule below.
-  * Prefer, in this order: the noun that names the concept itself (安全、記憶、努力), then a vivid verb or adjective (輝く、たくましい), then a concrete noun.
-  * NEVER pick filler: a particle on its own (は、が、を、に、で、と、も、の、へ), a formal noun (こと、もの、ところ、ため), a bare auxiliary (する、いる、ある、なる) or a demonstrative (この、その、あの).
-  * It must be copied EXACTLY, character for character, from the defVi or leadVi you just wrote - same kanji, same okurigana, same kana. Do not convert kanji to kana or back.
-  * Write it PLAIN, without any "|" inside it.
-  * ONE word of 2-6 characters. A verb or adjective is given with its okurigana as it appears in the sentence (登って, not 登る) so the highlight matcher finds it.
-  * Never a whole clause, and never a span that crosses a "|" or a 、.
-  * It must be unique inside the list.`;
+const JA_EMPHASIS_CHOICE = `  ONE GLOW PER SENTENCE, chosen by MEANING. The three entries are positional - [0] glows in defVi, [1] in leadVi, [2] in usageVi - and each is searched only in its own field, so no sentence ever shows two highlights.
+  * [2] THE TARGET: the Japanese that fills the English blank, exactly as it appears in usageVi, inflected as written (空港, 着く, 怒って, 気前がいい). This is the answer reveal.
+  * [0] and [1] are MEANING WORDS: the content word nearest in meaning to the target. Prefer, in this order: an equivalent or near-synonym of the target (achieve: 成し遂げる), then its core quality or state (stubborn: 変えない), then what it typically does or causes (embarrassed: 熱くなる).
+  * The two must DIFFER and must approach the meaning from different sides - in defVi usually the equivalent, in leadVi the word in the scene that SHOWS it (angry: 怒り in defVi, 腹が_立った in leadVi).
+  * SHAPE: ONE content word with its okurigana and its verb or adjective ending, but no particles (成し遂げる, 変えない, 気前, 熱くなる - not 気前が, not 顔が熱くなる); or ONE "_" idiom given whole (腹が立つ, 気を配る). A final で, と, に or も that belongs to the word stays: te-forms (進んで), mimetics (すっと, 次々と), adverbs (何度も, 一気に). Only a real case particle is dropped.
+  * Written exactly as DISPLAYED: no spaces, no marks, no ruby. At most 8 characters. Never across a space, a "=" or a "|" - a "=" unit is not one word, so 忘れて=しまう gives 忘れて.
+  * NEVER a word that only names the topic, object or place (ひこうき on an airport card), scene decoration, a generic degree adverb (とても, すごく, 本当に), a time phrase (毎日, 今日), or grammar alone (a pronoun, a number, a 形式名詞, an ordinary particle, a 補助動詞, a bare ない/まだ/だけ).
+  * QUALITY TEST: if only this word glowed and the rest stayed plain, would the glow point at the MEANING? If no word in the sentence passes, rewrite the sentence rather than glow an unrelated one.`;
 
 const JA_JOINING = `Breaking marks (applies to every Japanese field: meaningVi, defVi, leadVi, anticipateVi, usageVi):
-Japanese is written without spaces, so a renderer may break a line between ANY two characters - in the middle of a word, between a verb and its ending, after a particle that belongs to the phrase before it. One mark fixes that, and it is the opposite of what a space-separated language needs: you are not saying "do not break here", you are saying "HERE is where a break is welcome".
-  |  PHRASE EDGE. A space each side, at a 文節 boundary: "手足を使って | 高い所まで登っていくこと。"
-- Put "|" at the natural pauses of the sentence - after a topic or subject phrase and its particle, before an adverbial or time phrase, before a subordinate clause, before the final predicate.
-- Every stretch between two "|" must be at least 4 characters. "|" exists so a break can land on a phrase edge instead of stranding two characters on a line of their own.
-- A sentence of this length wants TWO or THREE "|". One is thin; one after every 文節 is noise, and a line that can break everywhere is the problem you started with.
-- A particle belongs to the phrase BEFORE it: write "山に | 登る", never "山 | に登る". The same for を, は, が, で, と, も, から, まで, より.
-- Never put "|" inside a word, inside a compound, between a verb and its okurigana, between a number and its counter, or inside a katakana loanword.
-- Never put "|" immediately before 、 or 。, and never at the very start or the very end of a field.
-- "_" and "=" are NOT used in Japanese. They exist for languages that put spaces between syllables; here there is no space to suppress. An underscore anywhere in a Japanese field is a defect - except the five-underscore blank "_____" in usageEn, which is English and unaffected.
-- "|" does not change a character count, and the reader never sees it; the app replaces it when the deck loads.`;
+Japanese is written without spaces, so the marks work on 文節 - the units Japanese school grammar already teaches, and the same 分かち書き a 小1 textbook is printed in. All four are markup: the reader sees none of them, and none of them changes a character count.
+  " "  ONE ASCII SPACE separates 文節 inside a chunk. A 文節 is one content word plus the particles and endings stuck to it: 目を / とじるだけで / 白い / 砂の / 海辺に. Never inside a word, a kanji compound, a katakana word, or between a stem and its okurigana. Never a full-width space.
+  _   IDIOM JOIN. Joins 文節 that are ONE dictionary entry, an idiom whose meaning is not the sum of its parts: 気が_付く, 手を_貸す, 腹が_立つ, 気前が_いい, 目を_丸くする. Only for real idioms - 本を 読む stays spaced.
+  =   GRAMMAR BIND. Joins a dependent 文節 to the one it leans on: a 補助動詞 after the て-form (見えて=くる, 忘れて=しまう), a 補助形容詞 (来て=ほしい), a 形式名詞 to what modifies it (思いうかべる=こと, 人の=ために), a compound particle (私に=とって, 雨に=よって), or a degree adverb directly before the word it grades (すごく=はずかしかった). Chains are fine: 目に=した=ことの ない.
+  |   CHUNK EDGE, written with a space each side: the pause or reveal unit.
+- Break only between 文節, at a natural breath: after 、, after a topic or subject (〜は, 〜が), after a て/で clause, before the predicate.
+- Aim for 3 to 12 displayed characters per chunk; 14 is the hard ceiling. Keep chunks roughly even - never a one-character chunk next to a thirteen-character one. One idea per chunk, and the last chunk carries the predicate or the punchline.
+- A chunk never starts with a bare particle, 、 or 。, and a "_" or "=" unit is never split by a "|".
+- Punctuation stays at the end of its chunk, before the pipe: 目を とじるだけで、 | 白い 砂の…
+- Marks never touch each other or a space (no "_ ", no "=|", no "__"), and none of them may begin or end a field.`;
 
 const JAPANESE: GlossProfile = {
   id: "ja",
@@ -255,48 +309,70 @@ const JAPANESE: GlossProfile = {
   locale: "ja-JP",
   deckName: "WordCrawler deck (JA)",
   country: "Japan",
-  // No spaces, so "how many words" is a parsing question with no answer the
-  // model and the validator would reliably agree on. Characters are countable
-  // by both, and they are what actually fills the card.
+  // Japanese IS spaced in these cards - but the spaces separate 文節, not
+  // words, and they are markup the reader never sees. So "how many words" is
+  // still unanswerable, and the rules measure what both the writer and the
+  // validator can agree on: DISPLAYED characters, with every mark, every 文節
+  // space and every ruby reading taken out first.
   measure: "characters",
   unitWord: "characters",
   countPhrase: "character count",
   limits: {
-    def: { min: 16, max: 34 },
-    lead: { min: 16, max: 34 },
-    anticipate: { min: 8, max: 20 },
-    meaning: { min: 1, max: 10, maxChars: 40 },
+    // "About" is the rules' own word for these three, and their validator
+    // warns on them. The hard numbers in Japanese are elsewhere: a chunk of 14
+    // characters, a gloss of 14, a highlight of 8.
+    def: { min: 12, max: 36, aim: true },
+    lead: { min: 12, max: 38, aim: true },
+    anticipate: { min: 3, max: 16, aim: true },
+    meaning: { min: 1, max: 14, maxChars: 14 },
   },
-  glossUnits: 10,
-  emphasis: { min: 2, max: 6, maxChars: 12, unitWord: "characters" },
-  marks: { join: false, clitic: false, phrase: "required", minPhrase: 4 },
+  glossUnits: 14,
+  // No floor worth enforcing: 神 is one character and a perfectly good glow.
+  // The ceiling is what the rule is about.
+  emphasis: { min: 1, max: 8, maxChars: 8, unitWord: "characters" },
+  // All three marks, and all three for their own reason. "_" says these 文節
+  // are one dictionary entry, so a highlight may cover them; "=" says this
+  // 文節 leans on the next and may not be split from it; "|" says a break is
+  // welcome here. A chunk has a CEILING rather than a floor, because the mark
+  // exists to offer a line somewhere to break.
+  emphasisSlots: ["def", "lead", "usageGloss"],
+  marks: { join: true, clitic: true, phrase: "required", minPhrase: 1, maxPhrase: 14 },
+  // The pieces a bond joins are written flush in Japanese, so a bond comes out
+  // as nothing. 見て=いる is 見ている, never 見て いる.
+  bondSpacing: "none",
+  ruby: true,
   audience:
-    "The reader is a Japanese learner of English who sees the Japanese first and only later the English word.",
+    "The reader is a Japanese student - 小学生 to 大学生, with 大学生 as the core audience - learning English, who sees the Japanese first and only later the English word.",
   joining: JA_JOINING,
-  rules: `- Write natural modern Japanese. Full-width punctuation only: 、and 。, never a comma, a full stop or half-width katakana.
-- defVi and leadVi are written in PLAIN form (だ・である体). A definition normally ends in 〜こと。or 〜様子。or the plain predicate itself. anticipateVi is spoken, so it may be casual.
-- Keep the kanji within reach of the level you are given: a word marked A1 or A2 is read by a beginner, so prefer kana for anything beyond the most common kanji. There is no furigana in these fields.
-- NEVER give the answer away. In Japanese the usual leak is katakana: writing チャレンジ for "challenge", エネルギー for "energy" or クライミング for "climb" hands the learner the English word in Japanese clothing. Use a native equivalent (挑戦、活力、登ること) instead. A katakana loanword is allowed only when it is the ordinary Japanese word for the thing AND is not a transcription of the target word.
-- No English letters at all in meaningVi, defVi, leadVi, anticipateVi or usageVi.
-- Never define a word with the word itself.`,
+  rules: `- Write natural modern Japanese. Full-width punctuation only: 、。？！「」『』…（）・ー. Never , . ? ! : ; " ( ) in Japanese text, and never 〜 or ～ - use から, まで or a rewrite. The ellipsis is a pair, ……, or a single … at the end of anticipateVi.
+- defVi is dictionary register, plain form, no です/ます: usually …こと。 for a verb, …様子。 / …気持ち。 / …性格。 for an adjective, …もの。 / …人。 / …場所。 for a noun. leadVi is plain-form narration and may carry タメ口 dialogue in 「」. anticipateVi is the playful field, spoken to the reader. usageVi is natural spoken Japanese, です/ます only where the English is polite.
+- Keep the kanji within reach of the reader you are given, and never mix kanji and kana inside one compound (交ぜ書き): rephrase, write the whole word in kana, or attach a reading as 漢字《かんじ》, at most twice per card. Words normally written in kana stay kana at every level: こと, もの, とき, ところ, ため, よう, わけ, はず, いる, ある, おく, しまう, くる, いく, みる, できる, など, ほど, たくさん, いろいろ, ほとんど, もちろん, ぜひ, すべて, しかし.
+- NEVER give the answer away. In Japanese the usual leak is katakana: writing チャレンジ for "challenge", エネルギー for "energy" or クライミング for "climb" hands the learner the English word in Japanese clothing. Use a native equivalent (挑戦、活力、登ること). A katakana loanword is allowed only when it is the ordinary Japanese word for the thing AND is not a transcription of the target word. leadVi must never name the meaning or its stem at all - show the scene, do not say the word.
+- Compact Japanese: one word per idea. Never stack two near-synonyms with や, と, し just to sound complete (楽しくて うれしい gives うれしい). Drop the empty helpers - 〜を 行う, 〜を 実施する, 〜する=ことが できる, 〜という=こと, 〜において, 〜に関して - and spend the freed room on a concrete detail.
+- No English letters in meaningVi, defVi, leadVi, anticipateVi or usageVi. Never define a word with the word itself.
+- Safe and publishable: no alcohol, tobacco, gambling, politics, religious observance, violence, humiliation or sensationalised illness, and no real prefecture, city or region names - use 地元, 都会, 海の 近くの 町.`,
   emphasisChoice: JA_EMPHASIS_CHOICE,
-  fillers: ["ね", "よ", "かな", "だろう", "っけ", "さ", "なあ", "でしょう", "もの", "こと"],
-  intensifiers: ["とても", "すごく", "かなり", "本当に", "めっちゃ", "ちょっと"],
-  sentenceEnd: ["。", "."],
+  // Rule 3.7: at most ONE of these ends a sentence, and none of them ends a
+  // definition.
+  fillers: ["ね", "よ", "な", "かな", "じゃん", "よね", "ってば"],
+  intensifiers: ["とても", "すごく", "すごい", "本当に", "かなり", "少し", "ちょっと", "めっちゃ", "もっと"],
+  sentenceEnd: ["。", "？", "！", "."],
   fieldRules: {
     meaning:
-      'the short Japanese EQUIVALENT of the word - the headword a dictionary would give (登る、思いやり、丈夫な), at most 10 characters. NOT a sentence and never a description: defVi is the sentence, this is the word. A verb is given in dictionary form, an adjective with its ending (丈夫な, 美しい).',
-    def: "ONE Japanese sentence defining the word, 16-34 characters, plain form, no English letters, ending in 。",
-    lead: "a Japanese teaser hinting at the meaning without naming it, 16-34 characters, ending in 。",
+      'the standard Japanese EQUIVALENT in dictionary form - what a dictionary would give as the headword (想像する, 忘れる, うれしい, 親切な, 空港). At most 14 characters, at most two senses separated by 、 (はずかしい、気まずい), no "|", no closing punctuation. An idiom takes "_" (気前が_いい). NOT a sentence and never a description: defVi is the sentence, this is the word.',
+    def: "ONE Japanese definition, 2 to 4 chunks (3 is normal) and about 12 to 36 characters, plain form, ending in 。. It may use the meaning word, but should explain it in simpler words.",
+    lead: "a concrete scene in plain form, 2 to 4 chunks and about 12 to 38 characters, ending in 。, ？, ！ or 」. Who, where, one telling detail - set in the reader's own Japanese life. SHOW the meaning; the meaning word and its stem must not appear.",
     anticipate:
-      'a short playful Japanese invitation to guess, 8-20 characters. It must be DIFFERENT for every word IN THE WHOLE DECK, not merely within this batch - the user message lists lines and openings already taken, and reusing one is a defect. Vary the opening as well as the wording; never fall back on a placeholder like「さあ、何でしょう？」.',
-    usageGloss: "the Japanese meaning of that example sentence, in natural Japanese rather than a word-for-word rendering.",
-    emphasis: "2 Japanese words that will glow on screen, one drawn from defVi and one from leadVi.",
+      'a casual, playful hook spoken to the reader - …かな？, …じゃん？, …かも！, え、まさか…？ - in 1 or 2 chunks and about 3 to 16 characters, ending in ？, ！ or …. It must be DIFFERENT for every word IN THE WHOLE DECK, not merely within this batch; the user message lists lines and openings already taken, and reusing one is a defect. Never fall back on a placeholder like「さあ、何でしょう？」.',
+    usageGloss:
+      "a natural Japanese translation of the English example with the blank filled in, 1 to 4 chunks and about 8 to 34 characters, ending the way the English does. The meaning word should normally appear. Drop pronouns where Japanese would, and prefer あの人 or a name to 彼 or 彼女.",
+    emphasis:
+      "exactly 3 Japanese words that will glow on screen, by position: the meaning word of defVi, a different meaning word from leadVi, and the target as it appears in usageVi.",
   },
-  example: `[{"word":"water","pos":"noun","ipa":"/ˈwɔː.tər/","meaningVi":"水","defVi":"色も味もなく | 毎日飲んでいる | 透明な液体のこと。","leadVi":"これがなければ | どんな植物も | 育つことはない。","anticipateVi":"流れていくもの、何かな？","usageEn":"Please bring me a glass of _____.","usageVi":"コップ一杯の水を持ってきてください。","topics":["nature","daily"],"exams":[],"emphasisVi":["液体","植物"]}]`,
+  example: `[{"word":"imagine","pos":"verb","ipa":"/ɪˈmædʒ.ɪn/","meaningVi":"想像する","defVi":"実際には 見て=いない ものを | 頭の 中に | 思い浮かべる=こと。","leadVi":"目を 閉じるだけで、 | 砂浜に 寝転ぶ | 自分の 姿が | 浮かんで=くる。","anticipateVi":"頭の 中で | 旅に 出よう！","usageEn":"Can you _____ a world without the internet?","usageVi":"ネットの ない | 生活なんて、 | 想像できる？","topics":["mind","daily"],"exams":[],"emphasisVi":["思い浮かべる","浮かんで","想像できる"]}]`,
   chips: {
     "too-long": { instruction: "It runs past the allowed length. Cut it down to the required character count." },
-    "too-short": { instruction: "It is shorter than the required character count. Expand it without padding." },
+    "too-short": { instruction: "It is shorter than the required character count. Expand it with a concrete detail, not with padding." },
     awkward: {
       instruction: "The phrasing is clumsy. Rewrite it so it reads like fluent written Japanese.",
     },
@@ -305,12 +381,17 @@ const JAPANESE: GlossProfile = {
     },
     "too-hard": {
       instruction:
-        "The vocabulary or the kanji is too advanced for a beginner. Use everyday words, and kana where the kanji is beyond the level.",
+        "The vocabulary or the kanji is beyond this reader. Use everyday 和語, and kana or a 《》 reading where the kanji is above the level.",
     },
     diacritics: {
       label: "Wrong characters",
       instruction:
-        "A kanji, its okurigana or a kana is wrong, or the text uses half-width katakana or half-width punctuation. Write correct Japanese orthography with 、and 。.",
+        "A kanji, its okurigana or a kana is wrong, or the text mixes kanji and kana inside one compound, or uses half-width punctuation. Write correct Japanese orthography with 、and 。.",
+    },
+    chunks: {
+      label: "Chunking",
+      instruction:
+        'The " | " chunks are wrong: a chunk is too long, too short, starts with a bare particle, or breaks somewhere that is not a 文節 boundary. Re-chunk it at the natural breaths, 3 to 12 characters each.',
     },
     "not-an-equivalent": {
       instruction:
@@ -318,10 +399,10 @@ const JAPANESE: GlossProfile = {
     },
     "leaks-answer": {
       instruction:
-        "It gives the English headword away - most likely as katakana (チャレンジ for \"challenge\"). Replace it with a native Japanese equivalent so the word stays guessable.",
+        "It gives the answer away - either the meaning word itself in the scene, or the English headword as katakana (チャレンジ for \"challenge\"). Replace it so the word stays guessable.",
     },
   },
-  exampleNote: `(Note the example: defVi is 22 characters and carries two "|", each at a 文節 boundary with the particle kept on the phrase before it; there is no "_" and no "=" anywhere, because Japanese has no spaces to suppress; "meaningVi" is the bare equivalent 「水」, not a sentence; and each emphasis word - 「液体」 from defVi, 「植物」 from leadVi - is copied exactly as it appears and does not cross a "|".)`,
+  exampleNote: `(Note the example: defVi is 25 displayed characters in 3 chunks, each at a 文節 boundary with the particle kept on the chunk before it; the 文節 inside a chunk are separated by one ASCII space; "=" binds 見て to いない and 思い浮かべる to こと, because a 補助動詞 and a 形式名詞 lean on what they follow; "meaningVi" is the bare equivalent 「想像する」, not a sentence; and the three emphasis entries are POSITIONAL - 「思い浮かべる」 glows only in defVi, 「浮かんで」 only in leadVi, 「想像できる」 only in usageVi - each written as the reader sees it, with no space, mark or ruby inside.)`,
 };
 
 /* ----------------------------------------------------------------------------- */
@@ -356,11 +437,30 @@ export function activeGlossProfile(): GlossProfile {
  * @param profile - the language it is written in
  */
 export function measureLength(text: string, profile: GlossProfile): number {
-  const clean = stripMarks(text);
-  if (profile.measure === "words") return countUnits(clean);
-  // Whitespace is not content in a language that does not use it to separate
-  // words, and counting it would reward padding.
-  return [...clean.replace(/\s+/gu, "")].length;
+  const shown = displayText(text, profile);
+  if (profile.measure === "words") return countUnits(shown);
+  return [...shown].length;
+}
+
+/** A reading attached to the kanji run before it: 漢字《かんじ》. */
+const RUBY_READING = /([\p{Script=Han}\u3005]+)《[\p{Script=Hiragana}ー]+》/gu;
+
+/**
+ * The text a reader actually sees.
+ *
+ * Every mark comes out, and in a language that writes no spaces the 文節 spaces
+ * come out with them: they are markup saying where a unit ends, not typography
+ * the reader is shown. This is the form a length rule counts, the form an
+ * emphasis phrase is stored in, and the form the app renders - so all three
+ * agree by construction rather than by three separate strips.
+ *
+ * @param text - a field, with its marks and any ruby still in it
+ * @param profile - the language it is written in
+ */
+export function displayText(text: string, profile: GlossProfile): string {
+  const plain = profile.ruby ? text.replace(RUBY_READING, "$1") : text;
+  if (profile.bondSpacing === "space") return stripMarks(plain);
+  return plain.replace(/[_=|\s]/gu, "");
 }
 
 /**
@@ -381,7 +481,9 @@ export function markRules(profile: GlossProfile): MarkRules {
     join: profile.marks.join,
     clitic: profile.marks.clitic,
     minPhrase: profile.marks.minPhrase,
+    ...(profile.marks.maxPhrase === undefined ? {} : { maxPhrase: profile.marks.maxPhrase }),
     measure: (text) => measureLength(text, profile),
+    display: (text) => displayText(text, profile),
     unitWord: profile.measure === "words" ? "syllable(s)" : profile.unitWord,
   };
 }

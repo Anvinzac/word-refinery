@@ -48,6 +48,7 @@ import { readSettings, writeSettings, type Settings } from "./lib/settings";
 import { WorkspaceSwitcher } from "./components/WorkspaceSwitcher";
 import {
   ORIGINAL_WORKSPACE_ID,
+  activeWorkspace,
   addWorkspace,
   readWorkspaces,
   removeWorkspace,
@@ -86,8 +87,22 @@ function emptyDoc(settings: Settings): RefineryDoc {
   };
 }
 
-/** Bundled with the site; loaded when a browser has no words of its own yet. */
-const DEFAULT_DECK_URL = `${import.meta.env.BASE_URL}default-deck.json`;
+/**
+ * Bundled with the site, ONE PER GLOSS LANGUAGE; loaded when a browser has no
+ * words of its own yet.
+ *
+ * Keyed by the language rather than by the workspace, so a workspace can only
+ * ever be handed a deck written in the language it writes. That is the whole
+ * separation the gate used to provide by naming the original workspace, and it
+ * provides it for every language the repository ships instead of for one.
+ *
+ * Vietnamese keeps the unscoped name the file has always had, so the deck a
+ * reviewer has been working in is still fetched from exactly where it was.
+ */
+function defaultDeckUrl(gloss: GlossLang): string {
+  const suffix = gloss === "vi" ? "" : `-${gloss}`;
+  return `${import.meta.env.BASE_URL}default-deck${suffix}.json`;
+}
 /** The style set the repository ships, when one has been committed. */
 const STYLE_FILE_URL = `${import.meta.env.BASE_URL}${STYLE_FILE_NAME}`;
 
@@ -211,17 +226,15 @@ export function App() {
       // Every path must end in setHydrated: the autosave stays off until it does.
       try {
         if (cancelled) return;
-        // The bundled deck and the committed style set are the ORIGINAL
-        // workspace's data: 720 Vietnamese cards and a Vietnamese voice. Loading
-        // them into a deck started for another language would be the loudest
-        // possible interference between two workspaces.
+        // The deck this workspace's LANGUAGE ships with. Loading a Vietnamese
+        // deck into a workspace started for Japanese would be the loudest
+        // possible interference between two workspaces, so the file is chosen
+        // by the language and a workspace whose language has no shipped deck
+        // simply starts empty.
         // Read here rather than from state: this effect has no dependencies,
         // and the value cannot change without the reload that a switch does.
-        const ownsBundled = readWorkspaces().activeId === ORIGINAL_WORKSPACE_ID;
-        const response = ownsBundled
-          ? await fetch(DEFAULT_DECK_URL, { cache: "no-store" })
-          : null;
-        const parsed = response !== null && response.ok ? parseJsonText(await response.text()) : null;
+        const response = await fetch(defaultDeckUrl(activeWorkspace().gloss), { cache: "no-store" });
+        const parsed = response.ok ? parseJsonText(await response.text()) : null;
         if (restored !== null) {
           const added = parsed === null ? [] : entriesForNewBatches(restored.review, parsed.deck.words);
           if (!cancelled && added.length > 0) {
@@ -336,6 +349,11 @@ export function App() {
   );
 
   const issues = useMemo(() => validateDeck(doc.deck), [doc.deck]);
+  // Counted apart, because a card that misses an aim its own language calls
+  // advice is not a card with something wrong with it, and burying the real
+  // defects under those is how a reviewer stops reading the number.
+  const errors = useMemo(() => issues.filter((issue) => issue.severity !== "warning"), [issues]);
+  const advisories = issues.length - errors.length;
   const approved = useMemo(() => approvedEntries(doc.review), [doc.review]);
 
   const onGenerated = useCallback(
@@ -555,7 +573,8 @@ export function App() {
           <b>{approved.length}</b> approved
         </span>
         <span>
-          <b>{issues.length}</b> issue(s)
+          <b>{errors.length}</b> issue(s)
+          {advisories > 0 ? ` · ${advisories} to look at` : ""}
         </span>
         <div className="spacer" />
         <span>{dirty ? "unsaved changes" : "saved"}</span>
@@ -757,9 +776,11 @@ export function App() {
                 Export approved deck
               </button>
               <span className="note" style={{ color: "var(--muted)", fontSize: 12 }}>
-                {issues.length > 0
-                  ? `${issues.length} validation issue(s) remain across the whole deck — check Words above.`
-                  : "No validation issues."}
+                {errors.length > 0
+                  ? `${errors.length} validation issue(s) remain across the whole deck — check Words above.`
+                  : advisories > 0
+                    ? `No validation issues. ${advisories} card(s) miss a length aim — advice, not a defect.`
+                    : "No validation issues."}
               </span>
             </div>
           </section>

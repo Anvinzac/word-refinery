@@ -137,8 +137,27 @@ export interface MarkRules {
   clitic: boolean;
   /** The smallest phrase a "|" may create, in whatever `measure` counts. */
   minPhrase: number;
+  /**
+   * The largest phrase a "|" may create, where the language states one.
+   *
+   * A phrase can fail by being too LONG as well as too short, and for the same
+   * reason: the mark exists to give a line somewhere to break, so a phrase that
+   * overflows the screen on its own has not given it one. Vietnamese does not
+   * state a ceiling, Japanese does (14 displayed characters), so this is
+   * optional rather than a number every language has to invent.
+   */
+  maxPhrase?: number;
   /** How to size a phrase. */
   measure: (text: string) => number;
+  /**
+   * The text a reader sees, for the message that quotes a phrase back.
+   *
+   * Defaults to `stripMarks`, which is right for a language whose bonds sit
+   * where a space would be. A language that writes no spaces needs its bonds
+   * removed rather than spaced, or every quoted phrase comes back with gaps
+   * the card does not have.
+   */
+  display?: (text: string) => string;
   /** What that measure counts, for the message: "syllable(s)", "characters". */
   unitWord: string;
 }
@@ -185,12 +204,21 @@ export function findStrayMarks(raw: string, rules: MarkRules = DEFAULT_MARK_RULE
   }
 
   if (text.includes(PHRASE_BREAK)) {
-    const phrases = splitPhrases(text);
+    const show = rules.display ?? stripMarks;
+    const phrases = text
+      .split(PHRASE_BREAK)
+      .map((part) => show(part))
+      .filter((part) => part.length > 0);
     for (const phrase of phrases) {
       const units = rules.measure(phrase);
       if (units < rules.minPhrase) {
         problems.push(
           `phrase "${phrase}" is ${units} ${rules.unitWord}; a phrase needs at least ${rules.minPhrase} so a break beside it cannot strand one`,
+        );
+      }
+      if (rules.maxPhrase !== undefined && units > rules.maxPhrase) {
+        problems.push(
+          `phrase "${phrase}" is ${units} ${rules.unitWord}; a phrase may be at most ${rules.maxPhrase}, or the break it offers comes too late`,
         );
       }
     }
