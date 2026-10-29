@@ -33,6 +33,11 @@ import {
 import { openCatalog, type CatalogDb, type CatalogStats } from "../lib/intake-db";
 import { clearLocalCatalog, loadLocalCatalog, saveLocalCatalog } from "../lib/local-doc";
 import { describeLlmError, repairCard, reviewSafety } from "../lib/llm";
+import {
+  describeWordList,
+  parseCefrWords,
+  type CefrWordList,
+} from "../lib/cefr-words";
 import { coerceDeckWord } from "../lib/deck";
 import { exportCatalogForKineMedia } from "../lib/kinemedia-export";
 import { activeGlossProfile } from "../lib/lang";
@@ -69,6 +74,14 @@ export function IntakePanel({ settings }: { settings: Settings }) {
    * level ceiling and the whole of B1 are unenforceable.
    */
   const [manifest, setManifest] = useState<ManifestRow[] | null>(null);
+  /**
+   * A CEFR word list, when the reviewer chose one alongside the batch.
+   *
+   * It stays in memory for the session and is never written anywhere: the
+   * lists that can answer U1 cannot be redistributed, so this app reads one
+   * and does not keep it. See lib/cefr-words.ts.
+   */
+  const [wordList, setWordList] = useState<CefrWordList | null>(null);
   const [progress, setProgress] = useState<Progress | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [notice, setNotice] = useState<string | null>(null);
@@ -121,12 +134,16 @@ export function IntakePanel({ settings }: { settings: Settings }) {
   const runLocal = (
     candidates: Array<{ id: string; raw: unknown }>,
     rows: ManifestRow[] | null,
+    // Passed rather than read from state: a list chosen in the same click has
+    // not reached state yet when this runs, and reading the stale value would
+    // silently skip the ceiling on the very batch it was chosen for.
+    words: CefrWordList | null = wordList,
   ): IntakeRecord[] => {
     const used = new Set<string>();
     return candidates.map(({ id, raw }, index) => {
       const findings: IntakeFinding[] = [
         ...checkSchema(raw),
-        ...checkPromptRules(raw, rows?.[index]?.level),
+        ...checkPromptRules(raw, rows?.[index]?.level, words ?? undefined),
       ];
       const word = String((raw as { word?: unknown })?.word ?? "");
       // Coerce only when the shape is sound; a broken candidate must not be
@@ -158,12 +175,57 @@ export function IntakePanel({ settings }: { settings: Settings }) {
     setError(null);
     setNotice(null);
     try {
-      const parsed = await Promise.all(
-        chosen.map(async (file) => ({ file, json: JSON.parse(await file.text()) as unknown })),
+      const read = await Promise.all(
+        chosen.map(async (file) => ({ file, text: await file.text() })),
       );
+      // Which file is which is read from its SHAPE, and the order matters.
+      //
+      // A MANIFEST IS TRIED FIRST, because a manifest row carries `word` and
+      // `level` and so is a perfectly good `[{word, level}]` word list by
+      // shape. Tried the other way round, the list parser swallows the
+      // manifest: the batch then loads with no manifest, and the level ceiling
+      // and B1 are skipped — silently, and for the batch the reviewer just
+      // chose a word list for. A manifest is the narrower shape (it has ids,
+      // and no Vietnamese), so it gets to claim its file first.
+      //
+      // A word list is then recognised before JSON.parse, because the lists
+      // that exist are CSV as often as JSON and a CSV would simply fail.
+      const parsed: Array<{ file: File; json: unknown }> = [];
+      const lists: Array<{ file: File; list: CefrWordList }> = [];
+      for (const entry of read) {
+        let json: unknown;
+        try {
+          json = JSON.parse(entry.text) as unknown;
+        } catch {
+          json = undefined;
+        }
+        if (json !== undefined && asManifest(json) !== null) {
+          parsed.push({ file: entry.file, json });
+          continue;
+        }
+        const list = parseCefrWords(entry.text, entry.file.name);
+        if (list !== null) {
+          lists.push({ file: entry.file, list });
+          continue;
+        }
+        if (json === undefined) {
+          setError(`${entry.file.name} is neither JSON nor a CEFR word list.`);
+          return;
+        }
+        parsed.push({ file: entry.file, json });
+      }
+      if (lists.length > 0) setWordList(lists[0]!.list);
+      const words = lists[0]?.list ?? wordList;
       const manifests = parsed.filter((entry) => asManifest(entry.json) !== null);
       const batches = parsed.filter((entry) => asManifest(entry.json) === null);
       if (batches.length === 0) {
+        if (lists.length > 0 && manifests.length === 0) {
+          setNotice(
+            `Word list held: ${describeWordList(lists[0]!.list)}. ` +
+              "Choose a batch now and every word of every example is checked against it.",
+          );
+          return;
+        }
         setError(
           manifests.length > 0
             ? "That is a manifest with no batch beside it. Choose the cards file too."
@@ -189,7 +251,7 @@ export function IntakePanel({ settings }: { settings: Settings }) {
       setProgress({ stage: "content", done: candidates.length, total: candidates.length });
       // The batch-shaped rules need every record, so they run last and fold
       // their findings back in before a verdict is settled.
-      const local = runLocal(candidates, rows);
+      const local = runLocal(candidates, rows, words);
       const batchFindings = checkBatchRules(local);
       const integrity = rows === null ? null : checkManifest(local, rows);
       setRecords(
@@ -285,7 +347,7 @@ export function IntakePanel({ settings }: { settings: Settings }) {
           const level = manifest?.[working.findIndex((row) => row.id === record.id)]?.level;
           const fresh: IntakeFinding[] = [
             ...checkSchema(raw, record.word),
-            ...checkPromptRules(raw, level),
+            ...checkPromptRules(raw, level, wordList ?? undefined),
           ];
           const blocked = fresh.some((finding) => finding.severity === "blocker");
           const card = blocked ? null : coerceDeckWord(raw, used, { batchId, addedAt: "" });
@@ -493,6 +555,18 @@ export function IntakePanel({ settings }: { settings: Settings }) {
           manifest is what the batch was asked for, and the cards cannot say it: without one, the
           example-level ceiling and the batch-integrity rule are skipped rather than guessed.
         </p>
+        <p className="note">
+          A <b>CEFR word list</b> may come with them, CSV or JSON. With one, the example-level rule
+          is checked on every word of every sentence instead of the handful the prompt names — which
+          at B2 is nothing at all. The lists that can answer it cannot be redistributed, so this app
+          reads one and never stores it: it is held for this session only.
+          {wordList !== null && (
+            <>
+              {" "}
+              <b>Held now:</b> {describeWordList(wordList)}.
+            </>
+          )}
+        </p>
 
         <div className="row" style={{ marginTop: 12 }}>
           <button type="button" className="btn primary" onClick={() => fileInput.current?.click()}>
@@ -502,7 +576,7 @@ export function IntakePanel({ settings }: { settings: Settings }) {
             ref={fileInput}
             type="file"
             multiple
-            accept="application/json,.json"
+            accept="application/json,.json,text/csv,.csv"
             style={{ display: "none" }}
             onChange={(event) => {
               const chosen = [...(event.target.files ?? [])];

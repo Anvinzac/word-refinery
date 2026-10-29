@@ -32,6 +32,11 @@ import {
   containsTargetWord,
 } from "./contract.ts";
 import { validateDeck } from "./deck.ts";
+import {
+  countableTokens,
+  levelOf,
+  type CefrWordList,
+} from "./cefr-words.ts";
 import { stripEmphasisMarkers } from "./emphasis.ts";
 import { activeGlossProfile, describeLength, displayText, measureLength } from "./lang.ts";
 import { CEFR_LEVELS, type CefrLevel, type Deck, type DeckWord } from "./types.ts";
@@ -486,8 +491,17 @@ function checkEmphasisTriple(record: Record<string, unknown>): IntakeFinding[] {
  *   v3.7 passes it in and forbids it in the output, so a card alone cannot be
  *   held to its own ceiling; without it the level-scoped rules are skipped
  *   rather than guessed.
+ * @param words - a CEFR word list, when the reviewer supplied one. With it, U1
+ *   is enforced on EVERY word of the example. Without it, only on the handful
+ *   v3.7 names by hand, which at B2 is nothing at all: the list cannot be
+ *   carried in this package, so it is an input rather than an asset. See
+ *   ./cefr-words.ts.
  */
-export function checkPromptRules(raw: unknown, level?: CefrLevel): IntakeFinding[] {
+export function checkPromptRules(
+  raw: unknown,
+  level?: CefrLevel,
+  words?: CefrWordList,
+): IntakeFinding[] {
   const findings: IntakeFinding[] = [];
   if (typeof raw !== "object" || raw === null) return findings;
   const record = raw as Record<string, unknown>;
@@ -534,8 +548,10 @@ export function checkPromptRules(raw: unknown, level?: CefrLevel): IntakeFinding
         at(findings, "content", "usageEn", "blocker",
           `"${token}" is not in the Oxford list, so it is banned at every level`);
       }
-      // The ceiling, for the words v3.7 names. Only checkable with a level.
-      const sits = level === undefined ? undefined : ABOVE_LEVEL[token];
+      // The hand-written ceiling, for the words v3.7 names. Superseded by a
+      // real list where one was supplied, and left in place where none was:
+      // the prompt names these because they are the ones it kept seeing.
+      const sits = level === undefined || words !== undefined ? undefined : ABOVE_LEVEL[token];
       if (sits !== undefined && CEFR_LEVELS.indexOf(sits) > CEFR_LEVELS.indexOf(level!)) {
         at(findings, "content", "usageEn", "blocker",
           `"${token}" is a ${sits} word, above this card's ${level} ceiling`);
@@ -543,6 +559,36 @@ export function checkPromptRules(raw: unknown, level?: CefrLevel): IntakeFinding
       const british = US_SPELLINGS[token];
       if (british !== undefined) {
         at(findings, "content", "usageEn", "blocker", `"${token}" is US spelling; write "${british}"`);
+      }
+    }
+
+    // U1 proper: every word of the example at or below the card's own level.
+    // Both halves of the rule are errors, and the second is the one a writer
+    // forgets — a word the list does not have is as much a violation as a word
+    // above the ceiling, because an unlisted word has no level to be below.
+    if (words !== undefined && level !== undefined) {
+      const ceiling = CEFR_LEVELS.indexOf(level);
+      const already = new Set<string>();
+      for (const counted of countableTokens(usageEn)) {
+        const { token } = counted;
+        if (already.has(token)) continue;
+        already.add(token);
+        const sits = levelOf(words, token);
+        if (sits === undefined) {
+          // A name is exempt from U1 and no levelled list carries names, so an
+          // unlisted word that opened the sentence with a capital may be
+          // either. Said as a warning rather than guessed either way: calling
+          // "London" a vocabulary error is the one outcome a reviewer cannot
+          // act on.
+          const mayBeName = counted.capitalised && counted.opensSentence;
+          at(findings, "content", "usageEn", mayBeName ? "warn" : "blocker",
+            mayBeName
+              ? `"${token}" is not in ${words.name}, but it opens the sentence with a capital — a name, which U1 exempts, or a word to replace`
+              : `"${token}" is not in ${words.name}, so it has no level to be below — use a listed word`);
+        } else if (CEFR_LEVELS.indexOf(sits) > ceiling) {
+          at(findings, "content", "usageEn", "blocker",
+            `"${token}" is a ${sits} word, above this card's ${level} ceiling`);
+        }
       }
     }
     if (tokens.length > 20) {

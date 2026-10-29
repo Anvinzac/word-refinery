@@ -34,6 +34,15 @@
  * manifestFor below. Without one of them the level ceiling and batch integrity
  * cannot run, and the report says so rather than passing quietly.
  *
+ * THE WORD LIST IS AN INPUT, never an asset. U1 says an example may use no word
+ * above the card's own level, and deciding it needs a list that levels every
+ * English word. None of the three that exist can be committed here: the Oxford
+ * 3000/5000 forbids redistribution (NOTICE.md), the CEFR-J Wordlist is free to
+ * USE but does not plainly grant redistribution, and the Octanove profile is
+ * CC BY-SA 4.0 but covers C1/C2 only. So `--words` points at a copy on the
+ * machine running the check, and without it the ceiling is SKIPPED and said to
+ * be skipped — at B2 the hand-written fallback can decide nothing at all.
+ *
  * A key is read ONLY from the WORD_REFINERY_API_KEY environment variable. Not
  * from a flag (it would land in shell history and in `ps`), and not from a file
  * in this repository: settings.ts states the invariant that keys are never
@@ -54,6 +63,11 @@
  *   --provider <id>      alibaba (default) | openrouter | together | anthropic
  *   --model <id>         model to call; defaults to the provider's first
  *   --gloss <vi|ja>      which language the cards are written in (default vi)
+ *   --words <file>       a CEFR word list, which turns the example-level
+ *                        ceiling (U1) from the handful of words the prompt
+ *                        names into every word of every sentence. CSV with
+ *                        headword/CEFR columns, or JSON in any of four shapes.
+ *                        Several --words files merge, lowest level winning.
  *   --release <file>     write the run into a .sqlite catalogue, as the tab does
  *   --json <file>        also write the full report as JSON
  *   --quiet              only the summary lines
@@ -72,6 +86,7 @@ import { basename, join, resolve } from "node:path";
 // statically - unlike the libraries below.
 import { flattenRegisters, isRegisterCard, REGISTER_CODES } from "../src/lib/registers.ts";
 
+import type { CefrWordList } from "../src/lib/cefr-words.ts";
 import type {
   IntakeFinding,
   IntakeRecord,
@@ -98,6 +113,7 @@ function option(name: string): string | undefined {
 const USAGE =
   "Usage: npm run verify -- <dir> [batch...] [--safety] [--repair] [--limit n]\n" +
   "                          [--provider alibaba] [--model id] [--gloss vi|ja]\n" +
+  "                          [--words cefr.csv]\n" +
   "                          [--release catalog.sqlite] [--json report.json]\n" +
   "                          [--check-connection] [--quiet]";
 
@@ -120,6 +136,14 @@ const releaseTo = option("release");
 const jsonTo = option("json");
 const modelFlag = option("model");
 const limitText = option("limit");
+/** Every --words file, in the order given; they merge, lowest level winning. */
+const wordListPaths: string[] = [];
+for (;;) {
+  const next = option("words");
+  if (next === undefined) break;
+  if (next === "") fail("--words needs a file.");
+  wordListPaths.push(next);
+}
 
 const dir = argv[0];
 const asked = argv.slice(1);
@@ -201,6 +225,43 @@ const { coerceDeckWord } = await import("../src/lib/deck.ts");
 const { activeGlossProfile } = await import("../src/lib/lang.ts");
 const { PROVIDERS } = await import("../src/lib/settings.ts");
 const { CEFR_LEVELS } = await import("../src/lib/types.ts");
+const { describeWordList, parseCefrWords } = await import("../src/lib/cefr-words.ts");
+
+// ── The CEFR word list, when one was given ─────────────────────────────────
+
+/**
+ * Read every --words file into one list, the lowest level for a word winning.
+ *
+ * Merged rather than kept separate because the lists that exist are
+ * complementary by design: CEFR-J covers A1-B2 and the Octanove profile covers
+ * C1-C2, so a ceiling needs both and neither alone. "Lowest wins" is how the
+ * prompts state it too — a learner who has met a word at all has met it.
+ */
+const wordList = ((): CefrWordList | undefined => {
+  if (wordListPaths.length === 0) return undefined;
+  const levels = new Map<string, CefrLevel>();
+  const names: string[] = [];
+  for (const path of wordListPaths) {
+    const full = resolve(path);
+    if (!existsSync(full)) fail(`--words file not found: ${full}`);
+    const part = parseCefrWords(readFileSync(full, "utf8"), basename(full));
+    if (part === null) {
+      fail(
+        `${basename(full)} is not a CEFR word list.\n` +
+          "Expected CSV with a headword column and a CEFR column, or JSON as\n" +
+          '{"word":"A1",…} / [{"word","level"},…] / {"A1":["word",…],…}.',
+      );
+    }
+    names.push(basename(full));
+    for (const [word, level] of part!.levels) {
+      const held = levels.get(word);
+      if (held === undefined || CEFR_LEVELS.indexOf(level) < CEFR_LEVELS.indexOf(held)) {
+        levels.set(word, level);
+      }
+    }
+  }
+  return { levels, name: names.join(" + ") };
+})();
 
 // ── Provider settings ──────────────────────────────────────────────────────
 
@@ -443,7 +504,7 @@ function verifyOffline(files: BatchFiles): Run {
             ...checkSchema(raw),
             // The level comes from the manifest: the card-prompt passes it in and
             // forbids it in the output, so a card alone cannot be held to its ceiling.
-            ...checkPromptRules(raw, manifest?.[index]?.level),
+            ...checkPromptRules(raw, manifest?.[index]?.level, wordList),
           ]
         : [{ stage: "schema", field: "levels", severity: "blocker", message: failed }];
     const word = String((raw as { word?: unknown })?.word ?? "");
@@ -536,7 +597,7 @@ async function runModelStages(run: Run): Promise<void> {
         const used = new Set<string>();
         const fresh: IntakeFinding[] = [
           ...checkSchema(raw, record.word),
-          ...checkPromptRules(raw, level),
+          ...checkPromptRules(raw, level, wordList),
         ];
         const blocked = fresh.some((finding) => finding.severity === "blocker");
         const card = blocked ? null : coerceDeckWord(raw, used, { batchId: run.batchId, addedAt: "" });
@@ -570,7 +631,14 @@ if (wantRepair) stages.push("repair");
 console.log("Word Refinery — batch verification");
 console.log(
   `  gloss ${activeGlossProfile().id}   stages ${stages.join(", ")}` +
-    (needsKey ? `\n  provider ${profile!.label}   model ${model}` : ""),
+    (needsKey ? `\n  provider ${profile!.label}   model ${model}` : "") +
+    // Said on every run, both ways round. A ceiling that silently did nothing
+    // reads exactly like a ceiling that found nothing.
+    `\n  U1 ceiling ${
+      wordList === undefined
+        ? "SKIPPED — no --words list; only the words the prompt names by hand are checked"
+        : `on every word of every example, against ${describeWordList(wordList)}`
+    }`,
 );
 console.log("");
 

@@ -118,6 +118,30 @@ npm run verify -- ~/packs/engvocab_v3.8 --safety --repair --limit 5   # trial fi
 Exits 1 when any card was rejected, 2 on a usage error, so a CI step fails on a pack that would not
 import. Warnings are advisory and never change a verdict.
 
+#### The example-level ceiling needs a word list you supply
+
+U1 — an example may use no word above the card's own level — can only be decided against a list that
+levels every English word, and **no such list can live in this repository**. The Oxford 3000/5000 the
+prompts were written against forbids redistribution (see `NOTICE.md`); the CEFR-J Wordlist is free to
+*use* with citation but does not plainly grant redistribution; the Octanove profile is CC BY-SA 4.0
+but covers C1/C2 only. So the list is an **input**, pointed at a copy on your own machine:
+
+```bash
+npm run verify -- ~/packs/engvocab_v3.8   --words ~/lists/cefrj-vocabulary-profile-1.5.csv   --words ~/lists/octanove-vocabulary-profile-c1c2-1.0.csv
+```
+
+Several `--words` files merge, the lowest level for a word winning — which is how the prompts state
+it, and necessary here because CEFR-J covers A1–B2 and Octanove covers C1–C2. CSV with a headword
+column and a CEFR column is read, as is JSON in any of four shapes (`{"word":"A1"}`,
+`[{"word","level"}]`, `{"A1":["word"]}`, or this app's own corpus file). The Intake tab takes one the
+same way — choose it alongside the cards and the manifest; it is held for the session and never
+stored.
+
+**Without a list the ceiling is skipped, and every run says which happened on its first line.** It is
+not softened or guessed: a wrong level would reject correct sentences and pass wrong ones, and a
+reviewer could not tell which. At B2 the hand-written fallback can decide nothing at all, because the
+words the prompt names by hand top out at B2 themselves.
+
 Note that a **Coding Plan / Token Plan** key (`sk-sp-…`) will not work here. Those are bound to
 `coding-intl.dashscope.aliyuncs.com` and are licensed for interactive use in a coding tool only —
 bulk verification from a script is outside that licence. Use a general Model Studio key (`sk-…`)
