@@ -1,0 +1,802 @@
+[
+ {
+  "id": "C103-001",
+  "word": "tolerate",
+  "level": "C1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "C103-002",
+  "word": "appetite",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C103-003",
+  "word": "beverage",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C103-004",
+  "word": "chunk",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C103-005",
+  "word": "fibre",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C103-006",
+  "word": "gallon",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C103-007",
+  "word": "intake",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C103-008",
+  "word": "blend",
+  "level": "C1",
+  "input_pos": "noun, verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "C103-009",
+  "word": "cater",
+  "level": "C1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "C103-010",
+  "word": "dip",
+  "level": "C1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "C103-011",
+  "word": "grind",
+  "level": "C1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "C103-012",
+  "word": "stir",
+  "level": "C1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "C103-013",
+  "word": "accessible",
+  "level": "C1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "C103-014",
+  "word": "adjacent",
+  "level": "C1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "C103-015",
+  "word": "adverse",
+  "level": "C1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "C103-016",
+  "word": "applicable",
+  "level": "C1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "C103-017",
+  "word": "corresponding",
+  "level": "C1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "C103-018",
+  "word": "countless",
+  "level": "C1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "C103-019",
+  "word": "crude",
+  "level": "C1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "C103-020",
+  "word": "damaging",
+  "level": "C1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "C103-021",
+  "word": "desirable",
+  "level": "C1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "C103-022",
+  "word": "destructive",
+  "level": "C1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "C103-023",
+  "word": "dual",
+  "level": "C1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "C103-024",
+  "word": "elaborate",
+  "level": "C1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "C103-025",
+  "word": "exceptional",
+  "level": "C1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "C103-026",
+  "word": "exclusive",
+  "level": "C1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "C103-027",
+  "word": "favourable",
+  "level": "C1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "C103-028",
+  "word": "flawed",
+  "level": "C1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "C103-029",
+  "word": "functional",
+  "level": "C1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "C103-030",
+  "word": "generic",
+  "level": "C1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "C103-031",
+  "word": "inadequate",
+  "level": "C1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "C103-032",
+  "word": "inappropriate",
+  "level": "C1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "C103-033",
+  "word": "inherent",
+  "level": "C1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "C103-034",
+  "word": "instrumental",
+  "level": "C1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "C103-035",
+  "word": "insufficient",
+  "level": "C1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "C103-036",
+  "word": "intact",
+  "level": "C1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "C103-037",
+  "word": "integral",
+  "level": "C1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "C103-038",
+  "word": "integrated",
+  "level": "C1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "C103-039",
+  "word": "intensive",
+  "level": "C1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "C103-040",
+  "word": "large-scale",
+  "level": "C1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "C103-041",
+  "word": "lesser",
+  "level": "C1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "C103-042",
+  "word": "magical",
+  "level": "C1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "C103-043",
+  "word": "marginal",
+  "level": "C1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "C103-044",
+  "word": "meaningful",
+  "level": "C1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "C103-045",
+  "word": "mere",
+  "level": "C1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "C103-046",
+  "word": "minimal",
+  "level": "C1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "C103-047",
+  "word": "moderate",
+  "level": "C1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "C103-048",
+  "word": "mutual",
+  "level": "C1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "C103-049",
+  "word": "notable",
+  "level": "C1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "C103-050",
+  "word": "partial",
+  "level": "C1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "C103-051",
+  "word": "preliminary",
+  "level": "C1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "C103-052",
+  "word": "problematic",
+  "level": "C1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "C103-053",
+  "word": "prominent",
+  "level": "C1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "C103-054",
+  "word": "prospective",
+  "level": "C1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "C103-055",
+  "word": "protective",
+  "level": "C1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "C103-056",
+  "word": "respective",
+  "level": "C1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "C103-057",
+  "word": "robust",
+  "level": "C1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "C103-058",
+  "word": "scattered",
+  "level": "C1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "C103-059",
+  "word": "sheer",
+  "level": "C1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "C103-060",
+  "word": "situated",
+  "level": "C1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "C103-061",
+  "word": "sole",
+  "level": "C1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "C103-062",
+  "word": "standing",
+  "level": "C1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "C103-063",
+  "word": "structural",
+  "level": "C1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "C103-064",
+  "word": "substantial",
+  "level": "C1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "C103-065",
+  "word": "superb",
+  "level": "C1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "C103-066",
+  "word": "superior",
+  "level": "C1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "C103-067",
+  "word": "supreme",
+  "level": "C1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "C103-068",
+  "word": "terrific",
+  "level": "C1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "C103-069",
+  "word": "tremendous",
+  "level": "C1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "C103-070",
+  "word": "varied",
+  "level": "C1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "C103-071",
+  "word": "worthwhile",
+  "level": "C1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "C103-072",
+  "word": "excess",
+  "level": "C1",
+  "input_pos": "adjective, noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C103-073",
+  "word": "latter",
+  "level": "C1",
+  "input_pos": "adjective, noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C103-074",
+  "word": "rear",
+  "level": "C1",
+  "input_pos": "adjective, noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C103-075",
+  "word": "solo",
+  "level": "C1",
+  "input_pos": "adjective, noun",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "C103-076",
+  "word": "reverse",
+  "level": "C1",
+  "input_pos": "adjective, noun, verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "C103-077",
+  "word": "accordingly",
+  "level": "C1",
+  "input_pos": "adverb",
+  "card_pos": "adv",
+  "status": "accepted"
+ },
+ {
+  "id": "C103-078",
+  "word": "exclusively",
+  "level": "C1",
+  "input_pos": "adverb",
+  "card_pos": "adv",
+  "status": "accepted"
+ },
+ {
+  "id": "C103-079",
+  "word": "forth",
+  "level": "C1",
+  "input_pos": "adverb",
+  "card_pos": "adv",
+  "status": "accepted"
+ },
+ {
+  "id": "C103-080",
+  "word": "merely",
+  "level": "C1",
+  "input_pos": "adverb",
+  "card_pos": "adv",
+  "status": "accepted"
+ },
+ {
+  "id": "C103-081",
+  "word": "nonetheless",
+  "level": "C1",
+  "input_pos": "adverb",
+  "card_pos": "adv",
+  "status": "accepted"
+ },
+ {
+  "id": "C103-082",
+  "word": "notably",
+  "level": "C1",
+  "input_pos": "adverb",
+  "card_pos": "adv",
+  "status": "accepted"
+ },
+ {
+  "id": "C103-083",
+  "word": "overly",
+  "level": "C1",
+  "input_pos": "adverb",
+  "card_pos": "adv",
+  "status": "accepted"
+ },
+ {
+  "id": "C103-084",
+  "word": "partially",
+  "level": "C1",
+  "input_pos": "adverb",
+  "card_pos": "adv",
+  "status": "accepted"
+ },
+ {
+  "id": "C103-085",
+  "word": "predominantly",
+  "level": "C1",
+  "input_pos": "adverb",
+  "card_pos": "adv",
+  "status": "accepted"
+ },
+ {
+  "id": "C103-086",
+  "word": "readily",
+  "level": "C1",
+  "input_pos": "adverb",
+  "card_pos": "adv",
+  "status": "accepted"
+ },
+ {
+  "id": "C103-087",
+  "word": "regardless",
+  "level": "C1",
+  "input_pos": "adverb",
+  "card_pos": "adv",
+  "status": "accepted"
+ },
+ {
+  "id": "C103-088",
+  "word": "respectively",
+  "level": "C1",
+  "input_pos": "adverb",
+  "card_pos": "adv",
+  "status": "accepted"
+ },
+ {
+  "id": "C103-089",
+  "word": "seemingly",
+  "level": "C1",
+  "input_pos": "adverb",
+  "card_pos": "adv",
+  "status": "accepted"
+ },
+ {
+  "id": "C103-090",
+  "word": "solely",
+  "level": "C1",
+  "input_pos": "adverb",
+  "card_pos": "adv",
+  "status": "accepted"
+ },
+ {
+  "id": "C103-091",
+  "word": "substantially",
+  "level": "C1",
+  "input_pos": "adverb",
+  "card_pos": "adv",
+  "status": "accepted"
+ },
+ {
+  "id": "C103-092",
+  "word": "thereby",
+  "level": "C1",
+  "input_pos": "adverb",
+  "card_pos": "adv",
+  "status": "accepted"
+ },
+ {
+  "id": "C103-093",
+  "word": "utterly",
+  "level": "C1",
+  "input_pos": "adverb",
+  "card_pos": "adv",
+  "status": "accepted"
+ },
+ {
+  "id": "C103-094",
+  "word": "whatsoever",
+  "level": "C1",
+  "input_pos": "adverb",
+  "card_pos": "adv",
+  "status": "accepted"
+ },
+ {
+  "id": "C103-095",
+  "word": "whereby",
+  "level": "C1",
+  "input_pos": "adverb",
+  "card_pos": "adv",
+  "status": "accepted"
+ },
+ {
+  "id": "C103-096",
+  "word": "wholly",
+  "level": "C1",
+  "input_pos": "adverb",
+  "card_pos": "adv",
+  "status": "accepted"
+ },
+ {
+  "id": "C103-097",
+  "word": "accordance",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C103-098",
+  "word": "adaptation",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C103-099",
+  "word": "adjustment",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C103-100",
+  "word": "alignment",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ }
+]

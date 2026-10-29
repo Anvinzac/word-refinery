@@ -1,0 +1,802 @@
+[
+ {
+  "id": "C105-001",
+  "word": "shrink",
+  "level": "C1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "C105-002",
+  "word": "skip",
+  "level": "C1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "C105-003",
+  "word": "slam",
+  "level": "C1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "C105-004",
+  "word": "slash",
+  "level": "C1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "C105-005",
+  "word": "smash",
+  "level": "C1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "C105-006",
+  "word": "snap",
+  "level": "C1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "C105-007",
+  "word": "spark",
+  "level": "C1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "C105-008",
+  "word": "stabilize",
+  "level": "C1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "C105-009",
+  "word": "sustain",
+  "level": "C1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "C105-010",
+  "word": "thrive",
+  "level": "C1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "C105-011",
+  "word": "tighten",
+  "level": "C1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "C105-012",
+  "word": "undermine",
+  "level": "C1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "C105-013",
+  "word": "utilize",
+  "level": "C1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "C105-014",
+  "word": "weaken",
+  "level": "C1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "C105-015",
+  "word": "widen",
+  "level": "C1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "C105-016",
+  "word": "acute",
+  "level": "C1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "C105-017",
+  "word": "chronic",
+  "level": "C1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "C105-018",
+  "word": "clinical",
+  "level": "C1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "C105-019",
+  "word": "surgical",
+  "level": "C1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "C105-020",
+  "word": "toxic",
+  "level": "C1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "C105-021",
+  "word": "amateur",
+  "level": "C1",
+  "input_pos": "adjective, noun",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "C105-022",
+  "word": "arena",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C105-023",
+  "word": "circulation",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C105-024",
+  "word": "complication",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C105-025",
+  "word": "consciousness",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C105-026",
+  "word": "contender",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C105-027",
+  "word": "deficiency",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C105-028",
+  "word": "diagnosis",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C105-029",
+  "word": "donor",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C105-030",
+  "word": "dose",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C105-031",
+  "word": "gut",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C105-032",
+  "word": "hazard",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C105-033",
+  "word": "injection",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C105-034",
+  "word": "kidney",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C105-035",
+  "word": "limb",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C105-036",
+  "word": "liver",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C105-037",
+  "word": "physician",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C105-038",
+  "word": "prescription",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C105-039",
+  "word": "prevention",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C105-040",
+  "word": "pulse",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C105-041",
+  "word": "remedy",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C105-042",
+  "word": "spine",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C105-043",
+  "word": "strain",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C105-044",
+  "word": "trophy",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C105-045",
+  "word": "vein",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C105-046",
+  "word": "ward",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C105-047",
+  "word": "well-being",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C105-048",
+  "word": "workout",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C105-049",
+  "word": "grip",
+  "level": "C1",
+  "input_pos": "noun, verb",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C105-050",
+  "word": "leap",
+  "level": "C1",
+  "input_pos": "noun, verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "C105-051",
+  "word": "supplement",
+  "level": "C1",
+  "input_pos": "noun, verb",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C105-052",
+  "word": "bounce",
+  "level": "C1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "C105-053",
+  "word": "crawl",
+  "level": "C1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "C105-054",
+  "word": "deteriorate",
+  "level": "C1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "C105-055",
+  "word": "diagnose",
+  "level": "C1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "C105-056",
+  "word": "discharge",
+  "level": "C1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "C105-057",
+  "word": "infect",
+  "level": "C1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "C105-058",
+  "word": "inject",
+  "level": "C1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "C105-059",
+  "word": "prescribe",
+  "level": "C1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "C105-060",
+  "word": "revive",
+  "level": "C1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "C105-061",
+  "word": "costly",
+  "level": "C1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "C105-062",
+  "word": "non-profit",
+  "level": "C1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "C105-063",
+  "word": "profitable",
+  "level": "C1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "C105-064",
+  "word": "accumulation",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C105-065",
+  "word": "acquisition",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C105-066",
+  "word": "allocation",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C105-067",
+  "word": "allowance",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C105-068",
+  "word": "audit",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C105-069",
+  "word": "bankruptcy",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C105-070",
+  "word": "beneficiary",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C105-071",
+  "word": "bonus",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C105-072",
+  "word": "boom",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C105-073",
+  "word": "buck",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C105-074",
+  "word": "catalogue",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C105-075",
+  "word": "commerce",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C105-076",
+  "word": "commodity",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C105-077",
+  "word": "compensation",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C105-078",
+  "word": "deficit",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C105-079",
+  "word": "earnings",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C105-080",
+  "word": "enterprise",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C105-081",
+  "word": "expenditure",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C105-082",
+  "word": "franchise",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C105-083",
+  "word": "fundraising",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C105-084",
+  "word": "marketplace",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C105-085",
+  "word": "merchant",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C105-086",
+  "word": "merger",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C105-087",
+  "word": "monopoly",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C105-088",
+  "word": "niche",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C105-089",
+  "word": "patron",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C105-090",
+  "word": "premium",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C105-091",
+  "word": "privatization",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C105-092",
+  "word": "proceeds",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C105-093",
+  "word": "prosperity",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C105-094",
+  "word": "rental",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C105-095",
+  "word": "shareholder",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C105-096",
+  "word": "stake",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C105-097",
+  "word": "subscription",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C105-098",
+  "word": "subsidy",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C105-099",
+  "word": "surplus",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C105-100",
+  "word": "taxpayer",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ }
+]

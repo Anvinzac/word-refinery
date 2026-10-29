@@ -1,0 +1,802 @@
+[
+ {
+  "id": "C104-001",
+  "word": "array",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C104-002",
+  "word": "availability",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C104-003",
+  "word": "behalf",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C104-004",
+  "word": "boundary",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C104-005",
+  "word": "bulk",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C104-006",
+  "word": "capability",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C104-007",
+  "word": "chaos",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C104-008",
+  "word": "closure",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C104-009",
+  "word": "cluster",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C104-010",
+  "word": "constraint",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C104-011",
+  "word": "conversion",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C104-012",
+  "word": "dependence",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C104-013",
+  "word": "dimension",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C104-014",
+  "word": "disruption",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C104-015",
+  "word": "domain",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C104-016",
+  "word": "effectiveness",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C104-017",
+  "word": "engagement",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C104-018",
+  "word": "entity",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C104-019",
+  "word": "excellence",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C104-020",
+  "word": "feat",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C104-021",
+  "word": "flaw",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C104-022",
+  "word": "flexibility",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C104-023",
+  "word": "handful",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C104-024",
+  "word": "inability",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C104-025",
+  "word": "incidence",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C104-026",
+  "word": "indicator",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C104-027",
+  "word": "insertion",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C104-028",
+  "word": "intensity",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C104-029",
+  "word": "interference",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C104-030",
+  "word": "involvement",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C104-031",
+  "word": "layout",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C104-032",
+  "word": "line-up",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C104-033",
+  "word": "listing",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C104-034",
+  "word": "magnitude",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C104-035",
+  "word": "modification",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C104-036",
+  "word": "momentum",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C104-037",
+  "word": "pole",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C104-038",
+  "word": "prevalence",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C104-039",
+  "word": "protocol",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C104-040",
+  "word": "provision",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C104-041",
+  "word": "ranking",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C104-042",
+  "word": "realm",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C104-043",
+  "word": "recipient",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C104-044",
+  "word": "reliability",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C104-045",
+  "word": "remainder",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C104-046",
+  "word": "removal",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C104-047",
+  "word": "replacement",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C104-048",
+  "word": "restoration",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C104-049",
+  "word": "rotation",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C104-050",
+  "word": "sake",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C104-051",
+  "word": "scope",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C104-052",
+  "word": "segment",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C104-053",
+  "word": "set-up",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C104-054",
+  "word": "slot",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C104-055",
+  "word": "sphere",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C104-056",
+  "word": "stability",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C104-057",
+  "word": "strand",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C104-058",
+  "word": "substitution",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C104-059",
+  "word": "suspension",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C104-060",
+  "word": "threshold",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C104-061",
+  "word": "transformation",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C104-062",
+  "word": "ease",
+  "level": "C1",
+  "input_pos": "noun, verb",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C104-063",
+  "word": "neglect",
+  "level": "C1",
+  "input_pos": "noun, verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "C104-064",
+  "word": "spin",
+  "level": "C1",
+  "input_pos": "noun, verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "C104-065",
+  "word": "substitute",
+  "level": "C1",
+  "input_pos": "noun, verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "C104-066",
+  "word": "surge",
+  "level": "C1",
+  "input_pos": "noun, verb",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C104-067",
+  "word": "swing",
+  "level": "C1",
+  "input_pos": "noun, verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "C104-068",
+  "word": "twist",
+  "level": "C1",
+  "input_pos": "noun, verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "C104-069",
+  "word": "adhere",
+  "level": "C1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "C104-070",
+  "word": "align",
+  "level": "C1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "C104-071",
+  "word": "bind",
+  "level": "C1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "C104-072",
+  "word": "burst",
+  "level": "C1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "C104-073",
+  "word": "circulate",
+  "level": "C1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "C104-074",
+  "word": "cling",
+  "level": "C1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "C104-075",
+  "word": "complement",
+  "level": "C1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "C104-076",
+  "word": "constitute",
+  "level": "C1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "C104-077",
+  "word": "deprive",
+  "level": "C1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "C104-078",
+  "word": "diminish",
+  "level": "C1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "C104-079",
+  "word": "disrupt",
+  "level": "C1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "C104-080",
+  "word": "elevate",
+  "level": "C1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "C104-081",
+  "word": "encompass",
+  "level": "C1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "C104-082",
+  "word": "enrich",
+  "level": "C1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "C104-083",
+  "word": "escalate",
+  "level": "C1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "C104-084",
+  "word": "exert",
+  "level": "C1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "C104-085",
+  "word": "heighten",
+  "level": "C1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "C104-086",
+  "word": "induce",
+  "level": "C1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "C104-087",
+  "word": "inhibit",
+  "level": "C1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "C104-088",
+  "word": "intensify",
+  "level": "C1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "C104-089",
+  "word": "interfere",
+  "level": "C1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "C104-090",
+  "word": "manifest",
+  "level": "C1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "C104-091",
+  "word": "maximize",
+  "level": "C1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "C104-092",
+  "word": "minimize",
+  "level": "C1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "C104-093",
+  "word": "originate",
+  "level": "C1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "C104-094",
+  "word": "plunge",
+  "level": "C1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "C104-095",
+  "word": "prevail",
+  "level": "C1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "C104-096",
+  "word": "regain",
+  "level": "C1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "C104-097",
+  "word": "render",
+  "level": "C1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "C104-098",
+  "word": "rotate",
+  "level": "C1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "C104-099",
+  "word": "shatter",
+  "level": "C1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "C104-100",
+  "word": "shed",
+  "level": "C1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ }
+]
