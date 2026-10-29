@@ -1,0 +1,602 @@
+[
+ {
+  "id": "A107-001",
+  "word": "negative",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A107-002",
+  "word": "possible",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A107-003",
+  "word": "real",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A107-004",
+  "word": "sure",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A107-005",
+  "word": "true",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A107-006",
+  "word": "wrong",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A107-007",
+  "word": "maybe",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A107-008",
+  "word": "probably",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A107-009",
+  "word": "why",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A107-010",
+  "word": "difference",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A107-011",
+  "word": "fact",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A107-012",
+  "word": "idea",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A107-013",
+  "word": "mistake",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A107-014",
+  "word": "opinion",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A107-015",
+  "word": "problem",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A107-016",
+  "word": "reason",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A107-017",
+  "word": "guess",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A107-018",
+  "word": "plan",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A107-019",
+  "word": "agree",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A107-020",
+  "word": "believe",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A107-021",
+  "word": "choose",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A107-022",
+  "word": "compare",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A107-023",
+  "word": "decide",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A107-024",
+  "word": "forget",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A107-025",
+  "word": "imagine",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A107-026",
+  "word": "know",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A107-027",
+  "word": "mean",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A107-028",
+  "word": "prefer",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A107-029",
+  "word": "remember",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A107-030",
+  "word": "think",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A107-031",
+  "word": "understand",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A107-032",
+  "word": "final",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A107-033",
+  "word": "modern",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A107-034",
+  "word": "quick",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A107-035",
+  "word": "slow",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A107-036",
+  "word": "early",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A107-037",
+  "word": "late",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A107-038",
+  "word": "next",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A107-039",
+  "word": "past",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A107-040",
+  "word": "again",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A107-041",
+  "word": "ago",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A107-042",
+  "word": "always",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A107-043",
+  "word": "ever",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A107-044",
+  "word": "first",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A107-045",
+  "word": "later",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A107-046",
+  "word": "never",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A107-047",
+  "word": "now",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A107-048",
+  "word": "o'clock",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A107-049",
+  "word": "often",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A107-050",
+  "word": "once",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A107-051",
+  "word": "quickly",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A107-052",
+  "word": "sometimes",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A107-053",
+  "word": "soon",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A107-054",
+  "word": "then",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A107-055",
+  "word": "twice",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A107-056",
+  "word": "usually",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A107-057",
+  "word": "when",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A107-058",
+  "word": "today",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A107-059",
+  "word": "tomorrow",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A107-060",
+  "word": "tonight",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A107-061",
+  "word": "yesterday",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A107-062",
+  "word": "afternoon",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A107-063",
+  "word": "age",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A107-064",
+  "word": "april",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A107-065",
+  "word": "august",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A107-066",
+  "word": "autumn",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A107-067",
+  "word": "beginning",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A107-068",
+  "word": "century",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A107-069",
+  "word": "clock",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A107-070",
+  "word": "date",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A107-071",
+  "word": "day",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A107-072",
+  "word": "december",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A107-073",
+  "word": "evening",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A107-074",
+  "word": "february",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A107-075",
+  "word": "friday",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A107-076",
+  "word": "future",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A107-077",
+  "word": "hour",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A107-078",
+  "word": "january",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A107-079",
+  "word": "july",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A107-080",
+  "word": "june",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A107-081",
+  "word": "march",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A107-082",
+  "word": "may",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A107-083",
+  "word": "midnight",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A107-084",
+  "word": "minute",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A107-085",
+  "word": "moment",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A107-086",
+  "word": "monday",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A107-087",
+  "word": "month",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A107-088",
+  "word": "morning",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A107-089",
+  "word": "night",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A107-090",
+  "word": "november",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A107-091",
+  "word": "october",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A107-092",
+  "word": "period",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A107-093",
+  "word": "quarter",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A107-094",
+  "word": "saturday",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A107-095",
+  "word": "second",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A107-096",
+  "word": "september",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A107-097",
+  "word": "spring",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A107-098",
+  "word": "summer",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A107-099",
+  "word": "sunday",
+  "level": "A1",
+  "status": "accepted"
+ },
+ {
+  "id": "A107-100",
+  "word": "thursday",
+  "level": "A1",
+  "status": "accepted"
+ }
+]

@@ -1,8 +1,8 @@
 # Japanese batches (English headwords, Japanese cards)
 
 Written to `JA_GENERATION_RULES` **v3.9**, which is the Japanese counterpart of
-`card-prompt-v3.7` on the Vietnamese side. Source pack:
-`engvocab_JA_A101-A105_v3.9_flat`.
+`card-prompt-v3.7` on the Vietnamese side. Source packs:
+`engvocab_JA_A101-A105_v3.9_flat` and `engvocab_JA_A106-A108_A201-A202_v3.9_flat`.
 
 Each `<batch>.json` is the pack AS DELIVERED: one object per English word,
 carrying four reader registers under `levels` -
@@ -38,6 +38,11 @@ names: one entry per source word, in source order.
 | A103 | 100 | 100 | 0 | 0 | v3.9 |
 | A104 | 100 | 100 | 0 | 0 | v3.9 |
 | A105 | 100 | 100 | 0 | 0 | v3.9 |
+| A106 | 100 | 100 | 0 | 0 | v3.9 |
+| A107 | 100 | 100 | 0 | 0 | v3.9 |
+| A108 | 79 | 79 | 0 | 0 | v3.9 |
+| A201 | 100 | 100 | 0 | 0 | v3.9 |
+| A202 | 100 | 100 | 0 | 0 | v3.9 |
 
 Run `npm run bundle-batches` after adding a batch; it writes
 `public/default-deck-ja.json`, which the Japanese workspace loads.
