@@ -1,0 +1,811 @@
+[
+ {
+  "id": "A102-001",
+  "word": "shower",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A102-002",
+  "word": "skirt",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A102-003",
+  "word": "supermarket",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A102-004",
+  "word": "sweater",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A102-005",
+  "word": "t-shirt",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A102-006",
+  "word": "table",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A102-007",
+  "word": "toilet",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A102-008",
+  "word": "traffic",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A102-009",
+  "word": "trousers",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A102-010",
+  "word": "umbrella",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A102-011",
+  "word": "wall",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A102-012",
+  "word": "window",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A102-013",
+  "word": "break",
+  "level": "A1",
+  "input_pos": "noun/verb",
+  "card_pos": "noun",
+  "status": "accepted",
+  "note": "dual POS noun/verb -> noun"
+ },
+ {
+  "id": "A102-014",
+  "word": "dance",
+  "level": "A1",
+  "input_pos": "noun/verb",
+  "card_pos": "verb",
+  "status": "accepted",
+  "note": "dual POS noun/verb -> verb"
+ },
+ {
+  "id": "A102-015",
+  "word": "dress",
+  "level": "A1",
+  "input_pos": "noun/verb",
+  "card_pos": "noun",
+  "status": "accepted",
+  "note": "dual POS noun/verb -> noun"
+ },
+ {
+  "id": "A102-016",
+  "word": "park",
+  "level": "A1",
+  "input_pos": "noun/verb",
+  "card_pos": "noun",
+  "status": "accepted",
+  "note": "dual POS noun/verb -> noun"
+ },
+ {
+  "id": "A102-017",
+  "word": "play",
+  "level": "A1",
+  "input_pos": "noun/verb",
+  "card_pos": "verb",
+  "status": "accepted",
+  "note": "dual POS noun/verb -> verb"
+ },
+ {
+  "id": "A102-018",
+  "word": "walk",
+  "level": "A1",
+  "input_pos": "noun/verb",
+  "card_pos": "verb",
+  "status": "accepted",
+  "note": "dual POS noun/verb -> verb"
+ },
+ {
+  "id": "A102-019",
+  "word": "carry",
+  "level": "A1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "A102-020",
+  "word": "close",
+  "level": "A1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "A102-021",
+  "word": "cut",
+  "level": "A1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "A102-022",
+  "word": "live",
+  "level": "A1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "A102-023",
+  "word": "prepare",
+  "level": "A1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "A102-024",
+  "word": "sit",
+  "level": "A1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "A102-025",
+  "word": "sleep",
+  "level": "A1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "A102-026",
+  "word": "wake",
+  "level": "A1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "A102-027",
+  "word": "wash",
+  "level": "A1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "A102-028",
+  "word": "wear",
+  "level": "A1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "A102-029",
+  "word": "afraid",
+  "level": "A1",
+  "input_pos": "adj",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "A102-030",
+  "word": "angry",
+  "level": "A1",
+  "input_pos": "adj",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "A102-031",
+  "word": "bored",
+  "level": "A1",
+  "input_pos": "adj",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "A102-032",
+  "word": "excited",
+  "level": "A1",
+  "input_pos": "adj",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "A102-033",
+  "word": "amazing",
+  "level": "A1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "A102-034",
+  "word": "awesome",
+  "level": "A1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "A102-035",
+  "word": "boring",
+  "level": "A1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "A102-036",
+  "word": "cool",
+  "level": "A1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "A102-037",
+  "word": "exciting",
+  "level": "A1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "A102-038",
+  "word": "fantastic",
+  "level": "A1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "A102-039",
+  "word": "happy",
+  "level": "A1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "A102-040",
+  "word": "nice",
+  "level": "A1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "A102-041",
+  "word": "positive",
+  "level": "A1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "A102-042",
+  "word": "sad",
+  "level": "A1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "A102-043",
+  "word": "sorry",
+  "level": "A1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "A102-044",
+  "word": "terrible",
+  "level": "A1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "A102-045",
+  "word": "wonderful",
+  "level": "A1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "A102-046",
+  "word": "favourite",
+  "level": "A1",
+  "input_pos": "adjective/noun",
+  "card_pos": "adj",
+  "status": "accepted",
+  "note": "dual POS adjective/noun -> adj"
+ },
+ {
+  "id": "A102-047",
+  "word": "feeling",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A102-048",
+  "word": "fun",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A102-049",
+  "word": "love",
+  "level": "A1",
+  "input_pos": "noun/verb",
+  "card_pos": "verb",
+  "status": "accepted",
+  "note": "dual POS noun/verb -> verb"
+ },
+ {
+  "id": "A102-050",
+  "word": "enjoy",
+  "level": "A1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "A102-051",
+  "word": "feel",
+  "level": "A1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "A102-052",
+  "word": "hate",
+  "level": "A1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "A102-053",
+  "word": "hope",
+  "level": "A1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "A102-054",
+  "word": "laugh",
+  "level": "A1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "A102-055",
+  "word": "like",
+  "level": "A1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "A102-056",
+  "word": "miss",
+  "level": "A1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "A102-057",
+  "word": "want",
+  "level": "A1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "A102-058",
+  "word": "delicious",
+  "level": "A1",
+  "input_pos": "adj",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "A102-059",
+  "word": "hungry",
+  "level": "A1",
+  "input_pos": "adj",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "A102-060",
+  "word": "thirsty",
+  "level": "A1",
+  "input_pos": "adj",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "A102-061",
+  "word": "orange",
+  "level": "A1",
+  "input_pos": "adjective/noun",
+  "card_pos": "noun",
+  "status": "accepted",
+  "note": "dual POS adjective/noun -> noun"
+ },
+ {
+  "id": "A102-062",
+  "word": "apple",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A102-063",
+  "word": "banana",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A102-064",
+  "word": "bread",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A102-065",
+  "word": "breakfast",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A102-066",
+  "word": "butter",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A102-067",
+  "word": "cafe",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A102-068",
+  "word": "cake",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A102-069",
+  "word": "carrot",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A102-070",
+  "word": "cheese",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A102-071",
+  "word": "chicken",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A102-072",
+  "word": "chocolate",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A102-073",
+  "word": "coffee",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A102-074",
+  "word": "cooking",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A102-075",
+  "word": "cream",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A102-076",
+  "word": "dinner",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A102-077",
+  "word": "dish",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A102-078",
+  "word": "egg",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A102-079",
+  "word": "food",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A102-080",
+  "word": "fruit",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A102-081",
+  "word": "ice cream",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A102-082",
+  "word": "juice",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A102-083",
+  "word": "lunch",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A102-084",
+  "word": "meal",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A102-085",
+  "word": "meat",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A102-086",
+  "word": "menu",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A102-087",
+  "word": "milk",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A102-088",
+  "word": "onion",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A102-089",
+  "word": "pepper",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A102-090",
+  "word": "pizza",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A102-091",
+  "word": "potato",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A102-092",
+  "word": "restaurant",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A102-093",
+  "word": "rice",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A102-094",
+  "word": "salad",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A102-095",
+  "word": "salt",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A102-096",
+  "word": "sandwich",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A102-097",
+  "word": "soup",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A102-098",
+  "word": "sugar",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A102-099",
+  "word": "tea",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A102-100",
+  "word": "tomato",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ }
+]

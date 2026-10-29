@@ -1,0 +1,816 @@
+[
+ {
+  "id": "A103-001",
+  "word": "vegetable",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A103-002",
+  "word": "waiter",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A103-003",
+  "word": "drink",
+  "level": "A1",
+  "input_pos": "noun/verb",
+  "card_pos": "verb",
+  "status": "accepted",
+  "note": "dual POS noun/verb -> verb"
+ },
+ {
+  "id": "A103-004",
+  "word": "cook",
+  "level": "A1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "A103-005",
+  "word": "eat",
+  "level": "A1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "A103-006",
+  "word": "dangerous",
+  "level": "A1",
+  "input_pos": "adj",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "A103-007",
+  "word": "bad",
+  "level": "A1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "A103-008",
+  "word": "best",
+  "level": "A1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "A103-009",
+  "word": "better",
+  "level": "A1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "A103-010",
+  "word": "big",
+  "level": "A1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "A103-011",
+  "word": "common",
+  "level": "A1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "A103-012",
+  "word": "different",
+  "level": "A1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "A103-013",
+  "word": "easy",
+  "level": "A1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "A103-014",
+  "word": "extra",
+  "level": "A1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "A103-015",
+  "word": "few",
+  "level": "A1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "A103-016",
+  "word": "full",
+  "level": "A1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "A103-017",
+  "word": "good",
+  "level": "A1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "A103-018",
+  "word": "great",
+  "level": "A1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "A103-019",
+  "word": "high",
+  "level": "A1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "A103-020",
+  "word": "large",
+  "level": "A1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "A103-021",
+  "word": "little",
+  "level": "A1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "A103-022",
+  "word": "main",
+  "level": "A1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "A103-023",
+  "word": "new",
+  "level": "A1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "A103-024",
+  "word": "old",
+  "level": "A1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "A103-025",
+  "word": "other",
+  "level": "A1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "A103-026",
+  "word": "own",
+  "level": "A1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "A103-027",
+  "word": "perfect",
+  "level": "A1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "A103-028",
+  "word": "personal",
+  "level": "A1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "A103-029",
+  "word": "similar",
+  "level": "A1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "A103-030",
+  "word": "small",
+  "level": "A1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "A103-031",
+  "word": "special",
+  "level": "A1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "A103-032",
+  "word": "useful",
+  "level": "A1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "A103-033",
+  "word": "young",
+  "level": "A1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "A103-034",
+  "word": "fast",
+  "level": "A1",
+  "input_pos": "adjective/adverb",
+  "card_pos": "adj",
+  "status": "accepted",
+  "note": "dual POS adjective/adverb -> adj"
+ },
+ {
+  "id": "A103-035",
+  "word": "hard",
+  "level": "A1",
+  "input_pos": "adjective/adverb",
+  "card_pos": "adj",
+  "status": "accepted",
+  "note": "dual POS adjective/adverb -> adj"
+ },
+ {
+  "id": "A103-036",
+  "word": "long",
+  "level": "A1",
+  "input_pos": "adjective/adverb",
+  "card_pos": "adj",
+  "status": "accepted",
+  "note": "dual POS adjective/adverb -> adj"
+ },
+ {
+  "id": "A103-037",
+  "word": "ok",
+  "level": "A1",
+  "input_pos": "adjective/adverb",
+  "card_pos": "adj",
+  "status": "accepted",
+  "note": "dual POS adjective/adverb -> adj"
+ },
+ {
+  "id": "A103-038",
+  "word": "only",
+  "level": "A1",
+  "input_pos": "adjective/adverb",
+  "card_pos": "adj",
+  "status": "accepted",
+  "note": "dual POS adjective/adverb -> adj"
+ },
+ {
+  "id": "A103-039",
+  "word": "same",
+  "level": "A1",
+  "input_pos": "adjective/adverb",
+  "card_pos": "adj",
+  "status": "accepted",
+  "note": "dual POS adjective/adverb -> adj"
+ },
+ {
+  "id": "A103-040",
+  "word": "well",
+  "level": "A1",
+  "input_pos": "adjective/adverb",
+  "card_pos": "adv",
+  "status": "accepted",
+  "note": "dual POS adjective/adverb -> adv"
+ },
+ {
+  "id": "A103-041",
+  "word": "left",
+  "level": "A1",
+  "input_pos": "adjective/adverb/noun",
+  "card_pos": "noun",
+  "status": "accepted",
+  "note": "dual POS adjective/adverb/noun -> noun"
+ },
+ {
+  "id": "A103-042",
+  "word": "opposite",
+  "level": "A1",
+  "input_pos": "adjective/adverb/noun",
+  "card_pos": "adj",
+  "status": "accepted",
+  "note": "dual POS adjective/adverb/noun -> adj"
+ },
+ {
+  "id": "A103-043",
+  "word": "right",
+  "level": "A1",
+  "input_pos": "adjective/adverb/noun",
+  "card_pos": "adj",
+  "status": "accepted",
+  "note": "dual POS adjective/adverb/noun -> adj"
+ },
+ {
+  "id": "A103-044",
+  "word": "front",
+  "level": "A1",
+  "input_pos": "adjective/noun",
+  "card_pos": "noun",
+  "status": "accepted",
+  "note": "dual POS adjective/noun -> noun"
+ },
+ {
+  "id": "A103-045",
+  "word": "complete",
+  "level": "A1",
+  "input_pos": "adjective/verb",
+  "card_pos": "verb",
+  "status": "accepted",
+  "note": "dual POS adjective/verb -> verb"
+ },
+ {
+  "id": "A103-046",
+  "word": "about",
+  "level": "A1",
+  "input_pos": "adverb",
+  "card_pos": "adv",
+  "status": "accepted"
+ },
+ {
+  "id": "A103-047",
+  "word": "above",
+  "level": "A1",
+  "input_pos": "adverb",
+  "card_pos": "adv",
+  "status": "accepted"
+ },
+ {
+  "id": "A103-048",
+  "word": "across",
+  "level": "A1",
+  "input_pos": "adverb",
+  "card_pos": "adv",
+  "status": "accepted"
+ },
+ {
+  "id": "A103-049",
+  "word": "also",
+  "level": "A1",
+  "input_pos": "adverb",
+  "card_pos": "adv",
+  "status": "accepted"
+ },
+ {
+  "id": "A103-050",
+  "word": "around",
+  "level": "A1",
+  "input_pos": "adverb",
+  "card_pos": "adv",
+  "status": "accepted"
+ },
+ {
+  "id": "A103-051",
+  "word": "away",
+  "level": "A1",
+  "input_pos": "adverb",
+  "card_pos": "adv",
+  "status": "accepted"
+ },
+ {
+  "id": "A103-052",
+  "word": "behind",
+  "level": "A1",
+  "input_pos": "adverb",
+  "card_pos": "adv",
+  "status": "accepted"
+ },
+ {
+  "id": "A103-053",
+  "word": "below",
+  "level": "A1",
+  "input_pos": "adverb",
+  "card_pos": "adv",
+  "status": "accepted"
+ },
+ {
+  "id": "A103-054",
+  "word": "down",
+  "level": "A1",
+  "input_pos": "adverb",
+  "card_pos": "adv",
+  "status": "accepted"
+ },
+ {
+  "id": "A103-055",
+  "word": "each",
+  "level": "A1",
+  "input_pos": "adverb",
+  "card_pos": "adv",
+  "status": "accepted"
+ },
+ {
+  "id": "A103-056",
+  "word": "else",
+  "level": "A1",
+  "input_pos": "adverb",
+  "card_pos": "adv",
+  "status": "accepted"
+ },
+ {
+  "id": "A103-057",
+  "word": "enough",
+  "level": "A1",
+  "input_pos": "adverb",
+  "card_pos": "adv",
+  "status": "accepted"
+ },
+ {
+  "id": "A103-058",
+  "word": "even",
+  "level": "A1",
+  "input_pos": "adverb",
+  "card_pos": "adv",
+  "status": "accepted"
+ },
+ {
+  "id": "A103-059",
+  "word": "here",
+  "level": "A1",
+  "input_pos": "adverb",
+  "card_pos": "adv",
+  "status": "accepted"
+ },
+ {
+  "id": "A103-060",
+  "word": "how",
+  "level": "A1",
+  "input_pos": "adverb",
+  "card_pos": "adv",
+  "status": "accepted"
+ },
+ {
+  "id": "A103-061",
+  "word": "however",
+  "level": "A1",
+  "input_pos": "adverb",
+  "card_pos": "adv",
+  "status": "accepted"
+ },
+ {
+  "id": "A103-062",
+  "word": "in",
+  "level": "A1",
+  "input_pos": "adverb",
+  "card_pos": "adv",
+  "status": "accepted"
+ },
+ {
+  "id": "A103-063",
+  "word": "just",
+  "level": "A1",
+  "input_pos": "adverb",
+  "card_pos": "adv",
+  "status": "accepted"
+ },
+ {
+  "id": "A103-064",
+  "word": "lot",
+  "level": "A1",
+  "input_pos": "adverb",
+  "card_pos": "adv",
+  "status": "accepted"
+ },
+ {
+  "id": "A103-065",
+  "word": "more",
+  "level": "A1",
+  "input_pos": "adverb",
+  "card_pos": "adv",
+  "status": "accepted"
+ },
+ {
+  "id": "A103-066",
+  "word": "most",
+  "level": "A1",
+  "input_pos": "adverb",
+  "card_pos": "adv",
+  "status": "accepted"
+ },
+ {
+  "id": "A103-067",
+  "word": "much",
+  "level": "A1",
+  "input_pos": "adverb",
+  "card_pos": "adv",
+  "status": "accepted"
+ },
+ {
+  "id": "A103-068",
+  "word": "not",
+  "level": "A1",
+  "input_pos": "adverb",
+  "card_pos": "adv",
+  "status": "accepted"
+ },
+ {
+  "id": "A103-069",
+  "word": "off",
+  "level": "A1",
+  "input_pos": "adverb",
+  "card_pos": "adv",
+  "status": "accepted"
+ },
+ {
+  "id": "A103-070",
+  "word": "on",
+  "level": "A1",
+  "input_pos": "adverb",
+  "card_pos": "adv",
+  "status": "accepted"
+ },
+ {
+  "id": "A103-071",
+  "word": "out",
+  "level": "A1",
+  "input_pos": "adverb",
+  "card_pos": "adv",
+  "status": "accepted"
+ },
+ {
+  "id": "A103-072",
+  "word": "outside",
+  "level": "A1",
+  "input_pos": "adverb",
+  "card_pos": "adv",
+  "status": "accepted"
+ },
+ {
+  "id": "A103-073",
+  "word": "over",
+  "level": "A1",
+  "input_pos": "adverb",
+  "card_pos": "adv",
+  "status": "accepted"
+ },
+ {
+  "id": "A103-074",
+  "word": "quite",
+  "level": "A1",
+  "input_pos": "adverb",
+  "card_pos": "adv",
+  "status": "accepted"
+ },
+ {
+  "id": "A103-075",
+  "word": "really",
+  "level": "A1",
+  "input_pos": "adverb",
+  "card_pos": "adv",
+  "status": "accepted"
+ },
+ {
+  "id": "A103-076",
+  "word": "so",
+  "level": "A1",
+  "input_pos": "adverb",
+  "card_pos": "adv",
+  "status": "accepted"
+ },
+ {
+  "id": "A103-077",
+  "word": "still",
+  "level": "A1",
+  "input_pos": "adverb",
+  "card_pos": "adv",
+  "status": "accepted"
+ },
+ {
+  "id": "A103-078",
+  "word": "there",
+  "level": "A1",
+  "input_pos": "adverb",
+  "card_pos": "adv",
+  "status": "accepted"
+ },
+ {
+  "id": "A103-079",
+  "word": "through",
+  "level": "A1",
+  "input_pos": "adverb",
+  "card_pos": "adv",
+  "status": "accepted"
+ },
+ {
+  "id": "A103-080",
+  "word": "too",
+  "level": "A1",
+  "input_pos": "adverb",
+  "card_pos": "adv",
+  "status": "accepted"
+ },
+ {
+  "id": "A103-081",
+  "word": "under",
+  "level": "A1",
+  "input_pos": "adverb",
+  "card_pos": "adv",
+  "status": "accepted"
+ },
+ {
+  "id": "A103-082",
+  "word": "up",
+  "level": "A1",
+  "input_pos": "adverb",
+  "card_pos": "adv",
+  "status": "accepted"
+ },
+ {
+  "id": "A103-083",
+  "word": "very",
+  "level": "A1",
+  "input_pos": "adverb",
+  "card_pos": "adv",
+  "status": "accepted"
+ },
+ {
+  "id": "A103-084",
+  "word": "where",
+  "level": "A1",
+  "input_pos": "adverb",
+  "card_pos": "adv",
+  "status": "accepted"
+ },
+ {
+  "id": "A103-085",
+  "word": "back",
+  "level": "A1",
+  "input_pos": "adverb/noun",
+  "card_pos": "adv",
+  "status": "accepted",
+  "note": "dual POS adverb/noun -> adv"
+ },
+ {
+  "id": "A103-086",
+  "word": "action",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A103-087",
+  "word": "area",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A103-088",
+  "word": "centre",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A103-089",
+  "word": "half",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A103-090",
+  "word": "line",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A103-091",
+  "word": "metre",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A103-092",
+  "word": "model",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A103-093",
+  "word": "object",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A103-094",
+  "word": "pair",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A103-095",
+  "word": "part",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A103-096",
+  "word": "piece",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A103-097",
+  "word": "place",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A103-098",
+  "word": "point",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A103-099",
+  "word": "section",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A103-100",
+  "word": "situation",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ }
+]

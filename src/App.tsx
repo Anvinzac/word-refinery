@@ -29,6 +29,7 @@ import {
   StoreError,
 } from "./lib/store";
 import {
+  clearLocalDoc,
   loadLocalCorpus,
   loadLocalDoc,
   localMirrorAvailable,
@@ -132,6 +133,8 @@ export function App() {
   // Set when a save was refused because the remote holds something unreadable.
   // Clearing it is an explicit act, which is the whole point of the guard.
   const [overwriteBlocked, setOverwriteBlocked] = useState(false);
+  /** Two-click guard on the one control that deliberately throws work away. */
+  const [confirmReset, setConfirmReset] = useState(false);
   // The active corpus lives in a module rather than in state, so swapping it has
   // to be announced: this counter is what re-renders the panels that read it.
   const [corpusEpoch, setCorpusEpoch] = useState(0);
@@ -486,6 +489,27 @@ export function App() {
     [doc, dirty, hydrated, mirrorUnreadable],
   );
 
+  /**
+   * Drop this workspace's copy of the working document and start again from
+   * the bundled dataset.
+   *
+   * The restore-then-merge on startup is right almost always - it is what keeps
+   * a refresh from costing anything - but it means a NEW bundled dataset
+   * arrives beside the old words rather than instead of them. Replacing one
+   * dataset with another is the case that needs saying out loud, so it is a
+   * deliberate button with a confirm rather than something startup decides.
+   */
+  const startOver = useCallback(async () => {
+    switching.current = true;
+    try {
+      await clearLocalDoc();
+    } catch {
+      // Nothing to clear, or a browser that refuses: the reload below still
+      // lands on whatever is actually there, which is the honest outcome.
+    }
+    window.location.reload();
+  }, []);
+
   const tabCounts: Record<Tab, number | null> = {
     generate: null,
     review: doc.review.length,
@@ -675,6 +699,47 @@ export function App() {
                   event.target.value = "";
                 }}
               />
+            </div>
+          </section>
+
+          <section className="panel">
+            <h2>Start over</h2>
+            <p className="hint">
+              Drops this workspace's copy of the working document and reloads, so the bundled
+              dataset is read fresh. Use it when the bundled dataset has been REPLACED rather than
+              added to — a normal refresh keeps your words and merges any new batches beside them,
+              which is what you want every other time.
+            </p>
+            <p className="hint" style={{ marginTop: 8 }}>
+              It does not touch the remote store, the imported corpus, the released catalogue, your
+              prompt edits, or any other workspace. Download the working document first if there is
+              anything in it you have not pushed.
+            </p>
+            <div className="row" style={{ marginTop: 12 }}>
+              <button
+                type="button"
+                className="btn"
+                onClick={() => {
+                  downloadJson(doc);
+                  setNotice({ kind: "ok", text: `Downloaded ${DOC_FILENAME} as a backup.` });
+                }}
+              >
+                Download a backup first
+              </button>
+              {confirmReset ? (
+                <>
+                  <button type="button" className="btn danger" onClick={() => void startOver()}>
+                    Yes — discard {doc.review.length} word(s) and reload
+                  </button>
+                  <button type="button" className="btn" onClick={() => setConfirmReset(false)}>
+                    Cancel
+                  </button>
+                </>
+              ) : (
+                <button type="button" className="btn" onClick={() => setConfirmReset(true)}>
+                  Clear this browser's copy
+                </button>
+              )}
             </div>
           </section>
 

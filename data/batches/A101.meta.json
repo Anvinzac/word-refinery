@@ -1,0 +1,817 @@
+[
+ {
+  "id": "A101-001",
+  "word": "interested",
+  "level": "A1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "A101-002",
+  "word": "interesting",
+  "level": "A1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "A101-003",
+  "word": "detail",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A101-004",
+  "word": "interest",
+  "level": "A1",
+  "input_pos": "noun/verb",
+  "card_pos": "noun",
+  "status": "accepted",
+  "note": "noun/verb -> noun sense"
+ },
+ {
+  "id": "A101-005",
+  "word": "check",
+  "level": "A1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "A101-006",
+  "word": "listen",
+  "level": "A1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "A101-007",
+  "word": "friendly",
+  "level": "A1",
+  "input_pos": "adj",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "A101-008",
+  "word": "funny",
+  "level": "A1",
+  "input_pos": "adj",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "A101-009",
+  "word": "kind",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A101-010",
+  "word": "dear",
+  "level": "A1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "A101-011",
+  "word": "welcome",
+  "level": "A1",
+  "input_pos": "adjective/verb",
+  "card_pos": "adj",
+  "status": "accepted",
+  "note": "adjective/verb -> adj"
+ },
+ {
+  "id": "A101-012",
+  "word": "address",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A101-013",
+  "word": "advice",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A101-014",
+  "word": "article",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A101-015",
+  "word": "conversation",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A101-016",
+  "word": "description",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A101-017",
+  "word": "dialogue",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A101-018",
+  "word": "goodbye",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A101-019",
+  "word": "hello",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A101-020",
+  "word": "information",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A101-021",
+  "word": "language",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A101-022",
+  "word": "letter",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A101-023",
+  "word": "magazine",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A101-024",
+  "word": "meaning",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A101-025",
+  "word": "message",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A101-026",
+  "word": "news",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A101-027",
+  "word": "newspaper",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A101-028",
+  "word": "phrase",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A101-029",
+  "word": "programme",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A101-030",
+  "word": "radio",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A101-031",
+  "word": "statement",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A101-032",
+  "word": "story",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A101-033",
+  "word": "text",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A101-034",
+  "word": "thanks",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A101-035",
+  "word": "word",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A101-036",
+  "word": "answer",
+  "level": "A1",
+  "input_pos": "noun/verb",
+  "card_pos": "noun",
+  "status": "accepted",
+  "note": "noun/verb -> noun"
+ },
+ {
+  "id": "A101-037",
+  "word": "call",
+  "level": "A1",
+  "input_pos": "noun/verb",
+  "card_pos": "verb",
+  "status": "accepted",
+  "note": "noun/verb -> verb"
+ },
+ {
+  "id": "A101-038",
+  "word": "email",
+  "level": "A1",
+  "input_pos": "noun/verb",
+  "card_pos": "noun",
+  "status": "accepted",
+  "note": "noun/verb -> noun"
+ },
+ {
+  "id": "A101-039",
+  "word": "form",
+  "level": "A1",
+  "input_pos": "noun/verb",
+  "card_pos": "noun",
+  "status": "accepted",
+  "note": "noun/verb -> noun"
+ },
+ {
+  "id": "A101-040",
+  "word": "name",
+  "level": "A1",
+  "input_pos": "noun/verb",
+  "card_pos": "noun",
+  "status": "accepted",
+  "note": "noun/verb -> noun"
+ },
+ {
+  "id": "A101-041",
+  "word": "post",
+  "level": "A1",
+  "input_pos": "noun/verb",
+  "card_pos": "noun",
+  "status": "accepted",
+  "note": "noun/verb -> noun (mail)"
+ },
+ {
+  "id": "A101-042",
+  "word": "ask",
+  "level": "A1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "A101-043",
+  "word": "describe",
+  "level": "A1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "A101-044",
+  "word": "discuss",
+  "level": "A1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "A101-045",
+  "word": "explain",
+  "level": "A1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "A101-046",
+  "word": "introduce",
+  "level": "A1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "A101-047",
+  "word": "lie",
+  "level": "A1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted",
+  "note": "S2 dual-sense allowed: honesty framing"
+ },
+ {
+  "id": "A101-048",
+  "word": "say",
+  "level": "A1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "A101-049",
+  "word": "send",
+  "level": "A1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "A101-050",
+  "word": "speak",
+  "level": "A1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "A101-051",
+  "word": "talk",
+  "level": "A1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "A101-052",
+  "word": "tell",
+  "level": "A1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "A101-053",
+  "word": "thank",
+  "level": "A1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "A101-054",
+  "word": "write",
+  "level": "A1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "A101-055",
+  "word": "dirty",
+  "level": "A1",
+  "input_pos": "adj",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "A101-056",
+  "word": "quiet",
+  "level": "A1",
+  "input_pos": "adj",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "A101-057",
+  "word": "ready",
+  "level": "A1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "A101-058",
+  "word": "key",
+  "level": "A1",
+  "input_pos": "adjective/noun",
+  "card_pos": "noun",
+  "status": "accepted",
+  "note": "adjective/noun -> noun"
+ },
+ {
+  "id": "A101-059",
+  "word": "light",
+  "level": "A1",
+  "input_pos": "adjective/noun",
+  "card_pos": "noun",
+  "status": "accepted",
+  "note": "adjective/noun -> noun"
+ },
+ {
+  "id": "A101-060",
+  "word": "present",
+  "level": "A1",
+  "input_pos": "adjective/noun",
+  "card_pos": "noun",
+  "status": "accepted",
+  "note": "adjective/noun -> noun (gift)"
+ },
+ {
+  "id": "A101-061",
+  "word": "clean",
+  "level": "A1",
+  "input_pos": "adjective/verb",
+  "card_pos": "adj",
+  "status": "accepted",
+  "note": "adjective/verb -> adj"
+ },
+ {
+  "id": "A101-062",
+  "word": "open",
+  "level": "A1",
+  "input_pos": "adjective/verb",
+  "card_pos": "adj",
+  "status": "accepted",
+  "note": "adjective/verb -> adj"
+ },
+ {
+  "id": "A101-063",
+  "word": "downstairs",
+  "level": "A1",
+  "input_pos": "adverb",
+  "card_pos": "adv",
+  "status": "accepted"
+ },
+ {
+  "id": "A101-064",
+  "word": "upstairs",
+  "level": "A1",
+  "input_pos": "adverb",
+  "card_pos": "adv",
+  "status": "accepted"
+ },
+ {
+  "id": "A101-065",
+  "word": "home",
+  "level": "A1",
+  "input_pos": "adverb/noun",
+  "card_pos": "adv",
+  "status": "accepted",
+  "note": "adverb/noun -> adv"
+ },
+ {
+  "id": "A101-066",
+  "word": "activity",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A101-067",
+  "word": "apartment",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A101-068",
+  "word": "bag",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A101-069",
+  "word": "bath",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A101-070",
+  "word": "bathroom",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A101-071",
+  "word": "bed",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A101-072",
+  "word": "bedroom",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A101-073",
+  "word": "birthday",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A101-074",
+  "word": "boot",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A101-075",
+  "word": "bottle",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A101-076",
+  "word": "box",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A101-077",
+  "word": "building",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A101-078",
+  "word": "card",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A101-079",
+  "word": "chair",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A101-080",
+  "word": "clothes",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A101-081",
+  "word": "coat",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A101-082",
+  "word": "cup",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A101-083",
+  "word": "door",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A101-084",
+  "word": "flat",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A101-085",
+  "word": "floor",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A101-086",
+  "word": "garden",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A101-087",
+  "word": "glass",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A101-088",
+  "word": "hat",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A101-089",
+  "word": "hobby",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A101-090",
+  "word": "house",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A101-091",
+  "word": "jacket",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A101-092",
+  "word": "jeans",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A101-093",
+  "word": "kitchen",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A101-094",
+  "word": "life",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A101-095",
+  "word": "market",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A101-096",
+  "word": "photo",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A101-097",
+  "word": "pool",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A101-098",
+  "word": "room",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A101-099",
+  "word": "shirt",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A101-100",
+  "word": "shoe",
+  "level": "A1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ }
+]
