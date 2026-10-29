@@ -199,9 +199,9 @@ live in `src/lib/lang.ts`, one profile per language.
 data/ngsl-starter-subset.json   bundled corpus (381 words, CC BY-SA 4.0)
 data/batches/A101.json          one batch of Vietnamese cards; `npm run bundle-batches` bundles them
 data/batches/A101.meta.json     its manifest: id, headword and level, one row per card
-data/batches-ja/A101.json       one batch of Japanese cards, four reader registers per word (see its README)
+data/batches-ja/A101.json       one batch of Japanese cards, one telling per reader register (see its README)
 public/default-deck.json        the dataset a Vietnamese workspace ships with (1910 words, A101-A108 + A201-A207 + B105-B107 + B201-B202)
-public/default-deck-ja.json     the dataset a Japanese workspace ships with (1479 words, A101-A108 + A201-A207)
+public/default-deck-ja.json     the dataset a Japanese workspace ships with (1926 words, A101-A108 + A201-A208 + B101-B104)
 src/lib/
   types.ts       deck, corpus and review document shapes
   corpus.ts      load the bundled corpus, filter by band, batch it
@@ -223,9 +223,10 @@ src/components/  SettingsPanel, GeneratePanel, ReviewTable
 src/App.tsx      shell: tabs, working document, save/load/export
 ```
 
-The two series are sourced independently, so they cover different ground: the Japanese batches stop
-at A207, while the Vietnamese ones continue into B1 and B2. A word count that differs between them
-is expected, not a bundling failure.
+The two series are sourced independently, so neither is a translation of the other past A207. Both
+hold 20 batches, but not the same 20: Vietnamese has B105-B107 and B201-B202 and is missing A208 and
+B101-B104, while Japanese has A208 and B101-B104 and stops there. A word count that differs between
+them is expected, not a bundling failure.
 
 `src/lib/contract.ts`, `src/lib/emphasis.ts`, `src/lib/prompt.ts` and `src/lib/deck.ts` are ports of
 the Node-based `word-crawler` package in the KineMedia monorepo, with the filesystem parts removed

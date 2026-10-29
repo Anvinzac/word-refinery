@@ -1,0 +1,602 @@
+[
+ {
+  "id": "B101-001",
+  "word": "aware",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B101-002",
+  "word": "concentrate",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B101-003",
+  "word": "ignore",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B101-004",
+  "word": "brave",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B101-005",
+  "word": "generous",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B101-006",
+  "word": "honest",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B101-007",
+  "word": "ambitious",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B101-008",
+  "word": "careless",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B101-009",
+  "word": "cheerful",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B101-010",
+  "word": "competitive",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B101-011",
+  "word": "confident",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B101-012",
+  "word": "determined",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B101-013",
+  "word": "gentle",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B101-014",
+  "word": "keen",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B101-015",
+  "word": "organized",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B101-016",
+  "word": "practical",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B101-017",
+  "word": "responsible",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B101-018",
+  "word": "sensible",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B101-019",
+  "word": "shy",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B101-020",
+  "word": "silly",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B101-021",
+  "word": "smart",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B101-022",
+  "word": "talented",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B101-023",
+  "word": "ambition",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B101-024",
+  "word": "attitude",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B101-025",
+  "word": "talent",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B101-026",
+  "word": "spoken",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B101-027",
+  "word": "written",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B101-028",
+  "word": "therefore",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B101-029",
+  "word": "agreement",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B101-030",
+  "word": "announcement",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B101-031",
+  "word": "communication",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B101-032",
+  "word": "complaint",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B101-033",
+  "word": "connection",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B101-034",
+  "word": "presentation",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B101-035",
+  "word": "quotation",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B101-036",
+  "word": "recommendation",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B101-037",
+  "word": "translation",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B101-038",
+  "word": "warning",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B101-039",
+  "word": "claim",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B101-040",
+  "word": "contact",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B101-041",
+  "word": "quote",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B101-042",
+  "word": "signal",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B101-043",
+  "word": "admit",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B101-044",
+  "word": "advise",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B101-045",
+  "word": "announce",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B101-046",
+  "word": "apologize",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B101-047",
+  "word": "confirm",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B101-048",
+  "word": "convince",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B101-049",
+  "word": "encourage",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B101-050",
+  "word": "indicate",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B101-051",
+  "word": "pretend",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B101-052",
+  "word": "reject",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B101-053",
+  "word": "summarize",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B101-054",
+  "word": "translate",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B101-055",
+  "word": "warn",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B101-056",
+  "word": "convenient",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B101-057",
+  "word": "dressed",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B101-058",
+  "word": "fashionable",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B101-059",
+  "word": "indoor",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B101-060",
+  "word": "tight",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B101-061",
+  "word": "living",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B101-062",
+  "word": "waste",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B101-063",
+  "word": "fancy",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B101-064",
+  "word": "indoors",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B101-065",
+  "word": "alarm",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B101-066",
+  "word": "bell",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B101-067",
+  "word": "bubble",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B101-068",
+  "word": "cap",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B101-069",
+  "word": "ceiling",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B101-070",
+  "word": "chore",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B101-071",
+  "word": "cloth",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B101-072",
+  "word": "container",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B101-073",
+  "word": "costume",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B101-074",
+  "word": "cottage",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B101-075",
+  "word": "cotton",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B101-076",
+  "word": "curtain",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B101-077",
+  "word": "dirt",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B101-078",
+  "word": "dust",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B101-079",
+  "word": "entrance",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B101-080",
+  "word": "fence",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B101-081",
+  "word": "garage",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B101-082",
+  "word": "glove",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B101-083",
+  "word": "heating",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B101-084",
+  "word": "leather",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B101-085",
+  "word": "leisure",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B101-086",
+  "word": "mall",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B101-087",
+  "word": "mess",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B101-088",
+  "word": "nail",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B101-089",
+  "word": "needle",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B101-090",
+  "word": "neighbourhood",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B101-091",
+  "word": "package",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B101-092",
+  "word": "pipe",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B101-093",
+  "word": "pot",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B101-094",
+  "word": "powder",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B101-095",
+  "word": "rope",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B101-096",
+  "word": "shelf",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B101-097",
+  "word": "string",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B101-098",
+  "word": "tin",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B101-099",
+  "word": "tube",
+  "level": "B1",
+  "status": "accepted"
+ },
+ {
+  "id": "B101-100",
+  "word": "wool",
+  "level": "B1",
+  "status": "accepted"
+ }
+]
