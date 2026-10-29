@@ -7,10 +7,12 @@
  * asserted here is that distinction holding under each way it could be lost.
  * Run with `npm test`.
  *
- * Depends on: node:test, ../src/lib/intake.ts
+ * Depends on: node:test, ../src/lib/intake.ts, ../src/lib/intake-db.ts
  */
 import assert from "node:assert/strict";
 import test from "node:test";
+
+import { CATALOG_SCHEMA_VERSION, catalogVersionRefusal } from "../src/lib/intake-db.ts";
 
 import {
   CANONICAL_FIELD_ORDER,
@@ -251,7 +253,7 @@ test("meaningVi is a gloss, not a sentence", () => {
   const long = checkPromptRules(candidate({ meaningVi: "việc thu gom cây trái sau mùa" }));
   assert.ok(long.some((f) => /1-4/.test(f.message)), "more than four words");
   const stopped = checkPromptRules(candidate({ meaningVi: "vụ_mùa." }));
-  assert.ok(stopped.some((f) => /full stop/.test(f.message)));
+  assert.ok(stopped.some((f) => /not a sentence/.test(f.message)));
   // Two genuine senses after ", " are allowed.
   assert.deepEqual(checkPromptRules(candidate({ meaningVi: "hệ_quả, hàm_ý" })), []);
 });
@@ -328,4 +330,31 @@ test("a varied batch raises nothing", () => {
     candidate({ word: `w${index}`, emphasisVi: ["thu gom", "chờ", `t${index}`] }),
   );
   assert.equal(checkBatchRules(asRecords(raws)).size, 0);
+});
+
+/**
+ * The catalogue now OUTLIVES the session, so the question "may this build write
+ * to this file" has an answer that matters. A file from a later build opens
+ * fine and loses columns on the first write, which is the one failure the
+ * reviewer could not see happening.
+ */
+test("a catalogue from a newer build is refused rather than quietly downgraded", () => {
+  const refusal = catalogVersionRefusal(CATALOG_SCHEMA_VERSION + 1);
+  assert.ok(refusal !== null);
+  assert.ok(/newer version/.test(refusal), "it says what is wrong");
+  assert.ok(
+    new RegExp(`schema ${CATALOG_SCHEMA_VERSION + 1}`).test(refusal),
+    "and which version wrote it",
+  );
+});
+
+test("a catalogue from this build, or an older one, opens", () => {
+  assert.equal(catalogVersionRefusal(CATALOG_SCHEMA_VERSION), null);
+  assert.equal(catalogVersionRefusal(CATALOG_SCHEMA_VERSION - 1), null);
+});
+
+test("a catalogue written before the stamp existed is version 1, not unreadable", () => {
+  // The tables an unstamped file holds are the ones version 1 created, so
+  // refusing it would strand every catalogue released before this change.
+  assert.equal(catalogVersionRefusal(null), null);
 });

@@ -28,7 +28,7 @@
  *
  * Exports: WORD_JOIN, CLITIC_BIND, PHRASE_BREAK, MARKS, stripMarks,
  *          stripWordJoins, countUnits, findStrayMarks, splitPhrases,
- *          hasWordJoin, hasAnyMark, MIN_PHRASE_EDGE_UNITS
+ *          hasWordJoin, hasAnyMark, MIN_PHRASE_EDGE_UNITS, MarkRules, DEFAULT_MARK_RULES
  * Depends on: none
  */
 
@@ -121,7 +121,38 @@ export function splitPhrases(text: string): string[] {
  * @param text - deck text to inspect
  * @returns one message per problem, empty when the text is clean
  */
-export function findStrayMarks(raw: string): string[] {
+/**
+ * What the marks mean in the language being checked.
+ *
+ * This module knows about three characters, not about any one language, and
+ * the two languages it serves disagree about them: Vietnamese separates every
+ * syllable with a space and so needs "_" and "=" to say "not here", while
+ * Japanese has no spaces to suppress and uses only "|" to say "here is fine".
+ * Passing the rules in keeps that knowledge in the profile where it belongs.
+ */
+export interface MarkRules {
+  /** Whether "_" is used in this language at all. */
+  join: boolean;
+  /** Whether "=" is used. */
+  clitic: boolean;
+  /** The smallest phrase a "|" may create, in whatever `measure` counts. */
+  minPhrase: number;
+  /** How to size a phrase. */
+  measure: (text: string) => number;
+  /** What that measure counts, for the message: "syllable(s)", "characters". */
+  unitWord: string;
+}
+
+/** Vietnamese, which is what this module was written for. */
+export const DEFAULT_MARK_RULES: MarkRules = {
+  join: true,
+  clitic: true,
+  minPhrase: MIN_PHRASE_EDGE_UNITS,
+  measure: (text) => text.split(/\s+/).filter(Boolean).length,
+  unitWord: "syllable(s)",
+};
+
+export function findStrayMarks(raw: string, rules: MarkRules = DEFAULT_MARK_RULES): string[] {
   const problems: string[] = [];
   if (!/[_=|]/.test(raw)) return problems;
   // Highlight markers come off first, because that is the order the app
@@ -142,18 +173,24 @@ export function findStrayMarks(raw: string): string[] {
     if (mark === WORD_JOIN && (text[index - 1] === WORD_JOIN || text[index + 1] === WORD_JOIN)) {
       continue;
     }
-    if (letter.test(text[index - 1] ?? "") && letter.test(text[index + 1] ?? "")) continue;
     const context = text.slice(Math.max(0, index - 4), index + 5).trim();
+    // A language that does not use the mark at all fails on its presence,
+    // before any question of what sits either side of it.
+    if ((mark === WORD_JOIN && !rules.join) || (mark === CLITIC_BIND && !rules.clitic)) {
+      problems.push(`"${mark}" in "${context}" — this language does not use that mark`);
+      continue;
+    }
+    if (letter.test(text[index - 1] ?? "") && letter.test(text[index + 1] ?? "")) continue;
     problems.push(`stray "${mark}" in "${context}" — a bond needs a letter on both sides`);
   }
 
   if (text.includes(PHRASE_BREAK)) {
     const phrases = splitPhrases(text);
     for (const phrase of phrases) {
-      const units = phrase.split(/\s+/).filter(Boolean).length;
-      if (units < MIN_PHRASE_EDGE_UNITS) {
+      const units = rules.measure(phrase);
+      if (units < rules.minPhrase) {
         problems.push(
-          `phrase "${phrase}" is ${units} syllable(s); a phrase needs at least ${MIN_PHRASE_EDGE_UNITS} so a break beside it cannot strand one`,
+          `phrase "${phrase}" is ${units} ${rules.unitWord}; a phrase needs at least ${rules.minPhrase} so a break beside it cannot strand one`,
         );
       }
     }

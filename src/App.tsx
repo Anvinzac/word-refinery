@@ -44,6 +44,15 @@ import { renderExemplarCards, styleExemplarCards } from "./lib/style";
 import { STYLE_FILE_NAME, applyStyleFile, parseStyleFile } from "./lib/style-file";
 import { setCommittedStyleGuide } from "./lib/prompt-store";
 import { readSettings, writeSettings, type Settings } from "./lib/settings";
+import { WorkspaceSwitcher } from "./components/WorkspaceSwitcher";
+import {
+  ORIGINAL_WORKSPACE_ID,
+  addWorkspace,
+  readWorkspaces,
+  removeWorkspace,
+  setActiveWorkspace,
+  type GlossLang,
+} from "./lib/workspace";
 import type { CefrLevel, Deck, RefineryDoc, ReviewEntry } from "./lib/types";
 
 /** Tabs in the workspace. */
@@ -103,6 +112,7 @@ function reviewEntriesFrom(parsed: RefineryDoc): ReviewEntry[] {
 }
 
 export function App() {
+  const [workspaces, setWorkspaces] = useState(() => readWorkspaces());
   const [settings, setSettings] = useState<Settings>(() => readSettings());
   const [doc, setDoc] = useState<RefineryDoc>(() => emptyDoc(readSettings()));
   // The word table is home: a returning session lands on its last dataset,
@@ -198,8 +208,17 @@ export function App() {
       // Every path must end in setHydrated: the autosave stays off until it does.
       try {
         if (cancelled) return;
-        const response = await fetch(DEFAULT_DECK_URL, { cache: "no-store" });
-        const parsed = response.ok ? parseJsonText(await response.text()) : null;
+        // The bundled deck and the committed style set are the ORIGINAL
+        // workspace's data: 720 Vietnamese cards and a Vietnamese voice. Loading
+        // them into a deck started for another language would be the loudest
+        // possible interference between two workspaces.
+        // Read here rather than from state: this effect has no dependencies,
+        // and the value cannot change without the reload that a switch does.
+        const ownsBundled = readWorkspaces().activeId === ORIGINAL_WORKSPACE_ID;
+        const response = ownsBundled
+          ? await fetch(DEFAULT_DECK_URL, { cache: "no-store" })
+          : null;
+        const parsed = response !== null && response.ok ? parseJsonText(await response.text()) : null;
         if (restored !== null) {
           const added = parsed === null ? [] : entriesForNewBatches(restored.review, parsed.deck.words);
           if (!cancelled && added.length > 0) {
@@ -229,7 +248,7 @@ export function App() {
       // The committed style set, applied last: it names cards by id or word,
       // so the deck has to be in place before it can find anything.
       try {
-        if (cancelled) return;
+        if (cancelled || readWorkspaces().activeId !== ORIGINAL_WORKSPACE_ID) return;
         const response = await fetch(STYLE_FILE_URL, { cache: "no-store" });
         if (!response.ok) return;
         const file = parseStyleFile(await response.text());
@@ -261,10 +280,17 @@ export function App() {
     return () => window.clearTimeout(timer);
   }, [doc, dirty, hydrated, mirrorUnreadable]);
 
+  /**
+   * Set while switching workspaces, so the unsaved-work warning below does not
+   * fire on a reload WE asked for after flushing the mirror.
+   */
+  const switching = useRef(false);
+
   /** Warn before navigating away with unsaved work. */
   useEffect(() => {
     if (!dirty) return;
     const handler = (event: BeforeUnloadEvent) => {
+      if (switching.current) return;
       event.preventDefault();
       event.returnValue = "";
     };
@@ -435,6 +461,31 @@ export function App() {
     });
   };
 
+  /**
+   * Leave this workspace for another.
+   *
+   * The mirror is flushed FIRST and the page is then reloaded. Flushing matters
+   * because the autosave is debounced by 600ms and a switch is exactly the
+   * moment a reviewer has just typed something; reloading matters because a
+   * dozen pieces of state - the deck, the corpus, the prompts, the style guide,
+   * the catalogue - are read once at startup, and carrying any one of them
+   * across is interference between two decks that must not touch.
+   */
+  const leaveFor = useCallback(
+    async (act: () => void) => {
+      switching.current = true;
+      try {
+        if (hydrated && !mirrorUnreadable) await saveLocalDoc(doc, dirty);
+      } catch {
+        // A mirror that refuses the last write is not a reason to refuse the
+        // switch; the reviewer asked to leave, and the remote copy still holds.
+      }
+      act();
+      window.location.reload();
+    },
+    [doc, dirty, hydrated, mirrorUnreadable],
+  );
+
   const tabCounts: Record<Tab, number | null> = {
     generate: null,
     review: doc.review.length,
@@ -452,6 +503,19 @@ export function App() {
       <header className="shell-head">
         <h1>Word Refinery</h1>
         <span className="tag">vocabulary deck studio</span>
+        <div className="shell-head-spacer" />
+        <WorkspaceSwitcher
+          workspaces={workspaces.list}
+          activeId={workspaces.activeId}
+          onSwitch={(id) => void leaveFor(() => setActiveWorkspace(id))}
+          onCreate={(label, gloss: GlossLang) => void leaveFor(() => addWorkspace({ label, gloss }))}
+          onForget={(id) => {
+            // Forgetting the OPEN workspace changes which deck the page is
+            // showing, so it takes the same route a switch does.
+            if (id === workspaces.activeId) void leaveFor(() => removeWorkspace(id));
+            else setWorkspaces(removeWorkspace(id));
+          }}
+        />
       </header>
       <p className="shell-sub">
         Your words first — everything else lives under More below.
@@ -640,7 +704,7 @@ export function App() {
             <p className="hint">
               The bundled corpus is a derivative of the NGSL 1.2 / NAWL 1.2 word lists, licensed{" "}
               {loadCorpus().meta.license}. Share-alike applies to the word list itself; the
-              Vietnamese annotations you generate are yours. See <code className="k">NOTICE.md</code>{" "}
+              The annotations you generate are yours. See <code className="k">NOTICE.md</code>{" "}
               in this repository before redistributing a deck.
             </p>
           </section>

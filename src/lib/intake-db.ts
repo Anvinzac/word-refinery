@@ -15,14 +15,31 @@
  * sql.js is loaded on demand — it is 672 KB of WebAssembly, and a reviewer who
  * never opens the Intake tab should never pay for it.
  *
- * Exports: openCatalog, CatalogDb
+ * Exports: openCatalog, CatalogDb, CatalogStats, CATALOG_SCHEMA_VERSION,
+ *          catalogVersionRefusal
  * Depends on: sql.js, ./intake.ts
  */
 import type { Database, SqlJsStatic } from "sql.js";
 import type { IntakeRecord } from "./intake.ts";
 
+/**
+ * The shape of the catalogue file.
+ *
+ * It matters now that the file OUTLIVES the session: a build that gained a
+ * column would read an older file and silently report nothing for it, and an
+ * older build would read a newer file and drop on write whatever it could not
+ * see. The version is stamped into the file so each case is detected instead.
+ */
+export const CATALOG_SCHEMA_VERSION = 1;
+
 /** The schema, created on an empty database. */
 const SCHEMA = `
+-- Stamped so a stored file can be recognised by a later build.
+CREATE TABLE IF NOT EXISTS meta (
+  key   TEXT PRIMARY KEY,
+  value TEXT NOT NULL
+);
+
 CREATE TABLE IF NOT EXISTS batches (
   id          TEXT PRIMARY KEY,
   source      TEXT NOT NULL,
@@ -104,6 +121,14 @@ async function loadRuntime(): Promise<SqlJsStatic> {
   return runtime;
 }
 
+/** Counts worth showing without opening the file. */
+export interface CatalogStats {
+  batches: number;
+  candidates: number;
+  cards: number;
+  rejected: number;
+}
+
 /** A catalogue, open for reading and writing. */
 export interface CatalogDb {
   /** Write one completed run into the catalogue. */
@@ -116,7 +141,7 @@ export interface CatalogDb {
   /** Run a read-only query, for the page's own panels and for ad-hoc use. */
   query(sql: string): Array<Record<string, unknown>>;
   /** Counts worth showing without writing SQL. */
-  stats(): { batches: number; candidates: number; cards: number; rejected: number };
+  stats(): CatalogStats;
   /** The file, for download. */
   toBytes(): Uint8Array;
   close(): void;
@@ -129,14 +154,67 @@ function literal(value: unknown): string {
 }
 
 /**
+ * Read the schema stamp out of a file, if it carries one.
+ *
+ * @returns the version, or null for a file written before the stamp existed
+ */
+/**
+ * Why a stored catalogue may not be opened, if it may not.
+ *
+ * Separated from the open so the rule can be stated once and tested: a file
+ * from a LATER build is refused, a file from an earlier one is opened, and a
+ * file with no stamp at all is a version 1 file by definition, because the
+ * tables it holds are the ones version 1 created.
+ *
+ * @param stored - the version stamped in the file, or null when unstamped
+ * @returns the refusal to show the reviewer, or null when the file is readable
+ */
+export function catalogVersionRefusal(stored: number | null): string | null {
+  if (stored === null || stored <= CATALOG_SCHEMA_VERSION) return null;
+  return (
+    `This catalogue was written by a newer version of the app (schema ${stored}, this build reads ${CATALOG_SCHEMA_VERSION}). ` +
+    "Update the app before opening it — writing to it here would drop whatever this build cannot see."
+  );
+}
+
+function readSchemaVersion(db: Database): number | null {
+  try {
+    const rows = db.exec("SELECT value FROM meta WHERE key = 'schema_version'");
+    const raw = rows[0]?.values[0]?.[0];
+    if (raw === undefined || raw === null) return null;
+    const version = Number(raw);
+    return Number.isFinite(version) ? version : null;
+  } catch {
+    // No meta table at all - a version 1 file, from before the stamp.
+    return null;
+  }
+}
+
+/**
  * Open a catalogue: an existing file, or a fresh one.
  *
+ * A file written by a LATER build is refused rather than opened. Opening it
+ * would work — SQLite reads columns it was not told about — and then every
+ * write would drop them, so the reviewer would lose data by the act of looking
+ * at it. Refusing says so while the file is still intact.
+ *
  * @param bytes - an existing .sqlite file, or undefined for a new catalogue
+ * @throws when the file was written by a newer version of this schema
  */
 export async function openCatalog(bytes?: Uint8Array): Promise<CatalogDb> {
   const SQL = await loadRuntime();
   const db: Database = bytes === undefined ? new SQL.Database() : new SQL.Database(bytes);
+  const refusal = bytes === undefined ? null : catalogVersionRefusal(readSchemaVersion(db));
+  if (refusal !== null) {
+    db.close();
+    throw new Error(refusal);
+  }
   db.run(SCHEMA);
+  // A file from before the stamp existed is schema 1 by definition: the tables
+  // it holds are the ones version 1 created.
+  db.run(
+    `INSERT OR REPLACE INTO meta (key, value) VALUES ('schema_version', ${literal(CATALOG_SCHEMA_VERSION)})`,
+  );
 
   const query = (sql: string): Array<Record<string, unknown>> => {
     const results = db.exec(sql);

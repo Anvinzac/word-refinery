@@ -12,9 +12,11 @@
  *
  * Exports: LlmProvider, Settings, ProviderProfile, readSettings, writeSettings,
  *          patchSettings, patchLlmSettings, switchProvider, SETTINGS_KEY,
- *          maskKey, PROVIDERS
- * Depends on: none
+ *          SHARED_KEYS_KEY, maskKey, PROVIDERS
+ * Depends on: ./lang.ts, ./workspace.ts
  */
+import { activeGlossProfile } from "./lang.ts";
+import { scopedKey } from "./workspace.ts";
 
 /** The LLM providers the refinery can call from the browser. */
 export type LlmProvider = "openrouter" | "together" | "anthropic" | "alibaba";
@@ -111,8 +113,44 @@ export interface Settings {
   };
 }
 
-/** localStorage key. */
+/** localStorage key, before the workspace scope is applied. */
 export const SETTINGS_KEY = "word-refinery.settings";
+
+/**
+ * Where API keys live, for every workspace at once.
+ *
+ * A key belongs to the DEVICE, not to a deck: it is the same account whichever
+ * deck is open, and a reviewer who pasted it once should not have to paste it
+ * again because they switched language. Everything else in Settings - the
+ * model, the remote store, the deck name - is per workspace, because those
+ * genuinely differ between decks, and a shared store id would mean two decks
+ * saving over each other.
+ *
+ * Keys are kept out of the per-workspace payload entirely rather than copied
+ * into each, so there is one place to clear and one place to leak.
+ */
+export const SHARED_KEYS_KEY = "word-refinery.keys";
+
+/** Per-provider API keys, shared across every workspace on this device. */
+type SharedKeys = Partial<Record<LlmProvider, string>>;
+
+/** Read the device-wide keys. */
+function readSharedKeys(): SharedKeys {
+  if (typeof window === "undefined") return {};
+  try {
+    const stored = window.localStorage.getItem(SHARED_KEYS_KEY);
+    if (stored === null) return {};
+    const parsed = JSON.parse(stored) as unknown;
+    if (typeof parsed !== "object" || parsed === null) return {};
+    return Object.fromEntries(
+      Object.entries(parsed as Record<string, unknown>).filter(
+        ([, value]) => typeof value === "string" && value.length > 0,
+      ),
+    ) as SharedKeys;
+  } catch {
+    return {};
+  }
+}
 
 /** Defaults: nothing is pre-filled, so no key can ever be committed by accident. */
 export function defaultSettings(): Settings {
@@ -130,7 +168,7 @@ export function defaultSettings(): Settings {
       maxTokens: 8192,
     },
     store: { kind: "none", id: "", token: "" },
-    generation: { levels: [], deckName: "WordCrawler deck", deckVersion: "0.1.0" },
+    generation: { levels: [], deckName: activeGlossProfile().deckName, deckVersion: "0.1.0" },
   };
 }
 
@@ -153,8 +191,23 @@ export function readSettings(): Settings {
   const base = defaultSettings();
   if (typeof window === "undefined") return base;
   try {
-    const stored = window.localStorage.getItem(SETTINGS_KEY);
-    if (stored === null) return base;
+    const stored = window.localStorage.getItem(scopedKey(SETTINGS_KEY));
+    const shared = readSharedKeys();
+    if (stored === null) {
+      // A workspace opened for the first time still knows the device's keys.
+      const provider = base.llm.provider;
+      const apiKey = shared[provider] ?? "";
+      return {
+        ...base,
+        llm: {
+          ...base.llm,
+          apiKey,
+          profiles: Object.fromEntries(
+            Object.entries(shared).map(([id, key]) => [id, { apiKey: key, model: "" }]),
+          ) as Settings["llm"]["profiles"],
+        },
+      };
+    }
     const parsed = JSON.parse(stored) as Partial<Settings>;
     // Older payloads had one shared key and no profiles; adopting it as the
     // active provider's profile is the migration.
@@ -170,14 +223,28 @@ export function readSettings(): Settings {
         profile === undefined ? profile : { ...profile, model: stripBatchVariant(profile.model) },
       ]),
     ) as Settings["llm"]["profiles"];
+    // The shared key wins over whatever an older payload inlined: it is the one
+    // the reviewer last entered, in whichever workspace they entered it.
+    const withShared = Object.fromEntries(
+      Object.entries(profiles).map(([id, profile]) => [
+        id,
+        { model: profile?.model ?? "", apiKey: shared[id as LlmProvider] ?? profile?.apiKey ?? "" },
+      ]),
+    ) as Settings["llm"]["profiles"];
+    for (const [id, key] of Object.entries(shared)) {
+      const provider = id as LlmProvider;
+      if (withShared[provider] === undefined) withShared[provider] = { apiKey: key, model: "" };
+    }
+    const apiKey = shared[llm.provider] ?? llm.apiKey;
     return {
       version: 1,
       llm: {
         ...llm,
         model,
+        apiKey,
         profiles: {
-          ...profiles,
-          [llm.provider]: { apiKey: llm.apiKey, model },
+          ...withShared,
+          [llm.provider]: { apiKey, model },
         },
       },
       store: { ...base.store, ...(parsed.store ?? {}) },
@@ -188,11 +255,38 @@ export function readSettings(): Settings {
   }
 }
 
-/** Persist settings. Swallow quota/privacy-mode failures. */
+/**
+ * Persist settings: the keys device-wide, everything else to this workspace.
+ *
+ * The per-workspace payload is written with every apiKey blanked, so switching
+ * workspace cannot carry one deck's credentials into another's storage and a
+ * key exists in exactly one place on disk.
+ */
 export function writeSettings(settings: Settings): void {
   if (typeof window === "undefined") return;
+  const keys: SharedKeys = { ...readSharedKeys() };
+  for (const [id, profile] of Object.entries(settings.llm.profiles)) {
+    if (profile !== undefined && profile.apiKey.length > 0) keys[id as LlmProvider] = profile.apiKey;
+  }
+  if (settings.llm.apiKey.length > 0) keys[settings.llm.provider] = settings.llm.apiKey;
+  // An emptied field is a deliberate clearing, not an absence of news.
+  if (settings.llm.apiKey.length === 0) delete keys[settings.llm.provider];
+  const withoutKeys: Settings = {
+    ...settings,
+    llm: {
+      ...settings.llm,
+      apiKey: "",
+      profiles: Object.fromEntries(
+        Object.entries(settings.llm.profiles).map(([id, profile]) => [
+          id,
+          { apiKey: "", model: profile?.model ?? "" },
+        ]),
+      ) as Settings["llm"]["profiles"],
+    },
+  };
   try {
-    window.localStorage.setItem(SETTINGS_KEY, JSON.stringify(settings));
+    window.localStorage.setItem(scopedKey(SETTINGS_KEY), JSON.stringify(withoutKeys));
+    window.localStorage.setItem(SHARED_KEYS_KEY, JSON.stringify(keys));
   } catch {
     // Private browsing or quota exceeded - the in-memory copy still works.
   }

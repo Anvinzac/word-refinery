@@ -1,8 +1,9 @@
 # Word Refinery
 
 A browser-only vocabulary deck studio for [KineMedia](https://github.com/Anvinzac/kinetic-canvas-19).
-It generates Vietnamese annotations for an openly licensed CEFR word list, lets you refine them by
-hand, and exports a deck that KineMedia's importer consumes.
+It generates annotations for an openly licensed CEFR word list, lets you refine them by hand, and
+exports a deck that KineMedia's importer consumes. The headwords are English; the language the cards
+explain them IN is a property of the workspace — Vietnamese and Japanese ship today.
 
 There is **no backend of its own**. The app is a static bundle on GitHub Pages; the LLM is called
 directly from your browser with your own key, and the working document persists to a small JSON
@@ -100,21 +101,56 @@ npm run vocab:import -- /path/to/word-refinery-deck.json
 npm run dev   # restart: catalog.json is imported statically and cached in memory
 ```
 
+## Workspaces
+
+One deck of one language per workspace, switched from the pill in the header. Switching reloads the
+page: a dozen things — the deck, the corpus, the prompt overrides, the style guide, the catalogue —
+are read once at startup, and carrying any one of them across would be interference between two
+decks rather than a feature.
+
+| Per workspace | Shared across the device |
+| --- | --- |
+| the deck and its review rows | your API keys, one per provider |
+| the imported corpus | |
+| prompt overrides and the style guide | |
+| the SQLite catalogue | |
+| the remote store id and token | |
+| the model, deck name and version | |
+
+A key belongs to the device, not to a deck: it is the same account whichever deck is open. It is
+stored once, under `word-refinery.keys`, and never written into a workspace's own payload.
+
+The original workspace keeps the unscoped storage keys it has always used, so upgrading finds the
+deck exactly where it left it. Forgetting a workspace removes it from the switcher and leaves its
+data in the browser — tidying the list is not a way to destroy a deck.
+
+The **field names do not change between languages**: a Japanese card still has `defVi`, `leadVi`,
+`meaningVi`. They are the wire format KineMedia's importer reads, and renaming them would be a
+migration of every batch file on disk for a cosmetic gain. `meta.locale` says which language is in
+them (`en_vi`, `en_ja`).
+
 ## What the app enforces
 
 These rules come from iterating on the live KineMedia deck, and are applied to model output rather
 than trusted:
 
-- `defVi` and `leadVi` are **8–11 words** — a character cap alone does not bound Vietnamese brevity.
-- `anticipateVi` is 3–8 words and **must not repeat** across words; a reused placeholder is flagged.
-- No English word may appear in any Vietnamese field, and the answer may not leak next to the
-  `_____` blank in the example sentence.
+Every length below is stated in the unit the workspace's language is measured in — words for
+Vietnamese, which separates them with spaces, characters for Japanese, which does not. The numbers
+live in `src/lib/lang.ts`, one profile per language.
+
+- `defVi` and `leadVi` are **8–11 words** in Vietnamese, **16–34 characters** in Japanese — a
+  character cap alone does not bound brevity in a syllable-spaced language.
+- `anticipateVi` is 3–8 words (8–20 characters) and **must not repeat** across words; a reused
+  placeholder is flagged.
+- No English word may appear in any gloss field, and the answer may not leak next to the `_____`
+  blank in the example sentence. In Japanese the usual leak is katakana — `チャレンジ` for
+  "challenge" — and it is called out in the prompt as such.
 - Emphasis phrases must occur **character-for-character** in `defVi` or `leadVi` (diacritics
-  preserved, so `nền` never matches `nên`), must be exactly **two syllables**, and must not be a
-  single syllable that reads as half of a compound — `sinh` inside `học sinh` is dropped, `học sinh`
-  is kept. Function words are never highlighted.
+  preserved, so `nền` never matches `nên`), must be **one word** — one syllable or one joined word
+  of up to four, per card-prompt v3.7 — and must not be a single syllable that reads as half of a
+  compound. Function words, particles and generic intensifiers are never highlighted.
 - Emphasis is emitted as **inline `/phrase/` markers**, at most one per field, because the feed
-  highlights exactly one Vietnamese word per page and `defVi` / `leadVi` render as separate stages.
+  highlights exactly one word per page and `defVi` / `leadVi` render as separate stages.
   A marker can therefore never be attached to text that does not contain it.
 - CEFR `level` always comes from the corpus and is never taken from the model, even if the model
   echoes one back.
@@ -128,7 +164,12 @@ src/lib/
   corpus.ts      load the bundled corpus, filter by band, batch it
   contract.ts    the 10-field annotation schema + Zod validation and repairs
   prompt.ts      system prompt, batch prompt, single-field rewrite prompt
-  emphasis.ts    Vietnamese emphasis validation + inline marker injection
+  emphasis.ts    emphasis validation + inline marker injection
+  lang.ts        one profile per gloss language: lengths, marks, prompt prose
+  workspace.ts   workspaces: what is scoped per deck and what is shared
+  joiner.ts      the three breaking marks, and what counts as a stray one
+  intake.ts      the four gates a batch passes before it is vocabulary
+  intake-db.ts   the accepted catalogue, as a SQLite file
   deck.ts        build deck words, build the document, validate a whole deck
   pipeline.ts    one generation run: select -> annotate -> build -> review rows
   llm.ts         browser client for OpenRouter / Together / Anthropic
@@ -147,7 +188,7 @@ rule in one.
 
 The bundled corpus is a derivative of the **New General Service List 1.2** and **New Academic Word
 List 1.2** (Browne, Culligan & Phillips, 2013), both **CC BY-SA 4.0**. Share-alike applies to the
-word list; the Vietnamese annotations you generate are your own. Read [`NOTICE.md`](./NOTICE.md)
+word list; the annotations you generate are your own. Read [`NOTICE.md`](./NOTICE.md)
 before redistributing a deck.
 
 Oxford 3000/5000 and any other list without a redistribution-compatible licence must never be added

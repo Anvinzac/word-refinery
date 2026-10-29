@@ -21,8 +21,9 @@
  * Exports: PromptId, PROMPT_DEFINITIONS, readPromptOverrides, writePromptOverride,
  *          resetPromptOverride, resolvePrompt, isPromptOverridden,
  *          setCommittedStyleGuide, hasStyleGuide
- * Depends on: ./prompt.ts
+ * Depends on: ./prompt.ts, ./workspace.ts
  */
+import { scopedKey } from "./workspace.ts";
 import {
   ANNOTATION_SYSTEM_PROMPT,
   DISTIL_SYSTEM_PROMPT,
@@ -150,7 +151,16 @@ export function hasStyleGuide(): boolean {
 }
 
 /** localStorage key. Separate from settings so a prompt edit cannot corrupt a key. */
-const STORAGE_KEY = "word-refinery.prompts";
+const STORAGE_KEY_BASE = "word-refinery.prompts";
+
+/**
+ * Prompt overrides belong to the workspace, not the device: a deck written in
+ * another language needs different instructions, and sharing one set would mean
+ * each workspace silently rewriting the other's.
+ */
+function storageKey(): string {
+  return scopedKey(STORAGE_KEY_BASE);
+}
 
 /** Overrides as stored: id to replacement text. A missing id means "use the default". */
 export type PromptOverrides = Partial<Record<PromptId, string>>;
@@ -158,7 +168,7 @@ export type PromptOverrides = Partial<Record<PromptId, string>>;
 /** Read the overrides this browser holds. */
 export function readPromptOverrides(): PromptOverrides {
   try {
-    const stored = window.localStorage.getItem(STORAGE_KEY);
+    const stored = window.localStorage.getItem(storageKey());
     if (stored === null) return {};
     const parsed = JSON.parse(stored) as unknown;
     if (typeof parsed !== "object" || parsed === null) return {};
@@ -179,7 +189,7 @@ export function readPromptOverrides(): PromptOverrides {
 export function writePromptOverride(id: PromptId, text: string): PromptOverrides {
   const next = { ...readPromptOverrides(), [id]: text };
   try {
-    window.localStorage.setItem(STORAGE_KEY, JSON.stringify(next));
+    window.localStorage.setItem(storageKey(), JSON.stringify(next));
   } catch {
     // A browser refusing storage keeps the in-memory value for this session.
   }
@@ -191,7 +201,7 @@ export function resetPromptOverride(id: PromptId): PromptOverrides {
   const next = readPromptOverrides();
   delete next[id];
   try {
-    window.localStorage.setItem(STORAGE_KEY, JSON.stringify(next));
+    window.localStorage.setItem(storageKey(), JSON.stringify(next));
   } catch {
     // Nothing to do: the default is what the caller gets either way.
   }

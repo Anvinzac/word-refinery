@@ -11,9 +11,9 @@
  * thing to send.
  *
  * Exports: IntakePanel
- * Depends on: ../lib/intake.ts, ../lib/intake-db.ts, ../lib/llm.ts
+ * Depends on: ../lib/intake.ts, ../lib/intake-db.ts, ../lib/local-doc.ts, ../lib/llm.ts
  */
-import { useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import {
   candidateId,
   checkBatchRules,
@@ -27,7 +27,8 @@ import {
   type IntakeRecord,
   type IntakeStage,
 } from "../lib/intake";
-import { openCatalog, type CatalogDb } from "../lib/intake-db";
+import { openCatalog, type CatalogDb, type CatalogStats } from "../lib/intake-db";
+import { clearLocalCatalog, loadLocalCatalog, saveLocalCatalog } from "../lib/local-doc";
 import { describeLlmError, repairCard, reviewSafety } from "../lib/llm";
 import { coerceDeckWord } from "../lib/deck";
 import type { Settings } from "../lib/settings";
@@ -59,11 +60,46 @@ export function IntakePanel({ settings }: { settings: Settings }) {
   const [error, setError] = useState<string | null>(null);
   const [notice, setNotice] = useState<string | null>(null);
   const [catalog, setCatalog] = useState<CatalogDb | null>(null);
-  const [stats, setStats] = useState<ReturnType<CatalogDb["stats"]> | null>(null);
+  const [stats, setStats] = useState<CatalogStats | null>(null);
+  // The stored file, held so the session CONTINUES it rather than starting a
+  // new one that claims to be the whole catalogue.
+  const [storedBytes, setStoredBytes] = useState<Uint8Array | null>(null);
+  const [savedAt, setSavedAt] = useState<string | null>(null);
+  // Set when this browser's copy could not be read. A catalogue we failed to
+  // read is NOT one we may overwrite, so releasing stops keeping it.
+  const [catalogUnreadable, setCatalogUnreadable] = useState(false);
+  const [keepWarning, setKeepWarning] = useState<string | null>(null);
+  const [confirmForget, setConfirmForget] = useState(false);
+  const [openedFile, setOpenedFile] = useState<string | null>(null);
   const [safetyOn, setSafetyOn] = useState(true);
   const [repairOn, setRepairOn] = useState(true);
   const fileInput = useRef<HTMLInputElement>(null);
   const catalogInput = useRef<HTMLInputElement>(null);
+
+  /**
+   * Pick up the catalogue this browser already holds.
+   *
+   * Only the bytes and the counts, not the database: opening it would pull 672
+   * KB of WebAssembly for a reviewer who came to read a number. The file is
+   * opened when something is actually written to or queried.
+   */
+  useEffect(() => {
+    let cancelled = false;
+    void (async () => {
+      try {
+        const held = await loadLocalCatalog();
+        if (cancelled || held === null) return;
+        setStoredBytes(held.bytes);
+        setStats(held.stats);
+        setSavedAt(held.savedAt);
+      } catch {
+        if (!cancelled) setCatalogUnreadable(true);
+      }
+    })();
+    return () => {
+      cancelled = true;
+    };
+  }, []);
 
   const summary = useMemo(() => summarize(records), [records]);
   const split = useMemo(() => partitionRecords(records), [records]);
@@ -210,42 +246,135 @@ export function IntakePanel({ settings }: { settings: Settings }) {
     setProgress({ stage: "done", done: working.length, total: working.length });
   };
 
+  /**
+   * The open catalogue, continuing whatever this browser already held.
+   *
+   * The ordering matters: a release that opened a FRESH database while a stored
+   * file existed would write one batch into an empty catalogue and then save it
+   * over the real one. So the stored bytes are the starting point, and a
+   * catalogue that could not be read stops the write rather than replacing it.
+   */
+  const ensureCatalog = async (): Promise<CatalogDb> => {
+    if (catalog !== null) return catalog;
+    if (catalogUnreadable) {
+      throw new Error(
+        "This browser's stored catalogue could not be read, so nothing will be written over it. " +
+          "Reload the page; if it still fails, open your downloaded .sqlite file instead.",
+      );
+    }
+    const db = await openCatalog(storedBytes ?? undefined);
+    setCatalog(db);
+    return db;
+  };
+
+  /** Keep the catalogue in this browser, so it outlives the tab. */
+  const persist = async (db: CatalogDb): Promise<void> => {
+    const bytes = db.toBytes();
+    setStoredBytes(bytes);
+    if (catalogUnreadable) {
+      setKeepWarning(
+        "Released into the open catalogue, but NOT kept in this browser — the copy stored here could not be read, and overwriting it would lose it. Download the .sqlite file.",
+      );
+      return;
+    }
+    try {
+      await saveLocalCatalog(bytes, db.stats());
+      setSavedAt(new Date().toISOString());
+      setKeepWarning(null);
+    } catch (thrown) {
+      // The release itself succeeded; only the keeping failed, and saying so is
+      // the difference between a reviewer downloading the file and losing it.
+      setKeepWarning(
+        `Released, but this browser would not store the catalogue (${thrown instanceof Error ? thrown.message : String(thrown)}). Download the .sqlite file before you close the tab.`,
+      );
+    }
+  };
+
   /** Stage four: write the run into the catalogue, both populations. */
   const release = async () => {
     setError(null);
     try {
-      const db = catalog ?? (await openCatalog());
+      const db = await ensureCatalog();
       db.ingest({ batchId, source: batchId, model: settings.llm.model, records });
+      setStats(db.stats());
+      const replaced = openedFile === null ? "" : ` The catalogue opened from ${openedFile} is now the one this browser keeps.`;
+      setNotice(
+        `Released into the catalogue: ${summary.accepted} card(s), ${summary.rejected} rejection(s) kept with their reasons.${replaced}`,
+      );
+      setOpenedFile(null);
+      await persist(db);
+    } catch (thrown) {
+      setError(thrown instanceof Error ? thrown.message : String(thrown));
+    }
+  };
+
+  const downloadCatalog = async () => {
+    setError(null);
+    try {
+      const db = await ensureCatalog();
+      const blob = new Blob([db.toBytes() as BlobPart], { type: "application/vnd.sqlite3" });
+      const url = URL.createObjectURL(blob);
+      const anchor = document.createElement("a");
+      anchor.href = url;
+      anchor.download = "word-catalog.sqlite";
+      document.body.appendChild(anchor);
+      anchor.click();
+      anchor.remove();
+      setTimeout(() => URL.revokeObjectURL(url), 1000);
+    } catch (thrown) {
+      setError(thrown instanceof Error ? thrown.message : String(thrown));
+    }
+  };
+
+  /**
+   * Open a catalogue from a file.
+   *
+   * It becomes the session's catalogue but is NOT stored yet: a reviewer
+   * opening a colleague's file to look at it should not thereby lose their own.
+   * Releasing into it, or "Keep in this browser", is what makes it theirs.
+   */
+  const openExisting = async (file: File) => {
+    setError(null);
+    try {
+      const bytes = new Uint8Array(await file.arrayBuffer());
+      const db = await openCatalog(bytes);
+      catalog?.close();
       setCatalog(db);
       setStats(db.stats());
+      setOpenedFile(file.name);
       setNotice(
-        `Released into the catalogue: ${summary.accepted} card(s), ${summary.rejected} rejection(s) kept with their reasons.`,
+        stats !== null && stats.cards > 0
+          ? `Opened ${file.name}. It is not stored in this browser yet — the catalogue kept here still holds ${stats.cards} card(s).`
+          : `Opened ${file.name}.`,
       );
     } catch (thrown) {
       setError(thrown instanceof Error ? thrown.message : String(thrown));
     }
   };
 
-  const downloadCatalog = () => {
+  /** Store the open catalogue, replacing whatever this browser held. */
+  const keepOpened = async () => {
     if (catalog === null) return;
-    const blob = new Blob([catalog.toBytes() as BlobPart], { type: "application/vnd.sqlite3" });
-    const url = URL.createObjectURL(blob);
-    const anchor = document.createElement("a");
-    anchor.href = url;
-    anchor.download = "word-catalog.sqlite";
-    document.body.appendChild(anchor);
-    anchor.click();
-    anchor.remove();
-    setTimeout(() => URL.revokeObjectURL(url), 1000);
+    setOpenedFile(null);
+    await persist(catalog);
+    setNotice("Kept in this browser. It will be there on the next visit.");
   };
 
-  const openExisting = async (file: File) => {
+  /** Drop this browser's copy. The open catalogue is untouched. */
+  const forgetStored = async () => {
     setError(null);
     try {
-      const db = await openCatalog(new Uint8Array(await file.arrayBuffer()));
-      setCatalog(db);
-      setStats(db.stats());
-      setNotice(`Opened ${file.name}.`);
+      await clearLocalCatalog();
+      setStoredBytes(null);
+      setSavedAt(null);
+      setConfirmForget(false);
+      setCatalogUnreadable(false);
+      setStats(catalog?.stats() ?? null);
+      setNotice(
+        catalog === null
+          ? "This browser no longer keeps a catalogue. The next release starts a fresh file."
+          : "This browser no longer keeps a catalogue. The one open in this tab is untouched — releasing into it will store it again.",
+      );
     } catch (thrown) {
       setError(thrown instanceof Error ? thrown.message : String(thrown));
     }
@@ -377,7 +506,8 @@ export function IntakePanel({ settings }: { settings: Settings }) {
         <h2>Catalogue</h2>
         <p className="hint">
           One SQLite file holding every batch: the cards that passed, the candidates that did not,
-          and why. One thing to send, and a format other tools already read.
+          and why. It is kept in this browser between visits, so a release adds to the catalogue
+          rather than starting another one — and it downloads as one file to send.
         </p>
         <div className="row" style={{ marginTop: 12 }}>
           <button
@@ -402,12 +532,57 @@ export function IntakePanel({ settings }: { settings: Settings }) {
               event.target.value = "";
             }}
           />
-          {catalog !== null && (
-            <button type="button" className="btn" onClick={downloadCatalog}>
+          {(catalog !== null || storedBytes !== null) && (
+            <button type="button" className="btn" onClick={() => void downloadCatalog()}>
               Download .sqlite
             </button>
           )}
+          {openedFile !== null && (
+            <button type="button" className="btn" onClick={() => void keepOpened()}>
+              Keep {openedFile} in this browser
+            </button>
+          )}
+          {(storedBytes !== null || catalogUnreadable) &&
+            (confirmForget ? (
+              <>
+                <button type="button" className="btn danger" onClick={() => void forgetStored()}>
+                  Yes, forget it
+                </button>
+                <button type="button" className="btn" onClick={() => setConfirmForget(false)}>
+                  Cancel
+                </button>
+              </>
+            ) : (
+              <button type="button" className="btn" onClick={() => setConfirmForget(true)}>
+                Forget the stored copy
+              </button>
+            ))}
         </div>
+
+        {catalogUnreadable && (
+          <div className="banner error" style={{ marginTop: 12 }}>
+            This browser holds a catalogue that could not be read. Nothing will be written over it,
+            so a release will not be kept here until the problem clears — reload the page, or open
+            your downloaded .sqlite file and keep that instead.
+          </div>
+        )}
+        {keepWarning !== null && (
+          <div className="banner warn" style={{ marginTop: 12 }}>
+            {keepWarning}
+          </div>
+        )}
+        {savedAt !== null && (
+          <p className="note" style={{ color: "var(--muted)", fontSize: 12, margin: "10px 0 0" }}>
+            Kept in this browser, last written {new Date(savedAt).toLocaleString()}. It never leaves
+            the device on its own — the download is how it travels.
+          </p>
+        )}
+        {openedFile !== null && (
+          <p className="note" style={{ color: "var(--muted)", fontSize: 12, margin: "6px 0 0" }}>
+            Showing {openedFile}, opened from a file. Releasing into it, or keeping it, is what
+            replaces the copy stored here.
+          </p>
+        )}
 
         {stats !== null && (
           <div className="intake-counts" style={{ marginTop: 14 }}>

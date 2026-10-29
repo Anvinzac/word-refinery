@@ -1,12 +1,12 @@
 /**
- * Review workspace — a compact table where each Vietnamese field sits in its
+ * Review workspace — a compact table where each gloss field sits in its
  * own column, making it easy to scan and judge many words at once.
  *
  * Each row renders the deck word with its `/…/` markers highlighted. Quick
  * approve/reject controls let the reviewer sign off on rows without expanding
  * them.
  *
- * Refining happens in place: tapping a Vietnamese cell unfolds a brief directly
+ * Refining happens in place: tapping a gloss cell unfolds a brief directly
  * beneath that row — the table stays on screen, so neighbouring words remain
  * available for comparison while the complaint is written. The brief gathers
  * three things and sends them as one instruction: complaint chips tapped for

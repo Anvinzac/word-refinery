@@ -8,7 +8,7 @@
  *
  * Exports: slugifyWord, buildDeckWord, buildDeck, coerceDeckWord, validateDeck,
  *          migrateDeckWord, entriesForNewBatches, approvedEntries
- * Depends on: ./types.ts, ./contract.ts, ./emphasis.ts
+ * Depends on: ./types.ts, ./contract.ts, ./emphasis.ts, ./lang.ts
  */
 import type { CorpusWord, Deck, DeckMeta, DeckUsage, DeckWord, ReviewEntry } from "./types.ts";
 import { CEFR_LEVELS, type CefrLevel } from "./types.ts";
@@ -21,14 +21,18 @@ import {
   keepCurated,
   type CrawlerAnnotation,
 } from "./contract.ts";
-import { countSyllables, injectEmphasisMarkers, stripEmphasisMarkers, validateEmphasis } from "./emphasis.ts";
-import { countUnits, findStrayMarks } from "./joiner.ts";
+import { injectEmphasisMarkers, stripEmphasisMarkers, validateEmphasis } from "./emphasis.ts";
+import { findStrayMarks } from "./joiner.ts";
+import { activeGlossProfile, describeLength, markRules, measureLength } from "./lang.ts";
 
 /**
- * Longest a single gloss alternative may run. Two or three words is an
- * equivalent; beyond five it has become a description, which is `defVi`'s job.
+ * The language this workspace's cards are written in, and with it every length
+ * the validator enforces. Read at module load; switching workspace reloads.
  */
-const MAX_GLOSS_UNITS = 5;
+const L = activeGlossProfile();
+
+/** How this language's breaking marks are read. */
+const MARKS = markRules(L);
 
 /** Deck id pattern, identical to the app's importer rule. */
 const ID_PATTERN = /^[a-zA-Z0-9_-]+$/;
@@ -165,7 +169,8 @@ export function buildDeck(input: {
   const meta: DeckMeta = {
     name: input.name,
     version: input.version,
-    locale: "en_vi",
+    // The headword is always English; the gloss language is what varies.
+    locale: `en_${L.id}`,
     generatedAt: new Date().toISOString(),
     generator: "word-refinery",
     model: input.model,
@@ -342,6 +347,18 @@ export function validateDeck(deck: Deck): DeckIssue[] {
 
   for (const entry of deck.words) {
     const at = (field: string, message: string) => issues.push({ wordId: entry.id, field, message });
+    /** One field against one length rule, reported in the language's own unit. */
+    const checkLength = (field: string, clean: string, rule: (typeof L)["limits"]["def"]) => {
+      const size = measureLength(clean, L);
+      if (size < rule.min || size > rule.max) {
+        at(field, `${describeLength(size, L)}; expected ${rule.min}-${rule.max}`);
+      }
+      // A character ceiling is only a separate rule where the unit is not
+      // characters; where it is, `max` has already said it.
+      if (rule.maxChars !== undefined && L.measure !== "characters" && clean.length > rule.maxChars) {
+        at(field, `${clean.length} characters; expected at most ${rule.maxChars}`);
+      }
+    };
 
     if (!ID_PATTERN.test(entry.id)) at("id", `"${entry.id}" is not a valid deck id`);
     if (seenIds.has(entry.id)) at("id", `duplicate id "${entry.id}"`);
@@ -355,26 +372,22 @@ export function validateDeck(deck: Deck): DeckIssue[] {
     if (entry.defVi.trim().length < 2) at("defVi", "missing");
     else {
       const clean = stripEmphasisMarkers(entry.defVi);
-      // Counted with joins removed, exactly as the app counts them: joining two
-      // syllables must never make a field look shorter than it reads.
-      const words = countUnits(clean);
-      if (words < 8 || words > 11) at("defVi", `${words} words; expected 8-11`);
-      if (clean.length > 140) at("defVi", `${clean.length} characters; expected at most 140`);
+      // Counted the way the language counts: words where words are separated,
+      // characters where they are not. Marks are stripped first in both cases,
+      // so joining two syllables never makes a field look shorter than it reads.
+      checkLength("defVi", clean, L.limits.def);
       if (containsTargetWord(clean, entry.word)) at("defVi", "leaks the English answer");
     }
 
     if (entry.leadVi.trim().length > 0) {
       const clean = stripEmphasisMarkers(entry.leadVi);
-      const words = countUnits(clean);
-      if (words < 8 || words > 11) at("leadVi", `${words} words; expected 8-11`);
-      if (clean.length > 120) at("leadVi", `${clean.length} characters; expected at most 120`);
+      checkLength("leadVi", clean, L.limits.lead);
       if (containsTargetWord(clean, entry.word)) at("leadVi", "leaks the English answer");
     }
 
     if (entry.anticipateVi.trim().length > 0) {
       const clean = stripEmphasisMarkers(entry.anticipateVi);
-      const words = countUnits(clean);
-      if (words < 3 || words > 8) at("anticipateVi", `${words} words; expected 3-8`);
+      checkLength("anticipateVi", clean, L.limits.anticipate);
       if (containsTargetWord(clean, entry.word)) at("anticipateVi", "leaks the English answer");
       const key = clean.toLowerCase();
       const previous = seenAnticipate.get(key);
@@ -389,19 +402,25 @@ export function validateDeck(deck: Deck): DeckIssue[] {
     // throws on a deck written before it existed is worse than one that skips.
     if (typeof entry.meaningVi === "string" && entry.meaningVi.trim().length > 0) {
       const clean = stripEmphasisMarkers(entry.meaningVi);
-      if (clean.length > 120) at("meaningVi", `${clean.length} characters; expected at most 120`);
+      const ceiling = L.limits.meaning.maxChars;
+      if (ceiling !== undefined && clean.length > ceiling) {
+        at("meaningVi", `${clean.length} characters; expected at most ${ceiling}`);
+      }
       // A gloss may offer two equivalents separated by a comma ("then_chốt,
       // cực_kỳ quan_trọng"), so each alternative is measured on its own. The
       // defect this catches is one long run of words, which is a definition.
       const longest = clean
-        .split(/[,;]/)
-        .map((alternative) => countUnits(alternative))
+        .split(/[,;、]/)
+        .map((alternative) => measureLength(alternative, L))
         .reduce((most, units) => Math.max(most, units), 0);
-      if (longest > MAX_GLOSS_UNITS) {
-        at("meaningVi", `${longest} words in one alternative; a gloss is an equivalent, not a definition`);
+      if (longest > L.limits.meaning.max) {
+        at(
+          "meaningVi",
+          `${describeLength(longest, L)} in one alternative; a gloss is an equivalent, not a definition`,
+        );
       }
       if (containsTargetWord(clean, entry.word)) at("meaningVi", "leaks the English answer");
-      for (const problem of findStrayMarks(entry.meaningVi)) at("meaningVi", problem);
+      for (const problem of findStrayMarks(entry.meaningVi, MARKS)) at("meaningVi", problem);
     }
 
     if (!TOPIC_PATTERN.test(entry.topic)) at("topic", `"${entry.topic}" is not lowercase-slug`);
@@ -447,13 +466,13 @@ export function validateDeck(deck: Deck): DeckIssue[] {
     // bind, so a mark that is not one is a silent defect rather than a typo —
     // and a one-syllable phrase cannot honour the rule its mark expresses.
     for (const field of ["defVi", "leadVi", "anticipateVi"] as const) {
-      for (const problem of findStrayMarks(entry[field])) at(field, problem);
+      for (const problem of findStrayMarks(entry[field], MARKS)) at(field, problem);
     }
     for (const [index, usage] of entry.usage.entries()) {
-      for (const problem of findStrayMarks(usage.vi)) at(`usage[${index}].vi`, problem);
+      for (const problem of findStrayMarks(usage.vi, MARKS)) at(`usage[${index}].vi`, problem);
     }
 
-    // Markers must be paired and must wrap a 2-syllable Vietnamese compound.
+    // Markers must be paired and must wrap one word of the gloss language.
     for (const field of ["defVi", "leadVi"] as const) {
       const value = entry[field];
       const slashes = (value.match(/\//g) ?? []).length;
@@ -464,9 +483,12 @@ export function validateDeck(deck: Deck): DeckIssue[] {
         // syllables". The old rule demanded exactly two and rejected four
         // otherwise-sound cards in the v4 starter pack for highlighting a
         // one-syllable meaning word, which that prompt explicitly allows.
-        const syllables = countSyllables(phrase);
-        if (syllables < 1 || syllables > 4) {
-          at(field, `marker "/${phrase}/" is ${syllables} syllables; expected 1-4`);
+        const size = measureLength(phrase, L);
+        if (size < L.emphasis.min || size > L.emphasis.max) {
+          at(
+            field,
+            `marker "/${phrase}/" is ${size} ${L.emphasis.unitWord}; expected ${L.emphasis.min}-${L.emphasis.max}`,
+          );
         }
         if (!value.includes(phrase)) at(field, `marker content "${phrase}" not found unmarked`);
       }

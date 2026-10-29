@@ -6,10 +6,11 @@
  * batches already succeeded is still handed back as review entries.
  *
  * Exports: GeneratePanel
- * Depends on: ../lib/corpus.ts, ../lib/pipeline.ts, ../lib/settings.ts, ../lib/types.ts
+ * Depends on: ../lib/corpus.ts, ../lib/lang.ts, ../lib/pipeline.ts, ../lib/settings.ts, ../lib/types.ts
  */
 import { useMemo, useState } from "react";
 import { countByLevel, loadCorpus } from "../lib/corpus";
+import { activeGlossProfile } from "../lib/lang";
 import { LlmError, describeLlmError } from "../lib/llm";
 import { buildReviewEntries, runGeneration } from "../lib/pipeline";
 import type { Settings } from "../lib/settings";
@@ -173,7 +174,7 @@ export function GeneratePanel({
       <section className="panel">
         <h2>Generate</h2>
         <p className="hint">
-          Each word becomes one deck entry with Vietnamese definition, teaser, example and two
+          Each word becomes one deck entry with {activeGlossProfile().label} definition, teaser, example and two
           inline <code className="k">/emphasis/</code> markers.
         </p>
 

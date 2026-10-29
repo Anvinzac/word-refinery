@@ -1,7 +1,7 @@
 /**
  * Prompt builder — the instructions sent to whichever LLM provider is active.
  *
- * Encodes the quality bar proven on the KineMedia deck: 8–11 word Vietnamese
+ * Encodes the quality bar proven on the KineMedia deck: tightly measured
  * definitions and teasers, short unique invite-to-guess lines, blanked example
  * sentences, and TWO-syllable emphasis phrases copied verbatim from the text.
  * Emphasis is requested as a plain list; `lib/emphasis.ts` validates it and
@@ -18,10 +18,20 @@
  * SAFETY_SYSTEM_PROMPT, buildSafetyPrompt, REPAIR_SYSTEM_PROMPT, buildRepairPrompt
  * Depends on: ./types.ts, ./contract.ts
  */
+import { activeGlossProfile } from "./lang.ts";
 import type { CorpusWord } from "./types.ts";
 import { CRAWLER_ANNOTATION_FIELDS, EXAMS, TOPICS, type CrawlerAnnotationField } from "./contract.ts";
 
 /** Fields the model is allowed to return, rendered into the prompt. */
+/**
+ * The language this workspace writes in.
+ *
+ * Read once at module load. A workspace switch RELOADS the page, so this
+ * cannot go stale under a prompt that has already been built from it - which
+ * is the whole reason switching is a reload rather than a state swap.
+ */
+const L = activeGlossProfile();
+
 const FIELD_LIST = CRAWLER_ANNOTATION_FIELDS.join(", ");
 
 /** Topic list rendered into the prompt so the model cannot invent tags. */
@@ -31,22 +41,13 @@ const TOPIC_LIST = TOPICS.join(", ");
 const EXAM_LIST = EXAMS.join(", ");
 
 /** Who the cards are for; opens both the batch and the rewrite prompt. */
-const AUDIENCE =
-  'The reader is a Vietnamese learner who sees Vietnamese first and only later the English word.';
+const AUDIENCE = L.audience;
 
 /**
  * How to pick a highlighted phrase. Shared by the batch prompt, where it picks
  * one phrase per field, and by a defVi/leadVi rewrite, which picks one anew.
  */
-const EMPHASIS_CHOICE = `  CHOOSE BY MEANING FIRST. Pick the phrase that carries the POINT of the sentence - the idea the learner should walk away with. The test: if the sentence were cut down to two syllables, which two would have to survive for it still to mean anything? Those are the ones. A phrase chosen because it happened to sit next to another word is a DEFECT even when it satisfies every mechanical rule below.
-  * Prefer, in this order: the compound that names the concept itself (sức_khỏe, quan_trọng, thư_viện), then a vivid verb or adjective phrase (chảy xiết, lấp_lánh), then a concrete noun phrase.
-  * NEVER pick filler: a classifier and its noun ("con mèo"), a number and its noun ("hai người"), a time phrase ("mỗi ngày", "hằng ngày"), a verb with a generic object ("làm việc" when the sentence is not about work), or any span that crosses a comma.
-  * It must be copied EXACTLY, diacritics included, from the defVi or leadVi you just wrote.
-  * Write it PLAIN, with a space where the text has a join: for "quan_trọng" in defVi, the entry is "quan trọng".
-  * exactly TWO syllables - never one, never three or more. A joined compound is the ideal case, because the join already says those two syllables are one word.
-  * never a function word such as và, là, của, có, được, trong, cho, với, một, rất, cũng, đã, đang, sẽ, không, những, các, thì, mà,
-  * at most 30 characters and unique inside the list,
-  * appear MID-SENTENCE in lowercase where possible, so the highlight matcher finds it exactly.`;
+const EMPHASIS_CHOICE = L.emphasisChoice;
 
 /**
  * The rule for each card field, worded once. The batch prompt lists them all;
@@ -57,59 +58,29 @@ export const FIELD_RULES: Record<CrawlerAnnotationField, string> = {
   word: "the English headword, copied exactly as given, lowercase.",
   pos: "one of noun, verb, adj, adv, prep, conj, phrase.",
   ipa: 'IPA in slashes, e.g. "/ˈwɔː.tər/".',
-  meaningVi:
-    'the short Vietnamese EQUIVALENT of the word, one or two words ("quả_táo", "kiên_nhẫn", "tò_mò"), at most 120 characters. This is what the app shows once the answer is revealed, so write the translation a dictionary would give - NOT a sentence, and never a description. defVi is the sentence; this is the word.',
-  defVi:
-    "ONE Vietnamese sentence defining the word, exactly 8-11 words, at most 140 characters, no English words, full diacritics.",
-  leadVi:
-    "a Vietnamese teaser hinting at the meaning without naming it, exactly 8-11 words, at most 120 characters, no English words.",
-  anticipateVi:
-    'a short playful Vietnamese invitation to guess, 3-8 words, at most 60 characters. It must be DIFFERENT for every word IN THE WHOLE DECK, not merely within this batch - the user message lists lines and openings already taken, and reusing one is a defect. Vary the opening as well as the wording; never fall back on a placeholder like "Đoán xem nào…".',
+  meaningVi: L.fieldRules.meaning,
+  defVi: L.fieldRules.def,
+  leadVi: L.fieldRules.lead,
+  anticipateVi: L.fieldRules.anticipate,
   usageEn:
     "ONE natural English example sentence of at most 20 words where the target word is replaced by exactly five underscores: _____",
-  usageVi: "the Vietnamese meaning of that example sentence.",
+  usageVi: L.fieldRules.usageGloss,
   topics: `one to three lowercase tags from this closed list, most relevant FIRST: ${TOPIC_LIST}. Never invent a tag outside it — an unknown tag is discarded.`,
   exams: `the exams whose vocabulary lists this word genuinely belongs to, from: ${EXAM_LIST}. Use an empty array [] for ordinary everyday words — most words have none, and a wrong tag is worse than none.`,
-  emphasisVi: `2 Vietnamese phrases that will glow on screen, one drawn from defVi and one from leadVi.\n${EMPHASIS_CHOICE}`,
+  emphasisVi: `${L.fieldRules.emphasis}\n${EMPHASIS_CHOICE}`,
 };
 
-/** The joining convention, for every prompt that writes Vietnamese. */
-const WORD_JOINING = `Breaking marks (applies to every Vietnamese field: meaningVi, defVi, leadVi, anticipateVi, usageVi):
-Vietnamese is written one syllable at a time, so nothing in the text says where a word ends or where a phrase ends, and a card may break a line in the worst possible place. Three marks say it. None of them is seen by the reader, and none of them changes a word count.
-  _  ONE WORD. Join the syllables of a single word: ba_lô, học_sinh, quan_trọng.
-  =  LEANS ON ITS NEIGHBOUR. Two words that must stay on one line but are NOT one word: con=mèo, đã=đi, của=tôi.
-  |  PHRASE EDGE. Put it between phrases, with a space each side: "Việc thu_gom cây trái | sau một=mùa trồng_trọt dài."
-  Sáng nào cũng đeo ba_lô ra cửa.
-  Điều /quan_trọng/ nhất là sức_khỏe.
-- A join is ONE underscore with a letter or digit directly on both sides: no space before it, no space after it.
-- "_" JOINS a single lexical word: compounds (học_sinh, điện_thoại, thư_viện, sức_khỏe), reduplicated words (thình_thịch, lấp_lánh, nhẹ_nhàng), loanwords spelled as syllables (cà_phê, ba_lô, ô_tô), multi-syllable function words (bởi_vì, tuy_nhiên, mặc_dù, cho_nên) and proper names (Việt_Nam, Hà_Nội).
-- QUICK TEST for "_": could another word sit between the two syllables without breaking the meaning? "ăn [nhiều] cơm" works, so that is two words and takes "=". Nothing fits inside "ba ... lô", so that is one word and takes "_".
-- A joined word is normally two syllables, occasionally three, NEVER more than four: a joined unit must fit on one line, and a long chain shrinks the whole page. Join the real words inside a phrase rather than the phrase itself: "công_nghệ thông_tin", never "công_nghệ_thông_tin".
-- NEVER join these three with "_". They take "=" instead, because they are two words that merely lean together:
-  * a function word and what it leans on — "của=tôi", "rất=đẹp", "đã=đi", "sẽ=về", "không=biết", "đang=ngủ" (note the difference from a multi-syllable function word like "tuy_nhiên", which IS one word)
-  * a classifier and its noun — "con=mèo", "cái=bàn", "chiếc=xe", "quyển=sách"
-  * a free verb-object pair — "ăn=cơm", "đọc=sách", "uống=nước", "rửa=tay"
-  A verb-object pair is free when it still means the sum of its parts. Give it "_" only when the pair means something the parts do not, which makes it one lexical word: "ăn_mừng" (to celebrate), "ăn_năn" (to repent).
-- "_" is for compounds and reduplicated words only. Everything that merely has to stay together takes "=".
-- The difference matters because a highlight may cover a "_" and may NEVER cover a "=": "con=mèo" is a classifier plus a noun, not a phrase worth glowing.
-- When you are not sure two syllables are one word, use "=" rather than "_", and when you are not sure they belong together at all, leave a plain space. A missing mark only allows a line break; a wrong one glues words into a block that cannot wrap and shrinks the whole page.
-- PHRASE EDGES: put "|" where the sentence would naturally pause - between a subject and its predicate, before a prepositional or time phrase, before a relative clause. Every phrase you create must be at least TWO syllables long: "|" exists so a break can land on a phrase edge instead of stranding a lone syllable, and a one-syllable phrase cannot do that. A sentence of 8-11 words usually wants one or two "|", never one after every word.
-- A join does NOT change a word count. "quan_trọng" is TWO of the 8-11 words, not one. Count syllables exactly as if the underscores were spaces.
-- Never use an underscore for anything else: no snake_case, no emphasis, no decoration. Any single underscore between two letters will be read as a join. The five-underscore blank "_____" in usageEn is not a join and is unaffected.
-- "emphasisVi" entries are written PLAIN, with a space where the text has a join: for /quan_trọng/ in defVi, the emphasis entry is "quan trọng".
-- NEVER put an underscore in "usageEn". That field carries the five-underscore answer blank, and a join beside it would be read as part of the blank. English words wrap safely on their own.
-- The reader never sees the underscore; the app replaces it when the deck loads.`;
+/** The breaking-mark convention, in the terms of the language being written. */
+const WORD_JOINING = L.joining;
 
-/** Hard rules about the Vietnamese itself, binding on a rewrite as much as a batch. */
-const LANGUAGE_RULES = `- Write correct Vietnamese with full diacritics in every Vietnamese field.
-- Never include the English target word, or any English word, in defVi, leadVi or anticipateVi.
-- Never define a word with the word itself or an obvious cognate.`;
+/** Hard rules about the language itself, binding on a rewrite as much as a batch. */
+const LANGUAGE_RULES = L.rules;
 
 /**
  * System prompt. One constant so the contract, the parser and the UI all point
  * at the same source of truth.
  */
-export const ANNOTATION_SYSTEM_PROMPT = `You write Vietnamese vocabulary cards for a mobile "learn one English word at a time" app.
+export const ANNOTATION_SYSTEM_PROMPT = `You write ${L.label} vocabulary cards for a mobile "learn one English word at a time" app.
 ${AUDIENCE}
 
 For every requested word, return exactly one JSON object with these ${CRAWLER_ANNOTATION_FIELDS.length} fields and no others: ${FIELD_LIST}.
@@ -125,8 +96,8 @@ ${LANGUAGE_RULES}
 - Return ONLY a JSON array with one object per requested word, in the requested order. No markdown fences, no headings, no commentary.
 
 Minimal example of the expected format (one word, shortened):
-[{"word":"water","pos":"noun","ipa":"/ˈwɔː.tər/","meaningVi":"nước","defVi":"Chất_lỏng trong suốt | mà ta uống=mỗi ngày.","leadVi":"Có thứ này thì cây_cối mới sống được.","anticipateVi":"Thứ gì chảy được nhỉ?","usageEn":"Please bring me a glass of _____.","usageVi":"Làm ơn mang cho tôi một cốc nước.","topics":["nature","daily"],"exams":[],"emphasisVi":["Chất lỏng","cây cối"]}]
-(Note the example: "Chất_lỏng" is one word written as two syllables, so defVi still counts 9 words; the "|" marks the phrase edge and the "=" binds a function word to its neighbour; the emphasisVi entry is written plain as "Chất lỏng", and it may not span the "=" or the "|". "meaningVi" is the bare equivalent - "nước" - not a sentence.)`;
+${L.example}
+${L.exampleNote}`;
 
 /**
  * Render one batch of corpus words as the user message.
@@ -142,7 +113,7 @@ export function buildBatchPrompt(words: readonly CorpusWord[], avoid = ""): stri
   // request rather than buried above the list it applies to.
   const parts = [
     `Annotate these ${words.length} English words.`,
-    "The CEFR level in brackets only tells you how simple the Vietnamese must be - do not echo it.",
+    `The CEFR level in brackets only tells you how simple the ${L.label} must be - do not echo it.`,
     "",
     lines.join("\n"),
   ];
@@ -151,7 +122,7 @@ export function buildBatchPrompt(words: readonly CorpusWord[], avoid = ""): stri
   return parts.join("\n");
 }
 
-/** Vietnamese fields a reviewer can hand back for a rewrite. */
+/** Gloss-language fields a reviewer can hand back for a rewrite. */
 export type RefineField = "meaningVi" | "defVi" | "leadVi" | "anticipateVi" | "usageVi";
 
 /**
@@ -168,8 +139,14 @@ export interface ComplaintChip {
   fields?: readonly RefineField[];
 }
 
-/** The complaint vocabulary, shared by the Review table and the prompt builder. */
-export const COMPLAINT_CHIPS: readonly ComplaintChip[] = [
+/**
+ * The complaint vocabulary as written for Vietnamese, the original deck.
+ *
+ * Exported as {@link COMPLAINT_CHIPS} after the active language has had its say
+ * - see the profile's `chips`. Most chips are about the card rather than the
+ * language and pass through untouched.
+ */
+const BASE_COMPLAINT_CHIPS: readonly ComplaintChip[] = [
   {
     id: "too-long",
     label: "Too long",
@@ -254,6 +231,12 @@ export const COMPLAINT_CHIPS: readonly ComplaintChip[] = [
   },
 ];
 
+/** The complaint vocabulary, shared by the Review table and the prompt builder. */
+export const COMPLAINT_CHIPS: readonly ComplaintChip[] = BASE_COMPLAINT_CHIPS.map((chip) => {
+  const override = L.chips?.[chip.id];
+  return override === undefined ? chip : { ...chip, ...override };
+});
+
 /** The chips offered for one field, in declaration order. */
 export function chipsForField(field: RefineField): readonly ComplaintChip[] {
   return COMPLAINT_CHIPS.filter((chip) => chip.fields === undefined || chip.fields.includes(field));
@@ -271,7 +254,7 @@ const HIGHLIGHTED_FIELDS: ReadonlySet<RefineField> = new Set(["defVi", "leadVi"]
  * same wording as the batch that first wrote the field — without the batch
  * prompt's instruction to return eleven fields, which a rewrite must not do.
  */
-export const REWRITE_SYSTEM_PROMPT = `You rewrite ONE field of a Vietnamese vocabulary card for a mobile "learn one English word at a time" app.
+export const REWRITE_SYSTEM_PROMPT = `You rewrite ONE field of a ${L.label} vocabulary card for a mobile "learn one English word at a time" app.
 ${AUDIENCE}
 
 The user message gives the English word, the ID of the field to rewrite, that field's requirements, the card as it stands, and what the reviewer wants fixed. Meet every requirement and fix everything listed in a single rewrite. Leave every other field alone.
@@ -413,16 +396,16 @@ export function buildRegeneratePrompt(
  * said; given the card as someone else's output and a list of things to look
  * for, it finds real faults. The deterministic validator already covers counts,
  * markers and leaks — this pass is for what only a reader can judge: whether
- * the Vietnamese is natural, whether the definition actually defines the word,
+ * the gloss language is natural, whether the definition actually defines the word,
  * and whether the highlighted phrase is the one that carries the meaning.
  */
-export const VERIFY_SYSTEM_PROMPT = `You are a strict Vietnamese editor reviewing vocabulary cards written by someone else for a mobile app. The learner sees the Vietnamese first and only later the English word.
+export const VERIFY_SYSTEM_PROMPT = `You are a strict ${L.label} editor reviewing vocabulary cards written by someone else for a mobile app. The learner sees the ${L.label} first and only later the English word.
 
 Judge what a human reader judges. Do NOT re-count words or characters, and do NOT comment on formatting: an automatic checker already covers those. Look for:
 - MEANING: does defVi actually define the English word, without drifting to a near-synonym or a different sense?
-- GLOSS: is meaningVi the Vietnamese EQUIVALENT of the word - what a dictionary would give - rather than a description or a sentence? It is shown once the answer is revealed, so a clue-shaped gloss is wrong there.
-- LEAK: does any Vietnamese field give the English word away - a cognate, a transliteration, or a translation so direct that the guess becomes trivial?
-- NATURALNESS: would a Vietnamese speaker say it this way? Flag translationese, wrong collocations, missing or wrong diacritics.
+- GLOSS: is meaningVi the ${L.label} EQUIVALENT of the word - what a dictionary would give - rather than a description or a sentence? It is shown once the answer is revealed, so a clue-shaped gloss is wrong there.
+- LEAK: does any ${L.label} field give the English word away - a cognate, a transliteration, or a translation so direct that the guess becomes trivial?
+- NATURALNESS: would a ${L.label} speaker say it this way? Flag translationese, wrong collocations, missing or wrong diacritics.
 - TEASER: does leadVi hint at the meaning without naming it, and is anticipateVi a fresh invitation rather than a stock phrase?
 - EXAMPLE: does usageEn read naturally with the blank, and does usageVi translate it faithfully?
 - EMPHASIS: is the highlighted phrase the one carrying the point of the sentence? A highlight sitting on filler - a classifier and its noun, a time phrase, a number - is a defect worth reporting even though nothing is strictly wrong with it.
@@ -430,7 +413,7 @@ Judge what a human reader judges. Do NOT re-count words or characters, and do NO
 Severity: "blocker" for anything that would mislead a learner or give the answer away; "warn" for something a careful editor would change; "note" for a preference. Say nothing about a field that is fine.
 
 Return ONLY a JSON object:
-{"verdict":"pass"|"revise","findings":[{"field":"defVi","severity":"blocker"|"warn"|"note","problem":"<what is wrong, in English, one sentence>","suggestion":"<the corrected Vietnamese, or \\"\\" when you cannot fix it>"}]}
+{"verdict":"pass"|"revise","findings":[{"field":"defVi","severity":"blocker"|"warn"|"note","problem":"<what is wrong, in English, one sentence>","suggestion":"<the corrected ${L.label}, or \\"\\" when you cannot fix it>"}]}
 "verdict" is "pass" only when findings is empty or holds nothing above "note". No commentary outside the JSON.`;
 
 /** One problem the verification pass reported. */
@@ -451,7 +434,7 @@ export interface VerifyReport {
  * Render one finished card for review.
  *
  * The English headword is given last and labelled as the answer, so the model
- * reads the Vietnamese the way a learner does before it knows what the card is
+ * reads the gloss the way a learner does before it knows what the card is
  * hiding — which is the only way to judge whether the card gives it away.
  *
  * @param word - the deck word to check, markers and joins intact
@@ -495,12 +478,12 @@ export function buildVerifyPrompt(word: {
  * without. This pass retrofits them.
  *
  * It is deliberately NOT a rewrite. The one failure that matters here is a
- * model deciding the Vietnamese could be better while it is in there: the words
+ * model deciding the text could be better while it is in there: the words
  * must come back identical, mark insertion and nothing else, so the result can
  * be checked by stripping the marks and comparing. A pass that improves the
  * prose cannot be verified and quietly rewrites a reviewed deck.
  */
-export const MARKUP_SYSTEM_PROMPT = `You add breaking marks to Vietnamese vocabulary-card text that was written before the marks existed. You are a typesetter, not an editor.
+export const MARKUP_SYSTEM_PROMPT = `You add breaking marks to ${L.label} vocabulary-card text that was written before the marks existed. You are a typesetter, not an editor.
 
 ABSOLUTE RULE: return the SAME WORDS in the SAME ORDER. Insert marks and change nothing else. Do not fix spelling, do not improve wording, do not add or remove a single syllable, do not touch punctuation, capitalisation or diacritics. If the text reads badly, leave it reading badly — someone else decides that. Your output with every mark stripped out must equal the input character for character.
 
@@ -585,13 +568,13 @@ Until then, generation runs on the field rules alone and this text is never sent
  * difference is voice. A guide built from finals alone has to guess which
  * properties of a good sentence were deliberate.
  */
-export const DISTIL_SYSTEM_PROMPT = `You are a Vietnamese editor reverse-engineering one writer's voice.
+export const DISTIL_SYSTEM_PROMPT = `You are a ${L.label} editor reverse-engineering one writer's voice.
 
 You will be given pairs from a vocabulary-card deck. In each pair, BEFORE is what a general-purpose model wrote and AFTER is what the human editor changed it to. The content requirement was identical in both: same English word, same field, same length rules. So every difference between them is a difference of VOICE, not of task.
 
 Your job is to write the style guide that would have produced the AFTERs.
 
-Work from the evidence, not from what good Vietnamese writing is generally supposed to look like. If the editor consistently does something a style manual would frown at, that is a rule, and you must write it down without softening it.
+Work from the evidence, not from what good ${L.label} writing is generally supposed to look like. If the editor consistently does something a style manual would frown at, that is a rule, and you must write it down without softening it.
 
 Attend to, in roughly this order:
 1. WORD CHOICE. Which words does the editor reach for, and which do they systematically avoid or replace? Name actual words, in pairs: "prefers X over Y". A guide that says "uses natural vocabulary" is worthless.
@@ -664,7 +647,7 @@ export function buildHouseVoice(guide: string, exemplars: string, whole: boolean
   }
   lines.push(
     "",
-    "Before you return a field, read it back and ask: would the writer of those examples have written this? If it reads like competent generic Vietnamese, it is wrong even when every rule above is satisfied.",
+    `Before you return a field, read it back and ask: would the writer of those examples have written this? If it reads like competent generic ${L.label}, it is wrong even when every rule above is satisfied.`,
   );
   return lines.join("\n");
 }
@@ -756,7 +739,7 @@ const VARIATION_RULE_FIELDS = new Set(["meaningVi", "defVi", "leadVi", "anticipa
  * four near-identical cards, so the axis is given and the rest of the quality
  * bar is held constant.
  */
-export const VARIATION_SYSTEM_PROMPT = `You write Vietnamese vocabulary cards for a mobile "learn one English word at a time" app.
+export const VARIATION_SYSTEM_PROMPT = `You write ${L.label} vocabulary cards for a mobile "learn one English word at a time" app.
 ${AUDIENCE}
 
 You are given a card that is already finished and acceptable. Your job is NOT to fix it. Write a DIFFERENT take on the same English word, along the one axis the user message names, so a reviewer can put the two side by side and choose.
@@ -840,7 +823,7 @@ export function buildVariationPrompt(
  * reached for one, or in the teaser, where it needed a stereotype to make the
  * hint land.
  */
-export const SAFETY_SYSTEM_PROMPT = `You are reviewing Vietnamese vocabulary cards before publication, for a mobile app used by learners of all ages in Vietnam.
+export const SAFETY_SYSTEM_PROMPT = `You are reviewing ${L.label} vocabulary cards before publication, for a mobile app used by learners of all ages in ${L.country}.
 
 You are NOT judging whether the card teaches well. Another pass does that. You are deciding whether it is fit to publish at all.
 
@@ -848,7 +831,7 @@ Read every field, not just the definition. Unsafe material in a vocabulary deck 
 
 Flag:
 - IMPLICATION: does the card imply something harmful even though no single word is wrong? An example sentence that models self-harm, violence, substance use or crime as ordinary; a definition that assumes the reader is in an unsafe situation.
-- FRAMING: does any field insult or demean? Stereotypes of a nationality, region, gender, age, disability, religion, caste, occupation or body. Vietnamese regional stereotypes count. So does contempt dressed as humour.
+- FRAMING: does any field insult or demean? Stereotypes of a nationality, region, gender, age, disability, religion, caste, occupation or body. ${L.label} regional stereotypes count. So does contempt dressed as humour.
 - SENSE: does the card teach a sense of the English word that is wrong, obsolete, or so rare the learner will misuse it? Does any field contradict another about what the word means?
 - AUDIENCE: is the content unsuitable for a classroom — sexual material, graphic detail, political or religious advocacy, or an adult situation a younger learner would meet unprepared?
 
@@ -897,7 +880,7 @@ export function buildSafetyPrompt(card: {
  * definition can orphan its emphasis phrase, and changing a sense can leave the
  * teaser pointing at the old one.
  */
-export const REPAIR_SYSTEM_PROMPT = `You repair Vietnamese vocabulary cards that failed validation.
+export const REPAIR_SYSTEM_PROMPT = `You repair ${L.label} vocabulary cards that failed validation.
 
 You are given one card and the complete list of what is wrong with it. Return the WHOLE card, fixed.
 

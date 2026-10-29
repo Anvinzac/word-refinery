@@ -22,7 +22,7 @@
  * Exports: IntakeStage, Severity, IntakeFinding, IntakeRecord, IntakeVerdict,
  *          CANONICAL_FIELD_ORDER, checkSchema, checkContent, verdictOf,
  *          partitionRecords, summarize, candidateId
- * Depends on: ./contract.ts, ./deck.ts, ./types.ts
+ * Depends on: ./contract.ts, ./deck.ts, ./lang.ts, ./types.ts
  */
 import {
   CRAWLER_ANNOTATION_FIELDS,
@@ -34,6 +34,7 @@ import {
 import { validateDeck } from "./deck.ts";
 import { stripEmphasisMarkers } from "./emphasis.ts";
 import { stripMarks } from "./joiner.ts";
+import { activeGlossProfile, describeLength, measureLength } from "./lang.ts";
 import type { Deck, DeckWord } from "./types.ts";
 
 /** Which gate produced a finding. */
@@ -268,14 +269,17 @@ export function summarize(records: readonly IntakeRecord[]): {
 
 // ── Card-prompt v3.7 ────────────────────────────────────────────────────────
 
+/** The language the cards under intake are written in. */
+const L = activeGlossProfile();
+
 /**
  * Soft fillers the prompt allows in a sentence but forbids as the glow.
  * They warm the tone; the meaning word still has to carry the highlight.
  */
-const SOFT_FILLERS = new Set(["nhỉ", "nha", "này", "luôn", "hết cỡ", "ui", "ơi", "nè", "nhé", "thôi"]);
+const SOFT_FILLERS = new Set(L.fillers);
 
 /** Intensifiers the prompt names as padding, never a highlight. */
-const GENERIC_INTENSIFIERS = new Set(["rất", "quá", "thật", "lắm"]);
+const GENERIC_INTENSIFIERS = new Set(L.intensifiers);
 
 /**
  * Words the prompt lists as absent from the Oxford 3000/5000, and therefore
@@ -383,15 +387,25 @@ export function checkPromptRules(raw: unknown): IntakeFinding[] {
   const meaning = typeof record.meaningVi === "string" ? record.meaningVi.trim() : "";
   if (meaning.length > 0) {
     const clean = stripMarks(meaning);
-    if (clean.endsWith(".")) {
-      at(findings, "content", "meaningVi", "blocker", "ends with a full stop; a gloss is not a sentence");
+    const ending = L.sentenceEnd.find((mark) => clean.endsWith(mark));
+    if (ending !== undefined) {
+      at(findings, "content", "meaningVi", "blocker", `ends with "${ending}"; a gloss is not a sentence`);
     }
-    if (clean.length > 40) {
-      at(findings, "content", "meaningVi", "blocker", `${clean.length} characters; at most 40`);
+    const ceiling = L.limits.meaning.maxChars ?? L.limits.meaning.max;
+    if (clean.length > ceiling) {
+      at(findings, "content", "meaningVi", "blocker", `${clean.length} characters; at most ${ceiling}`);
     }
-    const words = clean.replace(/,/g, " ").split(/\s+/).filter(Boolean).length;
-    if (words > 4) {
-      at(findings, "content", "meaningVi", "blocker", `${words} words; a gloss is 1-4`);
+    // Both alternatives together, as v3.7 states the rule. The separator is not
+    // content, so it is spent before counting rather than counted as a word.
+    const size = measureLength(clean.replace(/[,;、]/g, " "), L);
+    if (size > L.glossUnits) {
+      at(
+        findings,
+        "content",
+        "meaningVi",
+        "blocker",
+        `${describeLength(size, L)}; a gloss is 1-${L.glossUnits}`,
+      );
     }
   }
 

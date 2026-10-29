@@ -1,5 +1,5 @@
 /**
- * Hand editor for one Vietnamese field, shown inside the refine brief.
+ * Hand editor for one gloss-language field, shown inside the refine brief.
  *
  * Two views over the same text, one at a time. The chip view is for the common
  * edits — tap a word, drag a break — and never shows a mark as a character.
@@ -19,10 +19,11 @@
  * save it.
  *
  * Exports: SentenceEditor
- * Depends on: ../lib/sentence-edit.ts, ../lib/joiner.ts
+ * Depends on: ../lib/sentence-edit.ts, ../lib/joiner.ts, ../lib/lang.ts
  */
 import { Fragment, useRef, useState } from "react";
 import { countUnits, findStrayMarks, PHRASE_BREAK, stripMarks } from "../lib/joiner";
+import { activeGlossProfile, markRules } from "../lib/lang";
 import {
   insertAtGap,
   moveBreak,
@@ -32,6 +33,9 @@ import {
   toggleHighlight,
   type SentenceToken,
 } from "../lib/sentence-edit";
+
+/** How this workspace's language reads the breaking marks. */
+const MARKS = markRules(activeGlossProfile());
 
 /** Two taps on the same chip within this many milliseconds count as a double tap. */
 const DOUBLE_TAP_MS = 320;
@@ -249,7 +253,7 @@ export function SentenceEditor({
     );
   };
 
-  const problems = findStrayMarks(value);
+  const problems = findStrayMarks(value, MARKS);
   let wordIndex = 0;
 
   return (

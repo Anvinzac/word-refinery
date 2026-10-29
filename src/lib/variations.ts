@@ -19,8 +19,9 @@
  *          VariationModel, VARIATION_MODELS, SlantModels, readSlantModels,
  *          writeSlantModels, modelLabel, searchVariationWords, VariationRow,
  *          emptyRow
- * Depends on: ./prompt.ts, ./types.ts
+ * Depends on: ./prompt.ts, ./types.ts, ./workspace.ts
  */
+import { scopedKey } from "./workspace.ts";
 import type { MarkupField } from "./prompt.ts";
 import type { CefrLevel, ReviewEntry } from "./types.ts";
 
@@ -148,7 +149,12 @@ export const VARIATION_MODELS: readonly VariationModel[] = [
 /** Per-slant model picks; a slant that is absent uses the model from Settings. */
 export type SlantModels = Partial<Record<string, string>>;
 
-const SLANT_MODELS_KEY = "word-refinery.variation-models";
+const SLANT_MODELS_KEY_BASE = "word-refinery.variation-models";
+
+/** Per workspace: the model that writes good Japanese is not the Vietnamese one. */
+function slantModelsKey(): string {
+  return scopedKey(SLANT_MODELS_KEY_BASE);
+}
 
 /**
  * The picks last made on this device. A pick of a model no longer offered is
@@ -158,7 +164,7 @@ const SLANT_MODELS_KEY = "word-refinery.variation-models";
 export function readSlantModels(): SlantModels {
   if (typeof window === "undefined") return {};
   try {
-    const parsed = JSON.parse(window.localStorage.getItem(SLANT_MODELS_KEY) ?? "{}") as unknown;
+    const parsed = JSON.parse(window.localStorage.getItem(slantModelsKey()) ?? "{}") as unknown;
     if (typeof parsed !== "object" || parsed === null) return {};
     const offered = new Set(VARIATION_MODELS.map((model) => model.id));
     return Object.fromEntries(
@@ -173,7 +179,7 @@ export function readSlantModels(): SlantModels {
 export function writeSlantModels(models: SlantModels): void {
   if (typeof window === "undefined") return;
   try {
-    window.localStorage.setItem(SLANT_MODELS_KEY, JSON.stringify(models));
+    window.localStorage.setItem(slantModelsKey(), JSON.stringify(models));
   } catch {
     // The in-memory picks still apply for this session.
   }

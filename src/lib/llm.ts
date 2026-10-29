@@ -37,10 +37,14 @@ import {
 } from "./prompt.ts";
 import { hasStyleGuide, resolvePrompt } from "./prompt-store.ts";
 import { findStrayMarks, stripMarks } from "./joiner.ts";
+import { activeGlossProfile, markRules } from "./lang.ts";
 import { extractJsonArray, parseAnnotationList, type CrawlerAnnotation } from "./contract.ts";
 import type { CorpusWord, DeckWord } from "./types.ts";
 import type { AvoidList } from "./uniqueness.ts";
 
+
+/** How this workspace's language reads the breaking marks. */
+const MARKS = markRules(activeGlossProfile());
 /** Error carrying enough context for the UI to explain what went wrong. */
 export class LlmError extends Error {
   readonly status: number | null;
@@ -848,10 +852,10 @@ export async function markupWord(
       );
       continue;
     }
-    for (const problem of findStrayMarks(value)) {
+    for (const problem of findStrayMarks(value, MARKS)) {
       issues.push(`${word.word}: ${field} ${problem}`);
     }
-    if (findStrayMarks(value).length === 0) patch[field] = value;
+    if (findStrayMarks(value, MARKS).length === 0) patch[field] = value;
   }
 
   return { patch, issues };
@@ -936,7 +940,7 @@ export async function markupField(
     // Stray marks first: a malformed bond is not stripped, so it also fails the
     // identity check below, and "edited the words" would be the wrong diagnosis
     // for what is really a misplaced underscore.
-    const problems = findStrayMarks(marked);
+    const problems = findStrayMarks(marked, MARKS);
     if (problems.length > 0) return { text, issue: `the marking pass left a ${problems[0]}` };
     if (stripMarks(marked) !== stripMarks(text)) {
       return { text, issue: "the marking pass edited the words, so its answer was discarded" };

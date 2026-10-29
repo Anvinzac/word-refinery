@@ -11,12 +11,16 @@
  * into a drop-down, so the word list keeps the full width.
  *
  * Exports: FilterRail
- * Depends on: ../lib/library.ts, ../lib/contract.ts, ../lib/types.ts
+ * Depends on: ../lib/library.ts, ../lib/contract.ts, ../lib/lang.ts, ../lib/types.ts
  */
 import { useEffect, useRef } from "react";
 import { EXAMS, TOPICS } from "../lib/contract";
+import { activeGlossProfile } from "../lib/lang";
 import { describeBatch, isFilterActive, type LibraryFacets, type LibraryFilter } from "../lib/library";
 import { CEFR_LEVELS, type CefrLevel, type ReviewStatus } from "../lib/types";
+
+/** What this workspace's cards are written in, for the one label that says so. */
+const glossLabel = activeGlossProfile().label;
 
 /** Statuses in the order a word travels through them. */
 const STATUSES: readonly ReviewStatus[] = ["pending", "edited", "approved", "rejected"];
@@ -143,7 +147,7 @@ export function FilterRail({
       <input
         type="search"
         className="rail-search"
-        placeholder="Search word or Vietnamese — accents optional"
+        placeholder={`Search word or ${glossLabel} — accents optional`}
         aria-label="Search the deck"
         title="Accents optional — “tin cay” finds “tin cậy”."
         value={filter.search}
