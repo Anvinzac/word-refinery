@@ -5,3 +5,7 @@ dist/
 *.local
 .DS_Store
 npm-debug.log*
+
+# A catalogue released by `npm run verify -- <dir> --release`. It holds the full
+# text of every accepted card, and it is an output, not a source.
+*.sqlite

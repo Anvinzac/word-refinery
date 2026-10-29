@@ -16,7 +16,7 @@
  * never opens the Intake tab should never pay for it.
  *
  * Exports: openCatalog, CatalogDb, CatalogStats, CATALOG_SCHEMA_VERSION,
- *          catalogVersionRefusal
+ *          CATALOG_SCHEMA_SQL, catalogVersionRefusal
  * Depends on: sql.js, ./intake.ts
  */
 import type { Database, SqlJsStatic } from "sql.js";
@@ -32,8 +32,8 @@ import type { IntakeRecord } from "./intake.ts";
  */
 export const CATALOG_SCHEMA_VERSION = 1;
 
-/** The schema, created on an empty database. */
-const SCHEMA = `
+/** The schema, created on an empty database. Exported for tests and Node tooling. */
+export const CATALOG_SCHEMA_SQL = `
 -- Stamped so a stored file can be recognised by a later build.
 CREATE TABLE IF NOT EXISTS meta (
   key   TEXT PRIMARY KEY,
@@ -106,16 +106,30 @@ let runtime: Promise<SqlJsStatic> | null = null;
 /** Load the WebAssembly, once, only when a catalogue is actually opened. */
 async function loadRuntime(): Promise<SqlJsStatic> {
   if (runtime === null) {
+    // Vite replaces import.meta.env at build time; plain Node never defines it.
+    // That is the test for "am I in the browser bundle", and it has to be this
+    // rather than the `typeof window === "undefined"` the rest of the codebase
+    // uses: scripts/verify-batch.ts installs a window shim to choose a gloss
+    // profile, so window existing no longer means a browser is running.
+    //
+    // Outside the bundle, locateFile is left OUT rather than pointed somewhere.
+    // sql.js then falls back to its own default — the wasm beside its dist file
+    // — which is correct and needs no help from here.
+    const inBundle = typeof import.meta.env !== "undefined";
     runtime = import("sql.js").then((module) =>
-      module.default({
-        // Always our own copy, whatever name the bundled build asks for. Vite
-        // resolves sql.js to its browser entry, which looks for
-        // "sql-wasm-browser.wasm"; that is the same binary as "sql-wasm.wasm"
-        // byte for byte, and shipping it twice would cost 672 KB to spell a
-        // filename differently. Served from this origin so the app still works
-        // offline once cached.
-        locateFile: () => `${import.meta.env.BASE_URL}sql-wasm.wasm`,
-      }),
+      module.default(
+        inBundle
+          ? {
+              // Always our own copy, whatever name the bundled build asks for.
+              // Vite resolves sql.js to its browser entry, which looks for
+              // "sql-wasm-browser.wasm"; that is the same binary as
+              // "sql-wasm.wasm" byte for byte, and shipping it twice would cost
+              // 672 KB to spell a filename differently. Served from this origin
+              // so the app still works offline once cached.
+              locateFile: () => `${import.meta.env.BASE_URL}sql-wasm.wasm`,
+            }
+          : {},
+      ),
     );
   }
   return runtime;
@@ -209,7 +223,7 @@ export async function openCatalog(bytes?: Uint8Array): Promise<CatalogDb> {
     db.close();
     throw new Error(refusal);
   }
-  db.run(SCHEMA);
+  db.run(CATALOG_SCHEMA_SQL);
   // A file from before the stamp existed is schema 1 by definition: the tables
   // it holds are the ones version 1 created.
   db.run(
