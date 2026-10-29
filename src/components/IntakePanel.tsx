@@ -34,6 +34,8 @@ import { openCatalog, type CatalogDb, type CatalogStats } from "../lib/intake-db
 import { clearLocalCatalog, loadLocalCatalog, saveLocalCatalog } from "../lib/local-doc";
 import { describeLlmError, repairCard, reviewSafety } from "../lib/llm";
 import { coerceDeckWord } from "../lib/deck";
+import { exportCatalogForKineMedia } from "../lib/kinemedia-export";
+import { activeGlossProfile } from "../lib/lang";
 import type { Settings } from "../lib/settings";
 
 /** What the run is doing, for the progress line. */
@@ -390,6 +392,39 @@ export function IntakePanel({ settings }: { settings: Settings }) {
     }
   };
 
+  /** The verified cards only, in the format KineMedia's importer reads. */
+  const downloadForKineMedia = async () => {
+    setError(null);
+    try {
+      const db = await ensureCatalog();
+      const { deck, report } = exportCatalogForKineMedia(db.query, { gloss: activeGlossProfile().id });
+      if (deck.words.length === 0) {
+        setError("The catalogue holds no verified cards yet; release a batch first.");
+        return;
+      }
+      const blob = new Blob([`${JSON.stringify(deck, null, 2)}\n`], { type: "application/json" });
+      const url = URL.createObjectURL(blob);
+      const anchor = document.createElement("a");
+      anchor.href = url;
+      anchor.download = `word-refinery-kinemedia-${deck.meta.locale}.json`;
+      document.body.appendChild(anchor);
+      anchor.click();
+      anchor.remove();
+      setTimeout(() => URL.revokeObjectURL(url), 1000);
+      const notes = [
+        report.superseded.length ? `${report.superseded.length} older duplicate(s) left out` : "",
+        report.emphasisDropped.length ? `${report.emphasisDropped.length} stale highlight(s) left out` : "",
+        report.skipped.length ? `${report.skipped.length} card(s) skipped` : "",
+      ].filter(Boolean);
+      setNotice(
+        `Exported ${report.exported} verified word(s) for KineMedia${notes.length ? ` (${notes.join(", ")})` : ""}. ` +
+          "In KineMedia: npm run vocab:import-refinery -- <file>",
+      );
+    } catch (thrown) {
+      setError(thrown instanceof Error ? thrown.message : String(thrown));
+    }
+  };
+
   /**
    * Open a catalogue from a file.
    *
@@ -605,6 +640,11 @@ export function IntakePanel({ settings }: { settings: Settings }) {
           {(catalog !== null || storedBytes !== null) && (
             <button type="button" className="btn" onClick={() => void downloadCatalog()}>
               Download .sqlite
+            </button>
+          )}
+          {(catalog !== null || storedBytes !== null) && (
+            <button type="button" className="btn" onClick={() => void downloadForKineMedia()}>
+              Export for KineMedia
             </button>
           )}
           {openedFile !== null && (
