@@ -1,0 +1,815 @@
+[
+ {
+  "id": "A205-001",
+  "word": "bear",
+  "level": "A2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A205-002",
+  "word": "climate",
+  "level": "A2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A205-003",
+  "word": "cloud",
+  "level": "A2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A205-004",
+  "word": "coast",
+  "level": "A2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A205-005",
+  "word": "continent",
+  "level": "A2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A205-006",
+  "word": "desert",
+  "level": "A2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A205-007",
+  "word": "earth",
+  "level": "A2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A205-008",
+  "word": "environment",
+  "level": "A2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A205-009",
+  "word": "farming",
+  "level": "A2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A205-010",
+  "word": "field",
+  "level": "A2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A205-011",
+  "word": "fishing",
+  "level": "A2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A205-012",
+  "word": "forest",
+  "level": "A2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A205-013",
+  "word": "frog",
+  "level": "A2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A205-014",
+  "word": "grass",
+  "level": "A2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A205-015",
+  "word": "ground",
+  "level": "A2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A205-016",
+  "word": "hill",
+  "level": "A2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A205-017",
+  "word": "insect",
+  "level": "A2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A205-018",
+  "word": "lake",
+  "level": "A2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A205-019",
+  "word": "monkey",
+  "level": "A2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A205-020",
+  "word": "moon",
+  "level": "A2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A205-021",
+  "word": "nature",
+  "level": "A2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A205-022",
+  "word": "ocean",
+  "level": "A2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A205-023",
+  "word": "planet",
+  "level": "A2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A205-024",
+  "word": "pollution",
+  "level": "A2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A205-025",
+  "word": "rock",
+  "level": "A2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A205-026",
+  "word": "sky",
+  "level": "A2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A205-027",
+  "word": "spider",
+  "level": "A2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A205-028",
+  "word": "stone",
+  "level": "A2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A205-029",
+  "word": "storm",
+  "level": "A2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A205-030",
+  "word": "temperature",
+  "level": "A2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A205-031",
+  "word": "valley",
+  "level": "A2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A205-032",
+  "word": "wave",
+  "level": "A2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A205-033",
+  "word": "wind",
+  "level": "A2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A205-034",
+  "word": "wood",
+  "level": "A2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A205-035",
+  "word": "heat",
+  "level": "A2",
+  "input_pos": "noun/verb",
+  "card_pos": "noun",
+  "status": "accepted",
+  "note": "dual POS noun/verb -> noun"
+ },
+ {
+  "id": "A205-036",
+  "word": "blow",
+  "level": "A2",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "A205-037",
+  "word": "recycle",
+  "level": "A2",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "A205-038",
+  "word": "strange",
+  "level": "A2",
+  "input_pos": "adj",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "A205-039",
+  "word": "attractive",
+  "level": "A2",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "A205-040",
+  "word": "bright",
+  "level": "A2",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "A205-041",
+  "word": "clear",
+  "level": "A2",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "A205-042",
+  "word": "curly",
+  "level": "A2",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "A205-043",
+  "word": "enormous",
+  "level": "A2",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "A205-044",
+  "word": "narrow",
+  "level": "A2",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "A205-045",
+  "word": "soft",
+  "level": "A2",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "A205-046",
+  "word": "thick",
+  "level": "A2",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "A205-047",
+  "word": "thin",
+  "level": "A2",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "A205-048",
+  "word": "wide",
+  "level": "A2",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "A205-049",
+  "word": "loud",
+  "level": "A2",
+  "input_pos": "adjective/adverb",
+  "card_pos": "adj",
+  "status": "accepted",
+  "note": "dual POS adjective/adverb -> adj"
+ },
+ {
+  "id": "A205-050",
+  "word": "round",
+  "level": "A2",
+  "input_pos": "adjective/adverb",
+  "card_pos": "adj",
+  "status": "accepted",
+  "note": "dual POS adjective/adverb -> adj"
+ },
+ {
+  "id": "A205-051",
+  "word": "square",
+  "level": "A2",
+  "input_pos": "adjective/noun",
+  "card_pos": "noun",
+  "status": "accepted",
+  "note": "dual POS adjective/noun -> noun"
+ },
+ {
+  "id": "A205-052",
+  "word": "clearly",
+  "level": "A2",
+  "input_pos": "adverb",
+  "card_pos": "adv",
+  "status": "accepted"
+ },
+ {
+  "id": "A205-053",
+  "word": "loudly",
+  "level": "A2",
+  "input_pos": "adverb",
+  "card_pos": "adv",
+  "status": "accepted"
+ },
+ {
+  "id": "A205-054",
+  "word": "quietly",
+  "level": "A2",
+  "input_pos": "adverb",
+  "card_pos": "adv",
+  "status": "accepted"
+ },
+ {
+  "id": "A205-055",
+  "word": "seem",
+  "level": "A2",
+  "input_pos": "linking verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "A205-056",
+  "word": "appearance",
+  "level": "A2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A205-057",
+  "word": "height",
+  "level": "A2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A205-058",
+  "word": "image",
+  "level": "A2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A205-059",
+  "word": "noise",
+  "level": "A2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A205-060",
+  "word": "sense",
+  "level": "A2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A205-061",
+  "word": "shape",
+  "level": "A2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A205-062",
+  "word": "size",
+  "level": "A2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A205-063",
+  "word": "view",
+  "level": "A2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A205-064",
+  "word": "smell",
+  "level": "A2",
+  "input_pos": "noun/verb",
+  "card_pos": "noun",
+  "status": "accepted",
+  "note": "dual POS noun/verb -> noun"
+ },
+ {
+  "id": "A205-065",
+  "word": "appear",
+  "level": "A2",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "A205-066",
+  "word": "recognize",
+  "level": "A2",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "A205-067",
+  "word": "touch",
+  "level": "A2",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "A205-068",
+  "word": "classical",
+  "level": "A2",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "A205-069",
+  "word": "fair",
+  "level": "A2",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "A205-070",
+  "word": "formal",
+  "level": "A2",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "A205-071",
+  "word": "international",
+  "level": "A2",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "A205-072",
+  "word": "musical",
+  "level": "A2",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "A205-073",
+  "word": "national",
+  "level": "A2",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "A205-074",
+  "word": "social",
+  "level": "A2",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "A205-075",
+  "word": "teenage",
+  "level": "A2",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "A205-076",
+  "word": "traditional",
+  "level": "A2",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "A205-077",
+  "word": "united",
+  "level": "A2",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "A205-078",
+  "word": "female",
+  "level": "A2",
+  "input_pos": "adjective/noun",
+  "card_pos": "adj",
+  "status": "accepted",
+  "note": "dual POS adjective/noun -> adj"
+ },
+ {
+  "id": "A205-079",
+  "word": "human",
+  "level": "A2",
+  "input_pos": "adjective/noun",
+  "card_pos": "adj",
+  "status": "accepted",
+  "note": "dual POS adjective/noun -> adj"
+ },
+ {
+  "id": "A205-080",
+  "word": "individual",
+  "level": "A2",
+  "input_pos": "adjective/noun",
+  "card_pos": "adj",
+  "status": "accepted",
+  "note": "dual POS adjective/noun -> adj"
+ },
+ {
+  "id": "A205-081",
+  "word": "male",
+  "level": "A2",
+  "input_pos": "adjective/noun",
+  "card_pos": "adj",
+  "status": "accepted",
+  "note": "dual POS adjective/noun -> adj"
+ },
+ {
+  "id": "A205-082",
+  "word": "pop",
+  "level": "A2",
+  "input_pos": "adjective/noun",
+  "card_pos": "noun",
+  "status": "accepted",
+  "note": "dual POS adjective/noun -> noun"
+ },
+ {
+  "id": "A205-083",
+  "word": "public",
+  "level": "A2",
+  "input_pos": "adjective/noun",
+  "card_pos": "adj",
+  "status": "accepted",
+  "note": "dual POS adjective/noun -> adj"
+ },
+ {
+  "id": "A205-084",
+  "word": "single",
+  "level": "A2",
+  "input_pos": "adjective/noun",
+  "card_pos": "adj",
+  "status": "accepted",
+  "note": "dual POS adjective/noun -> adj"
+ },
+ {
+  "id": "A205-085",
+  "word": "twin",
+  "level": "A2",
+  "input_pos": "adjective/noun",
+  "card_pos": "noun",
+  "status": "accepted",
+  "note": "dual POS adjective/noun -> noun"
+ },
+ {
+  "id": "A205-086",
+  "word": "architecture",
+  "level": "A2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A205-087",
+  "word": "audience",
+  "level": "A2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A205-088",
+  "word": "author",
+  "level": "A2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A205-089",
+  "word": "award",
+  "level": "A2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A205-090",
+  "word": "celebrity",
+  "level": "A2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A205-091",
+  "word": "charity",
+  "level": "A2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A205-092",
+  "word": "comedy",
+  "level": "A2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A205-093",
+  "word": "community",
+  "level": "A2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A205-094",
+  "word": "competition",
+  "level": "A2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A205-095",
+  "word": "crowd",
+  "level": "A2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A205-096",
+  "word": "drama",
+  "level": "A2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A205-097",
+  "word": "drawing",
+  "level": "A2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A205-098",
+  "word": "fan",
+  "level": "A2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A205-099",
+  "word": "gallery",
+  "level": "A2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A205-100",
+  "word": "guest",
+  "level": "A2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ }
+]

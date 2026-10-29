@@ -1,0 +1,813 @@
+[
+ {
+  "id": "A207-001",
+  "word": "record",
+  "level": "A2",
+  "input_pos": "noun/verb",
+  "card_pos": "noun",
+  "status": "accepted",
+  "note": "dual POS noun/verb -> noun"
+ },
+ {
+  "id": "A207-002",
+  "word": "connect",
+  "level": "A2",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "A207-003",
+  "word": "print",
+  "level": "A2",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "A207-004",
+  "word": "certain",
+  "level": "A2",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "A207-005",
+  "word": "ideal",
+  "level": "A2",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "A207-006",
+  "word": "impossible",
+  "level": "A2",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "A207-007",
+  "word": "likely",
+  "level": "A2",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "A207-008",
+  "word": "certainly",
+  "level": "A2",
+  "input_pos": "adverb",
+  "card_pos": "adv",
+  "status": "accepted"
+ },
+ {
+  "id": "A207-009",
+  "word": "definitely",
+  "level": "A2",
+  "input_pos": "adverb",
+  "card_pos": "adv",
+  "status": "accepted"
+ },
+ {
+  "id": "A207-010",
+  "word": "alternative",
+  "level": "A2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A207-011",
+  "word": "choice",
+  "level": "A2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A207-012",
+  "word": "decision",
+  "level": "A2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A207-013",
+  "word": "discovery",
+  "level": "A2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A207-014",
+  "word": "effect",
+  "level": "A2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A207-015",
+  "word": "error",
+  "level": "A2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A207-016",
+  "word": "evidence",
+  "level": "A2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A207-017",
+  "word": "factor",
+  "level": "A2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A207-018",
+  "word": "goal",
+  "level": "A2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A207-019",
+  "word": "memory",
+  "level": "A2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A207-020",
+  "word": "method",
+  "level": "A2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A207-021",
+  "word": "option",
+  "level": "A2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A207-022",
+  "word": "possibility",
+  "level": "A2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A207-023",
+  "word": "purpose",
+  "level": "A2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A207-024",
+  "word": "solution",
+  "level": "A2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A207-025",
+  "word": "strategy",
+  "level": "A2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A207-026",
+  "word": "thinking",
+  "level": "A2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A207-027",
+  "word": "thought",
+  "level": "A2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A207-028",
+  "word": "understanding",
+  "level": "A2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A207-029",
+  "word": "cause",
+  "level": "A2",
+  "input_pos": "noun/verb",
+  "card_pos": "noun",
+  "status": "accepted",
+  "note": "dual POS noun/verb -> noun"
+ },
+ {
+  "id": "A207-030",
+  "word": "dream",
+  "level": "A2",
+  "input_pos": "noun/verb",
+  "card_pos": "noun",
+  "status": "accepted",
+  "note": "dual POS noun/verb -> noun"
+ },
+ {
+  "id": "A207-031",
+  "word": "mind",
+  "level": "A2",
+  "input_pos": "noun/verb",
+  "card_pos": "noun",
+  "status": "accepted",
+  "note": "dual POS noun/verb -> noun"
+ },
+ {
+  "id": "A207-032",
+  "word": "consider",
+  "level": "A2",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "A207-033",
+  "word": "discover",
+  "level": "A2",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "A207-034",
+  "word": "expect",
+  "level": "A2",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "A207-035",
+  "word": "identify",
+  "level": "A2",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "A207-036",
+  "word": "invent",
+  "level": "A2",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "A207-037",
+  "word": "predict",
+  "level": "A2",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "A207-038",
+  "word": "realize",
+  "level": "A2",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "A207-039",
+  "word": "solve",
+  "level": "A2",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "A207-040",
+  "word": "suppose",
+  "level": "A2",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "A207-041",
+  "word": "ancient",
+  "level": "A2",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "A207-042",
+  "word": "daily",
+  "level": "A2",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "A207-043",
+  "word": "recent",
+  "level": "A2",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "A207-044",
+  "word": "regular",
+  "level": "A2",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "A207-045",
+  "word": "after",
+  "level": "A2",
+  "input_pos": "adverb",
+  "card_pos": "adv",
+  "status": "accepted"
+ },
+ {
+  "id": "A207-046",
+  "word": "already",
+  "level": "A2",
+  "input_pos": "adverb",
+  "card_pos": "adv",
+  "status": "accepted"
+ },
+ {
+  "id": "A207-047",
+  "word": "any more",
+  "level": "A2",
+  "input_pos": "adverb",
+  "card_pos": "adv",
+  "status": "accepted"
+ },
+ {
+  "id": "A207-048",
+  "word": "before",
+  "level": "A2",
+  "input_pos": "adverb",
+  "card_pos": "adv",
+  "status": "accepted"
+ },
+ {
+  "id": "A207-049",
+  "word": "finally",
+  "level": "A2",
+  "input_pos": "adverb",
+  "card_pos": "adv",
+  "status": "accepted"
+ },
+ {
+  "id": "A207-050",
+  "word": "immediately",
+  "level": "A2",
+  "input_pos": "adverb",
+  "card_pos": "adv",
+  "status": "accepted"
+ },
+ {
+  "id": "A207-051",
+  "word": "normally",
+  "level": "A2",
+  "input_pos": "adverb",
+  "card_pos": "adv",
+  "status": "accepted"
+ },
+ {
+  "id": "A207-052",
+  "word": "recently",
+  "level": "A2",
+  "input_pos": "adverb",
+  "card_pos": "adv",
+  "status": "accepted"
+ },
+ {
+  "id": "A207-053",
+  "word": "slowly",
+  "level": "A2",
+  "input_pos": "adverb",
+  "card_pos": "adv",
+  "status": "accepted"
+ },
+ {
+  "id": "A207-054",
+  "word": "suddenly",
+  "level": "A2",
+  "input_pos": "adverb",
+  "card_pos": "adv",
+  "status": "accepted"
+ },
+ {
+  "id": "A207-055",
+  "word": "yet",
+  "level": "A2",
+  "input_pos": "adverb",
+  "card_pos": "adv",
+  "status": "accepted"
+ },
+ {
+  "id": "A207-056",
+  "word": "last",
+  "level": "A2",
+  "input_pos": "adverb/noun/verb",
+  "card_pos": "verb",
+  "status": "accepted",
+  "note": "dual POS adverb/noun/verb -> verb"
+ },
+ {
+  "id": "A207-057",
+  "word": "schedule",
+  "level": "A2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A207-058",
+  "word": "season",
+  "level": "A2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A207-059",
+  "word": "foreign",
+  "level": "A2",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "A207-060",
+  "word": "lost",
+  "level": "A2",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "A207-061",
+  "word": "underground",
+  "level": "A2",
+  "input_pos": "adjective/adverb",
+  "card_pos": "adj",
+  "status": "accepted",
+  "note": "dual POS adjective/adverb -> adj"
+ },
+ {
+  "id": "A207-062",
+  "word": "flying",
+  "level": "A2",
+  "input_pos": "adjective/noun",
+  "card_pos": "noun",
+  "status": "accepted",
+  "note": "dual POS adjective/noun -> noun"
+ },
+ {
+  "id": "A207-063",
+  "word": "adventure",
+  "level": "A2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A207-064",
+  "word": "airline",
+  "level": "A2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A207-065",
+  "word": "bridge",
+  "level": "A2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A207-066",
+  "word": "camping",
+  "level": "A2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A207-067",
+  "word": "castle",
+  "level": "A2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A207-068",
+  "word": "direction",
+  "level": "A2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A207-069",
+  "word": "distance",
+  "level": "A2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A207-070",
+  "word": "driving",
+  "level": "A2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A207-071",
+  "word": "lorry",
+  "level": "A2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A207-072",
+  "word": "motorcycle",
+  "level": "A2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A207-073",
+  "word": "palace",
+  "level": "A2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A207-074",
+  "word": "parking",
+  "level": "A2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A207-075",
+  "word": "passenger",
+  "level": "A2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A207-076",
+  "word": "petrol",
+  "level": "A2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A207-077",
+  "word": "pilot",
+  "level": "A2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A207-078",
+  "word": "platform",
+  "level": "A2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A207-079",
+  "word": "railroad",
+  "level": "A2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A207-080",
+  "word": "railway",
+  "level": "A2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A207-081",
+  "word": "region",
+  "level": "A2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A207-082",
+  "word": "route",
+  "level": "A2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A207-083",
+  "word": "ship",
+  "level": "A2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A207-084",
+  "word": "speed",
+  "level": "A2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A207-085",
+  "word": "subway",
+  "level": "A2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A207-086",
+  "word": "tour",
+  "level": "A2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A207-087",
+  "word": "tourism",
+  "level": "A2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A207-088",
+  "word": "tower",
+  "level": "A2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A207-089",
+  "word": "track",
+  "level": "A2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A207-090",
+  "word": "transport",
+  "level": "A2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A207-091",
+  "word": "traveller",
+  "level": "A2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A207-092",
+  "word": "truck",
+  "level": "A2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A207-093",
+  "word": "van",
+  "level": "A2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A207-094",
+  "word": "vehicle",
+  "level": "A2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A207-095",
+  "word": "wheel",
+  "level": "A2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A207-096",
+  "word": "hike",
+  "level": "A2",
+  "input_pos": "noun verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "A207-097",
+  "word": "camp",
+  "level": "A2",
+  "input_pos": "noun/verb",
+  "card_pos": "verb",
+  "status": "accepted",
+  "note": "dual POS noun/verb -> verb"
+ },
+ {
+  "id": "A207-098",
+  "word": "cross",
+  "level": "A2",
+  "input_pos": "noun/verb",
+  "card_pos": "verb",
+  "status": "accepted",
+  "note": "dual POS noun/verb -> verb"
+ },
+ {
+  "id": "A207-099",
+  "word": "cycle",
+  "level": "A2",
+  "input_pos": "noun/verb",
+  "card_pos": "verb",
+  "status": "accepted",
+  "note": "dual POS noun/verb -> verb"
+ },
+ {
+  "id": "A207-100",
+  "word": "guide",
+  "level": "A2",
+  "input_pos": "noun/verb",
+  "card_pos": "noun",
+  "status": "accepted",
+  "note": "dual POS noun/verb -> noun"
+ }
+]

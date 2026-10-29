@@ -162,7 +162,7 @@ data/ngsl-starter-subset.json   bundled corpus (381 words, CC BY-SA 4.0)
 data/batches/A101.json          one batch of Vietnamese cards; `npm run bundle-batches` bundles them
 data/batches/A101.meta.json     its manifest: id, headword and level, one row per card
 data/batches-ja/A101.json       one batch of Japanese cards, four reader registers per word (see its README)
-public/default-deck.json        the dataset a Vietnamese workspace ships with (979 words, A101-A108 + A201-A202)
+public/default-deck.json        the dataset a Vietnamese workspace ships with (1479 words, A101-A108 + A201-A207)
 public/default-deck-ja.json     the dataset a Japanese workspace ships with (500 words, A101-A105)
 src/lib/
   types.ts       deck, corpus and review document shapes
