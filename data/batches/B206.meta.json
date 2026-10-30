@@ -1,0 +1,811 @@
+[
+ {
+  "id": "B206-001",
+  "word": "resist",
+  "level": "B2",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "B206-002",
+  "word": "restore",
+  "level": "B2",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "B206-003",
+  "word": "retain",
+  "level": "B2",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "B206-004",
+  "word": "rid",
+  "level": "B2",
+  "input_pos": "verb",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "B206-005",
+  "word": "seek",
+  "level": "B2",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "B206-006",
+  "word": "settle",
+  "level": "B2",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "B206-007",
+  "word": "spoil",
+  "level": "B2",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "B206-008",
+  "word": "stimulate",
+  "level": "B2",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "B206-009",
+  "word": "strengthen",
+  "level": "B2",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "B206-010",
+  "word": "surround",
+  "level": "B2",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "B206-011",
+  "word": "suspend",
+  "level": "B2",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "B206-012",
+  "word": "trace",
+  "level": "B2",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "B206-013",
+  "word": "transform",
+  "level": "B2",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "B206-014",
+  "word": "trigger",
+  "level": "B2",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "B206-015",
+  "word": "undergo",
+  "level": "B2",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "B206-016",
+  "word": "unfold",
+  "level": "B2",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "B206-017",
+  "word": "vary",
+  "level": "B2",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "B206-018",
+  "word": "athletic",
+  "level": "B2",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "B206-019",
+  "word": "genetic",
+  "level": "B2",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "B206-020",
+  "word": "harmful",
+  "level": "B2",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "B206-021",
+  "word": "immune",
+  "level": "B2",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "B206-022",
+  "word": "sporting",
+  "level": "B2",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "B206-023",
+  "word": "stiff",
+  "level": "B2",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "B206-024",
+  "word": "unconscious",
+  "level": "B2",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "B206-025",
+  "word": "joint",
+  "level": "B2",
+  "input_pos": "adjective/noun",
+  "card_pos": "noun",
+  "status": "accepted",
+  "note": "dual POS adjective/noun -> noun"
+ },
+ {
+  "id": "B206-026",
+  "word": "rival",
+  "level": "B2",
+  "input_pos": "adjective/noun",
+  "card_pos": "noun",
+  "status": "accepted",
+  "note": "dual POS adjective/noun -> noun"
+ },
+ {
+  "id": "B206-027",
+  "word": "ambulance",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B206-028",
+  "word": "bacteria",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B206-029",
+  "word": "cell",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B206-030",
+  "word": "championship",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B206-031",
+  "word": "cheek",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B206-032",
+  "word": "clinic",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B206-033",
+  "word": "defender",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B206-034",
+  "word": "elbow",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B206-035",
+  "word": "fever",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B206-036",
+  "word": "gene",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B206-037",
+  "word": "healthcare",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B206-038",
+  "word": "heel",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B206-039",
+  "word": "league",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B206-040",
+  "word": "lung",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B206-041",
+  "word": "marathon",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B206-042",
+  "word": "medal",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B206-043",
+  "word": "medication",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B206-044",
+  "word": "nerve",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B206-045",
+  "word": "nursing",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B206-046",
+  "word": "nutrition",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B206-047",
+  "word": "opponent",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B206-048",
+  "word": "organ",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B206-049",
+  "word": "palm",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B206-050",
+  "word": "pharmacy",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B206-051",
+  "word": "pill",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B206-052",
+  "word": "pitch",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B206-053",
+  "word": "recovery",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B206-054",
+  "word": "referee",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B206-055",
+  "word": "screening",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B206-056",
+  "word": "skull",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B206-057",
+  "word": "spectator",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B206-058",
+  "word": "stroke",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B206-059",
+  "word": "surgeon",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B206-060",
+  "word": "surgery",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B206-061",
+  "word": "thumb",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B206-062",
+  "word": "tissue",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B206-063",
+  "word": "tournament",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B206-064",
+  "word": "vaccine",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B206-065",
+  "word": "vitamin",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B206-066",
+  "word": "wrist",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B206-067",
+  "word": "cure",
+  "level": "B2",
+  "input_pos": "noun/verb",
+  "card_pos": "verb",
+  "status": "accepted",
+  "note": "dual POS noun/verb -> verb"
+ },
+ {
+  "id": "B206-068",
+  "word": "defeat",
+  "level": "B2",
+  "input_pos": "noun/verb",
+  "card_pos": "verb",
+  "status": "accepted",
+  "note": "dual POS noun/verb -> verb"
+ },
+ {
+  "id": "B206-069",
+  "word": "dive",
+  "level": "B2",
+  "input_pos": "noun/verb",
+  "card_pos": "verb",
+  "status": "accepted",
+  "note": "dual POS noun/verb -> verb"
+ },
+ {
+  "id": "B206-070",
+  "word": "harm",
+  "level": "B2",
+  "input_pos": "noun/verb",
+  "card_pos": "verb",
+  "status": "accepted",
+  "note": "dual POS noun/verb -> verb"
+ },
+ {
+  "id": "B206-071",
+  "word": "rescue",
+  "level": "B2",
+  "input_pos": "noun/verb",
+  "card_pos": "verb",
+  "status": "accepted",
+  "note": "dual POS noun/verb -> verb"
+ },
+ {
+  "id": "B206-072",
+  "word": "stretch",
+  "level": "B2",
+  "input_pos": "noun/verb",
+  "card_pos": "verb",
+  "status": "accepted",
+  "note": "dual POS noun/verb -> verb"
+ },
+ {
+  "id": "B206-073",
+  "word": "heal",
+  "level": "B2",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "B206-074",
+  "word": "recover",
+  "level": "B2",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "B206-075",
+  "word": "affordable",
+  "level": "B2",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "B206-076",
+  "word": "corporate",
+  "level": "B2",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "B206-077",
+  "word": "precious",
+  "level": "B2",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "B206-078",
+  "word": "wealthy",
+  "level": "B2",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "B206-079",
+  "word": "firm",
+  "level": "B2",
+  "input_pos": "adjective/noun",
+  "card_pos": "noun",
+  "status": "accepted",
+  "note": "dual POS adjective/noun -> noun"
+ },
+ {
+  "id": "B206-080",
+  "word": "accountant",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B206-081",
+  "word": "asset",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B206-082",
+  "word": "auction",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B206-083",
+  "word": "bargain",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B206-084",
+  "word": "budget",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B206-085",
+  "word": "consumption",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B206-086",
+  "word": "corporation",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B206-087",
+  "word": "debt",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B206-088",
+  "word": "deposit",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B206-089",
+  "word": "dime",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B206-090",
+  "word": "distribution",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B206-091",
+  "word": "donation",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B206-092",
+  "word": "economics",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B206-093",
+  "word": "economist",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B206-094",
+  "word": "entrepreneur",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B206-095",
+  "word": "estate",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B206-096",
+  "word": "expansion",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B206-097",
+  "word": "expense",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B206-098",
+  "word": "fee",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B206-099",
+  "word": "fortune",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B206-100",
+  "word": "funding",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ }
+]

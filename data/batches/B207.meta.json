@@ -1,0 +1,812 @@
+[
+ {
+  "id": "B207-001",
+  "word": "incentive",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B207-002",
+  "word": "income",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B207-003",
+  "word": "inflation",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B207-004",
+  "word": "insurance",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B207-005",
+  "word": "investment",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B207-006",
+  "word": "investor",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B207-007",
+  "word": "loan",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B207-008",
+  "word": "mortgage",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B207-009",
+  "word": "nickel",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B207-010",
+  "word": "ownership",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B207-011",
+  "word": "pension",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B207-012",
+  "word": "recession",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B207-013",
+  "word": "retail",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B207-014",
+  "word": "revenue",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B207-015",
+  "word": "saving",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B207-016",
+  "word": "sector",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B207-017",
+  "word": "shortage",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B207-018",
+  "word": "sponsorship",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B207-019",
+  "word": "stall",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B207-020",
+  "word": "stock",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B207-021",
+  "word": "trading",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B207-022",
+  "word": "treasure",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B207-023",
+  "word": "wage",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B207-024",
+  "word": "wealth",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B207-025",
+  "word": "bid",
+  "level": "B2",
+  "input_pos": "noun/verb",
+  "card_pos": "noun",
+  "status": "accepted",
+  "note": "dual POS noun/verb -> noun"
+ },
+ {
+  "id": "B207-026",
+  "word": "finance",
+  "level": "B2",
+  "input_pos": "noun/verb",
+  "card_pos": "noun",
+  "status": "accepted",
+  "note": "dual POS noun/verb -> noun"
+ },
+ {
+  "id": "B207-027",
+  "word": "fund",
+  "level": "B2",
+  "input_pos": "noun/verb",
+  "card_pos": "noun",
+  "status": "accepted",
+  "note": "dual POS noun/verb -> noun"
+ },
+ {
+  "id": "B207-028",
+  "word": "grant",
+  "level": "B2",
+  "input_pos": "noun/verb",
+  "card_pos": "noun",
+  "status": "accepted",
+  "note": "dual POS noun/verb -> noun"
+ },
+ {
+  "id": "B207-029",
+  "word": "guarantee",
+  "level": "B2",
+  "input_pos": "noun/verb",
+  "card_pos": "noun",
+  "status": "accepted",
+  "note": "dual POS noun/verb -> noun"
+ },
+ {
+  "id": "B207-030",
+  "word": "purchase",
+  "level": "B2",
+  "input_pos": "noun/verb",
+  "card_pos": "noun",
+  "status": "accepted",
+  "note": "dual POS noun/verb -> noun"
+ },
+ {
+  "id": "B207-031",
+  "word": "reward",
+  "level": "B2",
+  "input_pos": "noun/verb",
+  "card_pos": "noun",
+  "status": "accepted",
+  "note": "dual POS noun/verb -> noun"
+ },
+ {
+  "id": "B207-032",
+  "word": "sponsor",
+  "level": "B2",
+  "input_pos": "noun/verb",
+  "card_pos": "verb",
+  "status": "accepted",
+  "note": "dual POS noun/verb -> verb"
+ },
+ {
+  "id": "B207-033",
+  "word": "owe",
+  "level": "B2",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "B207-034",
+  "word": "withdraw",
+  "level": "B2",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "B207-035",
+  "word": "biological",
+  "level": "B2",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "B207-036",
+  "word": "rural",
+  "level": "B2",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "B207-037",
+  "word": "shallow",
+  "level": "B2",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "B207-038",
+  "word": "solar",
+  "level": "B2",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "B207-039",
+  "word": "steep",
+  "level": "B2",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "B207-040",
+  "word": "sustainable",
+  "level": "B2",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "B207-041",
+  "word": "tropical",
+  "level": "B2",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "B207-042",
+  "word": "acid",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B207-043",
+  "word": "agriculture",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B207-044",
+  "word": "bat",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B207-045",
+  "word": "bug",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B207-046",
+  "word": "bush",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B207-047",
+  "word": "carbon",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B207-048",
+  "word": "cave",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B207-049",
+  "word": "cliff",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B207-050",
+  "word": "compound",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B207-051",
+  "word": "conservation",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B207-052",
+  "word": "creature",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B207-053",
+  "word": "crop",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B207-054",
+  "word": "drought",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B207-055",
+  "word": "emission",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B207-056",
+  "word": "evolution",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B207-057",
+  "word": "feather",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B207-058",
+  "word": "flame",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B207-059",
+  "word": "fossil",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B207-060",
+  "word": "globe",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B207-061",
+  "word": "greenhouse",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B207-062",
+  "word": "habitat",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B207-063",
+  "word": "hunting",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B207-064",
+  "word": "landscape",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B207-065",
+  "word": "litter",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B207-066",
+  "word": "mineral",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B207-067",
+  "word": "mosquito",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B207-068",
+  "word": "oxygen",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B207-069",
+  "word": "phenomenon",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B207-070",
+  "word": "rat",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B207-071",
+  "word": "root",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B207-072",
+  "word": "rose",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B207-073",
+  "word": "shade",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B207-074",
+  "word": "shore",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B207-075",
+  "word": "species",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B207-076",
+  "word": "steam",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B207-077",
+  "word": "steel",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B207-078",
+  "word": "stream",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B207-079",
+  "word": "tsunami",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B207-080",
+  "word": "universe",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B207-081",
+  "word": "warming",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B207-082",
+  "word": "wildlife",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B207-083",
+  "word": "wolf",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B207-084",
+  "word": "worm",
+  "level": "B2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B207-085",
+  "word": "forecast",
+  "level": "B2",
+  "input_pos": "noun/verb",
+  "card_pos": "noun",
+  "status": "accepted",
+  "note": "dual POS noun/verb -> noun"
+ },
+ {
+  "id": "B207-086",
+  "word": "slope",
+  "level": "B2",
+  "input_pos": "noun/verb",
+  "card_pos": "noun",
+  "status": "accepted",
+  "note": "dual POS noun/verb -> noun"
+ },
+ {
+  "id": "B207-087",
+  "word": "absorb",
+  "level": "B2",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "B207-088",
+  "word": "erupt",
+  "level": "B2",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "B207-089",
+  "word": "evolve",
+  "level": "B2",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "B207-090",
+  "word": "float",
+  "level": "B2",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "B207-091",
+  "word": "melt",
+  "level": "B2",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "B207-092",
+  "word": "preserve",
+  "level": "B2",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "B207-093",
+  "word": "apparent",
+  "level": "B2",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "B207-094",
+  "word": "bent",
+  "level": "B2",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "B207-095",
+  "word": "broad",
+  "level": "B2",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "B207-096",
+  "word": "colourful",
+  "level": "B2",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "B207-097",
+  "word": "curved",
+  "level": "B2",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "B207-098",
+  "word": "cute",
+  "level": "B2",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "B207-099",
+  "word": "elegant",
+  "level": "B2",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "B207-100",
+  "word": "evident",
+  "level": "B2",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ }
+]
