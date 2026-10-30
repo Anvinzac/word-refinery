@@ -1,0 +1,802 @@
+[
+ {
+  "id": "C108-001",
+  "word": "enact",
+  "level": "C1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "C108-002",
+  "word": "entitle",
+  "level": "C1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "C108-003",
+  "word": "evacuate",
+  "level": "C1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "C108-004",
+  "word": "foster",
+  "level": "C1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "C108-005",
+  "word": "intervene",
+  "level": "C1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "C108-006",
+  "word": "license",
+  "level": "C1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "C108-007",
+  "word": "mobilize",
+  "level": "C1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "C108-008",
+  "word": "oblige",
+  "level": "C1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "C108-009",
+  "word": "overturn",
+  "level": "C1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "C108-010",
+  "word": "portray",
+  "level": "C1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "C108-011",
+  "word": "unify",
+  "level": "C1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "C108-012",
+  "word": "absent",
+  "level": "C1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "C108-013",
+  "word": "empirical",
+  "level": "C1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "C108-014",
+  "word": "experimental",
+  "level": "C1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "C108-015",
+  "word": "intermediate",
+  "level": "C1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "C108-016",
+  "word": "mathematical",
+  "level": "C1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "C108-017",
+  "word": "statistical",
+  "level": "C1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "C108-018",
+  "word": "theoretical",
+  "level": "C1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "C108-019",
+  "word": "variable",
+  "level": "C1",
+  "input_pos": "adjective, noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C108-020",
+  "word": "academy",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C108-021",
+  "word": "admission",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C108-022",
+  "word": "archive",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C108-023",
+  "word": "attendance",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C108-024",
+  "word": "calculation",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C108-025",
+  "word": "classification",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C108-026",
+  "word": "correction",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C108-027",
+  "word": "correlation",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C108-028",
+  "word": "educator",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C108-029",
+  "word": "equation",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C108-030",
+  "word": "faculty",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C108-031",
+  "word": "formula",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C108-032",
+  "word": "freshman",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C108-033",
+  "word": "literacy",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C108-034",
+  "word": "manuscript",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C108-035",
+  "word": "methodology",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C108-036",
+  "word": "module",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C108-037",
+  "word": "ratio",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C108-038",
+  "word": "sophomore",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C108-039",
+  "word": "specimen",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C108-040",
+  "word": "submission",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C108-041",
+  "word": "transcript",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C108-042",
+  "word": "tuition",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C108-043",
+  "word": "undergraduate",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C108-044",
+  "word": "probe",
+  "level": "C1",
+  "input_pos": "noun, verb",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C108-045",
+  "word": "correlate",
+  "level": "C1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "C108-046",
+  "word": "enrol",
+  "level": "C1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "C108-047",
+  "word": "interactive",
+  "level": "C1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "C108-048",
+  "word": "linear",
+  "level": "C1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "C108-049",
+  "word": "magnetic",
+  "level": "C1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "C108-050",
+  "word": "activation",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C108-051",
+  "word": "apparatus",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C108-052",
+  "word": "backup",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C108-053",
+  "word": "breakthrough",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C108-054",
+  "word": "broadband",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C108-055",
+  "word": "browser",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C108-056",
+  "word": "buffer",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C108-057",
+  "word": "configuration",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C108-058",
+  "word": "default",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C108-059",
+  "word": "defect",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C108-060",
+  "word": "density",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C108-061",
+  "word": "desktop",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C108-062",
+  "word": "detection",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C108-063",
+  "word": "directory",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C108-064",
+  "word": "footage",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C108-065",
+  "word": "grid",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C108-066",
+  "word": "hardware",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C108-067",
+  "word": "hydrogen",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C108-068",
+  "word": "interface",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C108-069",
+  "word": "laser",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C108-070",
+  "word": "loop",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C108-071",
+  "word": "machinery",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C108-072",
+  "word": "parameter",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C108-073",
+  "word": "pipeline",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C108-074",
+  "word": "processing",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C108-075",
+  "word": "processor",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C108-076",
+  "word": "radar",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C108-077",
+  "word": "simulation",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C108-078",
+  "word": "spam",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C108-079",
+  "word": "specification",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C108-080",
+  "word": "spectrum",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C108-081",
+  "word": "storage",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C108-082",
+  "word": "transmission",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C108-083",
+  "word": "vacuum",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C108-084",
+  "word": "filter",
+  "level": "C1",
+  "input_pos": "noun, verb",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C108-085",
+  "word": "log",
+  "level": "C1",
+  "input_pos": "noun, verb",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C108-086",
+  "word": "plug",
+  "level": "C1",
+  "input_pos": "noun, verb",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C108-087",
+  "word": "pump",
+  "level": "C1",
+  "input_pos": "noun, verb",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C108-088",
+  "word": "upgrade",
+  "level": "C1",
+  "input_pos": "noun, verb",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C108-089",
+  "word": "compute",
+  "level": "C1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "C108-090",
+  "word": "embed",
+  "level": "C1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "C108-091",
+  "word": "retrieve",
+  "level": "C1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "C108-092",
+  "word": "simulate",
+  "level": "C1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "C108-093",
+  "word": "absurd",
+  "level": "C1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "C108-094",
+  "word": "arbitrary",
+  "level": "C1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "C108-095",
+  "word": "cognitive",
+  "level": "C1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "C108-096",
+  "word": "comparable",
+  "level": "C1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "C108-097",
+  "word": "compelling",
+  "level": "C1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "C108-098",
+  "word": "credible",
+  "level": "C1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "C108-099",
+  "word": "inclined",
+  "level": "C1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "C108-100",
+  "word": "intriguing",
+  "level": "C1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ }
+]

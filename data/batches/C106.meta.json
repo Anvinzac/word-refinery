@@ -1,0 +1,802 @@
+[
+ {
+  "id": "C106-001",
+  "word": "toll",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C106-002",
+  "word": "trademark",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C106-003",
+  "word": "transaction",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C106-004",
+  "word": "trustee",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C106-005",
+  "word": "turnover",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C106-006",
+  "word": "withdrawal",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C106-007",
+  "word": "venture",
+  "level": "C1",
+  "input_pos": "noun, verb",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C106-008",
+  "word": "yield",
+  "level": "C1",
+  "input_pos": "noun, verb",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C106-009",
+  "word": "accumulate",
+  "level": "C1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "C106-010",
+  "word": "allocate",
+  "level": "C1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "C106-011",
+  "word": "compensate",
+  "level": "C1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "C106-012",
+  "word": "incur",
+  "level": "C1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "C106-013",
+  "word": "agricultural",
+  "level": "C1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "C106-014",
+  "word": "coastal",
+  "level": "C1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "C106-015",
+  "word": "ecological",
+  "level": "C1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "C106-016",
+  "word": "evolutionary",
+  "level": "C1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "C106-017",
+  "word": "marine",
+  "level": "C1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "C106-018",
+  "word": "abundance",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C106-019",
+  "word": "acre",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C106-020",
+  "word": "aluminium",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C106-021",
+  "word": "ash",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C106-022",
+  "word": "bay",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C106-023",
+  "word": "beam",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C106-024",
+  "word": "beast",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C106-025",
+  "word": "cattle",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C106-026",
+  "word": "copper",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C106-027",
+  "word": "crystal",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C106-028",
+  "word": "cutting",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C106-029",
+  "word": "dam",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C106-030",
+  "word": "debris",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C106-031",
+  "word": "fluid",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C106-032",
+  "word": "gravity",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C106-033",
+  "word": "horizon",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C106-034",
+  "word": "horn",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C106-035",
+  "word": "nest",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C106-036",
+  "word": "peak",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C106-037",
+  "word": "pit",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C106-038",
+  "word": "pond",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C106-039",
+  "word": "predator",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C106-040",
+  "word": "preservation",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C106-041",
+  "word": "prey",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C106-042",
+  "word": "ray",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C106-043",
+  "word": "residue",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C106-044",
+  "word": "summit",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C106-045",
+  "word": "terrain",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C106-046",
+  "word": "tide",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C106-047",
+  "word": "timber",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C106-048",
+  "word": "weed",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C106-049",
+  "word": "breed",
+  "level": "C1",
+  "input_pos": "noun, verb",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C106-050",
+  "word": "harvest",
+  "level": "C1",
+  "input_pos": "noun, verb",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C106-051",
+  "word": "stem",
+  "level": "C1",
+  "input_pos": "noun, verb",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C106-052",
+  "word": "trail",
+  "level": "C1",
+  "input_pos": "noun, verb",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C106-053",
+  "word": "conserve",
+  "level": "C1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "C106-054",
+  "word": "cultivate",
+  "level": "C1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "C106-055",
+  "word": "dissolve",
+  "level": "C1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "C106-056",
+  "word": "drift",
+  "level": "C1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "C106-057",
+  "word": "flourish",
+  "level": "C1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "C106-058",
+  "word": "reproduce",
+  "level": "C1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "C106-059",
+  "word": "soar",
+  "level": "C1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "C106-060",
+  "word": "aesthetic",
+  "level": "C1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "C106-061",
+  "word": "appealing",
+  "level": "C1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "C106-062",
+  "word": "authentic",
+  "level": "C1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "C106-063",
+  "word": "bizarre",
+  "level": "C1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "C106-064",
+  "word": "delicate",
+  "level": "C1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "C106-065",
+  "word": "dense",
+  "level": "C1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "C106-066",
+  "word": "distinctive",
+  "level": "C1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "C106-067",
+  "word": "fragile",
+  "level": "C1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "C106-068",
+  "word": "immense",
+  "level": "C1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "C106-069",
+  "word": "invisible",
+  "level": "C1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "C106-070",
+  "word": "optical",
+  "level": "C1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "C106-071",
+  "word": "peculiar",
+  "level": "C1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "C106-072",
+  "word": "pronounced",
+  "level": "C1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "C106-073",
+  "word": "stark",
+  "level": "C1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "C106-074",
+  "word": "striking",
+  "level": "C1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "C106-075",
+  "word": "transparent",
+  "level": "C1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "C106-076",
+  "word": "vibrant",
+  "level": "C1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "C106-077",
+  "word": "alike",
+  "level": "C1",
+  "input_pos": "adjective, adverb",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "C106-078",
+  "word": "backdrop",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C106-079",
+  "word": "clarity",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C106-080",
+  "word": "glimpse",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C106-081",
+  "word": "imagery",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C106-082",
+  "word": "sensation",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C106-083",
+  "word": "spectacle",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C106-084",
+  "word": "texture",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C106-085",
+  "word": "width",
+  "level": "C1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C106-086",
+  "word": "echo",
+  "level": "C1",
+  "input_pos": "noun, verb",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C106-087",
+  "word": "gaze",
+  "level": "C1",
+  "input_pos": "noun, verb",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C106-088",
+  "word": "glance",
+  "level": "C1",
+  "input_pos": "noun, verb",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C106-089",
+  "word": "distort",
+  "level": "C1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "C106-090",
+  "word": "fade",
+  "level": "C1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "C106-091",
+  "word": "resemble",
+  "level": "C1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "C106-092",
+  "word": "vanish",
+  "level": "C1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "C106-093",
+  "word": "architectural",
+  "level": "C1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "C106-094",
+  "word": "collective",
+  "level": "C1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "C106-095",
+  "word": "eligible",
+  "level": "C1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "C106-096",
+  "word": "high-profile",
+  "level": "C1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "C106-097",
+  "word": "infamous",
+  "level": "C1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "C106-098",
+  "word": "influential",
+  "level": "C1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "C106-099",
+  "word": "institutional",
+  "level": "C1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "C106-100",
+  "word": "legendary",
+  "level": "C1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ }
+]
