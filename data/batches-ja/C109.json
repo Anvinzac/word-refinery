@@ -15,7 +15,7 @@
         "kanjiTier": 1,
         "meaningJP": "関係の ない",
         "defJa": "今 話して=いる ことと | まったく つながらない 様子。",
-        "leadJa": "班の 話し合いの 最中、 | ケンタが 急に | 話に 合わない | アニメの 話を した。",
+        "leadJa": "班の 話し合いの 最中、 | 同じ 班の 子が 急に | 話に 合わない | アニメの 話を した。",
         "anticipateJa": "みんな | ぽかんと してる？",
         "usageJa": "その 意見は | テーマとは 関係ないよ。",
         "emphasisJa": [
@@ -28,7 +28,7 @@
         "kanjiTier": 2,
         "meaningJP": "関係の ない",
         "defJa": "今 話して=いる ことと | まったく つながらない 様子。",
-        "leadJa": "文化祭の 会議の 最中、 | ケンタが 急に | 話に 合わない | アニメの 話を した。",
+        "leadJa": "文化祭の 会議の 最中、 | クラスメートが 急に | 話に 合わない | アニメの 話を した。",
         "anticipateJa": "みんな | ぽかんと してる？",
         "usageJa": "その 意見は | テーマとは 関係ないよ。",
         "emphasisJa": [
@@ -41,7 +41,7 @@
         "kanjiTier": 3,
         "meaningJP": "無関係な",
         "defJa": "今 論じて=いる ことと | まったく つながらない 様子。",
-        "leadJa": "ゼミの 議論の 最中、 | ケンタが 急に | 話に 合わない | アニメの 話を した。",
+        "leadJa": "ゼミの 議論の 最中、 | 友人が 急に | 話に 合わない | アニメの 話を した。",
         "anticipateJa": "全員 | ぽかんと してる？",
         "usageJa": "その 論点は | テーマとは 無関係だよ。",
         "emphasisJa": [
@@ -52,7 +52,7 @@
       }
     },
     "defVi": "Không liên quan. Hoàn toàn không dính dáng gì đến chuyện đang nói.",
-    "leadVi": "Giữa buổi thảo luận, Kenta bỗng kể chuyện anime chẳng ăn nhập gì với đề tài.",
+    "leadVi": "Giữa buổi thảo luận, một bạn cùng lớp bỗng kể chuyện anime chẳng ăn nhập gì với đề tài.",
     "anticipateVi": "Cả nhóm ngơ ngác à?"
   },
   {
@@ -183,7 +183,7 @@
         "kanjiTier": 1,
         "meaningJP": "合理的な",
         "defJa": "気分では なく | 理由を もとに | 考える 様子。",
-        "leadJa": "テストで 点が 下がっても、 | ユイは 落ち着いて | まちがいを 見直した。",
+        "leadJa": "テストで 点が 下がっても、 | 友達は 落ち着いて | まちがいを 見直した。",
         "anticipateJa": "次の 作戦は | 何かな？",
         "usageJa": "合理的な 方を | 選ぼう。",
         "emphasisJa": [
@@ -196,7 +196,7 @@
         "kanjiTier": 2,
         "meaningJP": "合理的な",
         "defJa": "気分では なく | 理由を もとに | 考える 様子。",
-        "leadJa": "模試で 点が 下がっても、 | ユイは 落ち着いて | ミスを 見直した。",
+        "leadJa": "模試で 点が 下がっても、 | 友達は 落ち着いて | ミスを 見直した。",
         "anticipateJa": "次の 作戦は | 何かな？",
         "usageJa": "合理的な 方を | 選ぼう。",
         "emphasisJa": [
@@ -209,7 +209,7 @@
         "kanjiTier": 3,
         "meaningJP": "合理的な、理性的な",
         "defJa": "感情では なく | 論理を もとに | 判断する 様子。",
-        "leadJa": "試験で 点が 下がっても、 | ユイは 冷静な 顔で | ミスを 分析した。",
+        "leadJa": "試験で 点が 下がっても、 | 友人は 冷静な 顔で | ミスを 分析した。",
         "anticipateJa": "次の 作戦は | 何かな？",
         "usageJa": "合理的な 方を | 選ぼう。",
         "emphasisJa": [
@@ -220,7 +220,7 @@
       }
     },
     "defVi": "Hợp lý. Suy nghĩ dựa trên lý lẽ chứ không theo cảm xúc.",
-    "leadVi": "Dù điểm kiểm tra tụt, Yui vẫn bình tĩnh xem lại lỗi sai.",
+    "leadVi": "Dù điểm kiểm tra tụt, bạn ấy vẫn bình tĩnh xem lại lỗi sai.",
     "anticipateVi": "Kế hoạch tiếp theo là gì nhỉ?"
   },
   {
@@ -239,7 +239,7 @@
         "kanjiTier": 1,
         "meaningJP": "うたがい深い",
         "defJa": "話を すぐには | 信じず、 | しょうこを 求める 様子。",
-        "leadJa": "「一週間で 背が のびる！」と | いう 広告に、 | リクは 首を かしげた。",
+        "leadJa": "「一週間で 背が のびる！」と | いう 広告に、 | わたしは 首を かしげた。",
         "anticipateJa": "本当かな？",
         "usageJa": "その 広告は | ちょっと うたがわしい。",
         "emphasisJa": [
@@ -252,7 +252,7 @@
         "kanjiTier": 2,
         "meaningJP": "懐疑的な",
         "defJa": "話を すぐには | 信じず、 | 証拠を 求める 様子。",
-        "leadJa": "「一週間で 背が 伸びる！」と | いう 広告に、 | リクは 首を かしげた。",
+        "leadJa": "「一週間で 背が 伸びる！」と | いう 広告に、 | 私は 首を かしげた。",
         "anticipateJa": "マジかな？",
         "usageJa": "その 広告は | ちょっと 疑わしい。",
         "emphasisJa": [
@@ -265,7 +265,7 @@
         "kanjiTier": 3,
         "meaningJP": "懐疑的な",
         "defJa": "話を 鵜呑《うの》みに せず、 | 根拠を | 求める 様子。",
-        "leadJa": "「一週間で 背が 伸びる！」と | いう 広告に、 | リクは 首を かしげた。",
+        "leadJa": "「一週間で 背が 伸びる！」と | いう 広告に、 | 私は 首を かしげた。",
         "anticipateJa": "マジかな？",
         "usageJa": "その 広告には | 懐疑的だ。",
         "emphasisJa": [
@@ -276,7 +276,7 @@
       }
     },
     "defVi": "Hoài nghi. Không tin ngay mà đòi hỏi bằng chứng.",
-    "leadVi": "Trước quảng cáo “Cao thêm trong một tuần!”, Riku nghiêng đầu thắc mắc.",
+    "leadVi": "Trước quảng cáo “Cao thêm trong một tuần!”, tôi nghiêng đầu thắc mắc.",
     "anticipateVi": "Thật không ta?"
   },
   {
@@ -295,7 +295,7 @@
         "kanjiTier": 1,
         "meaningJP": "分かりやすい、かんたんな",
         "defJa": "細かい 説明が | なくても すぐ | 分かる 様子。",
-        "leadJa": "数学の 一問目を 見て、 | ソウタは 三十秒で | 答えを 書けた。",
+        "leadJa": "数学の 一問目を 見て、 | わたしは 三十秒で | 答えを 書けた。",
         "anticipateJa": "楽勝 | だね！",
         "usageJa": "その 問題は | かんたんだ。",
         "emphasisJa": [
@@ -308,7 +308,7 @@
         "kanjiTier": 2,
         "meaningJP": "分かりやすい、単純な",
         "defJa": "細かい 説明が | なくても すぐ | 分かる 様子。",
-        "leadJa": "数学の 一問目を 見て、 | ソウタは 三十秒で | 答えを 書けた。",
+        "leadJa": "数学の 一問目を 見て、 | 私は 三十秒で | 答えを 書けた。",
         "anticipateJa": "楽勝 | じゃん！",
         "usageJa": "その 問題は | 単純だ。",
         "emphasisJa": [
@@ -321,7 +321,7 @@
         "kanjiTier": 3,
         "meaningJP": "明快な、単純な",
         "defJa": "込み入った 説明が | なくても すぐ | 理解できる 様子。",
-        "leadJa": "統計の 一問目を 見て、 | ソウタは 三十秒で | 答えを 書けた。",
+        "leadJa": "統計の 一問目を 見て、 | 私は 三十秒で | 答えを 書けた。",
         "anticipateJa": "楽勝 | じゃん！",
         "usageJa": "その 問いは | 明快だ。",
         "emphasisJa": [
@@ -332,7 +332,7 @@
       }
     },
     "defVi": "Đơn giản, dễ hiểu. Hiểu ngay mà không cần giải thích chi tiết.",
-    "leadVi": "Nhìn câu một bài toán, Sota viết xong đáp án trong ba mươi giây.",
+    "leadVi": "Nhìn câu một bài toán, tôi viết xong đáp án trong ba mươi giây.",
     "anticipateVi": "Dễ ợt nhỉ!"
   },
   {
@@ -407,7 +407,7 @@
         "kanjiTier": 1,
         "meaningJP": "計画的な、順序立った",
         "defJa": "決まった 順番で | 一つずつ | 進める 様子。",
-        "leadJa": "ミオは テスト前、 | 教科ごとに | 色分けした 表を 作った。",
+        "leadJa": "姉は テスト前、 | 教科ごとに | 色分けした 表を 作った。",
         "anticipateJa": "毎日 | 一つずつ！",
         "usageJa": "あの 人には | 順序立った 進め方が ある。",
         "emphasisJa": [
@@ -420,7 +420,7 @@
         "kanjiTier": 2,
         "meaningJP": "体系的な、組織的な",
         "defJa": "決まった 順序で | 一つずつ | 進める 様子。",
-        "leadJa": "ミオは 定期テスト前、 | 教科ごとに | 色分けした 表を 作った。",
+        "leadJa": "彼女は 定期テスト前、 | 教科ごとに | 色分けした 表を 作った。",
         "anticipateJa": "毎日 | コツコツ！",
         "usageJa": "彼女には | 体系的な やり方が ある。",
         "emphasisJa": [
@@ -433,7 +433,7 @@
         "kanjiTier": 3,
         "meaningJP": "体系的な",
         "defJa": "一定の 手順で | 順に | 進める 様子。",
-        "leadJa": "ミオは 試験前、 | 科目ごとに | 色分けした 計画表を 作った。",
+        "leadJa": "彼女は 試験前、 | 科目ごとに | 色分けした 計画表を 作った。",
         "anticipateJa": "毎日 | コツコツ！",
         "usageJa": "彼女には | 体系的な やり方が ある。",
         "emphasisJa": [
@@ -444,7 +444,7 @@
       }
     },
     "defVi": "Có hệ thống. Tiến hành từng bước theo một trình tự cố định.",
-    "leadVi": "Trước kỳ thi, Mio lập bảng chia màu theo từng môn.",
+    "leadVi": "Trước kỳ thi, cô ấy lập bảng chia màu theo từng môn.",
     "anticipateVi": "Mỗi ngày một ít!"
   },
   {
@@ -519,7 +519,7 @@
         "kanjiTier": 1,
         "meaningJP": "根本に ある、表に 出ない",
         "defJa": "目に 見える ことの | 下に かくれて=いる 様子。",
-        "leadJa": "毎朝 ねぼうする リク。 | 原因は 夜中までの | スマホだった。",
+        "leadJa": "毎朝 ねぼうする わたし。 | 原因は 夜中までの | スマホだった。",
         "anticipateJa": "そこ | だったか！",
         "usageJa": "かくれた 問題は | 何だろう？",
         "emphasisJa": [
@@ -532,7 +532,7 @@
         "kanjiTier": 2,
         "meaningJP": "根本的な、潜在的な",
         "defJa": "目に 見える ことの | 下に 隠れて=いる 様子。",
-        "leadJa": "毎朝 起きられない リク。 | 原因は 夜中までの | スマホだった。",
+        "leadJa": "毎朝 起きられない 私。 | 原因は 夜中までの | スマホだった。",
         "anticipateJa": "そこ | だったか！",
         "usageJa": "根本的な 問題は | 何だろう？",
         "emphasisJa": [
@@ -545,7 +545,7 @@
         "kanjiTier": 3,
         "meaningJP": "根底に ある、潜在的な",
         "defJa": "表面に 現れた ことの | 奥に 潜んで=いる 様子。",
-        "leadJa": "毎朝 起きられない リク。 | 原因は 深夜までの | スマホだった。",
+        "leadJa": "毎朝 起きられない 私。 | 原因は 深夜までの | スマホだった。",
         "anticipateJa": "そこ | だったか！",
         "usageJa": "根底に ある 問題は | 何だろう？",
         "emphasisJa": [
@@ -556,7 +556,7 @@
       }
     },
     "defVi": "Cơ bản, ẩn sâu. Nằm ẩn bên dưới những điều nhìn thấy được.",
-    "leadVi": "Sáng nào Riku cũng ngủ quên. Nguyên nhân là chiếc điện thoại tới tận nửa đêm.",
+    "leadVi": "Sáng nào tôi cũng ngủ quên. Nguyên nhân là chiếc điện thoại tới tận nửa đêm.",
     "anticipateVi": "Hóa ra là vậy!"
   },
   {
@@ -575,7 +575,7 @@
         "kanjiTier": 1,
         "meaningJP": "実行できる、見こみの ある",
         "defJa": "本当に やってみても | うまく いきそうな 様子。",
-        "leadJa": "文化祭の 出し物を 決める 日、 | ハルは 予算と 時間を | 表に まとめて 見せた。",
+        "leadJa": "文化祭の 出し物を 決める 日、 | わたしは 予算と 時間を | 表に まとめて 見せた。",
         "anticipateJa": "これなら | いけそう！",
         "usageJa": "この 計画は | 実行できる？",
         "emphasisJa": [
@@ -588,7 +588,7 @@
         "kanjiTier": 2,
         "meaningJP": "実行可能な",
         "defJa": "実際に やってみても | うまく いきそうな 様子。",
-        "leadJa": "文化祭の 出し物を 決める 日、 | ハルは 予算と 時間を | 表に まとめて 見せた。",
+        "leadJa": "文化祭の 出し物を 決める 日、 | 私は 予算と 時間を | 表に まとめて 見せた。",
         "anticipateJa": "これなら | いけそう！",
         "usageJa": "この 計画は | 実行可能？",
         "emphasisJa": [
@@ -601,7 +601,7 @@
         "kanjiTier": 3,
         "meaningJP": "実現可能な",
         "defJa": "現実に 実行しても | 成り立ちそうな 様子。",
-        "leadJa": "学園祭の 企画会議で、 | ハルは 予算と 日程を | 表に まとめて 示した。",
+        "leadJa": "学園祭の 企画会議で、 | 私は 予算と 日程を | 表に まとめて 示した。",
         "anticipateJa": "これなら | いけそう！",
         "usageJa": "この 計画は | 実現可能？",
         "emphasisJa": [
@@ -612,7 +612,7 @@
       }
     },
     "defVi": "Khả thi. Có vẻ sẽ thành công nếu thực sự làm thử.",
-    "leadVi": "Ngày chọn tiết mục lễ hội trường, Haru tóm tắt ngân sách và thời gian thành bảng.",
+    "leadVi": "Ngày chọn tiết mục lễ hội trường, tôi tóm tắt ngân sách và thời gian thành bảng.",
     "anticipateVi": "Thế này thì ổn đấy!"
   },
   {
@@ -687,7 +687,7 @@
         "kanjiTier": 1,
         "meaningJP": "おそらく",
         "defJa": "理由を 出せば | そう 言っても | おかしく ない 様子。",
-        "leadJa": "部の 練習試合で、 | アオイは 十点 中 | 八点を 一人で 決めた。",
+        "leadJa": "部の 練習試合で、 | 姉は 十点 中 | 八点を 一人で 決めた。",
         "anticipateJa": "エース | 決定かな？",
         "usageJa": "あの 子は | 一番と 言える 選手だ。",
         "emphasisJa": [
@@ -700,7 +700,7 @@
         "kanjiTier": 2,
         "meaningJP": "おそらく、ほぼ",
         "defJa": "理由を 挙げれば | そう 言っても | おかしく ない 様子。",
-        "leadJa": "部の 練習試合で、 | アオイは 十点 中 | 八点を 一人で 決めた。",
+        "leadJa": "部の 練習試合で、 | 彼女は 十点 中 | 八点を 一人で 決めた。",
         "anticipateJa": "エース | 決定かな？",
         "usageJa": "彼女は | 最高と 言える 選手だ。",
         "emphasisJa": [
@@ -713,7 +713,7 @@
         "kanjiTier": 3,
         "meaningJP": "おそらく、ほぼ",
         "defJa": "根拠を 挙げれば | そう 主張しても | 通る 様子。",
-        "leadJa": "部の 練習試合で、 | アオイは 十点 中 | 八点を 一人で 決めた。",
+        "leadJa": "部の 練習試合で、 | 彼女は 十点 中 | 八点を 一人で 決めた。",
         "anticipateJa": "エース | 確定かな？",
         "usageJa": "彼女は | 最高と 言える 選手だ。",
         "emphasisJa": [
@@ -724,7 +724,7 @@
       }
     },
     "defVi": "Có thể nói là. Nếu đưa ra lý do thì nói vậy cũng không sai.",
-    "leadVi": "Trong trận đấu tập của câu lạc bộ, Aoi một mình ghi tám trên mười điểm.",
+    "leadVi": "Trong trận đấu tập của câu lạc bộ, cô ấy một mình ghi tám trên mười điểm.",
     "anticipateVi": "Chốt làm chủ lực rồi nhỉ?"
   },
   {
@@ -743,7 +743,7 @@
         "kanjiTier": 1,
         "meaningJP": "たぶん、おそらく",
         "defJa": "はっきりとは | 分からないが、 | そう 思える 様子。",
-        "leadJa": "夜 八時、 | ハルの LINEは | 「今 帰った」で 止まって=いる。",
+        "leadJa": "夜 八時、 | 兄の LINEは | 「今 帰った」で 止まって=いる。",
         "anticipateJa": "もう | 家かな？",
         "usageJa": "あの 人は | たぶん 今 家に いる。",
         "emphasisJa": [
@@ -756,7 +756,7 @@
         "kanjiTier": 2,
         "meaningJP": "おそらく",
         "defJa": "はっきりとは | 分からないが、 | そう 考えられる 様子。",
-        "leadJa": "夜 八時、 | ハルの LINEは | 「今 帰った」で 止まって=いる。",
+        "leadJa": "夜 八時、 | 彼の LINEは | 「今 帰った」で 止まって=いる。",
         "anticipateJa": "もう | 家かな？",
         "usageJa": "彼は | おそらく 今 家に いる。",
         "emphasisJa": [
@@ -769,7 +769,7 @@
         "kanjiTier": 3,
         "meaningJP": "おそらく、推定では",
         "defJa": "確証は ないが、 | そう 推測できる 様子。",
-        "leadJa": "夜 八時、 | ハルの LINEは | 「今 帰った」で 止まって=いる。",
+        "leadJa": "夜 八時、 | 彼の LINEは | 「今 帰った」で 止まって=いる。",
         "anticipateJa": "もう | 家かな？",
         "usageJa": "彼は | おそらく 今 家に いる。",
         "emphasisJa": [
@@ -780,7 +780,7 @@
       }
     },
     "defVi": "Có lẽ. Không chắc chắn nhưng có vẻ là như vậy.",
-    "leadVi": "Tám giờ tối, tin LINE của Haru dừng ở câu “Vừa về tới nhà”.",
+    "leadVi": "Tám giờ tối, tin LINE của anh ấy dừng ở câu “Vừa về tới nhà”.",
     "anticipateVi": "Chắc về nhà rồi nhỉ?"
   },
   {
@@ -799,7 +799,7 @@
         "kanjiTier": 1,
         "meaningJP": "まちがいなく",
         "defJa": "少しも | うたがう ところが | ない 様子。",
-        "leadJa": "合唱コンクールで | ユナが 歌い出すと、 | 会場が 静まり返った。",
+        "leadJa": "合唱コンクールで | 姉が 歌い出すと、 | 会場が 静まり返った。",
         "anticipateJa": "みんな、 | 聞きほれてる！",
         "usageJa": "あの 子は | まちがいなく 才能が ある。",
         "emphasisJa": [
@@ -812,7 +812,7 @@
         "kanjiTier": 2,
         "meaningJP": "間違いなく、疑いなく",
         "defJa": "少しも | 疑う ところが | ない 様子。",
-        "leadJa": "合唱コンクールで | ユナが 歌い出すと、 | 会場が 静まり返った。",
+        "leadJa": "合唱コンクールで | 彼女が 歌い出すと、 | 会場が 静まり返った。",
         "anticipateJa": "みんな、 | 聞きほれてる！",
         "usageJa": "彼女は | 間違いなく 才能が ある。",
         "emphasisJa": [
@@ -825,7 +825,7 @@
         "kanjiTier": 3,
         "meaningJP": "疑いなく、確かに",
         "defJa": "疑問を 挟む 余地が | まったく ない 様子。",
-        "leadJa": "合唱コンクールで | ユナが 歌い出すと、 | 会場が 静まり返った。",
+        "leadJa": "合唱コンクールで | 彼女が 歌い出すと、 | 会場が 静まり返った。",
         "anticipateJa": "皆、 | 聞きほれてる！",
         "usageJa": "彼女は | 疑いなく 才能に 恵まれて=いる。",
         "emphasisJa": [
@@ -836,7 +836,7 @@
       }
     },
     "defVi": "Chắc chắn. Không có chút gì để nghi ngờ.",
-    "leadVi": "Ở cuộc thi hợp xướng, Yuna vừa cất tiếng hát là cả hội trường lặng phắc.",
+    "leadVi": "Ở cuộc thi hợp xướng, cô ấy vừa cất tiếng hát là cả hội trường lặng phắc.",
     "anticipateVi": "Ai cũng mê mẩn lắng nghe!"
   },
   {
@@ -1023,7 +1023,7 @@
         "kanjiTier": 1,
         "meaningJP": "決めること、決断",
         "defJa": "いくつかの 中から | 一つを | 決める=こと。",
-        "leadJa": "部長の ナナは、 | 練習メニューで もめても | すぐに 方向を 示す。",
+        "leadJa": "部長は、 | 練習メニューで もめても | すぐに 方向を 示す。",
         "anticipateJa": "たよれる | 部長だね！",
         "usageJa": "あの 子は | 決めるのが うまい。",
         "emphasisJa": [
@@ -1036,7 +1036,7 @@
         "kanjiTier": 2,
         "meaningJP": "意思決定",
         "defJa": "いくつかの 案から | 一つを | 選び取る=こと。",
-        "leadJa": "部長の ナナは、 | 練習メニューで もめても | すぐに 方向を 示す。",
+        "leadJa": "部長は、 | 練習メニューで もめても | すぐに 方向を 示す。",
         "anticipateJa": "頼れる | 部長じゃん！",
         "usageJa": "彼女は | 意思決定が 得意だ。",
         "emphasisJa": [
@@ -1049,7 +1049,7 @@
         "kanjiTier": 3,
         "meaningJP": "意思決定",
         "defJa": "複数の 選択肢から | 一つを | 選び取る=こと。",
-        "leadJa": "部長の ナナは、 | 練習内容で もめても | すぐに 方針を 示す。",
+        "leadJa": "部長は、 | 練習内容で もめても | すぐに 方針を 示す。",
         "anticipateJa": "頼れる | 部長じゃん！",
         "usageJa": "彼女は | 意思決定が 得意だ。",
         "emphasisJa": [
@@ -1060,7 +1060,7 @@
       }
     },
     "defVi": "Việc ra quyết định. Chọn lấy một trong nhiều phương án.",
-    "leadVi": "Nana, đội trưởng, dù cả đội cãi nhau về bài tập vẫn nhanh chóng chỉ ra hướng đi.",
+    "leadVi": "Đội trưởng, dù cả đội cãi nhau về bài tập vẫn nhanh chóng chỉ ra hướng đi.",
     "anticipateVi": "Đội trưởng đáng tin ghê!"
   },
   {
@@ -1135,7 +1135,7 @@
         "kanjiTier": 1,
         "meaningJP": "区別、ちがい",
         "defJa": "二つの ものの | ちがいを | はっきり 分ける=こと。",
-        "leadJa": "英語の 時間、 | ミオは | 「see」と 「look」を | 例文で 見くらべた。",
+        "leadJa": "英語の 時間、 | わたしは | 「see」と 「look」を | 例文で 見くらべた。",
         "anticipateJa": "どう | ちがうの？",
         "usageJa": "二つの 言葉の | 区別は 何？",
         "emphasisJa": [
@@ -1148,7 +1148,7 @@
         "kanjiTier": 2,
         "meaningJP": "区別、違い",
         "defJa": "二つの ものの | 違いを | はっきり 分ける=こと。",
-        "leadJa": "英語の 授業で、 | ミオは | 「see」と 「look」を | 例文で 見比べた。",
+        "leadJa": "英語の 授業で、 | 私は | 「see」と 「look」を | 例文で 見比べた。",
         "anticipateJa": "どう | 違うの？",
         "usageJa": "二つの 単語の | 区別は 何？",
         "emphasisJa": [
@@ -1161,7 +1161,7 @@
         "kanjiTier": 3,
         "meaningJP": "区別、差異",
         "defJa": "二つの ものの | 違いを | 明確に 見分ける=こと。",
-        "leadJa": "英語の 講義で、 | ミオは | 「see」と 「look」を | 例文で 見比べた。",
+        "leadJa": "英語の 講義で、 | 私は | 「see」と 「look」を | 例文で 見比べた。",
         "anticipateJa": "どう | 違うの？",
         "usageJa": "二つの 単語の | 区別は 何？",
         "emphasisJa": [
@@ -1172,7 +1172,7 @@
       }
     },
     "defVi": "Sự phân biệt. Tách bạch rõ sự khác nhau giữa hai thứ.",
-    "leadVi": "Trong giờ tiếng Anh, Mio so sánh “see” và “look” qua các câu ví dụ.",
+    "leadVi": "Trong giờ tiếng Anh, tôi so sánh “see” và “look” qua các câu ví dụ.",
     "anticipateVi": "Khác nhau thế nào?"
   },
   {
@@ -1191,7 +1191,7 @@
         "kanjiTier": 1,
         "meaningJP": "本質、いちばん 大切な ところ",
         "defJa": "ある ものの | 中心に ある、 | いちばん 大事な 部分。",
-        "leadJa": "長い 物語を 読み終えた ハルは、 | 「結局 友だちの 話だ」と | 一言で まとめた。",
+        "leadJa": "長い 物語を 読み終えた わたしは、 | 「結局 友だちの 話だ」と | 一言で まとめた。",
         "anticipateJa": "一言で | 言えちゃう！",
         "usageJa": "その 話の 本質は | 友情だ。",
         "emphasisJa": [
@@ -1204,7 +1204,7 @@
         "kanjiTier": 2,
         "meaningJP": "本質",
         "defJa": "ある ものの | 中心に ある、 | 最も 大事な 部分。",
-        "leadJa": "長編を 読み終えた ハルは、 | 「結局 友情の 話だ」と | 一言で まとめた。",
+        "leadJa": "長編を 読み終えた 私は、 | 「結局 友情の 話だ」と | 一言で まとめた。",
         "anticipateJa": "一言で | 言えちゃう！",
         "usageJa": "その 物語の 本質は | 友情だ。",
         "emphasisJa": [
@@ -1217,7 +1217,7 @@
         "kanjiTier": 3,
         "meaningJP": "本質、核心",
         "defJa": "物事の | 根幹を なす、 | 最も 重要な 部分。",
-        "leadJa": "長編を 読み終えた ハルは、 | 「結局 友情の 話だ」と | 一言で 要約した。",
+        "leadJa": "長編を 読み終えた 私は、 | 「結局 友情の 話だ」と | 一言で 要約した。",
         "anticipateJa": "一言で | 言えちゃう！",
         "usageJa": "その 物語の 本質は | 友情だ。",
         "emphasisJa": [
@@ -1228,7 +1228,7 @@
       }
     },
     "defVi": "Bản chất. Phần quan trọng nhất nằm ở trung tâm của một điều gì đó.",
-    "leadVi": "Đọc xong một câu chuyện dài, Haru tóm lại trong một câu: “Rốt cuộc là chuyện về tình bạn.”",
+    "leadVi": "Đọc xong một câu chuyện dài, tôi tóm lại trong một câu: “Rốt cuộc là chuyện về tình bạn.”",
     "anticipateVi": "Nói gọn một câu được luôn!"
   },
   {
@@ -1303,7 +1303,7 @@
         "kanjiTier": 1,
         "meaningJP": "知らない=こと、無知",
         "defJa": "大事な ことを | 知らない ままで | いる=こと。",
-        "leadJa": "雨で 体育が 中止に。 | 聞いて=いなかった ソウタは、 | 一人で 着がえて=いた。",
+        "leadJa": "雨で 体育が 中止に。 | 聞いて=いなかった クラスの 男子は、 | 一人で 着がえて=いた。",
         "anticipateJa": "一人だけ | 体そう服！",
         "usageJa": "その ミスは | 知らなかった=ことから 起きた。",
         "emphasisJa": [
@@ -1316,7 +1316,7 @@
         "kanjiTier": 2,
         "meaningJP": "無知",
         "defJa": "大事な ことを | 知らない ままで | いる=こと。",
-        "leadJa": "雨で 体育が 中止に。 | 聞いて=いなかった ソウタは、 | 一人で 着替えて=いた。",
+        "leadJa": "雨で 体育が 中止に。 | 聞いて=いなかった 彼は、 | 一人で 着替えて=いた。",
         "anticipateJa": "一人だけ | 体操服！",
         "usageJa": "その ミスは | 無知から 起きた。",
         "emphasisJa": [
@@ -1329,7 +1329,7 @@
         "kanjiTier": 3,
         "meaningJP": "無知",
         "defJa": "必要な 知識を | 持たない ままで | いる=こと。",
-        "leadJa": "雨で 講義が 休講に。 | 聞いて=いなかった ソウタは、 | 一人で 教室に 座って=いた。",
+        "leadJa": "雨で 講義が 休講に。 | 聞いて=いなかった 彼は、 | 一人で 教室に 座って=いた。",
         "anticipateJa": "一人だけ | ぽつん！",
         "usageJa": "その ミスは | 無知から 生じた。",
         "emphasisJa": [
@@ -1340,7 +1340,7 @@
       }
     },
     "defVi": "Sự thiếu hiểu biết. Không biết một điều quan trọng.",
-    "leadVi": "Giờ thể dục bị hủy vì mưa. Không nghe thông báo, Sota một mình thay đồ.",
+    "leadVi": "Giờ thể dục bị hủy vì mưa. Không nghe thông báo, cậu ấy một mình thay đồ.",
     "anticipateVi": "Chỉ mình cậu mặc đồ thể dục!"
   },
   {
@@ -1359,7 +1359,7 @@
         "kanjiTier": 1,
         "meaningJP": "ひらめき、インスピレーション",
         "defJa": "何かを 作りたく なる、 | 心に うかぶ | 新しい 考え。",
-        "leadJa": "夕方の 海を 見た ユイは、 | 家に 帰って すぐ | 一枚の 絵を かき上げた。",
+        "leadJa": "夕方の 海を 見た 姉は、 | 家に 帰って すぐ | 一枚の 絵を かき上げた。",
         "anticipateJa": "手が | 止まらない！",
         "usageJa": "自然は | あの 子の ひらめきの 元だ。",
         "emphasisJa": [
@@ -1372,7 +1372,7 @@
         "kanjiTier": 2,
         "meaningJP": "着想、インスピレーション",
         "defJa": "何かを 作りたく なる、 | 心に 浮かぶ | 新しい 考え。",
-        "leadJa": "夕方の 海を 見た ユイは、 | 家に 帰って すぐ | 一枚の 絵を 描き上げた。",
+        "leadJa": "夕方の 海を 見た 彼女は、 | 家に 帰って すぐ | 一枚の 絵を 描き上げた。",
         "anticipateJa": "手が | 止まらない！",
         "usageJa": "自然は | 彼女の 着想の 源だ。",
         "emphasisJa": [
@@ -1385,7 +1385,7 @@
         "kanjiTier": 3,
         "meaningJP": "着想、霊感",
         "defJa": "創作へ 駆り立てる、 | 心に 浮かぶ | 新しい 発想。",
-        "leadJa": "夕暮れの 海を 見た ユイは、 | 帰宅して すぐ | 一枚の 絵を 描き上げた。",
+        "leadJa": "夕暮れの 海を 見た 彼女は、 | 帰宅して すぐ | 一枚の 絵を 描き上げた。",
         "anticipateJa": "筆が | 止まらない！",
         "usageJa": "自然は | 彼女の 着想の 源だ。",
         "emphasisJa": [
@@ -1396,7 +1396,7 @@
       }
     },
     "defVi": "Nguồn cảm hứng. Ý tưởng mới nảy ra khiến mình muốn sáng tạo.",
-    "leadVi": "Ngắm biển lúc chiều tà, Yui về nhà liền vẽ xong một bức tranh.",
+    "leadVi": "Ngắm biển lúc chiều tà, cô ấy về nhà liền vẽ xong một bức tranh.",
     "anticipateVi": "Tay không dừng lại được!"
   },
   {
@@ -1415,7 +1415,7 @@
         "kanjiTier": 1,
         "meaningJP": "本能、直感",
         "defJa": "考えるより 先に | 体や 心が | 動き出す 力。",
-        "leadJa": "ボールが 飛んで=きた とき、 | ゴールキーパーの リクは | 思わず 手を のばした。",
+        "leadJa": "ボールが 飛んで=きた とき、 | ゴールキーパーは | 思わず 手を のばした。",
         "anticipateJa": "ナイス | セーブ！",
         "usageJa": "自分の 直感を | 信じて。",
         "emphasisJa": [
@@ -1428,7 +1428,7 @@
         "kanjiTier": 2,
         "meaningJP": "本能、直感",
         "defJa": "考えるより 先に | 体や 心が | 動き出す 力。",
-        "leadJa": "ボールが 飛んで=きた 瞬間、 | キーパーの リクは | 思わず 手を 伸ばした。",
+        "leadJa": "ボールが 飛んで=きた 瞬間、 | キーパーは | 思わず 手を 伸ばした。",
         "anticipateJa": "ナイス | セーブ！",
         "usageJa": "自分の 直感を | 信じて。",
         "emphasisJa": [
@@ -1441,7 +1441,7 @@
         "kanjiTier": 3,
         "meaningJP": "本能、直感",
         "defJa": "思考より 先に | 心身が | 反応する 力。",
-        "leadJa": "ボールが 飛んで=きた 瞬間、 | キーパーの リクは | 反射的に 手を 伸ばした。",
+        "leadJa": "ボールが 飛んで=きた 瞬間、 | キーパーは | 反射的に 手を 伸ばした。",
         "anticipateJa": "ナイス | セーブ！",
         "usageJa": "自分の 直感を | 信じて。",
         "emphasisJa": [
@@ -1452,7 +1452,7 @@
       }
     },
     "defVi": "Bản năng. Sức mạnh khiến cơ thể hay trái tim phản ứng trước cả khi suy nghĩ.",
-    "leadVi": "Khoảnh khắc quả bóng bay tới, thủ môn Riku bất giác vươn tay ra.",
+    "leadVi": "Khoảnh khắc quả bóng bay tới, thủ môn bất giác vươn tay ra.",
     "anticipateVi": "Cứu thua đẹp!"
   },
   {
@@ -1471,7 +1471,7 @@
         "kanjiTier": 1,
         "meaningJP": "意図、つもり",
         "defJa": "何かを しようと | 心に 決めて=いる 考え。",
-        "leadJa": "ふざけて 投げた 消しゴムが | ナナに 当たり、 | ケンタは あわてて あやまった。",
+        "leadJa": "ふざけて 投げた 消しゴムが | となりの 子に 当たり、 | 友だちは あわてて あやまった。",
         "anticipateJa": "わざとじゃ | ないよ！",
         "usageJa": "あの 人には | だれかを こまらせる | つもりは なかった。",
         "emphasisJa": [
@@ -1484,7 +1484,7 @@
         "kanjiTier": 2,
         "meaningJP": "意図、つもり",
         "defJa": "何かを しようと | 心に 決めて=いる 考え。",
-        "leadJa": "ふざけて 投げた 消しゴムが | ナナに 当たり、 | ケンタは あわてて 謝った。",
+        "leadJa": "ふざけて 投げた 消しゴムが | 彼女に 当たり、 | 彼は あわてて 謝った。",
         "anticipateJa": "わざとじゃ | ないよ！",
         "usageJa": "彼には | だれかを 困らせる | 意図は なかった。",
         "emphasisJa": [
@@ -1497,7 +1497,7 @@
         "kanjiTier": 3,
         "meaningJP": "意図",
         "defJa": "何かを しようと | あらかじめ 抱いて=いる | 考え。",
-        "leadJa": "ふざけて 投げた 消しゴムが | ナナに 当たり、 | ケンタは 慌てて 謝った。",
+        "leadJa": "ふざけて 投げた 消しゴムが | 彼女に 当たり、 | 彼は 慌てて 謝った。",
         "anticipateJa": "わざとじゃ | ないよ！",
         "usageJa": "彼には | 誰かを 困らせる | 意図は なかった。",
         "emphasisJa": [
@@ -1508,7 +1508,7 @@
       }
     },
     "defVi": "Ý định. Suy nghĩ đã quyết trong lòng là sẽ làm gì đó.",
-    "leadVi": "Cục tẩy Kenta ném đùa trúng Nana, cậu vội vàng xin lỗi.",
+    "leadVi": "Cục tẩy cậu ấy ném đùa trúng cô ấy, cậu vội vàng xin lỗi.",
     "anticipateVi": "Không cố ý đâu mà!"
   },
   {
@@ -1527,7 +1527,7 @@
         "kanjiTier": 1,
         "meaningJP": "正当な 理由、言いわけ",
         "defJa": "ある 行いが | 正しいと 言える | 理由。",
-        "leadJa": "約束に おくれた ケンタは、 | 「電車が…」と 言いかけて、 | 口を とじた。",
+        "leadJa": "約束に おくれた わたしは、 | 「電車が…」と 言いかけて、 | 口を とじた。",
         "anticipateJa": "言いわけ | なしね！",
         "usageJa": "失礼な たいどを とる | 正当な 理由は ない。",
         "emphasisJa": [
@@ -1540,7 +1540,7 @@
         "kanjiTier": 2,
         "meaningJP": "正当化、正当な 理由",
         "defJa": "ある 行いが | 正しいと 言える | 根拠。",
-        "leadJa": "待ち合わせに 遅れた ケンタは、 | 「電車が…」と 言いかけて、 | 口を 閉じた。",
+        "leadJa": "待ち合わせに 遅れた 私は、 | 「電車が…」と 言いかけて、 | 口を 閉じた。",
         "anticipateJa": "言い訳 | なしね！",
         "usageJa": "失礼な 態度を 取る | 正当な 理由は ない。",
         "emphasisJa": [
@@ -1553,7 +1553,7 @@
         "kanjiTier": 3,
         "meaningJP": "正当化、正当な 根拠",
         "defJa": "ある 行為を | 正しいと 認める=ための | 根拠。",
-        "leadJa": "待ち合わせに 遅れた ケンタは、 | 「電車が…」と 言いかけて、 | 口を 閉じた。",
+        "leadJa": "待ち合わせに 遅れた 私は、 | 「電車が…」と 言いかけて、 | 口を 閉じた。",
         "anticipateJa": "言い訳 | なしね！",
         "usageJa": "失礼な 態度を | 正当化できる 理由は ない。",
         "emphasisJa": [
@@ -1564,7 +1564,7 @@
       }
     },
     "defVi": "Lý do chính đáng. Lý do cho thấy một hành động là đúng.",
-    "leadVi": "Đến muộn buổi hẹn, Kenta định nói “Tại tàu điện…” rồi lại im bặt.",
+    "leadVi": "Đến muộn buổi hẹn, tôi định nói “Tại tàu điện…” rồi lại im bặt.",
     "anticipateVi": "Không bào chữa nhé!"
   },
   {
@@ -1583,7 +1583,7 @@
         "kanjiTier": 1,
         "meaningJP": "見こみ、起こりやすさ",
         "defJa": "ある ことが | 本当に 起こりそうな | どあい。",
-        "leadJa": "朝の 天気予報は | 「午後は 雨、 八十％」。 | ユイは かさを 持った。",
+        "leadJa": "朝の 天気予報は | 「午後は 雨、 八十％」。 | わたしは かさを 持った。",
         "anticipateJa": "かさ、 | 正かい！",
         "usageJa": "今日、 雨が ふる | 見こみは どれくらい？",
         "emphasisJa": [
@@ -1596,7 +1596,7 @@
         "kanjiTier": 2,
         "meaningJP": "可能性、見込み",
         "defJa": "ある ことが | 実際に 起こりそうな | 度合い。",
-        "leadJa": "朝の 天気予報は | 「午後の 降水確率 八十％」。 | ユイは かさを 持った。",
+        "leadJa": "朝の 天気予報は | 「午後の 降水確率 八十％」。 | 私は かさを 持った。",
         "anticipateJa": "かさ、 | 正解！",
         "usageJa": "今日、 雨が 降る | 可能性は どれくらい？",
         "emphasisJa": [
@@ -1609,7 +1609,7 @@
         "kanjiTier": 3,
         "meaningJP": "見込み、公算",
         "defJa": "ある 事態が | 現実に 起こる | 確からしさ。",
-        "leadJa": "朝の 天気予報は | 「午後の 降水確率 八十％」。 | ユイは 傘を 持った。",
+        "leadJa": "朝の 天気予報は | 「午後の 降水確率 八十％」。 | 私は 傘を 持った。",
         "anticipateJa": "傘、 | 正解！",
         "usageJa": "今日、 雨が 降る | 見込みは どれくらい？",
         "emphasisJa": [
@@ -1620,7 +1620,7 @@
       }
     },
     "defVi": "Khả năng xảy ra. Mức độ mà một điều có vẻ sẽ thật sự xảy ra.",
-    "leadVi": "Dự báo thời tiết buổi sáng: “Khả năng mưa buổi chiều tám mươi phần trăm.” Yui mang theo ô.",
+    "leadVi": "Dự báo thời tiết buổi sáng: “Khả năng mưa buổi chiều tám mươi phần trăm.” Tôi mang theo ô.",
     "anticipateVi": "Mang ô là đúng rồi!"
   },
   {
@@ -1751,7 +1751,7 @@
         "kanjiTier": 1,
         "meaningJP": "見方、考え方",
         "defJa": "ものごとを | どう 受け止めるかの | 心の 向き。",
-        "leadJa": "テストで 赤点でも、 | ナナは 「次 のびるだけ！」と | 笑った。",
+        "leadJa": "テストで 赤点でも、 | 姉は 「次 のびるだけ！」と | 笑った。",
         "anticipateJa": "前向き | だね！",
         "usageJa": "あの 子は | 前向きな 見方を して=いる。",
         "emphasisJa": [
@@ -1764,7 +1764,7 @@
         "kanjiTier": 2,
         "meaningJP": "見通し、人生観",
         "defJa": "物事を | どう 受け止めるかの | 心の 向き。",
-        "leadJa": "模試で 赤点でも、 | ナナは 「次 伸びるだけ！」と | 笑った。",
+        "leadJa": "模試で 赤点でも、 | 彼女は 「次 伸びるだけ！」と | 笑った。",
         "anticipateJa": "ポジティブ | じゃん！",
         "usageJa": "彼女は 人生に | 前向きな 見方を 持つ。",
         "emphasisJa": [
@@ -1777,7 +1777,7 @@
         "kanjiTier": 3,
         "meaningJP": "見通し、人生観",
         "defJa": "物事を | どう 捉えるかの | 基本的な 姿勢。",
-        "leadJa": "試験で 不合格でも、 | ナナは 「次 伸びるだけ！」と | 笑った。",
+        "leadJa": "試験で 不合格でも、 | 彼女は 「次 伸びるだけ！」と | 笑った。",
         "anticipateJa": "ポジティブ | じゃん！",
         "usageJa": "彼女は | 前向きな 人生観を 持つ。",
         "emphasisJa": [
@@ -1788,7 +1788,7 @@
       }
     },
     "defVi": "Cách nhìn. Quan điểm về cách mình đón nhận sự việc.",
-    "leadVi": "Dù bị điểm kém, Nana vẫn cười: “Lần sau chỉ có tiến bộ thôi!”",
+    "leadVi": "Dù bị điểm kém, cô ấy vẫn cười: “Lần sau chỉ có tiến bộ thôi!”",
     "anticipateVi": "Lạc quan ghê!"
   },
   {
@@ -1807,7 +1807,7 @@
         "kanjiTier": 1,
         "meaningJP": "哲学者《てつがくしゃ》",
         "defJa": "生きる 意味や | 世界の なぞを | 深く 考える 人。",
-        "leadJa": "図書館で ハルが 開いた 本には、 | 「自分を 知れ」と いう | 昔の 言葉が あった。",
+        "leadJa": "図書館で わたしが 開いた 本には、 | 「自分を 知れ」と いう | 昔の 言葉が あった。",
         "anticipateJa": "二千年も | 前なの？",
         "usageJa": "あの 人は | 昔の 有名な 哲学者《てつがくしゃ》だった。",
         "emphasisJa": [
@@ -1820,7 +1820,7 @@
         "kanjiTier": 2,
         "meaningJP": "哲学者",
         "defJa": "生きる 意味や | 世界の なぞを | 深く 考える 人。",
-        "leadJa": "図書館で ハルが 開いた 本には、 | 「汝《なんじ》 自身を 知れ」と | 古代の 言葉が あった。",
+        "leadJa": "図書館で 私が 開いた 本には、 | 「汝《なんじ》 自身を 知れ」と | 古代の 言葉が あった。",
         "anticipateJa": "二千年も | 前なの？",
         "usageJa": "彼は | 昔の 有名な 哲学者だった。",
         "emphasisJa": [
@@ -1833,7 +1833,7 @@
         "kanjiTier": 3,
         "meaningJP": "哲学者、思想家",
         "defJa": "存在の 意味や | 世界の 謎を | 根源から 問う 人。",
-        "leadJa": "図書館で ハルが 開いた 本には、 | 「汝《なんじ》 自身を 知れ」と | 古代の 言葉が あった。",
+        "leadJa": "図書館で 私が 開いた 本には、 | 「汝《なんじ》 自身を 知れ」と | 古代の 言葉が あった。",
         "anticipateJa": "二千年も | 前なの？",
         "usageJa": "彼は | かつての 著名な 哲学者だ。",
         "emphasisJa": [
@@ -1844,7 +1844,7 @@
       }
     },
     "defVi": "Triết gia. Người suy nghĩ sâu về ý nghĩa cuộc sống và những bí ẩn của thế giới.",
-    "leadVi": "Cuốn sách Haru mở ở thư viện có câu nói từ xưa: “Hãy tự biết mình.”",
+    "leadVi": "Cuốn sách tôi mở ở thư viện có câu nói từ xưa: “Hãy tự biết mình.”",
     "anticipateVi": "Từ hai nghìn năm trước sao?"
   },
   {
@@ -1863,7 +1863,7 @@
         "kanjiTier": 1,
         "meaningJP": "せいかくさ、精度",
         "defJa": "少しの ずれも | ない=ように | 正しく 行う=こと。",
-        "leadJa": "技術の 時間、 | ミオは 本立ての 板を | 一ミリずつ 測って 切った。",
+        "leadJa": "技術の 時間、 | わたしは 本立ての 板を | 一ミリずつ 測って 切った。",
         "anticipateJa": "ぴったり | 合った！",
         "usageJa": "この 仕事には | 高い せいかくさが いる。",
         "emphasisJa": [
@@ -1876,7 +1876,7 @@
         "kanjiTier": 2,
         "meaningJP": "正確さ、精度",
         "defJa": "少しの ずれも | ない=ように | 正しく 行う=こと。",
-        "leadJa": "技術の 授業で、 | ミオは 本立ての 板を | 一ミリずつ 測って 切った。",
+        "leadJa": "技術の 授業で、 | 私は 本立ての 板を | 一ミリずつ 測って 切った。",
         "anticipateJa": "ぴったり | 合った！",
         "usageJa": "この 作業には | 高い 正確さが 必要だ。",
         "emphasisJa": [
@@ -1889,7 +1889,7 @@
         "kanjiTier": 3,
         "meaningJP": "精密さ、精度",
         "defJa": "わずかな 誤差も | 許さずに | 行う=こと。",
-        "leadJa": "工作の 課題で、 | ミオは 棚の 板を | 一ミリ単位で 測って 切った。",
+        "leadJa": "工作の 課題で、 | 私は 棚の 板を | 一ミリ単位で 測って 切った。",
         "anticipateJa": "ぴったり | 合った！",
         "usageJa": "この 作業には | 高い 精度が 求められる。",
         "emphasisJa": [
@@ -1900,7 +1900,7 @@
       }
     },
     "defVi": "Sự chính xác. Làm thật đúng, không lệch dù chỉ một chút.",
-    "leadVi": "Trong giờ kỹ thuật, Mio đo từng milimét rồi mới cắt tấm gỗ làm giá sách.",
+    "leadVi": "Trong giờ kỹ thuật, tôi đo từng milimét rồi mới cắt tấm gỗ làm giá sách.",
     "anticipateVi": "Khớp hoàn hảo!"
   },
   {
@@ -1919,7 +1919,7 @@
         "kanjiTier": 1,
         "meaningJP": "設定、もとに なる 考え",
         "defJa": "話や 考えの | 出発点に なる | 決まりごと。",
-        "leadJa": "「もし ネコが 話せたら？」 | その 一行から、 | ユイの 物語は 始まる。",
+        "leadJa": "「もし ネコが 話せたら？」 | その 一行から、 | 物語は 始まる。",
         "anticipateJa": "続きが | 気に なる！",
         "usageJa": "その 映画の 設定は | シンプルだ。",
         "emphasisJa": [
@@ -1932,7 +1932,7 @@
         "kanjiTier": 2,
         "meaningJP": "前提、設定",
         "defJa": "話や 議論の | 出発点に なる | 考え。",
-        "leadJa": "「もし ネコが 話せたら？」 | その 一行から、 | ユイの 物語は 始まる。",
+        "leadJa": "「もし ネコが 話せたら？」 | その 一行から、 | 物語は 始まる。",
         "anticipateJa": "続きが | 気に なる！",
         "usageJa": "その 映画の 前提は | シンプルだ。",
         "emphasisJa": [
@@ -1945,7 +1945,7 @@
         "kanjiTier": 3,
         "meaningJP": "前提",
         "defJa": "議論や 物語の | 出発点と なる | 仮定。",
-        "leadJa": "「もし 猫が 話せたら？」 | その 一行から、 | ユイの 小説は 始まる。",
+        "leadJa": "「もし 猫が 話せたら？」 | その 一行から、 | 小説は 始まる。",
         "anticipateJa": "続きが | 気に なる！",
         "usageJa": "その 映画の 前提は | 単純だ。",
         "emphasisJa": [
@@ -1956,7 +1956,7 @@
       }
     },
     "defVi": "Tiền đề. Điều được đặt ra làm điểm xuất phát cho câu chuyện hay suy nghĩ.",
-    "leadVi": "“Nếu mèo biết nói thì sao?” Câu chuyện của Yui bắt đầu từ một dòng đó.",
+    "leadVi": "“Nếu mèo biết nói thì sao?” Câu chuyện bắt đầu từ một dòng đó.",
     "anticipateVi": "Tò mò phần tiếp theo quá!"
   },
   {
@@ -2031,7 +2031,7 @@
         "kanjiTier": 1,
         "meaningJP": "提案、意見",
         "defJa": "相手に | 考えて=もらう=ために | 出す 案。",
-        "leadJa": "部活の 話し合いで、 | ソウタが 「朝練を | 週二回に しよう」と 言った。",
+        "leadJa": "部活の 話し合いで、 | わたしが 「朝練を | 週二回に しよう」と 言った。",
         "anticipateJa": "みんなの | 反応は？",
         "usageJa": "それは | おもしろい 提案だね。",
         "emphasisJa": [
@@ -2044,7 +2044,7 @@
         "kanjiTier": 2,
         "meaningJP": "提案、主張",
         "defJa": "相手に | 検討して=もらう=ために | 出す 案。",
-        "leadJa": "部活の ミーティングで、 | ソウタが 「朝練を | 週二回に」と 切り出した。",
+        "leadJa": "部活の ミーティングで、 | 私が 「朝練を | 週二回に」と 切り出した。",
         "anticipateJa": "みんなの | 反応は？",
         "usageJa": "それは | 面白い 提案だね。",
         "emphasisJa": [
@@ -2057,7 +2057,7 @@
         "kanjiTier": 3,
         "meaningJP": "提案、命題",
         "defJa": "相手に | 検討を 求めて | 示す 案。",
-        "leadJa": "サークルの 会議で、 | ソウタが 「練習を | 週二回に」と 切り出した。",
+        "leadJa": "サークルの 会議で、 | 私が 「練習を | 週二回に」と 切り出した。",
         "anticipateJa": "皆の | 反応は？",
         "usageJa": "それは | 興味深い 提案だね。",
         "emphasisJa": [
@@ -2068,7 +2068,7 @@
       }
     },
     "defVi": "Đề xuất. Phương án đưa ra để người khác cân nhắc.",
-    "leadVi": "Trong buổi họp câu lạc bộ, Sota đề nghị: “Tập buổi sáng hai lần một tuần nhé.”",
+    "leadVi": "Trong buổi họp câu lạc bộ, tôi đề nghị: “Tập buổi sáng hai lần một tuần nhé.”",
     "anticipateVi": "Mọi người phản ứng sao?"
   },
   {
@@ -2087,7 +2087,7 @@
         "kanjiTier": 1,
         "meaningJP": "気づき",
         "defJa": "それまで 知らなかった ことに | はっと | 気づく=こと。",
-        "leadJa": "家に 着いて=から、 | ナナは 体そう服を | 学校に わすれたと 分かった。",
+        "leadJa": "家に 着いて=から、 | わたしは 体そう服を | 学校に わすれたと 分かった。",
         "anticipateJa": "あっ、 | しまった！",
         "usageJa": "気づいた ときには | もう おそかった。",
         "emphasisJa": [
@@ -2100,7 +2100,7 @@
         "kanjiTier": 2,
         "meaningJP": "気づき、認識",
         "defJa": "それまで 知らなかった ことに | はっと | 気づく=こと。",
-        "leadJa": "家に 着いて=から、 | ナナは 体操服を | 学校に 忘れたと 分かった。",
+        "leadJa": "家に 着いて=から、 | 私は 体操服を | 学校に 忘れたと 分かった。",
         "anticipateJa": "あっ、 | しまった！",
         "usageJa": "気づいた ときには | もう 遅かった。",
         "emphasisJa": [
@@ -2113,7 +2113,7 @@
         "kanjiTier": 3,
         "meaningJP": "気づき、認識",
         "defJa": "見えて=いなかった ことを | ふと | 悟る=こと。",
-        "leadJa": "帰宅して=から、 | ナナは 資料を | 大学に 忘れたと 分かった。",
+        "leadJa": "帰宅して=から、 | 私は 資料を | 大学に 忘れたと 分かった。",
         "anticipateJa": "あっ、 | しまった！",
         "usageJa": "気づいた ときには | もう 遅かった。",
         "emphasisJa": [
@@ -2124,7 +2124,7 @@
       }
     },
     "defVi": "Sự nhận ra. Chợt hiểu ra điều trước đó không biết.",
-    "leadVi": "Về đến nhà, Nana mới nhận ra đã để quên bộ đồ thể dục ở trường.",
+    "leadVi": "Về đến nhà, tôi mới nhận ra đã để quên bộ đồ thể dục ở trường.",
     "anticipateVi": "Á, chết rồi!"
   },
   {
@@ -2143,7 +2143,7 @@
         "kanjiTier": 1,
         "meaningJP": "考えの すじ道、理由づけ",
         "defJa": "答えに たどり着くまでの | 考えの | 進め方。",
-        "leadJa": "数学の 証明問題で、 | リクは 黒板に | 一行ずつ 理由を 書いた。",
+        "leadJa": "数学の 証明問題で、 | 友だちは 黒板に | 一行ずつ 理由を 書いた。",
         "anticipateJa": "先生も | うなずいてる！",
         "usageJa": "あなたの 考え方を | 説明して=くれる？",
         "emphasisJa": [
@@ -2156,7 +2156,7 @@
         "kanjiTier": 2,
         "meaningJP": "推論、論法",
         "defJa": "答えに たどり着くまでの | 考えの | 進め方。",
-        "leadJa": "数学の 証明問題で、 | リクは 黒板に | 一行ずつ 根拠を 書いた。",
+        "leadJa": "数学の 証明問題で、 | 友達は 黒板に | 一行ずつ 根拠を 書いた。",
         "anticipateJa": "先生も | うなずいてる！",
         "usageJa": "君の 考え方を | 説明して=くれる？",
         "emphasisJa": [
@@ -2169,7 +2169,7 @@
         "kanjiTier": 3,
         "meaningJP": "推論、論証",
         "defJa": "結論に 至るまでの | 思考の | 道筋。",
-        "leadJa": "数学の 証明問題で、 | リクは 黒板に | 一行ずつ 根拠を 書いた。",
+        "leadJa": "数学の 証明問題で、 | 友人は 黒板に | 一行ずつ 根拠を 書いた。",
         "anticipateJa": "教授も | うなずいてる！",
         "usageJa": "君の 推論を | 説明して=くれる？",
         "emphasisJa": [
@@ -2180,7 +2180,7 @@
       }
     },
     "defVi": "Lập luận. Cách triển khai suy nghĩ cho đến khi tìm ra đáp án.",
-    "leadVi": "Trong bài toán chứng minh, Riku viết lý do lên bảng từng dòng một.",
+    "leadVi": "Trong bài toán chứng minh, bạn ấy viết lý do lên bảng từng dòng một.",
     "anticipateVi": "Thầy cũng gật gù kìa!"
   },
   {
@@ -2199,7 +2199,7 @@
         "kanjiTier": 1,
         "meaningJP": "よく 考える=こと、じゅく考",
         "defJa": "立ち止まって、 | 落ち着いて | じっくり 考える=こと。",
-        "leadJa": "部長を たのまれた ナナは、 | その 夜 日記に | 気持ちを 書き出した。",
+        "leadJa": "部長を たのまれた わたしは、 | その 夜 日記に | 気持ちを 書き出した。",
         "anticipateJa": "どう | しようかな？",
         "usageJa": "しばらく 考えて=から、 | 引き受けた。",
         "emphasisJa": [
@@ -2212,7 +2212,7 @@
         "kanjiTier": 2,
         "meaningJP": "熟考、内省",
         "defJa": "立ち止まって、 | 落ち着いて | じっくり 考える=こと。",
-        "leadJa": "部長を 頼まれた ナナは、 | その 夜 日記に | 気持ちを 書き出した。",
+        "leadJa": "部長を 頼まれた 私は、 | その 夜 日記に | 気持ちを 書き出した。",
         "anticipateJa": "どう | しようかな？",
         "usageJa": "しばらく 熟考して=から、 | 引き受けた。",
         "emphasisJa": [
@@ -2225,7 +2225,7 @@
         "kanjiTier": 3,
         "meaningJP": "熟考、内省",
         "defJa": "立ち止まり、 | 自分の 考えを | 静かに 見つめ直す=こと。",
-        "leadJa": "代表を 頼まれた ナナは、 | その 夜 日記に | 思いを 書き出した。",
+        "leadJa": "代表を 頼まれた 私は、 | その 夜 日記に | 思いを 書き出した。",
         "anticipateJa": "どう | しようかな？",
         "usageJa": "しばらく 熟考して=から、 | 引き受けた。",
         "emphasisJa": [
@@ -2236,7 +2236,7 @@
       }
     },
     "defVi": "Sự suy ngẫm. Dừng lại, bình tĩnh và nghĩ thật kỹ.",
-    "leadVi": "Được nhờ làm đội trưởng, tối đó Nana viết hết suy nghĩ vào nhật ký.",
+    "leadVi": "Được nhờ làm đội trưởng, tối đó tôi viết hết suy nghĩ vào nhật ký.",
     "anticipateVi": "Làm sao đây nhỉ?"
   },
   {
@@ -2255,7 +2255,7 @@
         "kanjiTier": 1,
         "meaningJP": "関わり、関連",
         "defJa": "ある ことが | 今の 話と | どう つながるか。",
-        "leadJa": "英語の 長文で、 | ユイは 問いと 本文の | 同じ 言葉に 線を 引いた。",
+        "leadJa": "英語の 長文で、 | 私は 問いと 本文の | 同じ 言葉に 線を 引いた。",
         "anticipateJa": "ヒント、 | 見つけた！",
         "usageJa": "この 質問は | 何と 関わりが あるの？",
         "emphasisJa": [
@@ -2268,7 +2268,7 @@
         "kanjiTier": 2,
         "meaningJP": "関連性",
         "defJa": "ある ことが | 今の 話と | どう つながるか。",
-        "leadJa": "英語の 長文で、 | ユイは 設問と 本文の | 同じ 語に 線を 引いた。",
+        "leadJa": "英語の 長文で、 | 私は 設問と 本文の | 同じ 語に 線を 引いた。",
         "anticipateJa": "ヒント、 | 見つけた！",
         "usageJa": "この 質問の | 関連性は 何？",
         "emphasisJa": [
@@ -2281,7 +2281,7 @@
         "kanjiTier": 3,
         "meaningJP": "関連性、妥当性",
         "defJa": "ある 事柄が | 当面の 議題と | どう 結びつくか。",
-        "leadJa": "英語の 長文で、 | ユイは 設問と 本文の | 同じ 語に 線を 引いた。",
+        "leadJa": "英語の 長文で、 | 私は 設問と 本文の | 同じ 語に 線を 引いた。",
         "anticipateJa": "ヒント、 | 見つけた！",
         "usageJa": "この 質問の | 関連性は 何？",
         "emphasisJa": [
@@ -2292,7 +2292,7 @@
       }
     },
     "defVi": "Sự liên quan. Một điều có gắn kết thế nào với chuyện đang bàn.",
-    "leadVi": "Trong bài đọc tiếng Anh, Yui gạch chân những từ giống nhau giữa câu hỏi và bài văn.",
+    "leadVi": "Trong bài đọc tiếng Anh, tôi gạch chân những từ giống nhau giữa câu hỏi và bài văn.",
     "anticipateVi": "Tìm ra gợi ý rồi!"
   },
   {
@@ -2367,7 +2367,7 @@
         "kanjiTier": 1,
         "meaningJP": "まとめ、総合",
         "defJa": "いくつかの 考えを | 一つに | まとめ上げる=こと。",
-        "leadJa": "自由研究で ハルは、 | 本と ネットと 家族の 話を | 一まいの 表に まとめた。",
+        "leadJa": "自由研究で 私は、 | 本と ネットと 家族の 話を | 一まいの 表に まとめた。",
         "anticipateJa": "全部 | 入ってる！",
         "usageJa": "その 作文は | 多くの 考えを 合わせた ものだ。",
         "emphasisJa": [
@@ -2380,7 +2380,7 @@
         "kanjiTier": 2,
         "meaningJP": "統合、総合",
         "defJa": "いくつかの 考えを | 一つに | まとめ上げる=こと。",
-        "leadJa": "探究の 授業で ハルは、 | 本と ネットと 取材の 話を | 一枚の 図に まとめた。",
+        "leadJa": "探究の 授業で 私は、 | 本と ネットと 取材の 話を | 一枚の 図に まとめた。",
         "anticipateJa": "全部 | 入ってる！",
         "usageJa": "その 作文は | 多くの 考えの 統合だ。",
         "emphasisJa": [
@@ -2393,7 +2393,7 @@
         "kanjiTier": 3,
         "meaningJP": "統合、総合",
         "defJa": "複数の 要素を | 一つの 全体に | 組み上げる=こと。",
-        "leadJa": "ゼミの レポートで ハルは、 | 文献と 調査と 聞き取りを | 一枚の 図に 集約した。",
+        "leadJa": "ゼミの レポートで 私は、 | 文献と 調査と 聞き取りを | 一枚の 図に 集約した。",
         "anticipateJa": "全部 | 入ってる！",
         "usageJa": "その 論文は | 多くの 考えの 統合だ。",
         "emphasisJa": [
@@ -2404,7 +2404,7 @@
       }
     },
     "defVi": "Sự tổng hợp. Gom nhiều ý tưởng lại thành một.",
-    "leadVi": "Trong bài nghiên cứu tự do, Haru tổng hợp sách, mạng và lời kể của gia đình vào một bảng.",
+    "leadVi": "Trong bài nghiên cứu tự do, tôi tổng hợp sách, mạng và lời kể của gia đình vào một bảng.",
     "anticipateVi": "Đủ hết cả rồi!"
   },
   {
@@ -2423,7 +2423,7 @@
         "kanjiTier": 1,
         "meaningJP": "正しさ、だとう性",
         "defJa": "話や 考えが | 本当に 正しいと | 言えるか どうか。",
-        "leadJa": "「この 水で 頭が よく なる」と | 聞いて、 ミオは | 元の データを さがした。",
+        "leadJa": "「この 水で 頭が よく なる」と | 聞いて、 私は | 元の データを さがした。",
         "anticipateJa": "本当 | なのかな？",
         "usageJa": "あの 人の 話の | 正しさを うたがう。",
         "emphasisJa": [
@@ -2436,7 +2436,7 @@
         "kanjiTier": 2,
         "meaningJP": "妥当性、正当性",
         "defJa": "主張や 考えが | 本当に 正しいと | 言えるか どうか。",
-        "leadJa": "「この 水で 頭が 良く なる」と | 聞いて、 ミオは | 元の データを 探した。",
+        "leadJa": "「この 水で 頭が 良く なる」と | 聞いて、 私は | 元の データを 探した。",
         "anticipateJa": "本当 | なのかな？",
         "usageJa": "彼の 主張の | 妥当性を 疑う。",
         "emphasisJa": [
@@ -2449,7 +2449,7 @@
         "kanjiTier": 3,
         "meaningJP": "妥当性、有効性",
         "defJa": "主張や 推論が | 根拠に 照らして | 成り立つか どうか。",
-        "leadJa": "「この 水で 頭が 良く なる」と | 聞いて、 ミオは | 元の データを 探した。",
+        "leadJa": "「この 水で 頭が 良く なる」と | 聞いて、 私は | 元の データを 探した。",
         "anticipateJa": "本当 | なのかな？",
         "usageJa": "彼の 主張の | 妥当性を 疑う。",
         "emphasisJa": [
@@ -2460,7 +2460,7 @@
       }
     },
     "defVi": "Tính hợp lệ. Một lời nói hay suy nghĩ có thể coi là thật sự đúng hay không.",
-    "leadVi": "Nghe nói “Uống nước này sẽ thông minh hơn”, Mio đi tìm dữ liệu gốc.",
+    "leadVi": "Nghe nói “Uống nước này sẽ thông minh hơn”, tôi đi tìm dữ liệu gốc.",
     "anticipateVi": "Có thật không ta?"
   },
   {
@@ -2535,7 +2535,7 @@
         "kanjiTier": 1,
         "meaningJP": "理解、のみこみ",
         "defJa": "ものごとを | よく 分かって、 | 自分の ものに する=こと。",
-        "leadJa": "ナナは 数学の 新しい 公式を、 | 一回 聞いただけで | 友だちに 教えられた。",
+        "leadJa": "姉は 数学の 新しい 公式を、 | 一回 聞いただけで | 友だちに 教えられた。",
         "anticipateJa": "天才 | かも！",
         "usageJa": "あの 子は | 数学の 理解が 深い。",
         "emphasisJa": [
@@ -2548,7 +2548,7 @@
         "kanjiTier": 2,
         "meaningJP": "理解、のみこみ",
         "defJa": "物事を | よく 分かって、 | 自分の ものに する=こと。",
-        "leadJa": "ナナは 数学の 新しい 公式を、 | 一回 聞いただけで | 友達に 説明できた。",
+        "leadJa": "彼女は 数学の 新しい 公式を、 | 一回 聞いただけで | 友達に 説明できた。",
         "anticipateJa": "天才 | かも！",
         "usageJa": "彼女は | 数学を よく 理解して=いる。",
         "emphasisJa": [
@@ -2561,7 +2561,7 @@
         "kanjiTier": 3,
         "meaningJP": "把握、理解",
         "defJa": "物事の 要点を | しっかり つかみ、 | 自分の ものに する=こと。",
-        "leadJa": "ナナは 統計の 新しい 公式を、 | 一回 聞いただけで | 友人に 説明できた。",
+        "leadJa": "彼女は 統計の 新しい 公式を、 | 一回 聞いただけで | 友人に 説明できた。",
         "anticipateJa": "天才 | かも！",
         "usageJa": "彼女は | 数学を よく 把握して=いる。",
         "emphasisJa": [
@@ -2572,7 +2572,7 @@
       }
     },
     "defVi": "Sự nắm bắt. Hiểu rõ một điều và biến nó thành của mình.",
-    "leadVi": "Nana chỉ nghe một lần công thức toán mới đã giảng lại được cho bạn.",
+    "leadVi": "Cô ấy chỉ nghe một lần công thức toán mới đã giảng lại được cho bạn.",
     "anticipateVi": "Thiên tài chắc luôn!"
   },
   {
@@ -2591,7 +2591,7 @@
         "kanjiTier": 1,
         "meaningJP": "言い表す",
         "defJa": "人や ものの | 目立つ 点を | 短く まとめる=こと。",
-        "leadJa": "「ソウタって どんな 人？」と | 聞かれて、 ユイは | 「太陽みたいな 人」と 答えた。",
+        "leadJa": "「お兄さんって どんな 人？」と | 聞かれて、 私は | 「太陽みたいな 人」と 答えた。",
         "anticipateJa": "ぴったりの | 一言！",
         "usageJa": "あの 人を | どう 言い表す？",
         "emphasisJa": [
@@ -2604,7 +2604,7 @@
         "kanjiTier": 2,
         "meaningJP": "特徴づける、言い表す",
         "defJa": "人や 物の | 目立つ 点を | 短く まとめる=こと。",
-        "leadJa": "「ソウタって どんな 人？」と | 聞かれて、 ユイは | 「太陽みたいな 人」と 答えた。",
+        "leadJa": "「彼って どんな 人？」と | 聞かれて、 私は | 「太陽みたいな 人」と 答えた。",
         "anticipateJa": "ぴったりの | 一言！",
         "usageJa": "彼を | どう 言い表す？",
         "emphasisJa": [
@@ -2617,7 +2617,7 @@
         "kanjiTier": 3,
         "meaningJP": "特徴づける",
         "defJa": "人や 物の | 際立つ 性質を | 言葉で 描き出す=こと。",
-        "leadJa": "「ソウタって どんな 人？」と | 聞かれて、 ユイは | 「太陽みたいな 人」と 答えた。",
+        "leadJa": "「彼って どんな 人？」と | 聞かれて、 私は | 「太陽みたいな 人」と 答えた。",
         "anticipateJa": "ぴったりの | 一言！",
         "usageJa": "彼を | どう 特徴づける？",
         "emphasisJa": [
@@ -2628,7 +2628,7 @@
       }
     },
     "defVi": "Mô tả đặc điểm. Diễn đạt bằng lời những nét nổi bật của người hay vật.",
-    "leadVi": "Được hỏi “Sota là người thế nào?”, Yui đáp: “Một người như mặt trời.”",
+    "leadVi": "Được hỏi “Cậu ấy là người thế nào?”, tôi đáp: “Một người như mặt trời.”",
     "anticipateVi": "Một câu thật chuẩn!"
   },
   {
@@ -2647,7 +2647,7 @@
         "kanjiTier": 1,
         "meaningJP": "じっくり 考える",
         "defJa": "決める 前に | 長い 時間、 | 頭の 中で 思いめぐらす=こと。",
-        "leadJa": "演劇部に さそわれた ミオは、 | 返事を 三日 | 待って=もらった。",
+        "leadJa": "演劇部に さそわれた 姉は、 | 返事を 三日 | 待って=もらった。",
         "anticipateJa": "どっちに | する？",
         "usageJa": "あの 子には | さそいを 考えぬく | 時間が いる。",
         "emphasisJa": [
@@ -2660,7 +2660,7 @@
         "kanjiTier": 2,
         "meaningJP": "熟考する、検討する",
         "defJa": "決める 前に | 長い 時間、 | 頭の 中で 思いめぐらす=こと。",
-        "leadJa": "演劇部に 誘われた ミオは、 | 返事を 三日 | 待って=もらった。",
+        "leadJa": "演劇部に 誘われた 彼女は、 | 返事を 三日 | 待って=もらった。",
         "anticipateJa": "どっちに | する？",
         "usageJa": "彼女には | 誘いを 検討する | 時間が 必要だ。",
         "emphasisJa": [
@@ -2673,7 +2673,7 @@
         "kanjiTier": 3,
         "meaningJP": "熟考する、検討する",
         "defJa": "結論を 出す 前に | 時間を かけ、 | 思いを めぐらせる=こと。",
-        "leadJa": "インターンに 誘われた ミオは、 | 返事を 三日 | 待って=もらった。",
+        "leadJa": "インターンに 誘われた 彼女は、 | 返事を 三日 | 待って=もらった。",
         "anticipateJa": "どっちに | する？",
         "usageJa": "彼女には | 誘いを 検討する | 時間が 必要だ。",
         "emphasisJa": [
@@ -2684,7 +2684,7 @@
       }
     },
     "defVi": "Cân nhắc. Suy đi nghĩ lại thật lâu trong đầu trước khi quyết định.",
-    "leadVi": "Được mời vào câu lạc bộ kịch, Mio xin khất ba ngày để trả lời.",
+    "leadVi": "Được mời vào câu lạc bộ kịch, cô ấy xin khất ba ngày để trả lời.",
     "anticipateVi": "Chọn bên nào đây?"
   },
   {
@@ -2759,7 +2759,7 @@
         "kanjiTier": 1,
         "meaningJP": "考え出す、工夫する",
         "defJa": "新しい やり方を | 頭を 使って | 生み出す=こと。",
-        "leadJa": "部室の 道具が ごちゃごちゃ。 | ケンタは 空き箱で | 仕切りを 作った。",
+        "leadJa": "部室の 道具が ごちゃごちゃ。 | 私は 空き箱で | 仕切りを 作った。",
         "anticipateJa": "スッキリ | 片づいた！",
         "usageJa": "新しい 計画を | 考え出す ひつようが ある。",
         "emphasisJa": [
@@ -2772,7 +2772,7 @@
         "kanjiTier": 2,
         "meaningJP": "考案する、工夫する",
         "defJa": "新しい やり方を | 頭を 使って | 生み出す=こと。",
-        "leadJa": "部室の 道具が ごちゃごちゃ。 | ケンタは 空き箱で | 仕切りを 作った。",
+        "leadJa": "部室の 道具が ごちゃごちゃ。 | 私は 空き箱で | 仕切りを 作った。",
         "anticipateJa": "スッキリ | 片づいた！",
         "usageJa": "新しい 計画を | 考え出す 必要が ある。",
         "emphasisJa": [
@@ -2785,7 +2785,7 @@
         "kanjiTier": 3,
         "meaningJP": "考案する",
         "defJa": "新しい 方法を | 知恵を 絞って | 生み出す=こと。",
-        "leadJa": "部室の 道具が ごちゃごちゃ。 | ケンタは 空き箱で | 仕切りを 自作した。",
+        "leadJa": "部室の 道具が ごちゃごちゃ。 | 私は 空き箱で | 仕切りを 自作した。",
         "anticipateJa": "スッキリ | 片づいた！",
         "usageJa": "新しい 計画を | 考案する 必要が ある。",
         "emphasisJa": [
@@ -2796,7 +2796,7 @@
       }
     },
     "defVi": "Nghĩ ra. Dùng đầu óc để tạo ra cách làm mới.",
-    "leadVi": "Đồ đạc trong phòng câu lạc bộ lộn xộn, Kenta dùng hộp rỗng làm vách ngăn.",
+    "leadVi": "Đồ đạc trong phòng câu lạc bộ lộn xộn, tôi dùng hộp rỗng làm vách ngăn.",
     "anticipateVi": "Gọn gàng hẳn!"
   },
   {
@@ -2927,7 +2927,7 @@
         "kanjiTier": 1,
         "meaningJP": "練り上げる、まとめる",
         "defJa": "考えを 整理して、 | はっきりした 形に | まとめる=こと。",
-        "leadJa": "修学旅行の 前、 | 班長の ナナは | 時間ごとの 予定表を 作った。",
+        "leadJa": "修学旅行の 前、 | 班長の 私は | 時間ごとの 予定表を 作った。",
         "anticipateJa": "これで | 安心！",
         "usageJa": "分かりやすい 計画を | 練り上げなきゃ。",
         "emphasisJa": [
@@ -2940,7 +2940,7 @@
         "kanjiTier": 2,
         "meaningJP": "練り上げる、策定する",
         "defJa": "考えを 整理して、 | はっきりした 形に | まとめる=こと。",
-        "leadJa": "修学旅行の 前、 | 班長の ナナは | 時間ごとの 予定表を 作った。",
+        "leadJa": "修学旅行の 前、 | 班長の 私は | 時間ごとの 予定表を 作った。",
         "anticipateJa": "これで | 安心！",
         "usageJa": "明確な 計画を | 練り上げなきゃ。",
         "emphasisJa": [
@@ -2953,7 +2953,7 @@
         "kanjiTier": 3,
         "meaningJP": "策定する、練り上げる",
         "defJa": "考えを 整理し、 | 筋道の 通った 形に | 組み立てる=こと。",
-        "leadJa": "ゼミ合宿の 前、 | 幹事の ナナは | 時間ごとの 行程表を 作った。",
+        "leadJa": "ゼミ合宿の 前、 | 幹事の 私は | 時間ごとの 行程表を 作った。",
         "anticipateJa": "これで | 安心！",
         "usageJa": "明確な 計画を | 策定しなければ ならない。",
         "emphasisJa": [
@@ -2964,7 +2964,7 @@
       }
     },
     "defVi": "Xây dựng. Sắp xếp suy nghĩ và gói lại thành một hình thức rõ ràng.",
-    "leadVi": "Trước chuyến đi tham quan, trưởng nhóm Nana lập bảng lịch trình theo từng giờ.",
+    "leadVi": "Trước chuyến đi tham quan, tôi – trưởng nhóm – lập bảng lịch trình theo từng giờ.",
     "anticipateVi": "Thế này thì yên tâm!"
   },
   {
@@ -3095,7 +3095,7 @@
         "kanjiTier": 1,
         "meaningJP": "たしかめる",
         "defJa": "本当に 正しいか | どうかを | 調べて はっきり させる=こと。",
-        "leadJa": "新しい アプリに 登録した ハル。 | 届いた メールの | リンクを おした。",
+        "leadJa": "新しい アプリに 登録した。 | 届いた メールの | リンクを おした。",
         "anticipateJa": "これで | 登録 できた！",
         "usageJa": "メールアドレスを | たしかめて ください。",
         "emphasisJa": [
@@ -3108,7 +3108,7 @@
         "kanjiTier": 2,
         "meaningJP": "確認する、検証する",
         "defJa": "本当に 正しいか | どうかを | 調べて はっきり させる=こと。",
-        "leadJa": "新しい アプリに 登録した ハル。 | 届いた メールの | リンクを 押した。",
+        "leadJa": "新しい アプリに 登録した。 | 届いた メールの | リンクを 押した。",
         "anticipateJa": "これで | 登録 完了！",
         "usageJa": "メールアドレスを | 確認して ください。",
         "emphasisJa": [
@@ -3121,7 +3121,7 @@
         "kanjiTier": 3,
         "meaningJP": "検証する、確認する",
         "defJa": "真偽を | 調べて | 確かめる=こと。",
-        "leadJa": "新しい アプリに 登録した ハル。 | 届いた メールの | リンクを 押した。",
+        "leadJa": "新しい アプリに 登録した。 | 届いた メールの | リンクを 押した。",
         "anticipateJa": "これで | 登録 完了！",
         "usageJa": "メールアドレスを | 確認して ください。",
         "emphasisJa": [
@@ -3132,7 +3132,7 @@
       }
     },
     "defVi": "Xác minh. Kiểm tra cho rõ điều gì đó có thật sự đúng hay không.",
-    "leadVi": "Haru đăng ký một ứng dụng mới, rồi bấm vào đường link trong email gửi đến.",
+    "leadVi": "Tôi đăng ký một ứng dụng mới, rồi bấm vào đường link trong email gửi đến.",
     "anticipateVi": "Thế là đăng ký xong!"
   },
   {
@@ -3319,7 +3319,7 @@
         "kanjiTier": 1,
         "meaningJP": "もうすぐ 出る、近く 行われる",
         "defJa": "近い うちに | 世に 出たり | 行われたり する 様子。",
-        "leadJa": "好きな 作家の 本が | 来月 出ると 知り、 | ユイは | カレンダーに 丸を つけた。",
+        "leadJa": "好きな 作家の 本が | 来月 出ると 知り、 | 私は | カレンダーに 丸を つけた。",
         "anticipateJa": "早く | 読みたい！",
         "usageJa": "あの 人の 発売前の 本は | 旅の 話だ。",
         "emphasisJa": [
@@ -3332,7 +3332,7 @@
         "kanjiTier": 2,
         "meaningJP": "近刊の、近く 予定された",
         "defJa": "近い うちに | 世に 出たり | 行われたり する 様子。",
-        "leadJa": "好きな 作家の 本が | 来月 出ると 知り、 | ユイは | カレンダーに 丸を つけた。",
+        "leadJa": "好きな 作家の 本が | 来月 出ると 知り、 | 私は | カレンダーに 丸を つけた。",
         "anticipateJa": "早く | 読みたい！",
         "usageJa": "彼女の 近刊は | 旅の 話だ。",
         "emphasisJa": [
@@ -3345,7 +3345,7 @@
         "kanjiTier": 3,
         "meaningJP": "近刊の、来たるべき",
         "defJa": "近日中に | 公に なったり | 実施されたり する 様子。",
-        "leadJa": "好きな 作家の 本が | 来月 出ると 知り、 | ユイは 手帳に 丸を つけた。",
+        "leadJa": "好きな 作家の 本が | 来月 出ると 知り、 | 私は 手帳に 丸を つけた。",
         "anticipateJa": "早く | 読みたい！",
         "usageJa": "彼女の 近刊は | 旅が テーマだ。",
         "emphasisJa": [
@@ -3356,7 +3356,7 @@
       }
     },
     "defVi": "Sắp tới. Sắp được công bố hay diễn ra trong thời gian gần.",
-    "leadVi": "Biết cuốn sách của tác giả yêu thích sẽ ra vào tháng sau, Yui khoanh tròn trên lịch.",
+    "leadVi": "Biết cuốn sách của tác giả yêu thích sẽ ra vào tháng sau, tôi khoanh tròn trên lịch.",
     "anticipateVi": "Muốn đọc ngay quá!"
   },
   {
@@ -3543,7 +3543,7 @@
         "kanjiTier": 1,
         "meaningJP": "一生の",
         "defJa": "生まれてから | 年を とるまで、 | ずっと 続く 様子。",
-        "leadJa": "三才で 出会った ミオと ユイは、 | 中学生の 今も | 毎週 会って=いる。",
+        "leadJa": "三才で 出会った 二人は、 | 中学生の 今も | 毎週 会って=いる。",
         "anticipateJa": "これからも | よろしくね！",
         "usageJa": "二人は | 一生の 友だちだ。",
         "emphasisJa": [
@@ -3556,7 +3556,7 @@
         "kanjiTier": 2,
         "meaningJP": "一生の、生涯《しょうがい》の",
         "defJa": "生まれてから | 年を 取るまで、 | ずっと 続く 様子。",
-        "leadJa": "三歳で 出会った ミオと ユイは、 | 高校生の 今も | 毎週 会って=いる。",
+        "leadJa": "三歳で 出会った 二人は、 | 高校生の 今も | 毎週 会って=いる。",
         "anticipateJa": "これからも | よろしくね！",
         "usageJa": "二人は | 一生の 友人だ。",
         "emphasisJa": [
@@ -3569,7 +3569,7 @@
         "kanjiTier": 3,
         "meaningJP": "生涯の、終生の",
         "defJa": "人生の | 最後まで | 変わらず 続く 様子。",
-        "leadJa": "三歳で 出会った ミオと ユイは、 | 大学生の 今も | 毎週 会って=いる。",
+        "leadJa": "三歳で 出会った 二人は、 | 大学生の 今も | 毎週 会って=いる。",
         "anticipateJa": "これからも | よろしくね！",
         "usageJa": "二人は | 生涯の 友人だ。",
         "emphasisJa": [
@@ -3580,7 +3580,7 @@
       }
     },
     "defVi": "Suốt đời. Kéo dài mãi từ khi sinh ra cho đến lúc về già.",
-    "leadVi": "Mio và Yui quen nhau từ năm ba tuổi, đến giờ vẫn gặp nhau mỗi tuần.",
+    "leadVi": "Hai người quen nhau từ năm ba tuổi, đến giờ vẫn gặp nhau mỗi tuần.",
     "anticipateVi": "Từ giờ cũng mong được bên nhau nhé!"
   },
   {
@@ -3655,7 +3655,7 @@
         "kanjiTier": 1,
         "meaningJP": "長年の",
         "defJa": "長い 間、 | ずっと 同じ ものを | 好きで いる 様子。",
-        "leadJa": "ソウタの おじいちゃんは、 | 子どもの ころから | 同じ チームを 応えんして=いる。",
+        "leadJa": "ぼくの おじいちゃんは、 | 子どもの ころから | 同じ チームを 応えんして=いる。",
         "anticipateJa": "年季が | ちがう！",
         "usageJa": "あの 人は | チームの 長年の ファンだ。",
         "emphasisJa": [
@@ -3668,7 +3668,7 @@
         "kanjiTier": 2,
         "meaningJP": "長年の、古参の",
         "defJa": "長い 間、 | ずっと 同じ ものを | 好きで いる 様子。",
-        "leadJa": "ソウタの 祖父は、 | 子どもの ころから | 同じ チームを 応援して=いる。",
+        "leadJa": "私の 祖父は、 | 子どもの ころから | 同じ チームを 応援して=いる。",
         "anticipateJa": "年季が | 違う！",
         "usageJa": "彼は | チームの 長年の ファンだ。",
         "emphasisJa": [
@@ -3681,7 +3681,7 @@
         "kanjiTier": 3,
         "meaningJP": "長年の、古参の",
         "defJa": "長期に わたり、 | 一つの 対象を | 支持し続けて=いる 様子。",
-        "leadJa": "ソウタの 祖父は、 | 少年時代から | 同じ チームを 応援して=いる。",
+        "leadJa": "私の 祖父は、 | 少年時代から | 同じ チームを 応援して=いる。",
         "anticipateJa": "年季が | 違う！",
         "usageJa": "彼は | チームの 古参の ファンだ。",
         "emphasisJa": [
@@ -3692,7 +3692,7 @@
       }
     },
     "defVi": "Lâu năm. Yêu thích mãi một thứ trong thời gian dài.",
-    "leadVi": "Ông của Sota cổ vũ cùng một đội bóng từ khi còn nhỏ.",
+    "leadVi": "Ông của tôi cổ vũ cùng một đội bóng từ khi còn nhỏ.",
     "anticipateVi": "Thâm niên khác hẳn!"
   },
   {
@@ -3711,9 +3711,9 @@
         "kanjiTier": 1,
         "meaningJP": "古くからの、長年の",
         "defJa": "長い 年月を | いっしょに | すごして=きた 様子。",
-        "leadJa": "小学校で 席が | となりだった ナナと、 | 今も 毎日 いっしょに 帰る。",
+        "leadJa": "小学校で 席が | となりだった あの子と、 | 今も 毎日 いっしょに 帰る。",
         "anticipateJa": "一番の | なかよし！",
-        "usageJa": "ナナは | 古なじみの 友だちだ。",
+        "usageJa": "あの子は | 古なじみの 友だちだ。",
         "emphasisJa": [
           "すごして",
           "帰る",
@@ -3724,9 +3724,9 @@
         "kanjiTier": 2,
         "meaningJP": "古くからの、長年の",
         "defJa": "長い 年月を | 一緒に | 過ごして=きた 様子。",
-        "leadJa": "小学校で 席が | 隣だった ナナと、 | 今も 毎日 一緒に 帰る。",
+        "leadJa": "小学校で 席が | 隣だった 彼女と、 | 今も 毎日 一緒に 帰る。",
         "anticipateJa": "一番の | 仲良し！",
-        "usageJa": "ナナは | 古なじみの 友達だ。",
+        "usageJa": "彼女は | 古なじみの 友達だ。",
         "emphasisJa": [
           "過ごして",
           "帰る",
@@ -3737,9 +3737,9 @@
         "kanjiTier": 3,
         "meaningJP": "古くからの、長年の",
         "defJa": "長い 年月を | 共に | 過ごして=きた 様子。",
-        "leadJa": "小学校で 席が | 隣だった ナナと、 | 今も 毎週 食事を する。",
+        "leadJa": "小学校で 席が | 隣だった 彼女と、 | 今も 毎週 食事を する。",
         "anticipateJa": "一番の | 仲良し！",
-        "usageJa": "ナナは | 長年の 旧友だ。",
+        "usageJa": "彼女は | 長年の 旧友だ。",
         "emphasisJa": [
           "過ごして",
           "食事",
@@ -3748,7 +3748,7 @@
       }
     },
     "defVi": "Lâu năm. Đã cùng nhau trải qua bao năm tháng.",
-    "leadVi": "Với Nana, người ngồi cạnh từ hồi tiểu học, đến giờ ngày nào tôi cũng cùng về nhà.",
+    "leadVi": "Với cô ấy, người ngồi cạnh từ hồi tiểu học, đến giờ ngày nào tôi cũng cùng về nhà.",
     "anticipateVi": "Bạn thân nhất!"
   },
   {
@@ -3823,7 +3823,7 @@
         "kanjiTier": 1,
         "meaningJP": "ときどきの、たまの",
         "defJa": "毎日では ないが、 | 間を あけて | くり返す 様子。",
-        "leadJa": "部活の ない 日曜日、 | ハルは 川ぞいの 道を | のんびり 歩く。",
+        "leadJa": "部活の ない 日曜日、 | 私は 川ぞいの 道を | のんびり 歩く。",
         "anticipateJa": "気分 | スッキリ！",
         "usageJa": "時々 公園を | 散歩するのが 楽しみだ。",
         "emphasisJa": [
@@ -3836,7 +3836,7 @@
         "kanjiTier": 2,
         "meaningJP": "時々の、たまの",
         "defJa": "毎日では ないが、 | 間を 空けて | 繰り返す 様子。",
-        "leadJa": "部活の ない 日曜日、 | ハルは 川沿いの 道を | のんびり 歩く。",
+        "leadJa": "部活の ない 日曜日、 | 私は 川沿いの 道を | のんびり 歩く。",
         "anticipateJa": "気分 | スッキリ！",
         "usageJa": "時々 公園を | 散歩するのが 楽しみだ。",
         "emphasisJa": [
@@ -3849,7 +3849,7 @@
         "kanjiTier": 3,
         "meaningJP": "時折の、たまの",
         "defJa": "常では ないが、 | 間隔を 空けて | 繰り返す 様子。",
-        "leadJa": "バイトの ない 日曜日、 | ハルは 川沿いの 道を | のんびり 歩く。",
+        "leadJa": "バイトの ない 日曜日、 | 私は 川沿いの 道を | のんびり 歩く。",
         "anticipateJa": "気分 | スッキリ！",
         "usageJa": "時折 公園を | 散歩するのが 楽しみだ。",
         "emphasisJa": [
@@ -3860,7 +3860,7 @@
       }
     },
     "defVi": "Thỉnh thoảng. Không phải ngày nào cũng có, mà lặp lại cách quãng.",
-    "leadVi": "Chủ nhật không có sinh hoạt câu lạc bộ, Haru thong thả đi dạo trên con đường ven sông.",
+    "leadVi": "Chủ nhật không có sinh hoạt câu lạc bộ, tôi thong thả đi dạo trên con đường ven sông.",
     "anticipateVi": "Tâm trạng sảng khoái!"
   },
   {
@@ -3879,7 +3879,7 @@
         "kanjiTier": 1,
         "meaningJP": "続きものの",
         "defJa": "一つの 話を | 何回かに 分けて | 少しずつ 出す 様子。",
-        "leadJa": "ミオは まん画雑誌で、 | 毎号 少しずつ 進む 話を | 追いかけて=いる。",
+        "leadJa": "私は まん画雑誌で、 | 毎号 少しずつ 進む 話を | 追いかけて=いる。",
         "anticipateJa": "次は | どう なる？",
         "usageJa": "それは 雑誌の | 続きものの 話だ。",
         "emphasisJa": [
@@ -3892,7 +3892,7 @@
         "kanjiTier": 2,
         "meaningJP": "連載の、続きものの",
         "defJa": "一つの 話を | 何回かに 分けて | 少しずつ 出す 様子。",
-        "leadJa": "ミオは 漫画雑誌で、 | 毎号 少しずつ 進む 話を | 追いかけて=いる。",
+        "leadJa": "私は 漫画雑誌で、 | 毎号 少しずつ 進む 話を | 追いかけて=いる。",
         "anticipateJa": "次は | どう なる？",
         "usageJa": "それは 雑誌の | 連載小説だ。",
         "emphasisJa": [
@@ -3905,7 +3905,7 @@
         "kanjiTier": 3,
         "meaningJP": "連載の、連続の",
         "defJa": "一つの 作品を | 複数回に 分けて | 順に 発表する 様子。",
-        "leadJa": "ミオは 漫画雑誌で、 | 毎号 少しずつ 進む 話を | 追いかけて=いる。",
+        "leadJa": "私は 漫画雑誌で、 | 毎号 少しずつ 進む 話を | 追いかけて=いる。",
         "anticipateJa": "次は | どう なる？",
         "usageJa": "それは 雑誌の | 連載小説だ。",
         "emphasisJa": [
@@ -3916,7 +3916,7 @@
       }
     },
     "defVi": "Nhiều kỳ. Chia một câu chuyện ra nhiều lần và đăng dần từng phần.",
-    "leadVi": "Mio theo dõi một câu chuyện tiến triển từng chút qua mỗi số tạp chí truyện tranh.",
+    "leadVi": "Tôi theo dõi một câu chuyện tiến triển từng chút qua mỗi số tạp chí truyện tranh.",
     "anticipateVi": "Tiếp theo sẽ ra sao?"
   },
   {
@@ -3991,7 +3991,7 @@
         "kanjiTier": 1,
         "meaningJP": "ちょうど よい ときの",
         "defJa": "ひつような ときに | ちょうど | 間に合う 様子。",
-        "leadJa": "雨の 帰り道、 | かさの ない ナナに、 | 母から 「今 むかえに 行く」と | LINEが 来た。",
+        "leadJa": "雨の 帰り道、 | かさの ない 私に、 | 母から 「今 むかえに 行く」と | LINEが 来た。",
         "anticipateJa": "ナイス | タイミング！",
         "usageJa": "すばやい 助けを | ありがとう。",
         "emphasisJa": [
@@ -4004,7 +4004,7 @@
         "kanjiTier": 2,
         "meaningJP": "タイムリーな、時宜《じぎ》を_得た",
         "defJa": "必要な ときに | ちょうど | 間に合う 様子。",
-        "leadJa": "雨の 帰り道、 | かさの ない ナナに、 | 母から 「今 迎えに 行く」と | LINEが 来た。",
+        "leadJa": "雨の 帰り道、 | かさの ない 私に、 | 母から 「今 迎えに 行く」と | LINEが 来た。",
         "anticipateJa": "ナイス | タイミング！",
         "usageJa": "タイムリーな 助けを | ありがとう。",
         "emphasisJa": [
@@ -4017,7 +4017,7 @@
         "kanjiTier": 3,
         "meaningJP": "時宜《じぎ》を_得た、タイムリーな",
         "defJa": "必要な 時機に | ぴたりと | 合う 様子。",
-        "leadJa": "雨の 帰り道、 | 傘の ない ナナに、 | 母から 「今 迎えに 行く」と | LINEが 来た。",
+        "leadJa": "雨の 帰り道、 | 傘の ない 私に、 | 母から 「今 迎えに 行く」と | LINEが 来た。",
         "anticipateJa": "ナイス | タイミング！",
         "usageJa": "タイムリーな 助けを | ありがとう。",
         "emphasisJa": [
@@ -4028,7 +4028,7 @@
       }
     },
     "defVi": "Kịp thời. Đến vừa đúng lúc cần.",
-    "leadVi": "Trên đường về dưới mưa, Nana không có ô thì nhận được tin LINE của mẹ: “Mẹ đi đón con ngay đây.”",
+    "leadVi": "Trên đường về dưới mưa, tôi không có ô thì nhận được tin LINE của mẹ: “Mẹ đi đón con ngay đây.”",
     "anticipateVi": "Đúng lúc quá!"
   },
   {
@@ -4103,7 +4103,7 @@
         "kanjiTier": 1,
         "meaningJP": "今度の、近く 行われる",
         "defJa": "もうすぐ | 行われる | 予定の 様子。",
-        "leadJa": "期末テストが | 来週に せまり、 | ソウタは かべに 目標を はった。",
+        "leadJa": "期末テストが | 来週に せまり、 | 私は かべに 目標を はった。",
         "anticipateJa": "そろそろ | 本気 出す？",
         "usageJa": "今度の テストの | じゅんびは できた？",
         "emphasisJa": [
@@ -4116,7 +4116,7 @@
         "kanjiTier": 2,
         "meaningJP": "今度の、近く 行われる",
         "defJa": "もうすぐ | 行われる | 予定の 様子。",
-        "leadJa": "期末テストが | 来週に 迫り、 | ソウタは 壁に 目標を 貼《は》った。",
+        "leadJa": "期末テストが | 来週に 迫り、 | 私は 壁に 目標を 貼《は》った。",
         "anticipateJa": "そろそろ | 本気 出す？",
         "usageJa": "次の 試験の | 準備は できた？",
         "emphasisJa": [
@@ -4129,7 +4129,7 @@
         "kanjiTier": 3,
         "meaningJP": "来たる、近く 行われる",
         "defJa": "近日中に | 実施される | 予定の 様子。",
-        "leadJa": "期末試験が | 来週に 迫り、 | ソウタは 壁に 目標を 貼った。",
+        "leadJa": "期末試験が | 来週に 迫り、 | 私は 壁に 目標を 貼った。",
         "anticipateJa": "そろそろ | 本気 出す？",
         "usageJa": "次の 試験の | 準備は できた？",
         "emphasisJa": [
@@ -4140,7 +4140,7 @@
       }
     },
     "defVi": "Sắp diễn ra. Theo dự định sẽ được tổ chức sắp tới.",
-    "leadVi": "Kỳ thi cuối kỳ đã cận kề vào tuần sau, Sota dán mục tiêu lên tường.",
+    "leadVi": "Kỳ thi cuối kỳ đã cận kề vào tuần sau, tôi dán mục tiêu lên tường.",
     "anticipateVi": "Sắp nghiêm túc chưa?"
   },
   {
@@ -4159,7 +4159,7 @@
         "kanjiTier": 1,
         "meaningJP": "しょっちゅう、たえず",
         "defJa": "少し 時間を おいては | 何度も | くり返す 様子。",
-        "leadJa": "勉強中の ケンタは、 | 五分おきに | スマホの 画面を のぞく。",
+        "leadJa": "勉強中の 兄は、 | 五分おきに | スマホの 画面を のぞく。",
         "anticipateJa": "集中、 | できてる？",
         "usageJa": "あの 人は | しょっちゅう スマホを 見る。",
         "emphasisJa": [
@@ -4172,7 +4172,7 @@
         "kanjiTier": 2,
         "meaningJP": "絶えず、しょっちゅう",
         "defJa": "少し 時間を 置いては | 何度も | 繰り返す 様子。",
-        "leadJa": "勉強中の ケンタは、 | 五分おきに | スマホの 画面を のぞく。",
+        "leadJa": "勉強中の 彼は、 | 五分おきに | スマホの 画面を のぞく。",
         "anticipateJa": "集中、 | できてる？",
         "usageJa": "彼は | 絶えず スマホを 確認する。",
         "emphasisJa": [
@@ -4185,7 +4185,7 @@
         "kanjiTier": 3,
         "meaningJP": "絶えず、頻繁に",
         "defJa": "短い 間隔で | 何度も | 繰り返す 様子。",
-        "leadJa": "レポート中の ケンタは、 | 五分おきに | スマホの 画面を のぞく。",
+        "leadJa": "レポート中の 彼は、 | 五分おきに | スマホの 画面を のぞく。",
         "anticipateJa": "集中、 | できてる？",
         "usageJa": "彼は | 絶えず スマホを 確認する。",
         "emphasisJa": [
@@ -4196,7 +4196,7 @@
       }
     },
     "defVi": "Liên tục. Cứ cách một chút lại lặp lại nhiều lần.",
-    "leadVi": "Đang học bài, cứ năm phút Kenta lại liếc màn hình điện thoại.",
+    "leadVi": "Đang học bài, cứ năm phút cậu ấy lại liếc màn hình điện thoại.",
     "anticipateVi": "Có tập trung được không đấy?"
   },
   {
@@ -4215,7 +4215,7 @@
         "kanjiTier": 1,
         "meaningJP": "今、現在",
         "defJa": "ちょうど | この 時点で | そう で ある 様子。",
-        "leadJa": "いとこの マイさんは、 | 去年から 海外の 町で | 一人で くらして=いる。",
+        "leadJa": "いとこの お姉さんは、 | 去年から 海外の 町で | 一人で くらして=いる。",
         "anticipateJa": "時差、 | 何時間？",
         "usageJa": "あの 人は | 今 海外に 住んで=いる。",
         "emphasisJa": [
@@ -4228,7 +4228,7 @@
         "kanjiTier": 2,
         "meaningJP": "現在、目下",
         "defJa": "ちょうど | この 時点で | そう で ある 様子。",
-        "leadJa": "いとこの マイさんは、 | 去年から 海外の 町で | 一人で 暮らして=いる。",
+        "leadJa": "いとこは、 | 去年から 海外の 町で | 一人で 暮らして=いる。",
         "anticipateJa": "時差、 | 何時間？",
         "usageJa": "彼女は | 現在 海外に 住んで=いる。",
         "emphasisJa": [
@@ -4241,7 +4241,7 @@
         "kanjiTier": 3,
         "meaningJP": "現在、目下",
         "defJa": "まさに | この 時点で | そう で ある 様子。",
-        "leadJa": "いとこの マイさんは、 | 昨年から 海外の 町で | 一人で 暮らして=いる。",
+        "leadJa": "いとこは、 | 昨年から 海外の 町で | 一人で 暮らして=いる。",
         "anticipateJa": "時差、 | 何時間？",
         "usageJa": "彼女は | 現在 海外に 住んで=いる。",
         "emphasisJa": [
@@ -4252,7 +4252,7 @@
       }
     },
     "defVi": "Hiện nay. Đúng ở thời điểm này là như vậy.",
-    "leadVi": "Chị họ Mai từ năm ngoái đã sống một mình ở một thành phố nước ngoài.",
+    "leadVi": "Chị họ tôi từ năm ngoái đã sống một mình ở một thành phố nước ngoài.",
     "anticipateVi": "Lệch múi giờ mấy tiếng nhỉ?"
   },
   {
@@ -4439,7 +4439,7 @@
         "kanjiTier": 1,
         "meaningJP": "いない=こと、欠席",
         "defJa": "いる はずの 人が | その 場に | いない=こと。",
-        "leadJa": "朝の 教室で、 | いつも 一番に 来る ナナの | 席だけが 空いて=いた。",
+        "leadJa": "朝の 教室で、 | いつも 一番に 来る あの子の | 席だけが 空いて=いた。",
         "anticipateJa": "どう | したんだろう？",
         "usageJa": "あの 子の 欠席に | みんな 気づいた。",
         "emphasisJa": [
@@ -4452,7 +4452,7 @@
         "kanjiTier": 2,
         "meaningJP": "不在、欠席",
         "defJa": "いる はずの 人が | その 場に | いない=こと。",
-        "leadJa": "朝の 教室で、 | いつも 一番に 来る ナナの | 席だけが 空いて=いた。",
+        "leadJa": "朝の 教室で、 | いつも 一番に 来る 彼女の | 席だけが 空いて=いた。",
         "anticipateJa": "どう | したんだろう？",
         "usageJa": "彼女の 欠席に | 皆 気づいた。",
         "emphasisJa": [
@@ -4465,7 +4465,7 @@
         "kanjiTier": 3,
         "meaningJP": "不在、欠席",
         "defJa": "本来 いる はずの 人が | その 場に | 見当たらない=こと。",
-        "leadJa": "一限の 教室で、 | いつも 最前列に いる ナナの | 席だけが 空いて=いた。",
+        "leadJa": "一限の 教室で、 | いつも 最前列に いる 彼女の | 席だけが 空いて=いた。",
         "anticipateJa": "どう | したんだろう？",
         "usageJa": "彼女の 不在に | 皆 気づいた。",
         "emphasisJa": [
@@ -4476,7 +4476,7 @@
       }
     },
     "defVi": "Sự vắng mặt. Người lẽ ra phải có mặt lại không có ở đó.",
-    "leadVi": "Buổi sáng trong lớp, chỉ có chỗ của Nana, người luôn đến sớm nhất, là trống.",
+    "leadVi": "Buổi sáng trong lớp, chỉ có chỗ của cô ấy, người luôn đến sớm nhất, là trống.",
     "anticipateVi": "Có chuyện gì vậy nhỉ?"
   },
   {
@@ -4607,7 +4607,7 @@
         "kanjiTier": 1,
         "meaningJP": "その間、それまでの 間",
         "defJa": "何かを 待って=いる | あいだの | 時間。",
-        "leadJa": "夕飯の カレーを | にこむ 二十分、 | ユイと 弟は | トランプで 時間を つぶした。",
+        "leadJa": "夕飯の カレーを | にこむ 二十分、 | 私と 弟は | トランプで 時間を つぶした。",
         "anticipateJa": "もう | できたかな？",
         "usageJa": "その間、 | お茶に しよう。",
         "emphasisJa": [
@@ -4620,7 +4620,7 @@
         "kanjiTier": 2,
         "meaningJP": "その間、それまでの 間",
         "defJa": "何かを 待って=いる | 間の | 時間。",
-        "leadJa": "夕飯の カレーを | にこむ 二十分、 | ユイと 弟は | トランプで 時間を つぶした。",
+        "leadJa": "夕飯の カレーを | にこむ 二十分、 | 私と 弟は | トランプで 時間を つぶした。",
         "anticipateJa": "もう | できたかな？",
         "usageJa": "その間に | お茶に しよう。",
         "emphasisJa": [
@@ -4633,7 +4633,7 @@
         "kanjiTier": 3,
         "meaningJP": "その間、当座",
         "defJa": "何かを 待つ、 | 区切りまでの | 時間。",
-        "leadJa": "夕飯の カレーを | 煮込む 二十分、 | ユイと 弟は | トランプで 時間を つぶした。",
+        "leadJa": "夕飯の カレーを | 煮込む 二十分、 | 私と 弟は | トランプで 時間を つぶした。",
         "anticipateJa": "もう | できたかな？",
         "usageJa": "その間に | お茶に しよう。",
         "emphasisJa": [
@@ -4644,7 +4644,7 @@
       }
     },
     "defVi": "Trong lúc đó. Khoảng thời gian trong khi chờ đợi một điều gì.",
-    "leadVi": "Trong hai mươi phút ninh nồi cà ri bữa tối, Yui và em trai chơi bài cho qua thời gian.",
+    "leadVi": "Trong hai mươi phút ninh nồi cà ri bữa tối, tôi và em trai chơi bài cho qua thời gian.",
     "anticipateVi": "Xong chưa nhỉ?"
   },
   {
@@ -4887,7 +4887,7 @@
         "kanjiTier": 1,
         "meaningJP": "通知、思い出させる もの",
         "defJa": "わすれない=ように、 | 前もって | 知らせて=くれる もの。",
-        "leadJa": "夜 九時、 | ハルの スマホが ブルッと 鳴り、 | 「英単語 二十こ！」と 出た。",
+        "leadJa": "夜 九時、 | 私の スマホが ブルッと 鳴り、 | 「英単語 二十こ！」と 出た。",
         "anticipateJa": "あっ、 | わすれてた！",
         "usageJa": "スマホで | 通知を 設定した。",
         "emphasisJa": [
@@ -4900,7 +4900,7 @@
         "kanjiTier": 2,
         "meaningJP": "リマインダー、通知",
         "defJa": "忘れない=ように、 | 前もって | 知らせて=くれる もの。",
-        "leadJa": "夜 九時、 | ハルの スマホが ブルッと 鳴り、 | 「英単語 二十個！」と 出た。",
+        "leadJa": "夜 九時、 | 私の スマホが ブルッと 鳴り、 | 「英単語 二十個！」と 出た。",
         "anticipateJa": "あっ、 | 忘れてた！",
         "usageJa": "スマホで | リマインダーを 設定した。",
         "emphasisJa": [
@@ -4913,7 +4913,7 @@
         "kanjiTier": 3,
         "meaningJP": "リマインダー、催促",
         "defJa": "忘れない=ように、 | 事前に | 知らせる 仕組み。",
-        "leadJa": "夜 九時、 | ハルの スマホが ブルッと 鳴り、 | 「英単語 二十個！」と 出た。",
+        "leadJa": "夜 九時、 | 私の スマホが ブルッと 鳴り、 | 「英単語 二十個！」と 出た。",
         "anticipateJa": "あっ、 | 忘れてた！",
         "usageJa": "スマホで | リマインダーを 設定した。",
         "emphasisJa": [
@@ -4924,7 +4924,7 @@
       }
     },
     "defVi": "Lời nhắc. Thứ báo trước cho mình để khỏi quên.",
-    "leadVi": "Chín giờ tối, điện thoại của Haru rung lên và hiện dòng “Hai mươi từ tiếng Anh!”",
+    "leadVi": "Chín giờ tối, điện thoại của tôi rung lên và hiện dòng “Hai mươi từ tiếng Anh!”",
     "anticipateVi": "Á, quên mất!"
   },
   {
@@ -4943,7 +4943,7 @@
         "kanjiTier": 1,
         "meaningJP": "連続",
         "defJa": "同じ ような ことが | 一つの あとに | また 一つと 続く=こと。",
-        "leadJa": "体育祭の 朝、 | ケンタは ねぼう、 わすれ物、 | 乗りおくれが 重なった。",
+        "leadJa": "体育祭の 朝、 | 兄は ねぼう、 わすれ物、 | 乗りおくれが 重なった。",
         "anticipateJa": "今日は | ついてない！",
         "usageJa": "あの 人は | ミスを 連発した。",
         "emphasisJa": [
@@ -4956,7 +4956,7 @@
         "kanjiTier": 2,
         "meaningJP": "連続、一連",
         "defJa": "同じ ような ことが | 一つの 後に | また 一つと 続く=こと。",
-        "leadJa": "体育祭の 朝、 | ケンタは 寝坊《ねぼう》、 忘れ物、 | 乗り遅れが 重なった。",
+        "leadJa": "体育祭の 朝、 | 彼は 寝坊《ねぼう》、 忘れ物、 | 乗り遅れが 重なった。",
         "anticipateJa": "今日は | ついてない！",
         "usageJa": "彼は | 一連の ミスを した。",
         "emphasisJa": [
@@ -4969,7 +4969,7 @@
         "kanjiTier": 3,
         "meaningJP": "連続、一連",
         "defJa": "同種の 出来事が | 途切れずに | 相次ぐ=こと。",
-        "leadJa": "就活の 面接の 朝、 | ケンタは 寝坊《ねぼう》、 忘れ物、 | 乗り遅れが 重なった。",
+        "leadJa": "就活の 面接の 朝、 | 彼は 寝坊《ねぼう》、 忘れ物、 | 乗り遅れが 重なった。",
         "anticipateJa": "今日は | ついてない！",
         "usageJa": "彼は | 一連の ミスを 重ねた。",
         "emphasisJa": [
@@ -4980,7 +4980,7 @@
       }
     },
     "defVi": "Chuỗi liên tiếp. Những việc tương tự cứ nối tiếp nhau hết cái này đến cái khác.",
-    "leadVi": "Sáng ngày hội thao, Kenta ngủ quên, quên đồ rồi lỡ tàu, mọi chuyện dồn dập.",
+    "leadVi": "Sáng ngày hội thao, cậu ấy ngủ quên, quên đồ rồi lỡ tàu, mọi chuyện dồn dập.",
     "anticipateVi": "Hôm nay xui thật!"
   },
   {
@@ -5111,7 +5111,7 @@
         "kanjiTier": 1,
         "meaningJP": "待つ、待ち受ける",
         "defJa": "ある ことが | 来るのを | じっと 待つ。",
-        "leadJa": "合格発表の 日、 | ミオは パソコンの 前で | 画面を 何度も 見直した。",
+        "leadJa": "合格発表の 日、 | 私は パソコンの 前で | 画面を 何度も 見直した。",
         "anticipateJa": "まだ | 出ない…！",
         "usageJa": "お返事を | 待ちわびて=います。",
         "emphasisJa": [
@@ -5124,7 +5124,7 @@
         "kanjiTier": 2,
         "meaningJP": "待つ、待ち受ける",
         "defJa": "ある ことが | 来るのを | じっと 待つ。",
-        "leadJa": "合格発表の 日、 | ミオは パソコンの 前で | 画面を 何度も 見直した。",
+        "leadJa": "合格発表の 日、 | 私は パソコンの 前で | 画面を 何度も 見直した。",
         "anticipateJa": "まだ | 出ない…！",
         "usageJa": "お返事を | 待ちわびて=います。",
         "emphasisJa": [
@@ -5137,7 +5137,7 @@
         "kanjiTier": 3,
         "meaningJP": "待ち受ける、待望する",
         "defJa": "来るべき ことを | 心して | 待ち構える。",
-        "leadJa": "内定通知の 日、 | ミオは パソコンの 前で | 画面を 何度も 見直した。",
+        "leadJa": "内定通知の 日、 | 私は パソコンの 前で | 画面を 何度も 見直した。",
         "anticipateJa": "まだ | 出ない…！",
         "usageJa": "お返事を | 待ちわびて=います。",
         "emphasisJa": [
@@ -5148,7 +5148,7 @@
       }
     },
     "defVi": "Chờ đợi. Kiên nhẫn chờ một điều sẽ đến.",
-    "leadVi": "Ngày công bố kết quả, Mio ngồi trước máy tính và xem lại màn hình mấy lần.",
+    "leadVi": "Ngày công bố kết quả, tôi ngồi trước máy tính và xem lại màn hình mấy lần.",
     "anticipateVi": "Vẫn chưa ra…!"
   },
   {
@@ -5223,7 +5223,7 @@
         "kanjiTier": 1,
         "meaningJP": "重なる、同時に 起こる",
         "defJa": "二つの ことが | 同じ 時に | ぶつかる。",
-        "leadJa": "カレンダーを 見た ソウタ、 | 部活の 試合と 塾《じゅく》の テストが | 同じ 日に 入って=いた。",
+        "leadJa": "カレンダーを 見ると、 | 部活の 試合と 塾《じゅく》の テストが | 同じ 日に 入って=いた。",
         "anticipateJa": "どっち | 行こう…？",
         "usageJa": "ぼくの 休みは | かのじょの 休みと 重なる。",
         "emphasisJa": [
@@ -5236,7 +5236,7 @@
         "kanjiTier": 2,
         "meaningJP": "重なる、一致する",
         "defJa": "二つの ことが | 同じ 時に | ぶつかる。",
-        "leadJa": "カレンダーを 見た ソウタ、 | 部活の 試合と 塾の テストが | 同じ 日に 入って=いた。",
+        "leadJa": "カレンダーを 見ると、 | 部活の 試合と 塾の テストが | 同じ 日に 入って=いた。",
         "anticipateJa": "どっち | 行こう…？",
         "usageJa": "僕の 休みは | 彼女の 休みと 重なる。",
         "emphasisJa": [
@@ -5249,7 +5249,7 @@
         "kanjiTier": 3,
         "meaningJP": "重なる、一致する",
         "defJa": "複数の 出来事が | 同時期に | かち合う。",
-        "leadJa": "手帳を 見た ソウタ、 | ゼミの 発表と バイトの 研修が | 同じ 日に 入って=いた。",
+        "leadJa": "手帳を 見ると、 | ゼミの 発表と バイトの 研修が | 同じ 日に 入って=いた。",
         "anticipateJa": "どっち | 行こう…？",
         "usageJa": "誕生日が | 祝日と 重なった。",
         "emphasisJa": [
@@ -5260,7 +5260,7 @@
       }
     },
     "defVi": "Trùng nhau. Hai việc xảy ra cùng một lúc.",
-    "leadVi": "Sota nhìn lịch thì thấy trận đấu câu lạc bộ và bài kiểm tra lớp học thêm rơi vào cùng ngày.",
+    "leadVi": "Tôi nhìn lịch thì thấy trận đấu câu lạc bộ và bài kiểm tra lớp học thêm rơi vào cùng ngày.",
     "anticipateVi": "Đi cái nào đây…?"
   },
   {
@@ -5391,7 +5391,7 @@
         "kanjiTier": 1,
         "meaningJP": "期限が 切れる",
         "defJa": "使える 日にちが | 決まって=いて、 | それを すぎる。",
-        "leadJa": "牛にゅうを 出した ナナ、 | パックの 日付を 見て | 顔を しかめた。",
+        "leadJa": "牛にゅうを 出し、 | パックの 日付を 見て | 顔を しかめた。",
         "anticipateJa": "きのうまで | だった…！",
         "usageJa": "パスポートが | もうすぐ 切れる。",
         "emphasisJa": [
@@ -5404,7 +5404,7 @@
         "kanjiTier": 2,
         "meaningJP": "期限が 切れる、失効する",
         "defJa": "使える 期間が | 決まって=いて、 | それを 過ぎる。",
-        "leadJa": "冷蔵庫の 牛乳を 出した ナナ、 | パックの 日付を 見て | 顔を しかめた。",
+        "leadJa": "冷蔵庫の 牛乳を 出し、 | パックの 日付を 見て | 顔を しかめた。",
         "anticipateJa": "昨日まで | だった…！",
         "usageJa": "パスポートが | もうすぐ 切れる。",
         "emphasisJa": [
@@ -5417,7 +5417,7 @@
         "kanjiTier": 3,
         "meaningJP": "失効する、満了する",
         "defJa": "定められた 有効期間が | 終わりを | 迎える。",
-        "leadJa": "冷蔵庫の 牛乳を 出した ナナ、 | パックの 日付を 見て | 顔を しかめた。",
+        "leadJa": "冷蔵庫の 牛乳を 出し、 | パックの 日付を 見て | 顔を しかめた。",
         "anticipateJa": "昨日まで | だった…！",
         "usageJa": "パスポートが | もうすぐ 切れる。",
         "emphasisJa": [
@@ -5428,7 +5428,7 @@
       }
     },
     "defVi": "Hết hạn. Thời gian được phép dùng đã quá.",
-    "leadVi": "Nana lấy hộp sữa trong tủ lạnh ra, nhìn ngày in trên hộp rồi nhăn mặt.",
+    "leadVi": "Tôi lấy hộp sữa trong tủ lạnh ra, nhìn ngày in trên hộp rồi nhăn mặt.",
     "anticipateVi": "Hạn đến hôm qua…!"
   },
   {
@@ -5447,7 +5447,7 @@
         "kanjiTier": 1,
         "meaningJP": "始める、起こす",
         "defJa": "新しい ことを | 自分から | 動かし始める。",
-        "leadJa": "文化祭の 会議で、 | だれも 口を 開かない 中、 | リコが 手を あげた。",
+        "leadJa": "文化祭の 会議で、 | だれも 口を 開かない 中、 | クラスの 女子が 手を あげた。",
         "anticipateJa": "わたしが | やります！",
         "usageJa": "かのじょが | 計画を 立ち上げる。",
         "emphasisJa": [
@@ -5460,7 +5460,7 @@
         "kanjiTier": 2,
         "meaningJP": "着手する、立ち上げる",
         "defJa": "新しい ことを | 自分から | 動かし始める。",
-        "leadJa": "文化祭の 会議で、 | だれも 口を 開かない 中、 | リコが 手を 挙げた。",
+        "leadJa": "文化祭の 会議で、 | だれも 口を 開かない 中、 | 彼女が 手を 挙げた。",
         "anticipateJa": "私が | やります！",
         "usageJa": "彼女が | 計画を 立ち上げる。",
         "emphasisJa": [
@@ -5473,7 +5473,7 @@
         "kanjiTier": 3,
         "meaningJP": "着手する、主導する",
         "defJa": "新たな 取り組みを | 率先して | 開始する。",
-        "leadJa": "ゼミの 会議で、 | 誰も 口を 開かない 中、 | リコが 手を 挙げた。",
+        "leadJa": "ゼミの 会議で、 | 誰も 口を 開かない 中、 | 彼女が 手を 挙げた。",
         "anticipateJa": "私が | やります！",
         "usageJa": "彼女が | 計画を 立ち上げる。",
         "emphasisJa": [
@@ -5484,7 +5484,7 @@
       }
     },
     "defVi": "Khởi xướng. Tự mình bắt đầu một việc mới.",
-    "leadVi": "Trong cuộc họp lễ hội trường, giữa lúc không ai lên tiếng, Riko giơ tay.",
+    "leadVi": "Trong cuộc họp lễ hội trường, giữa lúc không ai lên tiếng, cô ấy giơ tay.",
     "anticipateVi": "Để em làm!"
   },
   {
@@ -5559,7 +5559,7 @@
         "kanjiTier": 1,
         "meaningJP": "せまる、近づいて=くる",
         "defJa": "いやな ことや 大事な ことが | すぐ 先に | ひかえて=いる。",
-        "leadJa": "期末テスト 三日前、 | カズマは カレンダーの 赤い 丸を | ちらっと 見た。",
+        "leadJa": "期末テスト 三日前、 | わたしは カレンダーの 赤い 丸を | ちらっと 見た。",
         "anticipateJa": "何も | してない…！",
         "usageJa": "試験が | 目の前に せまる。",
         "emphasisJa": [
@@ -5572,7 +5572,7 @@
         "kanjiTier": 2,
         "meaningJP": "迫る、近づいて=くる",
         "defJa": "嫌な ことや 大事な ことが | すぐ 先に | 控《ひか》えて=いる。",
-        "leadJa": "期末テスト 三日前、 | カズマは カレンダーの 赤い 丸を | ちらっと 見た。",
+        "leadJa": "期末テスト 三日前、 | 私は カレンダーの 赤い 丸を | ちらっと 見た。",
         "anticipateJa": "何も | してない…！",
         "usageJa": "試験が | 目の前に 迫る。",
         "emphasisJa": [
@@ -5585,7 +5585,7 @@
         "kanjiTier": 3,
         "meaningJP": "迫る、立ちはだかる",
         "defJa": "不安な 出来事が | 間近に | 控えて=いる。",
-        "leadJa": "期末試験 三日前、 | カズマは カレンダーの 赤い 丸を | ちらっと 見た。",
+        "leadJa": "期末試験 三日前、 | 私は カレンダーの 赤い 丸を | ちらっと 見た。",
         "anticipateJa": "何も | してない…！",
         "usageJa": "試験が | 目の前に 迫る。",
         "emphasisJa": [
@@ -5596,7 +5596,7 @@
       }
     },
     "defVi": "Lù lù trước mắt. Việc đáng lo hay quan trọng đang chờ ngay phía trước.",
-    "leadVi": "Ba ngày trước kỳ thi cuối kỳ, Kazuma liếc nhìn vòng tròn đỏ trên lịch.",
+    "leadVi": "Ba ngày trước kỳ thi cuối kỳ, tôi liếc nhìn vòng tròn đỏ trên lịch.",
     "anticipateVi": "Chưa làm gì cả…!"
   }
 ]

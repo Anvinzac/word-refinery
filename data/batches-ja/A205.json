@@ -5842,7 +5842,7 @@
     "pos": "adj",
     "ipa": "/twɪn/",
     "kanaReading": "トウィン",
-    "usageEn": "Tom has a _____ brother.",
+    "usageEn": "He has a _____ brother.",
     "topics": [
       "society"
     ],
@@ -5853,9 +5853,9 @@
         "kanjiTier": 0,
         "meaningJP": "ふたごの",
         "defJa": "同じ 日に | 同じ 母から | 生まれた 二人。",
-        "leadJa": "トムの 家に 行くと、 | 同じ 顔の 男の子が | 二人 いた。",
+        "leadJa": "友だちの 家に 行くと、 | 同じ 顔の 男の子が | 二人 いた。",
         "anticipateJa": "え？ | どっち？",
-        "usageJa": "トムには | ふたごの 弟が いる。",
+        "usageJa": "友だちには | ふたごの 弟が いる。",
         "emphasisJa": [
           "生まれた",
           "顔",
@@ -5866,9 +5866,9 @@
         "kanjiTier": 1,
         "meaningJP": "ふたごの",
         "defJa": "同じ 日に | 同じ 母から | 生まれた 二人。",
-        "leadJa": "トムの 家に 行くと、 | 同じ 顔の 男子が | 二人 いた。",
+        "leadJa": "友達の 家に 行くと、 | 同じ 顔の 男子が | 二人 いた。",
         "anticipateJa": "え？ | どっち？",
-        "usageJa": "トムには | ふたごの 弟が いる。",
+        "usageJa": "友達には | ふたごの 弟が いる。",
         "emphasisJa": [
           "生まれた",
           "顔",
@@ -5879,9 +5879,9 @@
         "kanjiTier": 2,
         "meaningJP": "双子の",
         "defJa": "同じ 日に | 同じ 母から | 生まれた 二人。",
-        "leadJa": "トムの 家に 行くと、 | 同じ 顔の 男子が | 二人 いた。",
+        "leadJa": "友達の 家に 行くと、 | 同じ 顔の 男子が | 二人 いた。",
         "anticipateJa": "え？ | どっち？",
-        "usageJa": "トムには | 双子の 兄弟が いる。",
+        "usageJa": "彼には | 双子の 兄弟が いる。",
         "emphasisJa": [
           "生まれた",
           "顔",
@@ -5892,9 +5892,9 @@
         "kanjiTier": 3,
         "meaningJP": "双子の、対の",
         "defJa": "同じ 母親から | 同時に | 生まれた 二人。",
-        "leadJa": "トムの 家を 訪ねると、 | そっくりな 男子が | 二人 いた。",
+        "leadJa": "友人の 家を 訪ねると、 | そっくりな 男子が | 二人 いた。",
         "anticipateJa": "え？ | どっち？",
-        "usageJa": "トムには | 双子の 兄弟が いる。",
+        "usageJa": "彼には | 双子の 兄弟が いる。",
         "emphasisJa": [
           "同時",
           "そっくり",
@@ -5903,7 +5903,7 @@
       }
     },
     "defVi": "Sinh đôi. Hai người cùng một mẹ sinh ra cùng ngày.",
-    "leadVi": "Đến nhà Tom, có hai cậu bé giống hệt nhau.",
+    "leadVi": "Đến nhà bạn, có hai cậu bé giống hệt nhau.",
     "anticipateVi": "Hả? Ai là ai?"
   },
   {
