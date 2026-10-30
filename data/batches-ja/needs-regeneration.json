@@ -1,0 +1,6094 @@
+{
+ "what": "Japanese cards that break a rule and want regenerating.",
+ "generatedFrom": "data/batches-ja, every register of every card",
+ "rules": {
+  "E-teaser-reused": "anticipateJa repeats a line another card already uses. Compared AS DISPLAYED, so 「神 | 対応！」 and 「神対応！」 count as the same line; the deck validator compares the raw string and so reports 361 where this reports 398.",
+  "4.3-names-meaning": "leadJa contains the card's own gloss. 4.3 says show the meaning, never name it. Listed per register, because the three word the same scene differently and usually only one of them leaks.",
+  "U1-ceiling": "usageEn uses an English word above the card's own CEFR level, judged against CEFR-J 1.5 + Octanove 1.0 + every headword either deck teaches at the level it teaches it (rule 9.2)."
+ },
+ "counts": {
+  "cards": 467,
+  "findings": 562,
+  "byRule": {
+   "U1-ceiling": 5,
+   "4.3-names-meaning": 159,
+   "E-teaser-reused": 398
+  }
+ },
+ "cards": [
+  {
+   "batch": "A101",
+   "id": "A101-025",
+   "word": "message",
+   "reasons": [
+    {
+     "rule": "U1-ceiling",
+     "detail": "usageEn uses \"last\" (A2) on a A1 card — \"I sent her a _____ last night.\""
+    }
+   ]
+  },
+  {
+   "batch": "A101",
+   "id": "A101-088",
+   "word": "hat",
+   "reasons": [
+    {
+     "rule": "4.3-names-meaning",
+     "register": "JPRIM",
+     "detail": "leadJa contains the gloss 「ぼうし」 — 「海べで ぼうしを かぶると、 | 顔に | かげが できた。」"
+    },
+    {
+     "rule": "4.3-names-meaning",
+     "register": "JSEC",
+     "detail": "leadJa contains the gloss 「ぼうし」 — 「海辺で ぼうしを かぶると、 | 顔に | かげが できた。」"
+    },
+    {
+     "rule": "4.3-names-meaning",
+     "register": "JHIGH",
+     "detail": "leadJa contains the gloss 「ぼうし」 — 「海辺で ぼうしを かぶると、 | 顔に | 影が できた。」"
+    },
+    {
+     "rule": "4.3-names-meaning",
+     "register": "JCOLL",
+     "detail": "leadJa contains the gloss 「帽子」 — 「海辺で 帽子を かぶると、 | 顔に | 影が できた。」"
+    }
+   ]
+  },
+  {
+   "batch": "A102",
+   "id": "A102-009",
+   "word": "trousers",
+   "reasons": [
+    {
+     "rule": "4.3-names-meaning",
+     "register": "JPRIM",
+     "detail": "leadJa contains the gloss 「ズボン」 — 「新しい ズボンを はくと、 | すそが | ゆかに ついた。」"
+    },
+    {
+     "rule": "4.3-names-meaning",
+     "register": "JSEC",
+     "detail": "leadJa contains the gloss 「ズボン」 — 「新しい ズボンを はくと、 | すそが | ゆかに ついた。」"
+    },
+    {
+     "rule": "4.3-names-meaning",
+     "register": "JHIGH",
+     "detail": "leadJa contains the gloss 「ズボン」 — 「新しい ズボンを はくと、 | すそが | 床に ついた。」"
+    },
+    {
+     "rule": "4.3-names-meaning",
+     "register": "JCOLL",
+     "detail": "leadJa contains the gloss 「ズボン」 — 「新しい ズボンを はくと、 | 裾が | 床を 引きずった。」"
+    }
+   ]
+  },
+  {
+   "batch": "A102",
+   "id": "A102-026",
+   "word": "wake",
+   "reasons": [
+    {
+     "rule": "4.3-names-meaning",
+     "register": "JPRIM",
+     "detail": "leadJa contains the gloss 「起きる」 — 「朝、 | 目ざましが 鳴ると、 | ぱっと とび起きた。」"
+    },
+    {
+     "rule": "4.3-names-meaning",
+     "register": "JSEC",
+     "detail": "leadJa contains the gloss 「起きる」 — 「朝、 | 目ざましが 鳴ると、 | ぱっと とび起きた。」"
+    },
+    {
+     "rule": "4.3-names-meaning",
+     "register": "JHIGH",
+     "detail": "leadJa contains the gloss 「起きる」 — 「朝、 | 目覚ましが 鳴ると、 | ぱっと 飛び起きた。」"
+    },
+    {
+     "rule": "4.3-names-meaning",
+     "register": "JCOLL",
+     "detail": "leadJa contains the gloss 「起きる」 — 「朝、 | 目覚ましが 鳴ると、 | 即座に 飛び起きた。」"
+    }
+   ]
+  },
+  {
+   "batch": "A103",
+   "id": "A103-076",
+   "word": "so",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「何て | 書いて=あるの？」 already used by A103 A103-053 below"
+    }
+   ]
+  },
+  {
+   "batch": "A103",
+   "id": "A103-089",
+   "word": "half",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「犯人は | だれ？」 already used by A103 A103-081 under"
+    }
+   ]
+  },
+  {
+   "batch": "A104",
+   "id": "A104-048",
+   "word": "arm",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「いい | 運動だね！」 already used by A102 A102-018 walk"
+    }
+   ]
+  },
+  {
+   "batch": "A104",
+   "id": "A104-059",
+   "word": "hair",
+   "reasons": [
+    {
+     "rule": "4.3-names-meaning",
+     "register": "JPRIM",
+     "detail": "leadJa contains the gloss 「かみ」 — 「発ぴょう会で、 | 姉が 黒く 長い かみを | 後ろで 一つに むすんだ。」"
+    },
+    {
+     "rule": "4.3-names-meaning",
+     "register": "JSEC",
+     "detail": "leadJa contains the gloss 「かみ」 — 「発表会で、 | 姉が 黒く 長い かみを | 後ろで 一つに 結んだ。」"
+    }
+   ]
+  },
+  {
+   "batch": "A104",
+   "id": "A104-064",
+   "word": "leg",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「頑張った | ね！」 already used by A104 A104-056 foot"
+    }
+   ]
+  },
+  {
+   "batch": "A104",
+   "id": "A104-067",
+   "word": "nurse",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「ほっと | する！」 already used by A101 A101-082 cup"
+    }
+   ]
+  },
+  {
+   "batch": "A104",
+   "id": "A104-095",
+   "word": "shop",
+   "reasons": [
+    {
+     "rule": "4.3-names-meaning",
+     "register": "JCOLL",
+     "detail": "leadJa contains the gloss 「店舗」 — 「早朝 七時、 | 角の 小さな 店舗から | パンの 香りが 漂って=きた。」"
+    }
+   ]
+  },
+  {
+   "batch": "A104",
+   "id": "A104-096",
+   "word": "buy",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「寿命 | だね！」 already used by A103 A103-094 pair"
+    }
+   ]
+  },
+  {
+   "batch": "A105",
+   "id": "A105-054",
+   "word": "colour",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「よく | 似合う！」 already used by A105 A105-014 flower"
+    }
+   ]
+  },
+  {
+   "batch": "A105",
+   "id": "A105-071",
+   "word": "art",
+   "reasons": [
+    {
+     "rule": "4.3-names-meaning",
+     "register": "JPRIM",
+     "detail": "leadJa contains the gloss 「美じゅつ」 — 「雨の 土曜日、 | 町の 大きな 美じゅつかんに | 入った。」"
+    },
+    {
+     "rule": "4.3-names-meaning",
+     "register": "JSEC",
+     "detail": "leadJa contains the gloss 「美術」 — 「雨の 土曜日、 | 町の 大きな 美術館に | 入った。」"
+    },
+    {
+     "rule": "4.3-names-meaning",
+     "register": "JHIGH",
+     "detail": "leadJa contains the gloss 「美術」 — 「雨の 土曜日、 | 町の 美術館を | 訪れた。」"
+    },
+    {
+     "rule": "4.3-names-meaning",
+     "register": "JCOLL",
+     "detail": "leadJa contains the gloss 「美術」 — 「雨の 土曜日、 | 市立 美術館を | 訪れた。」"
+    }
+   ]
+  },
+  {
+   "batch": "A105",
+   "id": "A105-081",
+   "word": "concert",
+   "reasons": [
+    {
+     "rule": "U1-ceiling",
+     "detail": "usageEn uses \"last\" (A2) on a A1 card — \"We went to a _____ last night.\""
+    }
+   ]
+  },
+  {
+   "batch": "A105",
+   "id": "A105-088",
+   "word": "daughter",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「どんな | 子かな？」 already used by A105 A105-075 boy"
+    }
+   ]
+  },
+  {
+   "batch": "A105",
+   "id": "A105-094",
+   "word": "game",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「真剣 | 勝負だ！」 already used by A104 A104-071 tennis"
+    }
+   ]
+  },
+  {
+   "batch": "A106",
+   "id": "A106-007",
+   "word": "mum",
+   "reasons": [
+    {
+     "rule": "4.3-names-meaning",
+     "register": "JPRIM",
+     "detail": "leadJa contains the gloss 「ママ」 — 「「ママ、 ただいま！」 | 帰ると、 | えがおで むかえて=くれた。」"
+    },
+    {
+     "rule": "4.3-names-meaning",
+     "register": "JSEC",
+     "detail": "leadJa contains the gloss 「ママ」 — 「「ママ、 ただいま！」 | 帰ると、 | 笑顔で むかえて=くれた。」"
+    }
+   ]
+  },
+  {
+   "batch": "A106",
+   "id": "A106-024",
+   "word": "theatre",
+   "reasons": [
+    {
+     "rule": "U1-ceiling",
+     "detail": "usageEn uses \"last\" (A2) on a A1 card — \"We went to the _____ last night.\""
+    },
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「いよいよ | 開演！」 already used by A105 A105-081 concert"
+    }
+   ]
+  },
+  {
+   "batch": "A106",
+   "id": "A106-026",
+   "word": "uncle",
+   "reasons": [
+    {
+     "rule": "4.3-names-meaning",
+     "register": "JPRIM",
+     "detail": "leadJa contains the gloss 「おじさん」 — 「夏休み、 | 牛小屋の 前で | おじさんが 手を ふって=いた。」"
+    },
+    {
+     "rule": "4.3-names-meaning",
+     "register": "JSEC",
+     "detail": "leadJa contains the gloss 「おじ」 — 「夏休み、 | 牛小屋の 前で | おじが 手を ふって=いた。」"
+    },
+    {
+     "rule": "4.3-names-meaning",
+     "register": "JHIGH",
+     "detail": "leadJa contains the gloss 「おじ」 — 「夏休み、 | 牛小屋の 前で | おじが 手を 振って=いた。」"
+    },
+    {
+     "rule": "4.3-names-meaning",
+     "register": "JCOLL",
+     "detail": "leadJa contains the gloss 「叔父」 — 「夏休み、 | 牛舎の 前で | 叔父が 手を 振って=いた。」"
+    }
+   ]
+  },
+  {
+   "batch": "A106",
+   "id": "A106-027",
+   "word": "wife",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「仲が | いいね！」 already used by A106 A106-002 husband"
+    }
+   ]
+  },
+  {
+   "batch": "A106",
+   "id": "A106-032",
+   "word": "join",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「仲間に | 入ろう！」 already used by A106 A106-004 member"
+    }
+   ]
+  },
+  {
+   "batch": "A106",
+   "id": "A106-037",
+   "word": "book",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「続きが | 気に なる！」 already used by A104 A104-025 happen"
+    }
+   ]
+  },
+  {
+   "batch": "A106",
+   "id": "A106-038",
+   "word": "chart",
+   "reasons": [
+    {
+     "rule": "4.3-names-meaning",
+     "register": "JHIGH",
+     "detail": "leadJa contains the gloss 「グラフ」 — 「夏休み、 | 毎日の 気温を | 棒グラフに して 壁に はった。」"
+    }
+   ]
+  },
+  {
+   "batch": "A106",
+   "id": "A106-041",
+   "word": "college",
+   "reasons": [
+    {
+     "rule": "4.3-names-meaning",
+     "register": "JPRIM",
+     "detail": "leadJa contains the gloss 「大学」 — 「夏休み、 | お兄ちゃんが 大学の 町から | 家に 帰って=きた。」"
+    },
+    {
+     "rule": "4.3-names-meaning",
+     "register": "JSEC",
+     "detail": "leadJa contains the gloss 「大学」 — 「夏休み、 | 兄が 大学の 町から | 家に 帰って=きた。」"
+    },
+    {
+     "rule": "4.3-names-meaning",
+     "register": "JHIGH",
+     "detail": "leadJa contains the gloss 「大学」 — 「夏休み、 | 兄が 大学の ある 町から | 帰省した。」"
+    },
+    {
+     "rule": "4.3-names-meaning",
+     "register": "JCOLL",
+     "detail": "leadJa contains the gloss 「大学」 — 「夏休み、 | 兄が 大学の ある 町から | 帰省した。」"
+    }
+   ]
+  },
+  {
+   "batch": "A106",
+   "id": "A106-069",
+   "word": "teacher",
+   "reasons": [
+    {
+     "rule": "4.3-names-meaning",
+     "register": "JPRIM",
+     "detail": "leadJa contains the gloss 「先生」 — 「こうみんかんの 教室で、 | えいごの 先生が | にこにこ あいさつした。」"
+    },
+    {
+     "rule": "4.3-names-meaning",
+     "register": "JSEC",
+     "detail": "leadJa contains the gloss 「先生」 — 「公民館の 教室で、 | 英語の 先生が | にこにこ あいさつした。」"
+    },
+    {
+     "rule": "4.3-names-meaning",
+     "register": "JHIGH",
+     "detail": "leadJa contains the gloss 「先生」 — 「公民館の 教室で、 | 英語の 先生が | にこやかに あいさつした。」"
+    }
+   ]
+  },
+  {
+   "batch": "A106",
+   "id": "A106-094",
+   "word": "video",
+   "reasons": [
+    {
+     "rule": "4.3-names-meaning",
+     "register": "JCOLL",
+     "detail": "leadJa contains the gloss 「映像」 — 「旅行の 後、 | 姉が スマホで | 海の 映像を 披露して=くれた。」"
+    }
+   ]
+  },
+  {
+   "batch": "A106",
+   "id": "A106-097",
+   "word": "telephone",
+   "reasons": [
+    {
+     "rule": "4.3-names-meaning",
+     "register": "JPRIM",
+     "detail": "leadJa contains the gloss 「電話」 — 「朝、 | おばあちゃんの 家で | 黒い 電話が 鳴った。」"
+    },
+    {
+     "rule": "4.3-names-meaning",
+     "register": "JSEC",
+     "detail": "leadJa contains the gloss 「電話」 — 「朝、 | 祖母の 家で | 黒い 電話が 鳴った。」"
+    },
+    {
+     "rule": "4.3-names-meaning",
+     "register": "JHIGH",
+     "detail": "leadJa contains the gloss 「電話」 — 「朝、 | 祖母の 家で | 黒い 電話が 鳴り響いた。」"
+    }
+   ]
+  },
+  {
+   "batch": "A106",
+   "id": "A106-098",
+   "word": "difficult",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「大丈夫 | かな？」 already used by A103 A103-060 how"
+    }
+   ]
+  },
+  {
+   "batch": "A107",
+   "id": "A107-045",
+   "word": "later",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「気を つけてね！」 already used by A105 A105-085 dad"
+    }
+   ]
+  },
+  {
+   "batch": "A107",
+   "id": "A107-050",
+   "word": "once",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「久しぶり | だね！」 already used by A106 A106-041 college"
+    }
+   ]
+  },
+  {
+   "batch": "A107",
+   "id": "A107-058",
+   "word": "today",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「大変 | そう！」 already used by A104 A104-030 let"
+    }
+   ]
+  },
+  {
+   "batch": "A107",
+   "id": "A107-061",
+   "word": "yesterday",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「また | 会ったね！」 already used by A107 A107-049 often"
+    }
+   ]
+  },
+  {
+   "batch": "A107",
+   "id": "A107-068",
+   "word": "century",
+   "reasons": [
+    {
+     "rule": "U1-ceiling",
+     "detail": "usageEn uses \"last\" (A2) on a A1 card — \"This house is from the last _____.\""
+    }
+   ]
+  },
+  {
+   "batch": "A107",
+   "id": "A107-069",
+   "word": "clock",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「本当に | 合ってる？」 already used by A107 A107-004 sure"
+    },
+    {
+     "rule": "4.3-names-meaning",
+     "register": "JCOLL",
+     "detail": "leadJa contains the gloss 「時計」 — 「朝、 | 兄が 壁掛け時計を 見て | 「まだ 七時か」と つぶやいた。」"
+    }
+   ]
+  },
+  {
+   "batch": "A107",
+   "id": "A107-074",
+   "word": "february",
+   "reasons": [
+    {
+     "rule": "4.3-names-meaning",
+     "register": "JPRIM",
+     "detail": "leadJa contains the gloss 「二月」 — 「冬の 朝、 | 母が カレンダーを めくって | 「もう 二月か」と 言った。」"
+    },
+    {
+     "rule": "4.3-names-meaning",
+     "register": "JSEC",
+     "detail": "leadJa contains the gloss 「二月」 — 「冬の 朝、 | 母が カレンダーを めくって | 「もう 二月か」と 言った。」"
+    },
+    {
+     "rule": "4.3-names-meaning",
+     "register": "JHIGH",
+     "detail": "leadJa contains the gloss 「二月」 — 「冬の 朝、 | 母が カレンダーを めくり、 | 「もう 二月か」と つぶやいた。」"
+    },
+    {
+     "rule": "4.3-names-meaning",
+     "register": "JCOLL",
+     "detail": "leadJa contains the gloss 「二月」 — 「冬の 朝、 | 母が カレンダーを めくり、 | 「もう 二月か」と 独りごちた。」"
+    }
+   ]
+  },
+  {
+   "batch": "A107",
+   "id": "A107-079",
+   "word": "july",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「海に | 行くの？」 already used by A107 A107-065 august"
+    }
+   ]
+  },
+  {
+   "batch": "A107",
+   "id": "A107-082",
+   "word": "may",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「気持ち | いいね！」 already used by A104 A104-070 swimming"
+    }
+   ]
+  },
+  {
+   "batch": "A108",
+   "id": "A108-020",
+   "word": "beach",
+   "reasons": [
+    {
+     "rule": "4.3-names-meaning",
+     "register": "JCOLL",
+     "detail": "leadJa contains the gloss 「砂浜」 — 「夏の 日、 | 弟が 裸足で | 砂浜を 駆け回った。」"
+    }
+   ]
+  },
+  {
+   "batch": "A108",
+   "id": "A108-021",
+   "word": "bicycle",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「気を | つけてね！」 already used by A105 A105-085 dad"
+    }
+   ]
+  },
+  {
+   "batch": "A108",
+   "id": "A108-024",
+   "word": "bus",
+   "reasons": [
+    {
+     "rule": "4.3-names-meaning",
+     "register": "JPRIM",
+     "detail": "leadJa contains the gloss 「バス」 — 「朝、 | 父が バスていで | 時計を 見て=いた。」"
+    },
+    {
+     "rule": "4.3-names-meaning",
+     "register": "JSEC",
+     "detail": "leadJa contains the gloss 「バス」 — 「朝、 | 父が バス停で | 時計を 見て=いた。」"
+    },
+    {
+     "rule": "4.3-names-meaning",
+     "register": "JHIGH",
+     "detail": "leadJa contains the gloss 「バス」 — 「朝、 | 父が バス停で | 腕時計を 見て=いた。」"
+    },
+    {
+     "rule": "4.3-names-meaning",
+     "register": "JCOLL",
+     "detail": "leadJa contains the gloss 「バス」 — 「朝、 | 父が バス停で | 腕時計に 目を やった。」"
+    }
+   ]
+  },
+  {
+   "batch": "A108",
+   "id": "A108-026",
+   "word": "city",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「きれい | だね！」 already used by A106 A106-094 video"
+    }
+   ]
+  },
+  {
+   "batch": "A108",
+   "id": "A108-027",
+   "word": "driver",
+   "reasons": [
+    {
+     "rule": "4.3-names-meaning",
+     "register": "JPRIM",
+     "detail": "leadJa contains the gloss 「運てん手」 — 「朝、 | バスの 運てん手が | 「おはよう」と わらった。」"
+    },
+    {
+     "rule": "4.3-names-meaning",
+     "register": "JSEC",
+     "detail": "leadJa contains the gloss 「運転手」 — 「朝、 | バスの 運転手が | 「おはよう」と 笑った。」"
+    },
+    {
+     "rule": "4.3-names-meaning",
+     "register": "JHIGH",
+     "detail": "leadJa contains the gloss 「運転手」 — 「朝、 | バスの 運転手が | 乗客に 笑顔で あいさつした。」"
+    },
+    {
+     "rule": "4.3-names-meaning",
+     "register": "JCOLL",
+     "detail": "leadJa contains the gloss 「運転手」 — 「朝、 | バスの 運転手が | 乗客 一人一人に 会釈した。」"
+    }
+   ]
+  },
+  {
+   "batch": "A108",
+   "id": "A108-029",
+   "word": "holiday",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「どこへ | 行くの？」 already used by A108 A108-019 airport"
+    }
+   ]
+  },
+  {
+   "batch": "A108",
+   "id": "A108-040",
+   "word": "station",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「間に | 合う？」 already used by A107 A107-035 slow"
+    }
+   ]
+  },
+  {
+   "batch": "A108",
+   "id": "A108-041",
+   "word": "street",
+   "reasons": [
+    {
+     "rule": "4.3-names-meaning",
+     "register": "JPRIM",
+     "detail": "leadJa contains the gloss 「通り」 — 「夕方、 | 母と 店が 多い | 通りを 歩いた。」"
+    },
+    {
+     "rule": "4.3-names-meaning",
+     "register": "JSEC",
+     "detail": "leadJa contains the gloss 「通り」 — 「夕方、 | 母と 店が 多い | 通りを 歩いた。」"
+    },
+    {
+     "rule": "4.3-names-meaning",
+     "register": "JHIGH",
+     "detail": "leadJa contains the gloss 「通り」 — 「夕方、 | 母と 商店が 並ぶ | 通りを 歩いた。」"
+    },
+    {
+     "rule": "4.3-names-meaning",
+     "register": "JCOLL",
+     "detail": "leadJa contains the gloss 「通り」 — 「夕方、 | 母と 商店街の | 通りを そぞろ歩いた。」"
+    }
+   ]
+  },
+  {
+   "batch": "A108",
+   "id": "A108-046",
+   "word": "trip",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「どこへ | 行くの？」 already used by A108 A108-019 airport"
+    }
+   ]
+  },
+  {
+   "batch": "A108",
+   "id": "A108-053",
+   "word": "drive",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「どこへ | 行くの？」 already used by A108 A108-019 airport"
+    }
+   ]
+  },
+  {
+   "batch": "A108",
+   "id": "A108-066",
+   "word": "job",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「何時に | 帰る？」 already used by A103 A103-085 back"
+    }
+   ]
+  },
+  {
+   "batch": "A108",
+   "id": "A108-067",
+   "word": "meeting",
+   "reasons": [
+    {
+     "rule": "4.3-names-meaning",
+     "register": "JHIGH",
+     "detail": "leadJa contains the gloss 「会議」 — 「朝、 | 父が 会議室で | 同僚と テーブルを 囲んだ。」"
+    },
+    {
+     "rule": "4.3-names-meaning",
+     "register": "JCOLL",
+     "detail": "leadJa contains the gloss 「会議」 — 「朝、 | 父が 会議室で | 同僚と 資料を 広げた。」"
+    }
+   ]
+  },
+  {
+   "batch": "A108",
+   "id": "A108-069",
+   "word": "project",
+   "reasons": [
+    {
+     "rule": "4.3-names-meaning",
+     "register": "JHIGH",
+     "detail": "leadJa contains the gloss 「計画」 — 「夜、 | 姉が 仲間と 模造紙に | 計画表を 書いて=いた。」"
+    }
+   ]
+  },
+  {
+   "batch": "A108",
+   "id": "A108-079",
+   "word": "work",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「間に | 合う？」 already used by A107 A107-035 slow"
+    }
+   ]
+  },
+  {
+   "batch": "A201",
+   "id": "A201-026",
+   "word": "behave",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「しっかり | してる！」 already used by A201 A201-017 independent"
+    }
+   ]
+  },
+  {
+   "batch": "A201",
+   "id": "A201-052",
+   "word": "chat",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「気づけば | 一時間！」 already used by A101 A101-015 conversation"
+    }
+   ]
+  },
+  {
+   "batch": "A201",
+   "id": "A201-053",
+   "word": "mail",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「何か | 届いてる？」 already used by A101 A101-041 post"
+    }
+   ]
+  },
+  {
+   "batch": "A201",
+   "id": "A201-082",
+   "word": "usual",
+   "reasons": [
+    {
+     "rule": "4.3-names-meaning",
+     "register": "JCOLL",
+     "detail": "leadJa contains the gloss 「例の」 — 「カフェの 店員さんが | 顔を 見るなり、 | 「例の ですね」と 言う。」"
+    }
+   ]
+  },
+  {
+   "batch": "A201",
+   "id": "A201-094",
+   "word": "couple",
+   "reasons": [
+    {
+     "rule": "4.3-names-meaning",
+     "register": "JHIGH",
+     "detail": "leadJa contains the gloss 「夫婦」 — 「公園で、 | 老夫婦が | 手を つないで 歩く。」"
+    },
+    {
+     "rule": "4.3-names-meaning",
+     "register": "JCOLL",
+     "detail": "leadJa contains the gloss 「夫婦」 — 「公園で、 | 老夫婦が | 手を 取り合って 歩く。」"
+    }
+   ]
+  },
+  {
+   "batch": "A202",
+   "id": "A202-005",
+   "word": "hall",
+   "reasons": [
+    {
+     "rule": "4.3-names-meaning",
+     "register": "JPRIM",
+     "detail": "leadJa contains the gloss 「大きな部屋」 — 「町の 大きな 部屋に、 | いすが ずらりと | ならんで=いる。」"
+    }
+   ]
+  },
+  {
+   "batch": "A202",
+   "id": "A202-010",
+   "word": "pants",
+   "reasons": [
+    {
+     "rule": "4.3-names-meaning",
+     "register": "JPRIM",
+     "detail": "leadJa contains the gloss 「ズボン」 — 「新しい ズボンを はくと、 | すそが ゆかに | ずるずる つく。」"
+    },
+    {
+     "rule": "4.3-names-meaning",
+     "register": "JSEC",
+     "detail": "leadJa contains the gloss 「ズボン」 — 「新しい ズボンを はくと、 | すそが ゆかに | ずるずる つく。」"
+    },
+    {
+     "rule": "4.3-names-meaning",
+     "register": "JHIGH",
+     "detail": "leadJa contains the gloss 「ズボン」 — 「新しい ズボンを はくと、 | すそが 床に | ずるずる つく。」"
+    },
+    {
+     "rule": "4.3-names-meaning",
+     "register": "JCOLL",
+     "detail": "leadJa contains the gloss 「ズボン」 — 「新調した ズボンを はくと、 | 裾が 床に | 引きずられる。」"
+    }
+   ]
+  },
+  {
+   "batch": "A202",
+   "id": "A202-011",
+   "word": "pet",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「ほっと | する！」 already used by A101 A101-082 cup"
+    }
+   ]
+  },
+  {
+   "batch": "A202",
+   "id": "A202-014",
+   "word": "roof",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「気持ち | よさそう！」 already used by A108 A108-054 fly"
+    }
+   ]
+  },
+  {
+   "batch": "A202",
+   "id": "A202-022",
+   "word": "stove",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「いい | 香り！」 already used by A107 A107-088 morning"
+    }
+   ]
+  },
+  {
+   "batch": "A202",
+   "id": "A202-027",
+   "word": "brush",
+   "reasons": [
+    {
+     "rule": "4.3-names-meaning",
+     "register": "JPRIM",
+     "detail": "leadJa contains the gloss 「ブラシ」 — 「朝、 | かみが からまって、 | 古い ブラシが ひっかかる。」"
+    },
+    {
+     "rule": "4.3-names-meaning",
+     "register": "JSEC",
+     "detail": "leadJa contains the gloss 「ブラシ」 — 「朝、 | かみが からまって、 | 古い ブラシが ひっかかる。」"
+    },
+    {
+     "rule": "4.3-names-meaning",
+     "register": "JHIGH",
+     "detail": "leadJa contains the gloss 「ブラシ」 — 「朝、 | 髪が からまって、 | 古い ブラシが 引っかかる。」"
+    },
+    {
+     "rule": "4.3-names-meaning",
+     "register": "JCOLL",
+     "detail": "leadJa contains the gloss 「ブラシ」 — 「朝、 | 髪が もつれ、 | 古い ブラシが 引っかかる。」"
+    }
+   ]
+  },
+  {
+   "batch": "A202",
+   "id": "A202-028",
+   "word": "lift",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「階段は | 無理！」 already used by A201 A201-097 elevator"
+    }
+   ]
+  },
+  {
+   "batch": "A202",
+   "id": "A202-031",
+   "word": "tie",
+   "reasons": [
+    {
+     "rule": "4.3-names-meaning",
+     "register": "JCOLL",
+     "detail": "leadJa contains the gloss 「ネクタイ」 — 「毎朝、 | 父は 鏡の 前で | ネクタイを きゅっと 締める。」"
+    }
+   ]
+  },
+  {
+   "batch": "A202",
+   "id": "A202-043",
+   "word": "worried",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「大丈夫 | かな？」 already used by A103 A103-060 how"
+    }
+   ]
+  },
+  {
+   "batch": "A202",
+   "id": "A202-052",
+   "word": "unhappy",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「何か | あった？」 already used by A106 A106-090 internet"
+    }
+   ]
+  },
+  {
+   "batch": "A202",
+   "id": "A202-061",
+   "word": "stress",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「もう | 限界！」 already used by A102 A102-059 hungry"
+    }
+   ]
+  },
+  {
+   "batch": "A202",
+   "id": "A202-072",
+   "word": "beef",
+   "reasons": [
+    {
+     "rule": "4.3-names-meaning",
+     "register": "JHIGH",
+     "detail": "leadJa contains the gloss 「牛肉」 — 「家族で バーベキューを して、 | 牛肉が | ジュージュー 焼けて=いる。」"
+    },
+    {
+     "rule": "4.3-names-meaning",
+     "register": "JCOLL",
+     "detail": "leadJa contains the gloss 「牛肉」 — 「家族で バーベキューを し、 | 牛肉が | ジュージュー 焼けて=いる。」"
+    }
+   ]
+  },
+  {
+   "batch": "A202",
+   "id": "A202-076",
+   "word": "candy",
+   "reasons": [
+    {
+     "rule": "4.3-names-meaning",
+     "register": "JPRIM",
+     "detail": "leadJa contains the gloss 「あめ」 — 「お祭りの 帰りに、 | ふくろいっぱいの | カラフルな あめを もらった。」"
+    },
+    {
+     "rule": "4.3-names-meaning",
+     "register": "JSEC",
+     "detail": "leadJa contains the gloss 「あめ」 — 「祭りの 帰りに、 | ふくろいっぱいの | カラフルな あめを もらった。」"
+    },
+    {
+     "rule": "4.3-names-meaning",
+     "register": "JHIGH",
+     "detail": "leadJa contains the gloss 「あめ」 — 「祭りの 帰りに、 | 袋いっぱいの | カラフルな あめを もらった。」"
+    },
+    {
+     "rule": "4.3-names-meaning",
+     "register": "JCOLL",
+     "detail": "leadJa contains the gloss 「あめ」 — 「祭りの 帰りに、 | 袋いっぱいの | 色とりどりの あめを もらった。」"
+    }
+   ]
+  },
+  {
+   "batch": "A202",
+   "id": "A202-078",
+   "word": "cookie",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「甘い | 香り！」 already used by A104 A104-066 nose"
+    }
+   ]
+  },
+  {
+   "batch": "A202",
+   "id": "A202-081",
+   "word": "jam",
+   "reasons": [
+    {
+     "rule": "4.3-names-meaning",
+     "register": "JPRIM",
+     "detail": "leadJa contains the gloss 「ジャム」 — 「朝ごはんの パンに、 | 赤い いちごの ジャムを | たっぷり ぬる。」"
+    },
+    {
+     "rule": "4.3-names-meaning",
+     "register": "JSEC",
+     "detail": "leadJa contains the gloss 「ジャム」 — 「朝ご飯の パンに、 | 赤い いちごの ジャムを | たっぷり ぬる。」"
+    },
+    {
+     "rule": "4.3-names-meaning",
+     "register": "JHIGH",
+     "detail": "leadJa contains the gloss 「ジャム」 — 「朝食の パンに、 | 赤い いちごの ジャムを | たっぷり 塗る。」"
+    },
+    {
+     "rule": "4.3-names-meaning",
+     "register": "JCOLL",
+     "detail": "leadJa contains the gloss 「ジャム」 — 「朝食の パンに、 | いちごジャムを | たっぷり 塗る。」"
+    }
+   ]
+  },
+  {
+   "batch": "A202",
+   "id": "A202-084",
+   "word": "oil",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「やけど | 注意！」 already used by A201 A201-008 careful"
+    }
+   ]
+  },
+  {
+   "batch": "A202",
+   "id": "A202-088",
+   "word": "sauce",
+   "reasons": [
+    {
+     "rule": "4.3-names-meaning",
+     "register": "JPRIM",
+     "detail": "leadJa contains the gloss 「ソース」 — 「レストランで、 | 白い 魚に | 赤い ソースが かかって=いる。」"
+    },
+    {
+     "rule": "4.3-names-meaning",
+     "register": "JSEC",
+     "detail": "leadJa contains the gloss 「ソース」 — 「レストランで、 | 白い 魚に | 赤い ソースが かかって=いる。」"
+    },
+    {
+     "rule": "4.3-names-meaning",
+     "register": "JHIGH",
+     "detail": "leadJa contains the gloss 「ソース」 — 「レストランで、 | 白身の 魚に | 赤い ソースが かかって=いる。」"
+    },
+    {
+     "rule": "4.3-names-meaning",
+     "register": "JCOLL",
+     "detail": "leadJa contains the gloss 「ソース」 — 「レストランで、 | 白身魚に | 赤い ソースが かかって=いる。」"
+    }
+   ]
+  },
+  {
+   "batch": "A203",
+   "id": "A203-046",
+   "word": "everywhere",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「かぎ、 | どこ行った？」 already used by A201 A201-006 search"
+    }
+   ]
+  },
+  {
+   "batch": "A203",
+   "id": "A203-048",
+   "word": "extremely",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「まだ | 終わらない？」 already used by A108 A108-070 report"
+    }
+   ]
+  },
+  {
+   "batch": "A203",
+   "id": "A203-063",
+   "word": "background",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「映える | 一枚！」 already used by A101 A101-049 send"
+    }
+   ]
+  },
+  {
+   "batch": "A203",
+   "id": "A203-092",
+   "word": "tip",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「神 | 対応！」 already used by A102 A102-040 nice"
+    }
+   ]
+  },
+  {
+   "batch": "A204",
+   "id": "A204-001",
+   "word": "support",
+   "reasons": [
+    {
+     "rule": "4.3-names-meaning",
+     "register": "JPRIM",
+     "detail": "leadJa contains the gloss 「おうえん」 — 「サッカーの しあいの あと、 | 友だちが 大きな 声で | ずっと おうえんして=くれた。」"
+    },
+    {
+     "rule": "4.3-names-meaning",
+     "register": "JSEC",
+     "detail": "leadJa contains the gloss 「応えん」 — 「サッカーの 試合の あと、 | 友達が 大きな 声で | ずっと 応えんして=くれた。」"
+    }
+   ]
+  },
+  {
+   "batch": "A204",
+   "id": "A204-019",
+   "word": "protect",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「暑 | すぎる！」 already used by A202 A202-100 extreme"
+    }
+   ]
+  },
+  {
+   "batch": "A204",
+   "id": "A204-028",
+   "word": "replace",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「もう | 限界！」 already used by A102 A102-059 hungry"
+    }
+   ]
+  },
+  {
+   "batch": "A204",
+   "id": "A204-029",
+   "word": "rise",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「また | 値上げ？」 already used by A203 A203-099 increase"
+    }
+   ]
+  },
+  {
+   "batch": "A204",
+   "id": "A204-031",
+   "word": "throw",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「パス | ちょうだい！」 already used by A104 A104-049 ball"
+    }
+   ]
+  },
+  {
+   "batch": "A204",
+   "id": "A204-040",
+   "word": "hurt",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「大丈夫？」 already used by A202 A202-054 fortunately"
+    }
+   ]
+  },
+  {
+   "batch": "A204",
+   "id": "A204-042",
+   "word": "athlete",
+   "reasons": [
+    {
+     "rule": "4.3-names-meaning",
+     "register": "JPRIM",
+     "detail": "leadJa contains the gloss 「せん手」 — 「テレビで | 金メダルの せん手が | 手を ふって=いた。」"
+    },
+    {
+     "rule": "4.3-names-meaning",
+     "register": "JSEC",
+     "detail": "leadJa contains the gloss 「選手」 — 「テレビで | 金メダルの 選手が | 手を ふって=いた。」"
+    },
+    {
+     "rule": "4.3-names-meaning",
+     "register": "JHIGH",
+     "detail": "leadJa contains the gloss 「選手」 — 「テレビで | 金メダルの 選手が | 手を 振って=いた。」"
+    }
+   ]
+  },
+  {
+   "batch": "A204",
+   "id": "A204-049",
+   "word": "dentist",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「ドキドキ | する！」 already used by A204 A204-018 pick"
+    }
+   ]
+  },
+  {
+   "batch": "A204",
+   "id": "A204-053",
+   "word": "flu",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「まさか！」 already used by A202 A202-051 surprising"
+    }
+   ]
+  },
+  {
+   "batch": "A204",
+   "id": "A204-058",
+   "word": "illness",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「何か | あった？」 already used by A106 A106-090 internet"
+    }
+   ]
+  },
+  {
+   "batch": "A204",
+   "id": "A204-060",
+   "word": "knee",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「大丈夫？」 already used by A202 A202-054 fortunately"
+    }
+   ]
+  },
+  {
+   "batch": "A204",
+   "id": "A204-064",
+   "word": "runner",
+   "reasons": [
+    {
+     "rule": "4.3-names-meaning",
+     "register": "JCOLL",
+     "detail": "leadJa contains the gloss 「走者」 — 「運動会で 姉が、 | 次々と | 他の 走者を 抜き去った。」"
+    }
+   ]
+  },
+  {
+   "batch": "A204",
+   "id": "A204-065",
+   "word": "running",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「気持ち | いい！」 already used by A202 A202-017 sheet"
+    }
+   ]
+  },
+  {
+   "batch": "A204",
+   "id": "A204-066",
+   "word": "sailing",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「風が | 気持ち いい！」 already used by A103 A103-097 place"
+    }
+   ]
+  },
+  {
+   "batch": "A204",
+   "id": "A204-068",
+   "word": "skiing",
+   "reasons": [
+    {
+     "rule": "4.3-names-meaning",
+     "register": "JPRIM",
+     "detail": "leadJa contains the gloss 「スキー」 — 「冬休みが 近づくと、 | 弟が スキーの | しゃしんを ながめて=いた。」"
+    },
+    {
+     "rule": "4.3-names-meaning",
+     "register": "JSEC",
+     "detail": "leadJa contains the gloss 「スキー」 — 「冬休みが 近づくと、 | 弟が スキーの | 写真を ながめて=いた。」"
+    },
+    {
+     "rule": "4.3-names-meaning",
+     "register": "JHIGH",
+     "detail": "leadJa contains the gloss 「スキー」 — 「冬休みが 近づくと、 | 弟が スキーの | 写真を ながめて=いた。」"
+    },
+    {
+     "rule": "4.3-names-meaning",
+     "register": "JCOLL",
+     "detail": "leadJa contains the gloss 「スキー」 — 「冬休みが 近づくと、 | 弟が スキー場の | 写真を 眺めて=いた。」"
+    }
+   ]
+  },
+  {
+   "batch": "A204",
+   "id": "A204-071",
+   "word": "stomach",
+   "reasons": [
+    {
+     "rule": "4.3-names-meaning",
+     "register": "JPRIM",
+     "detail": "leadJa contains the gloss 「おなか」 — 「昼ごはんの あと、 | 弟が おなかを | おさえて うずくまった。」"
+    },
+    {
+     "rule": "4.3-names-meaning",
+     "register": "JSEC",
+     "detail": "leadJa contains the gloss 「おなか」 — 「昼食の あと、 | 弟が おなかを | おさえて うずくまった。」"
+    },
+    {
+     "rule": "4.3-names-meaning",
+     "register": "JCOLL",
+     "detail": "leadJa contains the gloss 「腹部」 — 「昼食の 後、 | 弟が 腹部を | 押さえて うずくまった。」"
+    }
+   ]
+  },
+  {
+   "batch": "A204",
+   "id": "A204-074",
+   "word": "weight",
+   "reasons": [
+    {
+     "rule": "4.3-names-meaning",
+     "register": "JSEC",
+     "detail": "leadJa contains the gloss 「体重」 — 「健康しんだんで、 | かんごしさんが | 体重計を 指さした。」"
+    },
+    {
+     "rule": "4.3-names-meaning",
+     "register": "JHIGH",
+     "detail": "leadJa contains the gloss 「体重」 — 「健康診断で、 | 看護師さんが | 体重計を 指さした。」"
+    },
+    {
+     "rule": "4.3-names-meaning",
+     "register": "JCOLL",
+     "detail": "leadJa contains the gloss 「体重」 — 「健康診断で、 | 看護師が | 体重計を 指し示した。」"
+    }
+   ]
+  },
+  {
+   "batch": "A204",
+   "id": "A204-075",
+   "word": "care",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「大変 | そう！」 already used by A104 A104-030 let"
+    }
+   ]
+  },
+  {
+   "batch": "A204",
+   "id": "A204-078",
+   "word": "rest",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「お疲れ | さま！」 already used by A108 A108-011 finish"
+    }
+   ]
+  },
+  {
+   "batch": "A205",
+   "id": "A205-010",
+   "word": "field",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「のどか | だね！」 already used by A105 A105-031 village"
+    }
+   ]
+  },
+  {
+   "batch": "A205",
+   "id": "A205-014",
+   "word": "grass",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「何て | 書いてある？」 already used by A107 A107-059 tomorrow"
+    }
+   ]
+  },
+  {
+   "batch": "A205",
+   "id": "A205-022",
+   "word": "ocean",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「きれい！」 already used by A204 A204-082 gold"
+    }
+   ]
+  },
+  {
+   "batch": "A205",
+   "id": "A205-028",
+   "word": "stone",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「頑丈 | そう！」 already used by A203 A203-090 structure"
+    }
+   ]
+  },
+  {
+   "batch": "A205",
+   "id": "A205-031",
+   "word": "valley",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「あれは | 何？」 already used by A204 A204-052 finger"
+    }
+   ]
+  },
+  {
+   "batch": "A205",
+   "id": "A205-033",
+   "word": "wind",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「待って！」 already used by A204 A204-036 safe"
+    }
+   ]
+  },
+  {
+   "batch": "A205",
+   "id": "A205-040",
+   "word": "bright",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「まぶしい！」 already used by A202 A202-030 ring"
+    }
+   ]
+  },
+  {
+   "batch": "A205",
+   "id": "A205-064",
+   "word": "smell",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「おいしそう！」 already used by A202 A202-077 chip"
+    }
+   ]
+  },
+  {
+   "batch": "A205",
+   "id": "A205-068",
+   "word": "classical",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「きれい！」 already used by A204 A204-082 gold"
+    }
+   ]
+  },
+  {
+   "batch": "A205",
+   "id": "A205-074",
+   "word": "social",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「また | 出かけるの？」 already used by A108 A108-057 travel"
+    }
+   ]
+  },
+  {
+   "batch": "A205",
+   "id": "A205-079",
+   "word": "human",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「大丈夫？」 already used by A202 A202-054 fortunately"
+    }
+   ]
+  },
+  {
+   "batch": "A205",
+   "id": "A205-081",
+   "word": "male",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「かわいい！」 already used by A205 A205-019 monkey"
+    }
+   ]
+  },
+  {
+   "batch": "A205",
+   "id": "A205-087",
+   "word": "audience",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「どうだった？」 already used by A106 A106-062 result"
+    }
+   ]
+  },
+  {
+   "batch": "A205",
+   "id": "A205-088",
+   "word": "author",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「だれの | 本？」 already used by A108 A108-076 writer"
+    },
+    {
+     "rule": "4.3-names-meaning",
+     "register": "JCOLL",
+     "detail": "leadJa contains the gloss 「著者」 — 「古書店で、 | 著者名の ない | 不思議な 本を 見つけた。」"
+    }
+   ]
+  },
+  {
+   "batch": "A205",
+   "id": "A205-093",
+   "word": "community",
+   "reasons": [
+    {
+     "rule": "4.3-names-meaning",
+     "register": "JPRIM",
+     "detail": "leadJa contains the gloss 「町の人たち」 — 「日曜日、 | 町の 人たちが | たてものの 前に きた。」"
+    }
+   ]
+  },
+  {
+   "batch": "A205",
+   "id": "A205-095",
+   "word": "crowd",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「どうしたの？」 already used by A205 A205-053 loudly"
+    }
+   ]
+  },
+  {
+   "batch": "A206",
+   "id": "A206-019",
+   "word": "stage",
+   "reasons": [
+    {
+     "rule": "U1-ceiling",
+     "detail": "usageEn uses \"onto\" (B1) on a A2 card — \"The band came onto the _____.\""
+    },
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「いよいよ | 開演！」 already used by A105 A105-081 concert"
+    }
+   ]
+  },
+  {
+   "batch": "A206",
+   "id": "A206-022",
+   "word": "wedding",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「おめでとう！」 already used by A203 A203-081 prize"
+    }
+   ]
+  },
+  {
+   "batch": "A206",
+   "id": "A206-026",
+   "word": "compete",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「どっちが | 勝つ？」 already used by A108 A108-074 team"
+    }
+   ]
+  },
+  {
+   "batch": "A206",
+   "id": "A206-035",
+   "word": "chemistry",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「どこに | 消えた？」 already used by A203 A203-007 missing"
+    }
+   ]
+  },
+  {
+   "batch": "A206",
+   "id": "A206-042",
+   "word": "fiction",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「続きが | 気に なる！」 already used by A104 A104-025 happen"
+    }
+   ]
+  },
+  {
+   "batch": "A206",
+   "id": "A206-052",
+   "word": "novel",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「続きが | 気に なる！」 already used by A104 A104-025 happen"
+    }
+   ]
+  },
+  {
+   "batch": "A206",
+   "id": "A206-063",
+   "word": "mark",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「努力が | 実った！」 already used by A202 A202-099 excellent"
+    }
+   ]
+  },
+  {
+   "batch": "A206",
+   "id": "A206-069",
+   "word": "pass",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「きっと | いける！」 already used by A203 A203-075 luck"
+    }
+   ]
+  },
+  {
+   "batch": "A206",
+   "id": "A206-088",
+   "word": "profile",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「いい | 一枚！」 already used by A206 A206-071 digital"
+    }
+   ]
+  },
+  {
+   "batch": "A206",
+   "id": "A206-093",
+   "word": "smartphone",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「いい | 一枚！」 already used by A206 A206-071 digital"
+    }
+   ]
+  },
+  {
+   "batch": "A206",
+   "id": "A206-097",
+   "word": "user",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「大人気 | だね！」 already used by A106 A106-014 people"
+    }
+   ]
+  },
+  {
+   "batch": "A207",
+   "id": "A207-015",
+   "word": "error",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「どこが | 違うの？」 already used by A107 A107-010 difference"
+    }
+   ]
+  },
+  {
+   "batch": "A207",
+   "id": "A207-016",
+   "word": "evidence",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「犯人は | だれ？」 already used by A103 A103-081 under"
+    }
+   ]
+  },
+  {
+   "batch": "A207",
+   "id": "A207-019",
+   "word": "memory",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「懐かしい！」 already used by A206 A206-090 recording"
+    }
+   ]
+  },
+  {
+   "batch": "A207",
+   "id": "A207-020",
+   "word": "method",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「何を | 作るの？」 already used by A108 A108-069 project"
+    }
+   ]
+  },
+  {
+   "batch": "A207",
+   "id": "A207-024",
+   "word": "solution",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「どう | しよう？」 already used by A202 A202-065 please"
+    }
+   ]
+  },
+  {
+   "batch": "A207",
+   "id": "A207-043",
+   "word": "recent",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「はい、 | チーズ！」 already used by A106 A106-016 photograph"
+    }
+   ]
+  },
+  {
+   "batch": "A207",
+   "id": "A207-049",
+   "word": "finally",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「まだ | 来ない？」 already used by A108 A108-024 bus"
+    }
+   ]
+  },
+  {
+   "batch": "A207",
+   "id": "A207-059",
+   "word": "foreign",
+   "reasons": [
+    {
+     "rule": "4.3-names-meaning",
+     "register": "JCOLL",
+     "detail": "leadJa contains the gloss 「異国の」 — 「家に 来た 母の 友人が、 | 母と 異国の 言語で | 楽しげに 会話して=いた。」"
+    }
+   ]
+  },
+  {
+   "batch": "A207",
+   "id": "A207-061",
+   "word": "underground",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「どこへ | 行くの？」 already used by A108 A108-019 airport"
+    }
+   ]
+  },
+  {
+   "batch": "A207",
+   "id": "A207-070",
+   "word": "driving",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「楽しそう！」 already used by A205 A205-083 public"
+    }
+   ]
+  },
+  {
+   "batch": "A207",
+   "id": "A207-072",
+   "word": "motorcycle",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「かっこいい！」 already used by A204 A204-042 athlete"
+    }
+   ]
+  },
+  {
+   "batch": "A207",
+   "id": "A207-081",
+   "word": "region",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「おいしそう！」 already used by A202 A202-077 chip"
+    }
+   ]
+  },
+  {
+   "batch": "A207",
+   "id": "A207-082",
+   "word": "route",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「間に | 合う？」 already used by A107 A107-035 slow"
+    }
+   ]
+  },
+  {
+   "batch": "A207",
+   "id": "A207-084",
+   "word": "speed",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「速い！」 already used by A204 A204-057 hockey"
+    }
+   ]
+  },
+  {
+   "batch": "A207",
+   "id": "A207-093",
+   "word": "van",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「どこへ | 行くの？」 already used by A108 A108-019 airport"
+    }
+   ]
+  },
+  {
+   "batch": "A207",
+   "id": "A207-097",
+   "word": "camp",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「楽し | そう！」 already used by A205 A205-083 public"
+    }
+   ]
+  },
+  {
+   "batch": "A208",
+   "id": "A208-033",
+   "word": "service",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「神対応 | じゃん！」 already used by A201 A201-016 helpful"
+    }
+   ]
+  },
+  {
+   "batch": "A208",
+   "id": "A208-036",
+   "word": "tool",
+   "reasons": [
+    {
+     "rule": "4.3-names-meaning",
+     "register": "JHIGH",
+     "detail": "leadJa contains the gloss 「道具」 — 「父が 赤い 道具箱から | 小さな ハンマーを | 取り出した。」"
+    },
+    {
+     "rule": "4.3-names-meaning",
+     "register": "JCOLL",
+     "detail": "leadJa contains the gloss 「道具」 — 「父が 赤い 道具箱から | 小ぶりの ハンマーを | 取り出した。」"
+    }
+   ]
+  },
+  {
+   "batch": "B101",
+   "id": "B101-047",
+   "word": "confirm",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「念には | 念を！」 already used by A204 A204-081 prevent"
+    }
+   ]
+  },
+  {
+   "batch": "B101",
+   "id": "B101-059",
+   "word": "indoor",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「雨でも | 平気！」 already used by A203 A203-036 anyway"
+    }
+   ]
+  },
+  {
+   "batch": "B101",
+   "id": "B101-093",
+   "word": "pot",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「いい | におい！」 already used by A205 A205-076 traditional"
+    }
+   ]
+  },
+  {
+   "batch": "B102",
+   "id": "B102-011",
+   "word": "hang",
+   "reasons": [
+    {
+     "rule": "4.3-names-meaning",
+     "register": "JSEC",
+     "detail": "leadJa contains the gloss 「かける」 — 「家に 帰ると、 | 兄は コートを | ドアの 横の フックに かけた。」"
+    },
+    {
+     "rule": "4.3-names-meaning",
+     "register": "JHIGH",
+     "detail": "leadJa contains the gloss 「掛ける」 — 「家に 帰ると、 | 兄は コートを | ドアの 横の フックに 掛けた。」"
+    },
+    {
+     "rule": "4.3-names-meaning",
+     "register": "JCOLL",
+     "detail": "leadJa contains the gloss 「掛ける」 — 「帰宅すると、 | 兄は コートを | 玄関の フックに 掛けた。」"
+    }
+   ]
+  },
+  {
+   "batch": "B102",
+   "id": "B102-012",
+   "word": "confused",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「え、 | どういう=こと？」 already used by A101 A101-024 meaning"
+    }
+   ]
+  },
+  {
+   "batch": "B102",
+   "id": "B102-014",
+   "word": "grateful",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「神対応！」 already used by A102 A102-040 nice"
+    }
+   ]
+  },
+  {
+   "batch": "B102",
+   "id": "B102-032",
+   "word": "pleasant",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「風が | 気持ちいい！」 already used by A103 A103-097 place"
+    }
+   ]
+  },
+  {
+   "batch": "B102",
+   "id": "B102-034",
+   "word": "relaxing",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「至福の | 時間！」 already used by A206 A206-010 peace"
+    }
+   ]
+  },
+  {
+   "batch": "B102",
+   "id": "B102-049",
+   "word": "annoy",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「眠れ | ない！」 already used by A205 A205-035 heat"
+    }
+   ]
+  },
+  {
+   "batch": "B102",
+   "id": "B102-055",
+   "word": "corn",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「いい | におい！」 already used by A205 A205-076 traditional"
+    }
+   ]
+  },
+  {
+   "batch": "B102",
+   "id": "B102-061",
+   "word": "bite",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「おいし=そう！」 already used by A202 A202-077 chip"
+    }
+   ]
+  },
+  {
+   "batch": "B102",
+   "id": "B102-092",
+   "word": "various",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「どれに | しよう？」 already used by A107 A107-021 choose"
+    }
+   ]
+  },
+  {
+   "batch": "B102",
+   "id": "B102-095",
+   "word": "standard",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「部屋に | 入るかな？」 already used by A103 A103-091 metre"
+    }
+   ]
+  },
+  {
+   "batch": "B103",
+   "id": "B103-030",
+   "word": "successfully",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「おめ | でとう！」 already used by A203 A203-081 prize"
+    }
+   ]
+  },
+  {
+   "batch": "B103",
+   "id": "B103-037",
+   "word": "typically",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「いい | におい！」 already used by A205 A205-076 traditional"
+    }
+   ]
+  },
+  {
+   "batch": "B103",
+   "id": "B103-049",
+   "word": "favour",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「え、 | 何？」 already used by A107 A107-040 again"
+    }
+   ]
+  },
+  {
+   "batch": "B103",
+   "id": "B103-057",
+   "word": "range",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「迷う | なあ！」 already used by A203 A203-095 variety"
+    }
+   ]
+  },
+  {
+   "batch": "B103",
+   "id": "B103-062",
+   "word": "setting",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「続きが | 気に なる！」 already used by A104 A104-025 happen"
+    }
+   ]
+  },
+  {
+   "batch": "B103",
+   "id": "B103-065",
+   "word": "stuff",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「足の 踏み場が | ない！」 already used by B101 B101-087 mess"
+    }
+   ]
+  },
+  {
+   "batch": "B103",
+   "id": "B103-083",
+   "word": "set",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「テンション | 上がる！」 already used by A201 A201-031 comment"
+    }
+   ]
+  },
+  {
+   "batch": "B103",
+   "id": "B103-094",
+   "word": "remain",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「もうすぐ | 始まるよ！」 already used by A103 A103-070 on"
+    }
+   ]
+  },
+  {
+   "batch": "B104",
+   "id": "B104-012",
+   "word": "net",
+   "reasons": [
+    {
+     "rule": "4.3-names-meaning",
+     "register": "JSEC",
+     "detail": "leadJa contains the gloss 「あみ」 — 「体育館で、 | バレーボールが | 白い あみに ぶつかって 落ちた。」"
+    }
+   ]
+  },
+  {
+   "batch": "B104",
+   "id": "B104-023",
+   "word": "tongue",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「やけど | 注意！」 already used by A201 A201-008 careful"
+    }
+   ]
+  },
+  {
+   "batch": "B104",
+   "id": "B104-028",
+   "word": "economic",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「また | 値上げ？」 already used by A203 A203-099 increase"
+    }
+   ]
+  },
+  {
+   "batch": "B104",
+   "id": "B104-029",
+   "word": "financial",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「頼れる | 姉だね！」 already used by A208 A208-025 leader"
+    }
+   ]
+  },
+  {
+   "batch": "B104",
+   "id": "B104-036",
+   "word": "coin",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「何だろう？」 already used by A205 A205-080 individual"
+    }
+   ]
+  },
+  {
+   "batch": "B104",
+   "id": "B104-040",
+   "word": "discount",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「ラッキー！」 already used by B102 B102-085 rare"
+    }
+   ]
+  },
+  {
+   "batch": "B104",
+   "id": "B104-044",
+   "word": "payment",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「便利 | だね！」 already used by A206 A206-086 network"
+    }
+   ]
+  },
+  {
+   "batch": "B104",
+   "id": "B104-050",
+   "word": "value",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「いくら | かな？」 already used by B104 B104-034 total"
+    }
+   ]
+  },
+  {
+   "batch": "B104",
+   "id": "B104-052",
+   "word": "charge",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「うらやましい！」 already used by B103 B103-014 naturally"
+    }
+   ]
+  },
+  {
+   "batch": "B104",
+   "id": "B104-054",
+   "word": "export",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「おいしそう！」 already used by A202 A202-077 chip"
+    }
+   ]
+  },
+  {
+   "batch": "B104",
+   "id": "B104-059",
+   "word": "trade",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「仲良し | だね！」 already used by A206 A206-014 relationship"
+    }
+   ]
+  },
+  {
+   "batch": "B104",
+   "id": "B104-064",
+   "word": "outdoor",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「気持ちいい！」 already used by A202 A202-017 sheet"
+    }
+   ]
+  },
+  {
+   "batch": "B104",
+   "id": "B104-072",
+   "word": "branch",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「かわいい！」 already used by A205 A205-019 monkey"
+    }
+   ]
+  },
+  {
+   "batch": "B104",
+   "id": "B104-073",
+   "word": "coal",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「迫力 | ある！」 already used by A105 A105-018 lion"
+    }
+   ]
+  },
+  {
+   "batch": "B104",
+   "id": "B104-074",
+   "word": "countryside",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「空気が | おいしい！」 already used by A105 A105-011 farm"
+    }
+   ]
+  },
+  {
+   "batch": "B104",
+   "id": "B104-076",
+   "word": "fur",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「ふわふわ！」 already used by B102 B102-058 ingredient"
+    }
+   ]
+  },
+  {
+   "batch": "B104",
+   "id": "B104-079",
+   "word": "mine",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「かっこいい！」 already used by A204 A204-042 athlete"
+    }
+   ]
+  },
+  {
+   "batch": "B104",
+   "id": "B104-084",
+   "word": "soil",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「ふかふか！」 already used by A205 A205-045 soft"
+    }
+   ]
+  },
+  {
+   "batch": "B104",
+   "id": "B104-086",
+   "word": "wing",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「大丈夫？」 already used by A202 A202-054 fortunately"
+    }
+   ]
+  },
+  {
+   "batch": "B104",
+   "id": "B104-089",
+   "word": "freeze",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「寒っ！」 already used by B101 B101-083 heating"
+    }
+   ]
+  },
+  {
+   "batch": "B104",
+   "id": "B104-090",
+   "word": "hunt",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「フクロウ | かな？」 already used by A205 A205-012 forest"
+    }
+   ]
+  },
+  {
+   "batch": "B104",
+   "id": "B104-092",
+   "word": "medium",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「どれに | しよう？」 already used by A107 A107-021 choose"
+    }
+   ]
+  },
+  {
+   "batch": "B104",
+   "id": "B104-094",
+   "word": "pale",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「大丈夫？」 already used by A202 A202-054 fortunately"
+    }
+   ]
+  },
+  {
+   "batch": "B104",
+   "id": "B104-096",
+   "word": "sharp",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「気を | つけてね！」 already used by A105 A105-085 dad"
+    }
+   ]
+  },
+  {
+   "batch": "B105",
+   "id": "B105-002",
+   "word": "solid",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「びくとも | しない！」 already used by A204 A204-022 push"
+    }
+   ]
+  },
+  {
+   "batch": "B105",
+   "id": "B105-027",
+   "word": "channel",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「何か | 面白いの ある？」 already used by A106 A106-093 tv"
+    }
+   ]
+  },
+  {
+   "batch": "B105",
+   "id": "B105-039",
+   "word": "gentleman",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「かっこ | いい！」 already used by A204 A204-042 athlete"
+    }
+   ]
+  },
+  {
+   "batch": "B105",
+   "id": "B105-041",
+   "word": "host",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「おじゃま | します！」 already used by A204 A204-027 remove"
+    }
+   ]
+  },
+  {
+   "batch": "B105",
+   "id": "B105-065",
+   "word": "trend",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「完全に | 沼ってる！」 already used by B101 B101-014 keen"
+    }
+   ]
+  },
+  {
+   "batch": "B105",
+   "id": "B105-075",
+   "word": "gather",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「何が | 始まるの？」 already used by A106 A106-092 television"
+    },
+    {
+     "rule": "4.3-names-meaning",
+     "register": "JSEC",
+     "detail": "leadJa contains the gloss 「集まる」 — 「広場で 音楽が 始まると、 | あちこちから 人が | どんどん 集まって=きた。」"
+    }
+   ]
+  },
+  {
+   "batch": "B105",
+   "id": "B105-081",
+   "word": "primary",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「まずは | ここから！」 already used by A201 A201-035 introduction"
+    }
+   ]
+  },
+  {
+   "batch": "B105",
+   "id": "B105-085",
+   "word": "campus",
+   "reasons": [
+    {
+     "rule": "4.3-names-meaning",
+     "register": "JSEC",
+     "detail": "leadJa contains the gloss 「キャンパス」 — 「オープンキャンパスで、 | 地図を 見ながら | 広い 道を 何分も 歩いた。」"
+    },
+    {
+     "rule": "4.3-names-meaning",
+     "register": "JHIGH",
+     "detail": "leadJa contains the gloss 「キャンパス」 — 「オープンキャンパスで、 | 地図を 見ながら | 広い 道を 何分も 歩いた。」"
+    },
+    {
+     "rule": "4.3-names-meaning",
+     "register": "JCOLL",
+     "detail": "leadJa contains the gloss 「構内」 — 「入学 初日、 | 地図アプリを 見ながら | 広い 構内を 何分も 歩いた。」"
+    }
+   ]
+  },
+  {
+   "batch": "B105",
+   "id": "B105-096",
+   "word": "summary",
+   "reasons": [
+    {
+     "rule": "4.3-names-meaning",
+     "register": "JSEC",
+     "detail": "leadJa contains the gloss 「まとめ」 — 「読書感想文の 前に、 | 物語を | 三行に まとめて=みた。」"
+    },
+    {
+     "rule": "4.3-names-meaning",
+     "register": "JHIGH",
+     "detail": "leadJa contains the gloss 「まとめ」 — 「読書感想文の 前に、 | 物語を | 三行に まとめて=みた。」"
+    }
+   ]
+  },
+  {
+   "batch": "B106",
+   "id": "B106-005",
+   "word": "ai",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「速すぎ！」 already used by A106 A106-060 reader"
+    }
+   ]
+  },
+  {
+   "batch": "B106",
+   "id": "B106-026",
+   "word": "belief",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「努力は | 裏切らない！」 already used by A208 A208-047 succeed"
+    }
+   ]
+  },
+  {
+   "batch": "B106",
+   "id": "B106-034",
+   "word": "mystery",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「どこ | 行った？」 already used by B103 B103-082 roll"
+    }
+   ]
+  },
+  {
+   "batch": "B106",
+   "id": "B106-035",
+   "word": "prediction",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「当たるかな？」 already used by A107 A107-017 guess"
+    }
+   ]
+  },
+  {
+   "batch": "B106",
+   "id": "B106-038",
+   "word": "aim",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「間に | 合う？」 already used by A107 A107-035 slow"
+    }
+   ]
+  },
+  {
+   "batch": "B106",
+   "id": "B106-040",
+   "word": "wonder",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「早く | 終わって！」 already used by A206 A206-099 download"
+    }
+   ]
+  },
+  {
+   "batch": "B106",
+   "id": "B106-047",
+   "word": "intend",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「楽しみ！」 already used by B104 B104-082 seed"
+    }
+   ]
+  },
+  {
+   "batch": "B106",
+   "id": "B106-067",
+   "word": "frequently",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「また | 行くの？」 already used by A204 A204-054 golf"
+    }
+   ]
+  },
+  {
+   "batch": "B106",
+   "id": "B106-073",
+   "word": "since",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「懐かしい！」 already used by A206 A206-090 recording"
+    }
+   ]
+  },
+  {
+   "batch": "B106",
+   "id": "B106-088",
+   "word": "expedition",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「気を | つけて！」 already used by A105 A105-042 tall"
+    }
+   ]
+  },
+  {
+   "batch": "B106",
+   "id": "B106-089",
+   "word": "fuel",
+   "reasons": [
+    {
+     "rule": "4.3-names-meaning",
+     "register": "JCOLL",
+     "detail": "leadJa contains the gloss 「燃料」 — 「家族で ドライブ中、 | 燃料計の 針が | 「E」に 近づいた。」"
+    }
+   ]
+  },
+  {
+   "batch": "B106",
+   "id": "B106-090",
+   "word": "helicopter",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「何の | 音？」 already used by A102 A102-011 wall"
+    }
+   ]
+  },
+  {
+   "batch": "B106",
+   "id": "B106-092",
+   "word": "path",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「あと | 少し！」 already used by B105 B105-098 graduate"
+    }
+   ]
+  },
+  {
+   "batch": "B107",
+   "id": "B107-001",
+   "word": "experienced",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「安心！」 already used by B104 B104-067 chemical"
+    }
+   ]
+  },
+  {
+   "batch": "B107",
+   "id": "B107-002",
+   "word": "qualified",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「かっこいい！」 already used by A204 A204-042 athlete"
+    }
+   ]
+  },
+  {
+   "batch": "B107",
+   "id": "B107-007",
+   "word": "application",
+   "reasons": [
+    {
+     "rule": "4.3-names-meaning",
+     "register": "JCOLL",
+     "detail": "leadJa contains the gloss 「応募」 — 「夏休みの バイトの | 応募用紙に、 | 丁寧な 字で 名前を 書いた。」"
+    }
+   ]
+  },
+  {
+   "batch": "B107",
+   "id": "B107-013",
+   "word": "management",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「何が | あった？」 already used by B106 B106-059 latest"
+    }
+   ]
+  },
+  {
+   "batch": "B107",
+   "id": "B107-024",
+   "word": "union",
+   "reasons": [
+    {
+     "rule": "4.3-names-meaning",
+     "register": "JCOLL",
+     "detail": "leadJa contains the gloss 「組合」 — 「夕食の 時、 | 父が 「同僚と | 組合を 作った」と 話した。」"
+    }
+   ]
+  },
+  {
+   "batch": "B107",
+   "id": "B107-029",
+   "word": "promote",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「おめでとう！」 already used by A203 A203-081 prize"
+    }
+   ]
+  },
+  {
+   "batch": "B201",
+   "id": "B201-017",
+   "word": "dull",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「まぶたが | 重い……」 already used by B103 B103-077 lack"
+    }
+   ]
+  },
+  {
+   "batch": "B201",
+   "id": "B201-027",
+   "word": "sincere",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「気持ちが | 伝わる！」 already used by A201 A201-050 symbol"
+    }
+   ]
+  },
+  {
+   "batch": "B201",
+   "id": "B201-033",
+   "word": "characteristic",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「一目で | 分かる！」 already used by B105 B105-089 diagram"
+    }
+   ]
+  },
+  {
+   "batch": "B201",
+   "id": "B201-038",
+   "word": "creativity",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「その 発想、 | 天才！」 already used by A201 A201-049 suggestion"
+    }
+   ]
+  },
+  {
+   "batch": "B201",
+   "id": "B201-045",
+   "word": "patience",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「先生 | みたい！」 already used by A207 A207-028 understanding"
+    }
+   ]
+  },
+  {
+   "batch": "B201",
+   "id": "B201-097",
+   "word": "illustrate",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「一目で | 分かる！」 already used by B105 B105-089 diagram"
+    }
+   ]
+  },
+  {
+   "batch": "B202",
+   "id": "B202-014",
+   "word": "neat",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「気持ち | いい！」 already used by A202 A202-017 sheet"
+    }
+   ]
+  },
+  {
+   "batch": "B202",
+   "id": "B202-020",
+   "word": "blanket",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「寒い！」 already used by A202 A202-024 towel"
+    }
+   ]
+  },
+  {
+   "batch": "B202",
+   "id": "B202-024",
+   "word": "convenience",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「助かる！」 already used by A204 A204-093 offer"
+    }
+   ]
+  },
+  {
+   "batch": "B202",
+   "id": "B202-028",
+   "word": "delivery",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「あと | 少し！」 already used by B105 B105-098 graduate"
+    }
+   ]
+  },
+  {
+   "batch": "B202",
+   "id": "B202-029",
+   "word": "fabric",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「ふわふわ！」 already used by B102 B102-058 ingredient"
+    },
+    {
+     "rule": "4.3-names-meaning",
+     "register": "JHIGH",
+     "detail": "leadJa contains the gloss 「生地」 — 「手芸店で、 | 母が その 生地を | 自分の 顔に 当てた。」"
+    },
+    {
+     "rule": "4.3-names-meaning",
+     "register": "JCOLL",
+     "detail": "leadJa contains the gloss 「生地」 — 「手芸店で、 | 母が その 生地を | 自分の 顔に 当てた。」"
+    }
+   ]
+  },
+  {
+   "batch": "B202",
+   "id": "B202-030",
+   "word": "helmet",
+   "reasons": [
+    {
+     "rule": "4.3-names-meaning",
+     "register": "JSEC",
+     "detail": "leadJa contains the gloss 「ヘルメット」 — 「自転車で 出かける 前、 | 父が | 「ヘルメットは？」と 言った。」"
+    },
+    {
+     "rule": "4.3-names-meaning",
+     "register": "JHIGH",
+     "detail": "leadJa contains the gloss 「ヘルメット」 — 「自転車で 出かける 前、 | 父が | 「ヘルメットは？」と 言った。」"
+    },
+    {
+     "rule": "4.3-names-meaning",
+     "register": "JCOLL",
+     "detail": "leadJa contains the gloss 「ヘルメット」 — 「自転車で 出かける 前、 | 父が | 「ヘルメットは？」と 言った。」"
+    }
+   ]
+  },
+  {
+   "batch": "B202",
+   "id": "B202-036",
+   "word": "ladder",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「気を つけて！」 already used by A105 A105-042 tall"
+    }
+   ]
+  },
+  {
+   "batch": "B202",
+   "id": "B202-041",
+   "word": "silk",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「すべすべ！」 already used by A205 A205-034 wood"
+    }
+   ]
+  },
+  {
+   "batch": "B202",
+   "id": "B202-043",
+   "word": "shelter",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「走れ！」 already used by B106 B106-077 hurry"
+    }
+   ]
+  },
+  {
+   "batch": "B202",
+   "id": "B202-049",
+   "word": "spill",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「危ない！」 already used by A205 A205-044 narrow"
+    }
+   ]
+  },
+  {
+   "batch": "B202",
+   "id": "B202-061",
+   "word": "enthusiastic",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「早く | 行きたい！」 already used by A204 A204-068 skiing"
+    }
+   ]
+  },
+  {
+   "batch": "B202",
+   "id": "B202-067",
+   "word": "impressed",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「すごい！」 already used by A205 A205-084 single"
+    }
+   ]
+  },
+  {
+   "batch": "B202",
+   "id": "B202-071",
+   "word": "ridiculous",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「高すぎ！」 already used by B104 B104-060 afford"
+    }
+   ]
+  },
+  {
+   "batch": "B202",
+   "id": "B202-092",
+   "word": "tension",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「ドキドキ……」 already used by B201 B201-092 declare"
+    }
+   ]
+  },
+  {
+   "batch": "B202",
+   "id": "B202-095",
+   "word": "concern",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「安全 | 第一！」 already used by B202 B202-030 helmet"
+    }
+   ]
+  },
+  {
+   "batch": "B202",
+   "id": "B202-100",
+   "word": "shock",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「えっ、 | 本当に？」 already used by A202 A202-096 based"
+    }
+   ]
+  },
+  {
+   "batch": "B203",
+   "id": "B203-007",
+   "word": "motivate",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「よし、 | やるぞ！」 already used by A202 A202-026 washing"
+    }
+   ]
+  },
+  {
+   "batch": "B203",
+   "id": "B203-016",
+   "word": "extract",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「続きが | 気に なる！」 already used by A104 A104-025 happen"
+    }
+   ]
+  },
+  {
+   "batch": "B203",
+   "id": "B203-017",
+   "word": "flavour",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「どれに | しよう？」 already used by A107 A107-021 choose"
+    }
+   ]
+  },
+  {
+   "batch": "B203",
+   "id": "B203-019",
+   "word": "herb",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「いい | におい！」 already used by A205 A205-076 traditional"
+    }
+   ]
+  },
+  {
+   "batch": "B203",
+   "id": "B203-024",
+   "word": "spice",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「くしゃみ | 出そう！」 already used by B101 B101-078 dust"
+    }
+   ]
+  },
+  {
+   "batch": "B203",
+   "id": "B203-042",
+   "word": "detailed",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「見つかると | いいね！」 already used by B107 B107-004 unemployed"
+    }
+   ]
+  },
+  {
+   "batch": "B203",
+   "id": "B203-052",
+   "word": "fundamental",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「まずは | ここから！」 already used by A201 A201-035 introduction"
+    }
+   ]
+  },
+  {
+   "batch": "B203",
+   "id": "B203-055",
+   "word": "inner",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「ちょっと | 暗い！」 already used by B202 B202-018 basement"
+    }
+   ]
+  },
+  {
+   "batch": "B203",
+   "id": "B203-059",
+   "word": "limited",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「間に合う | かな？」 already used by A107 A107-002 possible"
+    }
+   ]
+  },
+  {
+   "batch": "B203",
+   "id": "B203-066",
+   "word": "prime",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「安全 | 第一！」 already used by B202 B202-030 helmet"
+    }
+   ]
+  },
+  {
+   "batch": "B203",
+   "id": "B203-071",
+   "word": "risky",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「気を | つけて！」 already used by A105 A105-042 tall"
+    }
+   ]
+  },
+  {
+   "batch": "B203",
+   "id": "B203-078",
+   "word": "sufficient",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「これで | 安心！」 already used by A202 A202-012 pocket"
+    }
+   ]
+  },
+  {
+   "batch": "B203",
+   "id": "B203-091",
+   "word": "vital",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「のどが | カラカラ！」 already used by A204 A204-084 amount"
+    }
+   ]
+  },
+  {
+   "batch": "B204",
+   "id": "B204-005",
+   "word": "accidentally",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「えっ、 | うそでしょ？」 already used by A107 A107-005 true"
+    }
+   ]
+  },
+  {
+   "batch": "B204",
+   "id": "B204-007",
+   "word": "additionally",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「まだ | あるの？」 already used by A203 A203-059 secondly"
+    }
+   ]
+  },
+  {
+   "batch": "B204",
+   "id": "B204-013",
+   "word": "barely",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「え、 | 何て？」 already used by B103 B103-008 hardly"
+    }
+   ]
+  },
+  {
+   "batch": "B204",
+   "id": "B204-022",
+   "word": "consistently",
+   "reasons": [
+    {
+     "rule": "4.3-names-meaning",
+     "register": "JSEC",
+     "detail": "leadJa contains the gloss 「いつも」 — 「中一から 今まで、 | 通知表には | いつも 同じ 「5」が ならんだ。」"
+    }
+   ]
+  },
+  {
+   "batch": "B204",
+   "id": "B204-025",
+   "word": "dramatically",
+   "reasons": [
+    {
+     "rule": "4.3-names-meaning",
+     "register": "JSEC",
+     "detail": "leadJa contains the gloss 「急に」 — 「公園で 遊んで=いると、 | 青空が 急に 暗く なり、 | 大つぶの 雨が きた。」"
+    }
+   ]
+  },
+  {
+   "batch": "B204",
+   "id": "B204-027",
+   "word": "entirely",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「それな！」 already used by B103 B103-036 totally"
+    }
+   ]
+  },
+  {
+   "batch": "B204",
+   "id": "B204-037",
+   "word": "hopefully",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「晴れて | ほしい！」 already used by B106 B106-053 continuous"
+    }
+   ]
+  },
+  {
+   "batch": "B204",
+   "id": "B204-048",
+   "word": "precisely",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「何が | あったの？」 already used by A207 A207-013 discovery"
+    }
+   ]
+  },
+  {
+   "batch": "B204",
+   "id": "B204-073",
+   "word": "bunch",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「いい | 香り！」 already used by A107 A107-088 morning"
+    }
+   ]
+  },
+  {
+   "batch": "B204",
+   "id": "B204-088",
+   "word": "fault",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「そんな | ことないよ！」 already used by A107 A107-001 negative"
+    }
+   ]
+  },
+  {
+   "batch": "B204",
+   "id": "B204-099",
+   "word": "means",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「安い 方が | いいよね！」 already used by B104 B104-037 consumer"
+    }
+   ]
+  },
+  {
+   "batch": "B205",
+   "id": "B205-001",
+   "word": "monster",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「思わず | 声が 出た！」 already used by B105 B105-003 beauty"
+    }
+   ]
+  },
+  {
+   "batch": "B205",
+   "id": "B205-007",
+   "word": "panel",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「結果は | どう なる？」 already used by A206 A206-041 experiment"
+    }
+   ]
+  },
+  {
+   "batch": "B205",
+   "id": "B205-023",
+   "word": "spite",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「雨でも | 行く！」 already used by B204 B204-044 nevertheless"
+    }
+   ]
+  },
+  {
+   "batch": "B205",
+   "id": "B205-025",
+   "word": "tendency",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「また | 始まった！」 already used by A201 A201-057 argue"
+    }
+   ]
+  },
+  {
+   "batch": "B205",
+   "id": "B205-030",
+   "word": "variation",
+   "reasons": [
+    {
+     "rule": "4.3-names-meaning",
+     "register": "JSEC",
+     "detail": "leadJa contains the gloss 「ちがい」 — 「同じ ジュースが、 | コンビニと スーパーで | 五十円も ちがった。」"
+    }
+   ]
+  },
+  {
+   "batch": "B205",
+   "id": "B205-035",
+   "word": "boost",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「パワー | 全開！」 already used by B201 B201-018 dynamic"
+    }
+   ]
+  },
+  {
+   "batch": "B205",
+   "id": "B205-036",
+   "word": "capture",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「今だ！」 already used by B201 B201-058 cue"
+    }
+   ]
+  },
+  {
+   "batch": "B205",
+   "id": "B205-040",
+   "word": "decline",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「元気 | 出して！」 already used by A201 A201-034 expression"
+    }
+   ]
+  },
+  {
+   "batch": "B205",
+   "id": "B205-042",
+   "word": "display",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「何年前の | もの？」 already used by A207 A207-041 ancient"
+    }
+   ]
+  },
+  {
+   "batch": "B205",
+   "id": "B205-043",
+   "word": "encounter",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「え、 | どう する？」 already used by B204 B204-089 format"
+    }
+   ]
+  },
+  {
+   "batch": "B205",
+   "id": "B205-046",
+   "word": "load",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「重そう！」 already used by A205 A205-046 thick"
+    }
+   ]
+  },
+  {
+   "batch": "B205",
+   "id": "B205-052",
+   "word": "tag",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「いくら | かな？」 already used by B104 B104-034 total"
+    }
+   ]
+  },
+  {
+   "batch": "B205",
+   "id": "B205-061",
+   "word": "convert",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「いくらに | なる？」 already used by B203 B203-097 equivalent"
+    },
+    {
+     "rule": "4.3-names-meaning",
+     "register": "JSEC",
+     "detail": "leadJa contains the gloss 「かえる」 — 「海外旅行の 前、 | 空港の まどぐちで | 円を ドルに かえた。」"
+    }
+   ]
+  },
+  {
+   "batch": "B205",
+   "id": "B205-064",
+   "word": "devote",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「かっこいい！」 already used by A204 A204-042 athlete"
+    }
+   ]
+  },
+  {
+   "batch": "B205",
+   "id": "B205-073",
+   "word": "ensure",
+   "reasons": [
+    {
+     "rule": "4.3-names-meaning",
+     "register": "JSEC",
+     "detail": "leadJa contains the gloss 「確かめる」 — 「旅行の 朝、 | 父は げんかんの ドアを | 二回 引いて 確かめた。」"
+    },
+    {
+     "rule": "4.3-names-meaning",
+     "register": "JHIGH",
+     "detail": "leadJa contains the gloss 「確かめる」 — 「旅行の 朝、 | 父は 玄関の ドアを | 二回 引いて 確かめた。」"
+    }
+   ]
+  },
+  {
+   "batch": "B205",
+   "id": "B205-081",
+   "word": "fulfil",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「ついに | 来た！」 already used by B203 B203-100 minimum"
+    }
+   ]
+  },
+  {
+   "batch": "B205",
+   "id": "B205-089",
+   "word": "maintain",
+   "reasons": [
+    {
+     "rule": "4.3-names-meaning",
+     "register": "JSEC",
+     "detail": "leadJa contains the gloss 「続ける」 — 「部活を 引退した 後も、 | 毎朝 なわとびを | 欠かさず 続けて=いる。」"
+    }
+   ]
+  },
+  {
+   "batch": "B205",
+   "id": "B205-092",
+   "word": "obtain",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「やった！」 already used by B202 B202-064 fortunate"
+    }
+   ]
+  },
+  {
+   "batch": "B205",
+   "id": "B205-093",
+   "word": "occupy",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「まだ？」 already used by A205 A205-056 appearance"
+    }
+   ]
+  },
+  {
+   "batch": "B205",
+   "id": "B205-098",
+   "word": "pursue",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「最高！」 already used by B106 B106-091 location"
+    }
+   ]
+  },
+  {
+   "batch": "B205",
+   "id": "B205-100",
+   "word": "rely",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「任せて！」 already used by B107 B107-018 responsibility"
+    }
+   ]
+  },
+  {
+   "batch": "B206",
+   "id": "B206-006",
+   "word": "settle",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「ここが | 我が家！」 already used by A101 A101-084 flat"
+    }
+   ]
+  },
+  {
+   "batch": "B206",
+   "id": "B206-052",
+   "word": "pitch",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「キックオフ | だ！」 already used by A104 A104-074 match"
+    }
+   ]
+  },
+  {
+   "batch": "B206",
+   "id": "B206-060",
+   "word": "surgery",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「早く | 治りますように！」 already used by B104 B104-024 treatment"
+    }
+   ]
+  },
+  {
+   "batch": "B206",
+   "id": "B206-081",
+   "word": "asset",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「頼りに | なる！」 already used by A203 A203-061 advantage"
+    }
+   ]
+  },
+  {
+   "batch": "B206",
+   "id": "B206-087",
+   "word": "debt",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「これで | すっきり！」 already used by A202 A202-019 soap"
+    }
+   ]
+  },
+  {
+   "batch": "B206",
+   "id": "B206-098",
+   "word": "fee",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「いくら | かな？」 already used by B104 B104-034 total"
+    }
+   ]
+  },
+  {
+   "batch": "B207",
+   "id": "B207-014",
+   "word": "revenue",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「大成功！」 already used by B206 B206-099 fortune"
+    }
+   ]
+  },
+  {
+   "batch": "B207",
+   "id": "B207-017",
+   "word": "shortage",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「足りる | かな？」 already used by B102 B102-073 expected"
+    }
+   ]
+  },
+  {
+   "batch": "B207",
+   "id": "B207-025",
+   "word": "bid",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「もっと | 上がる？」 already used by B206 B206-082 auction"
+    }
+   ]
+  },
+  {
+   "batch": "B207",
+   "id": "B207-029",
+   "word": "guarantee",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「助かった！」 already used by B102 B102-050 appreciate"
+    }
+   ]
+  },
+  {
+   "batch": "B207",
+   "id": "B207-047",
+   "word": "carbon",
+   "reasons": [
+    {
+     "rule": "4.3-names-meaning",
+     "register": "JSEC",
+     "detail": "leadJa contains the gloss 「炭素」 — 「理科の 時間、 | 葉っぱが 空気の 中の | 二酸化炭素を すうと 習った。」"
+    },
+    {
+     "rule": "4.3-names-meaning",
+     "register": "JHIGH",
+     "detail": "leadJa contains the gloss 「炭素」 — 「理科の 授業で、 | 葉が 空気中の | 二酸化炭素を 吸うと 習った。」"
+    },
+    {
+     "rule": "4.3-names-meaning",
+     "register": "JCOLL",
+     "detail": "leadJa contains the gloss 「炭素」 — 「理科の 授業で、 | 葉が 空気中の | 二酸化炭素を 吸うと 習った。」"
+    }
+   ]
+  },
+  {
+   "batch": "B207",
+   "id": "B207-049",
+   "word": "cliff",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「高すぎ！」 already used by B104 B104-060 afford"
+    }
+   ]
+  },
+  {
+   "batch": "B207",
+   "id": "B207-072",
+   "word": "rose",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「いい | 香り！」 already used by A107 A107-088 morning"
+    }
+   ]
+  },
+  {
+   "batch": "B207",
+   "id": "B207-079",
+   "word": "tsunami",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「落ち着いて | 動こう！」 already used by B104 B104-008 emergency"
+    }
+   ]
+  },
+  {
+   "batch": "B208",
+   "id": "B208-008",
+   "word": "mysterious",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「だれから | だろう？」 already used by A106 A106-051 note"
+    }
+   ]
+  },
+  {
+   "batch": "B208",
+   "id": "B208-019",
+   "word": "visual",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「本物 | みたい！」 already used by A103 A103-092 model"
+    }
+   ]
+  },
+  {
+   "batch": "B208",
+   "id": "B208-020",
+   "word": "weird",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「何の | 音？」 already used by A102 A102-011 wall"
+    }
+   ]
+  },
+  {
+   "batch": "B208",
+   "id": "B208-042",
+   "word": "perceive",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「何か | あったの？」 already used by A103 A103-015 few"
+    }
+   ]
+  },
+  {
+   "batch": "B208",
+   "id": "B208-049",
+   "word": "elderly",
+   "reasons": [
+    {
+     "rule": "4.3-names-meaning",
+     "register": "JCOLL",
+     "detail": "leadJa contains the gloss 「高齢の」 — 「駅の 階段で、 | 重い 荷物を 持った | 高齢の 女性が 休んで=いた。」"
+    }
+   ]
+  },
+  {
+   "batch": "B208",
+   "id": "B208-060",
+   "word": "resident",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「何の | お知らせ？」 already used by A106 A106-011 parent"
+    }
+   ]
+  },
+  {
+   "batch": "B208",
+   "id": "B208-062",
+   "word": "animation",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「動いた！」 already used by A205 A205-027 spider"
+    }
+   ]
+  },
+  {
+   "batch": "B208",
+   "id": "B208-075",
+   "word": "cowboy",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「かっこいい！」 already used by A204 A204-042 athlete"
+    }
+   ]
+  },
+  {
+   "batch": "B208",
+   "id": "B208-077",
+   "word": "crisis",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「大丈夫 | かな？」 already used by A103 A103-060 how"
+    }
+   ]
+  },
+  {
+   "batch": "B208",
+   "id": "B208-085",
+   "word": "firework",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「体に | 響く！」 already used by B105 B105-031 drum"
+    }
+   ]
+  },
+  {
+   "batch": "B208",
+   "id": "B208-099",
+   "word": "membership",
+   "reasons": [
+    {
+     "rule": "4.3-names-meaning",
+     "register": "JSEC",
+     "detail": "leadJa contains the gloss 「会員」 — 「母が ジムの 会員カードを | 見ながら、 | 「毎月 高いなあ」と ため息。」"
+    },
+    {
+     "rule": "4.3-names-meaning",
+     "register": "JHIGH",
+     "detail": "leadJa contains the gloss 「会員」 — 「母が ジムの 会員カードを | 見ながら、 | 「毎月 高いなあ」と ため息。」"
+    }
+   ]
+  },
+  {
+   "batch": "B209",
+   "id": "B209-015",
+   "word": "recognition",
+   "reasons": [
+    {
+     "rule": "4.3-names-meaning",
+     "register": "JHIGH",
+     "detail": "leadJa contains the gloss 「表彰」 — 「三年間 毎朝 | 花に 水を やった 先輩が、 | 全校の 前で 表彰された。」"
+    }
+   ]
+  },
+  {
+   "batch": "B209",
+   "id": "B209-022",
+   "word": "sibling",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「おかえり！」 already used by B205 B205-094 overcome"
+    }
+   ]
+  },
+  {
+   "batch": "B209",
+   "id": "B209-039",
+   "word": "accompany",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「心強い | ね！」 already used by B103 B103-047 element"
+    }
+   ]
+  },
+  {
+   "batch": "B209",
+   "id": "B209-044",
+   "word": "embrace",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「おかえり！」 already used by B205 B205-094 overcome"
+    }
+   ]
+  },
+  {
+   "batch": "B209",
+   "id": "B209-046",
+   "word": "impose",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「ちょっと | 待って！」 already used by A204 A204-016 hold"
+    }
+   ]
+  },
+  {
+   "batch": "B209",
+   "id": "B209-050",
+   "word": "pose",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「はい、 | チーズ！」 already used by A106 A106-016 photograph"
+    }
+   ]
+  },
+  {
+   "batch": "B209",
+   "id": "B209-054",
+   "word": "unite",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「ゾクッと | した！」 already used by B203 B203-049 extraordinary"
+    }
+   ]
+  },
+  {
+   "batch": "B209",
+   "id": "B209-061",
+   "word": "certificate",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「これで | 安心！」 already used by A202 A202-012 pocket"
+    }
+   ]
+  },
+  {
+   "batch": "B209",
+   "id": "B209-067",
+   "word": "hypothesis",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「当たる | かな？」 already used by A107 A107-017 guess"
+    }
+   ]
+  },
+  {
+   "batch": "B209",
+   "id": "B209-070",
+   "word": "institute",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「かっこいい！」 already used by A204 A204-042 athlete"
+    },
+    {
+     "rule": "4.3-names-meaning",
+     "register": "JSEC",
+     "detail": "leadJa contains the gloss 「研究所」 — 「白衣の 姉が | 研究所の ゲートに | カードを かざした。」"
+    },
+    {
+     "rule": "4.3-names-meaning",
+     "register": "JHIGH",
+     "detail": "leadJa contains the gloss 「研究所」 — 「白衣の 姉が | 研究所の ゲートに | カードを かざした。」"
+    },
+    {
+     "rule": "4.3-names-meaning",
+     "register": "JCOLL",
+     "detail": "leadJa contains the gloss 「研究所」 — 「白衣の 姉が | 研究所の ゲートに | IDカードを かざした。」"
+    }
+   ]
+  },
+  {
+   "batch": "B209",
+   "id": "B209-071",
+   "word": "kindergarten",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「いって | らっしゃい！」 already used by A106 A106-067 student"
+    }
+   ]
+  },
+  {
+   "batch": "B209",
+   "id": "B209-081",
+   "word": "revision",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「あと | 少し！」 already used by B105 B105-098 graduate"
+    }
+   ]
+  },
+  {
+   "batch": "B209",
+   "id": "B209-083",
+   "word": "scholarship",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「おめでとう！」 already used by A203 A203-081 prize"
+    }
+   ]
+  },
+  {
+   "batch": "B209",
+   "id": "B209-085",
+   "word": "testing",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「大丈夫 | かな？」 already used by A103 A103-060 how"
+    }
+   ]
+  },
+  {
+   "batch": "B209",
+   "id": "B209-092",
+   "word": "calculate",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「足りる | かな？」 already used by B102 B102-073 expected"
+    }
+   ]
+  },
+  {
+   "batch": "B209",
+   "id": "B209-093",
+   "word": "cite",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「これで | 安心！」 already used by A202 A202-012 pocket"
+    }
+   ]
+  },
+  {
+   "batch": "B209",
+   "id": "B209-095",
+   "word": "submit",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「間に合った！」 already used by A104 A104-037 start"
+    }
+   ]
+  },
+  {
+   "batch": "B209",
+   "id": "B209-097",
+   "word": "audio",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「耳が | 幸せ！」 already used by A201 A201-051 voice"
+    }
+   ]
+  },
+  {
+   "batch": "B209",
+   "id": "B209-099",
+   "word": "graphic",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「プロ | みたい！」 already used by A103 A103-004 cook"
+    }
+   ]
+  },
+  {
+   "batch": "B210",
+   "id": "B210-012",
+   "word": "disc",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「さあ、 | 始まるよ！」 already used by A106 A106-039 class"
+    }
+   ]
+  },
+  {
+   "batch": "B210",
+   "id": "B210-014",
+   "word": "electronics",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「一日 | いられる！」 already used by A105 A105-071 art"
+    }
+   ]
+  },
+  {
+   "batch": "B210",
+   "id": "B210-019",
+   "word": "input",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「助かる！」 already used by A204 A204-093 offer"
+    }
+   ]
+  },
+  {
+   "batch": "B210",
+   "id": "B210-043",
+   "word": "convinced",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「当たる | かな？」 already used by A107 A107-017 guess"
+    }
+   ]
+  },
+  {
+   "batch": "B210",
+   "id": "B210-057",
+   "word": "deliberately",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「優しい | なあ！」 already used by B103 B103-096 require"
+    }
+   ]
+  },
+  {
+   "batch": "B211",
+   "id": "B211-042",
+   "word": "subsequently",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「結果は | どう？」 already used by A205 A205-094 competition"
+    }
+   ]
+  },
+  {
+   "batch": "B211",
+   "id": "B211-066",
+   "word": "booking",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「これで | 安心！」 already used by A202 A202-012 pocket"
+    }
+   ]
+  },
+  {
+   "batch": "B211",
+   "id": "B211-068",
+   "word": "canal",
+   "reasons": [
+    {
+     "rule": "4.3-names-meaning",
+     "register": "JHIGH",
+     "detail": "leadJa contains the gloss 「水路」 — 「旅先の 街で、 | 細い 水路を | ゆっくり 進んだ。」"
+    }
+   ]
+  },
+  {
+   "batch": "B211",
+   "id": "B211-071",
+   "word": "exploration",
+   "reasons": [
+    {
+     "rule": "4.3-names-meaning",
+     "register": "JHIGH",
+     "detail": "leadJa contains the gloss 「探査」 — 「物理の 授業で、 | 火星を 走る | 探査車の 動画を 見た。」"
+    },
+    {
+     "rule": "4.3-names-meaning",
+     "register": "JCOLL",
+     "detail": "leadJa contains the gloss 「探査」 — 「天文学の 講義で、 | 火星を 走る | 探査車の 映像を 見た。」"
+    }
+   ]
+  },
+  {
+   "batch": "B211",
+   "id": "B211-074",
+   "word": "highway",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「速い | 速い！」 already used by B205 B205-049 slide"
+    }
+   ]
+  },
+  {
+   "batch": "B211",
+   "id": "B211-086",
+   "word": "tunnel",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「耳が | キーン！」 already used by A201 A201-071 shout"
+    }
+   ]
+  },
+  {
+   "batch": "B211",
+   "id": "B211-089",
+   "word": "cruise",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「いって | らっしゃい！」 already used by A106 A106-067 student"
+    }
+   ]
+  },
+  {
+   "batch": "B211",
+   "id": "B211-090",
+   "word": "reserve",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「すごい | 数！」 already used by A205 A205-098 fan"
+    }
+   ]
+  },
+  {
+   "batch": "B211",
+   "id": "B211-098",
+   "word": "part-time",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「いらっしゃい | ませ！」 already used by B207 B207-013 retail"
+    }
+   ]
+  },
+  {
+   "batch": "B211",
+   "id": "B211-099",
+   "word": "senior",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「え、 | だれ？」 already used by B203 B203-083 unexpected"
+    }
+   ]
+  },
+  {
+   "batch": "B212",
+   "id": "B212-022",
+   "word": "firefighter",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「かっこいい | 仕事！」 already used by B104 B104-043 marketing"
+    }
+   ]
+  },
+  {
+   "batch": "B212",
+   "id": "B212-031",
+   "word": "mechanic",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「動いた！」 already used by A205 A205-027 spider"
+    }
+   ]
+  },
+  {
+   "batch": "B212",
+   "id": "B212-038",
+   "word": "partnership",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「一緒に | やろう！」 already used by A204 A204-070 soccer"
+    }
+   ]
+  },
+  {
+   "batch": "B212",
+   "id": "B212-041",
+   "word": "promotion",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「おめでとう！」 already used by A203 A203-081 prize"
+    }
+   ]
+  },
+  {
+   "batch": "B212",
+   "id": "B212-046",
+   "word": "workplace",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「いい | 雰囲気！」 already used by B202 B202-022 candle"
+    }
+   ]
+  },
+  {
+   "batch": "B212",
+   "id": "B212-061",
+   "word": "manufacture",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「速すぎる！」 already used by A204 A204-064 runner"
+    }
+   ]
+  },
+  {
+   "batch": "B212",
+   "id": "B212-066",
+   "word": "undertake",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「任せて！」 already used by B107 B107-018 responsibility"
+    }
+   ]
+  },
+  {
+   "batch": "C101",
+   "id": "C101-007",
+   "word": "cautious",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「だれだろう？」 already used by A205 A205-090 celebrity"
+    }
+   ]
+  },
+  {
+   "batch": "C101",
+   "id": "C101-009",
+   "word": "decisive",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「頼りに | なる！」 already used by A203 A203-061 advantage"
+    }
+   ]
+  },
+  {
+   "batch": "C101",
+   "id": "C101-015",
+   "word": "passive",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「もったいない！」 already used by B202 B202-044 tap"
+    }
+   ]
+  },
+  {
+   "batch": "C101",
+   "id": "C101-017",
+   "word": "supportive",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「心強い！」 already used by B207 B207-032 sponsor"
+    }
+   ]
+  },
+  {
+   "batch": "C101",
+   "id": "C101-019",
+   "word": "tender",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「かわいい！」 already used by A205 A205-019 monkey"
+    }
+   ]
+  },
+  {
+   "batch": "C101",
+   "id": "C101-020",
+   "word": "thoughtful",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「うれしい！」 already used by B202 B202-075 sympathetic"
+    }
+   ]
+  },
+  {
+   "batch": "C101",
+   "id": "C101-023",
+   "word": "charm",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「写真 | 撮りたい！」 already used by B105 B105-015 royal"
+    }
+   ]
+  },
+  {
+   "batch": "C101",
+   "id": "C101-033",
+   "word": "grace",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「きれい！」 already used by A204 A204-082 gold"
+    }
+   ]
+  },
+  {
+   "batch": "C101",
+   "id": "C101-034",
+   "word": "integrity",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「さすが！」 already used by B107 B107-003 retired"
+    }
+   ]
+  },
+  {
+   "batch": "C101",
+   "id": "C101-037",
+   "word": "mercy",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「助かった！」 already used by B102 B102-050 appreciate"
+    }
+   ]
+  },
+  {
+   "batch": "C101",
+   "id": "C101-040",
+   "word": "restraint",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「落ち着いて！」 already used by B104 B104-075 earthquake"
+    }
+   ]
+  },
+  {
+   "batch": "C101",
+   "id": "C101-045",
+   "word": "wit",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「さすが！」 already used by B107 B107-003 retired"
+    }
+   ]
+  },
+  {
+   "batch": "C101",
+   "id": "C101-051",
+   "word": "oral",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「緊張 | する！」 already used by B210 B210-092 assess"
+    }
+   ]
+  },
+  {
+   "batch": "C101",
+   "id": "C101-056",
+   "word": "namely",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「だれだろう？」 already used by A205 A205-090 celebrity"
+    }
+   ]
+  },
+  {
+   "batch": "C101",
+   "id": "C101-059",
+   "word": "assertion",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「本当に？」 already used by C101 C101-018 suspicious"
+    }
+   ]
+  },
+  {
+   "batch": "C101",
+   "id": "C101-065",
+   "word": "contention",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「どっち | 派？」 already used by A203 A203-011 original"
+    }
+   ]
+  },
+  {
+   "batch": "C101",
+   "id": "C101-068",
+   "word": "disclosure",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「えっ、 | 本当に？」 already used by A202 A202-096 based"
+    }
+   ]
+  },
+  {
+   "batch": "C101",
+   "id": "C101-070",
+   "word": "endorsement",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「やった！」 already used by B202 B202-064 fortunate"
+    }
+   ]
+  },
+  {
+   "batch": "C101",
+   "id": "C101-077",
+   "word": "refusal",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「まさか！」 already used by A202 A202-051 surprising"
+    }
+   ]
+  },
+  {
+   "batch": "C101",
+   "id": "C101-081",
+   "word": "subscriber",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「ラッキー！」 already used by B102 B102-085 rare"
+    }
+   ]
+  },
+  {
+   "batch": "C101",
+   "id": "C101-084",
+   "word": "hint",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「あと | 少し！」 already used by B105 B105-098 graduate"
+    }
+   ]
+  },
+  {
+   "batch": "C101",
+   "id": "C101-094",
+   "word": "contend",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「本当かな？」 already used by C101 C101-027 credibility"
+    }
+   ]
+  },
+  {
+   "batch": "C102",
+   "id": "C102-005",
+   "word": "nod",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「なるほど、 | 分かった！」 already used by B210 B210-048 logical"
+    }
+   ]
+  },
+  {
+   "batch": "C102",
+   "id": "C102-019",
+   "word": "bench",
+   "reasons": [
+    {
+     "rule": "4.3-names-meaning",
+     "register": "JCOLL",
+     "detail": "leadJa contains the gloss 「長椅子」 — 「講義の 合間、 | キャンパスの 木陰で | 長椅子に 座った。」"
+    }
+   ]
+  },
+  {
+   "batch": "C102",
+   "id": "C102-021",
+   "word": "cabinet",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「あった！」 already used by B209 B209-068 index"
+    }
+   ]
+  },
+  {
+   "batch": "C102",
+   "id": "C102-022",
+   "word": "disposal",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「分別、 | 大事！」 already used by B101 B101-062 waste"
+    }
+   ]
+  },
+  {
+   "batch": "C102",
+   "id": "C102-025",
+   "word": "landlord",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「助かった！」 already used by B102 B102-050 appreciate"
+    },
+    {
+     "rule": "4.3-names-meaning",
+     "register": "JCOLL",
+     "detail": "leadJa contains the gloss 「家主」 — 「一人暮らしの 冬、 | 暖房が 壊れたら | 家主が すぐ 来て=くれた。」"
+    }
+   ]
+  },
+  {
+   "batch": "C102",
+   "id": "C102-026",
+   "word": "lawn",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「楽しそう！」 already used by A205 A205-083 public"
+    }
+   ]
+  },
+  {
+   "batch": "C102",
+   "id": "C102-039",
+   "word": "seal",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「これで | 安心！」 already used by A202 A202-012 pocket"
+    },
+    {
+     "rule": "4.3-names-meaning",
+     "register": "JSEC",
+     "detail": "leadJa contains the gloss 「とじる」 — 「母への 荷物を | テープで | ぴったり とじた。」"
+    }
+   ]
+  },
+  {
+   "batch": "C102",
+   "id": "C102-044",
+   "word": "discard",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「これで | すっきり！」 already used by A202 A202-019 soap"
+    }
+   ]
+  },
+  {
+   "batch": "C102",
+   "id": "C102-050",
+   "word": "squeeze",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「いい | 香り！」 already used by A107 A107-088 morning"
+    }
+   ]
+  },
+  {
+   "batch": "C102",
+   "id": "C102-051",
+   "word": "stumble",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「セーフ！」 already used by B211 B211-053 timing"
+    }
+   ]
+  },
+  {
+   "batch": "C102",
+   "id": "C102-052",
+   "word": "toss",
+   "reasons": [
+    {
+     "rule": "4.3-names-meaning",
+     "register": "JSEC",
+     "detail": "leadJa contains the gloss 「投げる」 — 「放課後の グラウンドで、 | 友達に ボールを | ふわっと 投げた。」"
+    }
+   ]
+  },
+  {
+   "batch": "C102",
+   "id": "C102-054",
+   "word": "wipe",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「ぴかぴか！」 already used by A207 A207-095 wheel"
+    }
+   ]
+  },
+  {
+   "batch": "C102",
+   "id": "C102-064",
+   "word": "thrilled",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「やった！」 already used by B202 B202-064 fortunate"
+    }
+   ]
+  },
+  {
+   "batch": "C102",
+   "id": "C102-065",
+   "word": "troubled",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「何か | あった？」 already used by A106 A106-090 internet"
+    }
+   ]
+  },
+  {
+   "batch": "C102",
+   "id": "C102-067",
+   "word": "thankfully",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「助かった！」 already used by B102 B102-050 appreciate"
+    }
+   ]
+  },
+  {
+   "batch": "C102",
+   "id": "C102-068",
+   "word": "acceptance",
+   "reasons": [
+    {
+     "rule": "4.3-names-meaning",
+     "register": "JSEC",
+     "detail": "leadJa contains the gloss 「合かく」 — 「春の 夕方、 | 兄に 大学から | 合かくの 手紙が とどいた。」"
+    }
+   ]
+  },
+  {
+   "batch": "C102",
+   "id": "C102-071",
+   "word": "aspiration",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「応援 | するよ！」 already used by B210 B210-087 viewpoint"
+    }
+   ]
+  },
+  {
+   "batch": "C102",
+   "id": "C102-080",
+   "word": "optimism",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「さすが！」 already used by B107 B107-003 retired"
+    }
+   ]
+  },
+  {
+   "batch": "C102",
+   "id": "C102-085",
+   "word": "triumph",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「最高！」 already used by B106 B106-091 location"
+    }
+   ]
+  },
+  {
+   "batch": "C102",
+   "id": "C102-086",
+   "word": "vulnerability",
+   "reasons": [
+    {
+     "rule": "4.3-names-meaning",
+     "register": "JSEC",
+     "detail": "leadJa contains the gloss 「弱いところ」 — 「情報の 授業で、 | テストで アプリの | 弱い ところが 見つかった。」"
+    }
+   ]
+  },
+  {
+   "batch": "C103",
+   "id": "C103-006",
+   "word": "gallon",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「重そう！」 already used by A205 A205-046 thick"
+    }
+   ]
+  },
+  {
+   "batch": "C103",
+   "id": "C103-010",
+   "word": "dip",
+   "reasons": [
+    {
+     "rule": "4.3-names-meaning",
+     "register": "JSEC",
+     "detail": "leadJa contains the gloss 「つける」 — 「寒い 日の 夕ごはん、 | パンを スープに | ちょんと つけた。」"
+    },
+    {
+     "rule": "4.3-names-meaning",
+     "register": "JHIGH",
+     "detail": "leadJa contains the gloss 「つける」 — 「寒い 日の 夕食、 | パンを スープに | ちょんと つけた。」"
+    },
+    {
+     "rule": "4.3-names-meaning",
+     "register": "JCOLL",
+     "detail": "leadJa contains the gloss 「つける」 — 「寒い 日の 夕食、 | パンを スープに | ちょんと つけた。」"
+    }
+   ]
+  },
+  {
+   "batch": "C103",
+   "id": "C103-011",
+   "word": "grind",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「いい | 香り！」 already used by A107 A107-088 morning"
+    }
+   ]
+  },
+  {
+   "batch": "C103",
+   "id": "C103-022",
+   "word": "destructive",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「風、 | 強すぎ！」 already used by B103 B103-075 force"
+    }
+   ]
+  },
+  {
+   "batch": "C103",
+   "id": "C103-025",
+   "word": "exceptional",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「天才 | かも！」 already used by A201 A201-009 clever"
+    }
+   ]
+  },
+  {
+   "batch": "C103",
+   "id": "C103-030",
+   "word": "generic",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「それだけ？」 already used by B211 B211-006 brief"
+    }
+   ]
+  },
+  {
+   "batch": "C103",
+   "id": "C103-036",
+   "word": "intact",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「セーフ！」 already used by B211 B211-053 timing"
+    }
+   ]
+  },
+  {
+   "batch": "C103",
+   "id": "C103-043",
+   "word": "marginal",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「それだけ？」 already used by B211 B211-006 brief"
+    }
+   ]
+  },
+  {
+   "batch": "C103",
+   "id": "C103-051",
+   "word": "preliminary",
+   "reasons": [
+    {
+     "rule": "4.3-names-meaning",
+     "register": "JSEC",
+     "detail": "leadJa contains the gloss 「仮の」 — 「テストの 次の 日、 | 先生が 「まだ 仮の 点数だよ」と | 言って 紙を 配って=くれた。」"
+    }
+   ]
+  },
+  {
+   "batch": "C103",
+   "id": "C103-057",
+   "word": "robust",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「頼もしい！」 already used by B202 B202-002 interpret"
+    }
+   ]
+  },
+  {
+   "batch": "C103",
+   "id": "C103-059",
+   "word": "sheer",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「うそでしょ！」 already used by B202 B202-042 scratch"
+    }
+   ]
+  },
+  {
+   "batch": "C103",
+   "id": "C103-061",
+   "word": "sole",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「すごい！」 already used by A205 A205-084 single"
+    }
+   ]
+  },
+  {
+   "batch": "C103",
+   "id": "C103-063",
+   "word": "structural",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「大丈夫？」 already used by A202 A202-054 fortunately"
+    }
+   ]
+  },
+  {
+   "batch": "C103",
+   "id": "C103-064",
+   "word": "substantial",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「やった！」 already used by B202 B202-064 fortunate"
+    }
+   ]
+  },
+  {
+   "batch": "C103",
+   "id": "C103-068",
+   "word": "terrific",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「大成功！」 already used by B206 B206-099 fortune"
+    }
+   ]
+  },
+  {
+   "batch": "C103",
+   "id": "C103-070",
+   "word": "varied",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「カラフル！」 already used by B104 B104-091 coloured"
+    }
+   ]
+  },
+  {
+   "batch": "C103",
+   "id": "C103-075",
+   "word": "solo",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「かっこいい！」 already used by A204 A204-042 athlete"
+    }
+   ]
+  },
+  {
+   "batch": "C103",
+   "id": "C103-079",
+   "word": "forth",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「落ち着いて！」 already used by B104 B104-075 earthquake"
+    }
+   ]
+  },
+  {
+   "batch": "C103",
+   "id": "C103-082",
+   "word": "notably",
+   "reasons": [
+    {
+     "rule": "4.3-names-meaning",
+     "register": "JSEC",
+     "detail": "leadJa contains the gloss 「特に」 — 「テストの 結果発表で、 | 先生が 「特に マイは」と | 名前を 出した。」"
+    },
+    {
+     "rule": "4.3-names-meaning",
+     "register": "JHIGH",
+     "detail": "leadJa contains the gloss 「特に」 — 「テストの 結果発表で、 | 先生が 「特に マイは」と | 名前を 挙げた。」"
+    },
+    {
+     "rule": "4.3-names-meaning",
+     "register": "JCOLL",
+     "detail": "leadJa contains the gloss 「特に」 — 「試験の 講評で、 | 教授が 「特に マイさんは」と | 名前を 挙げた。」"
+    }
+   ]
+  },
+  {
+   "batch": "C103",
+   "id": "C103-083",
+   "word": "overly",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「大丈夫だよ！」 already used by A107 A107-037 late"
+    }
+   ]
+  },
+  {
+   "batch": "C103",
+   "id": "C103-086",
+   "word": "readily",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「神対応！」 already used by A102 A102-040 nice"
+    }
+   ]
+  },
+  {
+   "batch": "C103",
+   "id": "C103-087",
+   "word": "regardless",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「雨でも | 行く！」 already used by B204 B204-044 nevertheless"
+    }
+   ]
+  },
+  {
+   "batch": "C103",
+   "id": "C103-096",
+   "word": "wholly",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「大丈夫かな？」 already used by A103 A103-060 how"
+    }
+   ]
+  },
+  {
+   "batch": "C103",
+   "id": "C103-097",
+   "word": "accordance",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「落ち着いて！」 already used by B104 B104-075 earthquake"
+    }
+   ]
+  },
+  {
+   "batch": "C103",
+   "id": "C103-098",
+   "word": "adaptation",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「見に | 行こう！」 already used by B208 B208-078 critic"
+    }
+   ]
+  },
+  {
+   "batch": "C103",
+   "id": "C103-099",
+   "word": "adjustment",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「これで | 安心！」 already used by A202 A202-012 pocket"
+    }
+   ]
+  },
+  {
+   "batch": "C104",
+   "id": "C104-001",
+   "word": "array",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「どれに | しよう？」 already used by A107 A107-021 choose"
+    }
+   ]
+  },
+  {
+   "batch": "C104",
+   "id": "C104-005",
+   "word": "bulk",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「あと 少し！」 already used by B105 B105-098 graduate"
+    }
+   ]
+  },
+  {
+   "batch": "C104",
+   "id": "C104-007",
+   "word": "chaos",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「え、 | どう する？」 already used by B204 B204-089 format"
+    }
+   ]
+  },
+  {
+   "batch": "C104",
+   "id": "C104-010",
+   "word": "constraint",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「間に合う | かな？」 already used by A107 A107-002 possible"
+    }
+   ]
+  },
+  {
+   "batch": "C104",
+   "id": "C104-019",
+   "word": "excellence",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「さすが！」 already used by B107 B107-003 retired"
+    }
+   ]
+  },
+  {
+   "batch": "C104",
+   "id": "C104-021",
+   "word": "flaw",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「そこ、 | 考えて なかった！」 already used by C103 C103-028 flawed"
+    }
+   ]
+  },
+  {
+   "batch": "C104",
+   "id": "C104-022",
+   "word": "flexibility",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「助かる！」 already used by A204 A204-093 offer"
+    }
+   ]
+  },
+  {
+   "batch": "C104",
+   "id": "C104-028",
+   "word": "intensity",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「眠れない！」 already used by A205 A205-035 heat"
+    }
+   ]
+  },
+  {
+   "batch": "C104",
+   "id": "C104-030",
+   "word": "involvement",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「心強い！」 already used by B207 B207-032 sponsor"
+    }
+   ]
+  },
+  {
+   "batch": "C104",
+   "id": "C104-031",
+   "word": "layout",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「見やすい！」 already used by A206 A206-091 screen"
+    }
+   ]
+  },
+  {
+   "batch": "C104",
+   "id": "C104-032",
+   "word": "line-up",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「絶対 | 行く！」 already used by B106 B106-084 attraction"
+    }
+   ]
+  },
+  {
+   "batch": "C104",
+   "id": "C104-035",
+   "word": "modification",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「あと | 少しで 完成！」 already used by B210 B210-034 edit"
+    }
+   ]
+  },
+  {
+   "batch": "C104",
+   "id": "C104-041",
+   "word": "ranking",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「やったね！」 already used by B204 B204-056 significantly"
+    }
+   ]
+  },
+  {
+   "batch": "C104",
+   "id": "C104-043",
+   "word": "recipient",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「おめでとう！」 already used by A203 A203-081 prize"
+    }
+   ]
+  },
+  {
+   "batch": "C104",
+   "id": "C104-053",
+   "word": "set-up",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「かっこいい！」 already used by A204 A204-042 athlete"
+    }
+   ]
+  },
+  {
+   "batch": "C104",
+   "id": "C104-056",
+   "word": "stability",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「ほっと | する！」 already used by A101 A101-082 cup"
+    }
+   ]
+  },
+  {
+   "batch": "C104",
+   "id": "C104-061",
+   "word": "transformation",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「別の 町 | みたい！」 already used by B103 B103-051 growth"
+    }
+   ]
+  },
+  {
+   "batch": "C104",
+   "id": "C104-090",
+   "word": "manifest",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「大丈夫？」 already used by A202 A202-054 fortunately"
+    }
+   ]
+  },
+  {
+   "batch": "C104",
+   "id": "C104-096",
+   "word": "regain",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「おかえり！」 already used by B205 B205-094 overcome"
+    }
+   ]
+  },
+  {
+   "batch": "C104",
+   "id": "C104-098",
+   "word": "rotate",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「なるほど！」 already used by A103 A103-098 point"
+    }
+   ]
+  },
+  {
+   "batch": "C105",
+   "id": "C105-003",
+   "word": "slam",
+   "reasons": [
+    {
+     "rule": "4.3-names-meaning",
+     "register": "JSEC",
+     "detail": "leadJa contains the gloss 「バタンと閉める」 — 「兄が けんかの あと、 | 部屋の ドアを | バタンと 閉めて=しまった。」"
+    },
+    {
+     "rule": "4.3-names-meaning",
+     "register": "JHIGH",
+     "detail": "leadJa contains the gloss 「バタンと閉める」 — 「兄が けんかの あと、 | 部屋の ドアを | バタンと 閉めて=しまった。」"
+    }
+   ]
+  },
+  {
+   "batch": "C105",
+   "id": "C105-004",
+   "word": "slash",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「今が | チャンス！」 already used by C104 C104-094 plunge"
+    }
+   ]
+  },
+  {
+   "batch": "C105",
+   "id": "C105-006",
+   "word": "snap",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「危ない！」 already used by A205 A205-044 narrow"
+    }
+   ]
+  },
+  {
+   "batch": "C105",
+   "id": "C105-011",
+   "word": "tighten",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「カチッ！」 already used by B106 B106-099 fasten"
+    }
+   ]
+  },
+  {
+   "batch": "C105",
+   "id": "C105-018",
+   "word": "clinical",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「かっこいい！」 already used by A204 A204-042 athlete"
+    }
+   ]
+  },
+  {
+   "batch": "C105",
+   "id": "C105-019",
+   "word": "surgical",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「始まる！」 already used by A205 A205-096 drama"
+    }
+   ]
+  },
+  {
+   "batch": "C105",
+   "id": "C105-022",
+   "word": "arena",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「最高！」 already used by B106 B106-091 location"
+    }
+   ]
+  },
+  {
+   "batch": "C105",
+   "id": "C105-029",
+   "word": "donor",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「ありがたい！」 already used by C101 C101-044 willingness"
+    }
+   ]
+  },
+  {
+   "batch": "C105",
+   "id": "C105-030",
+   "word": "dose",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「忘れずに！」 already used by B201 B201-099 inform"
+    }
+   ]
+  },
+  {
+   "batch": "C105",
+   "id": "C105-032",
+   "word": "hazard",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「気を_つけて！」 already used by A105 A105-042 tall"
+    }
+   ]
+  },
+  {
+   "batch": "C105",
+   "id": "C105-035",
+   "word": "limb",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「気持ちいい！」 already used by A202 A202-017 sheet"
+    }
+   ]
+  },
+  {
+   "batch": "C105",
+   "id": "C105-043",
+   "word": "strain",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「無理 | しないで！」 already used by A204 A204-063 pain"
+    }
+   ]
+  },
+  {
+   "batch": "C105",
+   "id": "C105-044",
+   "word": "trophy",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「やった！」 already used by B202 B202-064 fortunate"
+    }
+   ]
+  },
+  {
+   "batch": "C105",
+   "id": "C105-046",
+   "word": "ward",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「かわいい！」 already used by A205 A205-019 monkey"
+    }
+   ]
+  },
+  {
+   "batch": "C105",
+   "id": "C105-047",
+   "word": "well-being",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「えらい！」 already used by B205 B205-089 maintain"
+    }
+   ]
+  },
+  {
+   "batch": "C105",
+   "id": "C105-050",
+   "word": "leap",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「すごい | ジャンプ！」 already used by A205 A205-013 frog"
+    }
+   ]
+  },
+  {
+   "batch": "C105",
+   "id": "C105-052",
+   "word": "bounce",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「ナイス | キャッチ！」 already used by C102 C102-052 toss"
+    }
+   ]
+  },
+  {
+   "batch": "C105",
+   "id": "C105-055",
+   "word": "diagnose",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「さすが！」 already used by B107 B107-003 retired"
+    }
+   ]
+  },
+  {
+   "batch": "C105",
+   "id": "C105-065",
+   "word": "acquisition",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「最高！」 already used by B106 B106-091 location"
+    }
+   ]
+  },
+  {
+   "batch": "C105",
+   "id": "C105-069",
+   "word": "bankruptcy",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「まさか……」 already used by B106 B106-097 tyre"
+    }
+   ]
+  },
+  {
+   "batch": "C105",
+   "id": "C105-071",
+   "word": "bonus",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「やった！」 already used by B202 B202-064 fortunate"
+    }
+   ]
+  },
+  {
+   "batch": "C105",
+   "id": "C105-076",
+   "word": "commodity",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「いい | 香り！」 already used by A107 A107-088 morning"
+    }
+   ]
+  },
+  {
+   "batch": "C105",
+   "id": "C105-078",
+   "word": "deficit",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「大丈夫？」 already used by A202 A202-054 fortunately"
+    }
+   ]
+  },
+  {
+   "batch": "C105",
+   "id": "C105-079",
+   "word": "earnings",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「うれしい！」 already used by B202 B202-075 sympathetic"
+    }
+   ]
+  },
+  {
+   "batch": "C105",
+   "id": "C105-080",
+   "word": "enterprise",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「かっこいい！」 already used by A204 A204-042 athlete"
+    }
+   ]
+  },
+  {
+   "batch": "C105",
+   "id": "C105-082",
+   "word": "franchise",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「すごい！」 already used by A205 A205-084 single"
+    }
+   ]
+  },
+  {
+   "batch": "C105",
+   "id": "C105-084",
+   "word": "marketplace",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「安い！」 already used by C105 C105-073 buck"
+    }
+   ]
+  },
+  {
+   "batch": "C105",
+   "id": "C105-088",
+   "word": "niche",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「便利！」 already used by B102 B102-069 central"
+    }
+   ]
+  },
+  {
+   "batch": "C105",
+   "id": "C105-098",
+   "word": "subsidy",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「立派！」 already used by C105 C105-085 merchant"
+    }
+   ]
+  },
+  {
+   "batch": "C105",
+   "id": "C105-099",
+   "word": "surplus",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「もったいない！」 already used by B202 B202-044 tap"
+    }
+   ]
+  },
+  {
+   "batch": "C105",
+   "id": "C105-100",
+   "word": "taxpayer",
+   "reasons": [
+    {
+     "rule": "E-teaser-reused",
+     "register": "JHIGH",
+     "detail": "anticipateJa 「大変 そう！」 already used by A104 A104-030 let"
+    }
+   ]
+  }
+ ]
+}

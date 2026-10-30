@@ -114,6 +114,12 @@ The Vietnamese series, at 4,323 words, carries ZERO repeats. Same rule, larger
 deck, one prompt honouring it — which is the evidence that this is fixable on
 the generation side rather than inherent to the scale.
 
+`needs-regeneration.json` beside this file itemises every card that breaks a
+rule — 467 of them, with the rule and the register for each, one entry per card
+because that is the unit a regeneration run takes. It is regenerated from
+data/batches-ja and goes stale the moment a batch changes, so rebuild it rather
+than trusting it.
+
 It is the one rule a batch cannot be judged against from the inside, and v3.9
 already says the generator's user message should list the lines already taken.
 At this size it has to, or each new pack keeps colliding with the old ones.
