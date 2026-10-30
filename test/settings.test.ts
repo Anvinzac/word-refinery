@@ -29,13 +29,15 @@ test("each provider keeps its own key and model across switches", () => {
   assert.equal(llm.apiKey, "openrouter-key");
 });
 
-test("all four providers, Alibaba included, hold separate keys at once", () => {
-  const providers = ["alibaba", "openrouter", "together", "anthropic"] as const;
+test("all five providers, Alibaba and Novita included, hold separate keys at once", () => {
+  const providers = ["alibaba", "openrouter", "together", "anthropic", "novita"] as const;
   let llm = defaultSettings().llm;
   for (const provider of providers) {
     llm = patchLlmSettings(switchProvider(llm, provider), { apiKey: `${provider}-key` });
   }
-  for (const provider of ["together", "alibaba", "anthropic", "openrouter", "alibaba"] as const) {
+  // Novita sits mid-list so the loop still ends on alibaba, whose model the
+  // assertion below names.
+  for (const provider of ["together", "alibaba", "novita", "anthropic", "openrouter", "alibaba"] as const) {
     llm = switchProvider(llm, provider);
     assert.equal(llm.apiKey, `${provider}-key`);
   }

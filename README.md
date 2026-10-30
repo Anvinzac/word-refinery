@@ -224,7 +224,7 @@ data/ngsl-starter-subset.json   bundled corpus (381 words, CC BY-SA 4.0)
 data/batches/A101.json          one batch of Vietnamese cards; `npm run bundle-batches` bundles them
 data/batches/A101.meta.json     its manifest: id, headword and level, one row per card
 data/batches-ja/A101.json       one batch of Japanese cards, one telling per reader register (see its README)
-public/default-deck.json        the dataset a Vietnamese workspace ships with (1910 words, A101-A108 + A201-A207 + B105-B107 + B201-B202)
+public/default-deck.json        the dataset a Vietnamese workspace ships with (2376 words, A101-A108 + A201-A207 + B105-B107 + B201-B202 + B208-B212)
 public/default-deck-ja.json     the dataset a Japanese workspace ships with (4905 words, A101-A108 + A201-A208 + B101-B107 + B201-B212 + C101-C111 + C201-C206)
 src/lib/
   types.ts       deck, corpus and review document shapes
@@ -240,17 +240,18 @@ src/lib/
   intake-db.ts   the accepted catalogue, as a SQLite file
   deck.ts        build deck words, build the document, validate a whole deck
   pipeline.ts    one generation run: select -> annotate -> build -> review rows
-  llm.ts         browser client for OpenRouter / Together / Anthropic / Alibaba
+  llm.ts         browser client for OpenRouter / Together / Anthropic / Alibaba / Novita
   store.ts       pluggable persistence: jsonbin, Gist, or local file
   settings.ts    localStorage settings, provider catalogue, key masking
 src/components/  SettingsPanel, GeneratePanel, ReviewTable
 src/App.tsx      shell: tabs, working document, save/load/export
 ```
 
-The two series are sourced independently, so neither is a translation of the other past A207. Both
-hold 20 batches, but not the same 20: Vietnamese has B105-B107 and B201-B202 and is missing A208 and
-B101-B104, while Japanese has A208 and B101-B104 and stops there. A word count that differs between
-them is expected, not a bundling failure.
+The two series are sourced independently, but a shared batch name does mean the same words: all 20
+batches both hold agree headword for headword, 1910 words in total, and that now includes B105-B107
+and B201-B202. Five batches on each side have no counterpart — Japanese A208 and B101-B104 (447
+words), Vietnamese B208-B212 (466) — which is the whole of the difference between 2376 and 2357. A
+word count that differs between them is expected, not a bundling failure.
 
 `src/lib/contract.ts`, `src/lib/emphasis.ts`, `src/lib/prompt.ts` and `src/lib/deck.ts` are ports of
 the Node-based `word-crawler` package in the KineMedia monorepo, with the filesystem parts removed

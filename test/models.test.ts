@@ -154,6 +154,32 @@ test("listModels hits the Alibaba catalogue with the key", async () => {
   assert.deepEqual(rows.map((row) => row.id), ["deepseek-v4-pro", "qwen3-max"]);
 });
 
+test("listModels hits the Novita catalogue and reads context_size", async () => {
+  let seenUrl = "";
+  let seenAuth = "";
+  stubFetch(async (url, init) => {
+    seenUrl = String(url);
+    seenAuth = new Headers(init?.headers).get("authorization") ?? "";
+    // Novita names the context window `context_size` where every other provider
+    // here sends `context_length`, and gives a `display_name` rather than `name`.
+    return jsonResponse({
+      object: "list",
+      data: [
+        { id: "qwen/qwen3.8-max", display_name: "Qwen3.8 Max", context_size: 1_000_000 },
+        { id: "zai-org/glm-5.3", display_name: "GLM 5.3", context_size: 200_000 },
+      ],
+    });
+  });
+
+  const rows = await listModels(llmSettings({ provider: "novita" }));
+  assert.equal(seenUrl, "https://api.novita.ai/v3/openai/models");
+  assert.equal(seenAuth, "Bearer sk-test-key");
+  // normalizeRows sorts by id, so qwen precedes zai-org.
+  assert.deepEqual(rows.map((row) => row.id), ["qwen/qwen3.8-max", "zai-org/glm-5.3"]);
+  assert.deepEqual(rows.map((row) => row.contextLength), [1_000_000, 200_000]);
+  assert.equal(rows[0]!.name, "Qwen3.8 Max");
+});
+
 test("listModels follows Anthropic pagination via after_id", async () => {
   const seenQueries: Array<Record<string, string>> = [];
   // Holder object so TypeScript doesn't narrow the closure-assigned value.

@@ -1,9 +1,9 @@
 /**
  * Browser-side LLM client.
  *
- * Speaks the OpenAI chat/completions format for OpenRouter, Together and
- * Alibaba (Bailian compatible-mode), and the Messages API for Anthropic, so
- * one call site covers all four. Retries
+ * Speaks the OpenAI chat/completions format for OpenRouter, Together, Novita
+ * and Alibaba (Bailian compatible-mode), and the Messages API for Anthropic, so
+ * one call site covers all five. Retries
  * only on transient statuses (429/500/502/503/504/529) with exponential
  * backoff plus jitter, honouring `retry-after` when the provider sends it.
  *
@@ -70,6 +70,7 @@ const ENDPOINTS = {
   anthropic: "https://api.anthropic.com/v1/messages",
   alibaba:
     "https://ws-qc87cpgqq7pnch88.ap-southeast-1.maas.aliyuncs.com/compatible-mode/v1/chat/completions",
+  novita: "https://api.novita.ai/v3/openai/chat/completions",
 } as const;
 
 /** Sleep helper kept injectable so callers could stub it in tests. */
@@ -165,7 +166,7 @@ async function sendOnce(
     });
   }
 
-  // OpenRouter, Together and Alibaba share the OpenAI chat/completions shape.
+  // OpenRouter, Together, Novita and Alibaba share the OpenAI chat/completions shape.
   const endpoint = ENDPOINTS[provider];
   const headers: Record<string, string> = {
     "content-type": "application/json",
@@ -300,6 +301,7 @@ const MODEL_ENDPOINTS = {
   anthropic: "https://api.anthropic.com/v1/models",
   alibaba:
     "https://ws-qc87cpgqq7pnch88.ap-southeast-1.maas.aliyuncs.com/compatible-mode/v1/models",
+  novita: "https://api.novita.ai/v3/openai/models",
 } as const;
 
 /** One row from a provider's model catalogue. */
@@ -356,7 +358,9 @@ export function parseModelList(provider: LlmProvider, payload: unknown): ListedM
     const row: ListedModel = {
       id,
       name,
-      contextLength: readContextLength(entry.context_length),
+      // Novita spells the context window `context_size` where the others send
+      // `context_length`. Either is read, so the picker shows it for all five.
+      contextLength: readContextLength(entry.context_length ?? entry.context_size),
     };
     if (Array.isArray(outputs)) {
       const modalities = outputs.filter((value): value is string => typeof value === "string");

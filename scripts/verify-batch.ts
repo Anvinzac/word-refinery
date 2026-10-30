@@ -66,7 +66,7 @@
  *   --safety             run stage three (needs WORD_REFINERY_API_KEY)
  *   --repair             run stage four (needs WORD_REFINERY_API_KEY)
  *   --limit <n>          stop after n model calls, for a trial run
- *   --provider <id>      alibaba (default) | openrouter | together | anthropic
+ *   --provider <id>      alibaba (default) | openrouter | together | anthropic | novita
  *   --model <id>         model to call; defaults to the provider's first
  *   --gloss <vi|ja>      which language the cards are written in (default vi)
  *   --words <file>       a CEFR word list, which turns the example-level

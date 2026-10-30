@@ -19,7 +19,7 @@ import { activeGlossProfile } from "./lang.ts";
 import { scopedKey } from "./workspace.ts";
 
 /** The LLM providers the refinery can call from the browser. */
-export type LlmProvider = "openrouter" | "together" | "anthropic" | "alibaba";
+export type LlmProvider = "openrouter" | "together" | "anthropic" | "alibaba" | "novita";
 
 /** The pluggable JSON backends the deck can be persisted to. */
 export type StoreKind = "none" | "jsonbin" | "gist";
@@ -73,6 +73,19 @@ export const PROVIDERS: readonly ProviderInfo[] = [
     endpoint:
       "https://ws-qc87cpgqq7pnch88.ap-southeast-1.maas.aliyuncs.com/compatible-mode/v1/chat/completions",
     suggested: ["qwen3-max", "qwen3-235b-a22b", "deepseek-v4-pro"],
+  },
+  {
+    id: "novita",
+    label: "Novita AI",
+    endpoint: "https://api.novita.ai/v3/openai/chat/completions",
+    // No browserWarning: Novita answers the preflight with
+    // `access-control-allow-origin: *`, so a direct browser call is ordinary.
+    //
+    // The order matters — `scripts/verify-batch.ts` defaults --model to
+    // suggested[0]. A Novita key can be scoped by its team's model policy, and
+    // a model outside that policy returns 403 MODEL_ACCESS_DENIED no matter how
+    // valid the key is, so keep the first entry a widely-available chat model.
+    suggested: ["qwen/qwen3.8-max", "zai-org/glm-5.3", "google/gemma-4-31b-it"],
   },
 ];
 
