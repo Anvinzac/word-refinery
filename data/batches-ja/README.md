@@ -93,8 +93,9 @@ card is rejected. The gates judge the register that ships, so the pack's other
 registers go unchecked. Each pack's own result is in the commit that added it,
 and a pack is shipped whatever that result was, because the bundler runs no
 gates. What the whole deck carries is easier to read in the app, which counts
-it on every load: 3,823 words, 363 of them with something to fix and 169 with
-something to look at. 361 of the 363 are one rule — see below.
+it on every load: 3,823 words, 361 of them with something to fix and 169 with
+something to look at. ALL 361 are one rule — see below. Every other rule the
+deck validator can decide now passes on all 3,823 cards.
 
 A TEASER LINE MUST BE NEW IN THE WHOLE DECK, and that is the rule the deck is
 now failing: 595 of 3,823 cards carry an `anticipateVi` another card
