@@ -7,7 +7,9 @@ Written to `JA_GENERATION_RULES` **v3.9**, which is the Japanese counterpart of
 `engvocab_JA_B105-B107_B201-B202_v3.9_flat` and
 `engvocab_JA_B203-B207_v3.9_flat` and
 `engvocab_JA_B208-B212_v3.9_flat` and
-`engvocab_JA_C101-C105_v3.9_flat`.
+`engvocab_JA_C101-C105_v3.9_flat` and
+`engvocab_JA_C106-C110_v3.9_flat` and
+`engvocab_JA_C111_v3.9_flat` with `engvocab_JA_C201-C206_v3.9_flat`.
 
 Each `<batch>.json` is the pack AS DELIVERED: one object per English word,
 carrying one telling of the scene per reader register under `levels` -
@@ -86,6 +88,18 @@ manifest: it holds batch statistics, and is what the table below is read from.
 | C103 | 100 | 100 | 0 | 0 | v3.9 |
 | C104 | 100 | 100 | 0 | 0 | v3.9 |
 | C105 | 100 | 100 | 0 | 0 | v3.9 |
+| C106 | 100 | 100 | 0 | 0 | v3.9 |
+| C107 | 100 | 100 | 0 | 0 | v3.9 |
+| C108 | 100 | 100 | 0 | 0 | v3.9 |
+| C109 | 100 | 100 | 0 | 0 | v3.9 |
+| C110 | 100 | 100 | 0 | 0 | v3.9 |
+| C111 | 10 | 10 | 0 | 0 | v3.9 |
+| C201 | 100 | 100 | 0 | 0 | v3.9 |
+| C202 | 100 | 100 | 0 | 0 | v3.9 |
+| C203 | 100 | 100 | 0 | 0 | v3.9 |
+| C204 | 100 | 100 | 0 | 0 | v3.9 |
+| C205 | 100 | 100 | 0 | 0 | v3.9 |
+| C206 | 72 | 72 | 0 | 0 | v3.9 |
 
 Check a pack before bundling it with `npm run verify -- <pack dir> --gloss ja`.
 The `--gloss ja` matters: without it the Vietnamese profile is used and every
@@ -93,13 +107,14 @@ card is rejected. The gates judge the register that ships, so the pack's other
 registers go unchecked. Each pack's own result is in the commit that added it,
 and a pack is shipped whatever that result was, because the bundler runs no
 gates. What the whole deck carries is easier to read in the app, which counts
-it on every load: 3,823 words, 361 of them with something to fix and 169 with
-something to look at. ALL 361 are one rule — see below. Every other rule the
-deck validator can decide now passes on all 3,823 cards.
+it on every load: 4,905 words, 483 of them with something to fix and 189 with
+something to look at. 482 of the 483 are one rule — see below. The other is
+`dna`, whose gloss contains the English answer. Every other rule the
+deck validator can decide now passes on all 4,905 cards.
 
 A TEASER LINE MUST BE NEW IN THE WHOLE DECK, and that is the rule the deck is
-now failing: 595 of 3,823 cards carry an `anticipateVi` another card
-already used, over 234 repeated lines — 「かっこいい！」 on 11 cards、「大丈夫？」 on 9 cards、「いい | 香り！」 on 7 cards.
+now failing: 782 of 4,905 cards carry an `anticipateVi` another card
+already used, over 300 repeated lines — 「かっこいい！」 on 11 cards、「大丈夫？」 on 9 cards、「いい | 香り！」 on 7 cards.
 It grows with the deck rather than with any one pack, and faster than it:
 
 | deck size | cards carrying a repeated line |
@@ -109,9 +124,11 @@ It grows with the deck rather than with any one pack, and faster than it:
 | 2,857 | 383 |
 | 3,323 | 451 |
 | 3,823 | 595 |
+| 4,323 | 671 |
+| 4,905 | 782 |
 
-The Vietnamese series, at 4,323 words, carries ZERO repeats. Same rule, larger
-deck, one prompt honouring it — which is the evidence that this is fixable on
+The Vietnamese series, at the same 4,905 words, carries ZERO repeats. Same rule,
+one prompt honouring it — which is the evidence that this is fixable on
 the generation side rather than inherent to the scale.
 
 `needs-regeneration.json` beside this file itemises every card that breaks a

@@ -1,0 +1,602 @@
+[
+ {
+  "id": "C202-001",
+  "word": "dignified",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C202-002",
+  "word": "dim",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C202-003",
+  "word": "discreet",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C202-004",
+  "word": "disloyal",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C202-005",
+  "word": "disposed",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C202-006",
+  "word": "disrespectful",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C202-007",
+  "word": "disruptive",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C202-008",
+  "word": "dubious",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C202-009",
+  "word": "eccentric",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C202-010",
+  "word": "elusive",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C202-011",
+  "word": "eminent",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C202-012",
+  "word": "engrossed",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C202-013",
+  "word": "eventful",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C202-014",
+  "word": "eventual",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C202-015",
+  "word": "exquisite",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C202-016",
+  "word": "extravagant",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C202-017",
+  "word": "faultless",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C202-018",
+  "word": "feeble",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C202-019",
+  "word": "fictional",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C202-020",
+  "word": "finite",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C202-021",
+  "word": "flawless",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C202-022",
+  "word": "foremost",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C202-023",
+  "word": "formidable",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C202-024",
+  "word": "foul",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C202-025",
+  "word": "frail",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C202-026",
+  "word": "graceful",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C202-027",
+  "word": "grammatical",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C202-028",
+  "word": "handsome",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C202-029",
+  "word": "hazardous",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C202-030",
+  "word": "hierarchical",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C202-031",
+  "word": "horrifying",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C202-032",
+  "word": "humiliating",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C202-033",
+  "word": "hygienic",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C202-034",
+  "word": "hypocritical",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C202-035",
+  "word": "idle",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C202-036",
+  "word": "immature",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C202-037",
+  "word": "imperative",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C202-038",
+  "word": "impulsive",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C202-039",
+  "word": "inconsiderate",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C202-040",
+  "word": "indispensable",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C202-041",
+  "word": "indisputable",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C202-042",
+  "word": "industrious",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C202-043",
+  "word": "infectious",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C202-044",
+  "word": "infinite",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C202-045",
+  "word": "innate",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C202-046",
+  "word": "innumerable",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C202-047",
+  "word": "insecure",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C202-048",
+  "word": "inseparable",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C202-049",
+  "word": "intolerable",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C202-050",
+  "word": "intrinsic",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C202-051",
+  "word": "irresistible",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C202-052",
+  "word": "irreversible",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C202-053",
+  "word": "juicy",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C202-054",
+  "word": "justifiable",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C202-055",
+  "word": "lavish",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C202-056",
+  "word": "lenient",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C202-057",
+  "word": "literal",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C202-058",
+  "word": "long-lasting",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C202-059",
+  "word": "long-running",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C202-060",
+  "word": "malicious",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C202-061",
+  "word": "mediocre",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C202-062",
+  "word": "merciful",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C202-063",
+  "word": "meticulous",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C202-064",
+  "word": "mighty",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C202-065",
+  "word": "miniature",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C202-066",
+  "word": "negligent",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C202-067",
+  "word": "negligible",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C202-068",
+  "word": "nosy",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C202-069",
+  "word": "obligatory",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C202-070",
+  "word": "observant",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C202-071",
+  "word": "off-putting",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C202-072",
+  "word": "outgoing",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C202-073",
+  "word": "paradoxical",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C202-074",
+  "word": "paramount",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C202-075",
+  "word": "perceptive",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C202-076",
+  "word": "phenomenal",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C202-077",
+  "word": "pitiful",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C202-078",
+  "word": "plausible",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C202-079",
+  "word": "poetic",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C202-080",
+  "word": "pragmatic",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C202-081",
+  "word": "predominant",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C202-082",
+  "word": "preventive",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C202-083",
+  "word": "privileged",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C202-084",
+  "word": "prone",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C202-085",
+  "word": "pushy",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C202-086",
+  "word": "quaint",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C202-087",
+  "word": "questionable",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C202-088",
+  "word": "receptive",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C202-089",
+  "word": "reckless",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C202-090",
+  "word": "recreational",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C202-091",
+  "word": "redundant",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C202-092",
+  "word": "refined",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C202-093",
+  "word": "relentless",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C202-094",
+  "word": "reliant",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C202-095",
+  "word": "resilient",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C202-096",
+  "word": "resourceful",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C202-097",
+  "word": "respectable",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C202-098",
+  "word": "restrictive",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C202-099",
+  "word": "rigid",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C202-100",
+  "word": "rocky",
+  "level": "C2",
+  "status": "accepted"
+ }
+]

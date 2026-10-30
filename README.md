@@ -225,7 +225,7 @@ data/batches/A101.json          one batch of Vietnamese cards; `npm run bundle-b
 data/batches/A101.meta.json     its manifest: id, headword and level, one row per card
 data/batches-ja/A101.json       one batch of Japanese cards, one telling per reader register (see its README)
 public/default-deck.json        the dataset a Vietnamese workspace ships with (1910 words, A101-A108 + A201-A207 + B105-B107 + B201-B202)
-public/default-deck-ja.json     the dataset a Japanese workspace ships with (1926 words, A101-A108 + A201-A208 + B101-B104)
+public/default-deck-ja.json     the dataset a Japanese workspace ships with (4905 words, A101-A108 + A201-A208 + B101-B107 + B201-B212 + C101-C111 + C201-C206)
 src/lib/
   types.ts       deck, corpus and review document shapes
   corpus.ts      load the bundled corpus, filter by band, batch it

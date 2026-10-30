@@ -1,0 +1,5402 @@
+[
+ {
+  "word": "dignified",
+  "pos": "adj",
+  "ipa": "/ˈdɪɡ.nɪ.faɪd/",
+  "kanaReading": "ディグニファイド",
+  "usageEn": "She stayed calm and _____ after the final.",
+  "topics": [],
+  "exams": [],
+  "defaultLevel": "JHIGH",
+  "levels": {
+   "JSEC": {
+    "kanjiTier": 1,
+    "meaningJP": "堂々とした、品のある",
+    "defJa": "落ち着いて いて、 | 人から 自然に | 大切に される 様子。",
+    "leadJa": "決勝で 負けても、 | キャプテンは 胸を はって | 相手と あくしゅした。",
+    "anticipateJa": "最後まで | かっこいい！",
+    "usageJa": "決勝の 後も、 | あの人は 落ち着いて | 堂々として=いた。",
+    "emphasisJa": [
+     "落ち着いて",
+     "はって",
+     "堂々として"
+    ]
+   },
+   "JHIGH": {
+    "kanjiTier": 2,
+    "meaningJP": "堂々とした、品のある",
+    "defJa": "落ち着いて いて、 | 人から 自然に | 敬われる 様子。",
+    "leadJa": "決勝で 負けても、 | キャプテンは 胸を 張って | 相手と 握手した。",
+    "anticipateJa": "最後まで | かっこいい！",
+    "usageJa": "決勝の 後も、 | 彼女は 落ち着いて | 堂々として=いた。",
+    "emphasisJa": [
+     "敬われる",
+     "張って",
+     "堂々として"
+    ]
+   },
+   "JCOLL": {
+    "kanjiTier": 3,
+    "meaningJP": "威厳のある、堂々とした",
+    "defJa": "落ち着いて いて、 | 人から 自然に | 敬われる 様子。",
+    "leadJa": "決勝で 敗れても、 | 主将は 胸を 張って | 相手と 握手した。",
+    "anticipateJa": "最後まで | 品がある！",
+    "usageJa": "決勝の 後も、 | 彼女は 冷静で | 堂々として=いた。",
+    "emphasisJa": [
+     "敬われる",
+     "張って",
+     "堂々として"
+    ]
+   }
+  },
+  "defVi": "Đường hoàng. Điềm tĩnh và tự nhiên được người khác kính trọng.",
+  "leadVi": "Dù thua trận chung kết, đội trưởng vẫn ưỡn ngực bắt tay đối thủ.",
+  "anticipateVi": "Ngầu đến phút cuối!"
+ },
+ {
+  "word": "dim",
+  "pos": "adj",
+  "ipa": "/dɪm/",
+  "kanaReading": "ディム",
+  "usageEn": "The room was too _____ to read in.",
+  "topics": [],
+  "exams": [],
+  "defaultLevel": "JHIGH",
+  "levels": {
+   "JSEC": {
+    "kanjiTier": 1,
+    "meaningJP": "うす暗い",
+    "defJa": "光が 弱くて、 | ものが よく | 見えない 様子。",
+    "leadJa": "電気の 切れかけた 部屋で、 | 教科書の 字が | ぼやけて 見えた。",
+    "anticipateJa": "目が | つかれちゃう！",
+    "usageJa": "この 部屋は | 本を 読むには | うす暗すぎる。",
+    "emphasisJa": [
+     "弱くて",
+     "ぼやけて",
+     "うす暗すぎる"
+    ]
+   },
+   "JHIGH": {
+    "kanjiTier": 2,
+    "meaningJP": "薄暗い",
+    "defJa": "光が 弱くて、 | 物が よく | 見えない 様子。",
+    "leadJa": "電球の 切れかけた 部屋で、 | 教科書の 字が | ぼやけて 見えた。",
+    "anticipateJa": "目が | 疲れちゃう！",
+    "usageJa": "この 部屋は | 本を 読むには | 薄暗すぎる。",
+    "emphasisJa": [
+     "弱くて",
+     "ぼやけて",
+     "薄暗すぎる"
+    ]
+   },
+   "JCOLL": {
+    "kanjiTier": 3,
+    "meaningJP": "薄暗い、ほの暗い",
+    "defJa": "光が 弱くて、 | 物が よく | 見えない 様子。",
+    "leadJa": "電球の 切れかけた 部屋で、 | 資料の 字が | ぼやけて 見えた。",
+    "anticipateJa": "目が | 疲れる……",
+    "usageJa": "この 部屋は | 本を 読むには | 薄暗すぎる。",
+    "emphasisJa": [
+     "弱くて",
+     "ぼやけて",
+     "薄暗すぎる"
+    ]
+   }
+  },
+  "defVi": "Lờ mờ. Ánh sáng yếu, không nhìn rõ đồ vật.",
+  "leadVi": "Trong căn phòng bóng đèn sắp hỏng, chữ trong sách nhòe đi.",
+  "anticipateVi": "Mỏi mắt quá!"
+ },
+ {
+  "word": "discreet",
+  "pos": "adj",
+  "ipa": "/dɪˈskriːt/",
+  "kanaReading": "ディスクリート",
+  "usageEn": "He was _____ and did not tell anyone my secret.",
+  "topics": [],
+  "exams": [],
+  "defaultLevel": "JHIGH",
+  "levels": {
+   "JSEC": {
+    "kanjiTier": 1,
+    "meaningJP": "口が かたい、ひかえめな",
+    "defJa": "人の ひみつや 気持ちに | 気を つけて、 | 目立たずに ふるまう 様子。",
+    "leadJa": "相談を 聞いた 先ぱいは、 | だれにも 言わず | そっと うなずいた。",
+    "anticipateJa": "この 人なら | 安心！",
+    "usageJa": "あの人は 口が かたくて、 | ぼくの ひみつを | だれにも 言わなかった。",
+    "emphasisJa": [
+     "ひみつ",
+     "言わず",
+     "かたくて"
+    ]
+   },
+   "JHIGH": {
+    "kanjiTier": 2,
+    "meaningJP": "口が堅い、控えめな",
+    "defJa": "人の 秘密や 気持ちに | 気を 配って、 | 目立たずに ふるまう 様子。",
+    "leadJa": "相談を 聞いた 先輩は、 | だれにも 言わず | そっと うなずいた。",
+    "anticipateJa": "この 人なら | 安心！",
+    "usageJa": "彼は 口が 堅くて、 | 僕の 秘密を | だれにも 言わなかった。",
+    "emphasisJa": [
+     "秘密",
+     "言わず",
+     "堅くて"
+    ]
+   },
+   "JCOLL": {
+    "kanjiTier": 3,
+    "meaningJP": "慎重な、口が堅い",
+    "defJa": "人の 秘密や 気持ちに | 気を 配って、 | 目立たずに ふるまう 様子。",
+    "leadJa": "相談を 聞いた 先輩は、 | だれにも 漏らさず | そっと うなずいた。",
+    "anticipateJa": "この 人なら | 安心だ！",
+    "usageJa": "彼は 口が 堅くて、 | 僕の 秘密を | だれにも 言わなかった。",
+    "emphasisJa": [
+     "秘密",
+     "漏らさず",
+     "堅くて"
+    ]
+   }
+  },
+  "defVi": "Kín đáo. Để ý đến bí mật và cảm xúc của người khác, cư xử không phô trương.",
+  "leadVi": "Đàn anh nghe chuyện xong không nói với ai, chỉ khẽ gật đầu.",
+  "anticipateVi": "Người này thì yên tâm!"
+ },
+ {
+  "word": "disloyal",
+  "pos": "adj",
+  "ipa": "/dɪsˈlɔɪ.əl/",
+  "kanaReading": "ディスロイアル",
+  "usageEn": "It felt _____ to leave the club so suddenly.",
+  "topics": [],
+  "exams": [],
+  "defaultLevel": "JHIGH",
+  "levels": {
+   "JSEC": {
+    "kanjiTier": 1,
+    "meaningJP": "不誠実な、うらぎるような",
+    "defJa": "仲間や 相手への | 約束や 気持ちを | 守らない 様子。",
+    "leadJa": "大会 直前に、 | 部活を やめると | 言い出せなかった。",
+    "anticipateJa": "みんなに | 悪いかな？",
+    "usageJa": "急に クラブを やめるのは、 | 仲間に 不誠実な | 気が した。",
+    "emphasisJa": [
+     "守らない",
+     "言い出せなかった",
+     "不誠実な"
+    ]
+   },
+   "JHIGH": {
+    "kanjiTier": 2,
+    "meaningJP": "不誠実な、裏切るような",
+    "defJa": "仲間や 相手への | 約束や 気持ちを | 守らない 様子。",
+    "leadJa": "大会 直前に、 | 部活を 辞めると | 言い出せなかった。",
+    "anticipateJa": "みんなに | 悪いかな？",
+    "usageJa": "急に クラブを 辞めるのは、 | 仲間に 不誠実な | 気が した。",
+    "emphasisJa": [
+     "守らない",
+     "言い出せなかった",
+     "不誠実な"
+    ]
+   },
+   "JCOLL": {
+    "kanjiTier": 3,
+    "meaningJP": "不誠実な、忠実でない",
+    "defJa": "仲間や 相手への | 信頼や 約束を | 裏切る 様子。",
+    "leadJa": "大会 直前に、 | サークルを 抜けると | 言い出せなかった。",
+    "anticipateJa": "みんなに | 悪いかな……",
+    "usageJa": "急に サークルを 抜けるのは、 | 仲間に 不誠実な | 気が した。",
+    "emphasisJa": [
+     "裏切る",
+     "言い出せなかった",
+     "不誠実な"
+    ]
+   }
+  },
+  "defVi": "Không trung thành. Không giữ lời hứa hay tình cảm với đồng đội, đối phương.",
+  "leadVi": "Ngay trước giải đấu, không dám nói ra chuyện bỏ câu lạc bộ.",
+  "anticipateVi": "Có có lỗi với mọi người không nhỉ?"
+ },
+ {
+  "word": "disposed",
+  "pos": "adj",
+  "ipa": "/dɪˈspəʊzd/",
+  "kanaReading": "ディスポウズド",
+  "usageEn": "I am not _____ to wait any longer.",
+  "topics": [],
+  "exams": [],
+  "defaultLevel": "JHIGH",
+  "levels": {
+   "JSEC": {
+    "kanjiTier": 1,
+    "meaningJP": "乗り気な",
+    "defJa": "何かを したいと | 思う 気持ちに | なって=いる 様子。",
+    "leadJa": "三十分も 待った 後、 | 友だちに 「もう 帰ろう」と | LINEした。",
+    "anticipateJa": "まだ | 来ないの？",
+    "usageJa": "これ以上 | 待つ 気には | なれない。",
+    "emphasisJa": [
+     "気持ち",
+     "帰ろう",
+     "気には"
+    ]
+   },
+   "JHIGH": {
+    "kanjiTier": 2,
+    "meaningJP": "乗り気な",
+    "defJa": "何かを したいと | 思う 気持ちに | なって=いる 様子。",
+    "leadJa": "三十分も 待った 後、 | 友達に 「もう 帰ろう」と | LINEした。",
+    "anticipateJa": "まだ | 来ないの？",
+    "usageJa": "これ以上 | 待つ 気には | なれない。",
+    "emphasisJa": [
+     "気持ち",
+     "帰ろう",
+     "気には"
+    ]
+   },
+   "JCOLL": {
+    "kanjiTier": 3,
+    "meaningJP": "乗り気な",
+    "defJa": "何かを しようと | 思う 気持ちに | なって=いる 様子。",
+    "leadJa": "三十分も 待った 後、 | 友人に 「もう 帰ろう」と | LINEした。",
+    "anticipateJa": "まだ | 来ないの？",
+    "usageJa": "これ以上 | 待つ 気には | なれない。",
+    "emphasisJa": [
+     "気持ち",
+     "帰ろう",
+     "気には"
+    ]
+   }
+  },
+  "defVi": "Sẵn lòng. Có tâm trạng muốn làm điều gì đó.",
+  "leadVi": "Sau khi chờ tận ba mươi phút, nhắn LINE cho bạn: “Về thôi”.",
+  "anticipateVi": "Vẫn chưa tới à?"
+ },
+ {
+  "word": "disrespectful",
+  "pos": "adj",
+  "ipa": "/ˌdɪs.rɪˈspekt.fəl/",
+  "kanaReading": "ディスリスペクトフル",
+  "usageEn": "Using your phone at dinner can seem _____.",
+  "topics": [],
+  "exams": [],
+  "defaultLevel": "JHIGH",
+  "levels": {
+   "JSEC": {
+    "kanjiTier": 1,
+    "meaningJP": "失礼な",
+    "defJa": "相手を うやまう | 気持ちが | 感じられない 様子。",
+    "leadJa": "祖母が 話して=いるのに、 | 弟は 顔も 上げずに | 画面を 見て=いた。",
+    "anticipateJa": "おばあちゃん、 | さびしそう……",
+    "usageJa": "食事中に スマホを 使うのは | 失礼に | 見える=ことが ある。",
+    "emphasisJa": [
+     "うやまう",
+     "上げずに",
+     "失礼に"
+    ]
+   },
+   "JHIGH": {
+    "kanjiTier": 2,
+    "meaningJP": "失礼な、無礼な",
+    "defJa": "相手を 尊重する | 気持ちが | 感じられない 様子。",
+    "leadJa": "祖母が 話して=いるのに、 | 弟は 顔も 上げずに | 画面を 見て=いた。",
+    "anticipateJa": "おばあちゃん、 | さびしそう……",
+    "usageJa": "食事中に スマホを 使うのは | 失礼に | 見える=ことが ある。",
+    "emphasisJa": [
+     "尊重する",
+     "上げずに",
+     "失礼に"
+    ]
+   },
+   "JCOLL": {
+    "kanjiTier": 3,
+    "meaningJP": "無礼な、失礼な",
+    "defJa": "相手を 尊重する | 気持ちが | 感じられない 様子。",
+    "leadJa": "祖母が 話して=いるのに、 | 弟は 顔も 上げずに | 画面を 見て=いた。",
+    "anticipateJa": "祖母が | さびしそう……",
+    "usageJa": "食事中に スマホを 使うのは | 失礼に | 見える=ことが ある。",
+    "emphasisJa": [
+     "尊重する",
+     "上げずに",
+     "失礼に"
+    ]
+   }
+  },
+  "defVi": "Vô lễ. Không thể hiện sự tôn trọng đối với người khác.",
+  "leadVi": "Bà đang nói chuyện mà em trai chẳng thèm ngẩng mặt, cứ nhìn màn hình.",
+  "anticipateVi": "Bà trông buồn quá…"
+ },
+ {
+  "word": "disruptive",
+  "pos": "adj",
+  "ipa": "/dɪsˈrʌp.tɪv/",
+  "kanaReading": "ディスラプティヴ",
+  "usageEn": "The loud music was _____ to our study group.",
+  "topics": [],
+  "exams": [],
+  "defaultLevel": "JHIGH",
+  "levels": {
+   "JSEC": {
+    "kanjiTier": 1,
+    "meaningJP": "じゃまになる、さわがしい",
+    "defJa": "まわりの 人の | 活動を 止めて=しまう | 様子。",
+    "leadJa": "図書室の 勉強会で、 | となりの 席から | 大きな 音楽が 流れた。",
+    "anticipateJa": "集中 | できない！",
+    "usageJa": "大きな 音楽が、 | ぼくたちの 勉強会の | じゃまに なった。",
+    "emphasisJa": [
+     "止めて",
+     "流れた",
+     "じゃまに"
+    ]
+   },
+   "JHIGH": {
+    "kanjiTier": 2,
+    "meaningJP": "妨げになる、騒がしい",
+    "defJa": "周りの 人の | 活動を 乱して=しまう | 様子。",
+    "leadJa": "図書館の 勉強会で、 | 隣の 席から | 大音量の 音楽が 流れた。",
+    "anticipateJa": "集中 | できない！",
+    "usageJa": "大音量の 音楽が、 | 僕たちの 勉強会の | 妨げに なった。",
+    "emphasisJa": [
+     "乱して",
+     "流れた",
+     "妨げ"
+    ]
+   },
+   "JCOLL": {
+    "kanjiTier": 3,
+    "meaningJP": "妨げになる、混乱を招く",
+    "defJa": "周りの 人の | 活動を 乱して=しまう | 様子。",
+    "leadJa": "図書館の 勉強会で、 | 隣の 席から | 大音量の 音楽が 漏れた。",
+    "anticipateJa": "集中 | できない！",
+    "usageJa": "大音量の 音楽が、 | 僕たちの 勉強会の | 妨げに なった。",
+    "emphasisJa": [
+     "乱して",
+     "漏れた",
+     "妨げ"
+    ]
+   }
+  },
+  "defVi": "Gây rối. Làm gián đoạn hoạt động của những người xung quanh.",
+  "leadVi": "Ở buổi học nhóm trong thư viện, nhạc lớn vang ra từ bàn bên cạnh.",
+  "anticipateVi": "Không tập trung được!"
+ },
+ {
+  "word": "dubious",
+  "pos": "adj",
+  "ipa": "/ˈdʒuː.bi.əs/",
+  "kanaReading": "デュービアス",
+  "usageEn": "I was _____ about his plan at first.",
+  "topics": [],
+  "exams": [],
+  "defaultLevel": "JHIGH",
+  "levels": {
+   "JSEC": {
+    "kanjiTier": 1,
+    "meaningJP": "うたがわしい、半信半ぎの",
+    "defJa": "本当に 正しいか | 信じきれない | 気持ち。",
+    "leadJa": "「一晩で 十点 上がる」と | 言う 友だちの 話に、 | 首を かしげた。",
+    "anticipateJa": "え、 | 本当に？",
+    "usageJa": "最初は、 | あの人の 計画に | 半信半ぎだった。",
+    "emphasisJa": [
+     "信じきれない",
+     "かしげた",
+     "半信半ぎ"
+    ]
+   },
+   "JHIGH": {
+    "kanjiTier": 2,
+    "meaningJP": "疑わしい、半信半疑の",
+    "defJa": "本当に 正しいか | 信じきれない | 気持ち。",
+    "leadJa": "「一晩で 十点 上がる」と | 言う 友達の 話に、 | 首を かしげた。",
+    "anticipateJa": "え、 | 本当に？",
+    "usageJa": "最初は、 | 彼の 計画に | 半信半疑だった。",
+    "emphasisJa": [
+     "信じきれない",
+     "かしげた",
+     "半信半疑"
+    ]
+   },
+   "JCOLL": {
+    "kanjiTier": 3,
+    "meaningJP": "疑わしい、半信半疑の",
+    "defJa": "本当に 正しいか | 信じきれない | 気持ち。",
+    "leadJa": "「一晩で 十点 上がる」と | 言う 友人の 話に、 | 首を かしげた。",
+    "anticipateJa": "え、 | 本当に？",
+    "usageJa": "最初は、 | 彼の 計画に | 半信半疑だった。",
+    "emphasisJa": [
+     "信じきれない",
+     "かしげた",
+     "半信半疑"
+    ]
+   }
+  },
+  "defVi": "Đáng ngờ. Cảm giác không tin hẳn điều đó có đúng không.",
+  "leadVi": "Nghe bạn nói “một đêm lên mười điểm”, tôi nghiêng đầu ngờ vực.",
+  "anticipateVi": "Ơ, thật không?"
+ },
+ {
+  "word": "eccentric",
+  "pos": "adj",
+  "ipa": "/ɪkˈsen.trɪk/",
+  "kanaReading": "イクセントリック",
+  "usageEn": "Our art teacher has some _____ habits.",
+  "topics": [],
+  "exams": [],
+  "defaultLevel": "JHIGH",
+  "levels": {
+   "JSEC": {
+    "kanjiTier": 1,
+    "meaningJP": "変わった、風変わりな",
+    "defJa": "考えや 行動が、 | ふつうの 人と | 大きく ちがう 様子。",
+    "leadJa": "美術の 先生は、 | 毎朝 カエルの 置き物に | 「おはよう」と 言う。",
+    "anticipateJa": "ちょっと | 面白い！",
+    "usageJa": "美術の 先生には | いくつか | 変わった くせが ある。",
+    "emphasisJa": [
+     "ちがう",
+     "置き物",
+     "変わった"
+    ]
+   },
+   "JHIGH": {
+    "kanjiTier": 2,
+    "meaningJP": "風変わりな、変わった",
+    "defJa": "考えや 行動が、 | 普通の 人と | 大きく 違う 様子。",
+    "leadJa": "美術の 先生は、 | 毎朝 カエルの 置き物に | 「おはよう」と 言う。",
+    "anticipateJa": "ちょっと | 面白い！",
+    "usageJa": "美術の 先生には | いくつか | 風変わりな くせが ある。",
+    "emphasisJa": [
+     "違う",
+     "置き物",
+     "風変わりな"
+    ]
+   },
+   "JCOLL": {
+    "kanjiTier": 3,
+    "meaningJP": "風変わりな、奇抜な",
+    "defJa": "考えや 行動が、 | 普通の 人と | 大きく 異なる 様子。",
+    "leadJa": "美術の 先生は、 | 毎朝 カエルの 置物に | 「おはよう」と 言う。",
+    "anticipateJa": "ちょっと | 面白い！",
+    "usageJa": "美術の 先生には | いくつか | 風変わりな 癖が ある。",
+    "emphasisJa": [
+     "異なる",
+     "置物",
+     "風変わりな"
+    ]
+   }
+  },
+  "defVi": "Lập dị. Suy nghĩ và hành động khác hẳn người bình thường.",
+  "leadVi": "Thầy dạy mỹ thuật sáng nào cũng chào “chào buổi sáng” với tượng con ếch.",
+  "anticipateVi": "Hơi buồn cười nhỉ!"
+ },
+ {
+  "word": "elusive",
+  "pos": "adj",
+  "ipa": "/iˈluː.sɪv/",
+  "kanaReading": "イルースィヴ",
+  "usageEn": "A good night's sleep can be _____ before exams.",
+  "topics": [],
+  "exams": [],
+  "defaultLevel": "JHIGH",
+  "levels": {
+   "JSEC": {
+    "kanjiTier": 1,
+    "meaningJP": "つかみにくい",
+    "defJa": "求めても、 | なかなか つかめない | 様子。",
+    "leadJa": "テスト前の 夜、 | 布団に 入っても | 目が さえて=いた。",
+    "anticipateJa": "ねむりたいのに……",
+    "usageJa": "テスト前は、 | ぐっすり ねむるのが | 難しい。",
+    "emphasisJa": [
+     "つかめない",
+     "さえて",
+     "難しい"
+    ]
+   },
+   "JHIGH": {
+    "kanjiTier": 2,
+    "meaningJP": "つかみにくい、得がたい",
+    "defJa": "求めても、 | なかなか つかめない | 様子。",
+    "leadJa": "テスト前の 夜、 | 布団に 入っても | 目が さえて=いた。",
+    "anticipateJa": "眠りたいのに……",
+    "usageJa": "試験前は、 | ぐっすり 眠るのが | 難しい。",
+    "emphasisJa": [
+     "つかめない",
+     "さえて",
+     "難しい"
+    ]
+   },
+   "JCOLL": {
+    "kanjiTier": 3,
+    "meaningJP": "捉えにくい、得がたい",
+    "defJa": "求めても、 | なかなか 捉えられない | 様子。",
+    "leadJa": "試験前の 夜、 | 布団に 入っても | 目が さえて=いた。",
+    "anticipateJa": "眠りたいのに……",
+    "usageJa": "試験前は、 | 熟睡が | なかなか 得られない。",
+    "emphasisJa": [
+     "捉えられない",
+     "さえて",
+     "得られない"
+    ]
+   }
+  },
+  "defVi": "Khó nắm bắt. Dù tìm kiếm mãi vẫn khó nắm được.",
+  "leadVi": "Đêm trước kỳ thi, chui vào chăn rồi mà mắt vẫn tỉnh táo.",
+  "anticipateVi": "Muốn ngủ mà…"
+ },
+ {
+  "word": "eminent",
+  "pos": "adj",
+  "ipa": "/ˈem.ɪ.nənt/",
+  "kanaReading": "エミネント",
+  "usageEn": "An _____ scientist gave a talk at our school.",
+  "topics": [],
+  "exams": [],
+  "defaultLevel": "JHIGH",
+  "levels": {
+   "JSEC": {
+    "kanjiTier": 1,
+    "meaningJP": "有名な、すぐれた",
+    "defJa": "ある 分野で | 多くの 人に | 認められた 様子。",
+    "leadJa": "体育館に 来た 博士の | 話を、 | 全員が 真けんに 聞いた。",
+    "anticipateJa": "サイン | ほしい！",
+    "usageJa": "有名な 科学者が、 | 学校で | 話を して=くれた。",
+    "emphasisJa": [
+     "認められた",
+     "真けん",
+     "有名な"
+    ]
+   },
+   "JHIGH": {
+    "kanjiTier": 2,
+    "meaningJP": "著名な、すぐれた",
+    "defJa": "ある 分野で | 多くの 人に | 認められた 様子。",
+    "leadJa": "体育館に 来た 博士の | 話を、 | 全員が 真剣に 聞いた。",
+    "anticipateJa": "サイン | ほしい！",
+    "usageJa": "著名な 科学者が、 | 学校で | 講演して=くれた。",
+    "emphasisJa": [
+     "認められた",
+     "真剣",
+     "著名な"
+    ]
+   },
+   "JCOLL": {
+    "kanjiTier": 3,
+    "meaningJP": "著名な、高名な",
+    "defJa": "ある 分野で | 広く | 認められた 様子。",
+    "leadJa": "講堂に 来た 博士の | 話を、 | 全員が 真剣に 聞いた。",
+    "anticipateJa": "サイン | 欲しい！",
+    "usageJa": "著名な 科学者が、 | 大学で | 講演して=くれた。",
+    "emphasisJa": [
+     "認められた",
+     "真剣",
+     "著名な"
+    ]
+   }
+  },
+  "defVi": "Lỗi lạc. Được nhiều người công nhận trong một lĩnh vực.",
+  "leadVi": "Cả trường chăm chú lắng nghe vị tiến sĩ đến nhà thể chất.",
+  "anticipateVi": "Muốn xin chữ ký!"
+ },
+ {
+  "word": "engrossed",
+  "pos": "adj",
+  "ipa": "/ɪnˈɡrəʊst/",
+  "kanaReading": "イングロウスト",
+  "usageEn": "She was so _____ in her book that she missed her stop.",
+  "topics": [],
+  "exams": [],
+  "defaultLevel": "JHIGH",
+  "levels": {
+   "JSEC": {
+    "kanjiTier": 1,
+    "meaningJP": "夢中な",
+    "defJa": "ほかの ことを | 忘れるほど、 | 一つの ことに 集中する 様子。",
+    "leadJa": "電車で 小説を 読みふけり、 | 顔を 上げたら | 二つ 先の 駅だった。",
+    "anticipateJa": "乗りすごした！",
+    "usageJa": "本に 夢中で、 | 降りる 駅を | すぎて=しまった。",
+    "emphasisJa": [
+     "集中する",
+     "読みふけり",
+     "夢中で"
+    ]
+   },
+   "JHIGH": {
+    "kanjiTier": 2,
+    "meaningJP": "夢中な、没頭した",
+    "defJa": "他の ことを | 忘れるほど、 | 一つの ことに 集中する 様子。",
+    "leadJa": "電車で 小説を 読みふけり、 | 顔を 上げたら | 二つ 先の 駅だった。",
+    "anticipateJa": "乗り過ごした！",
+    "usageJa": "本に 夢中で、 | 降りる 駅を | 過ぎて=しまった。",
+    "emphasisJa": [
+     "集中する",
+     "読みふけり",
+     "夢中で"
+    ]
+   },
+   "JCOLL": {
+    "kanjiTier": 3,
+    "meaningJP": "没頭した、夢中な",
+    "defJa": "他の ことを | 忘れるほど、 | 一つの ことに 没頭する 様子。",
+    "leadJa": "電車で 小説を 読みふけり、 | 顔を 上げたら | 二つ 先の 駅だった。",
+    "anticipateJa": "乗り過ごした！",
+    "usageJa": "本に 夢中で、 | 降りる 駅を | 過ぎて=しまった。",
+    "emphasisJa": [
+     "没頭する",
+     "読みふけり",
+     "夢中で"
+    ]
+   }
+  },
+  "defVi": "Mải mê. Tập trung vào một việc đến quên cả chuyện khác.",
+  "leadVi": "Đang đọc tiểu thuyết trên tàu, nhận ra thì đã quá hai ga.",
+  "anticipateVi": "Lỡ ga rồi!"
+ },
+ {
+  "word": "eventful",
+  "pos": "adj",
+  "ipa": "/ɪˈvent.fəl/",
+  "kanaReading": "イヴェントフル",
+  "usageEn": "It was an _____ week at school.",
+  "topics": [],
+  "exams": [],
+  "defaultLevel": "JHIGH",
+  "levels": {
+   "JSEC": {
+    "kanjiTier": 1,
+    "meaningJP": "出来事の 多い",
+    "defJa": "いろいろな ことが | 次々と | 起こる 様子。",
+    "leadJa": "月曜は 体育祭、 | 水曜は 合唱の 練習、 | 金曜は 写真さつえい。",
+    "anticipateJa": "一週間、 | 早かった！",
+    "usageJa": "今週は 学校で | いろいろ あった | 一週間だった。",
+    "emphasisJa": [
+     "次々と",
+     "合唱",
+     "いろいろ"
+    ]
+   },
+   "JHIGH": {
+    "kanjiTier": 2,
+    "meaningJP": "出来事の多い、波乱の",
+    "defJa": "さまざまな ことが | 次々と | 起こる 様子。",
+    "leadJa": "月曜は 体育祭、 | 水曜は 合唱の 練習、 | 金曜は 写真撮影。",
+    "anticipateJa": "一週間、 | 早かった！",
+    "usageJa": "今週は 学校で | いろいろ あった | 一週間だった。",
+    "emphasisJa": [
+     "次々と",
+     "合唱",
+     "いろいろ"
+    ]
+   },
+   "JCOLL": {
+    "kanjiTier": 3,
+    "meaningJP": "出来事の多い、波乱に富んだ",
+    "defJa": "さまざまな ことが | 次々と | 起こる 様子。",
+    "leadJa": "月曜は 学園祭の 準備、 | 水曜は ゼミ発表、 | 金曜は 面接。",
+    "anticipateJa": "一週間、 | 早かった！",
+    "usageJa": "今週は 大学で | いろいろ あった | 一週間だった。",
+    "emphasisJa": [
+     "次々と",
+     "面接",
+     "いろいろ"
+    ]
+   }
+  },
+  "defVi": "Nhiều biến cố. Nhiều việc xảy ra liên tiếp.",
+  "leadVi": "Thứ hai hội thể thao, thứ tư tập hợp xướng, thứ sáu chụp ảnh.",
+  "anticipateVi": "Một tuần trôi nhanh quá!"
+ },
+ {
+  "word": "eventual",
+  "pos": "adj",
+  "ipa": "/ɪˈven.tʃu.əl/",
+  "kanaReading": "イヴェンチュアル",
+  "usageEn": "The _____ winner was a first-year student.",
+  "topics": [],
+  "exams": [],
+  "defaultLevel": "JHIGH",
+  "levels": {
+   "JSEC": {
+    "kanjiTier": 1,
+    "meaningJP": "最終的な",
+    "defJa": "いろいろ あった 後、 | 結局 | そう なる 様子。",
+    "leadJa": "予想に 反して、 | 決勝で 勝ちのこったのは | 一年生だった。",
+    "anticipateJa": "まさかの | ぎゃく転！",
+    "usageJa": "最終的な 勝者は、 | 一年生だった。",
+    "emphasisJa": [
+     "結局",
+     "勝ちのこった",
+     "最終的な"
+    ]
+   },
+   "JHIGH": {
+    "kanjiTier": 2,
+    "meaningJP": "最終的な、結果としての",
+    "defJa": "いろいろ あった 後、 | 結局 | そう なる 様子。",
+    "leadJa": "予想に 反して、 | 決勝で 勝ち残ったのは | 一年生だった。",
+    "anticipateJa": "まさかの | 逆転！",
+    "usageJa": "最終的な 優勝者は、 | 一年生だった。",
+    "emphasisJa": [
+     "結局",
+     "勝ち残った",
+     "最終的な"
+    ]
+   },
+   "JCOLL": {
+    "kanjiTier": 3,
+    "meaningJP": "最終的な、結局の",
+    "defJa": "経過を 経て、 | 結局 | そう なる 様子。",
+    "leadJa": "予想に 反して、 | 決勝で 勝ち残ったのは | 一年生だった。",
+    "anticipateJa": "まさかの | 逆転！",
+    "usageJa": "最終的な 優勝者は、 | 一年生だった。",
+    "emphasisJa": [
+     "結局",
+     "勝ち残った",
+     "最終的な"
+    ]
+   }
+  },
+  "defVi": "Cuối cùng. Sau nhiều chuyện, rốt cuộc trở thành như vậy.",
+  "leadVi": "Trái với dự đoán, người trụ lại đến chung kết là học sinh năm nhất.",
+  "anticipateVi": "Lội ngược dòng bất ngờ!"
+ },
+ {
+  "word": "exquisite",
+  "pos": "adj",
+  "ipa": "/ɪkˈskwɪz.ɪt/",
+  "kanaReading": "イクスクウィズィット",
+  "usageEn": "The cake was decorated with _____ detail.",
+  "topics": [],
+  "exams": [],
+  "defaultLevel": "JHIGH",
+  "levels": {
+   "JSEC": {
+    "kanjiTier": 1,
+    "meaningJP": "見事な、美しい",
+    "defJa": "細かい ところまで | ていねいに 作られ、 | とても 美しい 様子。",
+    "leadJa": "ケーキの 上には、 | 小さな 花びらが | 一枚ずつ ならんで=いた。",
+    "anticipateJa": "食べるのが | もったいない！",
+    "usageJa": "ケーキは、 | 見事な 細工で | かざられて=いた。",
+    "emphasisJa": [
+     "ていねい",
+     "一枚ずつ",
+     "見事な"
+    ]
+   },
+   "JHIGH": {
+    "kanjiTier": 2,
+    "meaningJP": "見事な、美しい",
+    "defJa": "細かい ところまで | ていねいに 作られ、 | とても 美しい 様子。",
+    "leadJa": "ケーキの 上には、 | 小さな 花びらが | 一枚ずつ 並んで=いた。",
+    "anticipateJa": "食べるのが | もったいない！",
+    "usageJa": "ケーキは、 | 見事な 細工で | 飾られて=いた。",
+    "emphasisJa": [
+     "ていねい",
+     "一枚ずつ",
+     "見事な"
+    ]
+   },
+   "JCOLL": {
+    "kanjiTier": 3,
+    "meaningJP": "精巧な、優美な",
+    "defJa": "細部まで | 丁寧に 作られ、 | 際立って 美しい 様子。",
+    "leadJa": "ケーキの 上には、 | 小さな 花びらが | 一枚ずつ 並んで=いた。",
+    "anticipateJa": "食べるのが | もったいない！",
+    "usageJa": "ケーキは、 | 精巧な 細工で | 飾られて=いた。",
+    "emphasisJa": [
+     "丁寧",
+     "一枚ずつ",
+     "精巧な"
+    ]
+   }
+  },
+  "defVi": "Tinh xảo. Được làm tỉ mỉ đến từng chi tiết, rất đẹp.",
+  "leadVi": "Trên chiếc bánh, từng cánh hoa nhỏ được xếp từng cánh một.",
+  "anticipateVi": "Tiếc không nỡ ăn!"
+ },
+ {
+  "word": "extravagant",
+  "pos": "adj",
+  "ipa": "/ɪkˈstræv.ə.ɡənt/",
+  "kanaReading": "イクストラヴァガント",
+  "usageEn": "Buying three new phones a year is _____.",
+  "topics": [],
+  "exams": [],
+  "defaultLevel": "JHIGH",
+  "levels": {
+   "JSEC": {
+    "kanjiTier": 1,
+    "meaningJP": "むだづかいの、ぜいたくな",
+    "defJa": "必要 以上に、 | お金を | 使いすぎる 様子。",
+    "leadJa": "先ぱいは 新しい スマホが 出る | たびに、 | すぐに 買いかえる。",
+    "anticipateJa": "お金、 | だいじょうぶ？",
+    "usageJa": "一年に スマホを 三台も | 買うなんて | ぜいたくすぎる。",
+    "emphasisJa": [
+     "使いすぎる",
+     "買いかえる",
+     "ぜいたくすぎる"
+    ]
+   },
+   "JHIGH": {
+    "kanjiTier": 2,
+    "meaningJP": "ぜいたくな",
+    "defJa": "必要 以上に、 | お金を | 使いすぎる 様子。",
+    "leadJa": "先輩は 新しい スマホが 出る | たびに、 | すぐに 買い替える。",
+    "anticipateJa": "お金、 | 大丈夫？",
+    "usageJa": "一年に スマホを 三台も | 買うなんて | ぜいたくすぎる。",
+    "emphasisJa": [
+     "使いすぎる",
+     "買い替える",
+     "ぜいたくすぎる"
+    ]
+   },
+   "JCOLL": {
+    "kanjiTier": 3,
+    "meaningJP": "浪費的な、ぜいたくな",
+    "defJa": "必要 以上に、 | お金を | 使いすぎる 様子。",
+    "leadJa": "先輩は 新しい スマホが 出る | たびに、 | すぐに 買い替える。",
+    "anticipateJa": "お金、 | 大丈夫？",
+    "usageJa": "一年に スマホを 三台も | 買うなんて | 浪費が 過ぎる。",
+    "emphasisJa": [
+     "使いすぎる",
+     "買い替える",
+     "浪費"
+    ]
+   }
+  },
+  "defVi": "Hoang phí. Tiêu tiền quá mức cần thiết.",
+  "leadVi": "Mỗi lần điện thoại mới ra, đàn anh lại đổi máy ngay.",
+  "anticipateVi": "Tiền nong ổn không?"
+ },
+ {
+  "word": "faultless",
+  "pos": "adj",
+  "ipa": "/ˈfɔːlt.ləs/",
+  "kanaReading": "フォールトレス",
+  "usageEn": "Her piano performance was _____.",
+  "topics": [],
+  "exams": [],
+  "defaultLevel": "JHIGH",
+  "levels": {
+   "JSEC": {
+    "kanjiTier": 1,
+    "meaningJP": "完ぺきな、欠点の ない",
+    "defJa": "まちがいが | 一つも ない | 様子。",
+    "leadJa": "発表会で、 | 最後の 音まで | 一度も つかえずに ひいた。",
+    "anticipateJa": "はく手が | 止まらない！",
+    "usageJa": "あの人の ピアノの えんそうは | 完ぺきだった。",
+    "emphasisJa": [
+     "まちがい",
+     "つかえずに",
+     "完ぺき"
+    ]
+   },
+   "JHIGH": {
+    "kanjiTier": 2,
+    "meaningJP": "完ぺきな",
+    "defJa": "間違いが | 一つも ない | 様子。",
+    "leadJa": "発表会で、 | 最後の 音まで | 一度も つかえずに 弾いた。",
+    "anticipateJa": "拍手が | 止まらない！",
+    "usageJa": "彼女の ピアノ演奏は | 完ぺきだった。",
+    "emphasisJa": [
+     "間違い",
+     "つかえずに",
+     "完ぺき"
+    ]
+   },
+   "JCOLL": {
+    "kanjiTier": 3,
+    "meaningJP": "非の打ち所のない、完璧な",
+    "defJa": "誤りが | 一つも ない | 様子。",
+    "leadJa": "発表会で、 | 最後の 音まで | 一度も つかえずに 弾いた。",
+    "anticipateJa": "拍手が | 止まらない！",
+    "usageJa": "彼女の ピアノ演奏は | 完璧だった。",
+    "emphasisJa": [
+     "誤り",
+     "つかえずに",
+     "完璧"
+    ]
+   }
+  },
+  "defVi": "Không tì vết. Không có lấy một lỗi nào.",
+  "leadVi": "Ở buổi biểu diễn, chơi đến nốt cuối không vấp lần nào.",
+  "anticipateVi": "Tiếng vỗ tay không ngớt!"
+ },
+ {
+  "word": "feeble",
+  "pos": "adj",
+  "ipa": "/ˈfiː.bəl/",
+  "kanaReading": "フィーブル",
+  "usageEn": "He gave a _____ excuse for being late.",
+  "topics": [],
+  "exams": [],
+  "defaultLevel": "JHIGH",
+  "levels": {
+   "JSEC": {
+    "kanjiTier": 1,
+    "meaningJP": "苦しい、弱々しい",
+    "defJa": "力や なっとく感が | 足りなくて、 | 弱い 様子。",
+    "leadJa": "ちこくした 理由を 聞かれ、 | 「ねこが…」と | 小さな 声で 答えた。",
+    "anticipateJa": "それは | ちょっと……",
+    "usageJa": "あの人は ちこくの | 苦しい 言いわけを | した。",
+    "emphasisJa": [
+     "弱い",
+     "小さな",
+     "苦しい"
+    ]
+   },
+   "JHIGH": {
+    "kanjiTier": 2,
+    "meaningJP": "弱々しい、説得力のない",
+    "defJa": "力や 説得力が | 足りなくて、 | 弱い 様子。",
+    "leadJa": "遅刻した 理由を 聞かれ、 | 「ねこが…」と | 小さな 声で 答えた。",
+    "anticipateJa": "それは | ちょっと……",
+    "usageJa": "彼は 遅刻の | 苦しい 言い訳を | した。",
+    "emphasisJa": [
+     "弱い",
+     "小さな",
+     "苦しい"
+    ]
+   },
+   "JCOLL": {
+    "kanjiTier": 3,
+    "meaningJP": "弱々しい、説得力のない",
+    "defJa": "力や 説得力が | 乏しく、 | 弱い 様子。",
+    "leadJa": "遅刻した 理由を 聞かれ、 | 「猫が…」と | か細い 声で 答えた。",
+    "anticipateJa": "それは | ちょっと……",
+    "usageJa": "彼は 遅刻の | 苦しい 言い訳を | した。",
+    "emphasisJa": [
+     "弱い",
+     "か細い",
+     "苦しい"
+    ]
+   }
+  },
+  "defVi": "Yếu ớt. Thiếu sức mạnh hay sức thuyết phục.",
+  "leadVi": "Bị hỏi lý do đi muộn, trả lời nhỏ xíu: “Con mèo…”.",
+  "anticipateVi": "Cái đó thì hơi…"
+ },
+ {
+  "word": "fictional",
+  "pos": "adj",
+  "ipa": "/ˈfɪk.ʃən.əl/",
+  "kanaReading": "フィクショナル",
+  "usageEn": "The town in the film is _____.",
+  "topics": [],
+  "exams": [],
+  "defaultLevel": "JHIGH",
+  "levels": {
+   "JSEC": {
+    "kanjiTier": 1,
+    "meaningJP": "作り話の",
+    "defJa": "本当には ない、 | 物語の 中だけの | 様子。",
+    "leadJa": "映画の 町を | 地図アプリで さがしたけど、 | 見つからなかった。",
+    "anticipateJa": "どこに | あるんだろう？",
+    "usageJa": "映画の 町は | 作り話の 中の | 町だ。",
+    "emphasisJa": [
+     "物語",
+     "見つからなかった",
+     "作り話"
+    ]
+   },
+   "JHIGH": {
+    "kanjiTier": 2,
+    "meaningJP": "作り話の、空想の",
+    "defJa": "実際には 存在せず、 | 物語の 中だけの | 様子。",
+    "leadJa": "映画の 町を | 地図アプリで 探したけど、 | 見つからなかった。",
+    "anticipateJa": "どこに | あるんだろう？",
+    "usageJa": "映画の 町は | 作り話の 中の | 町だ。",
+    "emphasisJa": [
+     "存在せず",
+     "見つからなかった",
+     "作り話"
+    ]
+   },
+   "JCOLL": {
+    "kanjiTier": 3,
+    "meaningJP": "架空の、虚構の",
+    "defJa": "実際には 存在せず、 | 物語の 中だけの | 様子。",
+    "leadJa": "映画の 町を | 地図アプリで 探したが、 | 見つからなかった。",
+    "anticipateJa": "どこに | あるんだろう？",
+    "usageJa": "映画の 町は | 架空の | 町だ。",
+    "emphasisJa": [
+     "存在せず",
+     "見つからなかった",
+     "架空"
+    ]
+   }
+  },
+  "defVi": "Hư cấu. Không có thật, chỉ tồn tại trong truyện.",
+  "leadVi": "Tìm thị trấn trong phim trên ứng dụng bản đồ mà không thấy.",
+  "anticipateVi": "Nó ở đâu nhỉ?"
+ },
+ {
+  "word": "finite",
+  "pos": "adj",
+  "ipa": "/ˈfaɪ.naɪt/",
+  "kanaReading": "ファイナイト",
+  "usageEn": "We have a _____ amount of time for the test.",
+  "topics": [],
+  "exams": [],
+  "defaultLevel": "JHIGH",
+  "levels": {
+   "JSEC": {
+    "kanjiTier": 1,
+    "meaningJP": "限りの ある",
+    "defJa": "数や 量に | 終わりが | ある 様子。",
+    "leadJa": "テスト用紙を 開くと、 | 黒板の 時計は | 残り 五十分を さして=いた。",
+    "anticipateJa": "急がなきゃ！",
+    "usageJa": "テストの 時間には | 限りが ある。",
+    "emphasisJa": [
+     "終わり",
+     "残り",
+     "限り"
+    ]
+   },
+   "JHIGH": {
+    "kanjiTier": 2,
+    "meaningJP": "有限の、限りのある",
+    "defJa": "数や 量に | 終わりが | ある 様子。",
+    "leadJa": "試験用紙を 開くと、 | 黒板の 時計は | 残り 五十分を 指して=いた。",
+    "anticipateJa": "急がなきゃ！",
+    "usageJa": "試験の 時間には | 限りが ある。",
+    "emphasisJa": [
+     "終わり",
+     "残り",
+     "限り"
+    ]
+   },
+   "JCOLL": {
+    "kanjiTier": 3,
+    "meaningJP": "有限の",
+    "defJa": "数や 量に | 終わりが | ある 様子。",
+    "leadJa": "試験用紙を 開くと、 | 黒板の 時計は | 残り 五十分を 指して=いた。",
+    "anticipateJa": "急がなきゃ！",
+    "usageJa": "試験の 時間は | 有限だ。",
+    "emphasisJa": [
+     "終わり",
+     "残り",
+     "有限"
+    ]
+   }
+  },
+  "defVi": "Có hạn. Số lượng hay khối lượng có giới hạn.",
+  "leadVi": "Mở đề thi ra, đồng hồ trên bảng chỉ còn năm mươi phút.",
+  "anticipateVi": "Phải nhanh lên!"
+ },
+ {
+  "word": "flawless",
+  "pos": "adj",
+  "ipa": "/ˈflɔː.ləs/",
+  "kanaReading": "フローレス",
+  "usageEn": "Her English pronunciation is almost _____.",
+  "topics": [],
+  "exams": [],
+  "defaultLevel": "JHIGH",
+  "levels": {
+   "JSEC": {
+    "kanjiTier": 1,
+    "meaningJP": "完ぺきな、きずの ない",
+    "defJa": "小さな まちがいも | 見つからない | 様子。",
+    "leadJa": "英語の 音読で、 | 先生が 「ネイティブみたい」と | 目を 丸くした。",
+    "anticipateJa": "練習の | 成果だね！",
+    "usageJa": "あの人の 英語の 発音は | ほぼ=完ぺきだ。",
+    "emphasisJa": [
+     "見つからない",
+     "丸くした",
+     "完ぺき"
+    ]
+   },
+   "JHIGH": {
+    "kanjiTier": 2,
+    "meaningJP": "完ぺきな、欠点のない",
+    "defJa": "小さな 間違いも | 見つからない | 様子。",
+    "leadJa": "英語の 音読で、 | 先生が 「ネイティブみたい」と | 目を 丸くした。",
+    "anticipateJa": "練習の | 成果だね！",
+    "usageJa": "彼女の 英語の 発音は | ほぼ=完ぺきだ。",
+    "emphasisJa": [
+     "見つからない",
+     "丸くした",
+     "完ぺき"
+    ]
+   },
+   "JCOLL": {
+    "kanjiTier": 3,
+    "meaningJP": "完璧な、欠点のない",
+    "defJa": "小さな 誤りも | 見当たらない | 様子。",
+    "leadJa": "英語の 音読で、 | 教授が 「ネイティブみたい」と | 目を 丸くした。",
+    "anticipateJa": "練習の | 成果だね！",
+    "usageJa": "彼女の 英語の 発音は | ほぼ=完璧だ。",
+    "emphasisJa": [
+     "見当たらない",
+     "丸くした",
+     "完璧"
+    ]
+   }
+  },
+  "defVi": "Hoàn hảo. Không tìm thấy dù chỉ một lỗi nhỏ.",
+  "leadVi": "Khi đọc to tiếng Anh, thầy tròn mắt nói “như người bản xứ”.",
+  "anticipateVi": "Thành quả luyện tập đấy!"
+ },
+ {
+  "word": "foremost",
+  "pos": "adj",
+  "ipa": "/ˈfɔː.məʊst/",
+  "kanaReading": "フォーモウスト",
+  "usageEn": "Safety is our _____ concern on the trip.",
+  "topics": [],
+  "exams": [],
+  "defaultLevel": "JHIGH",
+  "levels": {
+   "JSEC": {
+    "kanjiTier": 1,
+    "meaningJP": "いちばん大切な",
+    "defJa": "ほかの 何よりも | 先に 考える | 様子。",
+    "leadJa": "修学旅行の 説明会で、 | 先生は まず | 「安全 第一」と 言った。",
+    "anticipateJa": "楽しむのは | その 後！",
+    "usageJa": "旅行では | 安全が | いちばん 大切だ。",
+    "emphasisJa": [
+     "考える",
+     "第一",
+     "大切"
+    ]
+   },
+   "JHIGH": {
+    "kanjiTier": 2,
+    "meaningJP": "最も重要な、第一の",
+    "defJa": "他の 何よりも | 先に 考える | 様子。",
+    "leadJa": "修学旅行の 説明会で、 | 先生は まず | 「安全 第一」と 言った。",
+    "anticipateJa": "楽しむのは | その 後！",
+    "usageJa": "旅行では | 安全が | 最も 重要だ。",
+    "emphasisJa": [
+     "考える",
+     "第一",
+     "重要"
+    ]
+   },
+   "JCOLL": {
+    "kanjiTier": 3,
+    "meaningJP": "最も重要な、第一の",
+    "defJa": "他の 何よりも | 優先して 考える | 様子。",
+    "leadJa": "ゼミ合宿の 説明会で、 | 教授は まず | 「安全 第一」と 言った。",
+    "anticipateJa": "楽しむのは | その 後！",
+    "usageJa": "合宿では | 安全が | 最優先だ。",
+    "emphasisJa": [
+     "優先して",
+     "第一",
+     "最優先"
+    ]
+   }
+  },
+  "defVi": "Hàng đầu. Được nghĩ đến trước hết mọi thứ.",
+  "leadVi": "Ở buổi họp về chuyến đi thực tế, thầy nói trước tiên: “An toàn là trên hết”.",
+  "anticipateVi": "Vui chơi để sau!"
+ },
+ {
+  "word": "formidable",
+  "pos": "adj",
+  "ipa": "/ˈfɔː.mɪ.də.bəl/",
+  "kanaReading": "フォーミダブル",
+  "usageEn": "The other team was a _____ opponent.",
+  "topics": [],
+  "exams": [],
+  "defaultLevel": "JHIGH",
+  "levels": {
+   "JSEC": {
+    "kanjiTier": 1,
+    "meaningJP": "手強い、おそろしいほど 強い",
+    "defJa": "強くて、 | 勝つのが | とても=難しい 様子。",
+    "leadJa": "練習試合の 相手は、 | 去年の 全国大会で | 三位の 学校だった。",
+    "anticipateJa": "勝てるかな？",
+    "usageJa": "相手の チームは | 手強かった。",
+    "emphasisJa": [
+     "難しい",
+     "三位",
+     "手強かった"
+    ]
+   },
+   "JHIGH": {
+    "kanjiTier": 2,
+    "meaningJP": "手強い、恐るべき",
+    "defJa": "強くて、 | 勝つのが | とても=難しい 様子。",
+    "leadJa": "練習試合の 相手は、 | 去年の 全国大会で | 三位の 学校だった。",
+    "anticipateJa": "勝てるかな？",
+    "usageJa": "相手の チームは | 手強かった。",
+    "emphasisJa": [
+     "難しい",
+     "三位",
+     "手強かった"
+    ]
+   },
+   "JCOLL": {
+    "kanjiTier": 3,
+    "meaningJP": "手強い、侮れない",
+    "defJa": "強くて、 | 勝つのが | 極めて 難しい 様子。",
+    "leadJa": "練習試合の 相手は、 | 去年の 全国大会で | 三位の 大学だった。",
+    "anticipateJa": "勝てるかな？",
+    "usageJa": "相手の チームは | 手強かった。",
+    "emphasisJa": [
+     "難しい",
+     "三位",
+     "手強かった"
+    ]
+   }
+  },
+  "defVi": "Đáng gờm. Mạnh đến mức rất khó thắng.",
+  "leadVi": "Đối thủ trận giao hữu là trường hạng ba giải toàn quốc năm ngoái.",
+  "anticipateVi": "Liệu có thắng nổi?"
+ },
+ {
+  "word": "foul",
+  "pos": "adj",
+  "ipa": "/faʊl/",
+  "kanaReading": "ファウル",
+  "usageEn": "There was a _____ smell from the bin.",
+  "topics": [],
+  "exams": [],
+  "defaultLevel": "JHIGH",
+  "levels": {
+   "JSEC": {
+    "kanjiTier": 1,
+    "meaningJP": "ひどく くさい",
+    "defJa": "鼻を つまみたく なるほど、 | いやな | においの 様子。",
+    "leadJa": "週明けの 教室で、 | ごみ箱の ふたを | 開けた しゅん間、 | 顔を しかめた。",
+    "anticipateJa": "うっ、 | 何これ？",
+    "usageJa": "ごみ箱から | ひどい においが | して=いた。",
+    "emphasisJa": [
+     "いやな",
+     "ふた",
+     "ひどい"
+    ]
+   },
+   "JHIGH": {
+    "kanjiTier": 2,
+    "meaningJP": "ひどくくさい、不快な",
+    "defJa": "鼻を つまみたく なるほど、 | 嫌な | においの 様子。",
+    "leadJa": "週明けの 教室で、 | ゴミ箱の ふたを | 開けた 瞬間、 | 顔を しかめた。",
+    "anticipateJa": "うっ、 | 何これ？",
+    "usageJa": "ゴミ箱から | ひどい においが | して=いた。",
+    "emphasisJa": [
+     "嫌な",
+     "ふた",
+     "ひどい"
+    ]
+   },
+   "JCOLL": {
+    "kanjiTier": 3,
+    "meaningJP": "悪臭のする、不快な",
+    "defJa": "鼻を つまみたく なるほど、 | 嫌な | においの 様子。",
+    "leadJa": "週明けの 研究室で、 | ゴミ箱の ふたを | 開けた 瞬間、 | 顔を しかめた。",
+    "anticipateJa": "うっ、 | 何これ？",
+    "usageJa": "ゴミ箱から | 悪臭が | して=いた。",
+    "emphasisJa": [
+     "嫌な",
+     "ふた",
+     "悪臭"
+    ]
+   }
+  },
+  "defVi": "Hôi thối. Mùi khó chịu đến mức muốn bịt mũi.",
+  "leadVi": "Đầu tuần trong lớp, vừa mở nắp thùng rác ra thì…",
+  "anticipateVi": "Ọe, cái gì thế này?"
+ },
+ {
+  "word": "frail",
+  "pos": "adj",
+  "ipa": "/freɪl/",
+  "kanaReading": "フレイル",
+  "usageEn": "My grandmother looks _____ but she walks every day.",
+  "topics": [],
+  "exams": [],
+  "defaultLevel": "JHIGH",
+  "levels": {
+   "JSEC": {
+    "kanjiTier": 1,
+    "meaningJP": "かよわい、きゃしゃな",
+    "defJa": "体が 細く、 | 力が | 弱そうな 様子。",
+    "leadJa": "祖母は 細い うでで | つえを ついて、 | 今朝も 公園を 歩いた。",
+    "anticipateJa": "毎日 | えらい！",
+    "usageJa": "祖母は かよわく 見えるが、 | 毎日 | 歩いて=いる。",
+    "emphasisJa": [
+     "弱そう",
+     "つえ",
+     "かよわく"
+    ]
+   },
+   "JHIGH": {
+    "kanjiTier": 2,
+    "meaningJP": "か弱い、きゃしゃな",
+    "defJa": "体が 細く、 | 力が | 弱そうな 様子。",
+    "leadJa": "祖母は 細い 腕で | つえを ついて、 | 今朝も 公園を 歩いた。",
+    "anticipateJa": "毎日 | えらい！",
+    "usageJa": "祖母は か弱く 見えるが、 | 毎日 | 歩いて=いる。",
+    "emphasisJa": [
+     "弱そう",
+     "つえ",
+     "か弱く"
+    ]
+   },
+   "JCOLL": {
+    "kanjiTier": 3,
+    "meaningJP": "か弱い、虚弱な",
+    "defJa": "体が 細く、 | 力が | 弱そうな 様子。",
+    "leadJa": "祖母は 細い 腕で | つえを ついて、 | 今朝も 公園を 歩いた。",
+    "anticipateJa": "毎日 | 立派！",
+    "usageJa": "祖母は か弱く 見えるが、 | 毎日 | 歩いて=いる。",
+    "emphasisJa": [
+     "弱そう",
+     "つえ",
+     "か弱く"
+    ]
+   }
+  },
+  "defVi": "Yếu ớt, mỏng manh. Cơ thể gầy, trông yếu sức.",
+  "leadVi": "Bà dùng cánh tay gầy chống gậy, sáng nay vẫn đi dạo công viên.",
+  "anticipateVi": "Ngày nào cũng giỏi ghê!"
+ },
+ {
+  "word": "graceful",
+  "pos": "adj",
+  "ipa": "/ˈɡreɪs.fəl/",
+  "kanaReading": "グレイスフル",
+  "usageEn": "The dancer made a _____ turn.",
+  "topics": [],
+  "exams": [],
+  "defaultLevel": "JHIGH",
+  "levels": {
+   "JSEC": {
+    "kanjiTier": 1,
+    "meaningJP": "優ような、しなやかな",
+    "defJa": "動きが なめらかで、 | 美しい | 様子。",
+    "leadJa": "文化祭の ダンスで、 | 先ぱいは 音も なく | くるりと 回った。",
+    "anticipateJa": "見とれちゃう！",
+    "usageJa": "ダンサーは | 優ように | ターンした。",
+    "emphasisJa": [
+     "なめらか",
+     "回った",
+     "優ように"
+    ]
+   },
+   "JHIGH": {
+    "kanjiTier": 2,
+    "meaningJP": "優雅な、しなやかな",
+    "defJa": "動きが 滑らかで、 | 美しい | 様子。",
+    "leadJa": "文化祭の ダンスで、 | 先輩は 音も なく | くるりと 回った。",
+    "anticipateJa": "見とれちゃう！",
+    "usageJa": "ダンサーは | 優雅に | ターンした。",
+    "emphasisJa": [
+     "滑らか",
+     "回った",
+     "優雅"
+    ]
+   },
+   "JCOLL": {
+    "kanjiTier": 3,
+    "meaningJP": "優雅な、しなやかな",
+    "defJa": "動きが 滑らかで、 | 美しい | 様子。",
+    "leadJa": "学園祭の ダンスで、 | 先輩は 音も なく | くるりと 回った。",
+    "anticipateJa": "見とれちゃう！",
+    "usageJa": "ダンサーは | 優雅に | ターンした。",
+    "emphasisJa": [
+     "滑らか",
+     "回った",
+     "優雅"
+    ]
+   }
+  },
+  "defVi": "Duyên dáng. Động tác mềm mại và đẹp.",
+  "leadVi": "Trong điệu nhảy ở lễ hội văn hóa, đàn chị xoay một vòng không một tiếng động.",
+  "anticipateVi": "Mê mẩn luôn!"
+ },
+ {
+  "word": "grammatical",
+  "pos": "adj",
+  "ipa": "/ɡrəˈmæt.ɪ.kəl/",
+  "kanaReading": "グラマティカル",
+  "usageEn": "This sentence is not _____.",
+  "topics": [],
+  "exams": [],
+  "defaultLevel": "JHIGH",
+  "levels": {
+   "JSEC": {
+    "kanjiTier": 1,
+    "meaningJP": "文法的に 正しい",
+    "defJa": "言葉の きまりに | 合って=いる | 様子。",
+    "leadJa": "英作文の プリントに、 | 先生の 赤ペンで | 線が 三本 引かれた。",
+    "anticipateJa": "どこが | ちがうの？",
+    "usageJa": "この 文は | 文法的に | 正しくない。",
+    "emphasisJa": [
+     "きまり",
+     "赤ペン",
+     "文法的"
+    ]
+   },
+   "JHIGH": {
+    "kanjiTier": 2,
+    "meaningJP": "文法的に正しい",
+    "defJa": "言葉の ルールに | 合って=いる | 様子。",
+    "leadJa": "英作文の プリントに、 | 先生の 赤ペンで | 線が 三本 引かれた。",
+    "anticipateJa": "どこが | 違うの？",
+    "usageJa": "この 文は | 文法的に | 正しくない。",
+    "emphasisJa": [
+     "ルール",
+     "赤ペン",
+     "文法的"
+    ]
+   },
+   "JCOLL": {
+    "kanjiTier": 3,
+    "meaningJP": "文法的に正しい",
+    "defJa": "言語の 規則に | かなって=いる | 様子。",
+    "leadJa": "英作文の レポートに、 | 教授の 赤ペンで | 線が 三本 引かれた。",
+    "anticipateJa": "どこが | 違うの？",
+    "usageJa": "この 文は | 文法的に | 正しくない。",
+    "emphasisJa": [
+     "規則",
+     "赤ペン",
+     "文法的"
+    ]
+   }
+  },
+  "defVi": "Đúng ngữ pháp. Phù hợp với quy tắc của ngôn ngữ.",
+  "leadVi": "Bài viết tiếng Anh bị bút đỏ của thầy gạch ba đường.",
+  "anticipateVi": "Sai chỗ nào nhỉ?"
+ },
+ {
+  "word": "handsome",
+  "pos": "adj",
+  "ipa": "/ˈhæn.səm/",
+  "kanaReading": "ハンサム",
+  "usageEn": "Her brother is tall and _____.",
+  "topics": [],
+  "exams": [],
+  "defaultLevel": "JHIGH",
+  "levels": {
+   "JSEC": {
+    "kanjiTier": 1,
+    "meaningJP": "ハンサムな、かっこいい",
+    "defJa": "顔立ちが よく、 | すっきりと | 整って=いる 様子。",
+    "leadJa": "友だちの お兄さんが 来ると、 | 教室が | ちょっと ざわついた。",
+    "anticipateJa": "だれ、 | あの人！",
+    "usageJa": "友だちの お兄さんは | 背が 高くて | かっこいい。",
+    "emphasisJa": [
+     "整って",
+     "ざわついた",
+     "かっこいい"
+    ]
+   },
+   "JHIGH": {
+    "kanjiTier": 2,
+    "meaningJP": "ハンサムな、顔立ちのいい",
+    "defJa": "顔立ちが よく、 | すっきりと | 整って=いる 様子。",
+    "leadJa": "友達の お兄さんが 来ると、 | 教室が | ちょっと ざわついた。",
+    "anticipateJa": "え、 | だれ？",
+    "usageJa": "彼女の お兄さんは | 背が 高くて | ハンサムだ。",
+    "emphasisJa": [
+     "整って",
+     "ざわついた",
+     "ハンサム"
+    ]
+   },
+   "JCOLL": {
+    "kanjiTier": 3,
+    "meaningJP": "ハンサムな、端正な",
+    "defJa": "顔立ちが よく、 | すっきりと | 整って=いる 様子。",
+    "leadJa": "友人の お兄さんが 来ると、 | 部室が | ちょっと ざわついた。",
+    "anticipateJa": "え、 | 誰？",
+    "usageJa": "彼女の お兄さんは | 背が 高くて | ハンサムだ。",
+    "emphasisJa": [
+     "整って",
+     "ざわついた",
+     "ハンサム"
+    ]
+   }
+  },
+  "defVi": "Đẹp trai. Gương mặt cân đối, sáng sủa.",
+  "leadVi": "Anh trai của bạn vừa đến, cả lớp hơi xôn xao.",
+  "anticipateVi": "Ai thế kia!"
+ },
+ {
+  "word": "hazardous",
+  "pos": "adj",
+  "ipa": "/ˈhæz.ə.dəs/",
+  "kanaReading": "ハザダス",
+  "usageEn": "The icy road was _____ this morning.",
+  "topics": [],
+  "exams": [],
+  "defaultLevel": "JHIGH",
+  "levels": {
+   "JSEC": {
+    "kanjiTier": 1,
+    "meaningJP": "危険な、あぶない",
+    "defJa": "けがや 事故が | 起こりやすい | 様子。",
+    "leadJa": "朝の 通学路が | 一面 こおって、 | 自転車が つるりと すべった。",
+    "anticipateJa": "ゆっくり | 歩こう！",
+    "usageJa": "けさの こおった 道は | 危険だった。",
+    "emphasisJa": [
+     "起こりやすい",
+     "すべった",
+     "危険"
+    ]
+   },
+   "JHIGH": {
+    "kanjiTier": 2,
+    "meaningJP": "危険な、有害な",
+    "defJa": "けがや 事故が | 起こりやすい | 様子。",
+    "leadJa": "朝の 通学路が | 一面 凍って、 | 自転車が つるりと 滑った。",
+    "anticipateJa": "ゆっくり | 歩こう！",
+    "usageJa": "今朝の 凍った 道は | 危険だった。",
+    "emphasisJa": [
+     "起こりやすい",
+     "滑った",
+     "危険"
+    ]
+   },
+   "JCOLL": {
+    "kanjiTier": 3,
+    "meaningJP": "危険な、有害な",
+    "defJa": "事故や 害が | 起こりやすい | 様子。",
+    "leadJa": "朝の 通学路が | 一面 凍って、 | 自転車が つるりと 滑った。",
+    "anticipateJa": "ゆっくり | 歩こう！",
+    "usageJa": "今朝の 凍結した 道は | 危険だった。",
+    "emphasisJa": [
+     "起こりやすい",
+     "滑った",
+     "危険"
+    ]
+   }
+  },
+  "defVi": "Nguy hiểm. Dễ xảy ra chấn thương hay tai nạn.",
+  "leadVi": "Đường đến trường buổi sáng đóng băng, xe đạp trượt một cái.",
+  "anticipateVi": "Đi chậm thôi!"
+ },
+ {
+  "word": "hierarchical",
+  "pos": "adj",
+  "ipa": "/ˌhaɪəˈrɑː.kɪ.kəl/",
+  "kanaReading": "ハイアラーキカル",
+  "usageEn": "The club has a very _____ structure.",
+  "topics": [],
+  "exams": [],
+  "defaultLevel": "JHIGH",
+  "levels": {
+   "JSEC": {
+    "kanjiTier": 1,
+    "meaningJP": "上下関係の はっきりした",
+    "defJa": "上から 下へ、 | 立場の 順番が | 決まって=いる 様子。",
+    "leadJa": "部活では、 | 一年生が 先に 来て、 | ボールを ならべる。",
+    "anticipateJa": "先ぱいの | 言う=ことは 絶対？",
+    "usageJa": "部活は、 | 上下関係が | とても きびしい。",
+    "emphasisJa": [
+     "順番",
+     "一年生",
+     "上下関係"
+    ]
+   },
+   "JHIGH": {
+    "kanjiTier": 2,
+    "meaningJP": "階層的な、上下関係のある",
+    "defJa": "上から 下へ、 | 立場の 順番が | 決まって=いる 様子。",
+    "leadJa": "部活では、 | 一年生が 先に 来て、 | ボールを 並べる。",
+    "anticipateJa": "先輩の | 言う=ことは 絶対？",
+    "usageJa": "部活は、 | 上下関係が | とても 厳しい。",
+    "emphasisJa": [
+     "順番",
+     "一年生",
+     "上下関係"
+    ]
+   },
+   "JCOLL": {
+    "kanjiTier": 3,
+    "meaningJP": "階層的な、上下関係のある",
+    "defJa": "上から 下へ、 | 立場の 序列が | 決まって=いる 様子。",
+    "leadJa": "サークルでは、 | 一年生が 先に 来て、 | 機材を 並べる。",
+    "anticipateJa": "先輩の | 言う=ことは 絶対？",
+    "usageJa": "サークルは、 | 上下関係が | かなり 厳しい。",
+    "emphasisJa": [
+     "序列",
+     "一年生",
+     "上下関係"
+    ]
+   }
+  },
+  "defVi": "Có thứ bậc. Thứ tự vị trí từ trên xuống dưới được định sẵn.",
+  "leadVi": "Ở câu lạc bộ, học sinh năm nhất đến trước để xếp bóng.",
+  "anticipateVi": "Lời đàn anh là tuyệt đối?"
+ },
+ {
+  "word": "horrifying",
+  "pos": "adj",
+  "ipa": "/ˈhɒr.ɪ.faɪ.ɪŋ/",
+  "kanaReading": "ホリファイイング",
+  "usageEn": "The price of the concert tickets was _____.",
+  "topics": [],
+  "exams": [],
+  "defaultLevel": "JHIGH",
+  "levels": {
+   "JSEC": {
+    "kanjiTier": 1,
+    "meaningJP": "ぞっとする、おそろしい",
+    "defJa": "思わず 息を のむほど、 | ひどく | こわい 様子。",
+    "leadJa": "ライブの チケット代を 見て、 | スマホを 持つ 手が | 止まった。",
+    "anticipateJa": "高すぎる！",
+    "usageJa": "コンサートの チケット代は | ぞっとする | 金がくだった。",
+    "emphasisJa": [
+     "こわい",
+     "止まった",
+     "ぞっとする"
+    ]
+   },
+   "JHIGH": {
+    "kanjiTier": 2,
+    "meaningJP": "ぞっとする、恐ろしい",
+    "defJa": "思わず 息を のむほど、 | ひどく | 恐ろしい 様子。",
+    "leadJa": "ライブの チケット代を 見て、 | スマホを 持つ 手が | 止まった。",
+    "anticipateJa": "高すぎる！",
+    "usageJa": "コンサートの チケット代は | ぞっとする | 金額だった。",
+    "emphasisJa": [
+     "恐ろしい",
+     "止まった",
+     "ぞっとする"
+    ]
+   },
+   "JCOLL": {
+    "kanjiTier": 3,
+    "meaningJP": "ぞっとする、恐ろしい",
+    "defJa": "思わず 息を のむほど、 | ひどく | 恐ろしい 様子。",
+    "leadJa": "ライブの チケット代を 見て、 | スマホを 持つ 手が | 止まった。",
+    "anticipateJa": "高すぎる！",
+    "usageJa": "コンサートの チケット代は | ぞっとする | 金額だった。",
+    "emphasisJa": [
+     "恐ろしい",
+     "止まった",
+     "ぞっとする"
+    ]
+   }
+  },
+  "defVi": "Kinh hoàng. Đáng sợ đến mức nín thở.",
+  "leadVi": "Nhìn giá vé buổi live, tay cầm điện thoại khựng lại.",
+  "anticipateVi": "Đắt quá!"
+ },
+ {
+  "word": "humiliating",
+  "pos": "adj",
+  "ipa": "/hjuːˈmɪl.i.eɪ.tɪŋ/",
+  "kanaReading": "ヒューミリエイティング",
+  "usageEn": "Falling over on stage felt _____ at the time.",
+  "topics": [],
+  "exams": [],
+  "defaultLevel": "JHIGH",
+  "levels": {
+   "JSEC": {
+    "kanjiTier": 1,
+    "meaningJP": "はずかしい、みじめな",
+    "defJa": "人前で、 | とても | はずかしい 思いを する 様子。",
+    "leadJa": "合唱コンクールの ステージで | つまずいたけど、 | 笑顔で 歌い切った。",
+    "anticipateJa": "立ち直りが | 早い！",
+    "usageJa": "ステージで 転んだ=ときは、 | とても | はずかしかった。",
+    "emphasisJa": [
+     "はずかしい",
+     "つまずいた",
+     "はずかしかった"
+    ]
+   },
+   "JHIGH": {
+    "kanjiTier": 2,
+    "meaningJP": "はずかしい、みじめな",
+    "defJa": "人前で、 | ひどく | はずかしい 思いを する 様子。",
+    "leadJa": "合唱コンクールの ステージで | つまずいたけど、 | 笑顔で 歌い切った。",
+    "anticipateJa": "立ち直りが | 早い！",
+    "usageJa": "ステージで 転んだ=ときは、 | とても | はずかしかった。",
+    "emphasisJa": [
+     "はずかしい",
+     "つまずいた",
+     "はずかしかった"
+    ]
+   },
+   "JCOLL": {
+    "kanjiTier": 3,
+    "meaningJP": "屈辱的な、恥をかかされる",
+    "defJa": "人前で、 | ひどく | 恥ずかしい 思いを する 様子。",
+    "leadJa": "合唱コンクールの ステージで | つまずいたが、 | 笑顔で 歌い切った。",
+    "anticipateJa": "立ち直りが | 早い！",
+    "usageJa": "ステージで 転んだ=ときは、 | 屈辱的な | 気分だった。",
+    "emphasisJa": [
+     "恥ずかしい",
+     "つまずいた",
+     "屈辱的な"
+    ]
+   }
+  },
+  "defVi": "Nhục nhã. Cảm giác rất xấu hổ trước mặt mọi người.",
+  "leadVi": "Vấp ngã trên sân khấu thi hợp xướng nhưng vẫn mỉm cười hát đến hết.",
+  "anticipateVi": "Gượng dậy nhanh ghê!"
+ },
+ {
+  "word": "hygienic",
+  "pos": "adj",
+  "ipa": "/haɪˈdʒiː.nɪk/",
+  "kanaReading": "ハイジーニック",
+  "usageEn": "Washing your hands before cooking is more _____.",
+  "topics": [],
+  "exams": [],
+  "defaultLevel": "JHIGH",
+  "levels": {
+   "JSEC": {
+    "kanjiTier": 1,
+    "meaningJP": "衛生的な、清けつな",
+    "defJa": "ばいきんが 少なく、 | 体に 安全で | きれいな 様子。",
+    "leadJa": "調理実習の 前、 | みんなで 石けんを 使い、 | 三十秒 手を あらった。",
+    "anticipateJa": "ピカピカ！",
+    "usageJa": "料理の 前に 手を あらうと | 衛生的だ。",
+    "emphasisJa": [
+     "安全",
+     "石けん",
+     "衛生的"
+    ]
+   },
+   "JHIGH": {
+    "kanjiTier": 2,
+    "meaningJP": "衛生的な、清潔な",
+    "defJa": "よごれが 少なく、 | 体に 安全で | 清潔な 様子。",
+    "leadJa": "調理実習の 前、 | みんなで 石けんを 使い、 | 三十秒 手を 洗った。",
+    "anticipateJa": "ピカピカ！",
+    "usageJa": "料理の 前に 手を 洗うと | 衛生的だ。",
+    "emphasisJa": [
+     "清潔",
+     "石けん",
+     "衛生的"
+    ]
+   },
+   "JCOLL": {
+    "kanjiTier": 3,
+    "meaningJP": "衛生的な、清潔な",
+    "defJa": "細菌が 少なく、 | 体に 安全で | 清潔な 様子。",
+    "leadJa": "自炊の 前、 | 石けんを 使って | 三十秒 手を 洗った。",
+    "anticipateJa": "ピカピカ！",
+    "usageJa": "料理の 前に 手を 洗うと | 衛生的だ。",
+    "emphasisJa": [
+     "清潔",
+     "石けん",
+     "衛生的"
+    ]
+   }
+  },
+  "defVi": "Hợp vệ sinh. Ít vi khuẩn, an toàn và sạch sẽ cho cơ thể.",
+  "leadVi": "Trước giờ thực hành nấu ăn, cả lớp dùng xà phòng rửa tay ba mươi giây.",
+  "anticipateVi": "Sạch bóng!"
+ },
+ {
+  "word": "hypocritical",
+  "pos": "adj",
+  "ipa": "/ˌhɪp.əˈkrɪt.ɪ.kəl/",
+  "kanaReading": "ヒポクリティカル",
+  "usageEn": "It is _____ to ask others to be quiet while you talk loudly.",
+  "topics": [],
+  "exams": [],
+  "defaultLevel": "JHIGH",
+  "levels": {
+   "JSEC": {
+    "kanjiTier": 1,
+    "meaningJP": "うらおもての ある",
+    "defJa": "人には 言うのに、 | 自分では | 守らない 様子。",
+    "leadJa": "「静かに！」と 言った 子が、 | 次の しゅん間 | 大声で 笑って=いた。",
+    "anticipateJa": "え、 | 自分は？",
+    "usageJa": "自分が 大声で 話して=いて | 人に 静かにと 言うのは | 自分勝手だ。",
+    "emphasisJa": [
+     "守らない",
+     "笑って",
+     "自分勝手"
+    ]
+   },
+   "JHIGH": {
+    "kanjiTier": 2,
+    "meaningJP": "偽善的な、言行不一致の",
+    "defJa": "人には 言うのに、 | 自分では | 守らない 様子。",
+    "leadJa": "「静かに！」と 言った 子が、 | 次の 瞬間 | 大声で 笑って=いた。",
+    "anticipateJa": "え、 | 自分は？",
+    "usageJa": "自分が 大声で 話して=いて | 人に 静かにと 言うのは | 偽善的だ。",
+    "emphasisJa": [
+     "守らない",
+     "笑って",
+     "偽善的"
+    ]
+   },
+   "JCOLL": {
+    "kanjiTier": 3,
+    "meaningJP": "偽善的な、二枚舌の",
+    "defJa": "他人には 求めるのに、 | 自分では | 守らない 様子。",
+    "leadJa": "「静かに！」と 言った 人が、 | 次の 瞬間 | 大声で 笑って=いた。",
+    "anticipateJa": "え、 | 自分は？",
+    "usageJa": "自分が 大声で 話して=いて | 人に 静かにと 言うのは | 偽善的だ。",
+    "emphasisJa": [
+     "守らない",
+     "笑って",
+     "偽善的"
+    ]
+   }
+  },
+  "defVi": "Đạo đức giả. Bảo người khác nhưng bản thân lại không làm theo.",
+  "leadVi": "Người vừa nói “Im lặng!” thì ngay sau đó lại cười to.",
+  "anticipateVi": "Ơ, còn bản thân thì sao?"
+ },
+ {
+  "word": "idle",
+  "pos": "adj",
+  "ipa": "/ˈaɪ.dəl/",
+  "kanaReading": "アイドル",
+  "usageEn": "I had an _____ afternoon at home.",
+  "topics": [],
+  "exams": [],
+  "defaultLevel": "JHIGH",
+  "levels": {
+   "JSEC": {
+    "kanjiTier": 1,
+    "meaningJP": "のんびりした、何も しない",
+    "defJa": "予定や 仕事が なく、 | ゆっくり | すごす 様子。",
+    "leadJa": "部活の ない 日曜、 | ソファで 雲を ながめて | 一日が すぎた。",
+    "anticipateJa": "たまには | いいよね！",
+    "usageJa": "家で | のんびりした | 午後を すごした。",
+    "emphasisJa": [
+     "ゆっくり",
+     "ながめて",
+     "のんびりした"
+    ]
+   },
+   "JHIGH": {
+    "kanjiTier": 2,
+    "meaningJP": "暇な、のんびりした",
+    "defJa": "予定や 仕事が なく、 | ゆっくり | 過ごす 様子。",
+    "leadJa": "部活の ない 日曜、 | ソファで 雲を ながめて | 一日が 過ぎた。",
+    "anticipateJa": "たまには | いいよね！",
+    "usageJa": "家で | のんびりした | 午後を 過ごした。",
+    "emphasisJa": [
+     "ゆっくり",
+     "ながめて",
+     "のんびりした"
+    ]
+   },
+   "JCOLL": {
+    "kanjiTier": 3,
+    "meaningJP": "暇な、怠惰な",
+    "defJa": "予定や 仕事が なく、 | ゆっくり | 過ごす 様子。",
+    "leadJa": "バイトの ない 日曜、 | ソファで 雲を 眺めて | 一日が 過ぎた。",
+    "anticipateJa": "たまには | いいよね！",
+    "usageJa": "家で | のんびりした | 午後を 過ごした。",
+    "emphasisJa": [
+     "ゆっくり",
+     "眺めて",
+     "のんびりした"
+    ]
+   }
+  },
+  "defVi": "Nhàn rỗi. Không có kế hoạch hay việc gì, thong thả trải qua thời gian.",
+  "leadVi": "Chủ nhật không có câu lạc bộ, nằm sofa ngắm mây cả ngày.",
+  "anticipateVi": "Thỉnh thoảng thế cũng được nhỉ!"
+ },
+ {
+  "word": "immature",
+  "pos": "adj",
+  "ipa": "/ˌɪm.əˈtʃʊər/",
+  "kanaReading": "イマチュア",
+  "usageEn": "That joke was a bit _____.",
+  "topics": [],
+  "exams": [],
+  "defaultLevel": "JHIGH",
+  "levels": {
+   "JSEC": {
+    "kanjiTier": 1,
+    "meaningJP": "子どもっぽい、未じゅくな",
+    "defJa": "考えや ふるまいが、 | 年の わりに | おさない 様子。",
+    "leadJa": "友だちの じょうだんに、 | 先ぱいが 苦笑いして | 首を ふった。",
+    "anticipateJa": "中学生にも | なって？",
+    "usageJa": "その じょうだんは | ちょっと | 子どもっぽかった。",
+    "emphasisJa": [
+     "おさない",
+     "苦笑い",
+     "子どもっぽかった"
+    ]
+   },
+   "JHIGH": {
+    "kanjiTier": 2,
+    "meaningJP": "未熟な、子どもっぽい",
+    "defJa": "考えや ふるまいが、 | 年の わりに | 幼い 様子。",
+    "leadJa": "友達の じょうだんに、 | 先輩が 苦笑いして | 首を 振った。",
+    "anticipateJa": "高校生にも | なって？",
+    "usageJa": "その じょうだんは | ちょっと | 子どもっぽかった。",
+    "emphasisJa": [
+     "幼い",
+     "苦笑い",
+     "子どもっぽかった"
+    ]
+   },
+   "JCOLL": {
+    "kanjiTier": 3,
+    "meaningJP": "未熟な、大人げない",
+    "defJa": "考えや ふるまいが、 | 年の わりに | 幼い 様子。",
+    "leadJa": "友人の 冗談に、 | 先輩が 苦笑いして | 首を 振った。",
+    "anticipateJa": "大学生にも | なって？",
+    "usageJa": "その 冗談は | ちょっと | 大人げなかった。",
+    "emphasisJa": [
+     "幼い",
+     "苦笑い",
+     "大人げなかった"
+    ]
+   }
+  },
+  "defVi": "Non nớt. Suy nghĩ hay cách cư xử trẻ con so với tuổi.",
+  "leadVi": "Trước câu đùa của bạn, đàn anh cười gượng lắc đầu.",
+  "anticipateVi": "Lớn rồi mà còn thế?"
+ },
+ {
+  "word": "imperative",
+  "pos": "adj",
+  "ipa": "/ɪmˈper.ə.tɪv/",
+  "kanaReading": "インペラティヴ",
+  "usageEn": "It is _____ that you finish the report today.",
+  "topics": [],
+  "exams": [],
+  "defaultLevel": "JHIGH",
+  "levels": {
+   "JSEC": {
+    "kanjiTier": 1,
+    "meaningJP": "ぜったいに 必要な",
+    "defJa": "何が あっても、 | しなければ | ならない 様子。",
+    "leadJa": "しめ切りは 今夜 十二時。 | レポートは | まだ 半分だ。",
+    "anticipateJa": "今日が | 勝負！",
+    "usageJa": "レポートは 今日中に | 終わらせる=ことが | ぜったいに 必要だ。",
+    "emphasisJa": [
+     "しなければ",
+     "しめ切り",
+     "必要"
+    ]
+   },
+   "JHIGH": {
+    "kanjiTier": 2,
+    "meaningJP": "必須の、緊急の",
+    "defJa": "何が あっても、 | しなければ | ならない 様子。",
+    "leadJa": "締め切りは 今夜 十二時。 | レポートは | まだ 半分だ。",
+    "anticipateJa": "今日が | 勝負！",
+    "usageJa": "レポートは 今日中に | 終わらせる=ことが | 絶対に 必要だ。",
+    "emphasisJa": [
+     "しなければ",
+     "締め切り",
+     "必要"
+    ]
+   },
+   "JCOLL": {
+    "kanjiTier": 3,
+    "meaningJP": "不可欠な、急を要する",
+    "defJa": "何が あっても、 | しなければ | ならない 様子。",
+    "leadJa": "締め切りは 今夜 零時。 | レポートは | まだ 半分だ。",
+    "anticipateJa": "今日が | 勝負！",
+    "usageJa": "レポートは 今日中に | 終わらせる=ことが | 不可欠だ。",
+    "emphasisJa": [
+     "しなければ",
+     "締め切り",
+     "不可欠"
+    ]
+   }
+  },
+  "defVi": "Cấp bách. Dù thế nào cũng phải làm.",
+  "leadVi": "Hạn nộp là mười hai giờ đêm nay, mà báo cáo mới được một nửa.",
+  "anticipateVi": "Hôm nay là quyết định!"
+ },
+ {
+  "word": "impulsive",
+  "pos": "adj",
+  "ipa": "/ɪmˈpʌl.sɪv/",
+  "kanaReading": "インパルスィヴ",
+  "usageEn": "I made an _____ decision to buy the jacket.",
+  "topics": [],
+  "exams": [],
+  "defaultLevel": "JHIGH",
+  "levels": {
+   "JSEC": {
+    "kanjiTier": 1,
+    "meaningJP": "しょうどう的な",
+    "defJa": "よく 考えずに、 | その 場の 気持ちで | 決めて=しまう 様子。",
+    "leadJa": "店の 前を 通っただけなのに、 | 気づいたら | 紙ぶくろを 持って=いた。",
+    "anticipateJa": "あれ、 | いつの間に？",
+    "usageJa": "ついつい | しょうどう買いを | して=しまった。",
+    "emphasisJa": [
+     "考えずに",
+     "気づいたら",
+     "しょうどう買い"
+    ]
+   },
+   "JHIGH": {
+    "kanjiTier": 2,
+    "meaningJP": "衝動的な",
+    "defJa": "よく 考えずに、 | その 場の 気分で | 決めて=しまう 様子。",
+    "leadJa": "店の 前を 通っただけなのに、 | 気づいたら | 紙ぶくろを 持って=いた。",
+    "anticipateJa": "あれ、 | いつの間に？",
+    "usageJa": "つい | 衝動的に | ジャケットを 買った。",
+    "emphasisJa": [
+     "考えずに",
+     "気づいたら",
+     "衝動的"
+    ]
+   },
+   "JCOLL": {
+    "kanjiTier": 3,
+    "meaningJP": "衝動的な",
+    "defJa": "よく 考えずに、 | その 場の 気分で | 決めて=しまう 様子。",
+    "leadJa": "店の 前を 通っただけなのに、 | 気づいたら | 紙ぶくろを 持って=いた。",
+    "anticipateJa": "あれ、 | いつの間に？",
+    "usageJa": "つい | 衝動的に | ジャケットを 買った。",
+    "emphasisJa": [
+     "考えずに",
+     "気づいたら",
+     "衝動的"
+    ]
+   }
+  },
+  "defVi": "Bốc đồng. Quyết định theo cảm xúc nhất thời mà không suy nghĩ kỹ.",
+  "leadVi": "Chỉ đi ngang qua cửa hàng thôi, mà nhận ra đã cầm túi giấy trên tay.",
+  "anticipateVi": "Ơ, từ lúc nào vậy?"
+ },
+ {
+  "word": "inconsiderate",
+  "pos": "adj",
+  "ipa": "/ˌɪn.kənˈsɪd.ər.ət/",
+  "kanaReading": "インコンスィダレット",
+  "usageEn": "It was _____ of him to call so late.",
+  "topics": [],
+  "exams": [],
+  "defaultLevel": "JHIGH",
+  "levels": {
+   "JSEC": {
+    "kanjiTier": 1,
+    "meaningJP": "思いやりの ない",
+    "defJa": "まわりの 人の | 気持ちや 事じょうを | 考えない 様子。",
+    "leadJa": "夜 十一時に、 | 友だちから | 電話が 三回も 鳴った。",
+    "anticipateJa": "もう | ねてたのに……",
+    "usageJa": "夜 おそくに 電話するなんて、 | 思いやりが | ない。",
+    "emphasisJa": [
+     "考えない",
+     "三回",
+     "思いやり"
+    ]
+   },
+   "JHIGH": {
+    "kanjiTier": 2,
+    "meaningJP": "思いやりのない、無神経な",
+    "defJa": "周りの 人の | 気持ちや 事情を | 考えない 様子。",
+    "leadJa": "夜 十一時に、 | 友達から | 電話が 三回も 鳴った。",
+    "anticipateJa": "もう | 寝てたのに……",
+    "usageJa": "こんな 遅くに 電話するなんて、 | 無神経だ。",
+    "emphasisJa": [
+     "考えない",
+     "三回",
+     "無神経"
+    ]
+   },
+   "JCOLL": {
+    "kanjiTier": 3,
+    "meaningJP": "思いやりのない、無神経な",
+    "defJa": "周りの 人の | 気持ちや 事情を | 考えない 様子。",
+    "leadJa": "夜 十一時に、 | 友人から | 電話が 三回も 鳴った。",
+    "anticipateJa": "もう | 寝てたのに……",
+    "usageJa": "こんな 遅くに 電話するなんて、 | 無神経だ。",
+    "emphasisJa": [
+     "考えない",
+     "三回",
+     "無神経"
+    ]
+   }
+  },
+  "defVi": "Thiếu ý tứ. Không nghĩ đến cảm xúc hay hoàn cảnh của người xung quanh.",
+  "leadVi": "Mười một giờ đêm, bạn gọi điện ba lần liền.",
+  "anticipateVi": "Mình ngủ rồi mà…"
+ },
+ {
+  "word": "indispensable",
+  "pos": "adj",
+  "ipa": "/ˌɪn.dɪˈspen.sə.bəl/",
+  "kanaReading": "インディスペンサブル",
+  "usageEn": "A dictionary is _____ for this course.",
+  "topics": [],
+  "exams": [],
+  "defaultLevel": "JHIGH",
+  "levels": {
+   "JSEC": {
+    "kanjiTier": 1,
+    "meaningJP": "欠かせない",
+    "defJa": "それが ないと、 | 何も | 進まない 様子。",
+    "leadJa": "英語の 授業では、 | 毎回 ぶ厚い 辞書を | 机の 上に 開く。",
+    "anticipateJa": "重いけど | 大事！",
+    "usageJa": "この 授業には | 辞書が | 欠かせない。",
+    "emphasisJa": [
+     "進まない",
+     "毎回",
+     "欠かせない"
+    ]
+   },
+   "JHIGH": {
+    "kanjiTier": 2,
+    "meaningJP": "欠かせない、不可欠な",
+    "defJa": "それが ないと、 | 何も | 進まない 様子。",
+    "leadJa": "英語の 授業では、 | 毎回 分厚い 辞書を | 机の 上に 開く。",
+    "anticipateJa": "重いけど | 大事！",
+    "usageJa": "この 授業には | 辞書が | 欠かせない。",
+    "emphasisJa": [
+     "進まない",
+     "毎回",
+     "欠かせない"
+    ]
+   },
+   "JCOLL": {
+    "kanjiTier": 3,
+    "meaningJP": "不可欠な、欠かせない",
+    "defJa": "それが ないと、 | 何も | 進まない 様子。",
+    "leadJa": "英語の 講義では、 | 毎回 分厚い 辞書を | 机の 上に 開く。",
+    "anticipateJa": "重いけど | 大事！",
+    "usageJa": "この 講義には | 辞書が | 不可欠だ。",
+    "emphasisJa": [
+     "進まない",
+     "毎回",
+     "不可欠"
+    ]
+   }
+  },
+  "defVi": "Không thể thiếu. Không có nó thì chẳng tiến triển được gì.",
+  "leadVi": "Trong giờ tiếng Anh, lần nào cũng mở cuốn từ điển dày cộp trên bàn.",
+  "anticipateVi": "Nặng nhưng quan trọng!"
+ },
+ {
+  "word": "indisputable",
+  "pos": "adj",
+  "ipa": "/ˌɪn.dɪˈspjuː.tə.bəl/",
+  "kanaReading": "インディスピュータブル",
+  "usageEn": "Her talent is _____.",
+  "topics": [],
+  "exams": [],
+  "defaultLevel": "JHIGH",
+  "levels": {
+   "JSEC": {
+    "kanjiTier": 1,
+    "meaningJP": "うたがいようの ない",
+    "defJa": "だれが 見ても | 正しいと | わかる 様子。",
+    "leadJa": "地区大会で、 | あの子は 二位に | 十秒の 差を つけた。",
+    "anticipateJa": "文句 | なし！",
+    "usageJa": "あの人の 才能は | うたがいようが ない。",
+    "emphasisJa": [
+     "わかる",
+     "十秒",
+     "うたがいようが"
+    ]
+   },
+   "JHIGH": {
+    "kanjiTier": 2,
+    "meaningJP": "議論の余地のない、明白な",
+    "defJa": "だれが 見ても | 正しいと | わかる 様子。",
+    "leadJa": "地区大会で、 | 彼女は 二位に | 十秒の 差を つけた。",
+    "anticipateJa": "文句 | なし！",
+    "usageJa": "彼女の 才能は | 疑いようが ない。",
+    "emphasisJa": [
+     "わかる",
+     "十秒",
+     "疑いようが"
+    ]
+   },
+   "JCOLL": {
+    "kanjiTier": 3,
+    "meaningJP": "明白な、異論のない",
+    "defJa": "だれが 見ても | 正しいと | わかる 様子。",
+    "leadJa": "地区大会で、 | 彼女は 二位に | 十秒の 差を つけた。",
+    "anticipateJa": "文句 | なし！",
+    "usageJa": "彼女の 才能は | 疑いようが ない。",
+    "emphasisJa": [
+     "わかる",
+     "十秒",
+     "疑いようが"
+    ]
+   }
+  },
+  "defVi": "Không thể chối cãi. Ai nhìn cũng thấy là đúng.",
+  "leadVi": "Ở giải khu vực, cô ấy bỏ xa người về nhì mười giây.",
+  "anticipateVi": "Không còn gì để nói!"
+ },
+ {
+  "word": "industrious",
+  "pos": "adj",
+  "ipa": "/ɪnˈdʌs.tri.əs/",
+  "kanaReading": "インダストリアス",
+  "usageEn": "He is an _____ student who never gives up.",
+  "topics": [],
+  "exams": [],
+  "defaultLevel": "JHIGH",
+  "levels": {
+   "JSEC": {
+    "kanjiTier": 1,
+    "meaningJP": "勤勉な、よく 働く",
+    "defJa": "毎日 こつこつと | 熱心に | 取り組む 様子。",
+    "leadJa": "毎朝 七時、 | だれも いない 教室で | 一人 問題集を 開く。",
+    "anticipateJa": "早起き、 | すごい！",
+    "usageJa": "あの人は | あきらめない | 勤勉な 生徒だ。",
+    "emphasisJa": [
+     "こつこつと",
+     "一人",
+     "勤勉"
+    ]
+   },
+   "JHIGH": {
+    "kanjiTier": 2,
+    "meaningJP": "勤勉な",
+    "defJa": "毎日 こつこつと | 熱心に | 取り組む 様子。",
+    "leadJa": "毎朝 七時、 | だれも いない 教室で | 一人 問題集を 開く。",
+    "anticipateJa": "早起き、 | すごい！",
+    "usageJa": "彼は | あきらめない | 勤勉な 生徒だ。",
+    "emphasisJa": [
+     "こつこつと",
+     "一人",
+     "勤勉"
+    ]
+   },
+   "JCOLL": {
+    "kanjiTier": 3,
+    "meaningJP": "勤勉な、精励する",
+    "defJa": "毎日 こつこつと | 熱心に | 取り組む 様子。",
+    "leadJa": "毎朝 七時、 | だれも いない 教室で | 一人 問題集を 開く。",
+    "anticipateJa": "早起き、 | すごい！",
+    "usageJa": "彼は | 諦めない | 勤勉な 学生だ。",
+    "emphasisJa": [
+     "こつこつと",
+     "一人",
+     "勤勉"
+    ]
+   }
+  },
+  "defVi": "Cần cù. Ngày nào cũng chăm chỉ miệt mài làm việc.",
+  "leadVi": "Bảy giờ sáng mỗi ngày, một mình mở sách bài tập trong lớp vắng.",
+  "anticipateVi": "Dậy sớm ghê!"
+ },
+ {
+  "word": "infectious",
+  "pos": "adj",
+  "ipa": "/ɪnˈfek.ʃəs/",
+  "kanaReading": "インフェクシャス",
+  "usageEn": "Her laugh is really _____.",
+  "topics": [],
+  "exams": [],
+  "defaultLevel": "JHIGH",
+  "levels": {
+   "JSEC": {
+    "kanjiTier": 1,
+    "meaningJP": "うつりやすい、伝わりやすい",
+    "defJa": "気持ちや ようすが、 | まわりの 人に | すぐ 広がる 様子。",
+    "leadJa": "休み時間、 | あの子が 笑い出すと、 | クラス中が 笑顔に なった。",
+    "anticipateJa": "つられ | 笑い！",
+    "usageJa": "あの子の 笑い声は | 本当に | うつりやすい。",
+    "emphasisJa": [
+     "広がる",
+     "笑顔",
+     "うつりやすい"
+    ]
+   },
+   "JHIGH": {
+    "kanjiTier": 2,
+    "meaningJP": "伝染しやすい、うつりやすい",
+    "defJa": "気分や 様子が、 | 周りの 人に | すぐ 広がる 様子。",
+    "leadJa": "昼休み、 | 彼女が 笑い出すと、 | クラス中が 笑顔に なった。",
+    "anticipateJa": "つられ | 笑い！",
+    "usageJa": "彼女の 笑い声は | 本当に | うつりやすい。",
+    "emphasisJa": [
+     "広がる",
+     "笑顔",
+     "うつりやすい"
+    ]
+   },
+   "JCOLL": {
+    "kanjiTier": 3,
+    "meaningJP": "伝染しやすい、人に移る",
+    "defJa": "気分や 様子が、 | 周りの 人に | すぐ 広がる 様子。",
+    "leadJa": "昼休み、 | 彼女が 笑い出すと、 | ゼミ室中が 笑顔に なった。",
+    "anticipateJa": "つられ | 笑い！",
+    "usageJa": "彼女の 笑い声は | 本当に | 伝染する。",
+    "emphasisJa": [
+     "広がる",
+     "笑顔",
+     "伝染"
+    ]
+   }
+  },
+  "defVi": "Dễ lây. Tâm trạng hay trạng thái lan nhanh sang người xung quanh.",
+  "leadVi": "Giờ nghỉ, cô ấy vừa bật cười là cả lớp tươi cười theo.",
+  "anticipateVi": "Cười lây!"
+ },
+ {
+  "word": "infinite",
+  "pos": "adj",
+  "ipa": "/ˈɪn.fɪ.nət/",
+  "kanaReading": "インフィニット",
+  "usageEn": "The teacher showed _____ patience with us.",
+  "topics": [],
+  "exams": [],
+  "defaultLevel": "JHIGH",
+  "levels": {
+   "JSEC": {
+    "kanjiTier": 1,
+    "meaningJP": "限りない、むげんの",
+    "defJa": "終わりや 限りが | まったく | ない 様子。",
+    "leadJa": "同じ 問題で 三回 まちがえても、 | 先生は | 笑顔で 教えて=くれた。",
+    "anticipateJa": "神対応！",
+    "usageJa": "先生は | 限りない 心の 広さを | 見せて=くれた。",
+    "emphasisJa": [
+     "終わり",
+     "笑顔",
+     "限りない"
+    ]
+   },
+   "JHIGH": {
+    "kanjiTier": 2,
+    "meaningJP": "無限の、限りない",
+    "defJa": "終わりや 限りが | 全く | ない 様子。",
+    "leadJa": "同じ 問題で 三回 間違えても、 | 先生は | 笑顔で 教えて=くれた。",
+    "anticipateJa": "神対応！",
+    "usageJa": "先生は | 限りない がまん強さを | 見せて=くれた。",
+    "emphasisJa": [
+     "終わり",
+     "笑顔",
+     "限りない"
+    ]
+   },
+   "JCOLL": {
+    "kanjiTier": 3,
+    "meaningJP": "無限の、果てしない",
+    "defJa": "終わりや 限界が | 全く | ない 様子。",
+    "leadJa": "同じ 問題で 三回 間違えても、 | 教授は | 笑顔で 教えて=くれた。",
+    "anticipateJa": "神対応！",
+    "usageJa": "教授は | 限りない 忍耐を | 見せて=くれた。",
+    "emphasisJa": [
+     "終わり",
+     "笑顔",
+     "限りない"
+    ]
+   }
+  },
+  "defVi": "Vô tận. Hoàn toàn không có điểm kết thúc hay giới hạn.",
+  "leadVi": "Dù sai cùng một bài ba lần, thầy vẫn tươi cười chỉ dạy.",
+  "anticipateVi": "Thầy tuyệt vời!"
+ },
+ {
+  "word": "innate",
+  "pos": "adj",
+  "ipa": "/ɪˈneɪt/",
+  "kanaReading": "イネイト",
+  "usageEn": "She has an _____ sense of rhythm.",
+  "topics": [],
+  "exams": [],
+  "defaultLevel": "JHIGH",
+  "levels": {
+   "JSEC": {
+    "kanjiTier": 1,
+    "meaningJP": "生まれつきの",
+    "defJa": "習ったのでは なく、 | 生まれた ときから | 持って=いる 様子。",
+    "leadJa": "初めての ドラムなのに、 | あの子は 一度で | リズムを つかんだ。",
+    "anticipateJa": "え、 | 天才？",
+    "usageJa": "あの人には | 生まれつきの | リズム感が ある。",
+    "emphasisJa": [
+     "持って",
+     "一度",
+     "生まれつき"
+    ]
+   },
+   "JHIGH": {
+    "kanjiTier": 2,
+    "meaningJP": "生まれつきの、先天的な",
+    "defJa": "習ったのでは なく、 | 生まれた ときから | 備わって=いる 様子。",
+    "leadJa": "初めての ドラムなのに、 | 彼女は 一度で | リズムを つかんだ。",
+    "anticipateJa": "え、 | 天才？",
+    "usageJa": "彼女には | 生まれつきの | リズム感が ある。",
+    "emphasisJa": [
+     "備わって",
+     "一度",
+     "生まれつき"
+    ]
+   },
+   "JCOLL": {
+    "kanjiTier": 3,
+    "meaningJP": "生来の、先天的な",
+    "defJa": "学んだのでは なく、 | 生まれた ときから | 備わって=いる 様子。",
+    "leadJa": "初めての ドラムなのに、 | 彼女は 一度で | リズムを つかんだ。",
+    "anticipateJa": "え、 | 天才？",
+    "usageJa": "彼女には | 生まれつきの | リズム感が ある。",
+    "emphasisJa": [
+     "備わって",
+     "一度",
+     "生まれつき"
+    ]
+   }
+  },
+  "defVi": "Bẩm sinh. Không phải học mà có từ khi sinh ra.",
+  "leadVi": "Lần đầu chơi trống mà cô ấy bắt được nhịp ngay.",
+  "anticipateVi": "Ơ, thiên tài à?"
+ },
+ {
+  "word": "innumerable",
+  "pos": "adj",
+  "ipa": "/ɪˈnjuː.mər.ə.bəl/",
+  "kanaReading": "イニューマラブル",
+  "usageEn": "There are _____ stars in the night sky.",
+  "topics": [],
+  "exams": [],
+  "defaultLevel": "JHIGH",
+  "levels": {
+   "JSEC": {
+    "kanjiTier": 1,
+    "meaningJP": "数え切れない",
+    "defJa": "多すぎて、 | 数える=ことが | できない 様子。",
+    "leadJa": "山の キャンプ場で 見上げると、 | 夜空 一面に | 光の つぶが あった。",
+    "anticipateJa": "首が | いたい！",
+    "usageJa": "夜空には | 数え切れない ほどの | 星が ある。",
+    "emphasisJa": [
+     "多すぎて",
+     "一面",
+     "数え切れない"
+    ]
+   },
+   "JHIGH": {
+    "kanjiTier": 2,
+    "meaningJP": "数え切れない、無数の",
+    "defJa": "多すぎて、 | 数える=ことが | できない 様子。",
+    "leadJa": "山の キャンプ場で 見上げると、 | 夜空 一面に | 光の つぶが あった。",
+    "anticipateJa": "首が | 痛い！",
+    "usageJa": "夜空には | 数え切れない ほどの | 星が ある。",
+    "emphasisJa": [
+     "多すぎて",
+     "一面",
+     "数え切れない"
+    ]
+   },
+   "JCOLL": {
+    "kanjiTier": 3,
+    "meaningJP": "無数の、数え切れない",
+    "defJa": "多すぎて、 | 数える=ことが | できない 様子。",
+    "leadJa": "山の キャンプ場で 見上げると、 | 夜空 一面に | 光の 粒が あった。",
+    "anticipateJa": "首が | 痛い！",
+    "usageJa": "夜空には | 無数の | 星が ある。",
+    "emphasisJa": [
+     "多すぎて",
+     "一面",
+     "無数"
+    ]
+   }
+  },
+  "defVi": "Vô số. Nhiều đến mức không đếm được.",
+  "leadVi": "Ngước nhìn ở khu cắm trại trên núi, cả bầu trời đêm đầy những hạt sáng.",
+  "anticipateVi": "Mỏi cổ quá!"
+ },
+ {
+  "word": "insecure",
+  "pos": "adj",
+  "ipa": "/ˌɪn.sɪˈkjʊər/",
+  "kanaReading": "インセキュア",
+  "usageEn": "I felt _____ about my speech before the contest.",
+  "topics": [],
+  "exams": [],
+  "defaultLevel": "JHIGH",
+  "levels": {
+   "JSEC": {
+    "kanjiTier": 1,
+    "meaningJP": "自信の ない、不安な",
+    "defJa": "自分に 自信が なく、 | 心配に | なって=いる 様子。",
+    "leadJa": "スピーチ大会の 前、 | 原こうを 持つ 手が | 少し ふるえた。",
+    "anticipateJa": "でも、 | 練習したもん！",
+    "usageJa": "大会の 前、 | スピーチに | 不安だった。",
+    "emphasisJa": [
+     "心配",
+     "ふるえた",
+     "不安"
+    ]
+   },
+   "JHIGH": {
+    "kanjiTier": 2,
+    "meaningJP": "自信のない、不安な",
+    "defJa": "自分に 自信が なく、 | 心配に | なって=いる 様子。",
+    "leadJa": "スピーチ大会の 前、 | 原稿を 持つ 手が | 少し 震えた。",
+    "anticipateJa": "でも、 | 練習したもん！",
+    "usageJa": "大会の 前、 | スピーチに | 不安を 感じた。",
+    "emphasisJa": [
+     "心配",
+     "震えた",
+     "不安"
+    ]
+   },
+   "JCOLL": {
+    "kanjiTier": 3,
+    "meaningJP": "自信のない、不安な",
+    "defJa": "自分に 確信が 持てず、 | 心配に | なって=いる 様子。",
+    "leadJa": "スピーチコンテストの 前、 | 原稿を 持つ 手が | 少し 震えた。",
+    "anticipateJa": "でも、 | 練習したし！",
+    "usageJa": "本番 前、 | スピーチに | 不安を 感じた。",
+    "emphasisJa": [
+     "心配",
+     "震えた",
+     "不安"
+    ]
+   }
+  },
+  "defVi": "Thiếu tự tin. Không tin vào bản thân và lo lắng.",
+  "leadVi": "Trước cuộc thi hùng biện, tay cầm bản thảo hơi run.",
+  "anticipateVi": "Nhưng mình đã luyện tập rồi mà!"
+ },
+ {
+  "word": "inseparable",
+  "pos": "adj",
+  "ipa": "/ɪnˈsep.ər.ə.bəl/",
+  "kanaReading": "インセパラブル",
+  "usageEn": "The two friends have been _____ since primary school.",
+  "topics": [],
+  "exams": [],
+  "defaultLevel": "JHIGH",
+  "levels": {
+   "JSEC": {
+    "kanjiTier": 1,
+    "meaningJP": "はなれられない",
+    "defJa": "とても=仲よしで、 | いつも | そばに いる 様子。",
+    "leadJa": "二人は 小学校から、 | 登校も 部活も | キーホルダーも おそろいだ。",
+    "anticipateJa": "まるで | 兄弟！",
+    "usageJa": "二人は 小学校から | ずっと | はなれられない 仲だ。",
+    "emphasisJa": [
+     "仲よし",
+     "おそろい",
+     "はなれられない"
+    ]
+   },
+   "JHIGH": {
+    "kanjiTier": 2,
+    "meaningJP": "切り離せない、いつも一緒の",
+    "defJa": "とても=仲が 良く、 | いつも | 一緒に いる 様子。",
+    "leadJa": "二人は 小学校から、 | 登校も 部活も | キーホルダーも おそろいだ。",
+    "anticipateJa": "まるで | 兄弟！",
+    "usageJa": "二人は 小学校から | ずっと | 離れられない 仲だ。",
+    "emphasisJa": [
+     "一緒",
+     "おそろい",
+     "離れられない"
+    ]
+   },
+   "JCOLL": {
+    "kanjiTier": 3,
+    "meaningJP": "切り離せない、不可分の",
+    "defJa": "とても=仲が 良く、 | いつも | 一緒に いる 様子。",
+    "leadJa": "二人は 小学校から、 | 通学も 部活も | キーホルダーも おそろいだ。",
+    "anticipateJa": "まるで | 兄弟！",
+    "usageJa": "二人は 小学校から | ずっと | 離れられない 仲だ。",
+    "emphasisJa": [
+     "一緒",
+     "おそろい",
+     "離れられない"
+    ]
+   }
+  },
+  "defVi": "Không thể tách rời. Rất thân thiết, lúc nào cũng ở bên nhau.",
+  "leadVi": "Từ tiểu học, hai người đi học, câu lạc bộ, cả móc khóa cũng giống nhau.",
+  "anticipateVi": "Cứ như anh em!"
+ },
+ {
+  "word": "intolerable",
+  "pos": "adj",
+  "ipa": "/ɪnˈtɒl.ər.ə.bəl/",
+  "kanaReading": "イントララブル",
+  "usageEn": "The heat in the gym was _____.",
+  "topics": [],
+  "exams": [],
+  "defaultLevel": "JHIGH",
+  "levels": {
+   "JSEC": {
+    "kanjiTier": 1,
+    "meaningJP": "たえられない",
+    "defJa": "つらすぎて、 | がまんが | できない 様子。",
+    "leadJa": "八月の 体育館で | 練習中、 | あせが 目に 入って=きた。",
+    "anticipateJa": "水 | 飲みたい！",
+    "usageJa": "体育館の あつさは | たえられなかった。",
+    "emphasisJa": [
+     "がまん",
+     "あせ",
+     "たえられなかった"
+    ]
+   },
+   "JHIGH": {
+    "kanjiTier": 2,
+    "meaningJP": "耐えられない、我慢できない",
+    "defJa": "つらすぎて、 | 我慢が | できない 様子。",
+    "leadJa": "八月の 体育館で | 練習中、 | あせが 目に 入って=きた。",
+    "anticipateJa": "水 | 飲みたい！",
+    "usageJa": "体育館の 暑さは | 耐えられなかった。",
+    "emphasisJa": [
+     "我慢",
+     "あせ",
+     "耐えられなかった"
+    ]
+   },
+   "JCOLL": {
+    "kanjiTier": 3,
+    "meaningJP": "耐えがたい、我慢できない",
+    "defJa": "つらすぎて、 | 我慢が | できない 様子。",
+    "leadJa": "八月の 体育館で | 練習中、 | あせが 目に 入って=きた。",
+    "anticipateJa": "水 | 飲みたい！",
+    "usageJa": "体育館の 暑さは | 耐えがたかった。",
+    "emphasisJa": [
+     "我慢",
+     "あせ",
+     "耐えがたかった"
+    ]
+   }
+  },
+  "defVi": "Không thể chịu nổi. Khổ quá đến mức không chịu đựng được.",
+  "leadVi": "Đang tập trong nhà thể chất tháng tám, mồ hôi chảy vào mắt.",
+  "anticipateVi": "Muốn uống nước!"
+ },
+ {
+  "word": "intrinsic",
+  "pos": "adj",
+  "ipa": "/ɪnˈtrɪn.zɪk/",
+  "kanaReading": "イントリンズィック",
+  "usageEn": "Music has an _____ value for me.",
+  "topics": [],
+  "exams": [],
+  "defaultLevel": "JHIGH",
+  "levels": {
+   "JSEC": {
+    "kanjiTier": 1,
+    "meaningJP": "それ自体の、本来の",
+    "defJa": "外から つけたのでは なく、 | もともと 持って=いる | 様子。",
+    "leadJa": "だれにも ほめられなくても、 | ギターを ひくと | 心が 軽く なる。",
+    "anticipateJa": "好きって | 最強！",
+    "usageJa": "音楽には、 | ぼくに とって | それ自体の 価値が ある。",
+    "emphasisJa": [
+     "もともと",
+     "軽く",
+     "それ自体"
+    ]
+   },
+   "JHIGH": {
+    "kanjiTier": 2,
+    "meaningJP": "本質的な、固有の",
+    "defJa": "外から 加えたのでは なく、 | もともと 持って=いる | 様子。",
+    "leadJa": "だれにも ほめられなくても、 | ギターを 弾くと | 心が 軽く なる。",
+    "anticipateJa": "好きって | 最強！",
+    "usageJa": "音楽には、 | 僕に とって | 本質的な 価値が ある。",
+    "emphasisJa": [
+     "もともと",
+     "軽く",
+     "本質的"
+    ]
+   },
+   "JCOLL": {
+    "kanjiTier": 3,
+    "meaningJP": "本質的な、内在的な",
+    "defJa": "外から 加えたのでは なく、 | もともと 備わって=いる | 様子。",
+    "leadJa": "だれにも 褒められなくても、 | ギターを 弾くと | 心が 軽く なる。",
+    "anticipateJa": "好きって | 最強！",
+    "usageJa": "音楽には、 | 僕に とって | 本質的な 価値が ある。",
+    "emphasisJa": [
+     "もともと",
+     "軽く",
+     "本質的"
+    ]
+   }
+  },
+  "defVi": "Nội tại. Vốn có sẵn bên trong chứ không phải được thêm từ bên ngoài.",
+  "leadVi": "Dù chẳng ai khen, cứ chơi đàn ghi-ta là lòng nhẹ nhõm.",
+  "anticipateVi": "Thích là mạnh nhất!"
+ },
+ {
+  "word": "irresistible",
+  "pos": "adj",
+  "ipa": "/ˌɪr.ɪˈzɪs.tə.bəl/",
+  "kanaReading": "イリズィスタブル",
+  "usageEn": "The smell of fresh bread was _____.",
+  "topics": [],
+  "exams": [],
+  "defaultLevel": "JHIGH",
+  "levels": {
+   "JSEC": {
+    "kanjiTier": 1,
+    "meaningJP": "たまらなく みりょく的な",
+    "defJa": "ほしい 気持ちを | おさえる=ことが | できない 様子。",
+    "leadJa": "部活帰り、 | パン屋の 前を 通ると、 | 足が 勝手に 止まった。",
+    "anticipateJa": "一個だけ | なら……",
+    "usageJa": "焼きたての パンの においには | 勝てなかった。",
+    "emphasisJa": [
+     "おさえる",
+     "勝手に",
+     "勝てなかった"
+    ]
+   },
+   "JHIGH": {
+    "kanjiTier": 2,
+    "meaningJP": "抵抗できない、魅力的な",
+    "defJa": "欲しい 気持ちを | 抑える=ことが | できない 様子。",
+    "leadJa": "部活帰り、 | パン屋の 前を 通ると、 | 足が 勝手に 止まった。",
+    "anticipateJa": "一個だけ | なら……",
+    "usageJa": "焼きたての パンの においには | 勝てなかった。",
+    "emphasisJa": [
+     "抑える",
+     "勝手に",
+     "勝てなかった"
+    ]
+   },
+   "JCOLL": {
+    "kanjiTier": 3,
+    "meaningJP": "抗いがたい、魅力的な",
+    "defJa": "欲しい 気持ちを | 抑える=ことが | できない 様子。",
+    "leadJa": "バイト帰り、 | パン屋の 前を 通ると、 | 足が 勝手に 止まった。",
+    "anticipateJa": "一個だけ | なら……",
+    "usageJa": "焼きたての パンの 香りは | 抗いがたかった。",
+    "emphasisJa": [
+     "抑える",
+     "勝手に",
+     "抗いがたかった"
+    ]
+   }
+  },
+  "defVi": "Không cưỡng lại được. Không thể kìm nén cảm giác muốn có.",
+  "leadVi": "Trên đường về sau câu lạc bộ, đi ngang tiệm bánh mì là chân tự dừng lại.",
+  "anticipateVi": "Một cái thôi thì…"
+ },
+ {
+  "word": "irreversible",
+  "pos": "adj",
+  "ipa": "/ˌɪr.ɪˈvɜː.sə.bəl/",
+  "kanaReading": "イリヴァースィブル",
+  "usageEn": "Some changes to nature are _____.",
+  "topics": [],
+  "exams": [],
+  "defaultLevel": "JHIGH",
+  "levels": {
+   "JSEC": {
+    "kanjiTier": 1,
+    "meaningJP": "元に もどせない",
+    "defJa": "一度 起きると、 | 前の 形には | もどらない 様子。",
+    "leadJa": "理科の 授業で、 | 海の 氷が とけた 写真を | みんなで 見た。",
+    "anticipateJa": "自分に できる=ことは？",
+    "usageJa": "自然の 変化には | 元に もどせない | ものも ある。",
+    "emphasisJa": [
+     "もどらない",
+     "とけた",
+     "もどせない"
+    ]
+   },
+   "JHIGH": {
+    "kanjiTier": 2,
+    "meaningJP": "不可逆的な、元に戻せない",
+    "defJa": "一度 起きると、 | 前の 状態には | 戻らない 様子。",
+    "leadJa": "理科の 授業で、 | 海の 氷が 溶けた 写真を | みんなで 見た。",
+    "anticipateJa": "自分に できる=ことは？",
+    "usageJa": "自然の 変化には | 元に 戻せない | ものも ある。",
+    "emphasisJa": [
+     "戻らない",
+     "溶けた",
+     "戻せない"
+    ]
+   },
+   "JCOLL": {
+    "kanjiTier": 3,
+    "meaningJP": "不可逆的な",
+    "defJa": "一度 起きると、 | 前の 状態には | 戻らない 様子。",
+    "leadJa": "環境学の 講義で、 | 海の 氷が 溶けた 写真を | みんなで 見た。",
+    "anticipateJa": "自分に できる=ことは？",
+    "usageJa": "自然の 変化には | 不可逆な | ものも ある。",
+    "emphasisJa": [
+     "戻らない",
+     "溶けた",
+     "不可逆"
+    ]
+   }
+  },
+  "defVi": "Không thể đảo ngược. Một khi đã xảy ra thì không trở lại như cũ.",
+  "leadVi": "Trong giờ khoa học, cả lớp xem ảnh băng biển tan chảy.",
+  "anticipateVi": "Mình làm được gì nhỉ?"
+ },
+ {
+  "word": "juicy",
+  "pos": "adj",
+  "ipa": "/ˈdʒuː.si/",
+  "kanaReading": "ジューシー",
+  "usageEn": "These peaches are sweet and _____.",
+  "topics": [],
+  "exams": [],
+  "defaultLevel": "JHIGH",
+  "levels": {
+   "JSEC": {
+    "kanjiTier": 1,
+    "meaningJP": "ジューシーな",
+    "defJa": "かむと、 | 中から 水分が | たっぷり 出る 様子。",
+    "leadJa": "祖母の 家で もらった ももに | かぶりつくと、 | あごまで しるが たれた。",
+    "anticipateJa": "あまーい！",
+    "usageJa": "この ももは あまくて | ジューシーだ。",
+    "emphasisJa": [
+     "水分",
+     "たれた",
+     "ジューシー"
+    ]
+   },
+   "JHIGH": {
+    "kanjiTier": 2,
+    "meaningJP": "ジューシーな、みずみずしい",
+    "defJa": "かむと、 | 中から 水分が | たっぷり 出る 様子。",
+    "leadJa": "祖母の 家で もらった ももに | かぶりつくと、 | あごまで しるが たれた。",
+    "anticipateJa": "甘ーい！",
+    "usageJa": "この ももは 甘くて | ジューシーだ。",
+    "emphasisJa": [
+     "水分",
+     "たれた",
+     "ジューシー"
+    ]
+   },
+   "JCOLL": {
+    "kanjiTier": 3,
+    "meaningJP": "果汁たっぷりの、みずみずしい",
+    "defJa": "かむと、 | 中から 水分が | たっぷり 出る 様子。",
+    "leadJa": "実家から 届いた ももに | かぶりつくと、 | あごまで 汁が 垂れた。",
+    "anticipateJa": "甘ーい！",
+    "usageJa": "この ももは 甘くて | ジューシーだ。",
+    "emphasisJa": [
+     "水分",
+     "垂れた",
+     "ジューシー"
+    ]
+   }
+  },
+  "defVi": "Mọng nước. Cắn vào là nước tràn ra nhiều.",
+  "leadVi": "Cắn miếng đào nhận được ở nhà bà, nước chảy xuống tận cằm.",
+  "anticipateVi": "Ngọt quá!"
+ },
+ {
+  "word": "justifiable",
+  "pos": "adj",
+  "ipa": "/ˈdʒʌs.tɪ.faɪ.ə.bəl/",
+  "kanaReading": "ジャスティファイアブル",
+  "usageEn": "Her anger was _____ after the long wait.",
+  "topics": [],
+  "exams": [],
+  "defaultLevel": "JHIGH",
+  "levels": {
+   "JSEC": {
+    "kanjiTier": 1,
+    "meaningJP": "もっともな、正当な",
+    "defJa": "理由が あって、 | 人が なっとく | できる 様子。",
+    "leadJa": "一時間 待たされた 姉は、 | 「次は ないよ」と | 友だちに 言った。",
+    "anticipateJa": "それは | おこるよね！",
+    "usageJa": "長く 待った 後なら、 | あの人の いかりは | もっともだ。",
+    "emphasisJa": [
+     "なっとく",
+     "待たされた",
+     "もっとも"
+    ]
+   },
+   "JHIGH": {
+    "kanjiTier": 2,
+    "meaningJP": "正当な、もっともな",
+    "defJa": "理由が あって、 | 人が 納得 | できる 様子。",
+    "leadJa": "一時間 待たされた 姉は、 | 「次は ないよ」と | 友達に 言った。",
+    "anticipateJa": "それは | 怒るよね！",
+    "usageJa": "長く 待った 後なら、 | 彼女の 怒りは | もっともだ。",
+    "emphasisJa": [
+     "納得",
+     "待たされた",
+     "もっとも"
+    ]
+   },
+   "JCOLL": {
+    "kanjiTier": 3,
+    "meaningJP": "正当な、無理もない",
+    "defJa": "理由が あって、 | 人が 納得 | できる 様子。",
+    "leadJa": "一時間 待たされた 姉は、 | 「次は ないよ」と | 友人に 言った。",
+    "anticipateJa": "それは | 怒るよね！",
+    "usageJa": "長く 待った 後なら、 | 彼女の 怒りは | 正当だ。",
+    "emphasisJa": [
+     "納得",
+     "待たされた",
+     "正当"
+    ]
+   }
+  },
+  "defVi": "Có thể biện minh. Có lý do khiến người ta chấp nhận được.",
+  "leadVi": "Bị bắt chờ một tiếng, chị nói với bạn: “Không có lần sau đâu”.",
+  "anticipateVi": "Thế thì giận cũng phải!"
+ },
+ {
+  "word": "lavish",
+  "pos": "adj",
+  "ipa": "/ˈlæv.ɪʃ/",
+  "kanaReading": "ラヴィッシュ",
+  "usageEn": "They had a _____ party for her birthday.",
+  "topics": [],
+  "exams": [],
+  "defaultLevel": "JHIGH",
+  "levels": {
+   "JSEC": {
+    "kanjiTier": 1,
+    "meaningJP": "ごうかな、ぜいたくな",
+    "defJa": "お金や 手間を | おしまずに | 使う 様子。",
+    "leadJa": "姉の 誕生日、 | テーブルに 料理が | ずらりと ならんだ。",
+    "anticipateJa": "食べきれる？",
+    "usageJa": "姉の 誕生日に、 | ごうかな パーティーを | 開いた。",
+    "emphasisJa": [
+     "おしまずに",
+     "ならんだ",
+     "ごうか"
+    ]
+   },
+   "JHIGH": {
+    "kanjiTier": 2,
+    "meaningJP": "豪華な、ぜいたくな",
+    "defJa": "お金や 手間を | おしまずに | 使う 様子。",
+    "leadJa": "姉の 誕生日、 | テーブルに 料理が | ずらりと 並んだ。",
+    "anticipateJa": "食べきれる？",
+    "usageJa": "姉の 誕生日に、 | 豪華な パーティーを | 開いた。",
+    "emphasisJa": [
+     "おしまずに",
+     "並んだ",
+     "豪華"
+    ]
+   },
+   "JCOLL": {
+    "kanjiTier": 3,
+    "meaningJP": "豪華な、気前のよい",
+    "defJa": "お金や 手間を | 惜しまずに | 使う 様子。",
+    "leadJa": "姉の 誕生日、 | テーブルに 料理が | ずらりと 並んだ。",
+    "anticipateJa": "食べきれる？",
+    "usageJa": "姉の 誕生日に、 | 豪華な パーティーを | 開いた。",
+    "emphasisJa": [
+     "惜しまずに",
+     "並んだ",
+     "豪華"
+    ]
+   }
+  },
+  "defVi": "Xa hoa. Không tiếc tiền bạc hay công sức.",
+  "leadVi": "Sinh nhật chị, đồ ăn bày la liệt trên bàn.",
+  "anticipateVi": "Ăn hết nổi không?"
+ },
+ {
+  "word": "lenient",
+  "pos": "adj",
+  "ipa": "/ˈliː.ni.ənt/",
+  "kanaReading": "リーニエント",
+  "usageEn": "The teacher was _____ about the late homework.",
+  "topics": [],
+  "exams": [],
+  "defaultLevel": "JHIGH",
+  "levels": {
+   "JSEC": {
+    "kanjiTier": 1,
+    "meaningJP": "大目に 見る、あまい",
+    "defJa": "決まりに 対して、 | きびしく | しない 様子。",
+    "leadJa": "宿題を 一日 おくれて 出すと、 | 先生は 「次は 気を つけて」と | 笑った。",
+    "anticipateJa": "セーフ！",
+    "usageJa": "先生は おくれた 宿題に | あまかった。",
+    "emphasisJa": [
+     "きびしく",
+     "笑った",
+     "あまかった"
+    ]
+   },
+   "JHIGH": {
+    "kanjiTier": 2,
+    "meaningJP": "寛大な、甘い",
+    "defJa": "決まりに 対して、 | 厳しく | しない 様子。",
+    "leadJa": "宿題を 一日 遅れて 出すと、 | 先生は 「次は 気を つけて」と | 笑った。",
+    "anticipateJa": "セーフ！",
+    "usageJa": "先生は 遅れた 宿題に | 寛大だった。",
+    "emphasisJa": [
+     "厳しく",
+     "笑った",
+     "寛大"
+    ]
+   },
+   "JCOLL": {
+    "kanjiTier": 3,
+    "meaningJP": "寛大な、手ぬるい",
+    "defJa": "規則に 対して、 | 厳しく | しない 様子。",
+    "leadJa": "レポートを 一日 遅れて 出すと、 | 教授は 「次は 気を つけて」と | 笑った。",
+    "anticipateJa": "セーフ！",
+    "usageJa": "教授は 遅れた レポートに | 寛大だった。",
+    "emphasisJa": [
+     "厳しく",
+     "笑った",
+     "寛大"
+    ]
+   }
+  },
+  "defVi": "Khoan dung. Không nghiêm khắc với quy định.",
+  "leadVi": "Nộp bài tập muộn một ngày, thầy cười bảo: “Lần sau chú ý nhé”.",
+  "anticipateVi": "Thoát rồi!"
+ },
+ {
+  "word": "literal",
+  "pos": "adj",
+  "ipa": "/ˈlɪt.ər.əl/",
+  "kanaReading": "リテラル",
+  "usageEn": "A _____ translation often sounds strange.",
+  "topics": [],
+  "exams": [],
+  "defaultLevel": "JHIGH",
+  "levels": {
+   "JSEC": {
+    "kanjiTier": 1,
+    "meaningJP": "文字どおりの",
+    "defJa": "言葉の 意味を、 | そのまま | 受け取る 様子。",
+    "leadJa": "アプリに 「お手あらい」と | 入れたら、 | 「手を あらう 場所」と 出た。",
+    "anticipateJa": "ちょっと | ちがう！",
+    "usageJa": "文字どおりの 訳は、 | 変に 聞こえる=ことが | 多い。",
+    "emphasisJa": [
+     "そのまま",
+     "出た",
+     "文字どおり"
+    ]
+   },
+   "JHIGH": {
+    "kanjiTier": 2,
+    "meaningJP": "文字通りの、直訳の",
+    "defJa": "言葉の 意味を、 | そのまま | 受け取る 様子。",
+    "leadJa": "アプリに 「お手洗い」と | 入れたら、 | 「手を 洗う 場所」と 出た。",
+    "anticipateJa": "ちょっと | 違う！",
+    "usageJa": "直訳は、 | 変に 聞こえる=ことが | 多い。",
+    "emphasisJa": [
+     "そのまま",
+     "出た",
+     "直訳"
+    ]
+   },
+   "JCOLL": {
+    "kanjiTier": 3,
+    "meaningJP": "文字通りの、直訳の",
+    "defJa": "言葉の 意味を、 | そのまま | 受け取る 様子。",
+    "leadJa": "アプリに 「お手洗い」と | 入れたら、 | 「手を 洗う 場所」と 出た。",
+    "anticipateJa": "ちょっと | 違う！",
+    "usageJa": "直訳は、 | 不自然に 聞こえる=ことが | 多い。",
+    "emphasisJa": [
+     "そのまま",
+     "出た",
+     "直訳"
+    ]
+   }
+  },
+  "defVi": "Theo nghĩa đen. Hiểu nguyên văn ý nghĩa của từ ngữ.",
+  "leadVi": "Gõ “nhà vệ sinh” vào ứng dụng dịch thì ra “chỗ rửa tay”.",
+  "anticipateVi": "Hơi sai sai!"
+ },
+ {
+  "word": "long-lasting",
+  "pos": "adj",
+  "ipa": "/ˌlɒŋˈlɑː.stɪŋ/",
+  "kanaReading": "ロングラスティング",
+  "usageEn": "This battery is very _____.",
+  "topics": [],
+  "exams": [],
+  "defaultLevel": "JHIGH",
+  "levels": {
+   "JSEC": {
+    "kanjiTier": 1,
+    "meaningJP": "長持ちする",
+    "defJa": "長い あいだ、 | 力や ききめが | 続く 様子。",
+    "leadJa": "修学旅行の 三日間、 | スマホの 電池は | 一回も 切れなかった。",
+    "anticipateJa": "じゅう電 | いらず！",
+    "usageJa": "この 電池は | とても | 長持ちする。",
+    "emphasisJa": [
+     "続く",
+     "切れなかった",
+     "長持ち"
+    ]
+   },
+   "JHIGH": {
+    "kanjiTier": 2,
+    "meaningJP": "長持ちする、持続的な",
+    "defJa": "長い 間、 | 力や 効果が | 続く 様子。",
+    "leadJa": "修学旅行の 三日間、 | スマホの 電池は | 一回も 切れなかった。",
+    "anticipateJa": "充電 | いらず！",
+    "usageJa": "この 電池は | とても | 長持ちする。",
+    "emphasisJa": [
+     "続く",
+     "切れなかった",
+     "長持ち"
+    ]
+   },
+   "JCOLL": {
+    "kanjiTier": 3,
+    "meaningJP": "長持ちする、持続的な",
+    "defJa": "長い 間、 | 力や 効果が | 持続する 様子。",
+    "leadJa": "三日間の 旅行中、 | スマホの 電池は | 一回も 切れなかった。",
+    "anticipateJa": "充電 | いらず！",
+    "usageJa": "この 電池は | とても | 長持ちする。",
+    "emphasisJa": [
+     "持続する",
+     "切れなかった",
+     "長持ち"
+    ]
+   }
+  },
+  "defVi": "Lâu bền. Sức mạnh hay hiệu quả kéo dài lâu.",
+  "leadVi": "Suốt ba ngày đi thực tế, pin điện thoại không hết lần nào.",
+  "anticipateVi": "Khỏi cần sạc!"
+ },
+ {
+  "word": "long-running",
+  "pos": "adj",
+  "ipa": "/ˌlɒŋˈrʌn.ɪŋ/",
+  "kanaReading": "ロングランニング",
+  "usageEn": "It is a _____ TV show.",
+  "topics": [],
+  "exams": [],
+  "defaultLevel": "JHIGH",
+  "levels": {
+   "JSEC": {
+    "kanjiTier": 1,
+    "meaningJP": "長く 続いて=いる",
+    "defJa": "何年も、 | 終わらずに | 続いて=いる 様子。",
+    "leadJa": "祖父が 子どもの ころから、 | 毎週 日曜に | 放送して=いる 番組だ。",
+    "anticipateJa": "何年目 | なんだろう？",
+    "usageJa": "それは | 長く 続いて=いる | テレビ番組だ。",
+    "emphasisJa": [
+     "終わらずに",
+     "毎週",
+     "長く"
+    ]
+   },
+   "JHIGH": {
+    "kanjiTier": 2,
+    "meaningJP": "長寿の、長く続く",
+    "defJa": "何年も、 | 終わらずに | 続いて=いる 様子。",
+    "leadJa": "祖父が 子どもの ころから、 | 毎週 日曜に | 放送して=いる 番組だ。",
+    "anticipateJa": "何年目 | なんだろう？",
+    "usageJa": "それは | 長寿の | テレビ番組だ。",
+    "emphasisJa": [
+     "終わらずに",
+     "毎週",
+     "長寿"
+    ]
+   },
+   "JCOLL": {
+    "kanjiTier": 3,
+    "meaningJP": "長寿の、長期にわたる",
+    "defJa": "何年も、 | 終わらずに | 続いて=いる 様子。",
+    "leadJa": "祖父が 子どもの ころから、 | 毎週 日曜に | 放送して=いる 番組だ。",
+    "anticipateJa": "何年目 | なんだろう？",
+    "usageJa": "それは | 長寿の | テレビ番組だ。",
+    "emphasisJa": [
+     "終わらずに",
+     "毎週",
+     "長寿"
+    ]
+   }
+  },
+  "defVi": "Kéo dài. Tiếp diễn suốt nhiều năm không kết thúc.",
+  "leadVi": "Đó là chương trình phát sóng mỗi chủ nhật từ thời ông còn nhỏ.",
+  "anticipateVi": "Năm thứ bao nhiêu rồi nhỉ?"
+ },
+ {
+  "word": "malicious",
+  "pos": "adj",
+  "ipa": "/məˈlɪʃ.əs/",
+  "kanaReading": "マリシャス",
+  "usageEn": "His comment was not _____; it was just a joke.",
+  "topics": [],
+  "exams": [],
+  "defaultLevel": "JHIGH",
+  "levels": {
+   "JSEC": {
+    "kanjiTier": 1,
+    "meaningJP": "悪意の ある",
+    "defJa": "人を こまらせたいと 思う | 悪い | 気持ちの ある 様子。",
+    "leadJa": "友だちが 「おそいぞ」と | 言いながら、 | ぼくの 分の パンも 買って=いた。",
+    "anticipateJa": "じょうだん | だよね？",
+    "usageJa": "あの人の 言葉は | 悪意の ある | ものでは なかった。",
+    "emphasisJa": [
+     "悪い",
+     "買って",
+     "悪意"
+    ]
+   },
+   "JHIGH": {
+    "kanjiTier": 2,
+    "meaningJP": "悪意のある、意地の悪い",
+    "defJa": "人を 困らせたいと 思う | 悪い | 気持ちの ある 様子。",
+    "leadJa": "友達が 「おそいぞ」と | 言いながら、 | ぼくの 分の パンも 買って=いた。",
+    "anticipateJa": "じょうだん | だよね？",
+    "usageJa": "彼の 言葉は | 悪意の ある | ものでは なかった。",
+    "emphasisJa": [
+     "悪い",
+     "買って",
+     "悪意"
+    ]
+   },
+   "JCOLL": {
+    "kanjiTier": 3,
+    "meaningJP": "悪意のある、意地の悪い",
+    "defJa": "人を 困らせたいと 思う | 悪い | 気持ちの ある 様子。",
+    "leadJa": "友人が 「おそいぞ」と | 言いながら、 | ぼくの 分の パンも 買って=いた。",
+    "anticipateJa": "冗談 | だよね？",
+    "usageJa": "彼の 発言は | 悪意の ある | ものでは なかった。",
+    "emphasisJa": [
+     "悪い",
+     "買って",
+     "悪意"
+    ]
+   }
+  },
+  "defVi": "Ác ý. Có ý xấu muốn làm khó người khác.",
+  "leadVi": "Bạn vừa nói “Chậm thế”, vừa mua luôn cả phần bánh mì cho tôi.",
+  "anticipateVi": "Đùa thôi nhỉ?"
+ },
+ {
+  "word": "mediocre",
+  "pos": "adj",
+  "ipa": "/ˌmiː.diˈəʊ.kər/",
+  "kanaReading": "ミーディオウカー",
+  "usageEn": "The food at the restaurant was _____.",
+  "topics": [],
+  "exams": [],
+  "defaultLevel": "JHIGH",
+  "levels": {
+   "JSEC": {
+    "kanjiTier": 1,
+    "meaningJP": "ふつうの、いまいちな",
+    "defJa": "よくも 悪くも なく、 | 特に | すぐれて=いない 様子。",
+    "leadJa": "話題の 店の ランチは、 | 一口 食べて | 「うーん」で 終わった。",
+    "anticipateJa": "期待 | しすぎた？",
+    "usageJa": "その 店の 料理は | いまいちだった。",
+    "emphasisJa": [
+     "すぐれて",
+     "うーん",
+     "いまいち"
+    ]
+   },
+   "JHIGH": {
+    "kanjiTier": 2,
+    "meaningJP": "いまいちな、ありふれた",
+    "defJa": "良くも 悪くも なく、 | 特に | 優れて=いない 様子。",
+    "leadJa": "話題の 店の ランチは、 | 一口 食べて | 「うーん」で 終わった。",
+    "anticipateJa": "期待 | しすぎた？",
+    "usageJa": "その 店の 料理は | いまいちだった。",
+    "emphasisJa": [
+     "優れて",
+     "うーん",
+     "いまいち"
+    ]
+   },
+   "JCOLL": {
+    "kanjiTier": 3,
+    "meaningJP": "凡庸な、月並みな",
+    "defJa": "良くも 悪くも なく、 | 特に | 優れて=いない 様子。",
+    "leadJa": "話題の 店の ランチは、 | 一口 食べて | 「うーん」で 終わった。",
+    "anticipateJa": "期待 | しすぎた？",
+    "usageJa": "その 店の 料理は | 月並みだった。",
+    "emphasisJa": [
+     "優れて",
+     "うーん",
+     "月並み"
+    ]
+   }
+  },
+  "defVi": "Tầm thường. Không tốt không xấu, chẳng có gì nổi bật.",
+  "leadVi": "Bữa trưa ở quán đang hot, ăn một miếng rồi chỉ “ừm…”.",
+  "anticipateVi": "Kỳ vọng quá nhiều à?"
+ },
+ {
+  "word": "merciful",
+  "pos": "adj",
+  "ipa": "/ˈmɜː.sɪ.fəl/",
+  "kanaReading": "マースィフル",
+  "usageEn": "The coach was _____ and gave us a short break.",
+  "topics": [],
+  "exams": [],
+  "defaultLevel": "JHIGH",
+  "levels": {
+   "JSEC": {
+    "kanjiTier": 1,
+    "meaningJP": "情け深い、やさしい",
+    "defJa": "相手の つらさを 思って、 | 許したり | 助けたり する 様子。",
+    "leadJa": "二十本 ダッシュの 後、 | コーチが 「五分 休けい」と | 手を たたいた。",
+    "anticipateJa": "生き返る！",
+    "usageJa": "コーチは やさしくて、 | 少し=休みを | くれた。",
+    "emphasisJa": [
+     "許したり",
+     "休けい",
+     "やさしくて"
+    ]
+   },
+   "JHIGH": {
+    "kanjiTier": 2,
+    "meaningJP": "情け深い、やさしい",
+    "defJa": "相手の つらさを 思って、 | 許したり | 助けたり する 様子。",
+    "leadJa": "二十本 ダッシュの 後、 | コーチが 「五分 休けい」と | 手を たたいた。",
+    "anticipateJa": "生き返る！",
+    "usageJa": "コーチは 情け深く、 | 少し=休みを | くれた。",
+    "emphasisJa": [
+     "許したり",
+     "休けい",
+     "情け深く"
+    ]
+   },
+   "JCOLL": {
+    "kanjiTier": 3,
+    "meaningJP": "情け深い、慈悲深い",
+    "defJa": "相手の 苦しさを 思って、 | 許したり | 助けたり する 様子。",
+    "leadJa": "二十本 ダッシュの 後、 | コーチが 「五分 休憩」と | 手を たたいた。",
+    "anticipateJa": "生き返る！",
+    "usageJa": "コーチは 情け深く、 | 少し=休みを | くれた。",
+    "emphasisJa": [
+     "許したり",
+     "休憩",
+     "情け深く"
+    ]
+   }
+  },
+  "defVi": "Nhân từ. Nghĩ đến nỗi vất vả của người khác mà tha thứ hay giúp đỡ.",
+  "leadVi": "Sau hai mươi lượt chạy nước rút, huấn luyện viên vỗ tay: “Nghỉ năm phút”.",
+  "anticipateVi": "Sống lại rồi!"
+ },
+ {
+  "word": "meticulous",
+  "pos": "adj",
+  "ipa": "/məˈtɪk.jə.ləs/",
+  "kanaReading": "マティキュラス",
+  "usageEn": "She keeps _____ notes in every class.",
+  "topics": [],
+  "exams": [],
+  "defaultLevel": "JHIGH",
+  "levels": {
+   "JSEC": {
+    "kanjiTier": 1,
+    "meaningJP": "細かい、ていねいな",
+    "defJa": "小さな ところまで | 気を くばって | きちんと する 様子。",
+    "leadJa": "あの子の ノートは、 | 色ペン 三色で | 一字の ずれも ない。",
+    "anticipateJa": "写させて！",
+    "usageJa": "あの人は どの 授業でも | ていねいな ノートを | とる。",
+    "emphasisJa": [
+     "くばって",
+     "ずれ",
+     "ていねい"
+    ]
+   },
+   "JHIGH": {
+    "kanjiTier": 2,
+    "meaningJP": "きちょうめんな、綿密な",
+    "defJa": "小さな ところまで | 気を 配って | きちんと する 様子。",
+    "leadJa": "彼女の ノートは、 | 色ペン 三色で | 一字の ずれも ない。",
+    "anticipateJa": "写させて！",
+    "usageJa": "彼女は どの 授業でも | 綿密な ノートを | とる。",
+    "emphasisJa": [
+     "配って",
+     "ずれ",
+     "綿密"
+    ]
+   },
+   "JCOLL": {
+    "kanjiTier": 3,
+    "meaningJP": "綿密な、きちょうめんな",
+    "defJa": "細部まで | 気を 配って | きちんと する 様子。",
+    "leadJa": "彼女の ノートは、 | 色ペン 三色で | 一字の ずれも ない。",
+    "anticipateJa": "コピーさせて！",
+    "usageJa": "彼女は どの 講義でも | 綿密な ノートを | とる。",
+    "emphasisJa": [
+     "配って",
+     "ずれ",
+     "綿密"
+    ]
+   }
+  },
+  "defVi": "Tỉ mỉ. Chú ý đến từng chi tiết nhỏ và làm cẩn thận.",
+  "leadVi": "Vở của cô ấy dùng ba màu bút, không lệch một chữ nào.",
+  "anticipateVi": "Cho mình chép với!"
+ },
+ {
+  "word": "mighty",
+  "pos": "adj",
+  "ipa": "/ˈmaɪ.ti/",
+  "kanaReading": "マイティ",
+  "usageEn": "A _____ wave hit the rocks.",
+  "topics": [],
+  "exams": [],
+  "defaultLevel": "JHIGH",
+  "levels": {
+   "JSEC": {
+    "kanjiTier": 1,
+    "meaningJP": "力強い",
+    "defJa": "とても 大きな | 力を | 持って=いる 様子。",
+    "leadJa": "海辺の 岩に、 | 家ほどの 高さの 波が | ドーンと ぶつかった。",
+    "anticipateJa": "すごい | パワー！",
+    "usageJa": "力強い 波が | 岩に | ぶつかった。",
+    "emphasisJa": [
+     "大きな",
+     "高さ",
+     "力強い"
+    ]
+   },
+   "JHIGH": {
+    "kanjiTier": 2,
+    "meaningJP": "強大な、力強い",
+    "defJa": "非常に 大きな | 力を | 持って=いる 様子。",
+    "leadJa": "海辺の 岩に、 | 家ほどの 高さの 波が | ドーンと ぶつかった。",
+    "anticipateJa": "迫力 | ありすぎ！",
+    "usageJa": "巨大な 波が | 岩に | ぶつかった。",
+    "emphasisJa": [
+     "大きな",
+     "高さ",
+     "巨大"
+    ]
+   },
+   "JCOLL": {
+    "kanjiTier": 3,
+    "meaningJP": "強大な、力強い",
+    "defJa": "非常に 大きな | 力を | 持って=いる 様子。",
+    "leadJa": "海辺の 岩に、 | 家ほどの 高さの 波が | ドーンと ぶつかった。",
+    "anticipateJa": "迫力 | ありすぎ！",
+    "usageJa": "巨大な 波が | 岩に | 打ちつけた。",
+    "emphasisJa": [
+     "大きな",
+     "高さ",
+     "巨大"
+    ]
+   }
+  },
+  "defVi": "Hùng mạnh. Có sức mạnh rất lớn.",
+  "leadVi": "Một con sóng cao bằng ngôi nhà đập ầm vào tảng đá ven biển.",
+  "anticipateVi": "Hoành tráng quá!"
+ },
+ {
+  "word": "miniature",
+  "pos": "adj",
+  "ipa": "/ˈmɪn.ə.tʃər/",
+  "kanaReading": "ミニチャー",
+  "usageEn": "He made a _____ train set.",
+  "topics": [],
+  "exams": [],
+  "defaultLevel": "JHIGH",
+  "levels": {
+   "JSEC": {
+    "kanjiTier": 1,
+    "meaningJP": "ミニチュアの、小型の",
+    "defJa": "本物と 同じ 形を、 | とても=小さく | 作った もの。",
+    "leadJa": "兄の 部屋の たなに、 | 手のひらより 小さな | 駅と 線路が ある。",
+    "anticipateJa": "電車も | 走るの？",
+    "usageJa": "兄は | ミニチュアの | 鉄道模型を 作った。",
+    "emphasisJa": [
+     "小さく",
+     "手のひら",
+     "ミニチュア"
+    ]
+   },
+   "JHIGH": {
+    "kanjiTier": 2,
+    "meaningJP": "ミニチュアの、小型の",
+    "defJa": "本物と 同じ 形を、 | ごく 小さく | 作った もの。",
+    "leadJa": "兄の 部屋の たなに、 | 手のひらより 小さな | 駅と 線路が ある。",
+    "anticipateJa": "電車も | 走るの？",
+    "usageJa": "兄は | ミニチュアの | 鉄道模型を 作った。",
+    "emphasisJa": [
+     "小さく",
+     "手のひら",
+     "ミニチュア"
+    ]
+   },
+   "JCOLL": {
+    "kanjiTier": 3,
+    "meaningJP": "ミニチュアの、小型の",
+    "defJa": "本物と 同じ 形を、 | ごく 小さく | 作った もの。",
+    "leadJa": "兄の 部屋の 棚に、 | 手のひらより 小さな | 駅と 線路が ある。",
+    "anticipateJa": "電車も | 走るの？",
+    "usageJa": "兄は | ミニチュアの | 鉄道模型を 作った。",
+    "emphasisJa": [
+     "小さく",
+     "手のひら",
+     "ミニチュア"
+    ]
+   }
+  },
+  "defVi": "Thu nhỏ. Thứ được làm rất nhỏ với hình dạng giống đồ thật.",
+  "leadVi": "Trên kệ phòng anh trai có nhà ga và đường ray nhỏ hơn bàn tay.",
+  "anticipateVi": "Tàu có chạy không?"
+ },
+ {
+  "word": "negligent",
+  "pos": "adj",
+  "ipa": "/ˈneɡ.lɪ.dʒənt/",
+  "kanaReading": "ネグリジェント",
+  "usageEn": "It was _____ to leave the gas on.",
+  "topics": [],
+  "exams": [],
+  "defaultLevel": "JHIGH",
+  "levels": {
+   "JSEC": {
+    "kanjiTier": 1,
+    "meaningJP": "不注意な、うっかりした",
+    "defJa": "するべき 注意を | おこたって=いる | 様子。",
+    "leadJa": "家に 帰ると、 | コンロの 火が | 小さく ついた ままだった。",
+    "anticipateJa": "あぶなかった！",
+    "usageJa": "ガスを つけた ままに するのは | 不注意だった。",
+    "emphasisJa": [
+     "おこたって",
+     "ままだった",
+     "不注意"
+    ]
+   },
+   "JHIGH": {
+    "kanjiTier": 2,
+    "meaningJP": "不注意な、うかつな",
+    "defJa": "すべき 注意を | おこたって=いる | 様子。",
+    "leadJa": "家に 帰ると、 | コンロの 火が | 小さく ついた ままだった。",
+    "anticipateJa": "危なかった！",
+    "usageJa": "ガスを つけた ままに するのは | 不注意だった。",
+    "emphasisJa": [
+     "おこたって",
+     "ままだった",
+     "不注意"
+    ]
+   },
+   "JCOLL": {
+    "kanjiTier": 3,
+    "meaningJP": "怠慢な、過失のある",
+    "defJa": "すべき 注意を | 怠って=いる | 様子。",
+    "leadJa": "帰宅すると、 | コンロの 火が | 小さく ついた ままだった。",
+    "anticipateJa": "危なかった！",
+    "usageJa": "ガスを つけた ままに するのは | 不注意だった。",
+    "emphasisJa": [
+     "怠って",
+     "ままだった",
+     "不注意"
+    ]
+   }
+  },
+  "defVi": "Cẩu thả. Lơ là sự chú ý cần thiết.",
+  "leadVi": "Về đến nhà thì thấy bếp vẫn còn cháy lửa nhỏ.",
+  "anticipateVi": "Suýt nữa thì nguy!"
+ },
+ {
+  "word": "negligible",
+  "pos": "adj",
+  "ipa": "/ˈneɡ.lɪ.dʒə.bəl/",
+  "kanaReading": "ネグリジブル",
+  "usageEn": "The difference in price is _____.",
+  "topics": [],
+  "exams": [],
+  "defaultLevel": "JHIGH",
+  "levels": {
+   "JSEC": {
+    "kanjiTier": 1,
+    "meaningJP": "ほんの わずかな",
+    "defJa": "気に する ほどでは | ない くらい | 小さい 様子。",
+    "leadJa": "二つの 店で | ノートを くらべたら、 | 差は たった 十円だった。",
+    "anticipateJa": "どっちでも | いいかも！",
+    "usageJa": "二つの ねだんの 差は | ほんの=わずかだ。",
+    "emphasisJa": [
+     "小さい",
+     "十円",
+     "わずか"
+    ]
+   },
+   "JHIGH": {
+    "kanjiTier": 2,
+    "meaningJP": "わずかな、取るに足りない",
+    "defJa": "気に する ほどでは | ない くらい | 小さい 様子。",
+    "leadJa": "二つの 店の 文房具を 比べたら、 | 差は | たった 十円だった。",
+    "anticipateJa": "どっちでも | いいかも！",
+    "usageJa": "二つの 値段の 差は | ほんの=わずかだ。",
+    "emphasisJa": [
+     "小さい",
+     "十円",
+     "わずか"
+    ]
+   },
+   "JCOLL": {
+    "kanjiTier": 3,
+    "meaningJP": "ごくわずかな、無視できる",
+    "defJa": "気に する ほどでは | ない くらい | 小さい 様子。",
+    "leadJa": "二つの 店の 文房具を 比べたら、 | 差は | たった 十円だった。",
+    "anticipateJa": "どっちでも | いいかも！",
+    "usageJa": "二つの 値段の 差は | 無視できる ほどだ。",
+    "emphasisJa": [
+     "小さい",
+     "十円",
+     "無視できる"
+    ]
+   }
+  },
+  "defVi": "Không đáng kể. Nhỏ đến mức không cần bận tâm.",
+  "leadVi": "So đồ văn phòng phẩm ở hai cửa hàng, chênh lệch chỉ mười yên.",
+  "anticipateVi": "Cái nào cũng được nhỉ!"
+ },
+ {
+  "word": "nosy",
+  "pos": "adj",
+  "ipa": "/ˈnəʊ.zi/",
+  "kanaReading": "ノウズィ",
+  "usageEn": "My little brother is so _____ about my phone.",
+  "topics": [],
+  "exams": [],
+  "defaultLevel": "JHIGH",
+  "levels": {
+   "JSEC": {
+    "kanjiTier": 1,
+    "meaningJP": "せんさく好きな、おせっかいな",
+    "defJa": "人の ことを | 何でも 知りたがる | 様子。",
+    "leadJa": "LINEの 通知が 鳴るたび、 | 弟が 横から | 画面を のぞいて=くる。",
+    "anticipateJa": "見ないでよ！",
+    "usageJa": "弟は ぼくの スマホに | 首を_つっこんで=くる。",
+    "emphasisJa": [
+     "知りたがる",
+     "のぞいて",
+     "首をつっこんで"
+    ]
+   },
+   "JHIGH": {
+    "kanjiTier": 2,
+    "meaningJP": "せんさく好きな、おせっかいな",
+    "defJa": "人の ことを | 何でも 知りたがる | 様子。",
+    "leadJa": "LINEの 通知が 鳴るたび、 | 弟が 横から | 画面を のぞいて=くる。",
+    "anticipateJa": "見ないでよ！",
+    "usageJa": "弟は 僕の スマホに | 首を_突っ込んで=くる。",
+    "emphasisJa": [
+     "知りたがる",
+     "のぞいて",
+     "首を突っ込んで"
+    ]
+   },
+   "JCOLL": {
+    "kanjiTier": 3,
+    "meaningJP": "詮索好きな、首を突っ込む",
+    "defJa": "他人の ことを | 何でも 知りたがる | 様子。",
+    "leadJa": "LINEの 通知が 鳴るたび、 | 弟が 横から | 画面を のぞいて=くる。",
+    "anticipateJa": "見ないでよ！",
+    "usageJa": "弟は 僕の スマホに | 首を_突っ込んで=くる。",
+    "emphasisJa": [
+     "知りたがる",
+     "のぞいて",
+     "首を突っ込んで"
+    ]
+   }
+  },
+  "defVi": "Tọc mạch. Cái gì của người khác cũng muốn biết.",
+  "leadVi": "Mỗi lần thông báo LINE kêu, em trai lại nhòm màn hình từ bên cạnh.",
+  "anticipateVi": "Đừng nhìn mà!"
+ },
+ {
+  "word": "obligatory",
+  "pos": "adj",
+  "ipa": "/əˈblɪɡ.ə.tər.i/",
+  "kanaReading": "オブリガトリー",
+  "usageEn": "Wearing a uniform is _____ at our school.",
+  "topics": [],
+  "exams": [],
+  "defaultLevel": "JHIGH",
+  "levels": {
+   "JSEC": {
+    "kanjiTier": 1,
+    "meaningJP": "必ずの、ぎむの",
+    "defJa": "決まりで、 | しなければ | ならない 様子。",
+    "leadJa": "毎朝 校門の 前で、 | 先生が | ネクタイを チェックして=いる。",
+    "anticipateJa": "曲がって | ないかな？",
+    "usageJa": "うちの 学校では | せいふくを 着るのが | 決まりだ。",
+    "emphasisJa": [
+     "しなければ",
+     "チェック",
+     "決まり"
+    ]
+   },
+   "JHIGH": {
+    "kanjiTier": 2,
+    "meaningJP": "義務的な、必須の",
+    "defJa": "規則で、 | しなければ | ならない 様子。",
+    "leadJa": "毎朝 校門の 前で、 | 先生が | ネクタイを チェックして=いる。",
+    "anticipateJa": "曲がって | ないかな？",
+    "usageJa": "うちの 学校では | 制服の 着用が | 義務だ。",
+    "emphasisJa": [
+     "しなければ",
+     "チェック",
+     "義務"
+    ]
+   },
+   "JCOLL": {
+    "kanjiTier": 3,
+    "meaningJP": "義務的な、必須の",
+    "defJa": "規則で、 | しなければ | ならない 様子。",
+    "leadJa": "毎朝 講義の 前に、 | 出席カードを | 必ず 出す。",
+    "anticipateJa": "忘れたら | アウト！",
+    "usageJa": "この 講義では | 出席が | 必須だ。",
+    "emphasisJa": [
+     "しなければ",
+     "必ず",
+     "必須"
+    ]
+   }
+  },
+  "defVi": "Bắt buộc. Theo quy định thì phải làm.",
+  "leadVi": "Sáng nào trước cổng trường thầy cô cũng kiểm tra cà vạt.",
+  "anticipateVi": "Có bị lệch không nhỉ?"
+ },
+ {
+  "word": "observant",
+  "pos": "adj",
+  "ipa": "/əbˈzɜː.vənt/",
+  "kanaReading": "オブザーヴァント",
+  "usageEn": "She is very _____ and noticed my new haircut.",
+  "topics": [],
+  "exams": [],
+  "defaultLevel": "JHIGH",
+  "levels": {
+   "JSEC": {
+    "kanjiTier": 1,
+    "meaningJP": "観察力の ある、よく 気が つく",
+    "defJa": "小さな ちがいにも、 | すぐに | 気が つく 様子。",
+    "leadJa": "朝 教室に 入ると、 | 友だちが 「前がみ、 | 切った？」と 聞いた。",
+    "anticipateJa": "さすが！",
+    "usageJa": "あの人は よく 見て=いて、 | ぼくの 新しい かみ型に | 気づいた。",
+    "emphasisJa": [
+     "ちがい",
+     "切った",
+     "気づいた"
+    ]
+   },
+   "JHIGH": {
+    "kanjiTier": 2,
+    "meaningJP": "観察力の鋭い、よく気がつく",
+    "defJa": "小さな 違いにも、 | すぐに | 気が つく 様子。",
+    "leadJa": "朝 教室に 入ると、 | 友達が 「前髪、 | 切った？」と 聞いた。",
+    "anticipateJa": "さすが！",
+    "usageJa": "彼女は よく 見て=いて、 | 僕の 新しい 髪型に | 気づいた。",
+    "emphasisJa": [
+     "違い",
+     "切った",
+     "気づいた"
+    ]
+   },
+   "JCOLL": {
+    "kanjiTier": 3,
+    "meaningJP": "観察力の鋭い、目ざとい",
+    "defJa": "小さな 違いにも、 | すぐに | 気が つく 様子。",
+    "leadJa": "朝 研究室に 入ると、 | 友人が 「前髪、 | 切った？」と 聞いた。",
+    "anticipateJa": "さすが！",
+    "usageJa": "彼女は 目ざとく、 | 僕の 新しい 髪型に | 気づいた。",
+    "emphasisJa": [
+     "違い",
+     "切った",
+     "気づいた"
+    ]
+   }
+  },
+  "defVi": "Tinh ý. Nhận ra ngay cả những khác biệt nhỏ.",
+  "leadVi": "Sáng vào lớp, bạn hỏi: “Cắt tóc mái à?”.",
+  "anticipateVi": "Đúng là tinh mắt!"
+ },
+ {
+  "word": "off-putting",
+  "pos": "adj",
+  "ipa": "/ˌɒfˈpʊt.ɪŋ/",
+  "kanaReading": "オフプッティング",
+  "usageEn": "The strong smell was a bit _____.",
+  "topics": [],
+  "exams": [],
+  "defaultLevel": "JHIGH",
+  "levels": {
+   "JSEC": {
+    "kanjiTier": 1,
+    "meaningJP": "いやな 感じの、近づきにくい",
+    "defJa": "人の 気持ちを、 | ちょっと | 引かせて=しまう 様子。",
+    "leadJa": "調理室に 入った とたん、 | 生ぐさい においで | 足が 止まった。",
+    "anticipateJa": "まど、 | 開けよう！",
+    "usageJa": "その 強い においは | ちょっと | いやな 感じだった。",
+    "emphasisJa": [
+     "引かせて",
+     "止まった",
+     "いやな"
+    ]
+   },
+   "JHIGH": {
+    "kanjiTier": 2,
+    "meaningJP": "不快な、感じの悪い",
+    "defJa": "人の 気持ちを、 | 少し | 引かせて=しまう 様子。",
+    "leadJa": "調理室に 入った とたん、 | 生ぐさい においで | 足が 止まった。",
+    "anticipateJa": "窓、 | 開けよう！",
+    "usageJa": "その 強い においは | ちょっと | 不快だった。",
+    "emphasisJa": [
+     "引かせて",
+     "止まった",
+     "不快"
+    ]
+   },
+   "JCOLL": {
+    "kanjiTier": 3,
+    "meaningJP": "不快な、興ざめな",
+    "defJa": "人の 気持ちを、 | 少し | 引かせて=しまう 様子。",
+    "leadJa": "台所に 入った とたん、 | 生臭い においで | 足が 止まった。",
+    "anticipateJa": "窓、 | 開けよう！",
+    "usageJa": "その 強い においは | ちょっと | 不快だった。",
+    "emphasisJa": [
+     "引かせて",
+     "止まった",
+     "不快"
+    ]
+   }
+  },
+  "defVi": "Gây mất thiện cảm. Khiến người khác hơi chùn lại.",
+  "leadVi": "Vừa vào phòng nấu ăn, mùi tanh khiến chân khựng lại.",
+  "anticipateVi": "Mở cửa sổ ra thôi!"
+ },
+ {
+  "word": "outgoing",
+  "pos": "adj",
+  "ipa": "/ˌaʊtˈɡəʊ.ɪŋ/",
+  "kanaReading": "アウトゴウイング",
+  "usageEn": "She is _____ and makes friends easily.",
+  "topics": [],
+  "exams": [],
+  "defaultLevel": "JHIGH",
+  "levels": {
+   "JSEC": {
+    "kanjiTier": 1,
+    "meaningJP": "社交的な、明るい",
+    "defJa": "人と 話すのが 好きで、 | すぐに | 打ちとける 性格。",
+    "leadJa": "転校して きた 日、 | あの子は 昼休みには | もう 五人と 笑って=いた。",
+    "anticipateJa": "コミュ力 | 高い！",
+    "usageJa": "あの人は 明るくて、 | すぐに | 友だちが できる。",
+    "emphasisJa": [
+     "打ちとける",
+     "笑って",
+     "明るくて"
+    ]
+   },
+   "JHIGH": {
+    "kanjiTier": 2,
+    "meaningJP": "社交的な、外向的な",
+    "defJa": "人と 話すのが 好きで、 | すぐに | 打ち解ける 性格。",
+    "leadJa": "転校して きた 日、 | 彼女は 昼休みには | もう 五人と 笑って=いた。",
+    "anticipateJa": "コミュ力 | 高い！",
+    "usageJa": "彼女は 社交的で、 | すぐに | 友達が できる。",
+    "emphasisJa": [
+     "打ち解ける",
+     "笑って",
+     "社交的"
+    ]
+   },
+   "JCOLL": {
+    "kanjiTier": 3,
+    "meaningJP": "社交的な、外向的な",
+    "defJa": "人と 話すのが 好きで、 | すぐに | 打ち解ける 性格。",
+    "leadJa": "入学 初日、 | 彼女は 昼休みには | もう 五人と 笑って=いた。",
+    "anticipateJa": "コミュ力 | 高い！",
+    "usageJa": "彼女は 社交的で、 | すぐに | 友人が できる。",
+    "emphasisJa": [
+     "打ち解ける",
+     "笑って",
+     "社交的"
+    ]
+   }
+  },
+  "defVi": "Hướng ngoại. Thích nói chuyện với mọi người, tính cách dễ hòa đồng.",
+  "leadVi": "Ngày đầu chuyển trường, đến giờ nghỉ trưa cô ấy đã cười nói với năm người.",
+  "anticipateVi": "Giỏi giao tiếp ghê!"
+ },
+ {
+  "word": "paradoxical",
+  "pos": "adj",
+  "ipa": "/ˌpær.əˈdɒk.sɪ.kəl/",
+  "kanaReading": "パラドクスィカル",
+  "usageEn": "It seems _____, but resting can help you work faster.",
+  "topics": [],
+  "exams": [],
+  "defaultLevel": "JHIGH",
+  "levels": {
+   "JSEC": {
+    "kanjiTier": 1,
+    "meaningJP": "逆説的な、むじゅんした",
+    "defJa": "一見 おかしいのに、 | よく 考えると | 正しい 様子。",
+    "leadJa": "テスト前に 三十分 ねたら、 | ずっと 起きて=いた 日より | 問題が 解けた。",
+    "anticipateJa": "え、 | なんで？",
+    "usageJa": "休むと 早く 進むのは | 逆説的に 思えるが、 | 本当だ。",
+    "emphasisJa": [
+     "おかしい",
+     "解けた",
+     "逆説的"
+    ]
+   },
+   "JHIGH": {
+    "kanjiTier": 2,
+    "meaningJP": "逆説的な、むじゅんした",
+    "defJa": "一見 おかしいのに、 | よく 考えると | 正しい 様子。",
+    "leadJa": "試験前に 三十分 寝たら、 | ずっと 起きて=いた 日より | 問題が 解けた。",
+    "anticipateJa": "え、 | なんで？",
+    "usageJa": "休むと 早く 進むのは | 逆説的に 思えるが、 | 本当だ。",
+    "emphasisJa": [
+     "おかしい",
+     "解けた",
+     "逆説的"
+    ]
+   },
+   "JCOLL": {
+    "kanjiTier": 3,
+    "meaningJP": "逆説的な、矛盾した",
+    "defJa": "一見 矛盾して=いるのに、 | よく 考えると | 正しい 様子。",
+    "leadJa": "試験前に 三十分 寝たら、 | 徹夜した 日より | 問題が 解けた。",
+    "anticipateJa": "え、 | なんで？",
+    "usageJa": "休むと 早く 進むのは | 逆説的に 思えるが、 | 事実だ。",
+    "emphasisJa": [
+     "矛盾して",
+     "解けた",
+     "逆説的"
+    ]
+   }
+  },
+  "defVi": "Nghịch lý. Thoạt nhìn thấy vô lý nhưng nghĩ kỹ lại thì đúng.",
+  "leadVi": "Trước giờ thi ngủ ba mươi phút, giải bài lại tốt hơn hôm thức suốt.",
+  "anticipateVi": "Ơ, sao vậy?"
+ },
+ {
+  "word": "paramount",
+  "pos": "adj",
+  "ipa": "/ˈpær.ə.maʊnt/",
+  "kanaReading": "パラマウント",
+  "usageEn": "Good sleep is _____ before a big match.",
+  "topics": [],
+  "exams": [],
+  "defaultLevel": "JHIGH",
+  "levels": {
+   "JSEC": {
+    "kanjiTier": 1,
+    "meaningJP": "最も 重要な",
+    "defJa": "ほかの どれよりも | 大事で、 | 先に 考える べき 様子。",
+    "leadJa": "大会 前夜、 | キャプテンは 九時に | スマホを 置いて ねた。",
+    "anticipateJa": "気合い | 十分！",
+    "usageJa": "大きな 試合の 前は | よく ねむる=ことが | 何より 大切だ。",
+    "emphasisJa": [
+     "大事",
+     "置いて",
+     "大切"
+    ]
+   },
+   "JHIGH": {
+    "kanjiTier": 2,
+    "meaningJP": "最も重要な、最優先の",
+    "defJa": "他の どれよりも | 大事で、 | 先に 考える べき 様子。",
+    "leadJa": "大会 前夜、 | キャプテンは 九時に | スマホを 置いて 寝た。",
+    "anticipateJa": "気合い | 十分！",
+    "usageJa": "大きな 試合の 前は | よく 眠る=ことが | 何より 大切だ。",
+    "emphasisJa": [
+     "大事",
+     "置いて",
+     "大切"
+    ]
+   },
+   "JCOLL": {
+    "kanjiTier": 3,
+    "meaningJP": "最も重要な、最優先の",
+    "defJa": "他の どれよりも | 大事で、 | 優先す べき 様子。",
+    "leadJa": "大会 前夜、 | 主将は 九時に | スマホを 置いて 寝た。",
+    "anticipateJa": "気合い | 十分！",
+    "usageJa": "大事な 試合の 前は | 睡眠が | 最優先だ。",
+    "emphasisJa": [
+     "大事",
+     "置いて",
+     "最優先"
+    ]
+   }
+  },
+  "defVi": "Tối quan trọng. Quan trọng hơn mọi thứ, cần nghĩ đến trước tiên.",
+  "leadVi": "Đêm trước giải đấu, đội trưởng đặt điện thoại xuống và đi ngủ lúc chín giờ.",
+  "anticipateVi": "Tinh thần sẵn sàng!"
+ },
+ {
+  "word": "perceptive",
+  "pos": "adj",
+  "ipa": "/pəˈsep.tɪv/",
+  "kanaReading": "パセプティヴ",
+  "usageEn": "That was a very _____ comment.",
+  "topics": [],
+  "exams": [],
+  "defaultLevel": "JHIGH",
+  "levels": {
+   "JSEC": {
+    "kanjiTier": 1,
+    "meaningJP": "するどい、よく 見ぬく",
+    "defJa": "人が 気づかない=ことに、 | すぐ | 気が つく 様子。",
+    "leadJa": "話し合いが 止まった とき、 | 一年生の 一言で | みんなが うなずいた。",
+    "anticipateJa": "なるほど！",
+    "usageJa": "それは | とても するどい | 意見だった。",
+    "emphasisJa": [
+     "気づかない",
+     "うなずいた",
+     "するどい"
+    ]
+   },
+   "JHIGH": {
+    "kanjiTier": 2,
+    "meaningJP": "鋭い、見抜く力のある",
+    "defJa": "人が 気づかない=ことに、 | すぐ | 気が つく 様子。",
+    "leadJa": "話し合いが 止まった とき、 | 一年生の 一言で | みんなが うなずいた。",
+    "anticipateJa": "なるほど！",
+    "usageJa": "それは | とても 鋭い | 意見だった。",
+    "emphasisJa": [
+     "気づかない",
+     "うなずいた",
+     "鋭い"
+    ]
+   },
+   "JCOLL": {
+    "kanjiTier": 3,
+    "meaningJP": "洞察力のある、鋭い",
+    "defJa": "人が 見落とす 点に、 | すぐ | 気が つく 様子。",
+    "leadJa": "ゼミの 議論が 止まった とき、 | 一年生の 一言で | 全員が うなずいた。",
+    "anticipateJa": "なるほど！",
+    "usageJa": "それは | 実に 鋭い | 指摘だった。",
+    "emphasisJa": [
+     "見落とす",
+     "うなずいた",
+     "鋭い"
+    ]
+   }
+  },
+  "defVi": "Sâu sắc, nhạy bén. Nhanh chóng nhận ra điều người khác không thấy.",
+  "leadVi": "Khi cuộc thảo luận bế tắc, một câu của học sinh năm nhất khiến ai cũng gật đầu.",
+  "anticipateVi": "Ra là vậy!"
+ },
+ {
+  "word": "phenomenal",
+  "pos": "adj",
+  "ipa": "/fəˈnɒm.ɪ.nəl/",
+  "kanaReading": "フィノミナル",
+  "usageEn": "The view from the top was _____.",
+  "topics": [],
+  "exams": [],
+  "defaultLevel": "JHIGH",
+  "levels": {
+   "JSEC": {
+    "kanjiTier": 1,
+    "meaningJP": "すばらしい、ものすごい",
+    "defJa": "ふつうでは 考えられない ほど、 | すばらしい | 様子。",
+    "leadJa": "三時間 登って、 | 山頂に 着いた しゅん間、 | 雲の 海が 広がった。",
+    "anticipateJa": "つかれが | とんだ！",
+    "usageJa": "頂上からの ながめは | 最高だった。",
+    "emphasisJa": [
+     "すばらしい",
+     "広がった",
+     "最高"
+    ]
+   },
+   "JHIGH": {
+    "kanjiTier": 2,
+    "meaningJP": "驚異的な、すばらしい",
+    "defJa": "普通では 考えられない ほど、 | すばらしい | 様子。",
+    "leadJa": "三時間 登って、 | 山頂に 着いた 瞬間、 | 雲の 海が 広がった。",
+    "anticipateJa": "疲れが | 飛んだ！",
+    "usageJa": "頂上からの ながめは | 最高だった。",
+    "emphasisJa": [
+     "すばらしい",
+     "広がった",
+     "最高"
+    ]
+   },
+   "JCOLL": {
+    "kanjiTier": 3,
+    "meaningJP": "驚異的な、並外れた",
+    "defJa": "普通では 考えられない ほど、 | すばらしい | 様子。",
+    "leadJa": "三時間 登って、 | 山頂に 着いた 瞬間、 | 雲海が 広がった。",
+    "anticipateJa": "疲れが | 吹き飛んだ！",
+    "usageJa": "頂上からの 眺めは | 圧巻だった。",
+    "emphasisJa": [
+     "すばらしい",
+     "広がった",
+     "圧巻"
+    ]
+   }
+  },
+  "defVi": "Phi thường. Tuyệt vời đến mức không thể tưởng tượng.",
+  "leadVi": "Leo ba tiếng, vừa lên tới đỉnh thì biển mây trải ra.",
+  "anticipateVi": "Mệt mỏi bay biến!"
+ },
+ {
+  "word": "pitiful",
+  "pos": "adj",
+  "ipa": "/ˈpɪt.ɪ.fəl/",
+  "kanaReading": "ピティフル",
+  "usageEn": "The wet kitten looked _____.",
+  "topics": [],
+  "exams": [],
+  "defaultLevel": "JHIGH",
+  "levels": {
+   "JSEC": {
+    "kanjiTier": 1,
+    "meaningJP": "かわいそうな、あわれな",
+    "defJa": "見て=いると、 | 助けて あげたく なる | 様子。",
+    "leadJa": "雨の 公園で、 | ぬれた 子ねこが | 小さく 鳴いて=いた。",
+    "anticipateJa": "タオル | 持って=くる！",
+    "usageJa": "ぬれた 子ねこは | かわいそうに | 見えた。",
+    "emphasisJa": [
+     "助けて",
+     "鳴いて",
+     "かわいそう"
+    ]
+   },
+   "JHIGH": {
+    "kanjiTier": 2,
+    "meaningJP": "かわいそうな、あわれな",
+    "defJa": "見て=いると、 | 助けて あげたく なる | 様子。",
+    "leadJa": "雨の 公園で、 | ぬれた 子ねこが | 小さく 鳴いて=いた。",
+    "anticipateJa": "タオル | 持って=くる！",
+    "usageJa": "ぬれた 子ねこは | かわいそうに | 見えた。",
+    "emphasisJa": [
+     "助けて",
+     "鳴いて",
+     "かわいそう"
+    ]
+   },
+   "JCOLL": {
+    "kanjiTier": 3,
+    "meaningJP": "哀れな、痛ましい",
+    "defJa": "見て=いると、 | 助けて あげたく なる | 様子。",
+    "leadJa": "雨の 公園で、 | ずぶぬれの 子猫が | か細く 鳴いて=いた。",
+    "anticipateJa": "タオル | 持って=くる！",
+    "usageJa": "ずぶぬれの 子猫は | 哀れに | 見えた。",
+    "emphasisJa": [
+     "助けて",
+     "鳴いて",
+     "哀れ"
+    ]
+   }
+  },
+  "defVi": "Đáng thương. Nhìn vào là muốn giúp đỡ.",
+  "leadVi": "Trong công viên mưa, chú mèo con ướt sũng kêu khe khẽ.",
+  "anticipateVi": "Đi lấy khăn đây!"
+ },
+ {
+  "word": "plausible",
+  "pos": "adj",
+  "ipa": "/ˈplɔː.zə.bəl/",
+  "kanaReading": "プローザブル",
+  "usageEn": "Her reason sounds _____ to me.",
+  "topics": [],
+  "exams": [],
+  "defaultLevel": "JHIGH",
+  "levels": {
+   "JSEC": {
+    "kanjiTier": 1,
+    "meaningJP": "ありそうな、なっとくできる",
+    "defJa": "本当かも しれないと | 思える | 様子。",
+    "leadJa": "「電車が 止まった」と | 言う 友だち。 | アプリにも | ちえんの 通知が あった。",
+    "anticipateJa": "それなら | しかたない！",
+    "usageJa": "あの人の 理由は | なっとくできる。",
+    "emphasisJa": [
+     "思える",
+     "通知",
+     "なっとくできる"
+    ]
+   },
+   "JHIGH": {
+    "kanjiTier": 2,
+    "meaningJP": "もっともらしい、妥当な",
+    "defJa": "本当かも しれないと | 思える | 様子。",
+    "leadJa": "「電車が 止まった」と | 言う 友達。 | アプリにも | 遅延の 通知が あった。",
+    "anticipateJa": "それなら | 仕方ない！",
+    "usageJa": "彼女の 理由は | 納得できる。",
+    "emphasisJa": [
+     "思える",
+     "通知",
+     "納得できる"
+    ]
+   },
+   "JCOLL": {
+    "kanjiTier": 3,
+    "meaningJP": "もっともらしい、妥当な",
+    "defJa": "本当かも しれないと | 思える | 様子。",
+    "leadJa": "「電車が 止まった」と | 言う 友人。 | アプリにも | 遅延の 通知が あった。",
+    "anticipateJa": "それなら | 仕方ない！",
+    "usageJa": "彼女の 理由は | 妥当だと 思う。",
+    "emphasisJa": [
+     "思える",
+     "通知",
+     "妥当"
+    ]
+   }
+  },
+  "defVi": "Hợp lý. Có vẻ có thể là thật.",
+  "leadVi": "Bạn bảo “tàu bị dừng”, trên ứng dụng cũng có thông báo trễ chuyến.",
+  "anticipateVi": "Thế thì đành chịu!"
+ },
+ {
+  "word": "poetic",
+  "pos": "adj",
+  "ipa": "/pəʊˈet.ɪk/",
+  "kanaReading": "ポウエティック",
+  "usageEn": "The song has very _____ words.",
+  "topics": [],
+  "exams": [],
+  "defaultLevel": "JHIGH",
+  "levels": {
+   "JSEC": {
+    "kanjiTier": 1,
+    "meaningJP": "詩的な",
+    "defJa": "言葉や 景色が、 | 詩のように | 美しい 様子。",
+    "leadJa": "音楽の 時間、 | 歌の 「夜空に とける 声」と いう | 一行に 心が 動いた。",
+    "anticipateJa": "エモい！",
+    "usageJa": "その 歌は | とても=詩的な | 歌しだ。",
+    "emphasisJa": [
+     "美しい",
+     "動いた",
+     "詩的"
+    ]
+   },
+   "JHIGH": {
+    "kanjiTier": 2,
+    "meaningJP": "詩的な",
+    "defJa": "言葉や 景色が、 | 詩のように | 美しい 様子。",
+    "leadJa": "音楽の 授業、 | 歌の 「夜空に 溶ける 声」と いう | 一行に 心が 動いた。",
+    "anticipateJa": "エモい！",
+    "usageJa": "その 歌は | とても=詩的な | 歌詞だ。",
+    "emphasisJa": [
+     "美しい",
+     "動いた",
+     "詩的"
+    ]
+   },
+   "JCOLL": {
+    "kanjiTier": 3,
+    "meaningJP": "詩的な、詩情あふれる",
+    "defJa": "言葉や 景色が、 | 詩のように | 美しい 様子。",
+    "leadJa": "ライブで、 | 「夜空に 溶ける 声」と いう | 歌詞に 心が 動いた。",
+    "anticipateJa": "エモい！",
+    "usageJa": "その 歌は | とても=詩的な | 歌詞だ。",
+    "emphasisJa": [
+     "美しい",
+     "動いた",
+     "詩的"
+    ]
+   }
+  },
+  "defVi": "Nên thơ. Lời lẽ hay cảnh vật đẹp như thơ.",
+  "leadVi": "Giờ âm nhạc, câu hát “giọng ca tan vào trời đêm” làm lòng rung động.",
+  "anticipateVi": "Cảm xúc quá!"
+ },
+ {
+  "word": "pragmatic",
+  "pos": "adj",
+  "ipa": "/præɡˈmæt.ɪk/",
+  "kanaReading": "プラグマティック",
+  "usageEn": "We need a _____ plan for the festival.",
+  "topics": [],
+  "exams": [],
+  "defaultLevel": "JHIGH",
+  "levels": {
+   "JSEC": {
+    "kanjiTier": 1,
+    "meaningJP": "現実的な、実用的な",
+    "defJa": "理想よりも、 | 実際に できる=ことを | 大事に する 様子。",
+    "leadJa": "予算 三千円で、 | 文化祭の かざりを | 百円ショップで そろえた。",
+    "anticipateJa": "これで | 十分！",
+    "usageJa": "文化祭には | 現実的な 計画が | 必要だ。",
+    "emphasisJa": [
+     "実際",
+     "そろえた",
+     "現実的"
+    ]
+   },
+   "JHIGH": {
+    "kanjiTier": 2,
+    "meaningJP": "現実的な、実用的な",
+    "defJa": "理想よりも、 | 実際に できる=ことを | 重視する 様子。",
+    "leadJa": "予算 三千円で、 | 文化祭の 飾りを | 百円ショップで そろえた。",
+    "anticipateJa": "これで | 十分！",
+    "usageJa": "文化祭には | 現実的な 計画が | 必要だ。",
+    "emphasisJa": [
+     "実際",
+     "そろえた",
+     "現実的"
+    ]
+   },
+   "JCOLL": {
+    "kanjiTier": 3,
+    "meaningJP": "実利的な、現実的な",
+    "defJa": "理想よりも、 | 実際に できる=ことを | 重視する 様子。",
+    "leadJa": "予算 三千円で、 | 学園祭の 装飾を | 百円ショップで そろえた。",
+    "anticipateJa": "これで | 十分！",
+    "usageJa": "学園祭には | 現実的な 計画が | 必要だ。",
+    "emphasisJa": [
+     "実際",
+     "そろえた",
+     "現実的"
+    ]
+   }
+  },
+  "defVi": "Thực tế. Coi trọng điều có thể làm được hơn là lý tưởng.",
+  "leadVi": "Với ngân sách ba nghìn yên, gom đồ trang trí lễ hội ở cửa hàng một trăm yên.",
+  "anticipateVi": "Thế này là đủ!"
+ },
+ {
+  "word": "predominant",
+  "pos": "adj",
+  "ipa": "/prɪˈdɒm.ɪ.nənt/",
+  "kanaReading": "プリドミナント",
+  "usageEn": "Blue is the _____ colour in the room.",
+  "topics": [],
+  "exams": [],
+  "defaultLevel": "JHIGH",
+  "levels": {
+   "JSEC": {
+    "kanjiTier": 1,
+    "meaningJP": "主な、いちばん 多い",
+    "defJa": "ほかよりも 多く、 | 目立って=いる | 様子。",
+    "leadJa": "新しい 部室は、 | かべも カーテンも | 空のような 青だった。",
+    "anticipateJa": "落ち着くね！",
+    "usageJa": "この 部屋で 主な 色は | 青だ。",
+    "emphasisJa": [
+     "目立って",
+     "カーテン",
+     "主な"
+    ]
+   },
+   "JHIGH": {
+    "kanjiTier": 2,
+    "meaningJP": "支配的な、主な",
+    "defJa": "他よりも 多く、 | 目立って=いる | 様子。",
+    "leadJa": "新しい 部室は、 | 壁も カーテンも | 空のような 青だった。",
+    "anticipateJa": "落ち着くね！",
+    "usageJa": "この 部屋で 主な 色は | 青だ。",
+    "emphasisJa": [
+     "目立って",
+     "カーテン",
+     "主な"
+    ]
+   },
+   "JCOLL": {
+    "kanjiTier": 3,
+    "meaningJP": "支配的な、優勢な",
+    "defJa": "他よりも 多く、 | 際立って=いる | 様子。",
+    "leadJa": "新しい 部室は、 | 壁も カーテンも | 空のような 青だった。",
+    "anticipateJa": "落ち着くね！",
+    "usageJa": "この 部屋で 支配的な 色は | 青だ。",
+    "emphasisJa": [
+     "際立って",
+     "カーテン",
+     "支配的"
+    ]
+   }
+  },
+  "defVi": "Chiếm ưu thế. Nhiều hơn và nổi bật hơn những thứ khác.",
+  "leadVi": "Phòng câu lạc bộ mới, cả tường lẫn rèm đều xanh như bầu trời.",
+  "anticipateVi": "Thấy dễ chịu ghê!"
+ },
+ {
+  "word": "preventive",
+  "pos": "adj",
+  "ipa": "/prɪˈven.tɪv/",
+  "kanaReading": "プリヴェンティヴ",
+  "usageEn": "Brushing your teeth is a _____ habit.",
+  "topics": [],
+  "exams": [],
+  "defaultLevel": "JHIGH",
+  "levels": {
+   "JSEC": {
+    "kanjiTier": 1,
+    "meaningJP": "予防の、予防的な",
+    "defJa": "悪い ことが 起きる 前に、 | ふせぐ=ための | 様子。",
+    "leadJa": "夜 ねる 前、 | 歯ブラシの 後に | 糸ようじも 使う。",
+    "anticipateJa": "歯医者 | いらず！",
+    "usageJa": "歯みがきは | 予防の ための | 習かんだ。",
+    "emphasisJa": [
+     "ふせぐ",
+     "糸ようじ",
+     "予防"
+    ]
+   },
+   "JHIGH": {
+    "kanjiTier": 2,
+    "meaningJP": "予防の、予防的な",
+    "defJa": "悪い ことが 起きる 前に、 | 防ぐ=ための | 様子。",
+    "leadJa": "夜 寝る 前、 | 歯ブラシの 後に | 糸ようじも 使う。",
+    "anticipateJa": "歯医者 | いらず！",
+    "usageJa": "歯みがきは | 予防の ための | 習慣だ。",
+    "emphasisJa": [
+     "防ぐ",
+     "糸ようじ",
+     "予防"
+    ]
+   },
+   "JCOLL": {
+    "kanjiTier": 3,
+    "meaningJP": "予防的な",
+    "defJa": "悪い ことが 起きる 前に、 | 防ぐ=ための | 様子。",
+    "leadJa": "夜 寝る 前、 | 歯ブラシの 後に | デンタルフロスも 使う。",
+    "anticipateJa": "歯医者 | いらず！",
+    "usageJa": "歯磨きは | 予防的な | 習慣だ。",
+    "emphasisJa": [
+     "防ぐ",
+     "デンタルフロス",
+     "予防的"
+    ]
+   }
+  },
+  "defVi": "Phòng ngừa. Ngăn chặn trước khi điều xấu xảy ra.",
+  "leadVi": "Trước khi ngủ, sau bàn chải còn dùng cả chỉ nha khoa.",
+  "anticipateVi": "Khỏi cần nha sĩ!"
+ },
+ {
+  "word": "privileged",
+  "pos": "adj",
+  "ipa": "/ˈprɪv.əl.ɪdʒd/",
+  "kanaReading": "プリヴィレッジド",
+  "usageEn": "I feel _____ to work with such a great team.",
+  "topics": [],
+  "exams": [],
+  "defaultLevel": "JHIGH",
+  "levels": {
+   "JSEC": {
+    "kanjiTier": 1,
+    "meaningJP": "光栄な、めぐまれた",
+    "defJa": "人より 特別な | 機会を | もらって=いる 様子。",
+    "leadJa": "文化祭の ステージを | 大好きな 先ぱいたちと | 作れる=ことに なった。",
+    "anticipateJa": "夢みたい！",
+    "usageJa": "こんな いい チームと | いっしょに 活動できて | 光栄だ。",
+    "emphasisJa": [
+     "機会",
+     "大好き",
+     "光栄"
+    ]
+   },
+   "JHIGH": {
+    "kanjiTier": 2,
+    "meaningJP": "光栄な、恵まれた",
+    "defJa": "人より 特別な | 機会を | 与えられて=いる 様子。",
+    "leadJa": "文化祭の ステージを | 大好きな 先輩たちと | 作れる=ことに なった。",
+    "anticipateJa": "夢みたい！",
+    "usageJa": "こんな いい チームと | 一緒に 活動できて | 光栄だ。",
+    "emphasisJa": [
+     "機会",
+     "大好き",
+     "光栄"
+    ]
+   },
+   "JCOLL": {
+    "kanjiTier": 3,
+    "meaningJP": "光栄な、恵まれた",
+    "defJa": "人より 特別な | 機会を | 与えられて=いる 様子。",
+    "leadJa": "学園祭の ステージを | 憧れの 先輩たちと | 作れる=ことに なった。",
+    "anticipateJa": "夢みたい！",
+    "usageJa": "こんな いい チームと | 一緒に 働けて | 光栄だ。",
+    "emphasisJa": [
+     "機会",
+     "憧れ",
+     "光栄"
+    ]
+   }
+  },
+  "defVi": "Có đặc quyền. Được nhận cơ hội đặc biệt hơn người khác.",
+  "leadVi": "Được cùng các đàn anh đàn chị mình hâm mộ dựng sân khấu lễ hội văn hóa.",
+  "anticipateVi": "Như mơ vậy!"
+ },
+ {
+  "word": "prone",
+  "pos": "adj",
+  "ipa": "/prəʊn/",
+  "kanaReading": "プロウン",
+  "usageEn": "I am _____ to forget my umbrella.",
+  "topics": [],
+  "exams": [],
+  "defaultLevel": "JHIGH",
+  "levels": {
+   "JSEC": {
+    "kanjiTier": 1,
+    "meaningJP": "しがちな、なりやすい",
+    "defJa": "そう なりやすい | くせや | 性質が ある 様子。",
+    "leadJa": "朝は 晴れて=いたのに、 | 帰りの げた箱で | また 空を 見上げた。",
+    "anticipateJa": "かさ、 | 今日も ない！",
+    "usageJa": "ぼくは よく | かさを | 忘れがちだ。",
+    "emphasisJa": [
+     "なりやすい",
+     "見上げた",
+     "忘れがち"
+    ]
+   },
+   "JHIGH": {
+    "kanjiTier": 2,
+    "meaningJP": "しがちな、なりやすい",
+    "defJa": "そう なりやすい | くせや | 性質が ある 様子。",
+    "leadJa": "朝は 晴れて=いたのに、 | 帰りの げた箱で | また 空を 見上げた。",
+    "anticipateJa": "かさ、 | 今日も ない！",
+    "usageJa": "僕は よく | かさを | 忘れがちだ。",
+    "emphasisJa": [
+     "なりやすい",
+     "見上げた",
+     "忘れがち"
+    ]
+   },
+   "JCOLL": {
+    "kanjiTier": 3,
+    "meaningJP": "しがちな、陥りやすい",
+    "defJa": "そう なりやすい | 傾向や | 性質が ある 様子。",
+    "leadJa": "朝は 晴れて=いたのに、 | 帰りの 玄関で | また 空を 見上げた。",
+    "anticipateJa": "傘、 | 今日も ない！",
+    "usageJa": "僕は よく | 傘を | 忘れがちだ。",
+    "emphasisJa": [
+     "なりやすい",
+     "見上げた",
+     "忘れがち"
+    ]
+   }
+  },
+  "defVi": "Dễ bị. Có thói quen hay tính chất dễ trở nên như vậy.",
+  "leadVi": "Sáng trời còn nắng, đến tủ giày lúc về lại ngước nhìn trời.",
+  "anticipateVi": "Hôm nay lại không có ô!"
+ },
+ {
+  "word": "pushy",
+  "pos": "adj",
+  "ipa": "/ˈpʊʃ.i/",
+  "kanaReading": "プシー",
+  "usageEn": "The salesperson was a bit too _____.",
+  "topics": [],
+  "exams": [],
+  "defaultLevel": "JHIGH",
+  "levels": {
+   "JSEC": {
+    "kanjiTier": 1,
+    "meaningJP": "強引な、おしの 強い",
+    "defJa": "相手の 気持ちを 考えず、 | むりやり | 進めようと する 様子。",
+    "leadJa": "店で 見て=いただけなのに、 | 店員さんが ずっと | となりで しゃべり続けた。",
+    "anticipateJa": "ちょっと | 考えさせて！",
+    "usageJa": "その 店員さんは | ちょっと | 強引すぎた。",
+    "emphasisJa": [
+     "むりやり",
+     "しゃべり続けた",
+     "強引すぎた"
+    ]
+   },
+   "JHIGH": {
+    "kanjiTier": 2,
+    "meaningJP": "強引な、押しの強い",
+    "defJa": "相手の 気持ちを 考えず、 | 無理やり | 進めようと する 様子。",
+    "leadJa": "店で 見て=いただけなのに、 | 店員さんが ずっと | 隣で しゃべり続けた。",
+    "anticipateJa": "ちょっと | 考えさせて！",
+    "usageJa": "その 店員さんは | ちょっと | 強引すぎた。",
+    "emphasisJa": [
+     "無理やり",
+     "しゃべり続けた",
+     "強引すぎた"
+    ]
+   },
+   "JCOLL": {
+    "kanjiTier": 3,
+    "meaningJP": "強引な、押しつけがましい",
+    "defJa": "相手の 意向を 考えず、 | 無理やり | 進めようと する 様子。",
+    "leadJa": "店で 見て=いただけなのに、 | 店員さんが ずっと | 隣で しゃべり続けた。",
+    "anticipateJa": "ちょっと | 考えさせて！",
+    "usageJa": "その 店員さんは | 少し | 押しつけがましかった。",
+    "emphasisJa": [
+     "無理やり",
+     "しゃべり続けた",
+     "押しつけがましかった"
+    ]
+   }
+  },
+  "defVi": "Hay ép buộc. Không nghĩ đến cảm xúc người khác mà cố đẩy mọi việc đi.",
+  "leadVi": "Chỉ đang xem trong cửa hàng thôi mà nhân viên cứ nói liên tục bên cạnh.",
+  "anticipateVi": "Cho mình nghĩ đã!"
+ },
+ {
+  "word": "quaint",
+  "pos": "adj",
+  "ipa": "/kweɪnt/",
+  "kanaReading": "クウェイント",
+  "usageEn": "We stayed in a _____ little village.",
+  "topics": [],
+  "exams": [],
+  "defaultLevel": "JHIGH",
+  "levels": {
+   "JSEC": {
+    "kanjiTier": 1,
+    "meaningJP": "古風で 味わいの ある",
+    "defJa": "古くて めずらしく、 | どこか | かわいらしい 様子。",
+    "leadJa": "旅行先の 村で、 | 木の 看板の 小さな 宿に | とまった。",
+    "anticipateJa": "時間が | ゆっくり！",
+    "usageJa": "ぼくたちは | 古風で 小さな | 村に とまった。",
+    "emphasisJa": [
+     "かわいらしい",
+     "看板",
+     "古風"
+    ]
+   },
+   "JHIGH": {
+    "kanjiTier": 2,
+    "meaningJP": "古風で趣のある",
+    "defJa": "古くて 珍しく、 | どこか | かわいらしい 様子。",
+    "leadJa": "旅行先の 村で、 | 木の 看板の 小さな 宿に | 泊まった。",
+    "anticipateJa": "時間が | ゆっくり！",
+    "usageJa": "僕たちは | 古風で 小さな | 村に 泊まった。",
+    "emphasisJa": [
+     "かわいらしい",
+     "看板",
+     "古風"
+    ]
+   },
+   "JCOLL": {
+    "kanjiTier": 3,
+    "meaningJP": "古風で趣のある、素朴な",
+    "defJa": "古くて 珍しく、 | どこか | かわいらしい 様子。",
+    "leadJa": "旅先の 村で、 | 木の 看板の 小さな 宿に | 泊まった。",
+    "anticipateJa": "時間が | ゆっくり！",
+    "usageJa": "僕たちは | 古風で 趣の ある | 村に 泊まった。",
+    "emphasisJa": [
+     "かわいらしい",
+     "看板",
+     "古風"
+    ]
+   }
+  },
+  "defVi": "Cổ kính dễ thương. Cũ, lạ và có nét đáng yêu.",
+  "leadVi": "Ở ngôi làng nơi du lịch, trọ tại quán nhỏ có biển hiệu gỗ.",
+  "anticipateVi": "Thời gian trôi chậm!"
+ },
+ {
+  "word": "questionable",
+  "pos": "adj",
+  "ipa": "/ˈkwes.tʃə.nə.bəl/",
+  "kanaReading": "クウェスチョナブル",
+  "usageEn": "The information on that website is _____.",
+  "topics": [],
+  "exams": [],
+  "defaultLevel": "JHIGH",
+  "levels": {
+   "JSEC": {
+    "kanjiTier": 1,
+    "meaningJP": "あやしい、疑わしい",
+    "defJa": "本当か どうか、 | 信用 | できない 様子。",
+    "leadJa": "調べ学習で 開いた サイトには、 | 書いた 人の 名前も | 日付も なかった。",
+    "anticipateJa": "平気かな？",
+    "usageJa": "その サイトの 情報は | あやしい。",
+    "emphasisJa": [
+     "信用",
+     "名前",
+     "あやしい"
+    ]
+   },
+   "JHIGH": {
+    "kanjiTier": 2,
+    "meaningJP": "疑わしい、あやしい",
+    "defJa": "本当か どうか、 | 信用 | できない 様子。",
+    "leadJa": "調べ学習で 開いた サイトには、 | 書いた 人の 名前も | 日付も なかった。",
+    "anticipateJa": "大丈夫かな？",
+    "usageJa": "その サイトの 情報は | 疑わしい。",
+    "emphasisJa": [
+     "信用",
+     "名前",
+     "疑わしい"
+    ]
+   },
+   "JCOLL": {
+    "kanjiTier": 3,
+    "meaningJP": "疑わしい、怪しい",
+    "defJa": "本当か どうか、 | 信用 | できない 様子。",
+    "leadJa": "レポートで 開いた サイトには、 | 筆者の 名前も | 日付も なかった。",
+    "anticipateJa": "大丈夫かな？",
+    "usageJa": "その サイトの 情報は | 疑わしい。",
+    "emphasisJa": [
+     "信用",
+     "名前",
+     "疑わしい"
+    ]
+   }
+  },
+  "defVi": "Đáng ngờ. Không thể tin là thật hay không.",
+  "leadVi": "Trang web mở ra khi tìm tư liệu không có tên người viết lẫn ngày tháng.",
+  "anticipateVi": "Có ổn không nhỉ?"
+ },
+ {
+  "word": "receptive",
+  "pos": "adj",
+  "ipa": "/rɪˈsep.tɪv/",
+  "kanaReading": "リセプティヴ",
+  "usageEn": "The team was _____ to new ideas.",
+  "topics": [],
+  "exams": [],
+  "defaultLevel": "JHIGH",
+  "levels": {
+   "JSEC": {
+    "kanjiTier": 1,
+    "meaningJP": "受け入れやすい、前向きな",
+    "defJa": "新しい 考えを、 | よろこんで | 受け入れる 様子。",
+    "leadJa": "一年生の SNSあんに、 | 部長が すぐ | 「やってみよう」と 言った。",
+    "anticipateJa": "話が | 早い！",
+    "usageJa": "チームは | 新しい アイデアに | 前向きだった。",
+    "emphasisJa": [
+     "よろこんで",
+     "やってみよう",
+     "前向き"
+    ]
+   },
+   "JHIGH": {
+    "kanjiTier": 2,
+    "meaningJP": "受容的な、前向きな",
+    "defJa": "新しい 考えを、 | 喜んで | 受け入れる 様子。",
+    "leadJa": "一年生の SNS案に、 | 部長が すぐ | 「やってみよう」と 言った。",
+    "anticipateJa": "話が | 早い！",
+    "usageJa": "チームは | 新しい アイデアに | 前向きだった。",
+    "emphasisJa": [
+     "喜んで",
+     "やってみよう",
+     "前向き"
+    ]
+   },
+   "JCOLL": {
+    "kanjiTier": 3,
+    "meaningJP": "受容的な、柔軟な",
+    "defJa": "新しい 考えを、 | 喜んで | 受け入れる 様子。",
+    "leadJa": "一年生の SNS案に、 | 代表が すぐ | 「やってみよう」と 言った。",
+    "anticipateJa": "話が | 早い！",
+    "usageJa": "チームは | 新しい アイデアに | 前向きだった。",
+    "emphasisJa": [
+     "喜んで",
+     "やってみよう",
+     "前向き"
+    ]
+   }
+  },
+  "defVi": "Cởi mở tiếp thu. Vui vẻ đón nhận ý tưởng mới.",
+  "leadVi": "Trước đề xuất dùng mạng xã hội của học sinh năm nhất, trưởng câu lạc bộ nói ngay: “Thử xem nào”.",
+  "anticipateVi": "Nhanh gọn ghê!"
+ },
+ {
+  "word": "reckless",
+  "pos": "adj",
+  "ipa": "/ˈrek.ləs/",
+  "kanaReading": "レックレス",
+  "usageEn": "Cycling without lights at night is _____.",
+  "topics": [],
+  "exams": [],
+  "defaultLevel": "JHIGH",
+  "levels": {
+   "JSEC": {
+    "kanjiTier": 1,
+    "meaningJP": "無ぼうな、むちゃな",
+    "defJa": "あぶないのに、 | 何も 考えずに | 行動する 様子。",
+    "leadJa": "夜の 帰り道、 | ライトを つけない 自転車が | すぐ 横を 通った。",
+    "anticipateJa": "ヒヤッと | した！",
+    "usageJa": "夜に ライトなしで 走るのは | むちゃだ。",
+    "emphasisJa": [
+     "あぶない",
+     "ライト",
+     "むちゃ"
+    ]
+   },
+   "JHIGH": {
+    "kanjiTier": 2,
+    "meaningJP": "無謀な、向こう見ずな",
+    "defJa": "危ないのに、 | 何も 考えずに | 行動する 様子。",
+    "leadJa": "夜の 帰り道、 | ライトを つけない 自転車が | すぐ 横を 通った。",
+    "anticipateJa": "ヒヤッと | した！",
+    "usageJa": "夜に ライトなしで 走るのは | むちゃだ。",
+    "emphasisJa": [
+     "危ない",
+     "ライト",
+     "むちゃ"
+    ]
+   },
+   "JCOLL": {
+    "kanjiTier": 3,
+    "meaningJP": "無謀な、向こう見ずな",
+    "defJa": "危険なのに、 | 何も 考えずに | 行動する 様子。",
+    "leadJa": "夜の 帰り道、 | 無灯火の 自転車が | すぐ 横を 通った。",
+    "anticipateJa": "ヒヤッと | した！",
+    "usageJa": "夜に ライトなしで 走るのは | 無謀だ。",
+    "emphasisJa": [
+     "危険",
+     "無灯火",
+     "無謀"
+    ]
+   }
+  },
+  "defVi": "Liều lĩnh. Hành động mà không suy nghĩ dù nguy hiểm.",
+  "leadVi": "Trên đường về ban đêm, một chiếc xe đạp không bật đèn chạy sát bên cạnh.",
+  "anticipateVi": "Hú hồn!"
+ },
+ {
+  "word": "recreational",
+  "pos": "adj",
+  "ipa": "/ˌrek.riˈeɪ.ʃən.əl/",
+  "kanaReading": "レクリエイショナル",
+  "usageEn": "The park has many _____ activities.",
+  "topics": [],
+  "exams": [],
+  "defaultLevel": "JHIGH",
+  "levels": {
+   "JSEC": {
+    "kanjiTier": 1,
+    "meaningJP": "レクリエーションの、楽しみの",
+    "defJa": "仕事や 勉強では なく、 | 楽しむ=ための | 様子。",
+    "leadJa": "週末の 公園で、 | ボート、 テニス、 | 自転車の かし出しが あった。",
+    "anticipateJa": "何から | やる？",
+    "usageJa": "その 公園には | 遊べる ものが | たくさん ある。",
+    "emphasisJa": [
+     "楽しむ",
+     "かし出し",
+     "遊べる"
+    ]
+   },
+   "JHIGH": {
+    "kanjiTier": 2,
+    "meaningJP": "レクリエーションの、遊びの",
+    "defJa": "仕事や 勉強では なく、 | 楽しむ=ための | 様子。",
+    "leadJa": "週末の 公園で、 | ボート、 テニス、 | 自転車の 貸し出しが あった。",
+    "anticipateJa": "何から | やる？",
+    "usageJa": "その 公園には | レクリエーション施設が | たくさん ある。",
+    "emphasisJa": [
+     "楽しむ",
+     "貸し出し",
+     "レクリエーション"
+    ]
+   },
+   "JCOLL": {
+    "kanjiTier": 3,
+    "meaningJP": "娯楽の、余暇の",
+    "defJa": "仕事や 勉強では なく、 | 楽しむ=ための | 様子。",
+    "leadJa": "週末の 公園で、 | ボート、 テニス、 | 自転車の 貸し出しが あった。",
+    "anticipateJa": "何から | やる？",
+    "usageJa": "その 公園には | 娯楽施設が | たくさん ある。",
+    "emphasisJa": [
+     "楽しむ",
+     "貸し出し",
+     "娯楽"
+    ]
+   }
+  },
+  "defVi": "Giải trí. Dành cho vui chơi chứ không phải làm việc hay học tập.",
+  "leadVi": "Ở công viên cuối tuần có cho thuê thuyền, tennis, xe đạp.",
+  "anticipateVi": "Chơi gì trước đây?"
+ },
+ {
+  "word": "redundant",
+  "pos": "adj",
+  "ipa": "/rɪˈdʌn.dənt/",
+  "kanaReading": "リダンダント",
+  "usageEn": "Please remove the _____ words from your essay.",
+  "topics": [],
+  "exams": [],
+  "defaultLevel": "JHIGH",
+  "levels": {
+   "JSEC": {
+    "kanjiTier": 1,
+    "meaningJP": "よけいな、むだな",
+    "defJa": "なくても | 意味が 変わらない | 様子。",
+    "leadJa": "先生が 作文の | 「とても とても」に | 赤ペンで 一本 線を 引いた。",
+    "anticipateJa": "一回で | いいか！",
+    "usageJa": "作文から | よけいな 言葉を | けして=ください。",
+    "emphasisJa": [
+     "変わらない",
+     "一本",
+     "よけい"
+    ]
+   },
+   "JHIGH": {
+    "kanjiTier": 2,
+    "meaningJP": "余分な、むだな",
+    "defJa": "なくても | 意味が 変わらない | 様子。",
+    "leadJa": "先生が 作文の | 「とても とても」に | 赤ペンで 一本 線を 引いた。",
+    "anticipateJa": "一回で | いいか！",
+    "usageJa": "作文から | 余分な 言葉を | 消して=ください。",
+    "emphasisJa": [
+     "変わらない",
+     "一本",
+     "余分"
+    ]
+   },
+   "JCOLL": {
+    "kanjiTier": 3,
+    "meaningJP": "冗長な、余分な",
+    "defJa": "なくても | 意味が 変わらない | 様子。",
+    "leadJa": "教授が レポートの | 「非常に 非常に」に | 赤ペンで 一本 線を 引いた。",
+    "anticipateJa": "一回で | いいか！",
+    "usageJa": "レポートから | 冗長な 表現を | 削って=ください。",
+    "emphasisJa": [
+     "変わらない",
+     "一本",
+     "冗長"
+    ]
+   }
+  },
+  "defVi": "Thừa. Bỏ đi thì ý nghĩa cũng không đổi.",
+  "leadVi": "Thầy dùng bút đỏ gạch một đường vào chữ “rất rất” trong bài văn.",
+  "anticipateVi": "Một lần là đủ à!"
+ },
+ {
+  "word": "refined",
+  "pos": "adj",
+  "ipa": "/rɪˈfaɪnd/",
+  "kanaReading": "リファインド",
+  "usageEn": "The restaurant has a _____ menu.",
+  "topics": [],
+  "exams": [],
+  "defaultLevel": "JHIGH",
+  "levels": {
+   "JSEC": {
+    "kanjiTier": 1,
+    "meaningJP": "上品な、洗練された",
+    "defJa": "むだが なく、 | 品よく | 美しく 整えられた 様子。",
+    "leadJa": "祖父母の 記念日の 店で、 | 小さな 皿が | 一品ずつ 運ばれた。",
+    "anticipateJa": "写真 | とりたい！",
+    "usageJa": "その レストランには | 上品な メニューが | ある。",
+    "emphasisJa": [
+     "品よく",
+     "一品ずつ",
+     "上品"
+    ]
+   },
+   "JHIGH": {
+    "kanjiTier": 2,
+    "meaningJP": "洗練された、上品な",
+    "defJa": "無駄が なく、 | 品よく | 美しく 整えられた 様子。",
+    "leadJa": "祖父母の 記念日の 店で、 | 小さな 皿が | 一品ずつ 運ばれた。",
+    "anticipateJa": "写真 | 撮りたい！",
+    "usageJa": "その レストランには | 洗練された メニューが | ある。",
+    "emphasisJa": [
+     "品よく",
+     "一品ずつ",
+     "洗練された"
+    ]
+   },
+   "JCOLL": {
+    "kanjiTier": 3,
+    "meaningJP": "洗練された、上品な",
+    "defJa": "無駄が なく、 | 品よく | 美しく 整えられた 様子。",
+    "leadJa": "祖父母の 記念日の 店で、 | 小さな 皿が | 一品ずつ 運ばれた。",
+    "anticipateJa": "写真 | 撮りたい！",
+    "usageJa": "その レストランには | 洗練された メニューが | ある。",
+    "emphasisJa": [
+     "品よく",
+     "一品ずつ",
+     "洗練された"
+    ]
+   }
+  },
+  "defVi": "Tinh tế. Không thừa thãi, được sắp đặt thanh lịch và đẹp.",
+  "leadVi": "Ở nhà hàng đi dịp kỷ niệm của ông bà, từng đĩa nhỏ được mang ra lần lượt.",
+  "anticipateVi": "Muốn chụp ảnh quá!"
+ },
+ {
+  "word": "relentless",
+  "pos": "adj",
+  "ipa": "/rɪˈlent.ləs/",
+  "kanaReading": "リレントレス",
+  "usageEn": "The rain was _____ all weekend.",
+  "topics": [],
+  "exams": [],
+  "defaultLevel": "JHIGH",
+  "levels": {
+   "JSEC": {
+    "kanjiTier": 1,
+    "meaningJP": "止まない、容しゃない",
+    "defJa": "弱まる ことなく、 | ずっと | 続く 様子。",
+    "leadJa": "土曜の 朝から 日曜の 夜まで、 | まどを たたく 雨音が | 一度も 止まなかった。",
+    "anticipateJa": "洗たく物、 | かわかない！",
+    "usageJa": "週末の 間、 | 雨が | 降り続いた。",
+    "emphasisJa": [
+     "続く",
+     "止まなかった",
+     "降り続いた"
+    ]
+   },
+   "JHIGH": {
+    "kanjiTier": 2,
+    "meaningJP": "絶え間ない、止まない",
+    "defJa": "弱まる ことなく、 | ずっと | 続く 様子。",
+    "leadJa": "土曜の 朝から 日曜の 夜まで、 | 窓を たたく 雨音が | 一度も 止まなかった。",
+    "anticipateJa": "洗たく物、 | 乾かない！",
+    "usageJa": "週末の 間、 | 雨が | 絶え間なく 降った。",
+    "emphasisJa": [
+     "続く",
+     "止まなかった",
+     "絶え間なく"
+    ]
+   },
+   "JCOLL": {
+    "kanjiTier": 3,
+    "meaningJP": "絶え間ない、容赦ない",
+    "defJa": "弱まる ことなく、 | しつこく | 続く 様子。",
+    "leadJa": "土曜の 朝から 日曜の 夜まで、 | 窓を たたく 雨音が | 一度も 止まなかった。",
+    "anticipateJa": "洗濯物、 | 乾かない！",
+    "usageJa": "週末の 間、 | 雨が | 容赦なく 降った。",
+    "emphasisJa": [
+     "続く",
+     "止まなかった",
+     "容赦なく"
+    ]
+   }
+  },
+  "defVi": "Không ngừng. Kéo dài mãi mà không yếu đi.",
+  "leadVi": "Từ sáng thứ bảy đến tối chủ nhật, tiếng mưa gõ cửa sổ không dừng lần nào.",
+  "anticipateVi": "Quần áo không khô nổi!"
+ },
+ {
+  "word": "reliant",
+  "pos": "adj",
+  "ipa": "/rɪˈlaɪ.ənt/",
+  "kanaReading": "リライアント",
+  "usageEn": "I am too _____ on my phone.",
+  "topics": [],
+  "exams": [],
+  "defaultLevel": "JHIGH",
+  "levels": {
+   "JSEC": {
+    "kanjiTier": 1,
+    "meaningJP": "たよりきった、いぞんした",
+    "defJa": "それが ないと、 | 自分だけでは | こまって=しまう 様子。",
+    "leadJa": "スマホの 電池が 切れた とたん、 | 駅から 家までの 道が | わからなく なった。",
+    "anticipateJa": "地図、 | 覚えよう！",
+    "usageJa": "ぼくは スマホに | たよりすぎて=いる。",
+    "emphasisJa": [
+     "こまって",
+     "わからなく",
+     "たよりすぎて"
+    ]
+   },
+   "JHIGH": {
+    "kanjiTier": 2,
+    "meaningJP": "依存した、頼りきった",
+    "defJa": "それが ないと、 | 自分だけでは | 困って=しまう 様子。",
+    "leadJa": "スマホの 電池が 切れた とたん、 | 駅から 家までの 道が | わからなく なった。",
+    "anticipateJa": "地図、 | 覚えよう！",
+    "usageJa": "僕は スマホに | 頼りすぎて=いる。",
+    "emphasisJa": [
+     "困って",
+     "わからなく",
+     "頼りすぎて"
+    ]
+   },
+   "JCOLL": {
+    "kanjiTier": 3,
+    "meaningJP": "依存した、頼りきった",
+    "defJa": "それが ないと、 | 自分だけでは | 困って=しまう 様子。",
+    "leadJa": "スマホの 電池が 切れた とたん、 | 駅から 部屋までの 道が | わからなく なった。",
+    "anticipateJa": "地図、 | 覚えよう！",
+    "usageJa": "僕は スマホに | 依存しすぎて=いる。",
+    "emphasisJa": [
+     "困って",
+     "わからなく",
+     "依存しすぎて"
+    ]
+   }
+  },
+  "defVi": "Phụ thuộc. Không có nó thì tự mình sẽ gặp khó khăn.",
+  "leadVi": "Điện thoại vừa hết pin là không biết đường từ ga về nhà.",
+  "anticipateVi": "Nhớ bản đồ thôi!"
+ },
+ {
+  "word": "resilient",
+  "pos": "adj",
+  "ipa": "/rɪˈzɪl.i.ənt/",
+  "kanaReading": "リズィリエント",
+  "usageEn": "Children are often very _____.",
+  "topics": [],
+  "exams": [],
+  "defaultLevel": "JHIGH",
+  "levels": {
+   "JSEC": {
+    "kanjiTier": 1,
+    "meaningJP": "立ち直りの 早い、たくましい",
+    "defJa": "つらい ことが あっても、 | すぐに | 元気を 取りもどす 様子。",
+    "leadJa": "運動会で 転んで 泣いた 弟が、 | 十分後には | もう 次の 競走で 笑って=いた。",
+    "anticipateJa": "切りかえ | 早っ！",
+    "usageJa": "子どもは | とても | たくましい。",
+    "emphasisJa": [
+     "取りもどす",
+     "笑って",
+     "たくましい"
+    ]
+   },
+   "JHIGH": {
+    "kanjiTier": 2,
+    "meaningJP": "回復力のある、たくましい",
+    "defJa": "つらい ことが あっても、 | すぐに | 元気を 取り戻す 様子。",
+    "leadJa": "運動会で 転んで 泣いた 弟が、 | 十分後には | もう 次の 競走で 笑って=いた。",
+    "anticipateJa": "切り替え | 早っ！",
+    "usageJa": "子どもは | とても | たくましい。",
+    "emphasisJa": [
+     "取り戻す",
+     "笑って",
+     "たくましい"
+    ]
+   },
+   "JCOLL": {
+    "kanjiTier": 3,
+    "meaningJP": "回復力のある、しなやかな",
+    "defJa": "困難が あっても、 | すぐに | 立ち直る 様子。",
+    "leadJa": "運動会で 転んで 泣いた 弟が、 | 十分後には | もう 次の 競走で 笑って=いた。",
+    "anticipateJa": "切り替え | 早っ！",
+    "usageJa": "子どもは | とても | 回復力が ある。",
+    "emphasisJa": [
+     "立ち直る",
+     "笑って",
+     "回復力"
+    ]
+   }
+  },
+  "defVi": "Kiên cường. Dù gặp chuyện buồn cũng nhanh chóng lấy lại tinh thần.",
+  "leadVi": "Em trai ngã khóc ở hội thao, mười phút sau đã cười ở lượt chạy tiếp theo.",
+  "anticipateVi": "Chuyển trạng thái nhanh ghê!"
+ },
+ {
+  "word": "resourceful",
+  "pos": "adj",
+  "ipa": "/rɪˈzɔːs.fəl/",
+  "kanaReading": "リゾースフル",
+  "usageEn": "She was _____ and fixed the bike with a hair tie.",
+  "topics": [],
+  "exams": [],
+  "defaultLevel": "JHIGH",
+  "levels": {
+   "JSEC": {
+    "kanjiTier": 1,
+    "meaningJP": "機てんの きく",
+    "defJa": "こまった=ときでも、 | 手元の ものを 使って | うまく 切りぬける 様子。",
+    "leadJa": "自転車の カバーが 外れ、 | 姉は ヘアゴムで | さっと 止めた。",
+    "anticipateJa": "天才 | かも！",
+    "usageJa": "姉は 機てんが きき、 | ヘアゴムで 自転車を | 直した。",
+    "emphasisJa": [
+     "切りぬける",
+     "さっと",
+     "機てん"
+    ]
+   },
+   "JHIGH": {
+    "kanjiTier": 2,
+    "meaningJP": "機転のきく、やりくり上手な",
+    "defJa": "困った=ときでも、 | 手元の 物を 使って | うまく 切り抜ける 様子。",
+    "leadJa": "自転車の カバーが 外れ、 | 姉は ヘアゴムで | さっと 止めた。",
+    "anticipateJa": "天才 | かも！",
+    "usageJa": "姉は 機転が きき、 | ヘアゴムで 自転車を | 直した。",
+    "emphasisJa": [
+     "切り抜ける",
+     "さっと",
+     "機転"
+    ]
+   },
+   "JCOLL": {
+    "kanjiTier": 3,
+    "meaningJP": "機転のきく、臨機応変な",
+    "defJa": "困った=ときでも、 | 手元の 物を 使って | うまく 切り抜ける 様子。",
+    "leadJa": "自転車の カバーが 外れ、 | 姉は ヘアゴムで | さっと 留めた。",
+    "anticipateJa": "天才 | かも！",
+    "usageJa": "姉は 機転が きき、 | ヘアゴムで 自転車を | 直した。",
+    "emphasisJa": [
+     "切り抜ける",
+     "さっと",
+     "機転"
+    ]
+   }
+  },
+  "defVi": "Tháo vát. Dù gặp khó vẫn dùng đồ có sẵn để xoay xở khéo léo.",
+  "leadVi": "Nắp xích xe đạp bị bung, chị dùng dây buộc tóc cố định lại ngay.",
+  "anticipateVi": "Thiên tài chắc luôn!"
+ },
+ {
+  "word": "respectable",
+  "pos": "adj",
+  "ipa": "/rɪˈspek.tə.bəl/",
+  "kanaReading": "リスペクタブル",
+  "usageEn": "He got a _____ score on the test.",
+  "topics": [],
+  "exams": [],
+  "defaultLevel": "JHIGH",
+  "levels": {
+   "JSEC": {
+    "kanjiTier": 1,
+    "meaningJP": "まずまずの、りっぱな",
+    "defJa": "人に 見せても | はずかしくない | ていどの 様子。",
+    "leadJa": "苦手な 数学で、 | 返って=きた テストは | 七十八点だった。",
+    "anticipateJa": "よく | がんばった！",
+    "usageJa": "あの人は テストで | まずまずの 点を | とった。",
+    "emphasisJa": [
+     "はずかしくない",
+     "七十八点",
+     "まずまず"
+    ]
+   },
+   "JHIGH": {
+    "kanjiTier": 2,
+    "meaningJP": "まずまずの、立派な",
+    "defJa": "人に 見せても | はずかしくない | 程度の 様子。",
+    "leadJa": "苦手な 数学で、 | 返って=きた テストは | 七十八点だった。",
+    "anticipateJa": "よく | がんばった！",
+    "usageJa": "彼は テストで | まずまずの 点を | とった。",
+    "emphasisJa": [
+     "はずかしくない",
+     "七十八点",
+     "まずまず"
+    ]
+   },
+   "JCOLL": {
+    "kanjiTier": 3,
+    "meaningJP": "相応の、立派な",
+    "defJa": "人に 見せても | 恥ずかしくない | 水準の 様子。",
+    "leadJa": "苦手な 統計学で、 | 返って=きた 試験は | 七十八点だった。",
+    "anticipateJa": "よく | 頑張った！",
+    "usageJa": "彼は 試験で | 立派な 点数を | 取った。",
+    "emphasisJa": [
+     "恥ずかしくない",
+     "七十八点",
+     "立派"
+    ]
+   }
+  },
+  "defVi": "Đáng nể. Ở mức cho người khác xem cũng không ngại.",
+  "leadVi": "Môn toán vốn kém, bài kiểm tra trả về được bảy mươi tám điểm.",
+  "anticipateVi": "Cố gắng giỏi lắm!"
+ },
+ {
+  "word": "restrictive",
+  "pos": "adj",
+  "ipa": "/rɪˈstrɪk.tɪv/",
+  "kanaReading": "リストリクティヴ",
+  "usageEn": "The school rules are quite _____.",
+  "topics": [],
+  "exams": [],
+  "defaultLevel": "JHIGH",
+  "levels": {
+   "JSEC": {
+    "kanjiTier": 1,
+    "meaningJP": "きびしい、せいげんの 多い",
+    "defJa": "自由に できない | 決まりが | 多い 様子。",
+    "leadJa": "校則で、 | スマホも かみの 色も | くつ下の 色まで 決まって=いる。",
+    "anticipateJa": "え、 | くつ下も？",
+    "usageJa": "うちの 学校の 決まりは | かなり | きびしい。",
+    "emphasisJa": [
+     "自由",
+     "決まって",
+     "きびしい"
+    ]
+   },
+   "JHIGH": {
+    "kanjiTier": 2,
+    "meaningJP": "制限の多い、厳しい",
+    "defJa": "自由に できない | 決まりが | 多い 様子。",
+    "leadJa": "校則で、 | スマホも 髪の 色も | くつ下の 色まで 決まって=いる。",
+    "anticipateJa": "え、 | くつ下も？",
+    "usageJa": "うちの 学校の 校則は | かなり | 厳しい。",
+    "emphasisJa": [
+     "自由",
+     "決まって",
+     "厳しい"
+    ]
+   },
+   "JCOLL": {
+    "kanjiTier": 3,
+    "meaningJP": "制限的な、窮屈な",
+    "defJa": "自由に できない | 決まりが | 多い 様子。",
+    "leadJa": "寮の 規則で、 | 門限も 来客も | 洗濯の 時間まで 決まって=いる。",
+    "anticipateJa": "え、 | 洗濯も？",
+    "usageJa": "うちの 寮の 規則は | かなり | 窮屈だ。",
+    "emphasisJa": [
+     "自由",
+     "決まって",
+     "窮屈"
+    ]
+   }
+  },
+  "defVi": "Hạn chế. Có nhiều quy định khiến không được tự do.",
+  "leadVi": "Theo nội quy, cả điện thoại, màu tóc lẫn màu tất cũng được quy định.",
+  "anticipateVi": "Ơ, cả tất nữa à?"
+ },
+ {
+  "word": "rigid",
+  "pos": "adj",
+  "ipa": "/ˈrɪdʒ.ɪd/",
+  "kanaReading": "リジッド",
+  "usageEn": "The timetable is too _____ to change.",
+  "topics": [],
+  "exams": [],
+  "defaultLevel": "JHIGH",
+  "levels": {
+   "JSEC": {
+    "kanjiTier": 1,
+    "meaningJP": "かたい、ゆうずうの きかない",
+    "defJa": "決まった 形を、 | まったく | 変えられない 様子。",
+    "leadJa": "文化祭の 練習で、 | 時間わりが 一分も | ずらせなかった。",
+    "anticipateJa": "もう少し | 自由に！",
+    "usageJa": "この 時間わりは | かたすぎて | 動かせない。",
+    "emphasisJa": [
+     "変えられない",
+     "ずらせなかった",
+     "かたすぎて"
+    ]
+   },
+   "JHIGH": {
+    "kanjiTier": 2,
+    "meaningJP": "融通のきかない、硬直した",
+    "defJa": "決まった 形を、 | 全く | 変えられない 様子。",
+    "leadJa": "文化祭の 練習で、 | 時間割が 一分も | ずらせなかった。",
+    "anticipateJa": "もう少し | 自由に！",
+    "usageJa": "この 時間割は | 固すぎて | 動かせない。",
+    "emphasisJa": [
+     "変えられない",
+     "ずらせなかった",
+     "固すぎて"
+    ]
+   },
+   "JCOLL": {
+    "kanjiTier": 3,
+    "meaningJP": "融通のきかない、硬直的な",
+    "defJa": "決まった 形を、 | 全く | 変えられない 様子。",
+    "leadJa": "学園祭の 準備で、 | 時間割が 一分も | ずらせなかった。",
+    "anticipateJa": "もう少し | 柔軟に！",
+    "usageJa": "この 時間割は | 硬直的で | 動かせない。",
+    "emphasisJa": [
+     "変えられない",
+     "ずらせなかった",
+     "硬直的"
+    ]
+   }
+  },
+  "defVi": "Cứng nhắc. Hoàn toàn không thể thay đổi hình thức đã định.",
+  "leadVi": "Khi tập cho lễ hội văn hóa, thời gian biểu không xê dịch được dù một phút.",
+  "anticipateVi": "Linh hoạt hơn chút đi!"
+ },
+ {
+  "word": "rocky",
+  "pos": "adj",
+  "ipa": "/ˈrɒk.i/",
+  "kanaReading": "ロッキー",
+  "usageEn": "We walked along a _____ path by the sea.",
+  "topics": [],
+  "exams": [],
+  "defaultLevel": "JHIGH",
+  "levels": {
+   "JSEC": {
+    "kanjiTier": 1,
+    "meaningJP": "岩の 多い、ごつごつした",
+    "defJa": "地面に 大きな 石が | たくさん | ころがって=いる 様子。",
+    "leadJa": "海辺の 細い 道で、 | スニーカーの 下で | 石が ゴロゴロ 鳴った。",
+    "anticipateJa": "足元、 | 注意！",
+    "usageJa": "海の そばの | ごつごつした 道を | 歩いた。",
+    "emphasisJa": [
+     "石",
+     "ゴロゴロ",
+     "ごつごつした"
+    ]
+   },
+   "JHIGH": {
+    "kanjiTier": 2,
+    "meaningJP": "岩だらけの、ごつごつした",
+    "defJa": "地面に 大きな 石が | たくさん | 転がって=いる 様子。",
+    "leadJa": "海辺の 細い 道で、 | スニーカーの 下で | 石が ゴロゴロ 鳴った。",
+    "anticipateJa": "足元、 | 注意！",
+    "usageJa": "海の そばの | 岩だらけの 道を | 歩いた。",
+    "emphasisJa": [
+     "石",
+     "ゴロゴロ",
+     "岩だらけ"
+    ]
+   },
+   "JCOLL": {
+    "kanjiTier": 3,
+    "meaningJP": "岩だらけの、険しい",
+    "defJa": "地面に 大きな 石が | たくさん | 転がって=いる 様子。",
+    "leadJa": "海辺の 細い 道で、 | スニーカーの 下で | 石が ゴロゴロ 鳴った。",
+    "anticipateJa": "足元、 | 注意！",
+    "usageJa": "海の そばの | 岩だらけの 道を | 歩いた。",
+    "emphasisJa": [
+     "石",
+     "ゴロゴロ",
+     "岩だらけ"
+    ]
+   }
+  },
+  "defVi": "Lởm chởm đá. Mặt đất có nhiều đá lớn lăn lóc.",
+  "leadVi": "Trên con đường hẹp ven biển, đá kêu lạo xạo dưới đôi giày thể thao.",
+  "anticipateVi": "Cẩn thận dưới chân!"
+ }
+]

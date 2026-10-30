@@ -1,0 +1,602 @@
+[
+ {
+  "id": "C110-001",
+  "word": "persist",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C110-002",
+  "word": "renew",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C110-003",
+  "word": "resume",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C110-004",
+  "word": "neighbouring",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C110-005",
+  "word": "halfway",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C110-006",
+  "word": "anchor",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C110-007",
+  "word": "auto",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C110-008",
+  "word": "cargo",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C110-009",
+  "word": "carriage",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C110-010",
+  "word": "collision",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C110-011",
+  "word": "descent",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C110-012",
+  "word": "fleet",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C110-013",
+  "word": "foreigner",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C110-014",
+  "word": "homeland",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C110-015",
+  "word": "intersection",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C110-016",
+  "word": "junction",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C110-017",
+  "word": "landmark",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C110-018",
+  "word": "mainland",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C110-019",
+  "word": "mobility",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C110-020",
+  "word": "motorist",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C110-021",
+  "word": "outing",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C110-022",
+  "word": "pathway",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C110-023",
+  "word": "quest",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C110-024",
+  "word": "shipping",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C110-025",
+  "word": "suite",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C110-026",
+  "word": "transit",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C110-027",
+  "word": "vessel",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C110-028",
+  "word": "accelerate",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C110-029",
+  "word": "descend",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C110-030",
+  "word": "divert",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C110-031",
+  "word": "embark",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C110-032",
+  "word": "steer",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C110-033",
+  "word": "accountable",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C110-034",
+  "word": "administrative",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C110-035",
+  "word": "competent",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C110-036",
+  "word": "cooperative",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C110-037",
+  "word": "nonprofit",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C110-038",
+  "word": "operational",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C110-039",
+  "word": "organizational",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C110-040",
+  "word": "productive",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C110-041",
+  "word": "regulatory",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C110-042",
+  "word": "specialized",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C110-043",
+  "word": "strategic",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C110-044",
+  "word": "tactical",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C110-045",
+  "word": "accomplishment",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C110-046",
+  "word": "accountability",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C110-047",
+  "word": "administrator",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C110-048",
+  "word": "aide",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C110-049",
+  "word": "backing",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C110-050",
+  "word": "benchmark",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C110-051",
+  "word": "collaboration",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C110-052",
+  "word": "competence",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C110-053",
+  "word": "consultation",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C110-054",
+  "word": "contractor",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C110-055",
+  "word": "contributor",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C110-056",
+  "word": "coordination",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C110-057",
+  "word": "coordinator",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C110-058",
+  "word": "counterpart",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C110-059",
+  "word": "deputy",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C110-060",
+  "word": "dismissal",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C110-061",
+  "word": "documentation",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C110-062",
+  "word": "efficiency",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C110-063",
+  "word": "endeavour",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C110-064",
+  "word": "handling",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C110-065",
+  "word": "implementation",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C110-066",
+  "word": "insider",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C110-067",
+  "word": "inspection",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C110-068",
+  "word": "inventory",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C110-069",
+  "word": "maintenance",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C110-070",
+  "word": "memo",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C110-071",
+  "word": "mentor",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C110-072",
+  "word": "mill",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C110-073",
+  "word": "mining",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C110-074",
+  "word": "patent",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C110-075",
+  "word": "personnel",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C110-076",
+  "word": "portfolio",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C110-077",
+  "word": "practitioner",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C110-078",
+  "word": "predecessor",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C110-079",
+  "word": "productivity",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C110-080",
+  "word": "quota",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C110-081",
+  "word": "regulator",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C110-082",
+  "word": "resignation",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C110-083",
+  "word": "rookie",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C110-084",
+  "word": "roster",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C110-085",
+  "word": "successor",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C110-086",
+  "word": "supervision",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C110-087",
+  "word": "supervisor",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C110-088",
+  "word": "tactic",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C110-089",
+  "word": "tenure",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C110-090",
+  "word": "warehouse",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C110-091",
+  "word": "pioneer",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C110-092",
+  "word": "administer",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C110-093",
+  "word": "appoint",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C110-094",
+  "word": "assemble",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C110-095",
+  "word": "attain",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C110-096",
+  "word": "authorize",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C110-097",
+  "word": "collaborate",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C110-098",
+  "word": "compile",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C110-099",
+  "word": "consolidate",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C110-100",
+  "word": "cooperate",
+  "level": "C1",
+  "status": "accepted"
+ }
+]

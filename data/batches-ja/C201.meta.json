@@ -1,0 +1,602 @@
+[
+ {
+  "id": "C201-001",
+  "word": "fearless",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C201-002",
+  "word": "reserved",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C201-003",
+  "word": "self-assured",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C201-004",
+  "word": "timid",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C201-005",
+  "word": "humility",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C201-006",
+  "word": "self-control",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C201-007",
+  "word": "self-respect",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C201-008",
+  "word": "affectionate",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C201-009",
+  "word": "animated",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C201-010",
+  "word": "bleak",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C201-011",
+  "word": "comforting",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C201-012",
+  "word": "dazed",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C201-013",
+  "word": "detached",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C201-014",
+  "word": "disillusioned",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C201-015",
+  "word": "elated",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C201-016",
+  "word": "expressive",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C201-017",
+  "word": "fearful",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C201-018",
+  "word": "frantic",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C201-019",
+  "word": "grim",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C201-020",
+  "word": "humiliated",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C201-021",
+  "word": "indifferent",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C201-022",
+  "word": "irrational",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C201-023",
+  "word": "irritable",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C201-024",
+  "word": "possessive",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C201-025",
+  "word": "sentimental",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C201-026",
+  "word": "serene",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C201-027",
+  "word": "shaken",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C201-028",
+  "word": "shattered",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C201-029",
+  "word": "soothing",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C201-030",
+  "word": "tiresome",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C201-031",
+  "word": "wary",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C201-032",
+  "word": "weary",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C201-033",
+  "word": "wretched",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C201-034",
+  "word": "anticipation",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C201-035",
+  "word": "awe",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C201-036",
+  "word": "cheerfulness",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C201-037",
+  "word": "disgust",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C201-038",
+  "word": "dismay",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C201-039",
+  "word": "empathy",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C201-040",
+  "word": "fulfilment",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C201-041",
+  "word": "fury",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C201-042",
+  "word": "impatience",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C201-043",
+  "word": "impulse",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C201-044",
+  "word": "inferiority",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C201-045",
+  "word": "inhibition",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C201-046",
+  "word": "insecurity",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C201-047",
+  "word": "irritation",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C201-048",
+  "word": "longing",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C201-049",
+  "word": "nostalgia",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C201-050",
+  "word": "reassurance",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C201-051",
+  "word": "remorse",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C201-052",
+  "word": "resentment",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C201-053",
+  "word": "sorrow",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C201-054",
+  "word": "suspense",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C201-055",
+  "word": "temper",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C201-056",
+  "word": "turmoil",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C201-057",
+  "word": "dread",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C201-058",
+  "word": "gasp",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C201-059",
+  "word": "giggle",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C201-060",
+  "word": "loathe",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C201-061",
+  "word": "moan",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C201-062",
+  "word": "relish",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C201-063",
+  "word": "resent",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C201-064",
+  "word": "sadden",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C201-065",
+  "word": "shudder",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C201-066",
+  "word": "sympathize",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C201-067",
+  "word": "thrill",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C201-068",
+  "word": "weep",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C201-069",
+  "word": "yearn",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C201-070",
+  "word": "dna",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C201-071",
+  "word": "abrupt",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C201-072",
+  "word": "ambiguous",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C201-073",
+  "word": "analogous",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C201-074",
+  "word": "apologetic",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C201-075",
+  "word": "arid",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C201-076",
+  "word": "aspiring",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C201-077",
+  "word": "assertive",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C201-078",
+  "word": "backward",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C201-079",
+  "word": "bland",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C201-080",
+  "word": "blunt",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C201-081",
+  "word": "broadminded",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C201-082",
+  "word": "carefree",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C201-083",
+  "word": "charismatic",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C201-084",
+  "word": "circular",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C201-085",
+  "word": "coherent",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C201-086",
+  "word": "committed",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C201-087",
+  "word": "compatible",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C201-088",
+  "word": "complimentary",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C201-089",
+  "word": "conceited",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C201-090",
+  "word": "continental",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C201-091",
+  "word": "contradictory",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C201-092",
+  "word": "courteous",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C201-093",
+  "word": "crisp",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C201-094",
+  "word": "cunning",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C201-095",
+  "word": "dated",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C201-096",
+  "word": "dazzling",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C201-097",
+  "word": "decaffeinated",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C201-098",
+  "word": "defective",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C201-099",
+  "word": "definitive",
+  "level": "C2",
+  "status": "accepted"
+ },
+ {
+  "id": "C201-100",
+  "word": "desired",
+  "level": "C2",
+  "status": "accepted"
+ }
+]

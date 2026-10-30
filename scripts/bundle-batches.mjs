@@ -86,6 +86,15 @@ for (const { gloss, source, target } of DECKS) {
   if (!existsSync(source)) continue;
   const files = readdirSync(source)
     .filter((name) => name.endsWith(".json") && !name.endsWith(".meta.json"))
+    // The folder also holds reports, such as needs-regeneration.json. A batch
+    // is a file with a manifest beside it, or a CEFR level in its name.
+    .filter((name) => {
+      const id = basename(name, ".json");
+      return (
+        existsSync(join(source, `${id}.meta.json`)) ||
+        /(?:^|[-_])([abc][12])(?:[-_.]|$)/i.test(id)
+      );
+    })
     .sort();
   const words = [];
   files.forEach((file, index) => {
