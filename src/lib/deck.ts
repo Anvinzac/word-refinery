@@ -217,13 +217,22 @@ function coerceLevel(value: unknown): CefrLevel {
  *
  * @param raw - one entry from the imported `words` array
  * @param usedIds - ids already taken, mutated to reserve the returned id
- * @param defaults - batch bookkeeping for words that carry none of their own
+ * @param defaults - batch bookkeeping for words that carry none of their own,
+ *   INCLUDING the CEFR level. A card written to card-prompt v3.7 or
+ *   JA_GENERATION_RULES v3.9 carries no `level`: the prompt passes it in and
+ *   forbids it in the output, so the only place it exists is the batch
+ *   manifest. Without it here, `coerceLevel` falls back to B1 and every card
+ *   of every level is stamped B1 — which is exactly what the released
+ *   catalogue did to all 4,889 Vietnamese cards until this parameter existed.
  * @returns the normalised deck word, or null when there is no usable headword
  */
 export function coerceDeckWord(
   raw: unknown,
   usedIds: Set<string>,
-  defaults: { batchId: string; addedAt: string } = { batchId: "imported", addedAt: "" },
+  defaults: { batchId: string; addedAt: string; level?: CefrLevel } = {
+    batchId: "imported",
+    addedAt: "",
+  },
 ): DeckWord | null {
   if (typeof raw !== "object" || raw === null) return null;
   const record = raw as Record<string, unknown>;
@@ -294,7 +303,9 @@ export function coerceDeckWord(
     topic: topics[0]!,
     topics,
     exams,
-    level: coerceLevel(record.level),
+    // The card's own level wins where it has one (a deck export carries it),
+    // then the manifest's, then the fallback.
+    level: record.level === undefined ? (defaults.level ?? coerceLevel(record.level)) : coerceLevel(record.level),
     chars: typeof record.chars === "number" ? record.chars : letters.length,
     initial: text(record.initial) || word.charAt(0).toUpperCase(),
     usage,

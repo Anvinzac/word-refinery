@@ -2,9 +2,12 @@
  * Verify batches from a terminal — the Intake tab's gates, headless.
  *
  * The same checks `IntakePanel.loadBatch` runs, in the same order, over a
- * directory of `<name>_cards.json` / `<name>_meta.json` pairs. Useful when a
- * pack arrives as files rather than through the browser, and when you want the
- * answer in CI or in a shell rather than in a tab.
+ * directory of batches in either layout — `<name>_cards.json` with
+ * `<name>_meta.json` as a pack is delivered, or `<name>.json` with
+ * `<name>.meta.json` as this repository keeps it in data/batches. Useful when a
+ * pack arrives as files rather than through the browser, when you want the
+ * answer in CI or in a shell rather than in a tab, and to build a catalogue
+ * from the batches the shipped decks are actually bundled from.
  *
  * Stages, cheapest first, exactly as the Intake tab orders them:
  *
@@ -53,6 +56,9 @@
  *
  *   npm run verify -- ~/packs/engvocab_v3.8
  *       every *_cards.json in the directory, with its *_meta.json beside it
+ *   npm run verify -- data/batches --release word-catalog.sqlite
+ *       the repository's own batches, released into a catalogue the
+ *       KineMedia export can read
  *   npm run verify -- ~/packs/engvocab_v3.8 A2_A208 B1_B101
  *       just those two batches
  *
@@ -68,6 +74,11 @@
  *                        names into every word of every sentence. CSV with
  *                        headword/CEFR columns, or JSON in any of four shapes.
  *                        Several --words files merge, lowest level winning.
+ *                        A batch manifest IS one of those shapes, so the decks'
+ *                        own <batch>.meta.json files under data/batches can be
+ *                        folded in — which rule 9.2 says the generator's list
+ *                        already does, and without which a pack is rejected
+ *                        for using a word this project itself teaches.
  *   --release <file>     write the run into a .sqlite catalogue, as the tab does
  *   --json <file>        also write the full report as JSON
  *   --quiet              only the summary lines
@@ -260,7 +271,14 @@ const wordList = ((): CefrWordList | undefined => {
       }
     }
   }
-  return { levels, name: names.join(" + ") };
+  // Named in full up to three, summarised beyond it. Folding the decks' own
+  // manifests in is the normal way to use this (see below), and that is sixty
+  // file names — a header nobody can read is a header nobody checks.
+  const name =
+    names.length <= 3
+      ? names.join(" + ")
+      : `${names[0]} + ${names[1]} + ${names.length - 2} more files`;
+  return { levels, name };
 })();
 
 // ── Provider settings ──────────────────────────────────────────────────────
@@ -314,7 +332,11 @@ if (checkConnection) {
 interface BatchFiles {
   batchId: string;
   cards: string;
-  /** `<name>_meta.json`: rows for a Vietnamese pack, statistics for a Japanese one. */
+  /**
+   * The manifest: rows for a Vietnamese pack, statistics for a Japanese one.
+   * `<name>_meta.json` in a pack as delivered, `<name>.meta.json` once it is in
+   * data/batches.
+   */
   manifest: string | null;
   /** `<name>_source.json`: the targets a Japanese pack was given, in order. */
   source: string | null;
@@ -325,25 +347,61 @@ function ifPresent(path: string): string | null {
   return existsSync(path) ? path : null;
 }
 
-/** One batch by name, with whatever the directory holds beside it. */
+/**
+ * TWO LAYOUTS, because a batch is named one way when it arrives and another
+ * once it is kept.
+ *
+ *   as delivered   A1_A101_cards.json  A1_A101_meta.json  A1_A101_source.json
+ *   in this repo   A101.json           A101.meta.json
+ *
+ * The verifier only ever read the first, which meant the repository's own
+ * batches — the ones the shipped decks are built from — could not be checked or
+ * released without being copied out and renamed first. Both are read now, and
+ * the delivered form is tried first so a pack directory behaves exactly as
+ * before.
+ *
+ * @param from directory to look in. @param name batch name without suffix.
+ */
 function locate(from: string, name: string): BatchFiles {
-  const cards = join(from, `${name}_cards.json`);
-  if (!existsSync(cards)) fail(`No such batch: ${cards}`);
-  return {
-    batchId: name,
-    cards,
-    manifest: ifPresent(join(from, `${name}_meta.json`)),
-    source: ifPresent(join(from, `${name}_source.json`)),
-  };
+  const delivered = join(from, `${name}_cards.json`);
+  if (existsSync(delivered)) {
+    return {
+      batchId: name,
+      cards: delivered,
+      manifest: ifPresent(join(from, `${name}_meta.json`)),
+      source: ifPresent(join(from, `${name}_source.json`)),
+    };
+  }
+  const kept = join(from, `${name}.json`);
+  if (existsSync(kept)) {
+    return {
+      batchId: name,
+      cards: kept,
+      manifest: ifPresent(join(from, `${name}.meta.json`)),
+      source: null,
+    };
+  }
+  fail(`No such batch: neither ${delivered} nor ${kept}`);
 }
 
-/** Every `*_cards.json` in a directory, sorted, with its neighbours beside it. */
+/** Every batch in a directory, sorted, with its neighbours beside it. */
 function discover(from: string): BatchFiles[] {
-  const names = readdirSync(from)
+  const entries = readdirSync(from);
+  const delivered = entries
     .filter((name) => name.endsWith("_cards.json"))
-    .sort()
     .map((name) => name.replace(/_cards\.json$/, ""));
-  if (names.length === 0) fail(`No *_cards.json files in ${from}.`);
+  // A directory is one layout or the other, never a mix, so the delivered form
+  // wins outright rather than the two being merged into one ambiguous list.
+  const names = (
+    delivered.length > 0
+      ? delivered
+      : entries
+          .filter((name) => name.endsWith(".json") && !name.endsWith(".meta.json"))
+          .map((name) => name.replace(/\.json$/, ""))
+  ).sort();
+  if (names.length === 0) {
+    fail(`No batches in ${from} — expected *_cards.json, or *.json beside *.meta.json.`);
+  }
   return names.map((name) => locate(from, name));
 }
 
@@ -511,7 +569,9 @@ function verifyOffline(files: BatchFiles): Run {
     // Coerce only when the shape is sound; a broken candidate must not be
     // smoothed into a plausible card by the importer.
     const blocked = findings.some((finding) => finding.severity === "blocker");
-    const card = blocked ? null : coerceDeckWord(raw, used, { batchId, addedAt: "" });
+    const card = blocked
+      ? null
+      : coerceDeckWord(raw, used, { batchId, addedAt: "", level: manifest?.[index]?.level });
     if (card !== null) findings.push(...checkContent(card));
     return { id, word, batchId, raw, card, findings, verdict: verdictOf(findings, ["schema", "content"]) };
   });
@@ -600,7 +660,9 @@ async function runModelStages(run: Run): Promise<void> {
           ...checkPromptRules(raw, level, wordList),
         ];
         const blocked = fresh.some((finding) => finding.severity === "blocker");
-        const card = blocked ? null : coerceDeckWord(raw, used, { batchId: run.batchId, addedAt: "" });
+        const card = blocked
+          ? null
+          : coerceDeckWord(raw, used, { batchId: run.batchId, addedAt: "", level });
         if (card !== null) fresh.push(...checkContent(card));
         record.raw = raw;
         record.card = card;

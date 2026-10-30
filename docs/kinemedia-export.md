@@ -12,7 +12,7 @@ word-refinery catalogue (.sqlite, in the browser or downloaded)
    │  or: npm run export:kinemedia -- word-catalog.sqlite --out export.json
    ▼
 export.json   (format below)
-   │  KineMedia: npm run vocab:import-refinery -- export.json [--dry]
+   │  KineMedia: npm run vocab:import -- export.json
    ▼
 src/features/vocabulary/data/packs/refinery-en.json   (+ older packs trimmed, codes assigned)
 ```

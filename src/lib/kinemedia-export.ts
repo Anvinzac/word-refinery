@@ -81,8 +81,13 @@ export interface KineMediaWord {
   defVi: string;
   leadVi: string;
   anticipateVi: string;
-  /** Positional where present: [defVi, leadVi, anticipateVi] highlights. */
-  emphasis: string[];
+  // NO `emphasis` ARRAY. KineMedia's own schema marks it [LEGACY] and says the
+  // feed renderer no longer reads it: the highlights that reach a reader are
+  // the inline `/…/` markers, which `coerceDeckWord` has already placed inside
+  // defVi and leadVi before the card reached the catalogue. Sending the array
+  // as well was duplication that could only cost us — `reign`'s third
+  // highlight is the year "1010", and `emphasisPhrase` requires letters, so one
+  // card in 4,889 made normalizeDeck refuse the whole file.
   usage: Array<{ en: string; vi: string }>;
   topics: string[];
   exams: string[];
@@ -164,12 +169,16 @@ export function buildKineMediaDeck(
       continue;
     }
     const text = { defVi: row.def_vi, leadVi: row.lead_vi, anticipateVi: row.anticipate_vi };
-    const emphasis: string[] = [];
+    // The highlights are not sent, only CHECKED: each should already be inline
+    // in the field it belongs to. One that is not present at all is reported,
+    // because it means the card was verified carrying a highlight the reader
+    // will never see.
     emphasisOf(row.raw).forEach((entry, index) => {
       const field = EMPHASIS_FIELDS[index];
       if (field === undefined || typeof entry !== "string" || !entry.trim()) return;
-      if (plain(text[field]).includes(plain(entry))) emphasis.push(stripMarks(entry.trim()));
-      else report.emphasisDropped.push({ word: row.word, field, phrase: entry });
+      if (!plain(text[field]).includes(plain(entry))) {
+        report.emphasisDropped.push({ word: row.word, field, phrase: entry });
+      }
     });
 
     const word: KineMediaWord = {
@@ -180,7 +189,6 @@ export function buildKineMediaDeck(
       level: row.level as CefrLevel,
       meaningVi: row.meaning_vi,
       ...text,
-      emphasis,
       usage: row.usage_en ? [{ en: row.usage_en, vi: row.usage_vi }] : [],
       topics: tags(row.topics),
       exams: tags(row.exams),

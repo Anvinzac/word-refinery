@@ -76,7 +76,10 @@ test("exports verified cards in KineMedia's deck shape, stamped", async () => {
   const [word] = deck.words;
   assert.equal(word!.id, "interested");
   assert.equal(word!.defVi, card.defVi, "breaking marks travel untouched; KineMedia reads them");
-  assert.deepEqual(word!.emphasis, ["hấp dẫn", "hỏi", "đào"]);
+  // No legacy `emphasis` array: KineMedia's feed does not read it, and the
+  // highlights that do reach a reader are the inline markers already in defVi
+  // and leadVi.
+  assert.ok(!("emphasis" in word!), "the legacy array is not sent");
   assert.deepEqual(word!.usage, [{ en: card.usageEn, vi: card.usageVi }]);
   assert.deepEqual(word!.topics, ["emotion", "attention"], "first topic stays primary");
   assert.deepEqual(word!.source, { batchId: "A101", cardId: "A101-1", acceptedAt: "2026-10-29T01:00:00Z" });
@@ -92,10 +95,13 @@ test("a headword verified twice exports once, the later card winning", async () 
   assert.deepEqual(report.superseded, [{ word: "interested", kept: "A202", dropped: "A101" }]);
 });
 
-test("a highlight no longer in its sentence is left out and reported", async () => {
+test("a highlight not present in its sentence is reported", async () => {
+  // Nothing is "left out" any more, because nothing is sent — but a card
+  // verified carrying a highlight its text does not contain is still worth
+  // saying out loud, since that highlight will never reach a reader.
   const { db, add } = await catalogue();
   add("A101", "1", "accepted", { ...card, emphasisVi: ["hấp dẫn", "không có", "đào"] });
   const { deck, report } = exportCatalogForKineMedia(queryOf(db), { gloss: "vi" });
-  assert.deepEqual(deck.words[0]!.emphasis, ["hấp dẫn", "đào"]);
+  assert.equal(deck.words.length, 1);
   assert.deepEqual(report.emphasisDropped, [{ word: "interested", field: "leadVi", phrase: "không có" }]);
 });

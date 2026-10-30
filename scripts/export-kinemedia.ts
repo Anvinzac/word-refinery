@@ -8,7 +8,9 @@
  * catalogue that lives as a file rather than in this browser. Read-only: the
  * catalogue is opened, queried and closed, never written.
  *
- * Then, in KineMedia: npm run vocab:import-refinery -- <file.json>
+ * Then, in KineMedia: npm run vocab:import -- <file.json>
+ * (There is no `vocab:import-refinery`; the export is an ordinary deck to
+ * KineMedia's importer, which is the point of matching its shape.)
  */
 import { readFileSync, writeFileSync } from "node:fs";
 import { resolve } from "node:path";

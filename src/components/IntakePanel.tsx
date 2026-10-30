@@ -149,7 +149,11 @@ export function IntakePanel({ settings }: { settings: Settings }) {
       // Coerce only when the shape is sound; a broken candidate must not be
       // smoothed into a plausible card by the importer.
       const blocked = findings.some((finding) => finding.severity === "blocker");
-      const card = blocked ? null : coerceDeckWord(raw, used, { batchId, addedAt: "" });
+      // The level comes from the manifest, because the card does not carry one:
+      // without it every card is stamped B1 (see coerceDeckWord).
+      const card = blocked
+        ? null
+        : coerceDeckWord(raw, used, { batchId, addedAt: "", level: rows?.[index]?.level });
       if (card !== null) findings.push(...checkContent(card));
       return {
         id,
@@ -350,7 +354,7 @@ export function IntakePanel({ settings }: { settings: Settings }) {
             ...checkPromptRules(raw, level, wordList ?? undefined),
           ];
           const blocked = fresh.some((finding) => finding.severity === "blocker");
-          const card = blocked ? null : coerceDeckWord(raw, used, { batchId, addedAt: "" });
+          const card = blocked ? null : coerceDeckWord(raw, used, { batchId, addedAt: "", level });
           if (card !== null) fresh.push(...checkContent(card));
           working = working.map((row) =>
             row.id === record.id
