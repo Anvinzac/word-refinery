@@ -29,6 +29,12 @@ arrives as 「歌手の _____を 買った。」 — which is what a usage clue 
 
 ## Gap 1 — there is nothing to export from (blocking)
 
+> **Done** in `6fc7808`: `verify-batch.ts` reads the repository's own `A101.json` /
+> `A101.meta.json` layout as well as the delivered `A1_A101_cards.json` form, so
+> `--release` builds a catalogue from `data/batches` directly. The same commit fixed two
+> bugs the runnable path exposed (every card stamped `B1`; the legacy `emphasis` array
+> making `normalizeDeck` refuse the file).
+
 `VERIFIED_CARDS_SQL` reads the catalogue's `cards` table
 `WHERE cand.verdict = 'accepted'`. That population only exists if a batch went
 through Intake and was released. **All 8,146 words arrived through
@@ -56,6 +62,13 @@ Two ways out, and I would take the second:
    `--safety` only when a key is available.
 
 ## Gap 2 — the Japanese deck has no home in KineMedia (needs a decision)
+
+> **Open — product decision, not a task.** `TargetLocale` is the language of the word
+> being TAUGHT and the UI is Vietnamese by design, so the Japanese deck (English
+> headwords, Japanese gloss, for a Japanese reader) has no home without a new
+> reader-language axis. Until that is settled, export Vietnamese only. The id
+> namespacing in Gap 3 is what keeps the two decks from colliding whenever this is
+> resolved.
 
 `TargetLocale` is **the language of the word being taught**, not the reader's:
 `nhat.chayLá` is the site that teaches *Japanese* vocabulary, and
@@ -85,6 +98,11 @@ and verified; it is waiting on a product decision, not on data.
 
 ## Gap 3 — the two decks' ids and headwords collide
 
+> **Done.** `buildKineMediaDeck` prefixes every id with the gloss language
+> (`vi-…`, `ja-…`) via `glossPrefix`, so the same headword under two glosses yields two
+> ids that cannot collide. `test/kinemedia-export.test.ts` asserts the two-gloss case and
+> that the id stays legal in KineMedia's `^[a-zA-Z0-9_-]+$`.
+
 Both decks use the same batch names, so both contain `A101-001`, and both teach
 the same English headwords. `mergeCatalogs` de-dupes by **id and headword, first
 wins**, so if the two ever meet in one catalogue the second is silently dropped
@@ -97,6 +115,14 @@ collision is invisible until the day someone merges them, and by then the ids
 are in on-device storage keys (`lib/reactions.ts` namespaces reactions by id).
 
 ## Gap 4 — the contract is written on one side only
+
+> **Done.** `KineMedia/docs/word-refinery-import.md` now exists and owns KineMedia's side
+> (what `scripts/import-vocabulary.ts` does, the `meta.format` refusal, the post-import
+> guard order), pointing here for the file format so the two cannot drift. The importer
+> reads `meta.format` / `meta.formatVersion` and refuses a file it was not written for;
+> a deck with no `meta.format` still imports as hand-authored. This doc's stale
+> "where each word lands" section (a `lib/refinery-import.ts` that does not exist in
+> KineMedia) was replaced with a pointer to the mirror.
 
 `docs/kinemedia-export.md` says the format is *"mirrored in KineMedia as
 docs/word-refinery-import.md"*. **That file does not exist.** And nothing in
@@ -114,6 +140,11 @@ Two small pieces of work:
   an ordinary hand-authored deck and still imports.
 
 ## Gap 5 — what the import does not finish
+
+> **Done.** `chars`/`initial` were already absent from `KineMediaWord` (never emitted);
+> `test/kinemedia-export.test.ts` now asserts neither key is present so it cannot regress,
+> and both contract docs state they are `[DERIVED]`. The post-import guard sequence below
+> is written into `KineMedia/docs/word-refinery-import.md` in order.
 
 Our export cannot satisfy these; they are KineMedia's to run afterwards, and the
 hand-off doc should say so in order:

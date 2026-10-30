@@ -72,6 +72,20 @@ export interface VerifiedCardRow {
 
 /** One word in KineMedia's deck shape. */
 export interface KineMediaWord {
+  /**
+   * The headword slug, namespaced by gloss language (`vi-interested`). Both
+   * gloss decks use the same batch names AND the same English headwords, so
+   * unprefixed ids collide the day the two meet in one catalogue — and
+   * KineMedia's merge de-dupes by id and headword, first wins, silently
+   * dropping the second deck entirely. The prefix is legal in KineMedia's
+   * `wordSchema.id` (`^[a-zA-Z0-9_-]+$`) and the ids escape into on-device
+   * storage keys there, so every export carries it — even while only
+   * Vietnamese ships.
+   *
+   * No `chars` and no `initial` beside it: KineMedia marks both `[DERIVED]`
+   * and `normalizeDeck` recomputes them from the headword on every import, so
+   * an export must not claim values the importer overwrites.
+   */
   id: string;
   word: string;
   pos: string;
@@ -125,6 +139,16 @@ export interface KineMediaExportReport {
 
 const EMPHASIS_FIELDS = ["defVi", "leadVi", "anticipateVi"] as const;
 
+/**
+ * The id namespace: the gloss language, lowercased and restricted to what
+ * KineMedia's `wordSchema.id` accepts, so an unexpected profile id can never
+ * build a file the importer refuses.
+ */
+function glossPrefix(gloss: string): string {
+  const slug = gloss.trim().toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
+  return slug || "wr";
+}
+
 /** Text the way the reader sees it: highlight slashes and breaking marks gone. */
 function plain(text: string): string {
   return stripMarks(text.replace(/\/([^/]+)\//g, "$1")).toLowerCase();
@@ -157,6 +181,7 @@ export function buildKineMediaDeck(
 ): { deck: KineMediaDeck; report: KineMediaExportReport } {
   const report: KineMediaExportReport = { exported: 0, superseded: [], emphasisDropped: [], skipped: [] };
   const byHead = new Map<string, KineMediaWord>();
+  const prefix = glossPrefix(options.gloss);
 
   for (const row of rows) {
     const head = row.word.trim().toLowerCase();
@@ -182,7 +207,7 @@ export function buildKineMediaDeck(
     });
 
     const word: KineMediaWord = {
-      id: slugifyWord(row.word),
+      id: `${prefix}-${slugifyWord(row.word)}`,
       word: row.word.trim(),
       pos: row.pos,
       ipa: row.ipa,

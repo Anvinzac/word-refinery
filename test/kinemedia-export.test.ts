@@ -74,12 +74,17 @@ test("exports verified cards in KineMedia's deck shape, stamped", async () => {
   assert.deepEqual(deck.meta.batches, ["A101"]);
   assert.equal(report.exported, 1);
   const [word] = deck.words;
-  assert.equal(word!.id, "interested");
+  assert.equal(word!.id, "vi-interested", "the id is namespaced by gloss language");
   assert.equal(word!.defVi, card.defVi, "breaking marks travel untouched; KineMedia reads them");
   // No legacy `emphasis` array: KineMedia's feed does not read it, and the
   // highlights that do reach a reader are the inline markers already in defVi
   // and leadVi.
   assert.ok(!("emphasis" in word!), "the legacy array is not sent");
+  // No derived fields: KineMedia marks chars/initial [DERIVED] and normalizeDeck
+  // recomputes both from the headword, so the export must not claim values the
+  // importer overwrites.
+  assert.ok(!("chars" in word!), "chars is derived on import, never exported");
+  assert.ok(!("initial" in word!), "initial is derived on import, never exported");
   assert.deepEqual(word!.usage, [{ en: card.usageEn, vi: card.usageVi }]);
   assert.deepEqual(word!.topics, ["emotion", "attention"], "first topic stays primary");
   assert.deepEqual(word!.source, { batchId: "A101", cardId: "A101-1", acceptedAt: "2026-10-29T01:00:00Z" });
@@ -104,4 +109,20 @@ test("a highlight not present in its sentence is reported", async () => {
   const { deck, report } = exportCatalogForKineMedia(queryOf(db), { gloss: "vi" });
   assert.equal(deck.words.length, 1);
   assert.deepEqual(report.emphasisDropped, [{ word: "interested", field: "leadVi", phrase: "không có" }]);
+});
+
+test("the same headword under two glosses gets two ids that cannot collide", async () => {
+  // Both decks teach the same English headwords and reuse the same batch names,
+  // so an unprefixed id would be identical in both — and KineMedia's merge
+  // de-dupes by id and headword, first wins, dropping the second deck silently.
+  const vi = await catalogue();
+  vi.add("A101", "1", "accepted", card);
+  const ja = await catalogue();
+  ja.add("A101", "1", "accepted", card);
+  const viDeck = exportCatalogForKineMedia(queryOf(vi.db), { gloss: "vi" }).deck;
+  const jaDeck = exportCatalogForKineMedia(queryOf(ja.db), { gloss: "ja" }).deck;
+  assert.equal(viDeck.words[0]!.id, "vi-interested");
+  assert.equal(jaDeck.words[0]!.id, "ja-interested");
+  assert.notEqual(viDeck.words[0]!.id, jaDeck.words[0]!.id, "the gloss prefix separates them");
+  assert.match(viDeck.words[0]!.id, /^[a-zA-Z0-9_-]+$/, "the id stays legal in KineMedia's schema");
 });

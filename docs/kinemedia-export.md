@@ -38,16 +38,15 @@ header. Only verified cards are in it: rows of `cards` whose candidate's verdict
   },
   "words": [
     {
-      "id": "interested", // the refinery's slug; KineMedia may replace it (below)
+      "id": "vi-interested", // the refinery slug, namespaced by gloss; KineMedia may replace it (below)
       "word": "interested",
       "pos": "adj",
       "ipa": "/ˈɪn.trə.stɪd/",
       "level": "A1", // CEFR, from the corpus, never from the model
       "meaningVi": "quan_tâm",
-      "defVi": "Thấy chủ_đề hấp_dẫn | nên muốn tìm_hiểu thêm.",
-      "leadVi": "Nghe giảng về vũ_trụ, Minh hỏi thầy | đến hết giờ.",
+      "defVi": "Thấy chủ_đề /hấp_dẫn/ | nên muốn tìm_hiểu thêm.",
+      "leadVi": "Nghe giảng về vũ_trụ, Minh /hỏi/ thầy | đến hết giờ.",
       "anticipateVi": "Nghe cho có, hay muốn đào sâu?",
-      "emphasis": ["hấp dẫn", "hỏi", "đào"], // [defVi, leadVi, anticipateVi] highlights
       "usage": [{ "en": "Are you _____ in music?", "vi": "Bạn có quan_tâm đến âm_nhạc không?" }],
       "topics": ["attention", "emotion"], // first is primary; closed list shared via taxonomy.ts
       "exams": [],
@@ -59,35 +58,34 @@ header. Only verified cards are in it: rows of `cards` whose candidate's verdict
 
 Rules both sides hold to:
 
+- **The header is a stamp, and KineMedia enforces it.** `meta.format` must be
+  `word-refinery.kinemedia-deck` and `meta.formatVersion` must not exceed the one the
+  importer knows; `scripts/import-vocabulary.ts` refuses the file otherwise. A deck with
+  no `meta.format` is an ordinary hand-authored file and still imports.
 - **Text travels untouched.** `_` `=` `|` stay in the text; the reader handles all three
   (`lib/word-joiner.ts`). Nothing strips them on either side.
-- **Emphasis** is the card's `emphasisVi` triple, read from the verified candidate. An
-  entry that no longer occurs in its sentence is left out by the export (and reported),
-  never shipped glowing nothing.
+- **Highlights are inline, not an array.** The reader glows the `/…/` markers already
+  inside `defVi` and `leadVi`; KineMedia's schema marks the old `emphasis` array `[LEGACY]`
+  and its feed no longer reads it, so the export does not send one. It still CHECKS the
+  verified `emphasisVi` triple: an entry that no longer occurs in its sentence is reported,
+  because that highlight will never reach a reader.
+- **Ids are namespaced by gloss language** — `vi-…`, `ja-…`. Both decks reuse the same
+  batch names and teach the same English headwords, so an unprefixed id collides the day
+  they meet, and KineMedia's merge de-dupes by id and headword (first wins, second dropped
+  silently). The prefix is applied even while only Vietnamese ships.
+- **No derived fields.** `chars` and `initial` are `[DERIVED]`: `normalizeDeck` recomputes
+  both from the headword on every import, so the export omits them rather than claim values
+  the importer overwrites.
 - **One card per headword.** A word verified twice exports once, the later card winning.
 - **No share codes, no KineMedia ids in the export.** The refinery cannot know them;
   the importer owns both.
 
-## Where each word lands (KineMedia's importer)
+## Where the file lands (KineMedia's side)
 
-`lib/refinery-import.ts`, one rule per case:
+KineMedia owns the import, so its behaviour is documented there, not restated here — see
+`KineMedia/docs/word-refinery-import.md`. In one line: `npm run vocab:import -- <file>`
+runs it through `scripts/import-vocabulary.ts`, which refuses a wrong `meta.format`,
+validates via `normalizeDeck`, and writes `catalog.json` (or a `--pack`) atomically. Share
+codes, `meaningVi`, and the layout guards are separate steps KineMedia runs afterwards;
+that mirror doc lists them in order.
 
-| The headword is…              | Result                                                                  |
-| ----------------------------- | ----------------------------------------------------------------------- |
-| in `catalog.json`             | left out: the admin-edited base wins                                    |
-| already in `refinery-en.json` | updated in place, same id and share code                                |
-| in another pack               | **moved**: inherits the id and share code; the old copy leaves its pack |
-| only in the share-code ledger | new, and gets its old code back                                         |
-| nowhere                       | new; `assign-share-codes` gives it a code                               |
-
-A word must exist once in the deck, and so must its code (`check:share-codes` reads the
-files raw), so "moved" really removes the older copy. A pack left empty is deleted.
-Words already in `refinery-en.json` but missing from an export are kept, because an
-export may come from a catalogue that never held them.
-
-The import validates everything before writing anything, writes each file atomically,
-assigns share codes, restamps the pack revision and refreshes `data/level-ladder.json`.
-Running it again on the same file writes the same bytes. `--dry` prints the plan only.
-
-Afterwards: `npm test`, `npm run check:share-codes`, `npm run check:meanings`, then
-rebuild.
