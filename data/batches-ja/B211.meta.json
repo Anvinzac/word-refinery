@@ -1,0 +1,602 @@
+[
+ {
+  "id": "B211-001",
+  "word": "resolve",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B211-002",
+  "word": "select",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B211-003",
+  "word": "speculate",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B211-004",
+  "word": "punctual",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B211-005",
+  "word": "annual",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B211-006",
+  "word": "brief",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B211-007",
+  "word": "constant",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B211-008",
+  "word": "former",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B211-009",
+  "word": "frequent",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B211-010",
+  "word": "initial",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B211-011",
+  "word": "instant",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B211-012",
+  "word": "monthly",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B211-013",
+  "word": "ongoing",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B211-014",
+  "word": "permanent",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B211-015",
+  "word": "prior",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B211-016",
+  "word": "rapid",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B211-017",
+  "word": "short-term",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B211-018",
+  "word": "spare",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B211-019",
+  "word": "subsequent",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B211-020",
+  "word": "temporary",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B211-021",
+  "word": "urgent",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B211-022",
+  "word": "weekly",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B211-023",
+  "word": "long-term",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B211-024",
+  "word": "afterwards",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B211-025",
+  "word": "annually",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B211-026",
+  "word": "briefly",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B211-027",
+  "word": "constantly",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B211-028",
+  "word": "formerly",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B211-029",
+  "word": "gradually",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B211-030",
+  "word": "initially",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B211-031",
+  "word": "instantly",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B211-032",
+  "word": "lately",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B211-033",
+  "word": "newly",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B211-034",
+  "word": "nowadays",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B211-035",
+  "word": "occasionally",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B211-036",
+  "word": "overnight",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B211-037",
+  "word": "permanently",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B211-038",
+  "word": "rapidly",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B211-039",
+  "word": "shortly",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B211-040",
+  "word": "sometime",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B211-041",
+  "word": "steadily",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B211-042",
+  "word": "subsequently",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B211-043",
+  "word": "temporarily",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B211-044",
+  "word": "anniversary",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B211-045",
+  "word": "duration",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B211-046",
+  "word": "era",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B211-047",
+  "word": "frequency",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B211-048",
+  "word": "interval",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B211-049",
+  "word": "lifetime",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B211-050",
+  "word": "phase",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B211-051",
+  "word": "sequence",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B211-052",
+  "word": "session",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B211-053",
+  "word": "timing",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B211-054",
+  "word": "transition",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B211-055",
+  "word": "pace",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B211-056",
+  "word": "pause",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B211-057",
+  "word": "cancel",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B211-058",
+  "word": "delay",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B211-059",
+  "word": "precede",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B211-060",
+  "word": "rush",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B211-061",
+  "word": "distant",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B211-062",
+  "word": "exotic",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B211-063",
+  "word": "overseas",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B211-064",
+  "word": "downtown",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B211-065",
+  "word": "aircraft",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B211-066",
+  "word": "booking",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B211-067",
+  "word": "cabin",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B211-068",
+  "word": "canal",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B211-069",
+  "word": "deck",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B211-070",
+  "word": "exit",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B211-071",
+  "word": "exploration",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B211-072",
+  "word": "fare",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B211-073",
+  "word": "harbour",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B211-074",
+  "word": "highway",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B211-075",
+  "word": "jet",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B211-076",
+  "word": "landing",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B211-077",
+  "word": "lane",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B211-078",
+  "word": "monument",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B211-079",
+  "word": "navigation",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B211-080",
+  "word": "rail",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B211-081",
+  "word": "resort",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B211-082",
+  "word": "sidewalk",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B211-083",
+  "word": "suburb",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B211-084",
+  "word": "terminal",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B211-085",
+  "word": "transportation",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B211-086",
+  "word": "tunnel",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B211-087",
+  "word": "venue",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B211-088",
+  "word": "crash",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B211-089",
+  "word": "cruise",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B211-090",
+  "word": "reserve",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B211-091",
+  "word": "transfer",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B211-092",
+  "word": "accommodate",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B211-093",
+  "word": "depart",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B211-094",
+  "word": "wander",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B211-095",
+  "word": "efficient",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B211-096",
+  "word": "industrial",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B211-097",
+  "word": "junior",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B211-098",
+  "word": "part-time",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B211-099",
+  "word": "senior",
+  "level": "B2",
+  "status": "accepted"
+ },
+ {
+  "id": "B211-100",
+  "word": "skilled",
+  "level": "B2",
+  "status": "accepted"
+ }
+]

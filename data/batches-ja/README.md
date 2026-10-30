@@ -5,7 +5,8 @@ Written to `JA_GENERATION_RULES` **v3.9**, which is the Japanese counterpart of
 `engvocab_JA_A101-A105_v3.9_flat`, `engvocab_JA_A106-A108_A201-A202_v3.9_flat`,
 `engvocab_JA_A203-A207_v3.9_flat`, `engvocab_JA_A208_B101-B104_v3.9_flat` and
 `engvocab_JA_B105-B107_B201-B202_v3.9_flat` and
-`engvocab_JA_B203-B207_v3.9_flat`.
+`engvocab_JA_B203-B207_v3.9_flat` and
+`engvocab_JA_B208-B212_v3.9_flat`.
 
 Each `<batch>.json` is the pack AS DELIVERED: one object per English word,
 carrying one telling of the scene per reader register under `levels` -
@@ -74,6 +75,11 @@ manifest: it holds batch statistics, and is what the table below is read from.
 | B205 | 100 | 100 | 0 | 0 | v3.9 |
 | B206 | 100 | 100 | 0 | 0 | v3.9 |
 | B207 | 100 | 100 | 0 | 0 | v3.9 |
+| B208 | 100 | 100 | 0 | 0 | v3.9 |
+| B209 | 100 | 100 | 0 | 0 | v3.9 |
+| B210 | 100 | 100 | 0 | 0 | v3.9 |
+| B211 | 100 | 100 | 0 | 0 | v3.9 |
+| B212 | 66 | 66 | 0 | 0 | v3.9 |
 
 Check a pack before bundling it with `npm run verify -- <pack dir> --gloss ja`.
 The `--gloss ja` matters: without it the Vietnamese profile is used and every
@@ -81,12 +87,12 @@ card is rejected. The gates judge the register that ships, so the pack's other
 registers go unchecked. Each pack's own result is in the commit that added it,
 and a pack is shipped whatever that result was, because the bundler runs no
 gates. What the whole deck carries is easier to read in the app, which counts
-it on every load: 2,857 words, 219 of them with something to fix and 158 with
-something to look at. 217 of the 219 are one rule — see below.
+it on every load: 3,323 words, 262 of them with something to fix and 165 with
+something to look at. 260 of the 262 are one rule — see below.
 
 A TEASER LINE MUST BE NEW IN THE WHOLE DECK, and that is the rule the deck is
-now failing: 383 of 2,857 cards carry an `anticipateVi` another card already
-used, over 166 repeated lines — 「続きが 気に なる！」 on six cards,
+now failing: 451 of 3,323 cards carry an `anticipateVi` another card already
+used, over 191 repeated lines — 「続きが 気に なる！」 on six cards,
 「どこへ 行くの？」 on six, 「大丈夫？」 on six. It grows with the deck rather
 than with any one pack:
 
@@ -95,6 +101,7 @@ than with any one pack:
 | 1,926 | 227 |
 | 2,357 | 297 |
 | 2,857 | 383 |
+| 3,323 | 451 |
 
 It is the one rule a batch cannot be judged against from the inside, and v3.9
 already says the generator's user message should list the lines already taken.
