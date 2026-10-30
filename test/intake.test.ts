@@ -122,6 +122,26 @@ test("a highlight may cover a join but never a bind or a phrase edge", () => {
   assert.ok(bound.some((f) => /spans a "=" or "\|"/.test(f.message)));
 });
 
+test("a highlight is one syllable or one two-syllable \"_\" word", () => {
+  const shapeBlockers = (extra: Record<string, unknown>) =>
+    blockers(checkSchema(candidate(extra))).filter((f) => f.field === "emphasisVi[0]");
+  assert.deepEqual(shapeBlockers({}), []);
+  assert.deepEqual(shapeBlockers({ emphasisVi: ["cây", "chờ", "nhất"] }), []);
+  assert.ok(
+    shapeBlockers({ emphasisVi: ["cây trái", "chờ", "nhất"] }).some((f) => /does not join with "_"/.test(f.message)),
+    "two syllables a space apart are two words",
+  );
+  assert.ok(
+    shapeBlockers({ defVi: "Việc thu_gom_cây trái | sau một mùa dài.", emphasisVi: ["thu gom cây", "chờ", "nhất"] })
+      .some((f) => /3 syllables/.test(f.message)),
+    "three syllables never glow, joined or not",
+  );
+  assert.ok(
+    shapeBlockers({ emphasisVi: ["gom", "chờ", "nhất"] }).some((f) => /part of a "_" word/.test(f.message)),
+    "half of a joined word is not a word",
+  );
+});
+
 test("a generic intensifier is never the meaning word", () => {
   const found = blockers(
     checkSchema(candidate({ defVi: "Việc rất tốt | cho một mùa trồng_trọt dài hơi.", emphasisVi: ["rất", "chờ", "nhất"] })),

@@ -19,8 +19,10 @@
  * Two responsibilities:
  *   1. `validateEmphasis` — ported from the word-crawler package. Keeps only
  *      phrases that occur character-for-character in `defVi`/`leadVi`, are not
- *      pure function words, and are not a single syllable that reads as half of
- *      a compound. Diacritics are preserved throughout.
+ *      pure function words, and are one syllable standing alone or one
+ *      two-syllable word the text joins with "_" — never half of a joined
+ *      word, never a "=" pair, never three syllables. Diacritics are preserved
+ *      throughout.
  *   2. `injectEmphasisMarkers` — the bridge to KineMedia's current catalog
  *      format. Wraps the surviving phrases in `/…/` inside the field they came
  *      from, at most one marker per field, because the feed highlights exactly
@@ -28,7 +30,7 @@
  *      stages.
  *
  * Exports: VIETNAMESE_STOP_WORDS, emphasisTokenKey, isVietnameseStopWord,
- *          countSyllables, validateEmphasis, injectEmphasisMarkers,
+ *          countSyllables, emphasisShapeProblem, validateEmphasis, injectEmphasisMarkers,
  *          stripEmphasisMarkers, splitMarkedSyllables, joinMarkedSyllables,
  *          MarkedSyllable
  * Depends on: ./joiner.ts, ./lang.ts
@@ -158,6 +160,35 @@ function findBoundOccurrence(haystacks: readonly string[], phrase: string): stri
   return null;
 }
 
+/**
+ * Why a Vietnamese highlight has the wrong shape for the text it glows in, or
+ * null when it is fine.
+ *
+ * A highlight is ONE word: a single syllable standing on its own, or a word of
+ * exactly two syllables that the text itself joins with "_". Two syllables a
+ * space apart are two words, a "=" pair is two words leaning together, and
+ * anything of three syllables or more reads as a clause on a feed page, even
+ * when the text joins it.
+ */
+export function emphasisShapeProblem(phrase: string, text: string): string | null {
+  const syllables = phrase.normalize("NFC").match(/[\p{L}\p{N}]+/gu) ?? [];
+  if (syllables.length === 0) return null;
+  if (syllables.length > 2) {
+    return `${syllables.length} syllables; a highlight is one syllable or one two-syllable "_" word`;
+  }
+  const whole = (joint: string) =>
+    new RegExp(
+      `(?<![\\p{L}\\p{N}_])${syllables.map(escapeRegExp).join(joint)}(?![\\p{L}\\p{N}_])`,
+      "iu",
+    ).test(text.normalize("NFC"));
+  if (syllables.length === 1) {
+    return whole("") ? null : `"${syllables[0]}" is only part of a "_" word here`;
+  }
+  if (whole("_")) return null;
+  if (whole(CLITIC_BIND)) return `it spans a "${CLITIC_BIND}" bind; only a "_" word may glow as two syllables`;
+  return `two syllables the text does not join with "_"; a two-syllable highlight must be one "_" word`;
+}
+
 /** Neighbouring token plus the characters joining it to the matched phrase. */
 function neighbourToken(
   haystack: string,
@@ -177,12 +208,18 @@ function neighbourToken(
 }
 
 /**
- * A neighbour can only form a compound when nothing but whitespace — or a word
- * join — separates them. A join is the strongest possible evidence of a
- * compound: it says outright that the two syllables are one word.
+ * Only a word join ("_") is evidence of a compound. It says outright that the
+ * two syllables are one word, so highlighting one of them is highlighting half
+ * a word.
+ *
+ * A plain space is NOT evidence. It is the default between every Vietnamese
+ * syllable, so reading it as a compound dropped legitimate single-syllable
+ * words wholesale — 586 defVi markers in one run. The deck marks a true
+ * compound with "_"; where it did not, the syllables stand as the separate
+ * words they are written as, and a lone syllable is kept.
  */
 function isTightJunction(junction: string): boolean {
-  return /^[\s_]*$/u.test(junction);
+  return junction.includes("_") && /^[\s_]*$/u.test(junction);
 }
 
 /** Content syllable: at least two letters and not a function word. */
@@ -297,12 +334,11 @@ function validateCandidate(
     return { phrase: found, warnings };
   }
 
-  // The feed caps Vietnamese emphasis at one word per page and the catalog
-  // convention is 2-syllable compounds; a 3+ syllable span reads as a clause.
-  if (syllables > 2) {
-    warnings.push(
-      `emphasisVi: dropped "${found}" — ${syllables} syllables; keep 2-syllable compounds`,
-    );
+  const shape = haystacks.some((haystack) => emphasisShapeProblem(phrase, haystack) === null)
+    ? null
+    : emphasisShapeProblem(phrase, occurrence.haystack);
+  if (shape !== null) {
+    warnings.push(`emphasisVi: dropped "${found}" — ${shape}`);
     return { phrase: null, warnings };
   }
 

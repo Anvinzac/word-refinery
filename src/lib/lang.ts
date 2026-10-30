@@ -201,7 +201,7 @@ const VI_EMPHASIS_CHOICE = `  CHOOSE BY MEANING FIRST. Pick the phrase that carr
   * NEVER pick filler: a classifier and its noun ("con mèo"), a number and its noun ("hai người"), a time phrase ("mỗi ngày", "hằng ngày"), a verb with a generic object ("làm việc" when the sentence is not about work), or any span that crosses a comma.
   * It must be copied EXACTLY, diacritics included, from the defVi or leadVi you just wrote.
   * Write it PLAIN, with a space where the text has a join: for "quan_trọng" in defVi, the entry is "quan trọng".
-  * ONE word: either a single syllable that carries the meaning, or one joined word of up to four syllables. Never a phrase of separate words.
+  * ONE word: either a single syllable that carries the meaning, or one word of exactly TWO syllables that your text joins with "_" (write "sức_khỏe" in the sentence, then "sức khỏe" here). Never three syllables or more, even when the text joins them; never two syllables the text leaves a space apart or binds with "="; never a phrase of separate words.
   * never a function word such as và, là, của, có, được, trong, cho, với, một, rất, cũng, đã, đang, sẽ, không, những, các, thì, mà,
   * at most 30 characters and unique inside the list,
   * appear MID-SENTENCE in lowercase where possible, so the highlight matcher finds it exactly.`;
@@ -223,7 +223,7 @@ Vietnamese is written one syllable at a time, so nothing in the text says where 
   * a free verb-object pair — "ăn=cơm", "đọc=sách", "uống=nước", "rửa=tay"
   A verb-object pair is free when it still means the sum of its parts. Give it "_" only when the pair means something the parts do not, which makes it one lexical word: "ăn_mừng" (to celebrate), "ăn_năn" (to repent).
 - "_" is for compounds and reduplicated words only. Everything that merely has to stay together takes "=".
-- The difference matters because a highlight may cover a "_" and may NEVER cover a "=": "con=mèo" is a classifier plus a noun, not a phrase worth glowing.
+- The difference matters because a highlight may cover a "_" and may NEVER cover a "=": "con=mèo" is a classifier plus a noun, not a phrase worth glowing. A two-syllable highlight must be a "_" word; a three-syllable "_" word can never glow whole, so highlight a different word of that sentence.
 - When you are not sure two syllables are one word, use "=" rather than "_", and when you are not sure they belong together at all, leave a plain space. A missing mark only allows a line break; a wrong one glues words into a block that cannot wrap and shrinks the whole page.
 - PHRASE EDGES: put "|" where the sentence would naturally pause - between a subject and its predicate, before a prepositional or time phrase, before a relative clause. Every phrase you create must be at least TWO syllables long: "|" exists so a break can land on a phrase edge instead of stranding a lone syllable, and a one-syllable phrase cannot do that. A sentence of 8-11 words usually wants one or two "|", never one after every word.
 - A join does NOT change a word count. "quan_trọng" is TWO of the 8-11 words, not one. Count syllables exactly as if the underscores were spaces.
@@ -249,7 +249,7 @@ const VIETNAMESE: GlossProfile = {
     meaning: { min: 1, max: 5, maxChars: 120 },
   },
   glossUnits: 4,
-  emphasis: { min: 1, max: 4, maxChars: 30, unitWord: "syllables" },
+  emphasis: { min: 1, max: 2, maxChars: 30, unitWord: "syllables" },
   emphasisSlots: ["def", "lead", "anticipate"],
   marks: { join: true, clitic: true, phrase: "optional", minPhrase: 2 },
   // Every syllable is already a space apart, so a bond replaces a space.

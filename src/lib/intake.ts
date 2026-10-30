@@ -37,7 +37,7 @@ import {
   levelOf,
   type CefrWordList,
 } from "./cefr-words.ts";
-import { stripEmphasisMarkers } from "./emphasis.ts";
+import { emphasisShapeProblem, stripEmphasisMarkers } from "./emphasis.ts";
 import { activeGlossProfile, describeLength, displayText, measureLength } from "./lang.ts";
 import { CEFR_LEVELS, type CefrLevel, type Deck, type DeckWord } from "./types.ts";
 
@@ -481,6 +481,9 @@ function checkEmphasisTriple(record: Record<string, unknown>): IntakeFinding[] {
     if (/[=|]/.test(entry)) {
       at(findings, "schema", `emphasisVi[${index}]`, "blocker",
         `"${entry}" spans a "=" or "|", which is never one lexical unit`);
+    } else if (L.measure === "words" && haystack.includes(needle)) {
+      const shape = emphasisShapeProblem(entry, stripEmphasisMarkers(String(record[source] ?? "")));
+      if (shape !== null) at(findings, "schema", `emphasisVi[${index}]`, "blocker", `"${entry}": ${shape}`);
     }
     if (isMeaningSlot(slot) && GENERIC_INTENSIFIERS.has(needle)) {
       at(findings, "schema", `emphasisVi[${index}]`, "blocker",

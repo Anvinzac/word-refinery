@@ -46,13 +46,13 @@ import type { Deck, DeckWord } from "../src/lib/types.ts";
 // Emphasis validation
 // ---------------------------------------------------------------------------
 
-test("keeps two-syllable phrases that occur verbatim", () => {
+test("keeps two-syllable \"_\" words that occur verbatim", () => {
   const result = validateEmphasis({
-    defVi: "Dễ tin cậy và luôn giữ lời hứa.",
-    leadVi: "Người mà ai cũng có thể dựa vào…",
-    emphasisVi: ["tin cậy", "dựa vào"],
+    defVi: "Dễ tin_cậy và luôn giữ lời hứa.",
+    leadVi: "Người mà ai cũng có thể nương_tựa…",
+    emphasisVi: ["tin cậy", "nương tựa"],
   });
-  assert.deepEqual(result.emphasis, ["tin cậy", "dựa vào"]);
+  assert.deepEqual(result.emphasis, ["tin cậy", "nương tựa"]);
   assert.deepEqual(result.warnings, []);
 });
 
@@ -78,13 +78,18 @@ test("drops a phrase made only of function words", () => {
   assert.deepEqual(result.emphasis, []);
 });
 
-test("drops a single syllable that is half of a compound", () => {
+test("keeps a single syllable beside a space — a space is not compound evidence", () => {
+  // "Học sinh" is a compound, but it is written with a space, not a "_" join.
+  // Only an explicit "_" says two syllables are one word (see joiner.test.ts),
+  // so the neighbour is no longer read as evidence. This is the recall side of
+  // the tradeoff: a few unmarked half-compounds survive, and legitimate
+  // single-syllable words stop being dropped wholesale (586 in one run).
   const result = validateEmphasis({
     defVi: "Học sinh đang đọc sách trong lớp.",
     emphasisVi: ["sinh"],
   });
-  assert.deepEqual(result.emphasis, []);
-  assert.match(result.warnings[0] ?? "", /half of "Học sinh"/);
+  assert.deepEqual(result.emphasis, ["sinh"]);
+  assert.match(result.warnings[0] ?? "", /kept single syllable "sinh"/);
 });
 
 test("diacritics are preserved so homographs never collide", () => {
@@ -96,8 +101,21 @@ test("diacritics are preserved so homographs never collide", () => {
 });
 
 test("re-cases a phrase to how the source text wrote it", () => {
-  const result = validateEmphasis({ defVi: "Chất lỏng trong suốt mỗi ngày.", emphasisVi: ["chất lỏng"] });
+  const result = validateEmphasis({ defVi: "Chất_lỏng trong suốt mỗi ngày.", emphasisVi: ["chất lỏng"] });
   assert.deepEqual(result.emphasis, ["Chất lỏng"]);
+});
+
+test("two syllables glow only as one \"_\" word", () => {
+  const joined = validateEmphasis({ defVi: "Điều quan_trọng nhất là sức_khỏe.", emphasisVi: ["sức khỏe"] });
+  assert.deepEqual(joined.emphasis, ["sức khỏe"]);
+  const spaced = validateEmphasis({ defVi: "Đi bộ dưới nắng gắt cả trưa.", emphasisVi: ["nắng gắt"] });
+  assert.deepEqual(spaced.emphasis, []);
+  assert.match(spaced.warnings.at(-1) ?? "", /does not join with "_"/);
+  const bound = validateEmphasis({ defVi: "Bạn đã=đi học rồi sao.", emphasisVi: ["đã đi"] });
+  assert.deepEqual(bound.emphasis, []);
+  const three = validateEmphasis({ defVi: "Em dán thời_khóa_biểu lên tường.", emphasisVi: ["thời khóa biểu"] });
+  assert.deepEqual(three.emphasis, []);
+  assert.match(three.warnings.at(-1) ?? "", /3 syllables/);
 });
 
 test("syllable counting ignores punctuation", () => {
@@ -176,14 +194,14 @@ const RELIABLE: CrawlerAnnotation = {
   pos: "adj",
   ipa: "/rɪˈlaɪəbl/",
   meaningVi: "đáng_tin",
-  defVi: "Dễ tin cậy và luôn giữ lời hứa.",
-  leadVi: "Người mà ai cũng có thể dựa vào…",
+  defVi: "Dễ tin_cậy và luôn giữ lời hứa.",
+  leadVi: "Người mà ai cũng có thể nương_tựa…",
   anticipateVi: "Ai đáng để bạn giao việc?",
   usageEn: "She is a very _____ colleague.",
   usageVi: "Cô ấy là một đồng nghiệp rất đáng tin.",
   topics: ["character", "work"],
   exams: [],
-  emphasisVi: ["tin cậy", "dựa vào"],
+  emphasisVi: ["tin cậy", "nương tựa"],
 };
 
 function buildReliable(): DeckWord {
@@ -223,7 +241,7 @@ test("level, chars and initial are computed locally, never taken from the model"
   assert.equal(word.level, "B1");
   assert.equal(word.chars, 8);
   assert.equal(word.initial, "R");
-  assert.equal(word.defVi.includes("/tin cậy/"), true);
+  assert.equal(word.defVi.includes("/tin_cậy/"), true);
 });
 
 test("a word that echoes a level back is still corpus-assigned", () => {
@@ -283,12 +301,16 @@ test("flags an unpaired marker", () => {
   assert.ok(issues.some((issue) => /unpaired/.test(issue.message)));
 });
 
-test("a marker may be one to four syllables, and no more", () => {
-  // Card-prompt v3.7: "either one syllable or one joined word of up to 4".
+test("a marker is one syllable or one two-syllable \"_\" word", () => {
   const tooLong = validateDeck(
-    deckOf([{ ...buildReliable(), defVi: "Có /bật dậy nhanh hơn thế/ trong câu này." }]),
+    deckOf([{ ...buildReliable(), defVi: "Em dán /thời_khóa_biểu/ lên tường phòng mình." }]),
   );
-  assert.ok(tooLong.some((issue) => /syllables; expected 1-4/.test(issue.message)));
+  assert.ok(tooLong.some((issue) => /syllables; expected 1-2/.test(issue.message)));
+
+  const spaced = validateDeck(
+    deckOf([{ ...buildReliable(), defVi: "Đi bộ dưới /nắng gắt/ suốt cả buổi trưa." }]),
+  );
+  assert.ok(spaced.some((issue) => /more than one word/.test(issue.message)));
 
   // One syllable is explicitly allowed, and used by the v4 starter pack.
   const single = validateDeck(
@@ -381,7 +403,7 @@ test("coerce reads raw model output: flat usage fields and emphasisVi phrases", 
       leadVi: "Leo tới đỉnh núi sau bao năm luyện_tập.",
       usageEn: "She worked hard to _____ her dream.",
       usageVi: "Cô ấy làm_việc chăm_chỉ để đạt_được ước_mơ.",
-      emphasisVi: ["Đạt được", "đỉnh núi"],
+      emphasisVi: ["Đạt được", "luyện tập"],
     },
     new Set(),
   );
@@ -390,7 +412,7 @@ test("coerce reads raw model output: flat usage fields and emphasisVi phrases", 
     { en: "She worked hard to _____ her dream.", vi: "Cô ấy làm_việc chăm_chỉ để đạt_được ước_mơ." },
   ]);
   assert.equal(word.defVi, "/Đạt_được/ điều mong_muốn sau nhiều cố_gắng bền_bỉ.");
-  assert.equal(word.leadVi, "Leo tới /đỉnh núi/ sau bao năm luyện_tập.");
+  assert.equal(word.leadVi, "Leo tới đỉnh núi sau bao năm /luyện_tập/.");
 });
 
 test("entriesForNewBatches adds only whole batches the workspace lacks, with fresh ids", () => {
