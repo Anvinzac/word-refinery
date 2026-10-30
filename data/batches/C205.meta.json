@@ -1,0 +1,802 @@
+[
+ {
+  "id": "C205-001",
+  "word": "ordeal",
+  "level": "C2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C205-002",
+  "word": "ornament",
+  "level": "C2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C205-003",
+  "word": "outgoings",
+  "level": "C2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C205-004",
+  "word": "outset",
+  "level": "C2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C205-005",
+  "word": "paradigm",
+  "level": "C2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C205-006",
+  "word": "parcel",
+  "level": "C2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C205-007",
+  "word": "particle",
+  "level": "C2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C205-008",
+  "word": "perseverance",
+  "level": "C2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C205-009",
+  "word": "persistence",
+  "level": "C2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C205-010",
+  "word": "persuasion",
+  "level": "C2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C205-011",
+  "word": "plethora",
+  "level": "C2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C205-012",
+  "word": "plight",
+  "level": "C2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C205-013",
+  "word": "portrayal",
+  "level": "C2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C205-014",
+  "word": "procession",
+  "level": "C2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C205-015",
+  "word": "protagonist",
+  "level": "C2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C205-016",
+  "word": "proverb",
+  "level": "C2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C205-017",
+  "word": "provocation",
+  "level": "C2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C205-018",
+  "word": "proximity",
+  "level": "C2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C205-019",
+  "word": "racket",
+  "level": "C2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C205-020",
+  "word": "rash",
+  "level": "C2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C205-021",
+  "word": "readiness",
+  "level": "C2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C205-022",
+  "word": "recollection",
+  "level": "C2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C205-023",
+  "word": "reliance",
+  "level": "C2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C205-024",
+  "word": "repetition",
+  "level": "C2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C205-025",
+  "word": "resemblance",
+  "level": "C2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C205-026",
+  "word": "resilience",
+  "level": "C2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C205-027",
+  "word": "retention",
+  "level": "C2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C205-028",
+  "word": "retrospect",
+  "level": "C2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C205-029",
+  "word": "reunion",
+  "level": "C2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C205-030",
+  "word": "ribbon",
+  "level": "C2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C205-031",
+  "word": "riches",
+  "level": "C2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C205-032",
+  "word": "rivalry",
+  "level": "C2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C205-033",
+  "word": "rut",
+  "level": "C2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C205-034",
+  "word": "saddle",
+  "level": "C2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C205-035",
+  "word": "saying",
+  "level": "C2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C205-036",
+  "word": "scarcity",
+  "level": "C2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C205-037",
+  "word": "schooling",
+  "level": "C2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C205-038",
+  "word": "scrap",
+  "level": "C2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C205-039",
+  "word": "self-assurance",
+  "level": "C2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C205-040",
+  "word": "self-awareness",
+  "level": "C2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C205-041",
+  "word": "self-discipline",
+  "level": "C2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C205-042",
+  "word": "self-reliance",
+  "level": "C2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C205-043",
+  "word": "sensibility",
+  "level": "C2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C205-044",
+  "word": "severity",
+  "level": "C2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C205-045",
+  "word": "shield",
+  "level": "C2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C205-046",
+  "word": "sip",
+  "level": "C2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C205-047",
+  "word": "siren",
+  "level": "C2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C205-048",
+  "word": "snob",
+  "level": "C2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C205-049",
+  "word": "spade",
+  "level": "C2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C205-050",
+  "word": "spiral",
+  "level": "C2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C205-051",
+  "word": "splendour",
+  "level": "C2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C205-052",
+  "word": "standpoint",
+  "level": "C2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C205-053",
+  "word": "stardom",
+  "level": "C2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C205-054",
+  "word": "stitch",
+  "level": "C2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C205-055",
+  "word": "strap",
+  "level": "C2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C205-056",
+  "word": "straw",
+  "level": "C2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C205-057",
+  "word": "striker",
+  "level": "C2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C205-058",
+  "word": "stubbornness",
+  "level": "C2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C205-059",
+  "word": "superiority",
+  "level": "C2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C205-060",
+  "word": "sustainability",
+  "level": "C2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C205-061",
+  "word": "syllabus",
+  "level": "C2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C205-062",
+  "word": "tact",
+  "level": "C2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C205-063",
+  "word": "talks",
+  "level": "C2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C205-064",
+  "word": "tenderness",
+  "level": "C2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C205-065",
+  "word": "thinker",
+  "level": "C2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C205-066",
+  "word": "thirst",
+  "level": "C2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C205-067",
+  "word": "throne",
+  "level": "C2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C205-068",
+  "word": "thunder",
+  "level": "C2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C205-069",
+  "word": "toddler",
+  "level": "C2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C205-070",
+  "word": "token",
+  "level": "C2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C205-071",
+  "word": "toughness",
+  "level": "C2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C205-072",
+  "word": "tractor",
+  "level": "C2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C205-073",
+  "word": "trader",
+  "level": "C2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C205-074",
+  "word": "tranquility",
+  "level": "C2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C205-075",
+  "word": "transplant",
+  "level": "C2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C205-076",
+  "word": "undertaking",
+  "level": "C2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C205-077",
+  "word": "vaccination",
+  "level": "C2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C205-078",
+  "word": "vanity",
+  "level": "C2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C205-079",
+  "word": "velvet",
+  "level": "C2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C205-080",
+  "word": "vicinity",
+  "level": "C2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C205-081",
+  "word": "vitality",
+  "level": "C2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C205-082",
+  "word": "vocation",
+  "level": "C2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C205-083",
+  "word": "whim",
+  "level": "C2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C205-084",
+  "word": "wilderness",
+  "level": "C2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C205-085",
+  "word": "willpower",
+  "level": "C2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C205-086",
+  "word": "woodland",
+  "level": "C2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C205-087",
+  "word": "wrinkle",
+  "level": "C2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "C205-088",
+  "word": "bark",
+  "level": "C2",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "C205-089",
+  "word": "clutch",
+  "level": "C2",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "C205-090",
+  "word": "constrain",
+  "level": "C2",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "C205-091",
+  "word": "contradict",
+  "level": "C2",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "C205-092",
+  "word": "crave",
+  "level": "C2",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "C205-093",
+  "word": "crumble",
+  "level": "C2",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "C205-094",
+  "word": "curb",
+  "level": "C2",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "C205-095",
+  "word": "dazzle",
+  "level": "C2",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "C205-096",
+  "word": "dedicate",
+  "level": "C2",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "C205-097",
+  "word": "deduce",
+  "level": "C2",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "C205-098",
+  "word": "deepen",
+  "level": "C2",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "C205-099",
+  "word": "demolish",
+  "level": "C2",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "C205-100",
+  "word": "disguise",
+  "level": "C2",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ }
+]
