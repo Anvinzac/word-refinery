@@ -1,0 +1,602 @@
+[
+ {
+  "id": "C102-001",
+  "word": "exaggerate",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C102-002",
+  "word": "hail",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C102-003",
+  "word": "instruct",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C102-004",
+  "word": "invoke",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C102-005",
+  "word": "nod",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C102-006",
+  "word": "notify",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C102-007",
+  "word": "proclaim",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C102-008",
+  "word": "recount",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C102-009",
+  "word": "shrug",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C102-010",
+  "word": "unveil",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C102-011",
+  "word": "vow",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C102-012",
+  "word": "yell",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C102-013",
+  "word": "handy",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C102-014",
+  "word": "residential",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C102-015",
+  "word": "suburban",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C102-016",
+  "word": "interior",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C102-017",
+  "word": "apparel",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C102-018",
+  "word": "barrel",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C102-019",
+  "word": "bench",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C102-020",
+  "word": "blade",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C102-021",
+  "word": "cabinet",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C102-022",
+  "word": "disposal",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C102-023",
+  "word": "fixture",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C102-024",
+  "word": "gear",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C102-025",
+  "word": "landlord",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C102-026",
+  "word": "lawn",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C102-027",
+  "word": "mask",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C102-028",
+  "word": "nursery",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C102-029",
+  "word": "outlet",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C102-030",
+  "word": "pad",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C102-031",
+  "word": "patch",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C102-032",
+  "word": "residence",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C102-033",
+  "word": "rod",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C102-034",
+  "word": "tenant",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C102-035",
+  "word": "thread",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C102-036",
+  "word": "utility",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C102-037",
+  "word": "leak",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C102-038",
+  "word": "screw",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C102-039",
+  "word": "seal",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C102-040",
+  "word": "carve",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C102-041",
+  "word": "conceal",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C102-042",
+  "word": "confine",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C102-043",
+  "word": "crush",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C102-044",
+  "word": "discard",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C102-045",
+  "word": "dispose",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C102-046",
+  "word": "drain",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C102-047",
+  "word": "reside",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C102-048",
+  "word": "rip",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C102-049",
+  "word": "soak",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C102-050",
+  "word": "squeeze",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C102-051",
+  "word": "stumble",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C102-052",
+  "word": "toss",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C102-053",
+  "word": "weave",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C102-054",
+  "word": "wipe",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C102-055",
+  "word": "frustrated",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C102-056",
+  "word": "beloved",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C102-057",
+  "word": "disturbing",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C102-058",
+  "word": "eager",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C102-059",
+  "word": "encouraging",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C102-060",
+  "word": "frustrating",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C102-061",
+  "word": "glorious",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C102-062",
+  "word": "hopeful",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C102-063",
+  "word": "overwhelming",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C102-064",
+  "word": "thrilled",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C102-065",
+  "word": "troubled",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C102-066",
+  "word": "vulnerable",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C102-067",
+  "word": "thankfully",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C102-068",
+  "word": "acceptance",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C102-069",
+  "word": "affection",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C102-070",
+  "word": "appreciation",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C102-071",
+  "word": "aspiration",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C102-072",
+  "word": "burden",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C102-073",
+  "word": "compassion",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C102-074",
+  "word": "contempt",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C102-075",
+  "word": "curiosity",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C102-076",
+  "word": "embarrassment",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C102-077",
+  "word": "encouragement",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C102-078",
+  "word": "frustration",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C102-079",
+  "word": "obsession",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C102-080",
+  "word": "optimism",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C102-081",
+  "word": "rage",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C102-082",
+  "word": "rejection",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C102-083",
+  "word": "sentiment",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C102-084",
+  "word": "suspicion",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C102-085",
+  "word": "triumph",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C102-086",
+  "word": "vulnerability",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C102-087",
+  "word": "distress",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C102-088",
+  "word": "grin",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C102-089",
+  "word": "sigh",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C102-090",
+  "word": "aspire",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C102-091",
+  "word": "endure",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C102-092",
+  "word": "evoke",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C102-093",
+  "word": "indulge",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C102-094",
+  "word": "obsess",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C102-095",
+  "word": "overwhelm",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C102-096",
+  "word": "provoke",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C102-097",
+  "word": "reassure",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C102-098",
+  "word": "stun",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C102-099",
+  "word": "suppress",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C102-100",
+  "word": "tempt",
+  "level": "C1",
+  "status": "accepted"
+ }
+]

@@ -1,0 +1,602 @@
+[
+ {
+  "id": "C101-001",
+  "word": "engaging",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C101-002",
+  "word": "selective",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C101-003",
+  "word": "alert",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C101-004",
+  "word": "caution",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C101-005",
+  "word": "scrutiny",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C101-006",
+  "word": "humble",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C101-007",
+  "word": "cautious",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C101-008",
+  "word": "cynical",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C101-009",
+  "word": "decisive",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C101-010",
+  "word": "dedicated",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C101-011",
+  "word": "defensive",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C101-012",
+  "word": "fierce",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C101-013",
+  "word": "harsh",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C101-014",
+  "word": "hostile",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C101-015",
+  "word": "passive",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C101-016",
+  "word": "persistent",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C101-017",
+  "word": "supportive",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C101-018",
+  "word": "suspicious",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C101-019",
+  "word": "tender",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C101-020",
+  "word": "thoughtful",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C101-021",
+  "word": "worthy",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C101-022",
+  "word": "mature",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C101-023",
+  "word": "charm",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C101-024",
+  "word": "conscience",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C101-025",
+  "word": "consistency",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C101-026",
+  "word": "courtesy",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C101-027",
+  "word": "credibility",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C101-028",
+  "word": "dedication",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C101-029",
+  "word": "dignity",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C101-030",
+  "word": "discretion",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C101-031",
+  "word": "ego",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C101-032",
+  "word": "enthusiast",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C101-033",
+  "word": "grace",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C101-034",
+  "word": "integrity",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C101-035",
+  "word": "loyalty",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C101-036",
+  "word": "manipulation",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C101-037",
+  "word": "mercy",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C101-038",
+  "word": "merit",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C101-039",
+  "word": "morality",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C101-040",
+  "word": "restraint",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C101-041",
+  "word": "sensitivity",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C101-042",
+  "word": "tolerance",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C101-043",
+  "word": "virtue",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C101-044",
+  "word": "willingness",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C101-045",
+  "word": "wit",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C101-046",
+  "word": "betray",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C101-047",
+  "word": "manipulate",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C101-048",
+  "word": "anonymous",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C101-049",
+  "word": "ironic",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C101-050",
+  "word": "misleading",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C101-051",
+  "word": "oral",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C101-052",
+  "word": "verbal",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C101-053",
+  "word": "vocal",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C101-054",
+  "word": "frankly",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C101-055",
+  "word": "ironically",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C101-056",
+  "word": "namely",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C101-057",
+  "word": "reportedly",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C101-058",
+  "word": "supposedly",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C101-059",
+  "word": "assertion",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C101-060",
+  "word": "assurance",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C101-061",
+  "word": "banner",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C101-062",
+  "word": "commentary",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C101-063",
+  "word": "commentator",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C101-064",
+  "word": "confirmation",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C101-065",
+  "word": "contention",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C101-066",
+  "word": "correspondence",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C101-067",
+  "word": "denial",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C101-068",
+  "word": "disclosure",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C101-069",
+  "word": "discourse",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C101-070",
+  "word": "endorsement",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C101-071",
+  "word": "guidance",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C101-072",
+  "word": "irony",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C101-073",
+  "word": "newsletter",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C101-074",
+  "word": "nonsense",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C101-075",
+  "word": "objection",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C101-076",
+  "word": "query",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C101-077",
+  "word": "refusal",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C101-078",
+  "word": "revelation",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C101-079",
+  "word": "rhetoric",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C101-080",
+  "word": "rumour",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C101-081",
+  "word": "subscriber",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C101-082",
+  "word": "bow",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C101-083",
+  "word": "dispute",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C101-084",
+  "word": "hint",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C101-085",
+  "word": "insult",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C101-086",
+  "word": "pledge",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C101-087",
+  "word": "applaud",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C101-088",
+  "word": "articulate",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C101-089",
+  "word": "assert",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C101-090",
+  "word": "boast",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C101-091",
+  "word": "concede",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C101-092",
+  "word": "confer",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C101-093",
+  "word": "congratulate",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C101-094",
+  "word": "contend",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C101-095",
+  "word": "correspond",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C101-096",
+  "word": "denounce",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C101-097",
+  "word": "dictate",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C101-098",
+  "word": "disclose",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C101-099",
+  "word": "endorse",
+  "level": "C1",
+  "status": "accepted"
+ },
+ {
+  "id": "C101-100",
+  "word": "enquire",
+  "level": "C1",
+  "status": "accepted"
+ }
+]

@@ -219,3 +219,21 @@ test("the ceiling reports a word once however often it appears", () => {
   const found = ceiling("The museum and the museum _____ in the museum.", "A1", LIST);
   assert.equal(found.length, 1, found.join(" / "));
 });
+
+test("a real list supersedes the words hardcoded from one prompt's examples", () => {
+  // v3.7 names nine words as absent from the Oxford 3000/5000 and bans them at
+  // every level. Seven are in CEFR-J 1.5 at an ordinary level, so applying both
+  // at once asserts two incompatible things — and a Japanese pack, whose rule
+  // 9.2 names CEFR-J and never mentions Oxford, was rejected over one of them.
+  const sentence = "Our _____ fixed the heater quickly.";
+  const withList = listOf({ ...Object.fromEntries(
+    ["our", "fixed", "the", "heater", "quickly"].map((w) => [w, "B1"]),
+  ) });
+  const banned = checkPromptRules(card(sentence), "C1")
+    .filter((f) => /not in the Oxford list/.test(f.message));
+  assert.equal(banned.length, 1, "with no list, the prompt's own examples still hold");
+
+  const checked = checkPromptRules(card(sentence), "C1", withList)
+    .filter((f) => /not in the Oxford list/.test(f.message));
+  assert.deepEqual(checked, [], "with a list, the list decides");
+});

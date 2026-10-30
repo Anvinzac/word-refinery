@@ -288,13 +288,21 @@ const SOFT_FILLERS = new Set(L.fillers);
 const GENERIC_INTENSIFIERS = new Set(L.intensifiers);
 
 /**
- * Words the prompt lists as absent from the Oxford 3000/5000, and therefore
- * banned in usageEn at every level however ordinary they feel.
+ * Words card-prompt v3.7 lists as absent from the Oxford 3000/5000, and
+ * therefore banned in usageEn at every level however ordinary they feel.
  *
- * Only this list is checked, not the level ceiling itself: the ceiling needs
- * the card's CEFR level, which v3.7 passes as INPUT and forbids in the output,
- * so a card alone cannot be judged against it. A batch that carries its
- * manifest could be, and that is the obvious extension.
+ * A CLAIM ABOUT ONE LIST, so it only holds while that list is the authority.
+ * Supply a real word list and this set must stand down, exactly as ABOVE_LEVEL
+ * does below: seven of these nine are in CEFR-J 1.5 at an ordinary level —
+ * snack and swimsuit and hike at A2, heater and tasty and breathless at B1,
+ * motorbike at B2 — so holding a card to "banned at every level" while
+ * checking it against CEFR-J asserts two incompatible things at once. Only
+ * charger and lantern are absent from both.
+ *
+ * It is wronger still on a Japanese pack, whose own rule 9.2 names CEFR-J plus
+ * the Octanove profile plus the source decks and never mentions Oxford. A C1
+ * card was rejected for "Our _____ fixed the heater quickly" on the authority
+ * of a list its prompt does not use.
  */
 const UNLISTED_IN_OXFORD = new Set([
   "charger", "snack", "swimsuit", "tasty", "motorbike", "heater", "hike", "lantern", "breathless",
@@ -568,7 +576,7 @@ export function checkPromptRules(
   if (usageEn.length > 0) {
     const tokens = usageEn.toLowerCase().match(/[a-z']+/g) ?? [];
     for (const token of tokens) {
-      if (UNLISTED_IN_OXFORD.has(token)) {
+      if (words === undefined && UNLISTED_IN_OXFORD.has(token)) {
         at(findings, "content", "usageEn", "blocker",
           `"${token}" is not in the Oxford list, so it is banned at every level`);
       }
