@@ -1,0 +1,380 @@
+[
+ {
+  "id": "A208-001",
+  "word": "pack",
+  "level": "A2",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "A208-002",
+  "word": "sail",
+  "level": "A2",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "A208-003",
+  "word": "professional",
+  "level": "A2",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "A208-004",
+  "word": "successful",
+  "level": "A2",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "A208-005",
+  "word": "working",
+  "level": "A2",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "A208-006",
+  "word": "assistant",
+  "level": "A2",
+  "input_pos": "adjective/noun",
+  "card_pos": "noun",
+  "status": "accepted",
+  "note": "dual POS adjective/noun -> noun"
+ },
+ {
+  "id": "A208-007",
+  "word": "expert",
+  "level": "A2",
+  "input_pos": "adjective/noun",
+  "card_pos": "noun",
+  "status": "accepted",
+  "note": "dual POS adjective/noun -> noun"
+ },
+ {
+  "id": "A208-008",
+  "word": "advertising",
+  "level": "A2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A208-009",
+  "word": "architect",
+  "level": "A2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A208-010",
+  "word": "boss",
+  "level": "A2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A208-011",
+  "word": "businessman",
+  "level": "A2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A208-012",
+  "word": "chef",
+  "level": "A2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A208-013",
+  "word": "colleague",
+  "level": "A2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A208-014",
+  "word": "conference",
+  "level": "A2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A208-015",
+  "word": "department",
+  "level": "A2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A208-016",
+  "word": "designer",
+  "level": "A2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A208-017",
+  "word": "director",
+  "level": "A2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A208-018",
+  "word": "document",
+  "level": "A2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A208-019",
+  "word": "employee",
+  "level": "A2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A208-020",
+  "word": "employer",
+  "level": "A2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A208-021",
+  "word": "engineer",
+  "level": "A2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A208-022",
+  "word": "equipment",
+  "level": "A2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A208-023",
+  "word": "factory",
+  "level": "A2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A208-024",
+  "word": "industry",
+  "level": "A2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A208-025",
+  "word": "leader",
+  "level": "A2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A208-026",
+  "word": "manager",
+  "level": "A2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A208-027",
+  "word": "material",
+  "level": "A2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A208-028",
+  "word": "opportunity",
+  "level": "A2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A208-029",
+  "word": "organization",
+  "level": "A2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A208-030",
+  "word": "reception",
+  "level": "A2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A208-031",
+  "word": "role",
+  "level": "A2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A208-032",
+  "word": "secretary",
+  "level": "A2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A208-033",
+  "word": "service",
+  "level": "A2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A208-034",
+  "word": "target",
+  "level": "A2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A208-035",
+  "word": "task",
+  "level": "A2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A208-036",
+  "word": "tool",
+  "level": "A2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A208-037",
+  "word": "training",
+  "level": "A2",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "A208-038",
+  "word": "achieve",
+  "level": "A2",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "A208-039",
+  "word": "apply",
+  "level": "A2",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "A208-040",
+  "word": "arrange",
+  "level": "A2",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "A208-041",
+  "word": "deal",
+  "level": "A2",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "A208-042",
+  "word": "employ",
+  "level": "A2",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "A208-043",
+  "word": "lead",
+  "level": "A2",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "A208-044",
+  "word": "manage",
+  "level": "A2",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "A208-045",
+  "word": "organize",
+  "level": "A2",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "A208-046",
+  "word": "produce",
+  "level": "A2",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "A208-047",
+  "word": "succeed",
+  "level": "A2",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ }
+]

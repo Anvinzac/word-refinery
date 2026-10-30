@@ -1,0 +1,818 @@
+[
+ {
+  "id": "B104-001",
+  "word": "exhausted",
+  "level": "B1",
+  "input_pos": "adj",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "B104-002",
+  "word": "painful",
+  "level": "B1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "B104-003",
+  "word": "appointment",
+  "level": "B1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B104-004",
+  "word": "breath",
+  "level": "B1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B104-005",
+  "word": "breathing",
+  "level": "B1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B104-006",
+  "word": "champion",
+  "level": "B1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B104-007",
+  "word": "chest",
+  "level": "B1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B104-008",
+  "word": "emergency",
+  "level": "B1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B104-009",
+  "word": "fitness",
+  "level": "B1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B104-010",
+  "word": "lip",
+  "level": "B1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B104-011",
+  "word": "muscle",
+  "level": "B1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B104-012",
+  "word": "net",
+  "level": "B1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B104-013",
+  "word": "operation",
+  "level": "B1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B104-014",
+  "word": "racing",
+  "level": "B1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B104-015",
+  "word": "rugby",
+  "level": "B1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B104-016",
+  "word": "safety",
+  "level": "B1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B104-017",
+  "word": "stadium",
+  "level": "B1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B104-018",
+  "word": "strength",
+  "level": "B1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B104-019",
+  "word": "supporter",
+  "level": "B1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B104-020",
+  "word": "symptom",
+  "level": "B1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B104-021",
+  "word": "throat",
+  "level": "B1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B104-022",
+  "word": "toe",
+  "level": "B1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B104-023",
+  "word": "tongue",
+  "level": "B1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B104-024",
+  "word": "treatment",
+  "level": "B1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B104-025",
+  "word": "breathe",
+  "level": "B1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "B104-026",
+  "word": "suffer",
+  "level": "B1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "B104-027",
+  "word": "survive",
+  "level": "B1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "B104-028",
+  "word": "economic",
+  "level": "B1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "B104-029",
+  "word": "financial",
+  "level": "B1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "B104-030",
+  "word": "valuable",
+  "level": "B1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "B104-031",
+  "word": "worth",
+  "level": "B1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "B104-032",
+  "word": "commercial",
+  "level": "B1",
+  "input_pos": "adjective/noun",
+  "card_pos": "adj",
+  "status": "accepted",
+  "note": "dual POS adjective/noun -> adj"
+ },
+ {
+  "id": "B104-033",
+  "word": "luxury",
+  "level": "B1",
+  "input_pos": "adjective/noun",
+  "card_pos": "adj",
+  "status": "accepted",
+  "note": "dual POS adjective/noun -> adj"
+ },
+ {
+  "id": "B104-034",
+  "word": "total",
+  "level": "B1",
+  "input_pos": "adjective/noun",
+  "card_pos": "adj",
+  "status": "accepted",
+  "note": "dual POS adjective/noun -> adj"
+ },
+ {
+  "id": "B104-035",
+  "word": "account",
+  "level": "B1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B104-036",
+  "word": "coin",
+  "level": "B1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B104-037",
+  "word": "consumer",
+  "level": "B1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B104-038",
+  "word": "currency",
+  "level": "B1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B104-039",
+  "word": "diamond",
+  "level": "B1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B104-040",
+  "word": "discount",
+  "level": "B1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B104-041",
+  "word": "economy",
+  "level": "B1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B104-042",
+  "word": "goods",
+  "level": "B1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B104-043",
+  "word": "marketing",
+  "level": "B1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B104-044",
+  "word": "payment",
+  "level": "B1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B104-045",
+  "word": "poverty",
+  "level": "B1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B104-046",
+  "word": "profit",
+  "level": "B1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B104-047",
+  "word": "property",
+  "level": "B1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B104-048",
+  "word": "receipt",
+  "level": "B1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B104-049",
+  "word": "spending",
+  "level": "B1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B104-050",
+  "word": "value",
+  "level": "B1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B104-051",
+  "word": "brand",
+  "level": "B1",
+  "input_pos": "noun/verb",
+  "card_pos": "noun",
+  "status": "accepted",
+  "note": "dual POS noun/verb -> noun"
+ },
+ {
+  "id": "B104-052",
+  "word": "charge",
+  "level": "B1",
+  "input_pos": "noun/verb",
+  "card_pos": "noun",
+  "status": "accepted",
+  "note": "dual POS noun/verb -> noun"
+ },
+ {
+  "id": "B104-053",
+  "word": "exchange",
+  "level": "B1",
+  "input_pos": "noun/verb",
+  "card_pos": "noun",
+  "status": "accepted",
+  "note": "dual POS noun/verb -> noun"
+ },
+ {
+  "id": "B104-054",
+  "word": "export",
+  "level": "B1",
+  "input_pos": "noun/verb",
+  "card_pos": "noun",
+  "status": "accepted",
+  "note": "dual POS noun/verb -> noun"
+ },
+ {
+  "id": "B104-055",
+  "word": "import",
+  "level": "B1",
+  "input_pos": "noun/verb",
+  "card_pos": "noun",
+  "status": "accepted",
+  "note": "dual POS noun/verb -> noun"
+ },
+ {
+  "id": "B104-056",
+  "word": "rent",
+  "level": "B1",
+  "input_pos": "noun/verb",
+  "card_pos": "noun",
+  "status": "accepted",
+  "note": "dual POS noun/verb -> noun"
+ },
+ {
+  "id": "B104-057",
+  "word": "supply",
+  "level": "B1",
+  "input_pos": "noun/verb",
+  "card_pos": "noun",
+  "status": "accepted",
+  "note": "dual POS noun/verb -> noun"
+ },
+ {
+  "id": "B104-058",
+  "word": "tax",
+  "level": "B1",
+  "input_pos": "noun/verb",
+  "card_pos": "noun",
+  "status": "accepted",
+  "note": "dual POS noun/verb -> noun"
+ },
+ {
+  "id": "B104-059",
+  "word": "trade",
+  "level": "B1",
+  "input_pos": "noun/verb",
+  "card_pos": "noun",
+  "status": "accepted",
+  "note": "dual POS noun/verb -> noun"
+ },
+ {
+  "id": "B104-060",
+  "word": "afford",
+  "level": "B1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "B104-061",
+  "word": "donate",
+  "level": "B1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "B104-062",
+  "word": "invest",
+  "level": "B1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "B104-063",
+  "word": "environmental",
+  "level": "B1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "B104-064",
+  "word": "outdoor",
+  "level": "B1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "B104-065",
+  "word": "poisonous",
+  "level": "B1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "B104-066",
+  "word": "renewable",
+  "level": "B1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "B104-067",
+  "word": "chemical",
+  "level": "B1",
+  "input_pos": "adjective/noun",
+  "card_pos": "adj",
+  "status": "accepted",
+  "note": "dual POS adjective/noun -> adj"
+ },
+ {
+  "id": "B104-068",
+  "word": "liquid",
+  "level": "B1",
+  "input_pos": "adjective/noun",
+  "card_pos": "adj",
+  "status": "accepted",
+  "note": "dual POS adjective/noun -> adj"
+ },
+ {
+  "id": "B104-069",
+  "word": "outdoors",
+  "level": "B1",
+  "input_pos": "adverb",
+  "card_pos": "adv",
+  "status": "accepted"
+ },
+ {
+  "id": "B104-070",
+  "word": "atmosphere",
+  "level": "B1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B104-071",
+  "word": "bee",
+  "level": "B1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B104-072",
+  "word": "branch",
+  "level": "B1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B104-073",
+  "word": "coal",
+  "level": "B1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B104-074",
+  "word": "countryside",
+  "level": "B1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B104-075",
+  "word": "earthquake",
+  "level": "B1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B104-076",
+  "word": "fur",
+  "level": "B1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B104-077",
+  "word": "hurricane",
+  "level": "B1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B104-078",
+  "word": "leaf",
+  "level": "B1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B104-079",
+  "word": "mine",
+  "level": "B1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B104-080",
+  "word": "mud",
+  "level": "B1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B104-081",
+  "word": "sand",
+  "level": "B1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B104-082",
+  "word": "seed",
+  "level": "B1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B104-083",
+  "word": "shell",
+  "level": "B1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B104-084",
+  "word": "soil",
+  "level": "B1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B104-085",
+  "word": "tail",
+  "level": "B1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B104-086",
+  "word": "wing",
+  "level": "B1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B104-087",
+  "word": "flood",
+  "level": "B1",
+  "input_pos": "noun/verb",
+  "card_pos": "noun",
+  "status": "accepted",
+  "note": "dual POS noun/verb -> noun"
+ },
+ {
+  "id": "B104-088",
+  "word": "flow",
+  "level": "B1",
+  "input_pos": "noun/verb",
+  "card_pos": "noun",
+  "status": "accepted",
+  "note": "dual POS noun/verb -> noun"
+ },
+ {
+  "id": "B104-089",
+  "word": "freeze",
+  "level": "B1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "B104-090",
+  "word": "hunt",
+  "level": "B1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "B104-091",
+  "word": "coloured",
+  "level": "B1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "B104-092",
+  "word": "medium",
+  "level": "B1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "B104-093",
+  "word": "mild",
+  "level": "B1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "B104-094",
+  "word": "pale",
+  "level": "B1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "B104-095",
+  "word": "rough",
+  "level": "B1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "B104-096",
+  "word": "sharp",
+  "level": "B1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "B104-097",
+  "word": "shiny",
+  "level": "B1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "B104-098",
+  "word": "silent",
+  "level": "B1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "B104-099",
+  "word": "smooth",
+  "level": "B1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "B104-100",
+  "word": "tiny",
+  "level": "B1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ }
+]

@@ -1,0 +1,818 @@
+[
+ {
+  "id": "B102-001",
+  "word": "yard",
+  "level": "B1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B102-002",
+  "word": "frame",
+  "level": "B1",
+  "input_pos": "noun/verb",
+  "card_pos": "noun",
+  "status": "accepted",
+  "note": "dual POS noun/verb -> noun"
+ },
+ {
+  "id": "B102-003",
+  "word": "iron",
+  "level": "B1",
+  "input_pos": "noun/verb",
+  "card_pos": "noun",
+  "status": "accepted",
+  "note": "dual POS noun/verb -> noun"
+ },
+ {
+  "id": "B102-004",
+  "word": "label",
+  "level": "B1",
+  "input_pos": "noun/verb",
+  "card_pos": "noun",
+  "status": "accepted",
+  "note": "dual POS noun/verb -> noun"
+ },
+ {
+  "id": "B102-005",
+  "word": "pin",
+  "level": "B1",
+  "input_pos": "noun/verb",
+  "card_pos": "noun",
+  "status": "accepted",
+  "note": "dual POS noun/verb -> noun"
+ },
+ {
+  "id": "B102-006",
+  "word": "queue",
+  "level": "B1",
+  "input_pos": "noun/verb",
+  "card_pos": "noun",
+  "status": "accepted",
+  "note": "dual POS noun/verb -> noun"
+ },
+ {
+  "id": "B102-007",
+  "word": "stick",
+  "level": "B1",
+  "input_pos": "noun/verb",
+  "card_pos": "noun",
+  "status": "accepted",
+  "note": "dual POS noun/verb -> noun"
+ },
+ {
+  "id": "B102-008",
+  "word": "attach",
+  "level": "B1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "B102-009",
+  "word": "decorate",
+  "level": "B1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "B102-010",
+  "word": "fold",
+  "level": "B1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "B102-011",
+  "word": "hang",
+  "level": "B1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "B102-012",
+  "word": "confused",
+  "level": "B1",
+  "input_pos": "adj",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "B102-013",
+  "word": "embarrassed",
+  "level": "B1",
+  "input_pos": "adj",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "B102-014",
+  "word": "grateful",
+  "level": "B1",
+  "input_pos": "adj",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "B102-015",
+  "word": "jealous",
+  "level": "B1",
+  "input_pos": "adj",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "B102-016",
+  "word": "lonely",
+  "level": "B1",
+  "input_pos": "adj",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "B102-017",
+  "word": "proud",
+  "level": "B1",
+  "input_pos": "adj",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "B102-018",
+  "word": "amazed",
+  "level": "B1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "B102-019",
+  "word": "annoyed",
+  "level": "B1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "B102-020",
+  "word": "annoying",
+  "level": "B1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "B102-021",
+  "word": "disappointed",
+  "level": "B1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "B102-022",
+  "word": "disappointing",
+  "level": "B1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "B102-023",
+  "word": "embarrassing",
+  "level": "B1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "B102-024",
+  "word": "fascinating",
+  "level": "B1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "B102-025",
+  "word": "frightened",
+  "level": "B1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "B102-026",
+  "word": "frightening",
+  "level": "B1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "B102-027",
+  "word": "glad",
+  "level": "B1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "B102-028",
+  "word": "horrible",
+  "level": "B1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "B102-029",
+  "word": "impressive",
+  "level": "B1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "B102-030",
+  "word": "mad",
+  "level": "B1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "B102-031",
+  "word": "peaceful",
+  "level": "B1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "B102-032",
+  "word": "pleasant",
+  "level": "B1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "B102-033",
+  "word": "relaxed",
+  "level": "B1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "B102-034",
+  "word": "relaxing",
+  "level": "B1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "B102-035",
+  "word": "uncomfortable",
+  "level": "B1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "B102-036",
+  "word": "unpleasant",
+  "level": "B1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "B102-037",
+  "word": "calm",
+  "level": "B1",
+  "input_pos": "adjective/noun/verb",
+  "card_pos": "adj",
+  "status": "accepted",
+  "note": "dual POS adjective/noun/verb -> adj"
+ },
+ {
+  "id": "B102-038",
+  "word": "upset",
+  "level": "B1",
+  "input_pos": "adjective/verb",
+  "card_pos": "adj",
+  "status": "accepted",
+  "note": "dual POS adjective/verb -> adj"
+ },
+ {
+  "id": "B102-039",
+  "word": "emotion",
+  "level": "B1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B102-040",
+  "word": "excitement",
+  "level": "B1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B102-041",
+  "word": "happiness",
+  "level": "B1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B102-042",
+  "word": "mood",
+  "level": "B1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B102-043",
+  "word": "passion",
+  "level": "B1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B102-044",
+  "word": "pleasure",
+  "level": "B1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B102-045",
+  "word": "pressure",
+  "level": "B1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B102-046",
+  "word": "spirit",
+  "level": "B1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B102-047",
+  "word": "dislike",
+  "level": "B1",
+  "input_pos": "noun/verb",
+  "card_pos": "noun",
+  "status": "accepted",
+  "note": "dual POS noun/verb -> noun"
+ },
+ {
+  "id": "B102-048",
+  "word": "admire",
+  "level": "B1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "B102-049",
+  "word": "annoy",
+  "level": "B1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "B102-050",
+  "word": "appreciate",
+  "level": "B1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "B102-051",
+  "word": "bother",
+  "level": "B1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "B102-052",
+  "word": "frighten",
+  "level": "B1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "B102-053",
+  "word": "frozen",
+  "level": "B1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "B102-054",
+  "word": "spicy",
+  "level": "B1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "B102-055",
+  "word": "corn",
+  "level": "B1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B102-056",
+  "word": "flour",
+  "level": "B1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B102-057",
+  "word": "grain",
+  "level": "B1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B102-058",
+  "word": "ingredient",
+  "level": "B1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B102-059",
+  "word": "mixture",
+  "level": "B1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B102-060",
+  "word": "pan",
+  "level": "B1",
+  "input_pos": "noun",
+  "card_pos": "noun",
+  "status": "accepted"
+ },
+ {
+  "id": "B102-061",
+  "word": "bite",
+  "level": "B1",
+  "input_pos": "noun/verb",
+  "card_pos": "noun",
+  "status": "accepted",
+  "note": "dual POS noun/verb -> noun"
+ },
+ {
+  "id": "B102-062",
+  "word": "mix",
+  "level": "B1",
+  "input_pos": "noun/verb",
+  "card_pos": "noun",
+  "status": "accepted",
+  "note": "dual POS noun/verb -> noun"
+ },
+ {
+  "id": "B102-063",
+  "word": "slice",
+  "level": "B1",
+  "input_pos": "noun/verb",
+  "card_pos": "noun",
+  "status": "accepted",
+  "note": "dual POS noun/verb -> noun"
+ },
+ {
+  "id": "B102-064",
+  "word": "bake",
+  "level": "B1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "B102-065",
+  "word": "consume",
+  "level": "B1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "B102-066",
+  "word": "fry",
+  "level": "B1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "B102-067",
+  "word": "pour",
+  "level": "B1",
+  "input_pos": "verb",
+  "card_pos": "verb",
+  "status": "accepted"
+ },
+ {
+  "id": "B102-068",
+  "word": "basic",
+  "level": "B1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "B102-069",
+  "word": "central",
+  "level": "B1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "B102-070",
+  "word": "covered",
+  "level": "B1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "B102-071",
+  "word": "definite",
+  "level": "B1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "B102-072",
+  "word": "effective",
+  "level": "B1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "B102-073",
+  "word": "expected",
+  "level": "B1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "B102-074",
+  "word": "familiar",
+  "level": "B1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "B102-075",
+  "word": "fixed",
+  "level": "B1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "B102-076",
+  "word": "indirect",
+  "level": "B1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "B102-077",
+  "word": "involved",
+  "level": "B1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "B102-078",
+  "word": "leading",
+  "level": "B1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "B102-079",
+  "word": "located",
+  "level": "B1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "B102-080",
+  "word": "odd",
+  "level": "B1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "B102-081",
+  "word": "powerful",
+  "level": "B1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "B102-082",
+  "word": "prepared",
+  "level": "B1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "B102-083",
+  "word": "private",
+  "level": "B1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "B102-084",
+  "word": "proper",
+  "level": "B1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "B102-085",
+  "word": "rare",
+  "level": "B1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "B102-086",
+  "word": "related",
+  "level": "B1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "B102-087",
+  "word": "suitable",
+  "level": "B1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "B102-088",
+  "word": "unable",
+  "level": "B1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "B102-089",
+  "word": "unlikely",
+  "level": "B1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "B102-090",
+  "word": "unnecessary",
+  "level": "B1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "B102-091",
+  "word": "used",
+  "level": "B1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "B102-092",
+  "word": "various",
+  "level": "B1",
+  "input_pos": "adjective",
+  "card_pos": "adj",
+  "status": "accepted"
+ },
+ {
+  "id": "B102-093",
+  "word": "worldwide",
+  "level": "B1",
+  "input_pos": "adjective/adverb",
+  "card_pos": "adj",
+  "status": "accepted",
+  "note": "dual POS adjective/adverb -> adj"
+ },
+ {
+  "id": "B102-094",
+  "word": "magic",
+  "level": "B1",
+  "input_pos": "adjective/noun",
+  "card_pos": "adj",
+  "status": "accepted",
+  "note": "dual POS adjective/noun -> adj"
+ },
+ {
+  "id": "B102-095",
+  "word": "standard",
+  "level": "B1",
+  "input_pos": "adjective/noun",
+  "card_pos": "adj",
+  "status": "accepted",
+  "note": "dual POS adjective/noun -> adj"
+ },
+ {
+  "id": "B102-096",
+  "word": "equal",
+  "level": "B1",
+  "input_pos": "adjective/verb",
+  "card_pos": "adj",
+  "status": "accepted",
+  "note": "dual POS adjective/verb -> adj"
+ },
+ {
+  "id": "B102-097",
+  "word": "absolutely",
+  "level": "B1",
+  "input_pos": "adverb",
+  "card_pos": "adv",
+  "status": "accepted"
+ },
+ {
+  "id": "B102-098",
+  "word": "ahead",
+  "level": "B1",
+  "input_pos": "adverb",
+  "card_pos": "adv",
+  "status": "accepted"
+ },
+ {
+  "id": "B102-099",
+  "word": "apart",
+  "level": "B1",
+  "input_pos": "adverb",
+  "card_pos": "adv",
+  "status": "accepted"
+ },
+ {
+  "id": "B102-100",
+  "word": "approximately",
+  "level": "B1",
+  "input_pos": "adverb",
+  "card_pos": "adv",
+  "status": "accepted"
+ }
+]
