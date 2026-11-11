@@ -4,9 +4,9 @@
   "pos": "noun",
   "ipa": "/beər/",
   "meaningVi": "con gấu",
-  "defVi": "Thú lớn | lông dày, | thích ăn mật ong và cá.",
-  "leadVi": "Đi sở thú, | em ngắm | con vật ôm khúc gỗ ngủ.",
-  "anticipateVi": "Ngủ đông cả mùa, sướng nhỉ?",
+  "defVi": "Thú lớn | lông dày, | thích ăn mật_ong và cá.",
+  "leadVi": "Đi sở_thú, | em ngắm | con vật ôm khúc gỗ ngủ.",
+  "anticipateVi": "Ngủ_đông cả mùa, sướng nhỉ?",
   "usageEn": "We saw a big brown _____ in the forest.",
   "usageVi": "Tụi mình thấy một con gấu nâu to trong rừng.",
   "topics": [
@@ -14,9 +14,9 @@
   ],
   "exams": [],
   "emphasisVi": [
-   "lông",
-   "ôm",
-   "sướng"
+   "mật ong",
+   "sở thú",
+   "Ngủ đông"
   ]
  },
  {
@@ -25,8 +25,8 @@
   "ipa": "/ˈklaɪ.mət/",
   "meaningVi": "khí_hậu",
   "defVi": "Kiểu thời_tiết | lâu_dài | của một vùng đất.",
-  "leadVi": "Lên núi làm=việc, | mình quen dần | sương lạnh quanh năm.",
-  "anticipateVi": "Quanh năm se lạnh, mê không?",
+  "leadVi": "Lên núi /làm=việc/, | mình quen dần | sương lạnh quanh năm.",
+  "anticipateVi": "Quanh năm se_lạnh, mê không?",
   "usageEn": "The _____ here is warm and wet.",
   "usageVi": "Khí hậu ở đây ấm và ẩm.",
   "topics": [
@@ -37,8 +37,8 @@
   ],
   "emphasisVi": [
    "lâu dài",
-   "sương",
-   "mê"
+   "làm việc",
+   "se lạnh"
   ]
  },
  {
@@ -48,7 +48,7 @@
   "meaningVi": "đám mây",
   "defVi": "Khối hơi_nước | trắng hay xám | trôi trên bầu trời.",
   "leadVi": "Nằm bãi cỏ, | tôi ngắm | từng cụm mây trắng lững_lờ.",
-  "anticipateVi": "Cụm kia, giống con gì?",
+  "anticipateVi": "Cụm kia, hình_dáng giống con gì?",
   "usageEn": "There isn't a _____ in the sky.",
   "usageVi": "Trên trời chẳng có gợn mây nào.",
   "topics": [
@@ -58,7 +58,7 @@
   "emphasisVi": [
    "hơi nước",
    "lững lờ",
-   "giống"
+   "hình dáng"
   ]
  },
  {
@@ -66,9 +66,9 @@
   "pos": "noun",
   "ipa": "/kəʊst/",
   "meaningVi": "bờ biển",
-  "defVi": "Dải đất | sát biển, | nơi sóng vỗ vào bờ.",
+  "defVi": "Dải đất | sát biển, | nơi sóng vỗ vào bờ_cát.",
   "leadVi": "Hè này, | cả nhóm | đạp=xe dọc | con=đường ven_biển.",
-  "anticipateVi": "Gió mặn thổi, mỏi chân chưa?",
+  "anticipateVi": "Gió mặn_mòi thổi, mỏi chân chưa?",
   "usageEn": "We drove along the _____.",
   "usageVi": "Tụi mình lái=xe dọc bờ biển.",
   "topics": [
@@ -77,9 +77,9 @@
   ],
   "exams": [],
   "emphasisVi": [
-   "sóng",
+   "bờ cát",
    "ven biển",
-   "mặn"
+   "mặn mòi"
   ]
  },
  {
@@ -89,7 +89,7 @@
   "meaningVi": "châu lục",
   "defVi": "Vùng đất | rất=rộng, | gồm nhiều quốc_gia.",
   "leadVi": "Xem bản_đồ, | tôi đếm | bảy khối đất lớn.",
-  "anticipateVi": "Bảy khối, đi hết mấy năm?",
+  "anticipateVi": "Bảy khối, du_lịch hết mấy năm?",
   "usageEn": "We live on the _____ of Asia.",
   "usageVi": "Tụi mình sống ở châu Á.",
   "topics": [
@@ -101,8 +101,8 @@
   ],
   "emphasisVi": [
    "quốc gia",
-   "khối",
-   "hết"
+   "bản đồ",
+   "du lịch"
   ]
  },
  {
@@ -110,9 +110,9 @@
   "pos": "noun",
   "ipa": "/ˈdez.ət/",
   "meaningVi": "sa_mạc",
-  "defVi": "Vùng đất | khô cằn, | nhiều cát, rất=ít mưa.",
+  "defVi": "Vùng đất | khô_cằn, | nhiều cát, rất=ít mưa.",
   "leadVi": "Phim tài_liệu | chiếu đoàn lạc_đà | băng qua đồi cát.",
-  "anticipateVi": "Khát cháy cổ, đi tiếp?",
+  "anticipateVi": "Khát cháy cổ, tiếp_tục đi?",
   "usageEn": "It is very hot in the _____.",
   "usageVi": "Ở sa mạc rất=nóng.",
   "topics": [
@@ -120,9 +120,9 @@
   ],
   "exams": [],
   "emphasisVi": [
-   "cát",
+   "khô cằn",
    "lạc đà",
-   "cháy"
+   "tiếp tục"
   ]
  },
  {
@@ -140,7 +140,7 @@
   ],
   "exams": [],
   "emphasisVi": [
-   "hành tinh",
+   "Hành tinh",
    "lơ lửng",
    "nhỏ xíu"
   ]
@@ -151,7 +151,7 @@
   "ipa": "/ɪnˈvaɪ.rən.mənt/",
   "meaningVi": "môi_trường",
   "defVi": "Không_khí, | nước, đất | bao_quanh nơi ta sống.",
-  "leadVi": "Chủ_nhật, | câu_lạc_bộ | nhặt rác dọc bãi biển.",
+  "leadVi": "Chủ_nhật, | câu_lạc_bộ | nhặt_rác dọc bãi biển.",
   "anticipateVi": "Bãi sạch_bong, công ai?",
   "usageEn": "We must keep our _____ clean.",
   "usageVi": "Mình phải giữ môi trường sạch.",
@@ -165,7 +165,7 @@
   ],
   "emphasisVi": [
    "bao quanh",
-   "rác",
+   "nhặt rác",
    "sạch bong"
   ]
  },
@@ -175,8 +175,8 @@
   "ipa": "/ˈfɑː.mɪŋ/",
   "meaningVi": "nghề nông",
   "defVi": "Việc trồng_trọt | và chăn_nuôi | để làm ra lương thực.",
-  "leadVi": "Về quê | nghỉ hè, | tôi theo ông | ra đồng cấy lúa.",
-  "anticipateVi": "Chân lấm bùn, ngại chưa?",
+  "leadVi": "Về quê | nghỉ_hè, | tôi theo ông | ra đồng cấy lúa.",
+  "anticipateVi": "Chân lấm_bùn, ngại chưa?",
   "usageEn": "_____ is hard work.",
   "usageVi": "Làm nông là việc vất vả.",
   "topics": [
@@ -186,8 +186,8 @@
   "exams": [],
   "emphasisVi": [
    "trồng trọt",
-   "cấy",
-   "bùn"
+   "nghỉ hè",
+   "lấm bùn"
   ]
  },
  {
@@ -195,7 +195,7 @@
   "pos": "noun",
   "ipa": "/fiːld/",
   "meaningVi": "cánh đồng",
-  "defVi": "Khoảng đất | rộng, phẳng | để trồng cây hay chăn thả.",
+  "defVi": "Khoảng đất | rộng, phẳng | để trồng_cây hay chăn thả.",
   "leadVi": "Mùa gặt, | cả vùng | vàng_ươm | lúa chín.",
   "anticipateVi": "Chụp tấm ảnh, đẹp nao_lòng?",
   "usageEn": "The cows are in the _____.",
@@ -205,7 +205,7 @@
   ],
   "exams": [],
   "emphasisVi": [
-   "phẳng",
+   "trồng cây",
    "vàng ươm",
    "nao lòng"
   ]
@@ -215,9 +215,9 @@
   "pos": "noun",
   "ipa": "/ˈfɪʃ.ɪŋ/",
   "meaningVi": "câu cá",
-  "defVi": "Thú vui | bắt cá | bằng cần, lưới hay lờ.",
-  "leadVi": "Sáng sớm | bên hồ, | ông | ngồi im chờ phao động.",
-  "anticipateVi": "Phao giật, kéo kịp không?",
+  "defVi": "Thú vui | bắt cá | bằng cần_câu, lưới hay lờ.",
+  "leadVi": "Sáng_sớm | bên hồ, | ông | ngồi im chờ phao động.",
+  "anticipateVi": "Phao giật, kéo cần_câu kịp không?",
   "usageEn": "My grandfather loves _____.",
   "usageVi": "Ông mình mê câu cá.",
   "topics": [
@@ -226,9 +226,9 @@
   ],
   "exams": [],
   "emphasisVi": [
-   "bắt",
-   "phao",
-   "kéo"
+   "cần câu",
+   "Sáng sớm",
+   "cần câu"
   ]
  },
  {
@@ -238,7 +238,7 @@
   "meaningVi": "rừng",
   "defVi": "Vùng đất rộng | phủ kín | cây to rậm_rạp.",
   "leadVi": "Đường mòn | dưới tán_lá, | nhóm anh nghe chim hót.",
-  "anticipateVi": "Lối rẽ đâu, lạc mất rồi?",
+  "anticipateVi": "Lối rẽ đâu, lạc_lối rồi?",
   "usageEn": "Many animals live in the _____.",
   "usageVi": "Nhiều loài vật sống trong rừng.",
   "topics": [
@@ -248,7 +248,7 @@
   "emphasisVi": [
    "rậm rạp",
    "tán lá",
-   "mất"
+   "lạc lối"
   ]
  },
  {
@@ -258,7 +258,7 @@
   "meaningVi": "con ếch",
   "defVi": "Con vật nhỏ, | da trơn, | nhảy giỏi, kêu ộp_ộp.",
   "leadVi": "Đêm mưa, | mình nghe | ếch ngoài ao kêu râm_ran.",
-  "anticipateVi": "Kêu cả đêm, chẳng mệt?",
+  "anticipateVi": "Kêu cả đêm, chẳng mệt_mỏi?",
   "usageEn": "A _____ can jump very far.",
   "usageVi": "Con ếch nhảy được rất=xa.",
   "topics": [
@@ -267,8 +267,8 @@
   "exams": [],
   "emphasisVi": [
    "ộp ộp",
-   "ao",
-   "chẳng"
+   "râm ran",
+   "mệt mỏi"
   ]
  },
  {
@@ -276,8 +276,8 @@
   "pos": "noun",
   "ipa": "/ɡrɑːs/",
   "meaningVi": "cỏ",
-  "defVi": "Loài cây thấp, | lá mảnh, | phủ xanh mặt đất.",
-  "leadVi": "Cỏ sân trường | vừa cắt, | mùi hăng | thơm cả buổi.",
+  "defVi": "Loài_cây thấp, | lá mảnh, | phủ xanh mặt đất.",
+  "leadVi": "Cỏ sân_trường | vừa cắt, | mùi hăng | thơm cả buổi.",
   "anticipateVi": "Ngả lưng ra, mát_rượi?",
   "usageEn": "Please don't walk on the _____.",
   "usageVi": "Vui lòng không giẫm lên cỏ.",
@@ -286,8 +286,8 @@
   ],
   "exams": [],
   "emphasisVi": [
-   "phủ",
-   "hăng",
+   "Loài cây",
+   "sân trường",
    "mát rượi"
   ]
  },
@@ -297,7 +297,7 @@
   "ipa": "/ɡraʊnd/",
   "meaningVi": "mặt đất",
   "defVi": "Bề mặt | dưới_chân, | nơi ta đi và đứng.",
-  "leadVi": "Trượt chân | ở bậc cuối, | mình ngồi | phịch xuống nền.",
+  "leadVi": "Trượt_chân | ở bậc cuối, | mình ngồi | phịch xuống nền.",
   "anticipateVi": "Đứng dậy, cười_trừ nha?",
   "usageEn": "The _____ is wet after the rain.",
   "usageVi": "Mặt đất ướt sau cơn mưa.",
@@ -307,7 +307,7 @@
   "exams": [],
   "emphasisVi": [
    "dưới chân",
-   "nền",
+   "Trượt chân",
    "cười trừ"
   ]
  },
@@ -316,9 +316,9 @@
   "pos": "noun",
   "ipa": "/hɪl/",
   "meaningVi": "ngọn đồi",
-  "defVi": "Chỗ đất | nhô cao, | thoải hơn và thấp hơn núi.",
-  "leadVi": "Đạp=xe | lên dốc, | em dừng | ngắm thị_trấn bên dưới.",
-  "anticipateVi": "Đổ dốc về, thả phanh?",
+  "defVi": "Chỗ đất | nhô cao, | thoai_thoải hơn và thấp hơn núi.",
+  "leadVi": "Đạp=xe | lên_dốc, | em dừng | ngắm thị_trấn bên dưới.",
+  "anticipateVi": "Đổ dốc về, thả phanh_tay?",
   "usageEn": "Our school is at the bottom of a _____.",
   "usageVi": "Trường mình ở dưới chân một ngọn đồi.",
   "topics": [
@@ -326,9 +326,9 @@
   ],
   "exams": [],
   "emphasisVi": [
-   "nhô",
-   "dốc",
-   "thả"
+   "thoai thoải",
+   "lên dốc",
+   "phanh tay"
   ]
  },
  {
@@ -336,9 +336,9 @@
   "pos": "noun",
   "ipa": "/ˈɪn.sekt/",
   "meaningVi": "côn_trùng",
-  "defVi": "Con vật nhỏ, | sáu chân, | nhiều loài có cánh.",
+  "defVi": "Sinh_vật nhỏ, | sáu chân, | nhiều loài có cánh.",
   "leadVi": "Đêm hè, | quanh đèn bàn | lũ thiêu_thân bay vo ve.",
-  "anticipateVi": "Tắt đèn, chúng đi đâu?",
+  "anticipateVi": "Tắt_đèn, chúng đi đâu?",
   "usageEn": "A fly is an _____.",
   "usageVi": "Con ruồi là một loài côn trùng.",
   "topics": [
@@ -346,9 +346,9 @@
   ],
   "exams": [],
   "emphasisVi": [
-   "cánh",
+   "Sinh vật",
    "thiêu thân",
-   "đâu"
+   "Tắt đèn"
   ]
  },
  {
@@ -357,8 +357,8 @@
   "ipa": "/leɪk/",
   "meaningVi": "hồ",
   "defVi": "Vùng nước rộng | giữa đất_liền, | có bờ bao quanh.",
-  "leadVi": "Chiều cuối tuần, | cả nhóm | đạp thuyền thiên_nga.",
-  "anticipateVi": "Mỏi chân mà vẫn cười?",
+  "leadVi": "Chiều cuối_tuần, | cả nhóm | đạp thuyền thiên_nga.",
+  "anticipateVi": "Mỏi chân mà vẫn tươi_cười?",
   "usageEn": "We swam in the _____.",
   "usageVi": "Tụi mình bơi ở hồ.",
   "topics": [
@@ -368,8 +368,8 @@
   "exams": [],
   "emphasisVi": [
    "đất liền",
-   "thuyền",
-   "mà"
+   "cuối tuần",
+   "tươi cười"
   ]
  },
  {
@@ -378,8 +378,8 @@
   "ipa": "/ˈmʌŋ.ki/",
   "meaningVi": "con khỉ",
   "defVi": "Con vật | leo_trèo giỏi, | đuôi dài, | thích chuối.",
-  "leadVi": "Ở sở thú, | mình thấy | cả đàn đu cành | giành chuối.",
-  "anticipateVi": "Chuối rơi, đứa nào chộp?",
+  "leadVi": "Ở sở_thú, | mình thấy | cả đàn đu cành | giành chuối.",
+  "anticipateVi": "Chuối rơi, đứa nào giành_giật?",
   "usageEn": "The _____ is eating a banana.",
   "usageVi": "Con khỉ đang=ăn chuối.",
   "topics": [
@@ -388,8 +388,8 @@
   "exams": [],
   "emphasisVi": [
    "leo trèo",
-   "đu",
-   "chộp"
+   "sở thú",
+   "giành giật"
   ]
  },
  {
@@ -398,8 +398,8 @@
   "ipa": "/muːn/",
   "meaningVi": "mặt trăng",
   "defVi": "Khối tròn sáng | trên trời đêm, | quay quanh Trái_Đất.",
-  "leadVi": "Rằm tháng tám, | cả phòng trọ | ăn=bánh, ngắm trăng.",
-  "anticipateVi": "Trăng tròn, ước gì đây?",
+  "leadVi": "Rằm tháng tám, | cả phòng_trọ | ăn=bánh, ngắm trăng.",
+  "anticipateVi": "Trăng_tròn, ước gì đây?",
   "usageEn": "The _____ is very bright tonight.",
   "usageVi": "Đêm nay trăng sáng quá.",
   "topics": [
@@ -407,9 +407,9 @@
   ],
   "exams": [],
   "emphasisVi": [
-   "quay",
-   "rằm",
-   "ước"
+   "Trái Đất",
+   "phòng trọ",
+   "Trăng tròn"
   ]
  },
  {
@@ -418,8 +418,8 @@
   "ipa": "/ˈneɪ.tʃər/",
   "meaningVi": "thiên_nhiên",
   "defVi": "Cây_cỏ, | núi sông | và muôn loài | không do người làm.",
-  "leadVi": "Thi xong, | tôi trốn phố | lên rừng thông nghỉ.",
-  "anticipateVi": "Không sóng điện thoại, sợ chưa?",
+  "leadVi": "Thi xong, | tôi trốn phố | lên rừng_thông nghỉ.",
+  "anticipateVi": "Không sóng điện_thoại, sợ chưa?",
   "usageEn": "I love walking in _____.",
   "usageVi": "Mình thích đi dạo giữa thiên nhiên.",
   "topics": [
@@ -427,9 +427,9 @@
   ],
   "exams": [],
   "emphasisVi": [
-   "cây cỏ",
-   "rừng",
-   "sợ"
+   "Cây cỏ",
+   "rừng thông",
+   "điện thoại"
   ]
  },
  {
@@ -439,7 +439,7 @@
   "meaningVi": "đại_dương",
   "defVi": "Vùng nước mặn | mênh_mông, | rộng hơn cả biển.",
   "leadVi": "Trên máy_bay, | bạn nhìn xuống | chỉ thấy xanh_thẳm.",
-  "anticipateVi": "Bao giờ mới thấy đảo?",
+  "anticipateVi": "Bao giờ mới thấy đảo xuất_hiện?",
   "usageEn": "Fish live in the _____.",
   "usageVi": "Cá sống ở đại dương.",
   "topics": [
@@ -449,7 +449,7 @@
   "emphasisVi": [
    "mênh mông",
    "xanh thẳm",
-   "mới"
+   "xuất hiện"
   ]
  },
  {
@@ -457,9 +457,9 @@
   "pos": "noun",
   "ipa": "/ˈplæn.ɪt/",
   "meaningVi": "hành_tinh",
-  "defVi": "Khối cầu lớn | quay quanh | một ngôi sao.",
+  "defVi": "Khối cầu lớn | quay quanh | một ngôi_sao.",
   "leadVi": "Đêm quan_sát, | câu_lạc_bộ | chỉnh kính tìm sao Hỏa.",
-  "anticipateVi": "Chấm đỏ kia, đúng không?",
+  "anticipateVi": "Đốm_sáng đỏ kia, đúng không?",
   "usageEn": "Our _____ is called Earth.",
   "usageVi": "Hành tinh của=chúng ta tên là Trái Đất.",
   "topics": [
@@ -467,9 +467,9 @@
   ],
   "exams": [],
   "emphasisVi": [
-   "quay",
-   "kính",
-   "đúng"
+   "ngôi sao",
+   "quan sát",
+   "Đốm sáng"
   ]
  },
  {
@@ -479,7 +479,7 @@
   "meaningVi": "ô_nhiễm",
   "defVi": "Không_khí, | nước, đất | bị bẩn, gây hại.",
   "leadVi": "Giờ cao_điểm, | khói xe | làm bạn | ho sù sụ.",
-  "anticipateVi": "Đeo khẩu trang, ổn hơn chưa?",
+  "anticipateVi": "Đeo khẩu_trang, ổn hơn chưa?",
   "usageEn": "Cars cause a lot of air _____.",
   "usageVi": "Xe hơi gây ô nhiễm không khí nhiều.",
   "topics": [
@@ -490,9 +490,9 @@
    "ielts"
   ],
   "emphasisVi": [
-   "bẩn",
-   "khói",
-   "ổn"
+   "Không khí",
+   "cao điểm",
+   "khẩu trang"
   ]
  },
  {
@@ -501,8 +501,8 @@
   "ipa": "/rɒk/",
   "meaningVi": "tảng đá",
   "defVi": "Khối rắn_chắc | tạo nên | núi và lòng đất.",
-  "leadVi": "Leo lên | mỏm cao | bên bờ suối, | em ngồi nghỉ.",
-  "anticipateVi": "Trơn trượt, bám chắc chưa?",
+  "leadVi": "Leo lên | mỏm cao | bên bờ_suối, | em ngồi nghỉ.",
+  "anticipateVi": "Trơn_trượt, bám chắc chưa?",
   "usageEn": "We sat on a big _____ by the sea.",
   "usageVi": "Tụi mình ngồi trên tảng đá lớn cạnh biển.",
   "topics": [
@@ -511,8 +511,8 @@
   "exams": [],
   "emphasisVi": [
    "rắn chắc",
-   "mỏm",
-   "bám"
+   "bờ suối",
+   "Trơn trượt"
   ]
  },
  {
@@ -522,7 +522,7 @@
   "meaningVi": "bầu trời",
   "defVi": "Khoảng_không | trên cao, | nơi có mây và sao.",
   "leadVi": "Hoàng hôn, | mình chụp | cả vùng trời | đỏ cam rực_rỡ.",
-  "anticipateVi": "Ảnh này, đăng liền chứ?",
+  "anticipateVi": "Ảnh này, chia_sẻ liền chứ?",
   "usageEn": "The _____ is blue today.",
   "usageVi": "Hôm nay trời xanh.",
   "topics": [
@@ -530,9 +530,9 @@
   ],
   "exams": [],
   "emphasisVi": [
-   "khoảng không",
+   "Khoảng không",
    "rực rỡ",
-   "đăng"
+   "chia sẻ"
   ]
  },
  {
@@ -540,9 +540,9 @@
   "pos": "noun",
   "ipa": "/ˈspaɪ.dər/",
   "meaningVi": "con nhện",
-  "defVi": "Con vật | tám chân, | giăng tơ bắt mồi.",
-  "leadVi": "Dọn góc tủ, | em thấy | mạng lưới trắng giăng kín.",
-  "anticipateVi": "Tám chân bò ra, hét chưa?",
+  "defVi": "Sinh_vật | tám chân, | giăng tơ bắt mồi.",
+  "leadVi": "Dọn góc tủ, | em thấy | mạng_lưới trắng giăng kín.",
+  "anticipateVi": "Tám chân bò ra, hét hoảng_hốt chưa?",
   "usageEn": "There is a _____ on the wall.",
   "usageVi": "Có con nhện trên tường.",
   "topics": [
@@ -550,9 +550,9 @@
   ],
   "exams": [],
   "emphasisVi": [
-   "tơ",
-   "mạng",
-   "hét"
+   "Sinh vật",
+   "mạng lưới",
+   "hoảng hốt"
   ]
  },
  {
@@ -560,8 +560,8 @@
   "pos": "noun",
   "ipa": "/stəʊn/",
   "meaningVi": "đá",
-  "defVi": "Vật rắn | nặng và cứng | lấy từ lòng đất.",
-  "leadVi": "Ra suối, | cả nhóm | thi ném | sỏi thia lia.",
+  "defVi": "Vật_rắn | nặng và cứng | lấy từ lòng đất.",
+  "leadVi": "Ra suối, | cả nhóm | thi ném | sỏi thia_lia.",
   "anticipateVi": "Nảy năm lần, kỷ_lục?",
   "usageEn": "The old house is made of _____.",
   "usageVi": "Ngôi nhà cổ được xây bằng đá.",
@@ -570,8 +570,8 @@
   ],
   "exams": [],
   "emphasisVi": [
-   "cứng",
-   "sỏi",
+   "Vật rắn",
+   "thia lia",
    "kỷ lục"
   ]
  },
@@ -582,7 +582,7 @@
   "meaningVi": "cơn bão",
   "defVi": "Thời_tiết dữ | với gió mạnh | và mưa to.",
   "leadVi": "Nghe=tin | áp_thấp, | em đóng chặt | cửa_sổ phòng trọ.",
-  "anticipateVi": "Mất điện, đốt nến chờ?",
+  "anticipateVi": "Mất_điện, đốt nến chờ?",
   "usageEn": "The _____ lasted all night.",
   "usageVi": "Cơn bão kéo dài cả đêm.",
   "topics": [
@@ -590,9 +590,9 @@
   ],
   "exams": [],
   "emphasisVi": [
-   "gió",
+   "Thời tiết",
    "áp thấp",
-   "chờ"
+   "Mất điện"
   ]
  },
  {
@@ -602,7 +602,7 @@
   "meaningVi": "nhiệt_độ",
   "defVi": "Mức nóng lạnh | đo được | của=cơ_thể hay không_khí.",
   "leadVi": "Điện_thoại báo | ngoài trời | ba mươi tám độ.",
-  "anticipateVi": "Ba tám độ, liều ra đường?",
+  "anticipateVi": "Ba tám độ, nắng_nóng, liều ra đường?",
   "usageEn": "What is the _____ today?",
   "usageVi": "Hôm nay nhiệt độ bao nhiêu?",
   "topics": [
@@ -611,9 +611,9 @@
   ],
   "exams": [],
   "emphasisVi": [
-   "đo",
-   "độ",
-   "liều"
+   "không khí",
+   "Điện thoại",
+   "nắng nóng"
   ]
  },
  {
@@ -621,9 +621,9 @@
   "pos": "noun",
   "ipa": "/ˈvæl.i/",
   "meaningVi": "thung_lũng",
-  "defVi": "Vùng đất thấp | nằm giữa hai dãy núi.",
-  "leadVi": "Đứng đỉnh đèo, | nhóm mình | nhìn xuống | ruộng bậc thang.",
-  "anticipateVi": "Mây vờn quanh, chụp ngay?",
+  "defVi": "Vùng đất thấp | nằm giữa hai dãy_núi.",
+  "leadVi": "Đứng đỉnh đèo, | nhóm mình | nhìn xuống | ruộng bậc_thang.",
+  "anticipateVi": "Mây vờn quanh mờ_ảo, chụp ngay?",
   "usageEn": "There is a river in the _____.",
   "usageVi": "Có con sông chảy trong thung lũng.",
   "topics": [
@@ -632,9 +632,9 @@
   ],
   "exams": [],
   "emphasisVi": [
-   "thấp",
-   "đèo",
-   "vờn"
+   "dãy núi",
+   "bậc thang",
+   "mờ ảo"
   ]
  },
  {
@@ -642,9 +642,9 @@
   "pos": "noun",
   "ipa": "/weɪv/",
   "meaningVi": "con sóng",
-  "defVi": "Khối nước | dâng lên | rồi đổ ập vào bờ.",
+  "defVi": "Khối nước | dâng lên | rồi đổ ập dữ_dội vào bờ.",
   "leadVi": "Tập lướt_ván, | anh bị | lật nhào ba lần.",
-  "anticipateVi": "Ngã ba lần, vẫn thích?",
+  "anticipateVi": "Ngã_ba lần, vẫn thích?",
   "usageEn": "Look at that big _____!",
   "usageVi": "Nhìn con sóng to kìa!",
   "topics": [
@@ -652,9 +652,9 @@
   ],
   "exams": [],
   "emphasisVi": [
-   "dâng",
+   "dữ dội",
    "lướt ván",
-   "vẫn"
+   "Ngã ba"
   ]
  },
  {
@@ -663,8 +663,8 @@
   "ipa": "/wɪnd/",
   "meaningVi": "gió",
   "defVi": "Không_khí | chuyển_động, | thổi qua | mát hay lạnh.",
-  "leadVi": "Chiều cuối thu, | mình thả | diều trên đê.",
-  "anticipateVi": "Diều bay cao, đứt dây chăng?",
+  "leadVi": "Chiều cuối thu, | mình vui_vẻ thả | diều trên đê.",
+  "anticipateVi": "Diều bay chấp_chới, đứt dây chăng?",
   "usageEn": "The _____ is very strong today.",
   "usageVi": "Hôm nay gió rất=mạnh.",
   "topics": [
@@ -672,9 +672,9 @@
   ],
   "exams": [],
   "emphasisVi": [
-   "thổi",
-   "diều",
-   "chăng"
+   "chuyển động",
+   "vui vẻ",
+   "chấp chới"
   ]
  },
  {
@@ -682,8 +682,8 @@
   "pos": "noun",
   "ipa": "/wʊd/",
   "meaningVi": "gỗ",
-  "defVi": "Phần cứng | trong thân cây, | dùng đóng bàn ghế.",
-  "leadVi": "Cắm trại, | anh nhặt | củi khô nhóm lửa.",
+  "defVi": "Phần cứng | trong thân_cây, | dùng đóng bàn ghế.",
+  "leadVi": "Cắm_trại, | anh nhặt | củi khô nhóm lửa.",
   "anticipateVi": "Lửa bập_bùng, hát chứ?",
   "usageEn": "This table is made of _____.",
   "usageVi": "Cái=bàn này làm bằng gỗ.",
@@ -692,8 +692,8 @@
   ],
   "exams": [],
   "emphasisVi": [
-   "đóng",
-   "củi",
+   "thân cây",
+   "Cắm trại",
    "bập bùng"
   ]
  },
@@ -704,7 +704,7 @@
   "meaningVi": "cái nóng",
   "defVi": "Cảm_giác | nóng_bức | từ nắng, lửa hay bếp.",
   "leadVi": "Trưa tháng sáu, | tôi đứng bếp, | mồ hôi nhễ_nhại.",
-  "anticipateVi": "Bật quạt to, còn hầm?",
+  "anticipateVi": "Bật quạt to mà vẫn nóng_nực à?",
   "usageEn": "I can't sleep in this _____.",
   "usageVi": "Nóng thế này mình không ngủ được.",
   "topics": [
@@ -714,7 +714,7 @@
   "emphasisVi": [
    "nóng bức",
    "nhễ nhại",
-   "hầm"
+   "nóng nực"
   ]
  },
  {
@@ -722,9 +722,9 @@
   "pos": "verb",
   "ipa": "/bləʊ/",
   "meaningVi": "thổi",
-  "defVi": "Đẩy hơi | ra từ miệng, | hoặc gió lùa qua.",
+  "defVi": "Đẩy hơi | ra từ miệng, | hoặc gió lùa qua mạnh_mẽ.",
   "leadVi": "Tiệc sinh_nhật, | em ước | rồi phù tắt nến.",
-  "anticipateVi": "Một hơi tắt hết, giỏi chưa?",
+  "anticipateVi": "Một hơi tắt hết, tài_tình chưa?",
   "usageEn": "_____ on your soup. It's hot.",
   "usageVi": "Thổi súp đi. Nóng đấy.",
   "topics": [
@@ -733,9 +733,9 @@
   ],
   "exams": [],
   "emphasisVi": [
-   "hơi",
-   "phù",
-   "giỏi"
+   "mạnh mẽ",
+   "sinh nhật",
+   "tài tình"
   ]
  },
  {
@@ -744,7 +744,7 @@
   "ipa": "/ˌriːˈsaɪ.kəl/",
   "meaningVi": "tái_chế",
   "defVi": "Xử_lý | đồ cũ | để làm thành thứ dùng lại.",
-  "leadVi": "Ở ký_túc, | bạn gom | chai nhựa riêng một thùng.",
+  "leadVi": "Ở ký_túc, | bạn gom | chai_nhựa riêng một thùng.",
   "anticipateVi": "Cả tầng hưởng_ứng chứ?",
   "usageEn": "We _____ paper and glass at home.",
   "usageVi": "Ở nhà mình tái chế giấy và thủy tinh.",
@@ -755,8 +755,8 @@
    "ielts"
   ],
   "emphasisVi": [
-   "xử lý",
-   "gom",
+   "Xử lý",
+   "chai nhựa",
    "hưởng ứng"
   ]
  },
@@ -766,8 +766,8 @@
   "ipa": "/streɪndʒ/",
   "meaningVi": "lạ",
   "defVi": "Khác hẳn | điều quen biết, | khó giải_thích.",
-  "leadVi": "Tủ lạnh phòng | bỗng có | hộp bánh không rõ của=ai.",
-  "anticipateVi": "Bánh ai đây, dám nếm?",
+  "leadVi": "Tủ_lạnh phòng | bỗng có | hộp bánh không rõ của=ai.",
+  "anticipateVi": "Bánh ai đây, can_đảm nếm chứ?",
   "usageEn": "I heard a _____ noise.",
   "usageVi": "Mình nghe thấy một tiếng động lạ.",
   "topics": [
@@ -776,8 +776,8 @@
   "exams": [],
   "emphasisVi": [
    "giải thích",
-   "rõ",
-   "dám"
+   "Tủ lạnh",
+   "can đảm"
   ]
  },
  {
@@ -785,9 +785,9 @@
   "pos": "adj",
   "ipa": "/əˈtræk.tɪv/",
   "meaningVi": "hấp_dẫn",
-  "defVi": "Có sức | cuốn_hút, | khiến người khác muốn nhìn.",
+  "defVi": "Vẻ hấp_dẫn khiến người khác muốn nhìn.",
   "leadVi": "Tiệm sách mới | có góc đọc | ấm_cúng, bạn ghé hoài.",
-  "anticipateVi": "Ghé một lần, mê luôn?",
+  "anticipateVi": "Ghé một lần, say_mê luôn?",
   "usageEn": "This is an _____ little town.",
   "usageVi": "Đây là một thị trấn nhỏ xinh đẹp.",
   "topics": [
@@ -795,9 +795,9 @@
   ],
   "exams": [],
   "emphasisVi": [
-   "cuốn hút",
+   "hấp dẫn",
    "ấm cúng",
-   "mê"
+   "say mê"
   ]
  },
  {
@@ -805,9 +805,9 @@
   "pos": "adj",
   "ipa": "/braɪt/",
   "meaningVi": "sáng chói",
-  "defVi": "Có nhiều | ánh sáng, | rực lên dễ nhìn.",
+  "defVi": "Có nhiều | ánh_sáng, | rực lên dễ nhìn.",
   "leadVi": "Phòng mới | có cửa_sổ lớn, | nắng tràn vào | cả ngày.",
-  "anticipateVi": "Nắng tràn, khỏi bật đèn?",
+  "anticipateVi": "Nắng chan_hòa, khỏi bật đèn?",
   "usageEn": "The sun is very _____ today.",
   "usageVi": "Hôm nay nắng rất=chói.",
   "topics": [
@@ -815,9 +815,9 @@
   ],
   "exams": [],
   "emphasisVi": [
-   "rực",
-   "tràn",
-   "khỏi"
+   "ánh sáng",
+   "cửa sổ",
+   "chan hòa"
   ]
  },
  {
@@ -827,7 +827,7 @@
   "meaningVi": "rõ ràng",
   "defVi": "Dễ thấy, | dễ_hiểu, | không mờ hay rối.",
   "leadVi": "Thầy giảng | chậm rãi, | sơ đồ | mạch_lạc, ai cũng hiểu.",
-  "anticipateVi": "Hiểu liền một lượt, nhớ ngay?",
+  "anticipateVi": "Hiểu liền một lượt, ghi_nhớ ngay?",
   "usageEn": "Your writing is very _____.",
   "usageVi": "Chữ bạn rất=rõ ràng.",
   "topics": [
@@ -838,7 +838,7 @@
   "emphasisVi": [
    "dễ hiểu",
    "mạch lạc",
-   "ngay"
+   "ghi nhớ"
   ]
  },
  {
@@ -846,9 +846,9 @@
   "pos": "adj",
   "ipa": "/ˈkɜː.li/",
   "meaningVi": "xoăn",
-  "defVi": "Tóc uốn | thành nhiều lọn | tròn và bồng.",
+  "defVi": "Tóc uốn | thành nhiều lọn | tròn và bồng_bềnh.",
   "leadVi": "Mưa ẩm, | tóc mình | bông_xù | như mây.",
-  "anticipateVi": "Chải thẳng, ai nhận ra?",
+  "anticipateVi": "Chải thẳng, ai nhận_ra?",
   "usageEn": "She has long _____ hair.",
   "usageVi": "Cô ấy có mái tóc xoăn dài.",
   "topics": [
@@ -856,9 +856,9 @@
   ],
   "exams": [],
   "emphasisVi": [
-   "lọn",
+   "bồng bềnh",
    "bông xù",
-   "ai"
+   "nhận ra"
   ]
  },
  {
@@ -868,7 +868,7 @@
   "meaningVi": "khổng_lồ",
   "defVi": "To_lớn | vượt xa | mức bình_thường rất nhiều.",
   "leadVi": "Đứng dưới | cây đa cổ, | nhóm chị | trông nhỏ_xíu.",
-  "anticipateVi": "Vòng tay năm người, có xuể?",
+  "anticipateVi": "Vòng_tay năm người, có xuể?",
   "usageEn": "They live in an _____ house.",
   "usageVi": "Họ sống trong một ngôi nhà to đùng.",
   "topics": [
@@ -876,9 +876,9 @@
   ],
   "exams": [],
   "emphasisVi": [
-   "to lớn",
+   "To lớn",
    "nhỏ xíu",
-   "xuể"
+   "Vòng tay"
   ]
  },
  {
@@ -887,8 +887,8 @@
   "ipa": "/ˈnær.əʊ/",
   "meaningVi": "hẹp",
   "defVi": "Bề_ngang | ít ỏi, | khó cho hai người đi.",
-  "leadVi": "Ngõ vào trọ, | hai xe máy | tránh nhau phải nép.",
-  "anticipateVi": "Gặp xe ngược, lùi ai?",
+  "leadVi": "Ngõ vào trọ, | hai xe_máy | tránh nhau phải nép.",
+  "anticipateVi": "Gặp xe ngược, ai lùi nhường_đường?",
   "usageEn": "The street is very _____.",
   "usageVi": "Con phố rất=hẹp.",
   "topics": [
@@ -896,9 +896,9 @@
   ],
   "exams": [],
   "emphasisVi": [
-   "bề ngang",
-   "nép",
-   "lùi"
+   "Bề ngang",
+   "xe máy",
+   "nhường đường"
   ]
  },
  {
@@ -906,9 +906,9 @@
   "pos": "adj",
   "ipa": "/sɒft/",
   "meaningVi": "mềm",
-  "defVi": "Dễ lún | khi ấn vào, | chẳng cứng chút nào.",
-  "leadVi": "Ôm gối bông | mới mua, | em ngủ | ngon lành.",
-  "anticipateVi": "Êm vậy, sao nỡ dậy?",
+  "defVi": "Dễ lún | khi ấn vào, | êm_ái, chẳng cứng chút nào.",
+  "leadVi": "Ôm gối bông | mới mua, | em ngủ | ngon_lành.",
+  "anticipateVi": "Êm_ái vậy, sao nỡ dậy?",
   "usageEn": "This bed is very _____.",
   "usageVi": "Cái giường này rất=êm.",
   "topics": [
@@ -916,9 +916,9 @@
   ],
   "exams": [],
   "emphasisVi": [
-   "lún",
-   "bông",
-   "nỡ"
+   "êm ái",
+   "ngon lành",
+   "Êm ái"
   ]
  },
  {
@@ -926,9 +926,9 @@
   "pos": "adj",
   "ipa": "/θɪk/",
   "meaningVi": "dày",
-  "defVi": "Hai mặt | cách nhau xa, | chẳng mỏng chút nào.",
-  "leadVi": "Mùa đông, | bạn quấn | chăn bông | ba lớp.",
-  "anticipateVi": "Ba lớp chăn, vẫn run?",
+  "defVi": "Hai mặt | cách nhau xa đáng_kể, | chẳng mỏng chút nào.",
+  "leadVi": "Mùa_đông, | bạn quấn | chăn bông | ba lớp.",
+  "anticipateVi": "Ba lớp chăn, vẫn run_rẩy?",
   "usageEn": "This book is very _____.",
   "usageVi": "Cuốn=sách này rất=dày.",
   "topics": [
@@ -936,9 +936,9 @@
   ],
   "exams": [],
   "emphasisVi": [
-   "mỏng",
-   "lớp",
-   "vẫn"
+   "đáng kể",
+   "Mùa đông",
+   "run rẩy"
   ]
  },
  {
@@ -946,9 +946,9 @@
   "pos": "adj",
   "ipa": "/θɪn/",
   "meaningVi": "mỏng",
-  "defVi": "Hai mặt | sát nhau, | chẳng dày chút nào.",
-  "leadVi": "Bánh tráng nướng | giòn rụm, | lát nào cũng mỏng như giấy.",
-  "anticipateVi": "Giòn tan, ăn mấy cái?",
+  "defVi": "Hai mặt | sát nhau, | rõ_ràng chẳng dày chút nào.",
+  "leadVi": "Bánh_tráng nướng | giòn rụm, | lát nào cũng mỏng như giấy.",
+  "anticipateVi": "Giòn_tan, ăn mấy cái?",
   "usageEn": "Cut the bread into _____ pieces.",
   "usageVi": "Cắt bánh mì thành lát mỏng.",
   "topics": [
@@ -957,9 +957,9 @@
   ],
   "exams": [],
   "emphasisVi": [
-   "sát",
-   "giấy",
-   "tan"
+   "rõ ràng",
+   "Bánh tráng",
+   "Giòn tan"
   ]
  },
  {
@@ -967,7 +967,7 @@
   "pos": "adj",
   "ipa": "/waɪd/",
   "meaningVi": "rộng",
-  "defVi": "Hai bên | cách xa nhau, thoáng | và dễ đi.",
+  "defVi": "Hai bên | cách_xa nhau, thoáng | và dễ đi.",
   "leadVi": "Đại lộ mới | sáu làn xe, | bạn chạy | thênh_thang.",
   "anticipateVi": "Gió lồng_lộng, sướng chưa?",
   "usageEn": "The river is very _____ here.",
@@ -977,7 +977,7 @@
   ],
   "exams": [],
   "emphasisVi": [
-   "thoáng",
+   "cách xa",
    "thênh thang",
    "lồng lộng"
   ]
@@ -988,8 +988,8 @@
   "ipa": "/laʊd/",
   "meaningVi": "to, ồn",
   "defVi": "Âm_thanh mạnh, | vang xa, | nghe rõ mồn_một.",
-  "leadVi": "Phòng bên mở nhạc, | cả dãy | rung cả cửa kính.",
-  "anticipateVi": "Sang gõ cửa, nhắc khéo?",
+  "leadVi": "Phòng bên mở nhạc, | cả dãy | rung cả cửa_kính.",
+  "anticipateVi": "Sang gõ_cửa, nhắc khéo?",
   "usageEn": "The music is too _____.",
   "usageVi": "Nhạc to quá.",
   "topics": [
@@ -997,9 +997,9 @@
   ],
   "exams": [],
   "emphasisVi": [
-   "vang",
-   "rung",
-   "khéo"
+   "mồn một",
+   "cửa kính",
+   "gõ cửa"
   ]
  },
  {
@@ -1009,7 +1009,7 @@
   "meaningVi": "tròn",
   "defVi": "Có dáng | như quả=bóng, | không góc_cạnh.",
   "leadVi": "Tết Trung_thu, | tôi nặn | bánh dẻo | dáng mặt trăng.",
-  "anticipateVi": "Bánh méo, ai chê?",
+  "anticipateVi": "Bánh méo, ai chê xấu_xí?",
   "usageEn": "We sat at a _____ table.",
   "usageVi": "Tụi mình ngồi bàn tròn.",
   "topics": [
@@ -1018,8 +1018,8 @@
   "exams": [],
   "emphasisVi": [
    "góc cạnh",
-   "nặn",
-   "chê"
+   "Trung thu",
+   "xấu xí"
   ]
  },
  {
@@ -1027,9 +1027,9 @@
   "pos": "noun",
   "ipa": "/skweər/",
   "meaningVi": "hình vuông",
-  "defVi": "Hình có | bốn cạnh đều | và bốn góc vuông.",
+  "defVi": "Hình có | bốn cạnh đều | và bốn góc_vuông.",
   "leadVi": "Gói bánh chưng, | bạn gấp lá | vuông_vức từng góc.",
-  "anticipateVi": "Méo một góc, gói lại?",
+  "anticipateVi": "Méo một góc, gói lại cẩn_thận?",
   "usageEn": "Draw a _____ on the board.",
   "usageVi": "Vẽ một hình vuông lên bảng.",
   "topics": [
@@ -1037,9 +1037,9 @@
   ],
   "exams": [],
   "emphasisVi": [
-   "cạnh",
+   "góc vuông",
    "vuông vức",
-   "lại"
+   "cẩn thận"
   ]
  },
  {
@@ -1047,9 +1047,9 @@
   "pos": "adv",
   "ipa": "/ˈklɪə.li/",
   "meaningVi": "rõ",
-  "defVi": "Dễ nghe, | dễ thấy, | không ai nhầm được.",
+  "defVi": "Dễ nghe, | dễ thấy, | không ai nhầm_lẫn được.",
   "leadVi": "Thuyết_trình, | em phát_âm | từng chữ, cuối phòng vẫn nghe.",
-  "anticipateVi": "Bàn cuối gật đầu chứ?",
+  "anticipateVi": "Bàn cuối gật_đầu chứ?",
   "usageEn": "Please speak _____.",
   "usageVi": "Hãy nói rõ ràng nhé.",
   "topics": [
@@ -1058,9 +1058,9 @@
   ],
   "exams": [],
   "emphasisVi": [
-   "nhầm",
+   "nhầm lẫn",
    "phát âm",
-   "gật"
+   "gật đầu"
   ]
  },
  {
@@ -1068,7 +1068,7 @@
   "pos": "adv",
   "ipa": "/ˈlaʊd.li/",
   "meaningVi": "ầm_ĩ",
-  "defVi": "Phát tiếng mạnh, | vang xa, | ai cũng nghe.",
+  "defVi": "Phát tiếng mạnh, | vang_dội, | ai cũng nghe.",
   "leadVi": "Đội nhà | ghi bàn, | cả quán | hò_reo vang trời.",
   "anticipateVi": "Hàng xóm có giật_mình?",
   "usageEn": "He laughed _____ at the film.",
@@ -1078,7 +1078,7 @@
   ],
   "exams": [],
   "emphasisVi": [
-   "mạnh",
+   "vang dội",
    "hò reo",
    "giật mình"
   ]
@@ -1098,7 +1098,7 @@
   ],
   "exams": [],
   "emphasisVi": [
-   "nhẹ nhàng",
+   "Nhẹ nhàng",
    "rón rén",
    "kẽo kẹt"
   ]
@@ -1109,8 +1109,8 @@
   "ipa": "/siːm/",
   "meaningVi": "có vẻ",
   "defVi": "Nhìn bề_ngoài | thì cảm thấy | như vậy.",
-  "leadVi": "Bạn mới | ít nói, | trông lạnh | nhưng hóa ra dễ mến.",
-  "anticipateVi": "Nhìn vậy, đâu phải vậy?",
+  "leadVi": "Bạn mới | ít nói, | trông lạnh | nhưng hóa ra dễ_mến.",
+  "anticipateVi": "Nhìn bề_ngoài vậy, đâu phải vậy?",
   "usageEn": "You _____ tired today.",
   "usageVi": "Hôm nay trông bạn có vẻ mệt.",
   "topics": [
@@ -1120,8 +1120,8 @@
   "exams": [],
   "emphasisVi": [
    "bề ngoài",
-   "trông",
-   "đâu"
+   "dễ mến",
+   "bề ngoài"
   ]
  },
  {
@@ -1131,7 +1131,7 @@
   "meaningVi": "vẻ ngoài",
   "defVi": "Dáng_vẻ | người khác nhìn thấy | từ bên ngoài.",
   "leadVi": "Đi phỏng_vấn, | anh là | phẳng áo, chải tóc gọn.",
-  "anticipateVi": "Gọn gàng, ăn_điểm chưa?",
+  "anticipateVi": "Gọn_gàng, ăn_điểm chưa?",
   "usageEn": "She is careful about her _____.",
   "usageVi": "Cô ấy chăm chút vẻ ngoài.",
   "topics": [
@@ -1141,9 +1141,9 @@
    "ielts"
   ],
   "emphasisVi": [
-   "dáng vẻ",
-   "gọn",
-   "ăn điểm"
+   "Dáng vẻ",
+   "phỏng vấn",
+   "Gọn gàng"
   ]
  },
  {
@@ -1151,9 +1151,9 @@
   "pos": "noun",
   "ipa": "/haɪt/",
   "meaningVi": "chiều cao",
-  "defVi": "Độ dài | đo từ chân | lên tới đỉnh.",
+  "defVi": "Độ_dài | đo từ chân | lên tới đỉnh.",
   "leadVi": "Khám sức_khỏe, | mình đứng | sát tường đo | mét bảy mốt.",
-  "anticipateVi": "Mét bảy mốt, lên nữa không?",
+  "anticipateVi": "Mét bảy mốt, phát_triển lên nữa không?",
   "usageEn": "The _____ of this wall is two metres.",
   "usageVi": "Bức tường này cao hai mét.",
   "topics": [
@@ -1161,9 +1161,9 @@
   ],
   "exams": [],
   "emphasisVi": [
-   "đỉnh",
-   "đo",
-   "nữa"
+   "Độ dài",
+   "sức khỏe",
+   "phát triển"
   ]
  },
  {
@@ -1171,9 +1171,9 @@
   "pos": "noun",
   "ipa": "/ˈɪm.ɪdʒ/",
   "meaningVi": "hình ảnh",
-  "defVi": "Thứ hiện ra | trong ảnh, | gương hay trong đầu.",
+  "defVi": "Thứ hiện ra | trong ảnh, | gương hay trong tưởng_tượng.",
   "leadVi": "Nhắm mắt, em | hình_dung | căn bếp nhỏ của=bà.",
-  "anticipateVi": "Nhớ bà, gọi về chứ?",
+  "anticipateVi": "Thương_nhớ bà, gọi về chứ?",
   "usageEn": "The _____ on the screen is not clear.",
   "usageVi": "Hình ảnh trên màn hình không rõ.",
   "topics": [
@@ -1182,9 +1182,9 @@
   ],
   "exams": [],
   "emphasisVi": [
-   "hiện",
+   "tưởng tượng",
    "hình dung",
-   "gọi"
+   "Thương nhớ"
   ]
  },
  {
@@ -1193,8 +1193,8 @@
   "ipa": "/nɔɪz/",
   "meaningVi": "tiếng ồn",
   "defVi": "Âm_thanh | lộn_xộn, | to, nghe khó chịu.",
-  "leadVi": "Nhà bên | khoan tường, | bạn đeo tai_nghe ôn=bài.",
-  "anticipateVi": "Khoan mãi, học vào không?",
+  "leadVi": "Nhà bên | khoan tường, | bạn đeo tai_nghe /ôn=bài/.",
+  "anticipateVi": "Khoan mãi, học_hành được không?",
   "usageEn": "What is that _____?",
   "usageVi": "Tiếng ồn gì thế?",
   "topics": [
@@ -1203,8 +1203,8 @@
   "exams": [],
   "emphasisVi": [
    "lộn xộn",
-   "khoan",
-   "mãi"
+   "ôn bài",
+   "học hành"
   ]
  },
  {
@@ -1213,8 +1213,8 @@
   "ipa": "/sens/",
   "meaningVi": "giác_quan",
   "defVi": "Khả_năng | nhìn, nghe, | ngửi, nếm hay chạm.",
-  "leadVi": "Bịt mắt | đoán món, | mình chỉ | dựa vào mũi.",
-  "anticipateVi": "Ngửi ra phở, tài nhỉ?",
+  "leadVi": "Bịt mắt | đoán món, | mình chỉ | dựa_vào mũi.",
+  "anticipateVi": "Ngửi ra phở, tài_tình nhỉ?",
   "usageEn": "A dog has a good _____ of smell.",
   "usageVi": "Chó có khứu giác tốt.",
   "topics": [
@@ -1222,9 +1222,9 @@
   ],
   "exams": [],
   "emphasisVi": [
-   "ngửi",
-   "mũi",
-   "tài"
+   "Khả năng",
+   "dựa vào",
+   "tài tình"
   ]
  },
  {
@@ -1233,8 +1233,8 @@
   "ipa": "/ʃeɪp/",
   "meaningVi": "hình dạng",
   "defVi": "Đường_nét bao ngoài | cho biết | vật tròn, vuông hay dài.",
-  "leadVi": "Làm bánh quy, | chị ấn khuôn | hình ngôi sao.",
-  "anticipateVi": "Khuôn tim, khuôn sao, chọn nào?",
+  "leadVi": "Làm bánh_quy, | chị ấn khuôn | hình ngôi sao.",
+  "anticipateVi": "Khuôn tim, khuôn sao, lựa_chọn nào?",
   "usageEn": "What _____ is the box?",
   "usageVi": "Cái hộp có hình gì?",
   "topics": [
@@ -1242,9 +1242,9 @@
   ],
   "exams": [],
   "emphasisVi": [
-   "đường nét",
-   "khuôn",
-   "nào"
+   "Đường nét",
+   "bánh quy",
+   "lựa chọn"
   ]
  },
  {
@@ -1253,8 +1253,8 @@
   "ipa": "/saɪz/",
   "meaningVi": "kích_cỡ",
   "defVi": "Độ to_nhỏ | dài ngắn | của=người hay vật.",
-  "leadVi": "Mua giày qua mạng, | mình đo | chân trước kẻo chật.",
-  "anticipateVi": "Đo kỹ mà vẫn rộng?",
+  "leadVi": "Mua giày qua_mạng, | mình đo | chân trước kẻo chật.",
+  "anticipateVi": "Đo cẩn_thận mà vẫn rộng?",
   "usageEn": "What _____ are your shoes?",
   "usageVi": "Giày bạn cỡ bao nhiêu?",
   "topics": [
@@ -1264,8 +1264,8 @@
   "exams": [],
   "emphasisVi": [
    "to nhỏ",
-   "chật",
-   "mà"
+   "qua mạng",
+   "cẩn thận"
   ]
  },
  {
@@ -1285,7 +1285,7 @@
   "exams": [],
   "emphasisVi": [
    "nhìn thấy",
-   "ngắm",
+   "thành phố",
    "mê mẩn"
   ]
  },
@@ -1295,8 +1295,8 @@
   "ipa": "/smel/",
   "meaningVi": "mùi",
   "defVi": "Thứ mà mũi | cảm_nhận được, | thơm hay hôi.",
-  "leadVi": "Đi ngang lò bánh, | bạn dừng xe | vì quá thơm.",
-  "anticipateVi": "Thơm thế, ghé mua liền?",
+  "leadVi": "Đi ngang lò bánh, | bạn dừng xe | vì quá ngào_ngạt.",
+  "anticipateVi": "Thơm_phức thế, ghé mua liền?",
   "usageEn": "I love the _____ of fresh bread.",
   "usageVi": "Mình mê mùi bánh mì mới ra lò.",
   "topics": [
@@ -1306,8 +1306,8 @@
   "exams": [],
   "emphasisVi": [
    "cảm nhận",
-   "thơm",
-   "ghé"
+   "ngào ngạt",
+   "Thơm phức"
   ]
  },
  {
@@ -1315,7 +1315,7 @@
   "pos": "verb",
   "ipa": "/əˈpɪər/",
   "meaningVi": "xuất_hiện",
-  "defVi": "Hiện ra | trước mắt, | sau khi vắng hay khuất.",
+  "defVi": "Hiện ra | trước_mắt, | sau khi vắng hay khuất.",
   "leadVi": "Sau màn khói, | ca_sĩ | ló ra giữa sân_khấu.",
   "anticipateVi": "Đèn bật, cả rạp nín_thở?",
   "usageEn": "Stars _____ at night.",
@@ -1325,8 +1325,8 @@
   ],
   "exams": [],
   "emphasisVi": [
-   "hiện",
-   "ló",
+   "trước mắt",
+   "ca sĩ",
    "nín thở"
   ]
  },
@@ -1335,9 +1335,9 @@
   "pos": "verb",
   "ipa": "/ˈrek.əɡ.naɪz/",
   "meaningVi": "nhận ra",
-  "defVi": "Biết ngay | là ai, là gì | khi gặp lại.",
+  "defVi": "Biết ngay | là ai, là gì | khi gặp_gỡ lại.",
   "leadVi": "Họp lớp, em | nhận_diện bạn cũ | qua dáng đi.",
-  "anticipateVi": "Thoáng nhìn, gọi tên liền?",
+  "anticipateVi": "Thoáng nhìn, gọi_tên liền?",
   "usageEn": "I didn't _____ you with short hair.",
   "usageVi": "Tóc ngắn làm mình không nhận ra bạn.",
   "topics": [
@@ -1345,9 +1345,9 @@
   ],
   "exams": [],
   "emphasisVi": [
-   "biết",
+   "gặp gỡ",
    "nhận diện",
-   "thoáng"
+   "gọi tên"
   ]
  },
  {
@@ -1355,9 +1355,9 @@
   "pos": "verb",
   "ipa": "/tʌtʃ/",
   "meaningVi": "chạm",
-  "defVi": "Đặt tay | hay da | sát lên một vật.",
+  "defVi": "Đặt tay | hay da | nhẹ_nhàng sát lên một vật.",
   "leadVi": "Ở bảo_tàng, | biển ghi | đừng sờ hiện vật.",
-  "anticipateVi": "Ngứa tay, rụt kịp chứ?",
+  "anticipateVi": "Ngứa tay, nhanh_nhẹn rụt kịp chứ?",
   "usageEn": "Please don't _____ the paintings.",
   "usageVi": "Vui lòng không chạm vào tranh.",
   "topics": [
@@ -1365,9 +1365,9 @@
   ],
   "exams": [],
   "emphasisVi": [
-   "đặt",
-   "sờ",
-   "rụt"
+   "nhẹ nhàng",
+   "bảo tàng",
+   "nhanh nhẹn"
   ]
  },
  {
@@ -1377,7 +1377,7 @@
   "meaningVi": "cổ_điển",
   "defVi": "Thuộc nghệ_thuật | lâu đời, | được coi là chuẩn_mực.",
   "leadVi": "Ôn thi khuya, | em bật | bản giao_hưởng nhẹ nhàng.",
-  "anticipateVi": "Nhạc êm, buồn ngủ mất?",
+  "anticipateVi": "Nhạc êm, buồn_ngủ mất?",
   "usageEn": "My mum loves _____ music.",
   "usageVi": "Mẹ mình mê nhạc cổ điển.",
   "topics": [
@@ -1387,7 +1387,7 @@
   "emphasisVi": [
    "chuẩn mực",
    "giao hưởng",
-   "mất"
+   "buồn ngủ"
   ]
  },
  {
@@ -1397,7 +1397,7 @@
   "meaningVi": "công_bằng",
   "defVi": "Đối xử | như nhau, | không thiên_vị ai.",
   "leadVi": "Chia việc nhóm, | em bốc_thăm | cho ai cũng phục.",
-  "anticipateVi": "Bốc trúng phần khó, chịu chứ?",
+  "anticipateVi": "Bốc trúng phần khó, chấp_nhận chứ?",
   "usageEn": "That's not _____!",
   "usageVi": "Thế là không công bằng!",
   "topics": [
@@ -1408,7 +1408,7 @@
   "emphasisVi": [
    "thiên vị",
    "bốc thăm",
-   "chịu"
+   "chấp nhận"
   ]
  },
  {
@@ -1418,7 +1418,7 @@
   "meaningVi": "trang_trọng",
   "defVi": "Đúng nghi_thức, | nghiêm_túc, | chẳng chút xuề_xòa.",
   "leadVi": "Lễ tốt_nghiệp, | chị mặc | áo dài, phát_biểu chỉn_chu.",
-  "anticipateVi": "Lên bục, tim đập loạn?",
+  "anticipateVi": "Lên bục, tim đập loạn_xạ?",
   "usageEn": "You need to write a _____ letter.",
   "usageVi": "Bạn cần viết một lá=thư trang trọng.",
   "topics": [
@@ -1431,7 +1431,7 @@
   "emphasisVi": [
    "nghi thức",
    "chỉn chu",
-   "loạn"
+   "loạn xạ"
   ]
  },
  {
@@ -1441,7 +1441,7 @@
   "meaningVi": "quốc_tế",
   "defVi": "Liên_quan | tới nhiều nước | trên thế_giới.",
   "leadVi": "Hội_thảo | ở trường | có sinh_viên mười hai nước.",
-  "anticipateVi": "Mười hai thứ tiếng, hiểu nổi?",
+  "anticipateVi": "Mười hai thứ tiếng, nghe_hiểu nổi?",
   "usageEn": "This is an _____ school.",
   "usageVi": "Đây là trường quốc tế.",
   "topics": [
@@ -1453,8 +1453,8 @@
   ],
   "emphasisVi": [
    "thế giới",
-   "nước",
-   "hiểu"
+   "sinh viên",
+   "nghe hiểu"
   ]
  },
  {
@@ -1463,8 +1463,8 @@
   "ipa": "/ˈmjuː.zɪ.kəl/",
   "meaningVi": "thuộc âm_nhạc",
   "defVi": "Liên_quan | tới âm_nhạc | hay giỏi về nhạc.",
-  "leadVi": "Nhà em | ai cũng | chơi đàn, hát hay.",
-  "anticipateVi": "Cả nhà góp một ban nhạc?",
+  "leadVi": "Nhà em | ai cũng | chơi đàn, hát hay, vui_vẻ.",
+  "anticipateVi": "Cả nhà góp một ban_nhạc?",
   "usageEn": "Can you play a _____ instrument?",
   "usageVi": "Bạn chơi được nhạc cụ nào không?",
   "topics": [
@@ -1473,8 +1473,8 @@
   "exams": [],
   "emphasisVi": [
    "âm nhạc",
-   "đàn",
-   "góp"
+   "vui vẻ",
+   "ban nhạc"
   ]
  },
  {
@@ -1482,7 +1482,7 @@
   "pos": "adj",
   "ipa": "/ˈnæʃ.ən.əl/",
   "meaningVi": "quốc_gia",
-  "defVi": "Thuộc về | cả một nước, | không riêng vùng nào.",
+  "defVi": "Thuộc_về | cả một nước, | không riêng vùng nào.",
   "leadVi": "Bạn được chọn | vào đội_tuyển | thi cấp cả nước.",
   "anticipateVi": "Thi cả nước, áp_lực chưa?",
   "usageEn": "Pho is our _____ dish.",
@@ -1492,7 +1492,7 @@
   ],
   "exams": [],
   "emphasisVi": [
-   "nước",
+   "Thuộc về",
    "đội tuyển",
    "áp lực"
   ]
@@ -1503,7 +1503,7 @@
   "ipa": "/ˈsəʊ.ʃəl/",
   "meaningVi": "xã_hội",
   "defVi": "Liên_quan | tới con người | sống và kết_nối | với nhau.",
-  "leadVi": "Đi=làm thêm, | tôi quen | thêm nhiều bạn mới.",
+  "leadVi": "/Đi=làm/ thêm, | tôi quen | thêm nhiều bạn mới.",
   "anticipateVi": "Rủ cà_phê, bạn mới chịu?",
   "usageEn": "She is very busy with her _____ life.",
   "usageVi": "Cô ấy bận rộn với các=mối quan hệ xã hội.",
@@ -1513,8 +1513,8 @@
   "exams": [],
   "emphasisVi": [
    "kết nối",
-   "quen",
-   "rủ"
+   "Đi làm",
+   "cà phê"
   ]
  },
  {
@@ -1524,7 +1524,7 @@
   "meaningVi": "tuổi mới lớn",
   "defVi": "Thuộc độ_tuổi | từ mười ba | đến mười chín.",
   "leadVi": "Lật ảnh cấp_ba, | em cười | mái tóc dựng ngày ấy.",
-  "anticipateVi": "Tóc dựng ngược, ngầu chưa?",
+  "anticipateVi": "Tóc dựng ngược, sành_điệu chưa?",
   "usageEn": "My _____ years were happy.",
   "usageVi": "Những năm tuổi mới lớn của=mình rất=vui.",
   "topics": [
@@ -1534,7 +1534,7 @@
   "emphasisVi": [
    "độ tuổi",
    "cấp ba",
-   "ngầu"
+   "sành điệu"
   ]
  },
  {
@@ -1544,7 +1544,7 @@
   "meaningVi": "truyền_thống",
   "defVi": "Có từ lâu, | được truyền | qua nhiều thế_hệ.",
   "leadVi": "Tết về, | chị cùng bà | gói bánh_chưng | bên bếp lửa.",
-  "anticipateVi": "Gói méo, bà vẫn khen?",
+  "anticipateVi": "Gói méo, bà vẫn khen_ngợi?",
   "usageEn": "Ao dai is _____ Vietnamese dress.",
   "usageVi": "Áo dài là trang phục truyền thống của=Việt Nam.",
   "topics": [
@@ -1554,7 +1554,7 @@
   "emphasisVi": [
    "thế hệ",
    "bánh chưng",
-   "khen"
+   "khen ngợi"
   ]
  },
  {
@@ -1563,8 +1563,8 @@
   "ipa": "/juˈnaɪ.tɪd/",
   "meaningVi": "đoàn_kết",
   "defVi": "Cùng một lòng, | gắn_bó | vì mục_tiêu chung.",
-  "leadVi": "Mất điểm hiệp đầu, | cả đội | vẫn bám nhau | tới cùng.",
-  "anticipateVi": "Lội ngược dòng, ngờ không?",
+  "leadVi": "Mất điểm hiệp đầu, | cả đội | vẫn gắn_bó | tới cùng.",
+  "anticipateVi": "Lội ngược_dòng, ngờ không?",
   "usageEn": "The team was _____ after the hard game.",
   "usageVi": "Cả đội đoàn kết sau trận đấu khó khăn.",
   "topics": [
@@ -1573,8 +1573,8 @@
   "exams": [],
   "emphasisVi": [
    "gắn bó",
-   "bám",
-   "ngờ"
+   "gắn bó",
+   "ngược dòng"
   ]
  },
  {
@@ -1603,8 +1603,8 @@
   "ipa": "/ˈhjuː.mən/",
   "meaningVi": "con_người",
   "defVi": "Thuộc loài_người, | khác với | máy hay thú vật.",
-  "leadVi": "Xem=phim | người máy, | bạn hỏi | máy có biết buồn?",
-  "anticipateVi": "Máy biết khóc, tin không?",
+  "leadVi": "/Xem=phim/ | người máy, | bạn hỏi | máy có biết buồn?",
+  "anticipateVi": "Máy biết khóc, tin không, bất_ngờ?",
   "usageEn": "To make mistakes is _____.",
   "usageVi": "Mắc lỗi là chuyện thường của=con người.",
   "topics": [
@@ -1613,8 +1613,8 @@
   "exams": [],
   "emphasisVi": [
    "loài người",
-   "buồn",
-   "tin"
+   "Xem phim",
+   "bất ngờ"
   ]
  },
  {
@@ -1622,9 +1622,9 @@
   "pos": "adj",
   "ipa": "/ˌɪn.dɪˈvɪdʒ.u.əl/",
   "meaningVi": "cá_nhân",
-  "defVi": "Riêng cho | từng người, | không gộp chung nhóm.",
+  "defVi": "Riêng cho | từng người, | không gộp chung tập_thể.",
   "leadVi": "Lớp kỹ_năng, | thầy chấm | điểm từng bạn một.",
-  "anticipateVi": "Không dựa nhóm được, run chưa?",
+  "anticipateVi": "Không dựa nhóm được, hồi_hộp chưa?",
   "usageEn": "Each student gets an _____ plan.",
   "usageVi": "Mỗi=học sinh có kế hoạch riêng.",
   "topics": [
@@ -1635,9 +1635,9 @@
    "ielts"
   ],
   "emphasisVi": [
-   "riêng",
-   "từng",
-   "dựa"
+   "tập thể",
+   "kỹ năng",
+   "hồi hộp"
   ]
  },
  {
@@ -1646,8 +1646,8 @@
   "ipa": "/meɪl/",
   "meaningVi": "nam",
   "defVi": "Thuộc giới | đàn_ông | hay con đực ở loài vật.",
-  "leadVi": "Lớp múa | chỉ hai cậu con_trai, | nổi bật hẳn.",
-  "anticipateVi": "Hai cậu múa dẻo chứ?",
+  "leadVi": "Lớp múa chỉ có hai nam_sinh, | nên hai bạn nổi bật hẳn.",
+  "anticipateVi": "Hai cậu múa dẻo_dai chứ?",
   "usageEn": "Is the cat _____ or female?",
   "usageVi": "Con=mèo là đực hay cái?",
   "topics": [
@@ -1656,8 +1656,8 @@
   "exams": [],
   "emphasisVi": [
    "đàn ông",
-   "con trai",
-   "dẻo"
+   "nam sinh",
+   "dẻo dai"
   ]
  },
  {
@@ -1667,7 +1667,7 @@
   "meaningVi": "nhạc đại_chúng",
   "defVi": "Dòng nhạc | dễ_nghe, | được giới trẻ yêu thích.",
   "leadVi": "Bạn thuộc | mọi bài | trên bảng xếp_hạng.",
-  "anticipateVi": "Bài nào, bạn cũng nhẩm?",
+  "anticipateVi": "Bài nào, bạn cũng ngân_nga?",
   "usageEn": "She likes _____ more than rock.",
   "usageVi": "Cô ấy thích nhạc pop hơn rock.",
   "topics": [
@@ -1677,7 +1677,7 @@
   "emphasisVi": [
    "dễ nghe",
    "xếp hạng",
-   "cũng"
+   "ngân nga"
   ]
  },
  {
@@ -1685,9 +1685,9 @@
   "pos": "adj",
   "ipa": "/ˈpʌb.lɪk/",
   "meaningVi": "công_cộng",
-  "defVi": "Dành cho | mọi người, | ai cũng dùng được.",
+  "defVi": "Dành cho | cộng_đồng, | ai cũng dùng được.",
   "leadVi": "Thư_viện thành_phố | miễn_phí, | em tới học mỗi=tuần.",
-  "anticipateVi": "Chỗ ngồi đẹp, phải đến sớm?",
+  "anticipateVi": "Chỗ_ngồi đẹp, phải đến sớm?",
   "usageEn": "There is a _____ park near my house.",
   "usageVi": "Gần nhà mình có công viên công cộng.",
   "topics": [
@@ -1695,9 +1695,9 @@
   ],
   "exams": [],
   "emphasisVi": [
-   "dành",
+   "cộng đồng",
    "miễn phí",
-   "sớm"
+   "Chỗ ngồi"
   ]
  },
  {
@@ -1705,9 +1705,9 @@
   "pos": "adj",
   "ipa": "/ˈsɪŋ.ɡəl/",
   "meaningVi": "đơn_lẻ",
-  "defVi": "Lẻ một chiếc, | không có | cái thứ hai.",
-  "leadVi": "Đọc cả trang, | bạn không sai | một lỗi nào.",
-  "anticipateVi": "Cả trang sạch, hiếm thấy?",
+  "defVi": "Lẻ một chiếc, | không có | cái thứ_hai.",
+  "leadVi": "Đọc cả trang, | bạn đọc chính_xác | từng chữ.",
+  "anticipateVi": "Trang sạch thế, hiếm_hoi nhỉ?",
   "usageEn": "I didn't make a _____ mistake.",
   "usageVi": "Mình không sai một lỗi nào.",
   "topics": [
@@ -1716,9 +1716,9 @@
   ],
   "exams": [],
   "emphasisVi": [
-   "lẻ",
-   "lỗi",
-   "hiếm"
+   "thứ hai",
+   "chính xác",
+   "hiếm hoi"
   ]
  },
  {
@@ -1727,8 +1727,8 @@
   "ipa": "/twɪn/",
   "meaningVi": "sinh đôi",
   "defVi": "Hai anh_em | cùng mẹ, | sinh ra một lần.",
-  "leadVi": "Hai chị em, bạn | giống nhau | đến thầy cũng nhầm.",
-  "anticipateVi": "Đổi chỗ ngồi, ai biết?",
+  "leadVi": "Hai chị em, bạn | giống_nhau | đến thầy cũng nhầm.",
+  "anticipateVi": "Đổi chỗ_ngồi, ai biết?",
   "usageEn": "Tom has a _____ brother.",
   "usageVi": "Cậu ấy có một người anh sinh đôi.",
   "topics": [
@@ -1737,8 +1737,8 @@
   "exams": [],
   "emphasisVi": [
    "anh em",
-   "giống",
-   "biết"
+   "giống nhau",
+   "chỗ ngồi"
   ]
  },
  {
@@ -1747,8 +1747,8 @@
   "ipa": "/ˈɑː.kɪ.tek.tʃər/",
   "meaningVi": "kiến_trúc",
   "defVi": "Nghệ_thuật | thiết_kế | và xây dựng nhà cửa.",
-  "leadVi": "Dạo phố cổ, | em mê | mái ngói, cửa vòm cũ.",
-  "anticipateVi": "Mỗi=góc phố, chụp một tấm?",
+  "leadVi": "Dạo phố cổ, | em mê | mái_ngói, cửa vòm cũ.",
+  "anticipateVi": "Mỗi=góc phố, chụp_hình một tấm?",
   "usageEn": "I want to study _____ at university.",
   "usageVi": "Mình muốn học kiến trúc ở đại học.",
   "topics": [
@@ -1760,8 +1760,8 @@
   ],
   "emphasisVi": [
    "thiết kế",
-   "vòm",
-   "mỗi"
+   "mái ngói",
+   "chụp hình"
   ]
  },
  {
@@ -1769,9 +1769,9 @@
   "pos": "noun",
   "ipa": "/ˈɔː.di.əns/",
   "meaningVi": "khán_giả",
-  "defVi": "Những=người | ngồi xem | buổi diễn hay nghe nói.",
+  "defVi": "Những=người | ngồi xem | buổi_diễn hay nghe nói.",
   "leadVi": "Hết bài, | cả hội_trường | đứng dậy | vỗ_tay rào rào.",
-  "anticipateVi": "Nổi da gà chưa nào?",
+  "anticipateVi": "Nổi da_gà chưa nào?",
   "usageEn": "The _____ loved the show.",
   "usageVi": "Khán giả rất=thích buổi diễn.",
   "topics": [
@@ -1779,9 +1779,9 @@
   ],
   "exams": [],
   "emphasisVi": [
-   "xem",
+   "buổi diễn",
    "vỗ tay",
-   "nào"
+   "da gà"
   ]
  },
  {
@@ -1789,9 +1789,9 @@
   "pos": "noun",
   "ipa": "/ˈɔː.θər/",
   "meaningVi": "tác_giả",
-  "defVi": "Người viết ra | một cuốn=sách | hay bài báo.",
+  "defVi": "Người viết ra | một cuốn=sách | hay bài_báo.",
   "leadVi": "Hội sách, | mình xếp hàng | xin chữ_ký | trên trang đầu.",
-  "anticipateVi": "Nguệch ngoạc chữ ký, quý không?",
+  "anticipateVi": "Nguệch ngoạc chữ_ký, quý không?",
   "usageEn": "Who is the _____ of this book?",
   "usageVi": "Ai là tác giả cuốn=sách này?",
   "topics": [
@@ -1799,9 +1799,9 @@
   ],
   "exams": [],
   "emphasisVi": [
-   "viết",
+   "bài báo",
    "chữ ký",
-   "quý"
+   "chữ ký"
   ]
  },
  {
@@ -1829,9 +1829,9 @@
   "pos": "noun",
   "ipa": "/səˈleb.rə.ti/",
   "meaningVi": "người nổi_tiếng",
-  "defVi": "Người được | rất nhiều người | biết mặt, nhắc tên.",
+  "defVi": "Người được | rất nhiều người | nhận_diện, nhắc tên.",
   "leadVi": "Gặp ca_sĩ | ở sân_bay, | em run | xin chụp=ảnh.",
-  "anticipateVi": "Ảnh nhòe mất, tiếc không?",
+  "anticipateVi": "Ảnh nhòe_nhoẹt mất, tiếc không?",
   "usageEn": "A famous _____ came to our school.",
   "usageVi": "Một người nổi tiếng đã=tới trường mình.",
   "topics": [
@@ -1839,9 +1839,9 @@
   ],
   "exams": [],
   "emphasisVi": [
-   "nhắc",
+   "nhận diện",
    "ca sĩ",
-   "nhòe"
+   "nhòe nhoẹt"
   ]
  },
  {
@@ -1859,7 +1859,7 @@
   ],
   "exams": [],
   "emphasisVi": [
-   "giúp",
+   "khó khăn",
    "áo ấm",
    "ấm lòng"
   ]
@@ -1869,9 +1869,9 @@
   "pos": "noun",
   "ipa": "/ˈkɒm.ə.di/",
   "meaningVi": "phim hài",
-  "defVi": "Phim hay kịch | khiến người xem | cười nghiêng ngả.",
+  "defVi": "Phim hay kịch | khiến người xem | cười nghiêng_ngả.",
   "leadVi": "Tối thứ bảy, | cả phòng | xem=phim, | cười đau_bụng.",
-  "anticipateVi": "Cười chảy nước mắt luôn?",
+  "anticipateVi": "Cười chảy nước_mắt luôn?",
   "usageEn": "I like watching _____ films.",
   "usageVi": "Mình thích xem=phim hài.",
   "topics": [
@@ -1879,9 +1879,9 @@
   ],
   "exams": [],
   "emphasisVi": [
-   "cười",
+   "nghiêng ngả",
    "đau bụng",
-   "chảy"
+   "nước mắt"
   ]
  },
  {
@@ -1890,8 +1890,8 @@
   "ipa": "/kəˈmjuː.nə.ti/",
   "meaningVi": "cộng_đồng",
   "defVi": "Nhóm người | sống chung | hay có chung mối quan_tâm.",
-  "leadVi": "Cả xóm | góp tiền | lắp đèn | cho con hẻm tối.",
-  "anticipateVi": "Hẻm sáng rồi, đi khuya đỡ sợ?",
+  "leadVi": "Cả xóm | góp_tiền | lắp đèn | cho con hẻm tối.",
+  "anticipateVi": "Hẻm sáng rồi, đi khuya đỡ sợ_hãi?",
   "usageEn": "Our _____ has a new library.",
   "usageVi": "Cộng đồng mình có thư viện mới.",
   "topics": [
@@ -1902,8 +1902,8 @@
   ],
   "emphasisVi": [
    "quan tâm",
-   "xóm",
-   "đỡ"
+   "góp tiền",
+   "sợ hãi"
   ]
  },
  {
@@ -1931,9 +1931,9 @@
   "pos": "noun",
   "ipa": "/kraʊd/",
   "meaningVi": "đám đông",
-  "defVi": "Rất nhiều người | tụ lại | chen chúc một chỗ.",
+  "defVi": "Rất nhiều người | tụ lại | chen_chúc một chỗ.",
   "leadVi": "Đêm nhạc | ngoài trời, | mình len | mãi mới tới sân_khấu.",
-  "anticipateVi": "Chen mỏi chân, đáng không?",
+  "anticipateVi": "Chen mỏi chân, đáng vất_vả không?",
   "usageEn": "There was a big _____ at the station.",
   "usageVi": "Có một đám đông lớn ở nhà ga.",
   "topics": [
@@ -1941,9 +1941,9 @@
   ],
   "exams": [],
   "emphasisVi": [
-   "tụ",
-   "len",
-   "đáng"
+   "chen chúc",
+   "sân khấu",
+   "vất vả"
   ]
  },
  {
@@ -1952,7 +1952,7 @@
   "ipa": "/ˈdrɑː.mə/",
   "meaningVi": "kịch",
   "defVi": "Câu_chuyện | được diễn | trên sân_khấu hay màn ảnh.",
-  "leadVi": "Câu_lạc_bộ dựng vở, | em tập | thoại tới khuya.",
+  "leadVi": "Câu_lạc_bộ dựng vở, | em tập | lời_thoại tới khuya.",
   "anticipateVi": "Quên thoại, ứng_biến kịp?",
   "usageEn": "We watched a _____ about a family.",
   "usageVi": "Tụi mình xem một vở kịch về một gia đình.",
@@ -1961,8 +1961,8 @@
   ],
   "exams": [],
   "emphasisVi": [
-   "diễn",
-   "thoại",
+   "Câu chuyện",
+   "lời thoại",
    "ứng biến"
   ]
  },
@@ -1972,8 +1972,8 @@
   "ipa": "/ˈdrɔː.ɪŋ/",
   "meaningVi": "bức vẽ",
   "defVi": "Tranh làm | bằng bút_chì, | bút mực hay phấn.",
-  "leadVi": "Giờ nghỉ, | chị phác | gương mặt bạn ngồi cạnh.",
-  "anticipateVi": "Giống y đúc, phục chưa?",
+  "leadVi": "Giờ_nghỉ, | chị phác | gương mặt bạn ngồi cạnh.",
+  "anticipateVi": "Giống y_đúc, phục chưa?",
   "usageEn": "This is a _____ of my house.",
   "usageVi": "Đây là bức vẽ ngôi nhà của=mình.",
   "topics": [
@@ -1982,8 +1982,8 @@
   "exams": [],
   "emphasisVi": [
    "bút chì",
-   "phác",
-   "phục"
+   "Giờ nghỉ",
+   "y đúc"
   ]
  },
  {
@@ -1993,7 +1993,7 @@
   "meaningVi": "người hâm_mộ",
   "defVi": "Người say_mê | một ca_sĩ, | đội bóng hay bộ truyện.",
   "leadVi": "Ngày phát_hành | sách mới, | em xếp_hàng | từ sáng sớm.",
-  "anticipateVi": "Đứng từ sáng, mỏi chưa?",
+  "anticipateVi": "Đứng từ sáng, mệt_mỏi chưa?",
   "usageEn": "I'm a big _____ of this band.",
   "usageVi": "Mình là fan cứng của=ban nhạc này.",
   "topics": [
@@ -2003,7 +2003,7 @@
   "emphasisVi": [
    "say mê",
    "xếp hàng",
-   "mỏi"
+   "mệt mỏi"
   ]
  },
  {
@@ -2013,7 +2013,7 @@
   "meaningVi": "phòng tranh",
   "defVi": "Nơi trưng_bày | tranh, ảnh | cho người tới xem.",
   "leadVi": "Chủ_nhật, mình dạo | một vòng | ngắm triển_lãm ảnh.",
-  "anticipateVi": "Tranh trừu tượng, đoán ý?",
+  "anticipateVi": "Tranh trừu_tượng, đoán ý?",
   "usageEn": "There is a new art _____ in town.",
   "usageVi": "Thị trấn có phòng tranh mới.",
   "topics": [
@@ -2023,7 +2023,7 @@
   "emphasisVi": [
    "trưng bày",
    "triển lãm",
-   "đoán"
+   "trừu tượng"
   ]
  },
  {
@@ -2031,9 +2031,9 @@
   "pos": "noun",
   "ipa": "/ɡest/",
   "meaningVi": "khách",
-  "defVi": "Người được mời | tới nhà | hay dự tiệc.",
-  "leadVi": "Tối nay | bạn ghé, | cả phòng | dọn sạch bóng.",
-  "anticipateVi": "Người quen tới, nấu món gì?",
+  "defVi": "Người được mời | tới nhà | hay dự_tiệc.",
+  "leadVi": "Tối_nay | bạn ghé, | cả phòng | dọn sạch bóng.",
+  "anticipateVi": "Người_quen tới, nấu món gì?",
   "usageEn": "Our _____ will stay for two nights.",
   "usageVi": "Khách của=tụi mình sẽ=ở lại hai đêm.",
   "topics": [
@@ -2041,9 +2041,9 @@
   ],
   "exams": [],
   "emphasisVi": [
-   "mời",
-   "ghé",
-   "nấu"
+   "dự tiệc",
+   "Tối nay",
+   "Người quen"
   ]
  }
 ]
