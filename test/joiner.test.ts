@@ -102,11 +102,11 @@ test("the validator counts joined text the same as unjoined", () => {
 });
 
 test("joining cannot smuggle an over-long sentence past the length rule", () => {
-  // Fifteen syllables, joined into eight tokens: still too long.
-  const long = "Chất_lỏng trong_suốt mà ta uống_được mỗi ngày trong đời_sống hằng_ngày này";
+  // Seventeen syllables, joined into ten tokens: still too long.
+  const long = "Chất_lỏng trong_suốt mà ta uống_được mỗi ngày trong đời_sống hằng_ngày này của=mình";
   const issues = validateDeck(deckOf(word({ defVi: long })));
   assert.ok(
-    issues.some((issue) => issue.field === "defVi" && /expected 8-11/.test(issue.message)),
+    issues.some((issue) => issue.field === "defVi" && /expected 6-15/.test(issue.message)),
     JSON.stringify(issues),
   );
 });
@@ -191,7 +191,7 @@ test("the system prompt states all three marks and what each one permits", async
     );
   }
   // Why there are two bonds rather than one, and the floor on a phrase.
-  assert.match(prompt, /may NEVER cover a "="/, "the highlight rule separates the bonds");
+  assert.match(prompt, /A "=" pair is only a last resort/, "the highlight rule separates the bonds");
   assert.match(prompt, /at least TWO syllables/, "a phrase too short to break beside is refused");
   assert.match(prompt, /ăn_mừng/, "a lexicalised verb-object pair shows the exception");
   assert.match(prompt, /NEVER put an underscore in "usageEn"/, "the blank's field is protected");
@@ -206,7 +206,7 @@ test("a single-field rewrite is told the rule too", async () => {
   assert.match(prompt, /quan_trọng/);
   assert.match(prompt, /function words/, "a rewrite gets the exclusions too");
   assert.match(prompt, /free verb-object pair/);
-  assert.match(prompt, /may NEVER cover a "="/);
+  assert.match(prompt, /A "=" pair is only a last resort/);
   assert.match(prompt, /changes a word count/);
 });
 
@@ -310,19 +310,16 @@ test("a highlight may cover a word join", () => {
   assert.deepEqual(result.emphasis, ["quan trọng"], result.warnings.join("; "));
 });
 
-test("a highlight may NEVER cover a clitic bind", () => {
-  // "con mèo" is a classifier plus a noun: bound for layout, but two words, so
-  // glowing them as one unit would be wrong.
+test("a highlight may cover a clitic bind, as KineMedia's gate allows", () => {
+  // "nghe=nhạc" is a fixed verb-object pair: KineMedia's last-resort highlight,
+  // which its gate glows. (Its grader still flags a classifier pair like
+  // con=mèo as weak, so that stays caught on the KineMedia side.)
   const result = validateEmphasis({
-    defVi: "Con=mèo nằm ngủ trên chiếc ghế gỗ.",
+    defVi: "Tối nào em cũng nghe=nhạc trước khi ngủ.",
     leadVi: "",
-    emphasisVi: ["Con mèo"],
+    emphasisVi: ["nghe nhạc"],
   });
-  assert.deepEqual(result.emphasis, []);
-  assert.ok(
-    result.warnings.some((warning) => /spans a "="/.test(warning)),
-    result.warnings.join("; "),
-  );
+  assert.deepEqual(result.emphasis, ["nghe nhạc"], result.warnings.join("; "));
 });
 
 test("a highlight may never straddle a phrase boundary", () => {

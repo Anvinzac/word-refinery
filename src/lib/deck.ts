@@ -525,8 +525,9 @@ export function validateDeck(deck: Deck): DeckIssue[] {
       if (slashes % 2 !== 0) at(field, `unpaired "/" marker (${slashes} slashes)`);
       for (const match of value.matchAll(/\/([^/]+)\//g)) {
         const phrase = match[1];
-        // One syllable, or one two-syllable "_" word. A one-syllable meaning
-        // word is as valid as a compound.
+        // One syllable, or two connected syllables: a "_" word, or a "=" pair
+        // (KineMedia's last resort, which its gate glows). A one-syllable
+        // meaning word is as valid as a compound.
         const size = measureLength(phrase, L);
         if (size < L.emphasis.min || size > L.emphasis.max) {
           at(
@@ -534,8 +535,8 @@ export function validateDeck(deck: Deck): DeckIssue[] {
             `marker "/${phrase}/" is ${size} ${L.emphasis.unitWord}; expected ${L.emphasis.min}-${L.emphasis.max}`,
           );
         }
-        if (L.measure === "words" && /[\s=|]/u.test(phrase.trim())) {
-          at(field, `marker "/${phrase}/" spans more than one word; it may wrap one syllable or one "_" word`);
+        if (L.measure === "words" && /[\s|]/u.test(phrase.trim())) {
+          at(field, `marker "/${phrase}/" spans more than one word; it may wrap one syllable, one "_" word or one "=" pair`);
         }
         if (!value.includes(phrase)) at(field, `marker content "${phrase}" not found unmarked`);
       }

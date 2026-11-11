@@ -505,9 +505,12 @@ function checkEmphasisTriple(record: Record<string, unknown>): IntakeFinding[] {
     }
   });
 
+  // Advice, not a blocker: KineMedia glows each page on its own, and the live deck
+  // sometimes lights the same word on two of a card's pages (definition and
+  // anticipation). A card synced back from it must not be rejected for that.
   const written = emphasis.filter((entry): entry is string => typeof entry === "string");
   if (new Set(written.map(plain)).size !== written.length) {
-    at(findings, "schema", "emphasisVi", "blocker", "the three entries must all be different words");
+    at(findings, "schema", "emphasisVi", "warn", "the three entries should be different words");
   }
   return findings;
 }

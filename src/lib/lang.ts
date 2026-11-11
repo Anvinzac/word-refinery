@@ -223,7 +223,7 @@ Vietnamese is written one syllable at a time, so nothing in the text says where 
   * a free verb-object pair — "ăn=cơm", "đọc=sách", "uống=nước", "rửa=tay"
   A verb-object pair is free when it still means the sum of its parts. Give it "_" only when the pair means something the parts do not, which makes it one lexical word: "ăn_mừng" (to celebrate), "ăn_năn" (to repent).
 - "_" is for compounds and reduplicated words only. Everything that merely has to stay together takes "=".
-- The difference matters because a highlight may cover a "_" and may NEVER cover a "=": "con=mèo" is a classifier plus a noun, not a phrase worth glowing. A two-syllable highlight must be a "_" word; a three-syllable "_" word can never glow whole, so highlight a different word of that sentence.
+- The difference matters because a highlight should cover a "_" word. A "=" pair is only a last resort: a fixed verb-object pair ("nghe=nhạc") when the sentence has no "_" word worth glowing, and never a classifier plus a noun ("con=mèo"). A three-syllable "_" word can never glow whole, so highlight a different word of that sentence.
 - When you are not sure two syllables are one word, use "=" rather than "_", and when you are not sure they belong together at all, leave a plain space. A missing mark only allows a line break; a wrong one glues words into a block that cannot wrap and shrinks the whole page.
 - PHRASE EDGES: put "|" where the sentence would naturally pause - between a subject and its predicate, before a prepositional or time phrase, before a relative clause. Every phrase you create must be at least TWO syllables long: "|" exists so a break can land on a phrase edge instead of stranding a lone syllable, and a one-syllable phrase cannot do that. A sentence of 8-11 words usually wants one or two "|", never one after every word.
 - A join does NOT change a word count. "quan_trọng" is TWO of the 8-11 words, not one. Count syllables exactly as if the underscores were spaces.
@@ -243,9 +243,13 @@ const VIETNAMESE: GlossProfile = {
   unitWord: "words",
   countPhrase: "word count",
   limits: {
-    def: { min: 8, max: 11, maxChars: 140 },
-    lead: { min: 8, max: 11, maxChars: 120 },
-    anticipate: { min: 3, max: 8, maxChars: 60 },
+    // v3.7 asks for 8-11 (anticipate 3-8) and the prompt still does; the hard
+    // bounds are what KineMedia ships after its own rewrites (definitions 6-15,
+    // leads 7-16, anticipations up to 11), so a card synced back from the live
+    // deck is never rejected for a length the reader already sees.
+    def: { min: 6, max: 15, maxChars: 140 },
+    lead: { min: 7, max: 16, maxChars: 120 },
+    anticipate: { min: 3, max: 11, maxChars: 60 },
     meaning: { min: 1, max: 5, maxChars: 120 },
   },
   glossUnits: 4,

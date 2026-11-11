@@ -106,9 +106,11 @@ test("the triple must have exactly three entries", () => {
   }
 });
 
-test("the three entries must differ from one another", () => {
-  const found = blockers(checkSchema(candidate({ emphasisVi: ["chờ", "chờ", "nhất"] })));
-  assert.ok(found.some((f) => /all be different/.test(f.message)));
+test("a repeated highlight is a warning, not a blocker", () => {
+  // KineMedia sometimes glows the same word on two of a card's pages.
+  const found = checkSchema(candidate({ emphasisVi: ["chờ", "chờ", "nhất"] }));
+  assert.ok(found.some((f) => f.severity === "warn" && /should be different/.test(f.message)));
+  assert.ok(!blockers(found).some((f) => /different/.test(f.message)));
 });
 
 test("a highlight may cover a join but never a bind or a phrase edge", () => {
@@ -122,13 +124,13 @@ test("a highlight may cover a join but never a bind or a phrase edge", () => {
   assert.ok(bound.some((f) => /spans a "=" or "\|"/.test(f.message)));
 });
 
-test("a highlight is one syllable or one two-syllable \"_\" word", () => {
+test("a highlight is one syllable or two connected syllables", () => {
   const shapeBlockers = (extra: Record<string, unknown>) =>
     blockers(checkSchema(candidate(extra))).filter((f) => f.field === "emphasisVi[0]");
   assert.deepEqual(shapeBlockers({}), []);
   assert.deepEqual(shapeBlockers({ emphasisVi: ["cây", "chờ", "nhất"] }), []);
   assert.ok(
-    shapeBlockers({ emphasisVi: ["cây trái", "chờ", "nhất"] }).some((f) => /does not join with "_"/.test(f.message)),
+    shapeBlockers({ emphasisVi: ["cây trái", "chờ", "nhất"] }).some((f) => /does not connect with "_" or "="/.test(f.message)),
     "two syllables a space apart are two words",
   );
   assert.ok(

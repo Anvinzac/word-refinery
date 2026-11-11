@@ -100,9 +100,11 @@ function escapeRegExp(value: string): string {
  * the text, so the pattern has to be permissive about exactly the marks the
  * language uses - and strict about its edges, where it has any.
  *
- * Space-separated: a space in the phrase matches a space OR a join, so a
- * highlight attaches to "quan_trọng", and letters either side are refused, so
- * it cannot match the middle of a longer word.
+ * Space-separated: a space in the phrase matches a space, a join or a "="
+ * bind, so a highlight attaches to "quan_trọng" or to KineMedia's last-resort
+ * "nghe=nhạc", and letters either side are refused, so it cannot match the
+ * middle of a longer word. A "|" is never crossed: a highlight stays inside
+ * one phrase.
  *
  * Not space-separated: no edge test exists to apply - a particle is a letter
  * sitting flush against the word it marks - so the phrase is located as a
@@ -112,7 +114,7 @@ function escapeRegExp(value: string): string {
  */
 function emphasisPattern(phrase: string, profile: GlossProfile): RegExp {
   if (profile.measure === "words") {
-    const spaced = escapeRegExp(phrase).replace(/\\?\s+/gu, "[\\s_]+");
+    const spaced = escapeRegExp(phrase).replace(/\\?\s+/gu, "[\\s_=]+");
     return new RegExp(`(?<![\\p{L}\\p{N}])${spaced}(?![\\p{L}\\p{N}])`, "iu");
   }
   return new RegExp([...phrase].map((char) => escapeRegExp(char)).join("_?"), "u");
@@ -164,11 +166,12 @@ function findBoundOccurrence(haystacks: readonly string[], phrase: string): stri
  * Why a Vietnamese highlight has the wrong shape for the text it glows in, or
  * null when it is fine.
  *
- * A highlight is ONE word: a single syllable standing on its own, or a word of
- * exactly two syllables that the text itself joins with "_". Two syllables a
- * space apart are two words, a "=" pair is two words leaning together, and
- * anything of three syllables or more reads as a clause on a feed page, even
- * when the text joins it.
+ * A highlight is ONE word: a single syllable standing on its own, or exactly two
+ * syllables the text itself connects, with "_" (one word) or "=" (two words
+ * leaning together, KineMedia's last resort, which its gate glows). The pair may
+ * sit inside a longer chain (bậc_/cầu_thang/), as KineMedia allows. Two
+ * syllables a space apart are two words, and anything of three syllables or
+ * more reads as a clause on a feed page, even when the text joins it.
  */
 export function emphasisShapeProblem(phrase: string, text: string): string | null {
   const syllables = phrase.normalize("NFC").match(/[\p{L}\p{N}]+/gu) ?? [];
@@ -184,9 +187,14 @@ export function emphasisShapeProblem(phrase: string, text: string): string | nul
   if (syllables.length === 1) {
     return whole("") ? null : `"${syllables[0]}" is only part of a "_" word here`;
   }
-  if (whole("_")) return null;
-  if (whole(CLITIC_BIND)) return `it spans a "${CLITIC_BIND}" bind; only a "_" word may glow as two syllables`;
-  return `two syllables the text does not join with "_"; a two-syllable highlight must be one "_" word`;
+  if (whole("_") || whole(CLITIC_BIND)) return null;
+  // Connected, but inside a longer chain: the reader still glows just this pair.
+  const chained = new RegExp(
+    `(?<![\\p{L}\\p{N}])${syllables.map(escapeRegExp).join(`[_${CLITIC_BIND}]`)}(?![\\p{L}\\p{N}])`,
+    "iu",
+  );
+  if (chained.test(text.normalize("NFC"))) return null;
+  return `two syllables the text does not connect with "_" or "${CLITIC_BIND}"; a two-syllable highlight must be connected`;
 }
 
 /** Neighbouring token plus the characters joining it to the matched phrase. */

@@ -105,14 +105,18 @@ test("re-cases a phrase to how the source text wrote it", () => {
   assert.deepEqual(result.emphasis, ["Chất lỏng"]);
 });
 
-test("two syllables glow only as one \"_\" word", () => {
+test("two syllables glow only when the text connects them", () => {
   const joined = validateEmphasis({ defVi: "Điều quan_trọng nhất là sức_khỏe.", emphasisVi: ["sức khỏe"] });
   assert.deepEqual(joined.emphasis, ["sức khỏe"]);
   const spaced = validateEmphasis({ defVi: "Đi bộ dưới nắng gắt cả trưa.", emphasisVi: ["nắng gắt"] });
   assert.deepEqual(spaced.emphasis, []);
-  assert.match(spaced.warnings.at(-1) ?? "", /does not join with "_"/);
-  const bound = validateEmphasis({ defVi: "Bạn đã=đi học rồi sao.", emphasisVi: ["đã đi"] });
-  assert.deepEqual(bound.emphasis, []);
+  assert.match(spaced.warnings.at(-1) ?? "", /does not connect with "_" or "="/);
+  // A "=" pair glows, as KineMedia's gate lets it.
+  const bound = validateEmphasis({ defVi: "Tối nào em cũng nghe=nhạc trước khi ngủ.", emphasisVi: ["nghe nhạc"] });
+  assert.deepEqual(bound.emphasis, ["nghe nhạc"]);
+  // So does a pair inside a longer chain.
+  const chained = validateEmphasis({ defVi: "Ngồi trên bậc_cầu_thang cả buổi.", emphasisVi: ["cầu thang"] });
+  assert.deepEqual(chained.emphasis, ["cầu thang"]);
   const three = validateEmphasis({ defVi: "Em dán thời_khóa_biểu lên tường.", emphasisVi: ["thời khóa biểu"] });
   assert.deepEqual(three.emphasis, []);
   assert.match(three.warnings.at(-1) ?? "", /3 syllables/);
@@ -279,9 +283,9 @@ test("a clean word raises no issues", () => {
   assert.deepEqual(validateDeck(deckOf([buildReliable()])), []);
 });
 
-test("flags a defVi outside the 8-11 word band", () => {
+test("flags a defVi outside the 6-15 word band", () => {
   const issues = validateDeck(deckOf([{ ...buildReliable(), defVi: "Ngắn." }]));
-  assert.ok(issues.some((issue) => issue.field === "defVi" && /expected 8-11/.test(issue.message)));
+  assert.ok(issues.some((issue) => issue.field === "defVi" && /expected 6-15/.test(issue.message)));
 });
 
 test("flags an English leak in a Vietnamese field", () => {
